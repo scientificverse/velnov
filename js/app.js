@@ -69,10 +69,7 @@ function countQuestions(subject) {
 
 
 
-applyTheme(
-  localStorage.getItem('learnhub_theme') ||
-  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-);
+
 
 // show current progress in the trophy popover on load
 if (typeof updateTrackStats === 'function') updateTrackStats();
