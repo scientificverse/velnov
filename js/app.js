@@ -66,11 +66,6 @@ function countQuestions(subject) {
 /* ------------------------------------------------------------
    Dark / light mode (remembered in localStorage)
    ------------------------------------------------------------ */
-
-
-
-
-
 // show current progress in the trophy popover on load
 if (typeof updateTrackStats === 'function') updateTrackStats();
 
