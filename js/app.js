@@ -67,18 +67,7 @@ function countQuestions(subject) {
    Dark / light mode (remembered in localStorage)
    ------------------------------------------------------------ */
 
-const themeBtn = document.getElementById('themeToggle');
 
-function applyTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
-  localStorage.setItem('learnhub_theme', theme);
-}
-
-themeBtn.addEventListener('click', function () {
-  const current = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  applyTheme(current);
-});
 
 applyTheme(
   localStorage.getItem('learnhub_theme') ||
