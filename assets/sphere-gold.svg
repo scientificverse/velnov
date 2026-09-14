@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="ballGold" cx="38%" cy="30%" r="78%">
+      <stop offset="0%" stop-color="#fff9e3"/>
+      <stop offset="30%" stop-color="#fcdc73"/>
+      <stop offset="66%" stop-color="#f0ad2c"/>
+      <stop offset="100%" stop-color="#c47e0d"/>
+    </radialGradient>
+    <radialGradient id="ballGoldRim" cx="70%" cy="80%" r="60%">
+      <stop offset="0%" stop-color="#ffe9a8" stop-opacity="0"/>
+      <stop offset="80%" stop-color="#ffe9a8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#fff2c6" stop-opacity="0.85"/>
+    </radialGradient>
+    <radialGradient id="shadowG" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8a5a00" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#8a5a00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="100" cy="182" rx="62" ry="13" fill="url(#shadowG)"/>
+  <circle cx="100" cy="94" r="80" fill="url(#ballGold)"/>
+  <circle cx="100" cy="94" r="80" fill="url(#ballGoldRim)"/>
+  <ellipse cx="70" cy="58" rx="28" ry="19" fill="#ffffff" opacity="0.6" transform="rotate(-28 70 58)"/>
+  <circle cx="132" cy="128" r="8" fill="#ffffff" opacity="0.35"/>
+</svg>

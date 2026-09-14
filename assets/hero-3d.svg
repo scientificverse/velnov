@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 380">
+  <defs>
+    <linearGradient id="podTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffaf0"/>
+      <stop offset="100%" stop-color="#f6ead2"/>
+    </linearGradient>
+    <linearGradient id="podBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4e7ce"/>
+      <stop offset="100%" stop-color="#e6d3ac"/>
+    </linearGradient>
+    <linearGradient id="glassBody" x1="0.15" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.92"/>
+      <stop offset="42%" stop-color="#d8c8f6" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#9f82ec" stop-opacity="0.72"/>
+    </linearGradient>
+    <radialGradient id="ballGold" cx="38%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#fff9e3"/>
+      <stop offset="30%" stop-color="#fcdc73"/>
+      <stop offset="66%" stop-color="#f0ad2c"/>
+      <stop offset="100%" stop-color="#c47e0d"/>
+    </radialGradient>
+    <radialGradient id="softDark" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a3396" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#4a3396" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9b6f7" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#c9b6f7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="b6"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="b3"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="b12"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+
+  <!-- ambient glow behind ring -->
+  <ellipse cx="188" cy="165" rx="150" ry="150" fill="url(#glow)" filter="url(#b12)"/>
+
+  <!-- podium -->
+  <ellipse cx="190" cy="322" rx="140" ry="26" fill="url(#softDark)"/>
+  <path d="M60 288 A130 30 0 0 0 320 288 L320 300 A130 30 0 0 1 60 300 Z" fill="url(#podBody)"/>
+  <ellipse cx="190" cy="288" rx="130" ry="30" fill="url(#podTop)"/>
+  <ellipse cx="190" cy="284" rx="112" ry="24" fill="#fffdf7" opacity="0.5"/>
+
+  <!-- glass ring (tilted torus) -->
+  <g transform="rotate(-13 188 168)">
+    <!-- band body: outer ellipse minus inner hole -->
+    <path fill-rule="evenodd" fill="url(#glassBody)"
+          d="M70 168 A118 128 0 1 0 306 168 A118 128 0 1 0 70 168 Z
+             M116 168 A72 82 0 1 1 260 168 A72 82 0 1 1 116 168 Z"/>
+    <!-- inner rim shadow -->
+    <ellipse cx="188" cy="168" rx="72" ry="82" fill="none" stroke="#7c5cd6" stroke-opacity="0.45" stroke-width="7" filter="url(#b3)"/>
+    <!-- outer soft edge -->
+    <ellipse cx="188" cy="168" rx="118" ry="128" fill="none" stroke="#8f74e6" stroke-opacity="0.35" stroke-width="3" filter="url(#b3)"/>
+    <!-- broad specular highlight upper-left of band -->
+    <ellipse cx="120" cy="92" rx="46" ry="26" fill="#ffffff" opacity="0.75" filter="url(#b6)" transform="rotate(-38 120 92)"/>
+    <!-- bright top rim -->
+    <path d="M92 110 A118 128 0 0 1 284 110" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="5" stroke-linecap="round"/>
+    <!-- thin inner gloss -->
+    <path d="M132 118 A72 82 0 0 1 244 118" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round"/>
+    <!-- crisp specular dot -->
+    <circle cx="106" cy="120" r="6" fill="#ffffff" opacity="0.9"/>
+  </g>
+
+  <!-- gold ball nested in the ring opening -->
+  <ellipse cx="192" cy="266" rx="52" ry="12" fill="url(#softDark)"/>
+  <circle cx="190" cy="212" r="50" fill="url(#ballGold)"/>
+  <ellipse cx="172" cy="188" rx="17" ry="12" fill="#ffffff" opacity="0.6" transform="rotate(-28 172 188)"/>
+  <circle cx="210" cy="234" r="5" fill="#ffffff" opacity="0.35"/>
+</svg>

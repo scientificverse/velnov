@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 200">
+  <defs>
+    <linearGradient id="gemTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf6e6"/>
+      <stop offset="100%" stop-color="#efe2fb"/>
+    </linearGradient>
+    <linearGradient id="gemCrownL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#efe4fb"/>
+      <stop offset="100%" stop-color="#cdb7f4"/>
+    </linearGradient>
+    <linearGradient id="gemCrownR" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d6c4f6"/>
+      <stop offset="100%" stop-color="#b79cf0"/>
+    </linearGradient>
+    <linearGradient id="gemPavL" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#c3aef2"/>
+      <stop offset="100%" stop-color="#8f72e0"/>
+    </linearGradient>
+    <linearGradient id="gemPavM" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e7dcfb"/>
+      <stop offset="100%" stop-color="#f6cf5a"/>
+    </linearGradient>
+    <linearGradient id="gemPavR" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#a98ceb"/>
+      <stop offset="100%" stop-color="#6f52cf"/>
+    </linearGradient>
+    <radialGradient id="gemShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3d2a7a" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3d2a7a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="85" cy="188" rx="48" ry="10" fill="url(#gemShadow)"/>
+  <!-- table -->
+  <polygon points="58,40 112,40 96,74 74,74" fill="url(#gemTop)"/>
+  <!-- crown facets -->
+  <polygon points="58,40 74,74 34,74" fill="url(#gemCrownL)"/>
+  <polygon points="112,40 136,74 96,74" fill="url(#gemCrownR)"/>
+  <polygon points="58,40 34,74 26,62" fill="#efe6fb"/>
+  <polygon points="112,40 140,62 136,74" fill="#b79cf0"/>
+  <!-- pavilion facets to culet -->
+  <polygon points="34,74 74,74 85,182" fill="url(#gemPavL)"/>
+  <polygon points="74,74 96,74 85,182" fill="url(#gemPavM)" opacity="0.92"/>
+  <polygon points="96,74 136,74 85,182" fill="url(#gemPavR)"/>
+  <polygon points="26,62 34,74 85,182" fill="#9576e4" opacity="0.85"/>
+  <polygon points="136,74 140,62 85,182" fill="#6d50cd" opacity="0.85"/>
+  <!-- sparkle -->
+  <polygon points="76,50 85,45 94,50 85,62" fill="#ffffff" opacity="0.75"/>
+  <circle cx="120" cy="66" r="3.5" fill="#ffffff" opacity="0.7"/>
+</svg>

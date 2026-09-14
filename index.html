@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velnov - Learn Any Subject with Quizzes</title>
+  <meta name="description" content="Velnov - practice MCQs with detailed explanations, browse math formulas, and use a scientific calculator. Python, JavaScript, SQL, Maths, Science and more." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=14" />
+</head>
+<body>
+
+  <div class="bg-decor" aria-hidden="true">
+    <span class="orb blob blob-warm"></span>
+    <span class="orb blob blob-cool"></span>
+    <img class="asset a-hero" src="assets/hero-3d.svg" alt="" />
+    <img class="asset a-gold-3" src="assets/sphere-gold.svg" alt="" />
+    <img class="asset a-purple-1" src="assets/sphere-purple.svg" alt="" />
+    <img class="asset a-purple-2" src="assets/sphere-purple.svg" alt="" />
+    <img class="asset a-gem-1" src="assets/gem.svg" alt="" />
+    <img class="asset a-gem-2" src="assets/gem.svg" alt="" />
+    <span class="dots dots-a"></span>
+    <span class="dots dots-b"></span>
+  </div>
+
+  <!-- Fixed full-height left sidebar -->
+  <aside class="sidebar">
+    <a href="#" class="brand" onclick="showView('quizzes'); closeSidebar(); return false;">🎓 Vel<span class="brand-accent">nov</span></a>
+
+    <nav class="side-nav">
+      <button class="side-link" data-view="quizzes" onclick="showView('quizzes'); closeSidebar();">
+        <span class="side-ico">📚</span> Quizzes
+      </button>
+      <button class="side-link" data-view="formulas" onclick="showView('formulas'); closeSidebar();">
+        <span class="side-ico">📐</span> Math Formulas
+      </button>
+      <button class="side-link" data-view="calculator" onclick="showView('calculator'); closeSidebar();">
+        <span class="side-ico">🧮</span> Calculator
+      </button>
+    </nav>
+
+    <div class="side-divider"></div>
+
+    <!-- decorative bottom -->
+    <span class="sb-blob sb-blob-1" aria-hidden="true"></span>
+    <span class="sb-blob sb-blob-2" aria-hidden="true"></span>
+    <span class="sb-dots" aria-hidden="true"></span>
+  </aside>
+
+  <!-- mobile menu button + dim overlay -->
+  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleSidebar()">☰</button>
+  <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+  <!-- top-right corner: trophy (tap/hover for progress) + theme toggle -->
+  <div class="topbar">
+    <div class="track" id="track">
+      <button class="track-fab" aria-label="Your progress" onclick="toggleTrackPop(event)">🏆</button>
+      <div class="track-pop" id="trackPop">
+        <strong>Track your progress</strong>
+        <p class="track-stats" id="trackStats">No quizzes yet — take one!</p>
+        <button class="btn btn-primary btn-sm" onclick="showView('quizzes'); closeTrackPop();">View quizzes</button>
+      </div>
+    </div>
+    <button id="themeToggle" class="theme-toggle" title="Light / Dark mode">🌙</button>
+  </div>
+
+  <div class="page">
+    <main id="app" class="main-content">
+      <!-- Everything is drawn here by js/app.js -->
+    </main>
+
+    <footer class="footer">
+      <p>🎓 Velnov — learn any subject, one question at a time. · <a href="https://velnov.co.in">velnov.co.in</a></p>
+    </footer>
+  </div>
+
+  <!-- ================= QUESTION FILES =================
+       Each subject lives in its OWN file inside the data/ folder.
+
+       ➤ To UPDATE questions: just edit that subject's file.
+       ➤ To ADD a new subject: copy an existing file (e.g. python.js),
+         rename it, change the questions, and add ONE script line below.
+       =================================================== -->
+  <!-- Python course: one file per topic (data/python/) -->
+  <script src="data/python/01-introduction.js"></script>
+  <script src="data/python/02-variables-operators.js"></script>
+  <script src="data/python/03-data-types.js"></script>
+  <script src="data/python/04-strings.js"></script>
+  <script src="data/python/05-conditionals.js"></script>
+  <script src="data/python/06-loops.js"></script>
+  <script src="data/python/07-lists-tuples.js"></script>
+  <script src="data/python/08-dicts-sets.js"></script>
+  <script src="data/python/09-comprehensions.js"></script>
+  <script src="data/python/10-functions.js"></script>
+  <script src="data/python/11-error-handling.js"></script>
+  <script src="data/python/12-file-handling.js"></script>
+  <script src="data/python/13-modules.js"></script>
+  <script src="data/python/14-classes.js"></script>
+  <script src="data/python/15-inheritance.js"></script>
+  <script src="data/python/16-advanced-oop.js"></script>
+  <script src="data/python/17-iterators-generators.js"></script>
+  <script src="data/python/18-decorators-closures.js"></script>
+  <script src="data/python/19-advanced-concepts.js"></script>
+  <script src="data/python/20-interview-questions.js"></script>
+  <!-- JavaScript course: one file per topic (data/javascript/) -->
+  <script src="data/javascript/01-introduction.js"></script>
+  <script src="data/javascript/02-variables-types.js"></script>
+  <script src="data/javascript/03-operators.js"></script>
+  <script src="data/javascript/04-type-coercion.js"></script>
+  <script src="data/javascript/05-strings.js"></script>
+  <script src="data/javascript/06-conditionals.js"></script>
+  <script src="data/javascript/07-loops.js"></script>
+  <script src="data/javascript/08-arrays.js"></script>
+  <script src="data/javascript/09-array-methods.js"></script>
+  <script src="data/javascript/10-objects.js"></script>
+  <script src="data/javascript/11-functions.js"></script>
+  <script src="data/javascript/12-scope-hoisting.js"></script>
+  <script src="data/javascript/13-closures.js"></script>
+  <script src="data/javascript/14-this-keyword.js"></script>
+  <script src="data/javascript/15-error-handling.js"></script>
+  <script src="data/javascript/16-dom.js"></script>
+  <script src="data/javascript/17-events.js"></script>
+  <script src="data/javascript/18-async.js"></script>
+  <script src="data/javascript/19-promises.js"></script>
+  <script src="data/javascript/20-fetch-modules.js"></script>
+  <!-- SQL course: one file per topic (data/sql/) -->
+  <script src="data/sql/01-introduction.js"></script>
+  <script src="data/sql/02-select-basics.js"></script>
+  <script src="data/sql/03-where-filtering.js"></script>
+  <script src="data/sql/04-sorting-limiting.js"></script>
+  <script src="data/sql/05-operators-null.js"></script>
+  <script src="data/sql/06-aggregates.js"></script>
+  <script src="data/sql/07-group-by-having.js"></script>
+  <script src="data/sql/08-data-types.js"></script>
+  <script src="data/sql/09-string-functions.js"></script>
+  <script src="data/sql/10-date-functions.js"></script>
+  <script src="data/sql/11-inner-join.js"></script>
+  <script src="data/sql/12-outer-joins.js"></script>
+  <script src="data/sql/13-advanced-joins.js"></script>
+  <script src="data/sql/14-set-operations.js"></script>
+  <script src="data/sql/15-subqueries-ctes.js"></script>
+  <script src="data/sql/16-dml.js"></script>
+  <script src="data/sql/17-tables-constraints.js"></script>
+  <script src="data/sql/18-normalization.js"></script>
+  <script src="data/sql/19-views-indexes-transactions.js"></script>
+  <script src="data/sql/20-window-functions.js"></script>
+  <!-- Indian History course: one file per topic (data/history-india/) -->
+  <script src="data/history-india/01-prehistory-stone-age.js"></script>
+  <script src="data/history-india/02-indus-valley.js"></script>
+  <script src="data/history-india/03-vedic-age.js"></script>
+  <script src="data/history-india/04-mahajanapadas-magadha.js"></script>
+  <script src="data/history-india/05-jainism-buddhism.js"></script>
+  <script src="data/history-india/06-mauryan-empire.js"></script>
+  <script src="data/history-india/07-post-mauryan.js"></script>
+  <script src="data/history-india/08-gupta-empire.js"></script>
+  <script src="data/history-india/09-post-gupta-early-medieval.js"></script>
+  <!-- Physics course (Class 6-8, NCERT): one file per topic (data/physics/) -->
+  <script src="data/physics/01-motion-measurement-time.js"></script>
+  <script src="data/physics/02-light-shadows-reflection.js"></script>
+  <script src="data/physics/03-electricity-circuits.js"></script>
+  <script src="data/physics/04-magnets.js"></script>
+  <script src="data/physics/05-heat-temperature.js"></script>
+  <script src="data/physics/06-electric-current-effects.js"></script>
+  <script src="data/physics/07-force-pressure.js"></script>
+  <script src="data/physics/08-friction.js"></script>
+  <script src="data/physics/09-sound.js"></script>
+  <script src="data/physics/10-natural-phenomena-solar-system.js"></script>
+  <!-- Chemistry course (Class 6-8, NCERT): one file per topic (data/chemistry/) -->
+  <script src="data/chemistry/01-materials-properties.js"></script>
+  <script src="data/chemistry/02-separation-substances.js"></script>
+  <script src="data/chemistry/03-physical-chemical-changes.js"></script>
+  <script src="data/chemistry/04-acids-bases-salts.js"></script>
+  <script src="data/chemistry/05-metals-nonmetals.js"></script>
+  <script src="data/chemistry/06-combustion-flame-fuels.js"></script>
+  <script src="data/chemistry/07-coal-petroleum.js"></script>
+  <script src="data/chemistry/08-synthetic-fibres-plastics.js"></script>
+  <script src="data/chemistry/09-air-water-pollution.js"></script>
+  <script src="data/chemistry/10-matter-elements-compounds.js"></script>
+  <!-- Biology course (Class 6-8, NCERT): one file per topic (data/biology/) -->
+  <script src="data/biology/01-living-world-adaptation.js"></script>
+  <script src="data/biology/02-food-sources-components.js"></script>
+  <script src="data/biology/03-nutrition-in-plants.js"></script>
+  <script src="data/biology/04-nutrition-animals-digestion.js"></script>
+  <script src="data/biology/05-plants-structure-transport.js"></script>
+  <script src="data/biology/06-human-body-systems.js"></script>
+  <script src="data/biology/07-cell-structure.js"></script>
+  <script src="data/biology/08-microorganisms.js"></script>
+  <script src="data/biology/09-reproduction.js"></script>
+  <script src="data/biology/10-crops-conservation-environment.js"></script>
+  <!-- Mathematics course (Class 1-5): one file per topic (data/maths/) -->
+  <script src="data/maths/01-numbers-place-value.js"></script>
+  <script src="data/maths/02-addition.js"></script>
+  <script src="data/maths/03-subtraction.js"></script>
+  <script src="data/maths/04-multiplication.js"></script>
+  <script src="data/maths/05-division.js"></script>
+  <script src="data/maths/06-fractions.js"></script>
+  <script src="data/maths/07-money.js"></script>
+  <script src="data/maths/08-measurement.js"></script>
+  <script src="data/maths/09-time-calendar.js"></script>
+  <script src="data/maths/10-shapes-patterns-data.js"></script>
+  <!-- English Grammar course (Class 1-5): one file per topic (data/english/) -->
+  <script src="data/english/01-nouns.js"></script>
+  <script src="data/english/02-pronouns.js"></script>
+  <script src="data/english/03-verbs.js"></script>
+  <script src="data/english/04-adjectives.js"></script>
+  <script src="data/english/05-adverbs.js"></script>
+  <script src="data/english/06-articles.js"></script>
+  <script src="data/english/07-tenses.js"></script>
+  <script src="data/english/08-prepositions.js"></script>
+  <script src="data/english/09-conjunctions-interjections.js"></script>
+  <script src="data/english/10-sentences-punctuation.js"></script>
+
+  <!-- Math Formula reference (window.FORMULA_DATA), grouped by topic -->
+  <script src="data/formulas/01-arithmetic-commercial.js?v=2"></script>
+  <script src="data/formulas/02-number-system.js?v=2"></script>
+  <script src="data/formulas/03-algebra.js?v=2"></script>
+  <script src="data/formulas/04-mensuration-2d.js?v=2"></script>
+  <script src="data/formulas/05-mensuration-3d.js?v=2"></script>
+  <script src="data/formulas/06-geometry-coordinate.js?v=2"></script>
+  <script src="data/formulas/07-trigonometry.js?v=2"></script>
+  <script src="data/formulas/08-statistics-probability.js?v=2"></script>
+  <script src="data/formulas/09-calculus.js?v=2"></script>
+  <script src="data/formulas/10-advanced.js?v=2"></script>
+
+  <!-- App logic (must load AFTER the question files) -->
+  <script src="js/app.js?v=8"></script>
+</body>
+</html>

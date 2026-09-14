@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300">
+  <defs>
+    <linearGradient id="ringBand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2ecff" stop-opacity="0.96"/>
+      <stop offset="45%" stop-color="#c3aef4" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#8f74e6" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="ringHi" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="ringShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a3396" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#4a3396" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="170" cy="252" rx="120" ry="24" fill="url(#ringShadow)"/>
+  <g transform="rotate(-22 170 150)">
+    <ellipse cx="170" cy="150" rx="128" ry="76" fill="none" stroke="url(#ringBand)" stroke-width="40"/>
+    <ellipse cx="170" cy="150" rx="128" ry="76" fill="none" stroke="url(#ringHi)" stroke-width="8" opacity="0.85"/>
+    <ellipse cx="170" cy="150" rx="148" ry="88" fill="none" stroke="#ffffff" stroke-opacity="0.30" stroke-width="2"/>
+    <ellipse cx="170" cy="150" rx="108" ry="64" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="2"/>
+  </g>
+</svg>

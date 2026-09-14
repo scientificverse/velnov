@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="ballPur" cx="38%" cy="30%" r="78%">
+      <stop offset="0%" stop-color="#f6f1ff"/>
+      <stop offset="32%" stop-color="#cbb6f7"/>
+      <stop offset="68%" stop-color="#9a78e8"/>
+      <stop offset="100%" stop-color="#6a4cc4"/>
+    </radialGradient>
+    <radialGradient id="ballPurRim" cx="70%" cy="80%" r="60%">
+      <stop offset="0%" stop-color="#e5d8ff" stop-opacity="0"/>
+      <stop offset="80%" stop-color="#e5d8ff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#efe6ff" stop-opacity="0.8"/>
+    </radialGradient>
+    <radialGradient id="shadowP" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3d2a7a" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3d2a7a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="100" cy="182" rx="62" ry="13" fill="url(#shadowP)"/>
+  <circle cx="100" cy="94" r="80" fill="url(#ballPur)"/>
+  <circle cx="100" cy="94" r="80" fill="url(#ballPurRim)"/>
+  <ellipse cx="70" cy="58" rx="28" ry="19" fill="#ffffff" opacity="0.62" transform="rotate(-28 70 58)"/>
+  <circle cx="132" cy="128" r="8" fill="#ffffff" opacity="0.32"/>
+</svg>
