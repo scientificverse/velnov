@@ -219,14 +219,29 @@ function filterSubjects(text) {
 
 /* ---------------- SUBJECT (topic list) ---------------- */
 
-function openSubject(index) {
+function openSubject(index, fromHistory) {
   state.subjectIndex = index;
   state.difficulty = 'all';
+
+  if (!fromHistory) {
+    navigateTo(
+      { view: 'subject', subjectIndex: index, difficulty: 'all' },
+      '#subject-' + index
+    );
+  }
+
   renderSubject();
 }
 
 function setDifficulty(level) {
   state.difficulty = level;
+
+  // same page, new filter — replace rather than stack a history entry
+  history.replaceState(
+    { view: 'subject', subjectIndex: state.subjectIndex, difficulty: level },
+    '', '#subject-' + state.subjectIndex
+  );
+
   renderSubject();
 }
 
@@ -252,7 +267,7 @@ function renderSubject() {
   }).join('');
 
   app.innerHTML = `
-    <span class="back-link" onclick="goHome()">← All subjects</span>
+    <span class="back-link" onclick="showView('quizzes')">← All subjects</span>
     <div class="page-head">
       <span class="subject-icon">${esc(subject.icon)}</span>
       <div>
@@ -281,9 +296,21 @@ function stopTimer() {
   if (timerId) { clearInterval(timerId); timerId = null; }
 }
 
-function startQuiz(subjectIndex, topicIndex) {
+function startQuiz(subjectIndex, topicIndex, fromHistory) {
   const subject = QUIZ_DATA[subjectIndex];
   const topic = subject.topics[topicIndex];
+
+  if (!fromHistory) {
+    navigateTo(
+      {
+        view: 'quiz',
+        subjectIndex: subjectIndex,
+        topicIndex: topicIndex,
+        difficulty: state.difficulty
+      },
+      '#quiz-' + subjectIndex + '-' + topicIndex
+    );
+  }
 
   // filter by chosen difficulty, shuffle, and take up to 10
   const pool = topic.questions.filter(
@@ -337,7 +364,7 @@ function renderQuestion() {
   }).join('');
 
   app.innerHTML = `
-    <span class="back-link" onclick="renderSubject()">← ${esc(subject.subject)} topics</span>
+    <span class="back-link" onclick="backToSubject()">← ${esc(subject.subject)} topics</span>
 
     <div class="quiz-top">
       <div>
@@ -495,8 +522,8 @@ function finishQuiz() {
       <div class="quiz-actions center">
         <button class="btn btn-primary" onclick="startQuiz(${quiz.subjectIndex}, ${quiz.topicIndex})">🔄 Retry Quiz</button>
         ${wrongOnes.length ? `<button class="btn btn-secondary" onclick="toggleReview()">📋 Review Wrong Answers (${wrongOnes.length})</button>` : ''}
-        <button class="btn btn-outline" onclick="renderSubject()">More Topics</button>
-        <button class="btn btn-outline" onclick="goHome()">🏠 Home</button>
+        <button class="btn btn-outline" onclick="backToSubject()">More Topics</button>
+        <button class="btn btn-outline" onclick="showView('quizzes')">🏠 Home</button>
       </div>
     </div>
     <div id="reviewBlock" class="review-block" style="display:none">
@@ -524,7 +551,7 @@ function toggleReview() {
 
 let currentView = 'quizzes';
 
-function showView(view) {
+function showView(view, fromHistory) {
   currentView = view;
 
   document.querySelectorAll('.side-link').forEach(function (b) {
@@ -537,7 +564,7 @@ function showView(view) {
   else if (view === 'formulas') formulasHome();
   else if (view === 'calculator') renderCalculator();
 
-  history.pushState({ view: view }, '', '#' + view);
+  if (!fromHistory) navigateTo({ view: view }, '#' + view);
 }
 
 /* Mobile sidebar (hamburger) open/close */
@@ -601,6 +628,7 @@ function filterFormulas(text) {
 
 function openFormulaTopic(i) {
   formulaTopicIndex = i;
+  navigateTo({ view: 'formulaTopic', topicIndex: i }, '#formula-' + i);
   renderFormulaTopic();
 }
 
@@ -617,7 +645,7 @@ function renderFormulaTopic() {
   });
 
   app.innerHTML = `
-    <span class="back-link" onclick="formulasHome()">← All topics</span>
+    <span class="back-link" onclick="showView('formulas')">← All topics</span>
     <div class="page-head">
       <span class="subject-icon">${esc(t.icon || '📐')}</span>
       <div>
@@ -876,25 +904,69 @@ function evalMath(input, angle) {
   return st[0];
 }
 
+/* ============================================================
+   BROWSER NAVIGATION HISTORY
+   Keeps Home → Subject → Quiz (and the formula pages) working
+   with the browser Back / Forward buttons.
+   ============================================================ */
+
+function navigateTo(navState, url) {
+  history.pushState(navState, '', url);
+}
+
+/** Back link from a quiz to its subject page (keeps the difficulty filter). */
+function backToSubject() {
+  stopTimer();
+  state.quiz = null;
+  navigateTo(
+    { view: 'subject', subjectIndex: state.subjectIndex, difficulty: state.difficulty },
+    '#subject-' + state.subjectIndex
+  );
+  renderSubject();
+}
+
+window.addEventListener('popstate', function (event) {
+  const nav = event.state;
+  stopTimer();
+
+  // No Velnov navigation state = return Home
+  if (!nav || nav.view === 'quizzes') { showView('quizzes', true); return; }
+  if (nav.view === 'formulas')        { showView('formulas', true); return; }
+  if (nav.view === 'calculator')      { showView('calculator', true); return; }
+
+  // A single formula topic
+  if (nav.view === 'formulaTopic') {
+    currentView = 'formulas';
+    formulaTopicIndex = nav.topicIndex;
+    renderFormulaTopic();
+    return;
+  }
+
+  // Subject page
+  if (nav.view === 'subject') {
+    currentView = 'quizzes';
+    state.subjectIndex = nav.subjectIndex;
+    state.difficulty = nav.difficulty || 'all';
+    state.quiz = null;
+    renderSubject();
+    return;
+  }
+
+  // Quiz page — difficulty must be restored before startQuiz filters the pool
+  if (nav.view === 'quiz') {
+    currentView = 'quizzes';
+    state.subjectIndex = nav.subjectIndex;
+    state.difficulty = nav.difficulty || 'all';
+    state.quiz = null;
+    startQuiz(nav.subjectIndex, nav.topicIndex, true);
+  }
+});
+
 /* ---------------- start ---------------- */
 
 if (!QUIZ_DATA.length) {
   app.innerHTML = '<p class="muted">No question files loaded. Check the &lt;script&gt; tags in index.html.</p>';
 } else {
-  showView('quizzes');
+  history.replaceState({ view: 'quizzes' }, '', '#quizzes');
+  showView('quizzes', true);
 }
-// Handle browser Back / Forward buttons
-window.addEventListener('popstate', function (event) {
-  const view = event.state && event.state.view;
-
-  if (view === 'quizzes') {
-    currentView = 'quizzes';
-    goHome();
-  } else if (view === 'formulas') {
-    currentView = 'formulas';
-    formulasHome();
-  } else if (view === 'calculator') {
-    currentView = 'calculator';
-    renderCalculator();
-  }
-});
