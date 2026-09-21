@@ -3,14 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Velnov – Online Quizzes, Practice Questions & Learning Tools</title>
-<meta name="description" content="Learn and practice with Velnov. Explore online quizzes, practice questions, math formulas and useful learning tools for Python, JavaScript, SQL, Physics, History and more." />
-<link rel="canonical" href="https://velnov.co.in/" />
+  <title>Velnov – Online Quizzes, Practice Questions &amp; Learning Tools</title>
+  <meta name="description" content="Learn and practice with Velnov. Explore online quizzes, practice questions, math formulas and useful learning tools for Python, JavaScript, SQL, Physics, History and more." />
+  <link rel="canonical" href="https://velnov.co.in/" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css?v=14" />
+
+  <!-- Minimal, accurate structured data for the site itself -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Velnov",
+    "url": "https://velnov.co.in/",
+    "description": "Online quizzes, practice questions with detailed explanations, a math formula reference and a scientific calculator."
+  }
+  </script>
 </head>
 <body>
 
@@ -68,45 +79,63 @@
   </div>
 
   <div class="page">
+
+    <!-- ============================================================
+         STATIC SEO CONTENT — lives OUTSIDE #app on purpose.
+         js/app.js replaces the contents of #app, so anything that
+         must stay crawlable and permanent belongs here.
+         ============================================================ -->
+    <section class="seo-intro">
+      <h1>Velnov – Online Quizzes &amp; Learning Tools</h1>
+
+      <p>
+        Practice quizzes and questions across Python, JavaScript, SQL,
+        Mathematics, Physics, Chemistry, Biology, English and History.
+        Explore detailed explanations, math formulas and a scientific
+        calculator to support your learning.
+      </p>
+
+      <h2>Learn and Practice with Velnov</h2>
+
+      <p>
+        Velnov is a free learning site built around short, focused practice.
+        Pick a subject, choose a topic, and work through a round of multiple
+        choice questions at the difficulty level you want. Every question comes
+        with a worked explanation, so a wrong answer is still useful — you can
+        read why the correct option is correct before moving on. Your recent
+        scores are kept in your own browser, so you can see how a topic is going
+        over time.
+      </p>
+
+      <ul>
+        <li><strong>Online quizzes and practice questions</strong> — grouped by subject and topic, filterable by easy, medium or hard.</li>
+        <li><strong>Detailed explanations</strong> — each answer is explained, often with example code, notes and related concepts.</li>
+        <li><strong>Programming practice</strong> — Python, JavaScript and SQL, from the basics through to interview-style questions.</li>
+        <li><strong>School subjects</strong> — Mathematics, Physics, Chemistry, Biology, English grammar and Indian History.</li>
+        <li><strong>Math formula reference</strong> — formulas grouped by topic, each with what it is used for and a plain-language explanation.</li>
+        <li><strong>Scientific calculator</strong> — trigonometry, powers, roots, logarithms, factorials and constants, with degree and radian modes.</li>
+      </ul>
+
+      <p>
+        Nothing needs to be installed and there is no sign-up. Use the menu to
+        move between the quizzes, the formula reference and the calculator.
+      </p>
+    </section>
+
     <main id="app" class="main-content">
       <!-- Everything is drawn here by js/app.js -->
-      <section class="seo-intro">
-    <h1>Velnov – Online Quizzes & Learning Tools</h1>
-    <p>
-      Practice quizzes and questions across Python, JavaScript, SQL,
-      Mathematics, Physics, Chemistry, Biology, English and History.
-      Explore detailed explanations, math formulas and a scientific
-      calculator to support your learning.
-    </p>
-  </section>
-
-  <div id="app"></div>
     </main>
-<main class="main-content">
 
-  <section class="seo-intro">
-    <h1>Velnov – Online Quizzes & Learning Tools</h1>
-    <p>
-      Practice quizzes and questions across Python, JavaScript, SQL,
-      Mathematics, Physics, Chemistry, Biology, English and History.
-      Explore detailed explanations, math formulas and a scientific
-      calculator to support your learning.
-    </p>
-  </section>
-
-  <div id="app"></div>
-
-</main>
     <footer class="footer">
-  <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
 
-  <p>
-    <a href="about.html">About Velnov</a> ·
-    <a href="contact.html">Contact</a> ·
-    <a href="privacy.html">Privacy Policy</a> ·
-    <a href="terms.html">Terms of Use</a>
-  </p>
-</footer>
+      <p>
+        <a href="about.html">About Velnov</a> ·
+        <a href="contact.html">Contact</a> ·
+        <a href="privacy.html">Privacy Policy</a> ·
+        <a href="terms.html">Terms of Use</a>
+      </p>
+    </footer>
   </div>
 
   <!-- ================= QUESTION FILES =================
