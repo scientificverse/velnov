@@ -526,13 +526,18 @@ let currentView = 'quizzes';
 
 function showView(view) {
   currentView = view;
+
   document.querySelectorAll('.side-link').forEach(function (b) {
     b.classList.toggle('active', b.dataset.view === view);
   });
+
   stopTimer();
+
   if (view === 'quizzes') goHome();
   else if (view === 'formulas') formulasHome();
   else if (view === 'calculator') renderCalculator();
+
+  history.pushState({ view: view }, '', '#' + view);
 }
 
 /* Mobile sidebar (hamburger) open/close */
@@ -878,3 +883,18 @@ if (!QUIZ_DATA.length) {
 } else {
   showView('quizzes');
 }
+// Handle browser Back / Forward buttons
+window.addEventListener('popstate', function (event) {
+  const view = event.state && event.state.view;
+
+  if (view === 'quizzes') {
+    currentView = 'quizzes';
+    goHome();
+  } else if (view === 'formulas') {
+    currentView = 'formulas';
+    formulasHome();
+  } else if (view === 'calculator') {
+    currentView = 'calculator';
+    renderCalculator();
+  }
+});
