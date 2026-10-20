@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Window Functions &amp; Optimization – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Window Functions &amp; Optimization with answers and detailed explanations — 0 easy, 4 medium and 26 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/20-window-functions-and-optimization.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Window Functions &amp; Optimization – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Window Functions &amp; Optimization with answers and detailed explanations — 0 easy, 4 medium and 26 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/20-window-functions-and-optimization.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Window Functions & Optimization","item":"https://velnov.co.in/learn/sql/20-window-functions-and-optimization.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Window Functions &amp; Optimization</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 20 of 20</p>
+      <h1>Window Functions &amp; Optimization — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Window Functions &amp; Optimization</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-19">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">0 easy · 4 medium · 26 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Window functions</span><span>OVER</span><span>PARTITION BY</span><span>GROUP BY</span><span>ROW_NUMBER</span><span>Ranking</span><span>RANK</span><span>DENSE_RANK</span><span>Top N per group</span><span>Execution order</span><span>Running total</span><span>SUM OVER</span><span>LAG</span><span>LEAD</span><span>Growth</span><span>NTILE</span><span>Percentiles</span><span>FIRST_VALUE</span><span>LAST_VALUE</span><span>Frame</span><span>Window frame</span><span>Moving average</span><span>Default behaviour</span><span>Deduplication</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+
+    <section>
+      <h2 id="medium">Medium questions (4)</h2>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the first step to optimise a slow query?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Run EXPLAIN to see the execution plan and identify scans, missing indexes or bad join orders</li>
+          <li><span class="opt-key">B</span> Add more RAM</li>
+          <li><span class="opt-key">C</span> Rewrite it randomly</li>
+          <li><span class="opt-key">D</span> Drop the table</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Run EXPLAIN to see the execution plan and identify scans, missing indexes or bad join orders</p>
+          <p class="expl">Measure before changing. EXPLAIN (or EXPLAIN ANALYZE) shows exactly how the database runs the query, so you optimise the real bottleneck rather than guessing.</p>
+          <p class="tags"><span>EXPLAIN</span><span>Optimisation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why avoid SELECT * in production queries?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It transfers unneeded columns, prevents covering indexes, and breaks if the schema changes</li>
+          <li><span class="opt-key">B</span> It is a syntax error</li>
+          <li><span class="opt-key">C</span> It is always faster</li>
+          <li><span class="opt-key">D</span> No reason</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It transfers unneeded columns, prevents covering indexes, and breaks if the schema changes</p>
+          <p class="expl">Selecting only needed columns reduces I/O and network transfer and can let an index satisfy the query entirely (covering index). It also makes code resilient to column changes.</p>
+          <p class="tags"><span>SELECT *</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why keep table statistics up to date?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The optimiser uses them to estimate row counts and choose good plans; stale stats lead to bad plans</li>
+          <li><span class="opt-key">B</span> They store backups</li>
+          <li><span class="opt-key">C</span> They are decorative</li>
+          <li><span class="opt-key">D</span> They index data</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The optimiser uses them to estimate row counts and choose good plans; stale stats lead to bad plans</p>
+          <p class="expl">After large data changes, running ANALYZE (or UPDATE STATISTICS) refreshes the numbers the optimiser relies on, helping it pick the right indexes and join methods.</p>
+          <p class="tags"><span>Statistics</span><span>Optimiser</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is denormalization's role in read optimization?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Pre-joining or pre-aggregating data reduces expensive joins at read time, at the cost of update complexity</li>
+          <li><span class="opt-key">B</span> It always slows reads</li>
+          <li><span class="opt-key">C</span> It removes all indexes</li>
+          <li><span class="opt-key">D</span> It has no effect</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Pre-joining or pre-aggregating data reduces expensive joins at read time, at the cost of update complexity</p>
+          <p class="expl">For analytics dashboards, storing a summary table (updated periodically) avoids re-joining and re-aggregating huge tables on every query - a deliberate performance trade-off.</p>
+          <p class="tags"><span>Denormalization</span><span>Read optimisation</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (26)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a window function?</p>
+        <pre class="code"><code>SELECT name, dept, salary,
+  AVG(salary) OVER (PARTITION BY dept) AS dept_avg
+FROM employees;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function that computes across a set of rows RELATED to the current row, without collapsing them into one</li>
+          <li><span class="opt-key">B</span> A GUI feature</li>
+          <li><span class="opt-key">C</span> The same as GROUP BY</li>
+          <li><span class="opt-key">D</span> A type of index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function that computes across a set of rows RELATED to the current row, without collapsing them into one</p>
+          <p class="expl">Unlike aggregates with GROUP BY (which return one row per group), window functions add a computed column while KEEPING every row - perfect for running totals, ranks and comparisons to a group.</p>
+          <p class="tags"><span>Window functions</span><span>OVER</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the OVER() clause define?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The 'window' of rows the function operates on - via PARTITION BY and ORDER BY</li>
+          <li><span class="opt-key">B</span> Which table to use</li>
+          <li><span class="opt-key">C</span> The output format</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The 'window' of rows the function operates on - via PARTITION BY and ORDER BY</p>
+          <p class="expl">OVER() is what makes a function a window function. Empty OVER() means the whole result set; PARTITION BY splits it into groups; ORDER BY orders rows within each partition.</p>
+          <p class="tags"><span>OVER</span><span>PARTITION BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between GROUP BY and a window function?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> GROUP BY collapses rows into one per group; a window function keeps all rows and adds the computed value to each</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> Window functions delete rows</li>
+          <li><span class="opt-key">D</span> GROUP BY keeps all rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — GROUP BY collapses rows into one per group; a window function keeps all rows and adds the computed value to each</p>
+          <p class="expl">To show each employee's salary alongside their department average WITHOUT losing individual rows, you need a window function. GROUP BY would leave you with one row per department.</p>
+          <p class="tags"><span>Window functions</span><span>GROUP BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does PARTITION BY do in a window function?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Divides rows into groups; the function restarts its calculation for each partition</li>
+          <li><span class="opt-key">B</span> Sorts the rows</li>
+          <li><span class="opt-key">C</span> Filters rows</li>
+          <li><span class="opt-key">D</span> Creates partitions on disk</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Divides rows into groups; the function restarts its calculation for each partition</p>
+          <p class="expl">PARTITION BY dept means the window function (rank, running total, average) computes separately within each department, like a GROUP BY that keeps every row.</p>
+          <p class="tags"><span>PARTITION BY</span><span>OVER</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does ROW_NUMBER() OVER (ORDER BY marks DESC) produce?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A sequential number 1, 2, 3... assigned by descending marks - unique even for ties</li>
+          <li><span class="opt-key">B</span> The same number for ties</li>
+          <li><span class="opt-key">C</span> The marks value</li>
+          <li><span class="opt-key">D</span> A random number</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A sequential number 1, 2, 3... assigned by descending marks - unique even for ties</p>
+          <p class="expl">ROW_NUMBER always gives distinct consecutive numbers, breaking ties arbitrarily. It is the tool for 'give me the top N per group' and for de-duplication.</p>
+          <p class="tags"><span>ROW_NUMBER</span><span>Ranking</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between RANK() and DENSE_RANK()?</p>
+        <pre class="code"><code>SELECT name, RANK() OVER (ORDER BY marks DESC) AS r,
+            DENSE_RANK() OVER (ORDER BY marks DESC) AS dr
+FROM students;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> RANK leaves gaps after ties (1,1,3); DENSE_RANK does not (1,1,2)</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> DENSE_RANK leaves gaps</li>
+          <li><span class="opt-key">D</span> RANK never allows ties</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — RANK leaves gaps after ties (1,1,3); DENSE_RANK does not (1,1,2)</p>
+          <p class="expl">With two rows tied at rank 1, RANK gives the next row rank 3 (skipping 2), while DENSE_RANK gives it rank 2. ROW_NUMBER would give 1 and 2 to the tied rows.</p>
+          <p class="tags"><span>RANK</span><span>DENSE_RANK</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find the top 3 earners PER DEPARTMENT?</p>
+        <pre class="code"><code>WITH r AS (
+  SELECT *, RANK() OVER (PARTITION BY dept ORDER BY salary DESC) rk FROM emp
+)
+SELECT * FROM r WHERE rk &lt;= 3;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use ROW_NUMBER/RANK OVER (PARTITION BY dept ORDER BY salary DESC) and filter &lt;= 3 in an outer query</li>
+          <li><span class="opt-key">B</span> ORDER BY salary LIMIT 3</li>
+          <li><span class="opt-key">C</span> GROUP BY dept HAVING salary</li>
+          <li><span class="opt-key">D</span> MAX(salary)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use ROW_NUMBER/RANK OVER (PARTITION BY dept ORDER BY salary DESC) and filter &lt;= 3 in an outer query</p>
+          <p class="expl">You cannot filter a window function in WHERE (it is computed after WHERE), so wrap it in a subquery/CTE and filter the rank there. This 'top N per group' is a classic window-function use.</p>
+          <p class="tags"><span>Top N per group</span><span>PARTITION BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can't you filter a window function's result in WHERE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Window functions are computed AFTER WHERE (during SELECT), so the value does not exist yet - use a subquery/CTE</li>
+          <li><span class="opt-key">B</span> It is a syntax preference</li>
+          <li><span class="opt-key">C</span> You can filter them in WHERE</li>
+          <li><span class="opt-key">D</span> They run first</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Window functions are computed AFTER WHERE (during SELECT), so the value does not exist yet - use a subquery/CTE</p>
+          <p class="expl">Execution order places window functions after WHERE and GROUP BY. To filter on rank or a running total, compute it in a CTE and apply WHERE in the outer query.</p>
+          <p class="tags"><span>Execution order</span><span>Window functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does a running total look like with window functions?</p>
+        <pre class="code"><code>SELECT date, amount,
+  SUM(amount) OVER (ORDER BY date) AS running_total
+FROM transactions;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SUM(amount) OVER (ORDER BY date) - accumulates as rows progress</li>
+          <li><span class="opt-key">B</span> SUM(amount) GROUP BY date</li>
+          <li><span class="opt-key">C</span> SUM(amount) OVER () only</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SUM(amount) OVER (ORDER BY date) - accumulates as rows progress</p>
+          <p class="expl">Adding ORDER BY to a windowed SUM makes it a running total (cumulative sum) up to the current row. PARTITION BY resets it per group (e.g. running total per account).</p>
+          <p class="tags"><span>Running total</span><span>SUM OVER</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What do LAG() and LEAD() do?</p>
+        <pre class="code"><code>SELECT month, sales,
+  sales - LAG(sales) OVER (ORDER BY month) AS change
+FROM monthly;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Access a value from a PREVIOUS (LAG) or NEXT (LEAD) row - useful for period-over-period comparisons</li>
+          <li><span class="opt-key">B</span> Sort rows</li>
+          <li><span class="opt-key">C</span> Lag the query</li>
+          <li><span class="opt-key">D</span> Delete rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Access a value from a PREVIOUS (LAG) or NEXT (LEAD) row - useful for period-over-period comparisons</p>
+          <p class="expl">LAG(sales) OVER (ORDER BY month) gives last month's sales on the current row, so you can compute growth. LEAD looks forward. Both replace awkward self joins.</p>
+          <p class="tags"><span>LAG</span><span>LEAD</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you compute month-over-month growth?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> sales - LAG(sales) OVER (ORDER BY month) - compare each row to the previous</li>
+          <li><span class="opt-key">B</span> SUM(sales) GROUP BY month</li>
+          <li><span class="opt-key">C</span> MAX(sales) - MIN(sales)</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — sales - LAG(sales) OVER (ORDER BY month) - compare each row to the previous</p>
+          <p class="expl">LAG pulls the prior month's value into the current row, so a simple subtraction gives the change. Divide by the lagged value for a percentage.</p>
+          <p class="tags"><span>LAG</span><span>Growth</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does NTILE(4) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Divides ordered rows into 4 roughly equal buckets (quartiles), labelling each row 1-4</li>
+          <li><span class="opt-key">B</span> Returns the 4th row</li>
+          <li><span class="opt-key">C</span> Multiplies by 4</li>
+          <li><span class="opt-key">D</span> Creates 4 tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Divides ordered rows into 4 roughly equal buckets (quartiles), labelling each row 1-4</p>
+          <p class="expl">NTILE distributes rows into N groups - useful for quartiles, percentiles and cohort analysis. NTILE(100) approximates percentiles.</p>
+          <p class="tags"><span>NTILE</span><span>Percentiles</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What do FIRST_VALUE() and LAST_VALUE() return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The first or last value in the window's ordered frame - e.g. the earliest order per customer</li>
+          <li><span class="opt-key">B</span> The min and max</li>
+          <li><span class="opt-key">C</span> The row count</li>
+          <li><span class="opt-key">D</span> The current row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The first or last value in the window's ordered frame - e.g. the earliest order per customer</p>
+          <p class="expl">FIRST_VALUE(price) OVER (PARTITION BY product ORDER BY date) gives the earliest price on every row. LAST_VALUE needs a full frame clause to work as expected, a common gotcha.</p>
+          <p class="tags"><span>FIRST_VALUE</span><span>LAST_VALUE</span><span>Frame</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a window FRAME (ROWS BETWEEN ...)?</p>
+        <pre class="code"><code>AVG(price) OVER (ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It defines which rows around the current row are included - e.g. a 3-row moving average</li>
+          <li><span class="opt-key">B</span> A picture frame</li>
+          <li><span class="opt-key">C</span> The whole table always</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It defines which rows around the current row are included - e.g. a 3-row moving average</p>
+          <p class="expl">ROWS BETWEEN 2 PRECEDING AND CURRENT ROW creates a moving window. Frames enable moving averages and custom cumulative ranges - a powerful, advanced feature.</p>
+          <p class="tags"><span>Window frame</span><span>Moving average</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the default frame when you use ORDER BY in OVER() without ROWS?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW - a running total up to the current row (including ties)</li>
+          <li><span class="opt-key">B</span> The whole partition</li>
+          <li><span class="opt-key">C</span> Only the current row</li>
+          <li><span class="opt-key">D</span> No frame</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW - a running total up to the current row (including ties)</p>
+          <p class="expl">This default is why SUM(...) OVER (ORDER BY x) is a running total. It also explains the LAST_VALUE surprise: the default frame ends at the current row, not the partition end.</p>
+          <p class="tags"><span>Frame</span><span>Default behaviour</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you deduplicate keeping the newest row per key?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ROW_NUMBER() OVER (PARTITION BY key ORDER BY created_at DESC) then keep rows where the number = 1</li>
+          <li><span class="opt-key">B</span> DISTINCT key</li>
+          <li><span class="opt-key">C</span> GROUP BY key</li>
+          <li><span class="opt-key">D</span> MAX(created_at)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ROW_NUMBER() OVER (PARTITION BY key ORDER BY created_at DESC) then keep rows where the number = 1</p>
+          <p class="expl">Numbering rows per key by recency and keeping rn = 1 selects the latest per group while retaining its other columns - which DISTINCT and GROUP BY cannot do cleanly.</p>
+          <p class="tags"><span>ROW_NUMBER</span><span>Deduplication</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does SUM(x) OVER () (empty parentheses) compute?</p>
+        <pre class="code"><code>SELECT amount, amount * 100.0 / SUM(amount) OVER () AS pct FROM sales;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The grand total of x across ALL rows, repeated on every row</li>
+          <li><span class="opt-key">B</span> A running total</li>
+          <li><span class="opt-key">C</span> The current row only</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The grand total of x across ALL rows, repeated on every row</p>
+          <p class="expl">Empty OVER() treats the whole result set as one window. It is the neat way to add a grand total to every row - handy for computing each row's percentage of the total.</p>
+          <p class="tags"><span>OVER()</span><span>Percent of total</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which query change most often gives the biggest speed-up?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Adding an index on the columns used in WHERE/JOIN, and making conditions sargable</li>
+          <li><span class="opt-key">B</span> Using SELECT *</li>
+          <li><span class="opt-key">C</span> Removing WHERE clauses</li>
+          <li><span class="opt-key">D</span> Adding more subqueries</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Adding an index on the columns used in WHERE/JOIN, and making conditions sargable</p>
+          <p class="expl">A missing index turning a full scan into an index seek can be orders of magnitude faster. Ensure conditions do not wrap the column in a function, or the index cannot be used.</p>
+          <p class="tags"><span>Indexes</span><span>Sargability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How does LIMIT help performance with an index?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> With a matching index and ORDER BY, the database can stop after finding the first N rows instead of sorting everything</li>
+          <li><span class="opt-key">B</span> It never helps</li>
+          <li><span class="opt-key">C</span> It scans twice</li>
+          <li><span class="opt-key">D</span> It ignores indexes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — With a matching index and ORDER BY, the database can stop after finding the first N rows instead of sorting everything</p>
+          <p class="expl">An index that already provides the requested order lets the engine read just the first N rows. Without the index it may sort the entire result before applying LIMIT.</p>
+          <p class="tags"><span>LIMIT</span><span>Indexes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the N+1 query problem?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Running one query per row of a previous result (in application code) instead of a single join - very slow</li>
+          <li><span class="opt-key">B</span> A window function</li>
+          <li><span class="opt-key">C</span> An index type</li>
+          <li><span class="opt-key">D</span> A transaction level</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Running one query per row of a previous result (in application code) instead of a single join - very slow</p>
+          <p class="expl">Fetching 100 orders then querying each order's customer separately = 101 queries. A single JOIN (or IN clause) does it in one round trip. A common ORM performance trap.</p>
+          <p class="tags"><span>N+1 problem</span><span>Joins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">When does an index NOT get used despite existing?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> When the condition wraps the column in a function, uses a leading wildcard LIKE '%x', or the query returns most rows</li>
+          <li><span class="opt-key">B</span> Never - indexes always apply</li>
+          <li><span class="opt-key">C</span> Only on small tables</li>
+          <li><span class="opt-key">D</span> When you use WHERE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — When the condition wraps the column in a function, uses a leading wildcard LIKE '%x', or the query returns most rows</p>
+          <p class="expl">Non-sargable conditions (functions on the column), leading-wildcard searches, and low-selectivity queries all defeat indexes. EXPLAIN reveals when a scan is chosen instead.</p>
+          <p class="tags"><span>Sargability</span><span>Index usage</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How can a CTE or subquery sometimes hurt performance?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> If materialised, it may prevent the optimiser from pushing filters down or using indexes across the boundary</li>
+          <li><span class="opt-key">B</span> They always speed things up</li>
+          <li><span class="opt-key">C</span> They cannot affect performance</li>
+          <li><span class="opt-key">D</span> They add indexes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — If materialised, it may prevent the optimiser from pushing filters down or using indexes across the boundary</p>
+          <p class="expl">In some databases a CTE is an optimisation fence. Readability is valuable, but for hot queries check EXPLAIN - occasionally inlining the logic lets the optimiser do more.</p>
+          <p class="tags"><span>CTE</span><span>Optimisation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does PARTITION BY combined with ORDER BY in a window give you?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Per-group ordered calculations - e.g. running total or rank that restarts for each partition</li>
+          <li><span class="opt-key">B</span> A single total</li>
+          <li><span class="opt-key">C</span> Random ordering</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Per-group ordered calculations - e.g. running total or rank that restarts for each partition</p>
+          <p class="expl">PARTITION BY account ORDER BY date with SUM gives a running balance PER account. The partition resets the calculation; the order defines the accumulation direction.</p>
+          <p class="tags"><span>PARTITION BY</span><span>Running total</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you compute a 7-day moving average?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> AVG(value) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)</li>
+          <li><span class="opt-key">B</span> AVG(value) GROUP BY date</li>
+          <li><span class="opt-key">C</span> AVG(value) OVER ()</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — AVG(value) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)</p>
+          <p class="expl">The frame ROWS BETWEEN 6 PRECEDING AND CURRENT ROW includes the current day plus the six before it - a 7-row moving average. Frames make time-series smoothing straightforward.</p>
+          <p class="tags"><span>Moving average</span><span>Window frame</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find the Nth highest value robustly?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DENSE_RANK() OVER (ORDER BY value DESC) and filter for the rank = N</li>
+          <li><span class="opt-key">B</span> ORDER BY value LIMIT N</li>
+          <li><span class="opt-key">C</span> MAX(value)</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DENSE_RANK() OVER (ORDER BY value DESC) and filter for the rank = N</p>
+          <p class="expl">DENSE_RANK handles ties sensibly and generalises to any N, unlike nested MAX subqueries or LIMIT/OFFSET tricks. Filter the ranked result in an outer query.</p>
+          <p class="tags"><span>DENSE_RANK</span><span>Nth highest</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the single best mindset for query optimization?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Measure with EXPLAIN, fix the real bottleneck (usually indexing and reducing rows early), then re-measure</li>
+          <li><span class="opt-key">B</span> Guess and add random hints</li>
+          <li><span class="opt-key">C</span> Always rewrite as subqueries</li>
+          <li><span class="opt-key">D</span> Add every possible index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Measure with EXPLAIN, fix the real bottleneck (usually indexing and reducing rows early), then re-measure</p>
+          <p class="expl">Optimisation is empirical: profile the actual plan, address the biggest cost (a missing index, a full scan, fetching too much), and verify the improvement. Avoid premature or blind tuning.</p>
+          <p class="tags"><span>Optimisation</span><span>EXPLAIN</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="19-views-indexes-and-transactions.html">← Views, Indexes &amp; Transactions</a>
+      <span></span>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-19">Practice “Window Functions &amp; Optimization” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

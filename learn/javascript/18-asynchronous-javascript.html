@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asynchronous JavaScript – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Asynchronous JavaScript with answers and detailed explanations — 0 easy, 14 medium and 16 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/18-asynchronous-javascript.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Asynchronous JavaScript – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Asynchronous JavaScript with answers and detailed explanations — 0 easy, 14 medium and 16 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/18-asynchronous-javascript.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Asynchronous JavaScript","item":"https://velnov.co.in/learn/javascript/18-asynchronous-javascript.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Asynchronous JavaScript</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 18 of 20</p>
+      <h1>Asynchronous JavaScript — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Asynchronous JavaScript</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-17">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">0 easy · 14 medium · 16 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Single-threaded</span><span>Call stack</span><span>Event loop</span><span>setTimeout</span><span>Timing</span><span>Task queue</span><span>Microtasks</span><span>Macrotasks</span><span>Ordering</span><span>Callbacks</span><span>Callback hell</span><span>Promises</span><span>Node.js</span><span>setInterval</span><span>clearInterval</span><span>Blocking</span><span>Performance</span><span>Web Workers</span><span>Threads</span><span>Stack trace</span><span>Error propagation</span><span>Async errors</span><span>try/catch</span><span>Animation</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does 'JavaScript is single-threaded' mean?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It executes one statement at a time on one call stack - long tasks block everything</li>
+          <li><span class="opt-key">B</span> It can only run one file</li>
+          <li><span class="opt-key">C</span> It uses one CPU core for rendering</li>
+          <li><span class="opt-key">D</span> It cannot handle events</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It executes one statement at a time on one call stack - long tasks block everything</p>
+          <p class="expl">There is one main thread, so a slow loop freezes the whole page including clicks and animations. Asynchronous APIs exist so waiting does not block that thread.</p>
+          <p class="tags"><span>Single-threaded</span><span>Call stack</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output ORDER?
+console.log(&quot;A&quot;);
+setTimeout(() =&gt; console.log(&quot;B&quot;), 0);
+console.log(&quot;C&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A C B - the timer callback waits until the synchronous code finishes</li>
+          <li><span class="opt-key">B</span> A B C</li>
+          <li><span class="opt-key">C</span> B A C</li>
+          <li><span class="opt-key">D</span> A C, then B after a long delay</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A C B - the timer callback waits until the synchronous code finishes</p>
+          <p class="expl">Even with 0 ms, the callback is queued and can only run once the call stack is empty. This is the clearest demonstration of the event loop.</p>
+          <p class="tags"><span>Event loop</span><span>setTimeout</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a callback in asynchronous code?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function you hand to an async operation, to be run when it finishes</li>
+          <li><span class="opt-key">B</span> A function that calls itself</li>
+          <li><span class="opt-key">C</span> A returned value</li>
+          <li><span class="opt-key">D</span> An error type</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function you hand to an async operation, to be run when it finishes</p>
+          <p class="expl">Rather than blocking to wait for a result, you say 'call this when done'. Timers, events and older APIs all use this pattern.</p>
+          <p class="tags"><span>Callbacks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the error-first callback convention?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The callback's FIRST parameter is an error (null when successful), the second is the data</li>
+          <li><span class="opt-key">B</span> Errors are thrown instead</li>
+          <li><span class="opt-key">C</span> The callback returns errors</li>
+          <li><span class="opt-key">D</span> There is no convention</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The callback's FIRST parameter is an error (null when successful), the second is the data</p>
+          <p class="expl">Standard in Node.js: fs.readFile(path, (err, data) =&gt; { if (err) return handle(err); ... }). It forces callers to consider failure first.</p>
+          <p class="tags"><span>Node.js</span><span>Callbacks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does setInterval do, and how do you stop it?</p>
+        <pre class="code"><code>const id = setInterval(tick, 1000);
+clearInterval(id);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Repeats a callback every N ms until clearInterval(id) is called</li>
+          <li><span class="opt-key">B</span> Runs once after N ms</li>
+          <li><span class="opt-key">C</span> Cannot be stopped</li>
+          <li><span class="opt-key">D</span> Pauses the page</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Repeats a callback every N ms until clearInterval(id) is called</p>
+          <p class="expl">Always keep the returned id and clear it when done, or the interval keeps running (and leaking) after the component or page section is gone.</p>
+          <p class="tags"><span>setInterval</span><span>clearInterval</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the call stack?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The list of functions currently executing - each call pushes a frame, each return pops one</li>
+          <li><span class="opt-key">B</span> A queue of events</li>
+          <li><span class="opt-key">C</span> Browser memory</li>
+          <li><span class="opt-key">D</span> The DOM tree</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The list of functions currently executing - each call pushes a frame, each return pops one</p>
+          <p class="expl">Error stack traces are printouts of this stack. Overflowing it with runaway recursion gives 'Maximum call stack size exceeded'.</p>
+          <p class="tags"><span>Call stack</span><span>Stack trace</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does requestAnimationFrame do?</p>
+        <pre class="code"><code>function loop() {
+  move();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Schedules a callback to run just before the next repaint - ideal for smooth animation</li>
+          <li><span class="opt-key">B</span> Runs code every second</li>
+          <li><span class="opt-key">C</span> Loads images</li>
+          <li><span class="opt-key">D</span> Requests data from a server</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Schedules a callback to run just before the next repaint - ideal for smooth animation</p>
+          <p class="expl">It syncs with the display refresh (about 60 fps) and pauses in background tabs, making it far better than setInterval for animation.</p>
+          <p class="tags"><span>Animation</span><span>rAF</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which of these are handled by Web APIs rather than the JS engine itself?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> setTimeout, fetch, DOM events, geolocation</li>
+          <li><span class="opt-key">B</span> for loops and arithmetic</li>
+          <li><span class="opt-key">C</span> Array methods</li>
+          <li><span class="opt-key">D</span> String operations</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — setTimeout, fetch, DOM events, geolocation</p>
+          <p class="expl">The engine runs your code; the browser provides timers, networking and events. They do the waiting off-thread and queue callbacks when ready.</p>
+          <p class="tags"><span>Web APIs</span><span>Runtime</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between synchronous and asynchronous code?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Synchronous blocks until it finishes; asynchronous starts an operation and continues, handling the result later</li>
+          <li><span class="opt-key">B</span> Async code is always faster</li>
+          <li><span class="opt-key">C</span> Sync code runs on another thread</li>
+          <li><span class="opt-key">D</span> There is no difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Synchronous blocks until it finishes; asynchronous starts an operation and continues, handling the result later</p>
+          <p class="expl">Async does not mean parallel in JavaScript - it means 'do not block the thread while waiting'. The waiting happens elsewhere; your callback runs later on the same thread.</p>
+          <p class="tags"><span>Concurrency</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does queueMicrotask(fn) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Schedules fn in the microtask queue - it runs before timers but after current sync code</li>
+          <li><span class="opt-key">B</span> Runs fn immediately</li>
+          <li><span class="opt-key">C</span> Runs fn after 1 ms</li>
+          <li><span class="opt-key">D</span> Creates a Web Worker</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Schedules fn in the microtask queue - it runs before timers but after current sync code</p>
+          <p class="expl">It gives the same priority as promise callbacks, useful for deferring work to just after the current task without waiting for a timer.</p>
+          <p class="tags"><span>Microtasks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you pause for 2 seconds in modern async code?</p>
+        <pre class="code"><code>const sleep = ms =&gt; new Promise(r =&gt; setTimeout(r, ms));
+await sleep(2000);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> await new Promise(r =&gt; setTimeout(r, 2000))</li>
+          <li><span class="opt-key">B</span> sleep(2000)</li>
+          <li><span class="opt-key">C</span> wait(2)</li>
+          <li><span class="opt-key">D</span> thread.sleep(2000)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — await new Promise(r =&gt; setTimeout(r, 2000))</p>
+          <p class="expl">JavaScript has no built-in sleep. Wrapping setTimeout in a promise gives a clean, non-blocking delay usable with await.</p>
+          <p class="tags"><span>Promises</span><span>async/await</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does clearTimeout(id) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Cancels a pending timer before it fires</li>
+          <li><span class="opt-key">B</span> Stops all timers</li>
+          <li><span class="opt-key">C</span> Resets the clock</li>
+          <li><span class="opt-key">D</span> Nothing after the timer is set</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Cancels a pending timer before it fires</p>
+          <p class="expl">Essential for debouncing: each new keystroke clears the previous pending timer so only the final one runs.</p>
+          <p class="tags"><span>clearTimeout</span><span>Debounce</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which pattern reads most clearly for sequential async steps today?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> async/await with try/catch</li>
+          <li><span class="opt-key">B</span> Nested callbacks</li>
+          <li><span class="opt-key">C</span> Long .then() chains only</li>
+          <li><span class="opt-key">D</span> Synchronous XMLHttpRequest</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — async/await with try/catch</p>
+          <p class="expl">await makes asynchronous code read top-to-bottom like synchronous code, with familiar try/catch error handling - built on promises underneath.</p>
+          <p class="tags"><span>async/await</span><span>Readability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why does console.log show the OLD value here?
+let data = null;
+fetchData(d =&gt; data = d);
+console.log(data);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The callback has not run yet - the log executes before the async work completes</li>
+          <li><span class="opt-key">B</span> fetchData is broken</li>
+          <li><span class="opt-key">C</span> data is const</li>
+          <li><span class="opt-key">D</span> console.log is async</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The callback has not run yet - the log executes before the async work completes</p>
+          <p class="expl">The single most common async misunderstanding. You must USE the data inside the callback (or await the promise) rather than reading it immediately after.</p>
+          <p class="tags"><span>Async timing</span><span>Common mistakes</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (16)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Does setTimeout(fn, 1000) guarantee the callback runs in exactly 1 second?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - it runs after AT LEAST 1 second, once the stack is free</li>
+          <li><span class="opt-key">B</span> Yes, exactly</li>
+          <li><span class="opt-key">C</span> It runs immediately</li>
+          <li><span class="opt-key">D</span> It never runs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - it runs after AT LEAST 1 second, once the stack is free</p>
+          <p class="expl">The delay is a minimum. If synchronous code is still running (or other callbacks are queued), the timer waits longer. Never rely on precise timing.</p>
+          <p class="tags"><span>setTimeout</span><span>Timing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the event loop?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The mechanism that moves queued callbacks onto the call stack whenever the stack is empty</li>
+          <li><span class="opt-key">B</span> A for loop over events</li>
+          <li><span class="opt-key">C</span> A browser animation</li>
+          <li><span class="opt-key">D</span> The DOM event system</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The mechanism that moves queued callbacks onto the call stack whenever the stack is empty</p>
+          <p class="expl">Web APIs (timers, network) handle waiting off-thread and push their callbacks into a queue. The event loop constantly checks: is the stack empty? If so, take the next callback.</p>
+          <p class="tags"><span>Event loop</span><span>Task queue</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which runs FIRST when the stack empties: a promise callback or a setTimeout callback?</p>
+        <pre class="code"><code>setTimeout(() =&gt; console.log(&quot;timeout&quot;));
+Promise.resolve().then(() =&gt; console.log(&quot;promise&quot;));
+// promise, then timeout</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The promise - MICROtasks have priority over macrotasks (timers)</li>
+          <li><span class="opt-key">B</span> setTimeout, because it was scheduled first</li>
+          <li><span class="opt-key">C</span> Whichever was written first</li>
+          <li><span class="opt-key">D</span> They run simultaneously</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The promise - MICROtasks have priority over macrotasks (timers)</p>
+          <p class="expl">The microtask queue (promises, queueMicrotask) is fully drained before the next macrotask (setTimeout, events). This is why .then() consistently beats setTimeout(0).</p>
+          <p class="tags"><span>Microtasks</span><span>Macrotasks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output order?
+console.log(1);
+setTimeout(() =&gt; console.log(2));
+Promise.resolve().then(() =&gt; console.log(3));
+console.log(4);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 4 3 2</li>
+          <li><span class="opt-key">B</span> 1 2 3 4</li>
+          <li><span class="opt-key">C</span> 1 4 2 3</li>
+          <li><span class="opt-key">D</span> 1 3 4 2</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 4 3 2</p>
+          <p class="expl">Synchronous first (1, 4), then microtasks (3), then macrotasks (2). This exact question appears in countless interviews.</p>
+          <p class="tags"><span>Event loop</span><span>Ordering</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is 'callback hell'?</p>
+        <pre class="code"><code>getUser(id, (u) =&gt; {
+  getOrders(u, (o) =&gt; {
+    getItems(o, (i) =&gt; {
+      // deeply nested...
+    });
+  });
+});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Deeply nested callbacks for sequential async steps, hard to read and to error-handle</li>
+          <li><span class="opt-key">B</span> Too many functions in a file</li>
+          <li><span class="opt-key">C</span> A browser crash</li>
+          <li><span class="opt-key">D</span> Using callbacks at all</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Deeply nested callbacks for sequential async steps, hard to read and to error-handle</p>
+          <p class="expl">Each step nests inside the previous one, drifting rightward (the 'pyramid of doom') with error handling duplicated at every level. Promises and async/await were created to flatten this.</p>
+          <p class="tags"><span>Callback hell</span><span>Promises</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can a long synchronous loop freeze the page?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It occupies the single thread, so rendering, clicks and timers cannot run until it finishes</li>
+          <li><span class="opt-key">B</span> It uses too much memory</li>
+          <li><span class="opt-key">C</span> The browser blocks loops</li>
+          <li><span class="opt-key">D</span> It does not freeze anything</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It occupies the single thread, so rendering, clicks and timers cannot run until it finishes</p>
+          <p class="expl">The browser cannot repaint or process events while your code holds the thread. Break heavy work into chunks (setTimeout/requestIdleCallback) or move it to a Web Worker.</p>
+          <p class="tags"><span>Blocking</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a Web Worker?</p>
+        <pre class="code"><code>const w = new Worker(&quot;worker.js&quot;);
+w.postMessage(data);
+w.onmessage = (e) =&gt; console.log(e.data);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A script running on a SEPARATE thread, so heavy work does not block the UI</li>
+          <li><span class="opt-key">B</span> A server process</li>
+          <li><span class="opt-key">C</span> A type of callback</li>
+          <li><span class="opt-key">D</span> A browser extension</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A script running on a SEPARATE thread, so heavy work does not block the UI</p>
+          <p class="expl">Workers communicate by messages and cannot touch the DOM, but they are ideal for parsing large files, image processing or heavy computation.</p>
+          <p class="tags"><span>Web Workers</span><span>Threads</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function a() { b(); }
+function b() { throw new Error(&quot;x&quot;); }
+try { a(); } catch (e) { console.log(&quot;caught&quot;); }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> caught - the error propagates DOWN the call stack to the nearest try/catch</li>
+          <li><span class="opt-key">B</span> An uncaught error</li>
+          <li><span class="opt-key">C</span> Nothing</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — caught - the error propagates DOWN the call stack to the nearest try/catch</p>
+          <p class="expl">Synchronous errors bubble through the stack until a try/catch handles them. Asynchronous callbacks run on an empty stack, which is why try/catch cannot catch them.</p>
+          <p class="tags"><span>Error propagation</span><span>Call stack</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does this NOT catch the error?
+try { setTimeout(() =&gt; { throw new Error(&quot;x&quot;); }, 0); }
+catch (e) { console.log(&quot;caught&quot;); }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The callback runs later on a fresh stack, long after the try block completed</li>
+          <li><span class="opt-key">B</span> setTimeout cannot throw</li>
+          <li><span class="opt-key">C</span> The syntax is wrong</li>
+          <li><span class="opt-key">D</span> It does catch it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The callback runs later on a fresh stack, long after the try block completed</p>
+          <p class="expl">try/catch is strictly synchronous. Move it inside the callback, or use promises with .catch()/await.</p>
+          <p class="tags"><span>Async errors</span><span>try/catch</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output order?
+setTimeout(() =&gt; console.log(&quot;t1&quot;), 0);
+setTimeout(() =&gt; console.log(&quot;t2&quot;), 0);
+Promise.resolve().then(() =&gt; console.log(&quot;p1&quot;)).then(() =&gt; console.log(&quot;p2&quot;));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> p1 p2 t1 t2 - ALL microtasks drain before any timer</li>
+          <li><span class="opt-key">B</span> t1 t2 p1 p2</li>
+          <li><span class="opt-key">C</span> p1 t1 p2 t2</li>
+          <li><span class="opt-key">D</span> t1 p1 t2 p2</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — p1 p2 t1 t2 - ALL microtasks drain before any timer</p>
+          <p class="expl">The chained .then also schedules a microtask, which runs in the same drain cycle - so both promise logs beat both timers.</p>
+          <p class="tags"><span>Microtasks</span><span>Event loop</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;start&quot;);
+for (let i = 0; i &lt; 3; i++) setTimeout(() =&gt; console.log(i), 0);
+console.log(&quot;end&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> start end 0 1 2</li>
+          <li><span class="opt-key">B</span> start 0 1 2 end</li>
+          <li><span class="opt-key">C</span> start end 3 3 3</li>
+          <li><span class="opt-key">D</span> 0 1 2 start end</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — start end 0 1 2</p>
+          <p class="expl">Both logs run synchronously first; the three timer callbacks follow in order. let gives each its own i, so 0 1 2 (var would give 3 3 3).</p>
+          <p class="tags"><span>Event loop</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is nested async code better expressed with promises?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Promises flatten the nesting into a chain and centralise error handling in one .catch()</li>
+          <li><span class="opt-key">B</span> Promises are synchronous</li>
+          <li><span class="opt-key">C</span> Callbacks are unsupported</li>
+          <li><span class="opt-key">D</span> Promises are slower but prettier</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Promises flatten the nesting into a chain and centralise error handling in one .catch()</p>
+          <p class="expl">Each callback level needed its own error check; a promise chain propagates rejections automatically to a single handler at the end.</p>
+          <p class="tags"><span>Promises</span><span>Callback hell</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What happens if a microtask schedules another microtask endlessly?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The queue never empties, so the page freezes - timers and rendering never get a turn</li>
+          <li><span class="opt-key">B</span> The browser alternates fairly</li>
+          <li><span class="opt-key">C</span> It throws an error</li>
+          <li><span class="opt-key">D</span> Nothing happens</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The queue never empties, so the page freezes - timers and rendering never get a turn</p>
+          <p class="expl">Microtasks are drained completely before anything else, so an infinite chain starves the event loop - worse than a long timer loop.</p>
+          <p class="tags"><span>Microtasks</span><span>Starvation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is a while loop the WRONG way to wait 2 seconds?
+while (Date.now() - start &lt; 2000) { }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It blocks the single thread completely - the page freezes and nothing renders</li>
+          <li><span class="opt-key">B</span> It is not accurate</li>
+          <li><span class="opt-key">C</span> It uses too much memory</li>
+          <li><span class="opt-key">D</span> It works fine</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It blocks the single thread completely - the page freezes and nothing renders</p>
+          <p class="expl">This 'busy wait' burns CPU and prevents all rendering and input. Always yield with a timer or promise instead.</p>
+          <p class="tags"><span>Blocking</span><span>Busy waiting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const start = Date.now();
+setTimeout(() =&gt; console.log(Date.now() - start), 100);
+for (let i = 0; i &lt; 1e9; i++) { }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A number much LARGER than 100 - the blocking loop delays the callback</li>
+          <li><span class="opt-key">B</span> Exactly 100</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> Nothing is printed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A number much LARGER than 100 - the blocking loop delays the callback</p>
+          <p class="expl">The timer becomes ready at 100 ms but must wait for the stack to clear. This proves timer delays are minimums, not guarantees.</p>
+          <p class="tags"><span>Blocking</span><span>Timers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Is async code parallel?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - it is CONCURRENT: operations overlap in waiting, but JS callbacks still run one at a time on the main thread</li>
+          <li><span class="opt-key">B</span> Yes, fully parallel</li>
+          <li><span class="opt-key">C</span> Only with promises</li>
+          <li><span class="opt-key">D</span> Only in Node.js</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - it is CONCURRENT: operations overlap in waiting, but JS callbacks still run one at a time on the main thread</p>
+          <p class="expl">Several network requests can be in flight simultaneously (the browser handles them), but your JavaScript callbacks are processed sequentially. True parallel JS requires Web Workers.</p>
+          <p class="tags"><span>Concurrency vs parallelism</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="17-events.html">← Events</a>
+      <a href="19-promises-and-async-await.html">Promises &amp; async/await →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-17">Practice “Asynchronous JavaScript” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

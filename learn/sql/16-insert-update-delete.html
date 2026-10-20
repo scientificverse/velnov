@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INSERT, UPDATE, DELETE – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on INSERT, UPDATE, DELETE with answers and detailed explanations — 3 easy, 13 medium and 14 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/16-insert-update-delete.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="INSERT, UPDATE, DELETE – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on INSERT, UPDATE, DELETE with answers and detailed explanations — 3 easy, 13 medium and 14 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/16-insert-update-delete.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"INSERT, UPDATE, DELETE","item":"https://velnov.co.in/learn/sql/16-insert-update-delete.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>INSERT, UPDATE, DELETE</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 16 of 20</p>
+      <h1>INSERT, UPDATE, DELETE — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>INSERT, UPDATE, DELETE</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-15">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">3 easy · 13 medium · 14 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>INSERT</span><span>DML</span><span>Best practices</span><span>Bulk insert</span><span>INSERT SELECT</span><span>ETL</span><span>UPDATE</span><span>Safety</span><span>SET</span><span>JOIN</span><span>DELETE</span><span>TRUNCATE</span><span>DROP</span><span>SELECT</span><span>UPSERT</span><span>ON CONFLICT</span><span>Expressions</span><span>Foreign keys</span><span>ON DELETE CASCADE</span><span>RETURNING</span><span>OUTPUT</span><span>Batching</span><span>Locks</span><span>DEFAULT</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (3)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which statement adds a new row to a table?</p>
+        <pre class="code"><code>INSERT INTO students (name, marks) VALUES ('Ana', 92);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> INSERT INTO</li>
+          <li><span class="opt-key">B</span> ADD ROW</li>
+          <li><span class="opt-key">C</span> CREATE ROW</li>
+          <li><span class="opt-key">D</span> PUT INTO</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — INSERT INTO</p>
+          <p class="expl">INSERT INTO table (columns) VALUES (...) adds rows. Listing the columns explicitly is safest, so the statement keeps working if the table's column order changes.</p>
+          <p class="tags"><span>INSERT</span><span>DML</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which statement modifies existing rows?</p>
+        <pre class="code"><code>UPDATE students SET marks = 95 WHERE id = 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UPDATE</li>
+          <li><span class="opt-key">B</span> MODIFY</li>
+          <li><span class="opt-key">C</span> CHANGE</li>
+          <li><span class="opt-key">D</span> SET ROW</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UPDATE</p>
+          <p class="expl">UPDATE t SET col = value WHERE ... changes rows that match the condition. The SET clause lists the columns to change.</p>
+          <p class="tags"><span>UPDATE</span><span>DML</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which statement removes rows?</p>
+        <pre class="code"><code>DELETE FROM students WHERE id = 5;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DELETE FROM</li>
+          <li><span class="opt-key">B</span> REMOVE FROM</li>
+          <li><span class="opt-key">C</span> DROP ROW</li>
+          <li><span class="opt-key">D</span> ERASE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DELETE FROM</p>
+          <p class="expl">DELETE FROM t WHERE ... removes matching rows. Without WHERE it empties the table (but keeps its structure).</p>
+          <p class="tags"><span>DELETE</span><span>DML</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why list column names in an INSERT?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It makes the insert robust to column additions/reordering and documents intent</li>
+          <li><span class="opt-key">B</span> It is required syntax</li>
+          <li><span class="opt-key">C</span> It is faster</li>
+          <li><span class="opt-key">D</span> No reason</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It makes the insert robust to column additions/reordering and documents intent</p>
+          <p class="expl">INSERT INTO t VALUES (...) relies on exact column order and count. Naming columns lets you omit ones with defaults and survives schema changes.</p>
+          <p class="tags"><span>INSERT</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you insert MULTIPLE rows in one statement?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> INSERT INTO t (a, b) VALUES (1, 2), (3, 4), (5, 6);</li>
+          <li><span class="opt-key">B</span> Three separate INSERTs only</li>
+          <li><span class="opt-key">C</span> INSERT MANY</li>
+          <li><span class="opt-key">D</span> It is not possible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — INSERT INTO t (a, b) VALUES (1, 2), (3, 4), (5, 6);</p>
+          <p class="expl">A multi-row VALUES list inserts several rows at once - far faster than many single inserts because it is one statement and one round trip.</p>
+          <p class="tags"><span>INSERT</span><span>Bulk insert</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you update multiple columns at once?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SET col1 = v1, col2 = v2 - comma-separated assignments</li>
+          <li><span class="opt-key">B</span> SET col1 = v1 AND col2 = v2</li>
+          <li><span class="opt-key">C</span> SET (col1, col2)</li>
+          <li><span class="opt-key">D</span> Two UPDATE statements only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SET col1 = v1, col2 = v2 - comma-separated assignments</p>
+          <p class="expl">One UPDATE can change many columns: SET status = 'shipped', shipped_at = NOW(). Use AND only in the WHERE clause, never in SET.</p>
+          <p class="tags"><span>UPDATE</span><span>SET</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the safest habit before running a DELETE or UPDATE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Run a SELECT with the SAME WHERE clause first to preview affected rows</li>
+          <li><span class="opt-key">B</span> Run it immediately</li>
+          <li><span class="opt-key">C</span> Disable indexes</li>
+          <li><span class="opt-key">D</span> Delete a backup</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Run a SELECT with the SAME WHERE clause first to preview affected rows</p>
+          <p class="expl">Previewing shows exactly which rows will change. Combined with a transaction (BEGIN ... ROLLBACK if wrong), it prevents most accidental data loss.</p>
+          <p class="tags"><span>Safety</span><span>SELECT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you increment a column's value?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UPDATE t SET views = views + 1 WHERE id = 5;</li>
+          <li><span class="opt-key">B</span> UPDATE t SET views++ </li>
+          <li><span class="opt-key">C</span> INCREMENT views</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UPDATE t SET views = views + 1 WHERE id = 5;</p>
+          <p class="expl">Reference the column in its own SET expression. The database reads the current value and writes the new one atomically within the statement.</p>
+          <p class="tags"><span>UPDATE</span><span>Expressions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the RETURNING clause do (PostgreSQL)?</p>
+        <pre class="code"><code>INSERT INTO users (name) VALUES ('Ana') RETURNING id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Returns the inserted/updated/deleted rows - e.g. to get an auto-generated id</li>
+          <li><span class="opt-key">B</span> Rolls back the change</li>
+          <li><span class="opt-key">C</span> Returns nothing</li>
+          <li><span class="opt-key">D</span> Repeats the statement</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Returns the inserted/updated/deleted rows - e.g. to get an auto-generated id</p>
+          <p class="expl">INSERT ... RETURNING id gives back the new primary key in one round trip. SQL Server uses the OUTPUT clause for the same purpose.</p>
+          <p class="tags"><span>RETURNING</span><span>OUTPUT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you insert a row using DEFAULT values?</p>
+        <pre class="code"><code>INSERT INTO orders (customer_id) VALUES (5);  -- status uses its default</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Omit those columns from the INSERT, or use the keyword DEFAULT</li>
+          <li><span class="opt-key">B</span> You must specify every column</li>
+          <li><span class="opt-key">C</span> Insert NULL always</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Omit those columns from the INSERT, or use the keyword DEFAULT</p>
+          <p class="expl">Columns with a DEFAULT (or that allow NULL, or auto-increment) can be left out of the column list. The database fills them in automatically.</p>
+          <p class="tags"><span>DEFAULT</span><span>INSERT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does INSERT do if a UNIQUE constraint is violated?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It fails with a unique-constraint error unless you handle it (e.g. with ON CONFLICT)</li>
+          <li><span class="opt-key">B</span> It overwrites silently</li>
+          <li><span class="opt-key">C</span> It inserts a duplicate</li>
+          <li><span class="opt-key">D</span> It updates the row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It fails with a unique-constraint error unless you handle it (e.g. with ON CONFLICT)</p>
+          <p class="expl">Constraints protect integrity by rejecting the insert. UPSERT syntax lets you decide to update instead, or IGNORE to skip the conflicting row.</p>
+          <p class="tags"><span>UNIQUE</span><span>Constraints</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you delete duplicate rows keeping one copy?</p>
+        <pre class="code"><code>DELETE FROM t WHERE id IN (
+  SELECT id FROM (SELECT id, ROW_NUMBER() OVER (PARTITION BY email ORDER BY id) rn FROM t) x WHERE rn &gt; 1
+);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use a window function (ROW_NUMBER) or a self join to identify extras, then DELETE them</li>
+          <li><span class="opt-key">B</span> DELETE DISTINCT</li>
+          <li><span class="opt-key">C</span> TRUNCATE the table</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use a window function (ROW_NUMBER) or a self join to identify extras, then DELETE them</p>
+          <p class="expl">Number the duplicates with ROW_NUMBER() OVER (PARTITION BY key) and delete those with rn &gt; 1. A very common data-cleaning task.</p>
+          <p class="tags"><span>Duplicates</span><span>ROW_NUMBER</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does DELETE return or affect besides removing rows?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It reports the number of rows affected and can fire triggers and cascade to related tables</li>
+          <li><span class="opt-key">B</span> Only removes rows silently</li>
+          <li><span class="opt-key">C</span> It returns the rows</li>
+          <li><span class="opt-key">D</span> Nothing else</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It reports the number of rows affected and can fire triggers and cascade to related tables</p>
+          <p class="expl">The affected-row count confirms the scope of the operation. Foreign key cascades and triggers may perform additional work - worth knowing before running big deletes.</p>
+          <p class="tags"><span>DELETE</span><span>Triggers</span><span>Cascade</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you empty a table but keep its structure quickly?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TRUNCATE TABLE t;</li>
+          <li><span class="opt-key">B</span> DROP TABLE t;</li>
+          <li><span class="opt-key">C</span> DELETE TABLE t;</li>
+          <li><span class="opt-key">D</span> CLEAR t;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TRUNCATE TABLE t;</p>
+          <p class="expl">TRUNCATE removes all rows almost instantly and resets auto-increment counters (in most databases), while leaving the table definition intact.</p>
+          <p class="tags"><span>TRUNCATE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you set a column to NULL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UPDATE t SET middle_name = NULL WHERE id = 5;</li>
+          <li><span class="opt-key">B</span> DELETE middle_name</li>
+          <li><span class="opt-key">C</span> SET middle_name = ''</li>
+          <li><span class="opt-key">D</span> REMOVE middle_name</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UPDATE t SET middle_name = NULL WHERE id = 5;</p>
+          <p class="expl">Assigning NULL clears a value (if the column allows NULL). This differs from '' (empty string) - NULL means 'no value', empty string means 'a known blank'.</p>
+          <p class="tags"><span>NULL</span><span>UPDATE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which clause limits how many rows an UPDATE or DELETE affects (MySQL)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LIMIT - e.g. DELETE FROM logs WHERE ... LIMIT 1000 for batching</li>
+          <li><span class="opt-key">B</span> TOP only</li>
+          <li><span class="opt-key">C</span> FETCH only</li>
+          <li><span class="opt-key">D</span> You cannot limit them</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LIMIT - e.g. DELETE FROM logs WHERE ... LIMIT 1000 for batching</p>
+          <p class="expl">MySQL allows LIMIT on DELETE/UPDATE for batch processing. SQL Server uses DELETE TOP (n). Batching large modifications reduces locking and log growth.</p>
+          <p class="tags"><span>Batching</span><span>LIMIT</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (14)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you insert rows from a SELECT (copying data)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> INSERT INTO archive (id, total) SELECT id, total FROM orders WHERE year &lt; 2020;</li>
+          <li><span class="opt-key">B</span> COPY orders TO archive</li>
+          <li><span class="opt-key">C</span> INSERT SELECT INTO</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — INSERT INTO archive (id, total) SELECT id, total FROM orders WHERE year &lt; 2020;</p>
+          <p class="expl">INSERT ... SELECT populates a table from a query - used for archiving, summarising and ETL. The SELECT's columns must line up with the target columns.</p>
+          <p class="tags"><span>INSERT SELECT</span><span>ETL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the danger of UPDATE without a WHERE clause?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It updates EVERY row in the table</li>
+          <li><span class="opt-key">B</span> It errors</li>
+          <li><span class="opt-key">C</span> It updates nothing</li>
+          <li><span class="opt-key">D</span> It updates one row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It updates EVERY row in the table</p>
+          <p class="expl">UPDATE students SET marks = 0 with no WHERE sets every student's marks to 0. Always double-check the WHERE - and wrap risky changes in a transaction you can roll back.</p>
+          <ul class="notes"><li>The classic 'I forgot the WHERE' disaster.</li></ul>
+          <p class="tags"><span>UPDATE</span><span>Safety</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you UPDATE using values from another table?</p>
+        <pre class="code"><code>UPDATE orders o SET total = s.amt
+FROM summary s WHERE s.order_id = o.id;   -- PostgreSQL</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UPDATE ... SET col = (SELECT ...) or a JOIN-based update (UPDATE ... FROM in PostgreSQL)</li>
+          <li><span class="opt-key">B</span> You cannot reference other tables</li>
+          <li><span class="opt-key">C</span> Use INSERT</li>
+          <li><span class="opt-key">D</span> Use UNION</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UPDATE ... SET col = (SELECT ...) or a JOIN-based update (UPDATE ... FROM in PostgreSQL)</p>
+          <p class="expl">A correlated subquery or a JOIN in the UPDATE lets you set values based on related data - for example, updating a cached total from a summary table.</p>
+          <p class="tags"><span>UPDATE</span><span>JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between DELETE and TRUNCATE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DELETE removes rows one by one (logged, can have WHERE, fires triggers); TRUNCATE instantly empties the whole table</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> TRUNCATE can use WHERE</li>
+          <li><span class="opt-key">D</span> DELETE is faster for whole tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DELETE removes rows one by one (logged, can have WHERE, fires triggers); TRUNCATE instantly empties the whole table</p>
+          <p class="expl">TRUNCATE is much faster for clearing an entire table because it deallocates data pages instead of deleting rows individually, but it cannot filter and usually cannot be rolled back the same way.</p>
+          <p class="tags"><span>DELETE</span><span>TRUNCATE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between DELETE, TRUNCATE and DROP?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DELETE removes rows (optionally filtered), TRUNCATE empties the table, DROP removes the table itself</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> DROP keeps the structure</li>
+          <li><span class="opt-key">D</span> TRUNCATE removes the table</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DELETE removes rows (optionally filtered), TRUNCATE empties the table, DROP removes the table itself</p>
+          <p class="expl">DELETE and TRUNCATE keep the table (its columns and indexes remain); DROP TABLE deletes the entire object. Choose based on whether you need the empty table afterward.</p>
+          <p class="tags"><span>DELETE</span><span>TRUNCATE</span><span>DROP</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is an UPSERT?</p>
+        <pre class="code"><code>INSERT INTO counters (id, n) VALUES (1, 1)
+ON CONFLICT (id) DO UPDATE SET n = counters.n + 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Insert a row, but UPDATE it instead if it already exists (INSERT ... ON CONFLICT / ON DUPLICATE KEY / MERGE)</li>
+          <li><span class="opt-key">B</span> A faster insert</li>
+          <li><span class="opt-key">C</span> Deleting then inserting</li>
+          <li><span class="opt-key">D</span> An error type</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Insert a row, but UPDATE it instead if it already exists (INSERT ... ON CONFLICT / ON DUPLICATE KEY / MERGE)</p>
+          <p class="expl">UPSERT handles 'insert or update' atomically. PostgreSQL uses INSERT ... ON CONFLICT DO UPDATE; MySQL uses ON DUPLICATE KEY UPDATE; the standard is MERGE.</p>
+          <p class="tags"><span>UPSERT</span><span>ON CONFLICT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What happens to child rows when you DELETE a parent with a foreign key?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It depends on the FK's ON DELETE rule: RESTRICT blocks it, CASCADE deletes children, SET NULL nulls the reference</li>
+          <li><span class="opt-key">B</span> Children are always deleted</li>
+          <li><span class="opt-key">C</span> Nothing happens</li>
+          <li><span class="opt-key">D</span> It always errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It depends on the FK's ON DELETE rule: RESTRICT blocks it, CASCADE deletes children, SET NULL nulls the reference</p>
+          <p class="expl">Referential actions defined on the foreign key control this. RESTRICT/NO ACTION protects data, CASCADE cleans up dependents, SET NULL orphans them safely.</p>
+          <p class="tags"><span>Foreign keys</span><span>ON DELETE CASCADE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can a large single DELETE be problematic?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It can lock rows, bloat the transaction log, and run long - batching (delete in chunks) is often safer</li>
+          <li><span class="opt-key">B</span> It is always fine</li>
+          <li><span class="opt-key">C</span> It never locks</li>
+          <li><span class="opt-key">D</span> It deletes too little</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It can lock rows, bloat the transaction log, and run long - batching (delete in chunks) is often safer</p>
+          <p class="expl">Deleting millions of rows in one transaction holds locks and grows the log. Deleting in batches (e.g. 10,000 rows at a time) reduces contention and log pressure.</p>
+          <p class="tags"><span>DELETE</span><span>Batching</span><span>Locks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does a conditional UPDATE with CASE achieve?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Sets different values per row based on conditions in a single statement</li>
+          <li><span class="opt-key">B</span> It filters rows</li>
+          <li><span class="opt-key">C</span> It deletes rows</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Sets different values per row based on conditions in a single statement</p>
+          <p class="expl">UPDATE t SET tier = CASE WHEN spend &gt; 1000 THEN 'gold' ELSE 'silver' END updates every row with the appropriate value in one pass.</p>
+          <p class="tags"><span>UPDATE</span><span>CASE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a soft delete?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Marking a row as deleted (e.g. deleted_at timestamp) instead of physically removing it</li>
+          <li><span class="opt-key">B</span> A slow DELETE</li>
+          <li><span class="opt-key">C</span> DELETE without WHERE</li>
+          <li><span class="opt-key">D</span> TRUNCATE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Marking a row as deleted (e.g. deleted_at timestamp) instead of physically removing it</p>
+          <p class="expl">Soft deletes preserve history and allow recovery: queries add WHERE deleted_at IS NULL. The trade-off is extra filtering and eventual cleanup of old rows.</p>
+          <p class="tags"><span>Soft delete</span><span>Auditing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why should DML changes often be wrapped in a transaction?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> So a multi-step change is all-or-nothing and can be rolled back if something goes wrong</li>
+          <li><span class="opt-key">B</span> To make it faster</li>
+          <li><span class="opt-key">C</span> Transactions are required for INSERT</li>
+          <li><span class="opt-key">D</span> No reason</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — So a multi-step change is all-or-nothing and can be rolled back if something goes wrong</p>
+          <p class="expl">BEGIN ... COMMIT groups related changes; ROLLBACK undoes them if an error occurs. This keeps data consistent - for example, debit one account and credit another together.</p>
+          <p class="tags"><span>Transactions</span><span>Atomicity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you copy a table's structure AND data into a new table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CREATE TABLE new AS SELECT * FROM old;  (CTAS)</li>
+          <li><span class="opt-key">B</span> COPY TABLE</li>
+          <li><span class="opt-key">C</span> INSERT INTO new</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CREATE TABLE new AS SELECT * FROM old;  (CTAS)</p>
+          <p class="expl">CREATE TABLE AS SELECT (CTAS) creates and fills a table in one step - handy for backups and staging. Note it usually does NOT copy indexes or constraints.</p>
+          <p class="tags"><span>CTAS</span><span>CREATE TABLE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the risk of updating a column used in the WHERE of the same statement?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Generally SQL applies the change atomically per the original match set, but semantics can surprise you - test carefully</li>
+          <li><span class="opt-key">B</span> It always loops forever</li>
+          <li><span class="opt-key">C</span> It is a syntax error</li>
+          <li><span class="opt-key">D</span> It never works</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Generally SQL applies the change atomically per the original match set, but semantics can surprise you - test carefully</p>
+          <p class="expl">SQL evaluates the WHERE against the pre-update state within the statement, so it does not re-match rows mid-update. Still, such statements deserve careful testing on sample data.</p>
+          <p class="tags"><span>UPDATE</span><span>Semantics</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is INSERT ... SELECT preferred over row-by-row inserts for bulk loads?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It is a single set-based operation - far fewer round trips and log entries than thousands of individual inserts</li>
+          <li><span class="opt-key">B</span> It is slower but safer</li>
+          <li><span class="opt-key">C</span> It skips constraints</li>
+          <li><span class="opt-key">D</span> There is no difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It is a single set-based operation - far fewer round trips and log entries than thousands of individual inserts</p>
+          <p class="expl">Set-based operations let the database work in bulk. Looping single inserts from application code is dramatically slower due to per-statement overhead.</p>
+          <p class="tags"><span>Bulk insert</span><span>Performance</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="15-subqueries-and-ctes.html">← Subqueries &amp; CTEs</a>
+      <a href="17-tables-and-constraints.html">Tables &amp; Constraints →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-15">Practice “INSERT, UPDATE, DELETE” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

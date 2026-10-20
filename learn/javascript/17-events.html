@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Events with answers and detailed explanations — 1 easy, 17 medium and 12 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/17-events.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Events – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Events with answers and detailed explanations — 1 easy, 17 medium and 12 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/17-events.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Events","item":"https://velnov.co.in/learn/javascript/17-events.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Events</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 17 of 20</p>
+      <h1>Events — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Events</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-16">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">1 easy · 17 medium · 12 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>addEventListener</span><span>Events</span><span>Callbacks</span><span>Common mistakes</span><span>Event object</span><span>target</span><span>currentTarget</span><span>Delegation</span><span>preventDefault</span><span>Forms</span><span>stopPropagation</span><span>Bubbling</span><span>Propagation</span><span>Capturing</span><span>Performance</span><span>Dynamic content</span><span>removeEventListener</span><span>Cleanup</span><span>Listener options</span><span>input</span><span>change</span><span>Keyboard events</span><span>e.key</span><span>FormData</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (1)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the modern way to react to a click?</p>
+        <pre class="code"><code>btn.addEventListener(&quot;click&quot;, () =&gt; console.log(&quot;clicked&quot;));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> btn.addEventListener(&quot;click&quot;, handler)</li>
+          <li><span class="opt-key">B</span> btn.onClick = handler</li>
+          <li><span class="opt-key">C</span> btn.click(handler)</li>
+          <li><span class="opt-key">D</span> btn.on(&quot;click&quot;, handler)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — btn.addEventListener(&quot;click&quot;, handler)</p>
+          <p class="expl">addEventListener allows MULTIPLE handlers for the same event and supports options like once and capture. The onclick property allows only one handler.</p>
+          <p class="tags"><span>addEventListener</span><span>Events</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (17)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the event object passed to a handler?</p>
+        <pre class="code"><code>btn.addEventListener(&quot;click&quot;, (e) =&gt; {
+  console.log(e.type, e.target, e.clientX);
+});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An object describing what happened - target, type, coordinates, key pressed, etc.</li>
+          <li><span class="opt-key">B</span> The element only</li>
+          <li><span class="opt-key">C</span> A string</li>
+          <li><span class="opt-key">D</span> Nothing is passed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An object describing what happened - target, type, coordinates, key pressed, etc.</p>
+          <p class="expl">Every handler receives the event as its first argument (conventionally e or event), carrying details and control methods like preventDefault.</p>
+          <p class="tags"><span>Event object</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does e.preventDefault() do?</p>
+        <pre class="code"><code>form.addEventListener(&quot;submit&quot;, (e) =&gt; {
+  e.preventDefault();   // stop page reload
+  sendData();
+});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Stops the browser's default action - e.g. a form submitting or a link navigating</li>
+          <li><span class="opt-key">B</span> Stops the event bubbling</li>
+          <li><span class="opt-key">C</span> Removes the listener</li>
+          <li><span class="opt-key">D</span> Prevents all events</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Stops the browser's default action - e.g. a form submitting or a link navigating</p>
+          <p class="expl">Essential for handling forms with JavaScript, since without it the page reloads and your code appears to do nothing.</p>
+          <p class="tags"><span>preventDefault</span><span>Forms</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does e.stopPropagation() do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Prevents the event from continuing to bubble up to ancestor elements</li>
+          <li><span class="opt-key">B</span> Stops the default action</li>
+          <li><span class="opt-key">C</span> Deletes the event</li>
+          <li><span class="opt-key">D</span> Cancels all listeners on the page</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Prevents the event from continuing to bubble up to ancestor elements</p>
+          <p class="expl">Useful when an inner element's click should not also trigger a parent's handler (e.g. clicking inside a modal should not close it). Use sparingly - it can make behaviour hard to trace.</p>
+          <p class="tags"><span>stopPropagation</span><span>Bubbling</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why does event delegation work for elements added dynamically?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The listener is on the parent, which already exists - new children bubble to it automatically</li>
+          <li><span class="opt-key">B</span> The browser re-scans listeners</li>
+          <li><span class="opt-key">C</span> It does not work for new elements</li>
+          <li><span class="opt-key">D</span> JavaScript adds listeners automatically</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The listener is on the parent, which already exists - new children bubble to it automatically</p>
+          <p class="expl">Directly attached listeners only cover elements present at the time. Delegation solves the common bug where newly created buttons stop responding.</p>
+          <p class="tags"><span>Delegation</span><span>Dynamic content</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you REMOVE an event listener?</p>
+        <pre class="code"><code>function onClick() { }
+btn.addEventListener(&quot;click&quot;, onClick);
+btn.removeEventListener(&quot;click&quot;, onClick);   // works</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> removeEventListener with the SAME function reference used to add it</li>
+          <li><span class="opt-key">B</span> removeEventListener(&quot;click&quot;)</li>
+          <li><span class="opt-key">C</span> el.listeners = []</li>
+          <li><span class="opt-key">D</span> delete el.onclick</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — removeEventListener with the SAME function reference used to add it</p>
+          <p class="expl">An anonymous inline arrow cannot be removed because you have no reference to it. Store the function in a variable if you plan to remove it.</p>
+          <p class="tags"><span>removeEventListener</span><span>Cleanup</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the { once: true } option do?</p>
+        <pre class="code"><code>btn.addEventListener(&quot;click&quot;, init, { once: true });</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The listener fires at most once, then removes itself automatically</li>
+          <li><span class="opt-key">B</span> It fires once per second</li>
+          <li><span class="opt-key">C</span> It only works on one element</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The listener fires at most once, then removes itself automatically</p>
+          <p class="expl">Ideal for one-time actions like an intro animation or a single-submit guard - no manual cleanup needed.</p>
+          <p class="tags"><span>Listener options</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which event fires as the user TYPES in an input?</p>
+        <pre class="code"><code>search.addEventListener(&quot;input&quot;, (e) =&gt; filter(e.target.value));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> input - it fires on every change, including paste</li>
+          <li><span class="opt-key">B</span> change - only when leaving the field</li>
+          <li><span class="opt-key">C</span> keypress only</li>
+          <li><span class="opt-key">D</span> submit</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — input - it fires on every change, including paste</p>
+          <p class="expl">Use input for live search or character counters. change fires only after the value is committed (blur or selection), which is better for selects and checkboxes.</p>
+          <p class="tags"><span>input</span><span>change</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you detect which key was pressed?</p>
+        <pre class="code"><code>input.addEventListener(&quot;keydown&quot;, (e) =&gt; {
+  if (e.key === &quot;Enter&quot;) submit();
+});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> e.key - a readable string like &quot;Enter&quot;, &quot;a&quot;, &quot;ArrowUp&quot;</li>
+          <li><span class="opt-key">B</span> e.keyCode only</li>
+          <li><span class="opt-key">C</span> e.char</li>
+          <li><span class="opt-key">D</span> e.button</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — e.key - a readable string like &quot;Enter&quot;, &quot;a&quot;, &quot;ArrowUp&quot;</p>
+          <p class="expl">e.key is the modern, readable property. e.keyCode is deprecated. Use e.code when you need the physical key regardless of layout.</p>
+          <p class="tags"><span>Keyboard events</span><span>e.key</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between keydown and keyup?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> keydown fires when the key goes DOWN (and repeats if held); keyup fires on release</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> keyup fires first</li>
+          <li><span class="opt-key">D</span> keydown only works for letters</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — keydown fires when the key goes DOWN (and repeats if held); keyup fires on release</p>
+          <p class="expl">Use keydown for shortcuts and to preventDefault before the character appears; use keyup when you need the final state after the key is released.</p>
+          <p class="tags"><span>Keyboard events</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between mouseover and mouseenter?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> mouseover BUBBLES and re-fires when moving over children; mouseenter fires once for the element itself</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> mouseenter bubbles</li>
+          <li><span class="opt-key">D</span> mouseover works only on links</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — mouseover BUBBLES and re-fires when moving over children; mouseenter fires once for the element itself</p>
+          <p class="expl">mouseenter/mouseleave are usually what you want for hover effects, because mouseover fires repeatedly as the pointer crosses child elements.</p>
+          <p class="tags"><span>Mouse events</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which event should you use to run code after the page's HTML is ready?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DOMContentLoaded</li>
+          <li><span class="opt-key">B</span> click</li>
+          <li><span class="opt-key">C</span> resize</li>
+          <li><span class="opt-key">D</span> beforeunload</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DOMContentLoaded</p>
+          <p class="expl">DOMContentLoaded fires as soon as the DOM is parsed. Alternatively, adding defer to your script tag achieves the same effect without a listener.</p>
+          <p class="tags"><span>DOMContentLoaded</span><span>Page lifecycle</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the { passive: true } listener option indicate?</p>
+        <pre class="code"><code>window.addEventListener(&quot;touchstart&quot;, fn, { passive: true });</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> That the handler will NOT call preventDefault, letting the browser scroll without waiting</li>
+          <li><span class="opt-key">B</span> That the listener runs once</li>
+          <li><span class="opt-key">C</span> That the event is ignored</li>
+          <li><span class="opt-key">D</span> That it captures</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — That the handler will NOT call preventDefault, letting the browser scroll without waiting</p>
+          <p class="expl">Passive touch/wheel listeners improve scrolling smoothness because the browser need not block to see whether you cancel the default.</p>
+          <p class="tags"><span>Performance</span><span>Touch events</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is this inside a REGULAR function event handler?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The element the listener is attached to (same as e.currentTarget)</li>
+          <li><span class="opt-key">B</span> window</li>
+          <li><span class="opt-key">C</span> The event object</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The element the listener is attached to (same as e.currentTarget)</p>
+          <p class="expl">The DOM binds this to the current element - but an ARROW handler inherits this from the outer scope instead, so use e.currentTarget there.</p>
+          <p class="tags"><span>this</span><span>Events</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can one element have TWO listeners for the same event?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes with addEventListener - they run in the order added</li>
+          <li><span class="opt-key">B</span> No, only one</li>
+          <li><span class="opt-key">C</span> Only with capture</li>
+          <li><span class="opt-key">D</span> Only on different elements</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes with addEventListener - they run in the order added</p>
+          <p class="expl">This is a key advantage over the onclick property, which each new assignment overwrites.</p>
+          <p class="tags"><span>addEventListener</span><span>Multiple handlers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which event fires when a form is submitted?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> submit (on the FORM element)</li>
+          <li><span class="opt-key">B</span> click on the button only</li>
+          <li><span class="opt-key">C</span> send</li>
+          <li><span class="opt-key">D</span> post</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — submit (on the FORM element)</p>
+          <p class="expl">Listen on the form, not the button - that way Enter-key submission is also captured. Then call e.preventDefault() to handle it in JavaScript.</p>
+          <p class="tags"><span>Forms</span><span>submit</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the change event on a checkbox give you?</p>
+        <pre class="code"><code>cb.addEventListener(&quot;change&quot;, e =&gt; console.log(e.target.checked));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It fires when checked state changes - read e.target.checked (a boolean)</li>
+          <li><span class="opt-key">B</span> It gives the text value</li>
+          <li><span class="opt-key">C</span> It fires on hover</li>
+          <li><span class="opt-key">D</span> It does not work on checkboxes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It fires when checked state changes - read e.target.checked (a boolean)</p>
+          <p class="expl">For checkboxes and radios use .checked, not .value (which is the static value attribute).</p>
+          <p class="tags"><span>Forms</span><span>Checkboxes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is better for a list of 100 buttons: 100 listeners or 1 delegated listener?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> One delegated listener on the parent - less memory and it covers future items</li>
+          <li><span class="opt-key">B</span> 100 individual listeners</li>
+          <li><span class="opt-key">C</span> They are identical</li>
+          <li><span class="opt-key">D</span> Neither works</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — One delegated listener on the parent - less memory and it covers future items</p>
+          <p class="expl">Delegation is the standard solution for lists, tables and any dynamically generated content.</p>
+          <p class="tags"><span>Delegation</span><span>Performance</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (12)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is wrong here?
+btn.addEventListener(&quot;click&quot;, handleClick());</p>
+        <pre class="code"><code>btn.addEventListener(&quot;click&quot;, handleClick);          // correct
+btn.addEventListener(&quot;click&quot;, () =&gt; handleClick(5));  // with args</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The parentheses CALL handleClick immediately and register its return value instead of the function</li>
+          <li><span class="opt-key">B</span> Nothing is wrong</li>
+          <li><span class="opt-key">C</span> The event name is wrong</li>
+          <li><span class="opt-key">D</span> It needs three arguments</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The parentheses CALL handleClick immediately and register its return value instead of the function</p>
+          <p class="expl">Pass the function itself (no parentheses). If you must pass arguments, wrap it: () =&gt; handleClick(id).</p>
+          <ul class="notes"><li>A top beginner mistake with event listeners.</li></ul>
+          <p class="tags"><span>Callbacks</span><span>Common mistakes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between e.target and e.currentTarget?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> target is the element that ACTUALLY triggered the event; currentTarget is the element the listener is attached to</li>
+          <li><span class="opt-key">B</span> They are always the same</li>
+          <li><span class="opt-key">C</span> currentTarget is the parent</li>
+          <li><span class="opt-key">D</span> target is always the document</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — target is the element that ACTUALLY triggered the event; currentTarget is the element the listener is attached to</p>
+          <p class="expl">Clicking a &lt;span&gt; inside a button makes target the span but currentTarget the button. This distinction is the key to event delegation.</p>
+          <p class="tags"><span>target</span><span>currentTarget</span><span>Delegation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is event BUBBLING?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An event fires on the target, then travels UP through each ancestor, triggering their handlers</li>
+          <li><span class="opt-key">B</span> Events go downward from document</li>
+          <li><span class="opt-key">C</span> Events repeat</li>
+          <li><span class="opt-key">D</span> Events fire twice</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An event fires on the target, then travels UP through each ancestor, triggering their handlers</p>
+          <p class="expl">Click a button inside a div inside body: handlers fire on the button, then the div, then body, then document. Bubbling is what makes delegation possible.</p>
+          <p class="tags"><span>Bubbling</span><span>Propagation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What are the three phases of event propagation?</p>
+        <pre class="code"><code>el.addEventListener(&quot;click&quot;, fn, true);   // capture phase</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Capturing (down), target, then bubbling (up)</li>
+          <li><span class="opt-key">B</span> Start, middle, end</li>
+          <li><span class="opt-key">C</span> Click, hold, release</li>
+          <li><span class="opt-key">D</span> Only bubbling exists</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Capturing (down), target, then bubbling (up)</p>
+          <p class="expl">The event descends from document to the target (capture), fires at the target, then bubbles back up. Passing true (or {capture: true}) to addEventListener runs your handler during the capture phase.</p>
+          <p class="tags"><span>Capturing</span><span>Bubbling</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is event DELEGATION?</p>
+        <pre class="code"><code>list.addEventListener(&quot;click&quot;, (e) =&gt; {
+  const btn = e.target.closest(&quot;.delete&quot;);
+  if (!btn) return;
+  btn.closest(&quot;li&quot;).remove();
+});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Attaching ONE listener to a parent and using e.target to handle events from many children</li>
+          <li><span class="opt-key">B</span> Assigning events to another developer</li>
+          <li><span class="opt-key">C</span> Using multiple listeners per element</li>
+          <li><span class="opt-key">D</span> Removing listeners</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Attaching ONE listener to a parent and using e.target to handle events from many children</p>
+          <p class="expl">Instead of a listener per row, put one on the container. It uses less memory and automatically covers elements added LATER - the standard pattern for dynamic lists.</p>
+          <p class="tags"><span>Delegation</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you read all values from a form on submit?</p>
+        <pre class="code"><code>form.addEventListener(&quot;submit&quot;, (e) =&gt; {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(form));
+  console.log(data.email);
+});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> const data = Object.fromEntries(new FormData(form))</li>
+          <li><span class="opt-key">B</span> form.values</li>
+          <li><span class="opt-key">C</span> form.data()</li>
+          <li><span class="opt-key">D</span> JSON.parse(form)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — const data = Object.fromEntries(new FormData(form))</p>
+          <p class="expl">FormData collects every named field; fromEntries turns it into a plain object. Remember to call e.preventDefault() first.</p>
+          <p class="tags"><span>FormData</span><span>Forms</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output order?
+parent.addEventListener(&quot;click&quot;, () =&gt; console.log(&quot;parent&quot;));
+child.addEventListener(&quot;click&quot;, () =&gt; console.log(&quot;child&quot;));
+// user clicks child</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> child then parent - the event bubbles upward</li>
+          <li><span class="opt-key">B</span> parent then child</li>
+          <li><span class="opt-key">C</span> Only child</li>
+          <li><span class="opt-key">D</span> Only parent</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — child then parent - the event bubbles upward</p>
+          <p class="expl">Default listeners run in the bubbling phase, starting at the target. Adding {capture: true} to the parent would make it fire FIRST instead.</p>
+          <p class="tags"><span>Bubbling</span><span>Order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why should scroll and resize handlers be throttled or debounced?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They fire extremely often, so heavy work in them causes janky, slow scrolling</li>
+          <li><span class="opt-key">B</span> They are disabled by default</li>
+          <li><span class="opt-key">C</span> They only fire once</li>
+          <li><span class="opt-key">D</span> No reason</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They fire extremely often, so heavy work in them causes janky, slow scrolling</p>
+          <p class="expl">Scroll can fire dozens of times per second. Throttle limits the rate; debounce waits for a pause. For visibility detection, IntersectionObserver is better still.</p>
+          <p class="tags"><span>Performance</span><span>Debounce</span><span>Throttle</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you trigger a custom event?</p>
+        <pre class="code"><code>el.addEventListener(&quot;cart:add&quot;, e =&gt; console.log(e.detail.id));
+el.dispatchEvent(new CustomEvent(&quot;cart:add&quot;, { detail: { id: 7 } }));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.dispatchEvent(new CustomEvent(&quot;myEvent&quot;, { detail: data }))</li>
+          <li><span class="opt-key">B</span> el.trigger(&quot;myEvent&quot;)</li>
+          <li><span class="opt-key">C</span> el.fire(&quot;myEvent&quot;)</li>
+          <li><span class="opt-key">D</span> Custom events are impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.dispatchEvent(new CustomEvent(&quot;myEvent&quot;, { detail: data }))</p>
+          <p class="expl">CustomEvent lets components communicate without direct coupling. The listener reads the payload from e.detail.</p>
+          <p class="tags"><span>CustomEvent</span><span>Component communication</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does e.stopImmediatePropagation() add over stopPropagation()?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It also prevents OTHER listeners on the SAME element from running</li>
+          <li><span class="opt-key">B</span> Nothing extra</li>
+          <li><span class="opt-key">C</span> It removes the listener</li>
+          <li><span class="opt-key">D</span> It prevents the default action</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It also prevents OTHER listeners on the SAME element from running</p>
+          <p class="expl">stopPropagation only halts the journey to ancestors; remaining handlers on the same element still fire. stopImmediatePropagation stops those too.</p>
+          <p class="tags"><span>Propagation control</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why might a listener attached in a loop capture the wrong value?
+for (var i = 0; i &lt; 3; i++) btns[i].addEventListener(&quot;click&quot;, () =&gt; console.log(i));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> var creates ONE shared binding, so every handler logs 3 - use let</li>
+          <li><span class="opt-key">B</span> Listeners cannot be added in loops</li>
+          <li><span class="opt-key">C</span> btns is undefined</li>
+          <li><span class="opt-key">D</span> It works correctly</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — var creates ONE shared binding, so every handler logs 3 - use let</p>
+          <p class="expl">The same closure trap as with setTimeout. Changing var to let gives each iteration its own binding, so the handlers log 0, 1 and 2.</p>
+          <p class="tags"><span>Closures</span><span>let vs var</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why remove event listeners when destroying a component?</p>
+        <pre class="code"><code>const ac = new AbortController();
+window.addEventListener(&quot;resize&quot;, fn, { signal: ac.signal });
+ac.abort();   // removes it</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Listeners keep references alive, preventing garbage collection - a memory leak</li>
+          <li><span class="opt-key">B</span> It is purely cosmetic</li>
+          <li><span class="opt-key">C</span> Listeners expire automatically</li>
+          <li><span class="opt-key">D</span> To reset the page</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Listeners keep references alive, preventing garbage collection - a memory leak</p>
+          <p class="expl">Especially for listeners on window/document that reference removed elements. React's useEffect cleanup and AbortController exist for exactly this.</p>
+          <p class="tags"><span>Memory leaks</span><span>AbortController</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="16-dom-manipulation.html">← DOM Manipulation</a>
+      <a href="18-asynchronous-javascript.html">Asynchronous JavaScript →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-16">Practice “Events” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

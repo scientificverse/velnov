@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Views, Indexes &amp; Transactions – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Views, Indexes &amp; Transactions with answers and detailed explanations — 0 easy, 13 medium and 17 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/19-views-indexes-and-transactions.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Views, Indexes &amp; Transactions – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Views, Indexes &amp; Transactions with answers and detailed explanations — 0 easy, 13 medium and 17 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/19-views-indexes-and-transactions.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Views, Indexes & Transactions","item":"https://velnov.co.in/learn/sql/19-views-indexes-and-transactions.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Views, Indexes &amp; Transactions</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 19 of 20</p>
+      <h1>Views, Indexes &amp; Transactions — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Views, Indexes &amp; Transactions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-18">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">0 easy · 13 medium · 17 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>VIEW</span><span>Virtual table</span><span>Abstraction</span><span>Materialized view</span><span>Caching</span><span>Index</span><span>Performance</span><span>Trade-offs</span><span>Index strategy</span><span>Composite index</span><span>Leftmost prefix</span><span>Covering index</span><span>Index-only scan</span><span>EXPLAIN</span><span>Query plan</span><span>Table scan</span><span>Transaction</span><span>BEGIN/COMMIT</span><span>ACID</span><span>Transactions</span><span>ROLLBACK</span><span>SAVEPOINT</span><span>Isolation</span><span>Concurrency</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a VIEW?</p>
+        <pre class="code"><code>CREATE VIEW active_customers AS
+SELECT * FROM customers WHERE active = 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A saved query that acts like a virtual table - it stores no data itself</li>
+          <li><span class="opt-key">B</span> A copy of a table</li>
+          <li><span class="opt-key">C</span> An index</li>
+          <li><span class="opt-key">D</span> A backup</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A saved query that acts like a virtual table - it stores no data itself</p>
+          <p class="expl">CREATE VIEW names a query. Selecting from the view runs the underlying query. Views simplify complex logic and provide a stable interface even if base tables change.</p>
+          <p class="tags"><span>VIEW</span><span>Virtual table</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a key benefit of using views?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They hide complexity and restrict access - users query a simple view instead of complex joins or sensitive columns</li>
+          <li><span class="opt-key">B</span> They always speed up queries</li>
+          <li><span class="opt-key">C</span> They store data twice</li>
+          <li><span class="opt-key">D</span> They replace indexes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They hide complexity and restrict access - users query a simple view instead of complex joins or sensitive columns</p>
+          <p class="expl">Views encapsulate complicated joins and can expose only certain columns/rows (security). Consumers get a clean, stable interface without knowing the underlying structure.</p>
+          <p class="tags"><span>VIEW</span><span>Abstraction</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is an INDEX?</p>
+        <pre class="code"><code>CREATE INDEX idx_email ON customers(email);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A data structure that speeds up row lookups on one or more columns</li>
+          <li><span class="opt-key">B</span> A sorted copy of the table</li>
+          <li><span class="opt-key">C</span> A view</li>
+          <li><span class="opt-key">D</span> A constraint</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A data structure that speeds up row lookups on one or more columns</p>
+          <p class="expl">Like a book's index, it lets the database jump to matching rows instead of scanning every row. The trade-off is extra storage and slightly slower writes.</p>
+          <p class="tags"><span>Index</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which columns benefit most from an index?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Columns used in WHERE, JOIN and ORDER BY - especially foreign keys and frequently searched fields</li>
+          <li><span class="opt-key">B</span> Every column</li>
+          <li><span class="opt-key">C</span> Only text columns</li>
+          <li><span class="opt-key">D</span> Columns never queried</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Columns used in WHERE, JOIN and ORDER BY - especially foreign keys and frequently searched fields</p>
+          <p class="expl">Index the columns your queries filter and join on. A column that is never in a WHERE/JOIN/ORDER BY gains nothing from an index and just slows writes.</p>
+          <p class="tags"><span>Index strategy</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does EXPLAIN (or EXPLAIN ANALYZE) show?</p>
+        <pre class="code"><code>EXPLAIN ANALYZE SELECT * FROM orders WHERE customer_id = 5;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The query execution plan - how the database will run the query, including index use and join methods</li>
+          <li><span class="opt-key">B</span> The query result</li>
+          <li><span class="opt-key">C</span> The table structure</li>
+          <li><span class="opt-key">D</span> Syntax errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The query execution plan - how the database will run the query, including index use and join methods</p>
+          <p class="expl">EXPLAIN reveals whether a query uses indexes or does full scans, its join order, and estimated costs. It is the primary tool for diagnosing slow queries.</p>
+          <p class="tags"><span>EXPLAIN</span><span>Query plan</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a transaction?</p>
+        <pre class="code"><code>BEGIN;
+UPDATE accounts SET bal = bal - 100 WHERE id = 1;
+UPDATE accounts SET bal = bal + 100 WHERE id = 2;
+COMMIT;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A group of statements executed as a single all-or-nothing unit</li>
+          <li><span class="opt-key">B</span> A single SELECT</li>
+          <li><span class="opt-key">C</span> A backup</li>
+          <li><span class="opt-key">D</span> An index rebuild</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A group of statements executed as a single all-or-nothing unit</p>
+          <p class="expl">BEGIN starts it; COMMIT makes all changes permanent; ROLLBACK undoes them. Either every statement succeeds or none do - essential for operations like money transfers.</p>
+          <p class="tags"><span>Transaction</span><span>BEGIN/COMMIT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does ROLLBACK do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Undoes all changes made since the transaction began</li>
+          <li><span class="opt-key">B</span> Saves the changes</li>
+          <li><span class="opt-key">C</span> Deletes the table</li>
+          <li><span class="opt-key">D</span> Creates a backup</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Undoes all changes made since the transaction began</p>
+          <p class="expl">If an error occurs mid-transaction, ROLLBACK reverts everything to the pre-transaction state, preserving consistency. COMMIT is the opposite - it finalises the changes.</p>
+          <p class="tags"><span>ROLLBACK</span><span>Transactions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why must a money transfer use a transaction?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> So the debit and credit both succeed or both fail - never one without the other</li>
+          <li><span class="opt-key">B</span> For speed</li>
+          <li><span class="opt-key">C</span> To use an index</li>
+          <li><span class="opt-key">D</span> It does not need one</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — So the debit and credit both succeed or both fail - never one without the other</p>
+          <p class="expl">If the debit succeeds but the credit fails without a transaction, money vanishes. Atomicity guarantees the pair is all-or-nothing - the textbook example of why transactions exist.</p>
+          <p class="tags"><span>Atomicity</span><span>Transactions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does a VIEW improve performance by storing results?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - a regular view re-runs its query each time; only a MATERIALIZED view stores results</li>
+          <li><span class="opt-key">B</span> Yes, always</li>
+          <li><span class="opt-key">C</span> It stores half the results</li>
+          <li><span class="opt-key">D</span> Views cannot be queried</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - a regular view re-runs its query each time; only a MATERIALIZED view stores results</p>
+          <p class="expl">Regular views are purely a naming/abstraction convenience and add no caching. For stored results you need a materialized view (with periodic refresh).</p>
+          <p class="tags"><span>VIEW</span><span>Materialized view</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a UNIQUE index?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An index that also enforces uniqueness - no two rows may share the indexed value</li>
+          <li><span class="opt-key">B</span> The fastest index</li>
+          <li><span class="opt-key">C</span> A backup index</li>
+          <li><span class="opt-key">D</span> A view</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An index that also enforces uniqueness - no two rows may share the indexed value</p>
+          <p class="expl">A unique index doubles as a UNIQUE constraint and speeds lookups. Primary keys are implemented as unique indexes automatically.</p>
+          <p class="tags"><span>Unique index</span><span>Constraints</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does COMMIT do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Makes all changes in the transaction permanent and visible to others</li>
+          <li><span class="opt-key">B</span> Undoes changes</li>
+          <li><span class="opt-key">C</span> Starts a transaction</li>
+          <li><span class="opt-key">D</span> Creates a backup</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Makes all changes in the transaction permanent and visible to others</p>
+          <p class="expl">After COMMIT the changes are durable (survive a crash) and other transactions can see them. Before COMMIT, the work is provisional and can be rolled back.</p>
+          <p class="tags"><span>COMMIT</span><span>Durability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does an index NOT help with?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Queries that must read most rows anyway, or conditions that wrap the column in a function</li>
+          <li><span class="opt-key">B</span> Equality lookups</li>
+          <li><span class="opt-key">C</span> Range scans</li>
+          <li><span class="opt-key">D</span> Joins on the indexed column</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Queries that must read most rows anyway, or conditions that wrap the column in a function</p>
+          <p class="expl">If a query returns a large fraction of the table, a scan is cheaper than an index. And functions on the column (non-sargable conditions) prevent index use entirely.</p>
+          <p class="tags"><span>Index limits</span><span>Sargability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you remove an index?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DROP INDEX idx_name;</li>
+          <li><span class="opt-key">B</span> DELETE INDEX</li>
+          <li><span class="opt-key">C</span> REMOVE INDEX</li>
+          <li><span class="opt-key">D</span> Indexes cannot be removed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DROP INDEX idx_name;</p>
+          <p class="expl">DROP INDEX removes an index that is unused or hurting write performance. Some databases require the table name: DROP INDEX idx_name ON table.</p>
+          <p class="tags"><span>DROP INDEX</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (17)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a materialized view?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A view whose results are STORED physically and refreshed periodically - fast reads, but data can be stale</li>
+          <li><span class="opt-key">B</span> A normal view</li>
+          <li><span class="opt-key">C</span> A temporary table</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A view whose results are STORED physically and refreshed periodically - fast reads, but data can be stale</p>
+          <p class="expl">Unlike a regular view (recomputed each query), a materialized view caches the result. It speeds up expensive aggregations at the cost of needing REFRESH to stay current.</p>
+          <p class="tags"><span>Materialized view</span><span>Caching</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the trade-off of adding indexes?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Faster reads but slower writes (every INSERT/UPDATE/DELETE must maintain the index) and more storage</li>
+          <li><span class="opt-key">B</span> They only help, no downside</li>
+          <li><span class="opt-key">C</span> They slow reads</li>
+          <li><span class="opt-key">D</span> They save storage</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Faster reads but slower writes (every INSERT/UPDATE/DELETE must maintain the index) and more storage</p>
+          <p class="expl">Indexes must be kept in sync on every write. Too many indexes hurt write-heavy tables. Index the columns you filter, join and sort on - not everything.</p>
+          <p class="tags"><span>Index</span><span>Trade-offs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a composite index, and why does column order matter?</p>
+        <pre class="code"><code>CREATE INDEX idx_ab ON t(a, b);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An index on multiple columns; it helps queries filtering on a LEFT-prefix of those columns (leftmost-prefix rule)</li>
+          <li><span class="opt-key">B</span> It indexes columns in any order equally</li>
+          <li><span class="opt-key">C</span> It is two separate indexes</li>
+          <li><span class="opt-key">D</span> Order never matters</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An index on multiple columns; it helps queries filtering on a LEFT-prefix of those columns (leftmost-prefix rule)</p>
+          <p class="expl">An index on (a, b) helps WHERE a = ? and WHERE a = ? AND b = ?, but not WHERE b = ? alone. Put the most selective/most-filtered column first.</p>
+          <p class="tags"><span>Composite index</span><span>Leftmost prefix</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a covering index?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An index that contains ALL columns a query needs, so the database answers it from the index alone</li>
+          <li><span class="opt-key">B</span> An index on every column</li>
+          <li><span class="opt-key">C</span> A backup index</li>
+          <li><span class="opt-key">D</span> A unique index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An index that contains ALL columns a query needs, so the database answers it from the index alone</p>
+          <p class="expl">If the index already holds the selected columns, the database skips reading the table (an 'index-only scan'), which is very fast. Adding INCLUDE columns can create covering indexes.</p>
+          <p class="tags"><span>Covering index</span><span>Index-only scan</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a full table scan, and when is it a problem?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Reading every row - fine for small tables, but slow on large ones when an index could have been used</li>
+          <li><span class="opt-key">B</span> Always fast</li>
+          <li><span class="opt-key">C</span> A type of index</li>
+          <li><span class="opt-key">D</span> A backup</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Reading every row - fine for small tables, but slow on large ones when an index could have been used</p>
+          <p class="expl">Seeing 'Seq Scan' or 'full scan' on a large filtered query in EXPLAIN usually signals a missing index or a non-sargable condition (a function wrapped around the column).</p>
+          <p class="tags"><span>Table scan</span><span>EXPLAIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What do the ACID properties guarantee?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Atomicity (all-or-nothing), Consistency (valid state), Isolation (no interference), Durability (survives crashes)</li>
+          <li><span class="opt-key">B</span> Speed and compression</li>
+          <li><span class="opt-key">C</span> Only backups</li>
+          <li><span class="opt-key">D</span> Index maintenance</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Atomicity (all-or-nothing), Consistency (valid state), Isolation (no interference), Durability (survives crashes)</p>
+          <p class="expl">ACID is the contract of a reliable transaction. It is why relational databases are trusted for banking and orders - a committed transaction is complete, correct and permanent.</p>
+          <p class="tags"><span>ACID</span><span>Transactions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a SAVEPOINT?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A marker within a transaction you can roll back TO, without undoing the whole transaction</li>
+          <li><span class="opt-key">B</span> A full commit</li>
+          <li><span class="opt-key">C</span> A backup file</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A marker within a transaction you can roll back TO, without undoing the whole transaction</p>
+          <p class="expl">SAVEPOINT sp1 lets you ROLLBACK TO sp1, undoing only the work after that point. Useful in long transactions to recover from a partial failure without discarding everything.</p>
+          <p class="tags"><span>SAVEPOINT</span><span>Transactions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What problem does transaction ISOLATION address?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Interference between concurrent transactions - dirty reads, non-repeatable reads and phantom reads</li>
+          <li><span class="opt-key">B</span> Disk space</li>
+          <li><span class="opt-key">C</span> Index size</li>
+          <li><span class="opt-key">D</span> Syntax errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Interference between concurrent transactions - dirty reads, non-repeatable reads and phantom reads</p>
+          <p class="expl">When many transactions run at once, they can see each other's uncommitted or changing data. Isolation levels control which anomalies are allowed, trading consistency against concurrency.</p>
+          <p class="tags"><span>Isolation</span><span>Concurrency</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a dirty read?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Reading data another transaction has changed but NOT yet committed - which may be rolled back</li>
+          <li><span class="opt-key">B</span> Reading old backups</li>
+          <li><span class="opt-key">C</span> A corrupted file</li>
+          <li><span class="opt-key">D</span> A syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Reading data another transaction has changed but NOT yet committed - which may be rolled back</p>
+          <p class="expl">Dirty reads happen at the READ UNCOMMITTED isolation level. If the other transaction rolls back, you acted on data that never really existed. Higher isolation levels prevent this.</p>
+          <p class="tags"><span>Dirty read</span><span>Isolation levels</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What are the four standard isolation levels, from weakest to strongest?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE</li>
+          <li><span class="opt-key">B</span> LOW, MEDIUM, HIGH, MAX</li>
+          <li><span class="opt-key">C</span> OPEN, CLOSED, LOCKED, FREE</li>
+          <li><span class="opt-key">D</span> There is only one level</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE</p>
+          <p class="expl">Each level prevents more anomalies but reduces concurrency. SERIALIZABLE behaves as if transactions ran one at a time (safest, slowest); READ COMMITTED is a common default.</p>
+          <p class="tags"><span>Isolation levels</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a deadlock?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Two transactions each waiting for a lock the other holds - neither can proceed; the database aborts one</li>
+          <li><span class="opt-key">B</span> A crashed server</li>
+          <li><span class="opt-key">C</span> A full disk</li>
+          <li><span class="opt-key">D</span> A slow query</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Two transactions each waiting for a lock the other holds - neither can proceed; the database aborts one</p>
+          <p class="expl">Deadlocks arise from circular lock dependencies. Databases detect them and kill one transaction (a deadlock victim), which the application should retry. Consistent lock ordering reduces them.</p>
+          <p class="tags"><span>Deadlock</span><span>Locks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Can you INSERT or UPDATE through a view?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Sometimes - simple single-table views are updatable; views with joins, aggregates or DISTINCT usually are not</li>
+          <li><span class="opt-key">B</span> Always</li>
+          <li><span class="opt-key">C</span> Never</li>
+          <li><span class="opt-key">D</span> Only DELETE works</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Sometimes - simple single-table views are updatable; views with joins, aggregates or DISTINCT usually are not</p>
+          <p class="expl">If the database can unambiguously map the change back to base-table rows, the view is updatable. Complex views need INSTEAD OF triggers to be writable.</p>
+          <p class="tags"><span>Updatable views</span><span>INSTEAD OF triggers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can too many indexes hurt a write-heavy table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Every INSERT/UPDATE/DELETE must update all relevant indexes, adding overhead to each write</li>
+          <li><span class="opt-key">B</span> Indexes never affect writes</li>
+          <li><span class="opt-key">C</span> They speed writes up</li>
+          <li><span class="opt-key">D</span> They only affect reads</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Every INSERT/UPDATE/DELETE must update all relevant indexes, adding overhead to each write</p>
+          <p class="expl">Indexes are a read optimisation paid for with write cost and storage. On a table with heavy inserts, keep only the indexes that meaningfully help your queries.</p>
+          <p class="tags"><span>Index overhead</span><span>Write performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What makes a WHERE condition 'sargable' (index-friendly)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The indexed column is compared directly, not wrapped in a function - so the index can be used</li>
+          <li><span class="opt-key">B</span> It uses more functions</li>
+          <li><span class="opt-key">C</span> It uses OR everywhere</li>
+          <li><span class="opt-key">D</span> It has no WHERE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The indexed column is compared directly, not wrapped in a function - so the index can be used</p>
+          <p class="expl">WHERE created_at &gt;= '2026-01-01' is sargable; WHERE YEAR(created_at) = 2026 is not, because the function must run on every row. Keep the column bare and transform the constant instead.</p>
+          <p class="tags"><span>Sargability</span><span>Indexes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is optimistic vs pessimistic locking?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Pessimistic locks rows upfront to prevent conflicts; optimistic checks for conflicts at commit (e.g. a version column)</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> Optimistic locks everything</li>
+          <li><span class="opt-key">D</span> Neither involves locks</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Pessimistic locks rows upfront to prevent conflicts; optimistic checks for conflicts at commit (e.g. a version column)</p>
+          <p class="expl">Pessimistic (SELECT ... FOR UPDATE) suits high-contention writes. Optimistic (compare a version/timestamp on update) suits low contention and avoids holding locks - common in web apps.</p>
+          <p class="tags"><span>Locking</span><span>Concurrency</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is index selectivity?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> How many distinct values a column has - high selectivity (many distinct values) makes an index effective</li>
+          <li><span class="opt-key">B</span> The index size</li>
+          <li><span class="opt-key">C</span> The number of rows</li>
+          <li><span class="opt-key">D</span> The column order</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — How many distinct values a column has - high selectivity (many distinct values) makes an index effective</p>
+          <p class="expl">An index on a boolean (2 values) is rarely useful because each value matches half the table. An index on email (near-unique) is highly selective and very effective.</p>
+          <p class="tags"><span>Selectivity</span><span>Index effectiveness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the durability guarantee in ACID?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Once a transaction commits, its changes survive crashes and power loss (written to durable storage)</li>
+          <li><span class="opt-key">B</span> Data is deleted safely</li>
+          <li><span class="opt-key">C</span> Queries run fast</li>
+          <li><span class="opt-key">D</span> Backups happen automatically</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Once a transaction commits, its changes survive crashes and power loss (written to durable storage)</p>
+          <p class="expl">Durability is typically achieved via a write-ahead log: changes are logged to disk before COMMIT returns, so recovery can replay them after a crash. A committed transaction is never lost.</p>
+          <p class="tags"><span>Durability</span><span>Write-ahead log</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="18-normalization-and-design.html">← Normalization &amp; Design</a>
+      <a href="20-window-functions-and-optimization.html">Window Functions &amp; Optimization →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-18">Practice “Views, Indexes &amp; Transactions” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

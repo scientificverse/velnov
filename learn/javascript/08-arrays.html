@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrays – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Arrays with answers and detailed explanations — 5 easy, 16 medium and 9 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/08-arrays.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Arrays – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Arrays with answers and detailed explanations — 5 easy, 16 medium and 9 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/08-arrays.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Arrays","item":"https://velnov.co.in/learn/javascript/08-arrays.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Arrays</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 8 of 20</p>
+      <h1>Arrays — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Arrays</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-7">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">5 easy · 16 medium · 9 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Arrays</span><span>Literals</span><span>Indexing</span><span>length</span><span>at()</span><span>Negative index</span><span>push</span><span>unshift</span><span>pop</span><span>shift</span><span>slice</span><span>splice</span><span>Mutation</span><span>delete</span><span>Insertion</span><span>includes</span><span>indexOf</span><span>Search</span><span>Reference equality</span><span>Comparison</span><span>References</span><span>Copying</span><span>Spread</span><span>concat</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (5)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which line creates an array of three numbers?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> const nums = [1, 2, 3];</li>
+          <li><span class="opt-key">B</span> const nums = {1, 2, 3};</li>
+          <li><span class="opt-key">C</span> const nums = (1, 2, 3);</li>
+          <li><span class="opt-key">D</span> const nums = array(1, 2, 3);</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — const nums = [1, 2, 3];</p>
+          <p class="expl">Square brackets create an array literal. Curly braces make an object, and parentheses are just grouping.</p>
+          <p class="tags"><span>Arrays</span><span>Literals</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output?
+const a = [&quot;x&quot;, &quot;y&quot;, &quot;z&quot;];
+console.log(a[1]);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;y&quot;</li>
+          <li><span class="opt-key">B</span> &quot;x&quot;</li>
+          <li><span class="opt-key">C</span> &quot;z&quot;</li>
+          <li><span class="opt-key">D</span> 1</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;y&quot;</p>
+          <p class="expl">Array indexes start at 0, so a[0] is &quot;x&quot; and a[1] is &quot;y&quot;.</p>
+          <p class="tags"><span>Indexing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does arr.length give?</p>
+        <pre class="code"><code>const a = [10, 20, 30];
+console.log(a.length);        // 3
+console.log(a[a.length - 1]);  // 30 - last item</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The number of elements</li>
+          <li><span class="opt-key">B</span> The last index</li>
+          <li><span class="opt-key">C</span> The array as a string</li>
+          <li><span class="opt-key">D</span> The memory size</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The number of elements</p>
+          <p class="expl">length counts elements, so the LAST index is always length - 1. Reading arr[arr.length] gives undefined.</p>
+          <p class="tags"><span>length</span><span>Indexing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which method adds an element to the END of an array?</p>
+        <pre class="code"><code>const a = [1, 2];
+a.push(3);      // [1, 2, 3]
+a.unshift(0);   // [0, 1, 2, 3]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> push()</li>
+          <li><span class="opt-key">B</span> append()</li>
+          <li><span class="opt-key">C</span> add()</li>
+          <li><span class="opt-key">D</span> unshift()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — push()</p>
+          <p class="expl">push() appends and returns the new length. unshift() adds to the START, pop() removes from the end, shift() removes from the start.</p>
+          <p class="tags"><span>push</span><span>unshift</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you check whether an array contains a value?</p>
+        <pre class="code"><code>const a = [10, 20];
+console.log(a.includes(20));   // true
+console.log(20 in a);          // false! (checks index 20)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> arr.includes(value)</li>
+          <li><span class="opt-key">B</span> arr.contains(value)</li>
+          <li><span class="opt-key">C</span> value in arr</li>
+          <li><span class="opt-key">D</span> arr.has(value)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — arr.includes(value)</p>
+          <p class="expl">includes() returns true/false. Note 'in' checks INDEXES for arrays, not values - a common mistake. indexOf(value) !== -1 is the older approach.</p>
+          <p class="tags"><span>includes</span><span>indexOf</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does arr.at(-1) return?</p>
+        <pre class="code"><code>const a = [1, 2, 3];
+console.log(a.at(-1));   // 3
+console.log(a[-1]);      // undefined</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The LAST element - at() supports negative indexes</li>
+          <li><span class="opt-key">B</span> The first element</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The LAST element - at() supports negative indexes</p>
+          <p class="expl">at() (ES2022) accepts negative indexes counting from the end, unlike bracket notation where arr[-1] is undefined.</p>
+          <p class="tags"><span>at()</span><span>Negative index</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does pop() return and do?</p>
+        <pre class="code"><code>const a = [1, 2, 3];
+const last = a.pop();
+console.log(last, a);   // 3 [1, 2]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Removes the LAST element and returns it</li>
+          <li><span class="opt-key">B</span> Removes the first element</li>
+          <li><span class="opt-key">C</span> Returns the last element without removing</li>
+          <li><span class="opt-key">D</span> Empties the array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Removes the LAST element and returns it</p>
+          <p class="expl">pop() shortens the array by one and hands back the removed value. shift() does the same at the start (but is slower, since all indexes shift).</p>
+          <p class="tags"><span>pop</span><span>shift</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you REMOVE 2 elements starting at index 1?</p>
+        <pre class="code"><code>const a = [1, 2, 3, 4];
+a.splice(1, 2);
+console.log(a);   // [1, 4]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> arr.splice(1, 2)</li>
+          <li><span class="opt-key">B</span> arr.slice(1, 2)</li>
+          <li><span class="opt-key">C</span> arr.remove(1, 2)</li>
+          <li><span class="opt-key">D</span> delete arr[1]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — arr.splice(1, 2)</p>
+          <p class="expl">splice(startIndex, howMany) removes in place. delete arr[1] leaves an empty hole and does NOT change length - almost never what you want.</p>
+          <p class="tags"><span>splice</span><span>delete</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you INSERT &quot;x&quot; at index 1 without deleting anything?</p>
+        <pre class="code"><code>const a = [1, 3];
+a.splice(1, 0, 2);
+console.log(a);   // [1, 2, 3]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> arr.splice(1, 0, &quot;x&quot;) - delete count of 0</li>
+          <li><span class="opt-key">B</span> arr.insert(1, &quot;x&quot;)</li>
+          <li><span class="opt-key">C</span> arr.push(1, &quot;x&quot;)</li>
+          <li><span class="opt-key">D</span> arr[1] = &quot;x&quot;  // this overwrites</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — arr.splice(1, 0, &quot;x&quot;) - delete count of 0</p>
+          <p class="expl">Passing 0 as the delete count makes splice a pure insertion. Option D would REPLACE the existing element instead.</p>
+          <p class="tags"><span>splice</span><span>Insertion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does arr.indexOf(&quot;z&quot;) return when &quot;z&quot; is absent?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> -1</li>
+          <li><span class="opt-key">B</span> undefined</li>
+          <li><span class="opt-key">C</span> null</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — -1</p>
+          <p class="expl">indexOf returns the first matching index, or -1 for 'not found'. It uses strict equality, so indexOf(&quot;5&quot;) will not find the number 5.</p>
+          <p class="tags"><span>indexOf</span><span>Search</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you make a (shallow) copy of an array?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [...arr], arr.slice(), or Array.from(arr)</li>
+          <li><span class="opt-key">B</span> arr.copy()</li>
+          <li><span class="opt-key">C</span> const b = arr;</li>
+          <li><span class="opt-key">D</span> arr.clone()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [...arr], arr.slice(), or Array.from(arr)</p>
+          <p class="expl">All three create a new array with the same elements. Note it is SHALLOW: nested objects are still shared. Use structuredClone(arr) for a deep copy.</p>
+          <p class="tags"><span>Spread</span><span>slice</span><span>Copying</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you merge two arrays into a new one?</p>
+        <pre class="code"><code>const a = [1, 2], b = [3];
+console.log([...a, ...b]);   // [1, 2, 3]
+console.log(a.concat(b));     // [1, 2, 3]
+a.push(b);                     // [1, 2, [3]] - nested!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [...a, ...b] or a.concat(b)</li>
+          <li><span class="opt-key">B</span> a + b</li>
+          <li><span class="opt-key">C</span> a.merge(b)</li>
+          <li><span class="opt-key">D</span> a.push(b)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [...a, ...b] or a.concat(b)</p>
+          <p class="expl">Spread and concat both return a NEW array. a + b would coerce both to strings; a.push(b) would nest b as a single element.</p>
+          <p class="tags"><span>concat</span><span>Spread</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does arr.join(&quot;-&quot;) do?</p>
+        <pre class="code"><code>console.log([&quot;a&quot;,&quot;b&quot;,&quot;c&quot;].join(&quot;-&quot;));   // &quot;a-b-c&quot;
+console.log([1,2,3].join(&quot;&quot;));           // &quot;123&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Returns a STRING with all elements separated by &quot;-&quot;</li>
+          <li><span class="opt-key">B</span> Joins two arrays</li>
+          <li><span class="opt-key">C</span> Removes duplicates</li>
+          <li><span class="opt-key">D</span> Sorts the array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Returns a STRING with all elements separated by &quot;-&quot;</p>
+          <p class="expl">join converts an array to a string using the given separator (default is a comma). The reverse is string.split(separator).</p>
+          <p class="tags"><span>join</span><span>split</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you remove duplicates from an array?</p>
+        <pre class="code"><code>const a = [1, 2, 2, 3];
+console.log([...new Set(a)]);   // [1, 2, 3]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [...new Set(arr)]</li>
+          <li><span class="opt-key">B</span> arr.unique()</li>
+          <li><span class="opt-key">C</span> arr.distinct()</li>
+          <li><span class="opt-key">D</span> arr.dedupe()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [...new Set(arr)]</p>
+          <p class="expl">A Set stores only unique values; spreading it back gives an array. Order is preserved.</p>
+          <p class="tags"><span>Set</span><span>Deduplication</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you check whether a value is an array?</p>
+        <pre class="code"><code>console.log(typeof []);            // &quot;object&quot;
+console.log(Array.isArray([]));    // true</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Array.isArray(value)</li>
+          <li><span class="opt-key">B</span> typeof value === &quot;array&quot;</li>
+          <li><span class="opt-key">C</span> value instanceof Object</li>
+          <li><span class="opt-key">D</span> value.isArray()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Array.isArray(value)</p>
+          <p class="expl">typeof gives &quot;object&quot; for arrays, so it cannot distinguish them. Array.isArray() is the reliable test.</p>
+          <p class="tags"><span>Array.isArray</span><span>typeof</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you create an array of 5 zeros?</p>
+        <pre class="code"><code>console.log(new Array(3).fill(0));                  // [0, 0, 0]
+console.log(Array.from({length: 3}, (_, i) =&gt; i));  // [0, 1, 2]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> new Array(5).fill(0)</li>
+          <li><span class="opt-key">B</span> new Array(0, 5)</li>
+          <li><span class="opt-key">C</span> Array(5)</li>
+          <li><span class="opt-key">D</span> [0 * 5]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — new Array(5).fill(0)</p>
+          <p class="expl">Array(5) makes a sparse array of 5 holes; fill(0) turns them into real zeros. Array.from({length: 5}, () =&gt; 0) also works.</p>
+          <p class="tags"><span>fill</span><span>Array.from</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you access an element in a 2D array (array of arrays)?</p>
+        <pre class="code"><code>const m = [[1, 2], [3, 4]];
+console.log(m[1][0]);   // 3</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> matrix[row][col]</li>
+          <li><span class="opt-key">B</span> matrix[row, col]</li>
+          <li><span class="opt-key">C</span> matrix(row)(col)</li>
+          <li><span class="opt-key">D</span> matrix.get(row, col)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — matrix[row][col]</p>
+          <p class="expl">Chain the brackets: the first picks the inner array, the second picks an element from it.</p>
+          <p class="tags"><span>2D arrays</span><span>Nested</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does arr.flat() do?</p>
+        <pre class="code"><code>console.log([1, [2, 3], [4]].flat());          // [1, 2, 3, 4]
+console.log([1, [2, [3]]].flat(Infinity));      // [1, 2, 3]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Flattens nested arrays one level deep (flat(Infinity) flattens completely)</li>
+          <li><span class="opt-key">B</span> Sorts the array</li>
+          <li><span class="opt-key">C</span> Removes duplicates</li>
+          <li><span class="opt-key">D</span> Converts to a string</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Flattens nested arrays one level deep (flat(Infinity) flattens completely)</p>
+          <p class="expl">flat() unwraps nested arrays. flatMap() maps then flattens one level - handy for producing multiple items per input.</p>
+          <p class="tags"><span>flat</span><span>flatMap</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you convert a string to an array of characters?</p>
+        <pre class="code"><code>console.log([...&quot;abc&quot;]);          // [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+console.log(&quot;abc&quot;.split(&quot;&quot;));    // [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [...str] or str.split(&quot;&quot;)</li>
+          <li><span class="opt-key">B</span> str.toArray()</li>
+          <li><span class="opt-key">C</span> Array(str)</li>
+          <li><span class="opt-key">D</span> str.chars()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [...str] or str.split(&quot;&quot;)</p>
+          <p class="expl">Both work; spread handles emoji/surrogate pairs better than split(&quot;&quot;). Array.from(str) is equivalent to spread.</p>
+          <p class="tags"><span>Spread</span><span>split</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does destructuring do here?
+const [first, second] = [10, 20, 30];</p>
+        <pre class="code"><code>const [a, , c] = [1, 2, 3];       // a=1, c=3 (skipped 2)
+const [head, ...tail] = [1, 2, 3];  // head=1, tail=[2,3]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Assigns first = 10 and second = 20, ignoring the rest</li>
+          <li><span class="opt-key">B</span> Creates one array</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> first becomes the whole array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Assigns first = 10 and second = 20, ignoring the rest</p>
+          <p class="expl">Array destructuring unpacks by POSITION. Use rest to capture the remainder, and commas to skip elements.</p>
+          <p class="tags"><span>Destructuring</span><span>Rest</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you swap two variables using destructuring?</p>
+        <pre class="code"><code>let a = 1, b = 2;
+[a, b] = [b, a];
+console.log(a, b);   // 2 1</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [a, b] = [b, a];</li>
+          <li><span class="opt-key">B</span> a, b = b, a;</li>
+          <li><span class="opt-key">C</span> swap(a, b);</li>
+          <li><span class="opt-key">D</span> a = b; b = a;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [a, b] = [b, a];</p>
+          <p class="expl">The right side builds an array with the current values, then destructuring assigns them back swapped - no temporary variable needed.</p>
+          <p class="tags"><span>Destructuring</span><span>Swapping</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (9)</h2>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between slice() and splice()?</p>
+        <pre class="code"><code>const a = [1, 2, 3, 4];
+console.log(a.slice(1, 3));   // [2, 3] - a unchanged
+a.splice(1, 2);                // a is now [1, 4]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> slice() returns a COPY and leaves the original alone; splice() MUTATES the array (removing/inserting)</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> splice() returns a copy</li>
+          <li><span class="opt-key">D</span> slice() deletes elements</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — slice() returns a COPY and leaves the original alone; splice() MUTATES the array (removing/inserting)</p>
+          <p class="expl">slice(start, end) extracts a section without side effects. splice(start, deleteCount, ...items) changes the array in place and returns the removed elements.</p>
+          <ul class="notes"><li>Remember: sPlice mutates (P for 'permanent').</li></ul>
+          <p class="tags"><span>slice</span><span>splice</span><span>Mutation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([1, 2] === [1, 2]);</p>
+        <pre class="code"><code>const a = [1, 2];
+const b = a;
+console.log(a === b);   // true - same object</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false - each literal creates a NEW object, and objects compare by reference</li>
+          <li><span class="opt-key">B</span> true</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false - each literal creates a NEW object, and objects compare by reference</p>
+          <p class="expl">Arrays are objects; === asks 'is it the same object in memory?'. Two separate arrays are never ===. Compare contents with JSON.stringify(a) === JSON.stringify(b) or an every() check.</p>
+          <p class="tags"><span>Reference equality</span><span>Comparison</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const a = [1, 2];
+const b = a;
+b.push(3);
+console.log(a);</p>
+        <pre class="code"><code>const b = [...a];   // independent copy
+b.push(3);
+console.log(a);      // [1, 2] - unaffected</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 2, 3] - b is another name for the same array</li>
+          <li><span class="opt-key">B</span> [1, 2]</li>
+          <li><span class="opt-key">C</span> [3]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 2, 3] - b is another name for the same array</p>
+          <p class="expl">Assignment copies the REFERENCE, not the array. To copy: [...a], a.slice() or Array.from(a).</p>
+          <p class="tags"><span>References</span><span>Copying</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does [10, 9, 100].sort() give [10, 100, 9]?</p>
+        <pre class="code"><code>console.log([10,9,100].sort((a,b) =&gt; a-b));   // [9, 10, 100]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The default sort converts elements to STRINGS and compares alphabetically</li>
+          <li><span class="opt-key">B</span> sort() is random</li>
+          <li><span class="opt-key">C</span> It sorts descending</li>
+          <li><span class="opt-key">D</span> It is a browser bug</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The default sort converts elements to STRINGS and compares alphabetically</p>
+          <p class="expl">&quot;10&quot; &lt; &quot;100&quot; &lt; &quot;9&quot; alphabetically. For numbers pass a comparator: sort((a, b) =&gt; a - b) for ascending, (a, b) =&gt; b - a for descending.</p>
+          <ul class="notes"><li>One of the most common real-world JavaScript bugs.</li></ul>
+          <p class="tags"><span>sort</span><span>Comparator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Does sort() mutate the original array?</p>
+        <pre class="code"><code>const a = [3, 1, 2];
+const sorted = [...a].sort();   // keep a intact
+// or: a.toSorted()</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - sort() and reverse() change the array in place (use toSorted() to avoid this)</li>
+          <li><span class="opt-key">B</span> No, it returns a copy</li>
+          <li><span class="opt-key">C</span> Only for numbers</li>
+          <li><span class="opt-key">D</span> Only in strict mode</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - sort() and reverse() change the array in place (use toSorted() to avoid this)</p>
+          <p class="expl">sort(), reverse(), splice(), push(), pop(), shift(), unshift() and fill() all MUTATE. ES2023 added non-mutating twins: toSorted(), toReversed(), toSpliced(), with().</p>
+          <p class="tags"><span>Mutation</span><span>toSorted</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const a = [1, 2, 3];
+a.length = 1;
+console.log(a);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1] - assigning to length TRUNCATES the array</li>
+          <li><span class="opt-key">B</span> [1, 2, 3]</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> [1, undefined, undefined]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1] - assigning to length TRUNCATES the array</p>
+          <p class="expl">length is writable: shrinking it deletes trailing elements; growing it creates empty slots. arr.length = 0 is a quick way to empty an array in place.</p>
+          <p class="tags"><span>length</span><span>Truncation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a 'sparse array'?
+const a = [1, , 3];</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An array with HOLES - missing slots that many methods skip</li>
+          <li><span class="opt-key">B</span> A very large array</li>
+          <li><span class="opt-key">C</span> An array of nulls</li>
+          <li><span class="opt-key">D</span> A syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An array with HOLES - missing slots that many methods skip</p>
+          <p class="expl">Holes are not the same as undefined values: forEach and map skip them, while for...of visits them as undefined. Sparse arrays arise from delete arr[i] or setting a large length - best avoided.</p>
+          <p class="tags"><span>Sparse arrays</span><span>Holes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const grid = new Array(2).fill([]);
+grid[0].push(&quot;x&quot;);
+console.log(grid[1]);</p>
+        <pre class="code"><code>const grid = Array.from({length: 2}, () =&gt; []);
+grid[0].push(&quot;x&quot;);
+console.log(grid[1]);   // [] - independent</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [&quot;x&quot;] - fill puts the SAME array reference in every slot</li>
+          <li><span class="opt-key">B</span> []</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [&quot;x&quot;] - fill puts the SAME array reference in every slot</p>
+          <p class="expl">fill([]) evaluates the literal once and shares that one array across all slots. Build independent rows with Array.from({length: 2}, () =&gt; []).</p>
+          <p class="tags"><span>fill</span><span>References</span><span>2D arrays</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([1, 2, 3] + [4, 5]);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;1,2,34,5&quot; - both arrays become strings and concatenate</li>
+          <li><span class="opt-key">B</span> [1,2,3,4,5]</li>
+          <li><span class="opt-key">C</span> [5, 7, 3]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;1,2,34,5&quot; - both arrays become strings and concatenate</p>
+          <p class="expl">+ has no array meaning, so each array is converted via join(&quot;,&quot;) - giving &quot;1,2,3&quot; + &quot;4,5&quot;. To merge properly use concat or spread.</p>
+          <p class="tags"><span>Coercion</span><span>concat</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="07-loops.html">← Loops</a>
+      <a href="09-array-methods.html">Array Methods →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-7">Practice “Arrays” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

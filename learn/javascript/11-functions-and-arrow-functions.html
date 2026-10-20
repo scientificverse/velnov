@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Functions &amp; Arrow Functions – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Functions &amp; Arrow Functions with answers and detailed explanations — 3 easy, 16 medium and 11 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/11-functions-and-arrow-functions.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Functions &amp; Arrow Functions – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Functions &amp; Arrow Functions with answers and detailed explanations — 3 easy, 16 medium and 11 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/11-functions-and-arrow-functions.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Functions & Arrow Functions","item":"https://velnov.co.in/learn/javascript/11-functions-and-arrow-functions.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Functions &amp; Arrow Functions</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 11 of 20</p>
+      <h1>Functions &amp; Arrow Functions — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Functions &amp; Arrow Functions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-10">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">3 easy · 16 medium · 11 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Declarations</span><span>Expressions</span><span>Hoisting</span><span>return</span><span>undefined</span><span>Arrow functions</span><span>Implicit return</span><span>Arrow syntax</span><span>Common mistakes</span><span>Default parameters</span><span>Arguments</span><span>Rest parameters</span><span>Spread</span><span>Rest</span><span>arguments</span><span>Callbacks</span><span>Higher-order functions</span><span>Events</span><span>First-class functions</span><span>map</span><span>IIFE</span><span>Scope</span><span>Recursion</span><span>Call stack</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (3)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which is a function DECLARATION?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> function greet() { }</li>
+          <li><span class="opt-key">B</span> const greet = function() { };</li>
+          <li><span class="opt-key">C</span> const greet = () =&gt; { };</li>
+          <li><span class="opt-key">D</span> greet: function() { }</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — function greet() { }</p>
+          <p class="expl">A declaration starts with the function keyword and has a name. Options B and C are function EXPRESSIONS (a function assigned to a variable).</p>
+          <p class="tags"><span>Declarations</span><span>Expressions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does a function return if there is no return statement?</p>
+        <pre class="code"><code>function log(msg) { console.log(msg); }
+const r = log(&quot;hi&quot;);
+console.log(r);   // undefined</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined</li>
+          <li><span class="opt-key">B</span> null</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined</p>
+          <p class="expl">Every JavaScript function returns something; without an explicit return the result is undefined.</p>
+          <p class="tags"><span>return</span><span>undefined</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the arrow-function equivalent of
+function double(n) { return n * 2; }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> const double = n =&gt; n * 2;</li>
+          <li><span class="opt-key">B</span> const double = n =&gt; { n * 2; };</li>
+          <li><span class="opt-key">C</span> const double =&gt; n * 2;</li>
+          <li><span class="opt-key">D</span> arrow double(n) { n * 2 }</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — const double = n =&gt; n * 2;</p>
+          <p class="expl">A concise arrow body (no braces) returns its expression automatically. Option B has braces without return, so it yields undefined.</p>
+          <p class="tags"><span>Arrow functions</span><span>Implicit return</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the key practical difference between a function declaration and an expression?</p>
+        <pre class="code"><code>sayHi();                       // works
+function sayHi() { }
+
+sayBye();                      // TypeError/ReferenceError
+const sayBye = function() { };</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Declarations are fully HOISTED, so they can be called before they appear; expressions cannot</li>
+          <li><span class="opt-key">B</span> Expressions run faster</li>
+          <li><span class="opt-key">C</span> Declarations cannot take parameters</li>
+          <li><span class="opt-key">D</span> There is no difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Declarations are fully HOISTED, so they can be called before they appear; expressions cannot</p>
+          <p class="expl">Declarations are lifted with their body, so calling them earlier in the file works. Function expressions follow variable hoisting rules, so calling early gives an error.</p>
+          <p class="tags"><span>Hoisting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When can you omit the parentheses around an arrow function's parameter?</p>
+        <pre class="code"><code>() =&gt; 42
+n =&gt; n * 2
+(a, b) =&gt; a + b</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> With exactly ONE parameter: n =&gt; n * 2</li>
+          <li><span class="opt-key">B</span> Always</li>
+          <li><span class="opt-key">C</span> Never</li>
+          <li><span class="opt-key">D</span> Only with zero parameters</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — With exactly ONE parameter: n =&gt; n * 2</p>
+          <p class="expl">Zero parameters need (), and two or more need (a, b). A single parameter may drop them - though many style guides require them for consistency.</p>
+          <p class="tags"><span>Arrow syntax</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you give a parameter a DEFAULT value?</p>
+        <pre class="code"><code>function greet(name = &quot;Guest&quot;) { return `Hi ${name}`; }
+greet();          // Hi Guest
+greet(undefined); // Hi Guest
+greet(null);      // Hi null - null is NOT undefined!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> function greet(name = &quot;Guest&quot;) { }</li>
+          <li><span class="opt-key">B</span> function greet(name || &quot;Guest&quot;) { }</li>
+          <li><span class="opt-key">C</span> function greet(name: &quot;Guest&quot;) { }</li>
+          <li><span class="opt-key">D</span> function greet(default name) { }</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — function greet(name = &quot;Guest&quot;) { }</p>
+          <p class="expl">Default parameters (ES6) apply when the argument is undefined (including when omitted). They may reference earlier parameters too.</p>
+          <p class="tags"><span>Default parameters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens when you call a function with FEWER arguments than parameters?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The missing parameters are undefined - no error is thrown</li>
+          <li><span class="opt-key">B</span> TypeError</li>
+          <li><span class="opt-key">C</span> The call is ignored</li>
+          <li><span class="opt-key">D</span> They default to 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The missing parameters are undefined - no error is thrown</p>
+          <p class="expl">JavaScript never enforces argument counts. Extra arguments are ignored; missing ones become undefined. This flexibility makes defaults and validation important.</p>
+          <p class="tags"><span>Arguments</span><span>undefined</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What do REST parameters do?
+function sum(...nums) { }</p>
+        <pre class="code"><code>function sum(...nums) {
+  return nums.reduce((a, b) =&gt; a + b, 0);
+}
+console.log(sum(1, 2, 3));   // 6</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Collect all remaining arguments into a real ARRAY</li>
+          <li><span class="opt-key">B</span> Spread an array into arguments</li>
+          <li><span class="opt-key">C</span> Limit the function to 3 arguments</li>
+          <li><span class="opt-key">D</span> Create optional parameters</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Collect all remaining arguments into a real ARRAY</p>
+          <p class="expl">...nums gathers any number of arguments into an array you can map/reduce over. It must be the LAST parameter.</p>
+          <p class="tags"><span>Rest parameters</span><span>Spread</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a callback function?</p>
+        <pre class="code"><code>setTimeout(() =&gt; console.log(&quot;later&quot;), 1000);
+btn.addEventListener(&quot;click&quot;, handleClick);
+[1,2].map(n =&gt; n * 2);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function passed to another function to be called later</li>
+          <li><span class="opt-key">B</span> A function that calls itself</li>
+          <li><span class="opt-key">C</span> A function that returns a function</li>
+          <li><span class="opt-key">D</span> A built-in browser function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function passed to another function to be called later</p>
+          <p class="expl">Callbacks power event handlers, timers and array methods: you hand over a function and the other code decides when to run it.</p>
+          <p class="tags"><span>Callbacks</span><span>Higher-order functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a higher-order function?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function that takes a function as an argument and/or returns a function</li>
+          <li><span class="opt-key">B</span> A function with many parameters</li>
+          <li><span class="opt-key">C</span> A function declared first in a file</li>
+          <li><span class="opt-key">D</span> A recursive function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function that takes a function as an argument and/or returns a function</p>
+          <p class="expl">map, filter, addEventListener and setTimeout are all higher-order. Functions being first-class values (storable, passable, returnable) is what makes this possible.</p>
+          <p class="tags"><span>First-class functions</span><span>map</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is function recursion?</p>
+        <pre class="code"><code>function factorial(n) {
+  if (n &lt;= 1) return 1;        // base case
+  return n * factorial(n - 1);
+}
+console.log(factorial(5));   // 120</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function calling ITSELF, with a base case to stop</li>
+          <li><span class="opt-key">B</span> Two functions calling each other only</li>
+          <li><span class="opt-key">C</span> A loop inside a function</li>
+          <li><span class="opt-key">D</span> Calling a function twice</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function calling ITSELF, with a base case to stop</p>
+          <p class="expl">Recursion breaks a problem into smaller identical problems. Every recursive function needs a base case, or it hits 'Maximum call stack size exceeded'.</p>
+          <p class="tags"><span>Recursion</span><span>Call stack</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What error does infinite recursion cause?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> RangeError: Maximum call stack size exceeded</li>
+          <li><span class="opt-key">B</span> SyntaxError</li>
+          <li><span class="opt-key">C</span> TypeError</li>
+          <li><span class="opt-key">D</span> It runs forever silently</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — RangeError: Maximum call stack size exceeded</p>
+          <p class="expl">Each call adds a frame to the call stack; without a base case the stack overflows. The error message is the signature of a missing or unreachable base case.</p>
+          <p class="tags"><span>Call stack</span><span>RangeError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a pure function?</p>
+        <pre class="code"><code>const add = (a, b) =&gt; a + b;          // pure
+let total = 0;
+const addTo = n =&gt; { total += n; };   // impure (side effect)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> One that returns the same output for the same input and causes no side effects</li>
+          <li><span class="opt-key">B</span> A function with no parameters</li>
+          <li><span class="opt-key">C</span> An arrow function</li>
+          <li><span class="opt-key">D</span> A function that only uses const</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — One that returns the same output for the same input and causes no side effects</p>
+          <p class="expl">Pure functions do not modify external state, DOM or their arguments. They are easy to test, cache and reason about - the backbone of functional style and React.</p>
+          <p class="tags"><span>Purity</span><span>Side effects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+const nums = [1, 2, 3];
+console.log(nums.map(function(n) { return n * 2; }));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [2, 4, 6]</li>
+          <li><span class="opt-key">B</span> [1, 2, 3]</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [2, 4, 6]</p>
+          <p class="expl">An anonymous function expression works exactly like an arrow here. The arrow version is shorter: nums.map(n =&gt; n * 2).</p>
+          <p class="tags"><span>Anonymous functions</span><span>map</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a named function expression useful for?
+const f = function myFunc() { };</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The name appears in stack traces and allows self-reference inside the function</li>
+          <li><span class="opt-key">B</span> It creates two functions</li>
+          <li><span class="opt-key">C</span> It is required by strict mode</li>
+          <li><span class="opt-key">D</span> It makes it global</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The name appears in stack traces and allows self-reference inside the function</p>
+          <p class="expl">The internal name aids debugging and recursion, but is not visible outside the function - only f exists in the enclosing scope.</p>
+          <p class="tags"><span>Named expressions</span><span>Debugging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you write a function that takes an options OBJECT?</p>
+        <pre class="code"><code>create({ height: 80 });   // width defaults to 100
+create();                  // both defaults</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> function create({ width = 100, height = 50 } = {}) { }</li>
+          <li><span class="opt-key">B</span> function create(options[]) { }</li>
+          <li><span class="opt-key">C</span> function create(width, height, ...) { }</li>
+          <li><span class="opt-key">D</span> function create(object) { }</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — function create({ width = 100, height = 50 } = {}) { }</p>
+          <p class="expl">Destructuring with defaults, plus '= {}' so calling with no arguments still works. Callers pass named options in any order - self-documenting and easy to extend.</p>
+          <p class="tags"><span>Destructuring</span><span>Options pattern</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(typeof function() {});</p>
+        <pre class="code"><code>if (typeof callback === &quot;function&quot;) callback();</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;function&quot;</li>
+          <li><span class="opt-key">B</span> &quot;object&quot;</li>
+          <li><span class="opt-key">C</span> &quot;undefined&quot;</li>
+          <li><span class="opt-key">D</span> &quot;method&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;function&quot;</p>
+          <p class="expl">Functions are objects internally, but typeof reports &quot;function&quot; - the standard way to check whether something is callable before calling it.</p>
+          <p class="tags"><span>typeof</span><span>Callbacks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which naming style is conventional for functions?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> camelCase verbs: calculateTotal(), getUserById()</li>
+          <li><span class="opt-key">B</span> PascalCase: CalculateTotal()</li>
+          <li><span class="opt-key">C</span> snake_case: calculate_total()</li>
+          <li><span class="opt-key">D</span> ALL_CAPS</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — camelCase verbs: calculateTotal(), getUserById()</p>
+          <p class="expl">Functions do things, so names usually start with a verb in camelCase. PascalCase is reserved for classes and React components.</p>
+          <p class="tags"><span>Conventions</span><span>Naming</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why break code into small functions?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Reuse, easier testing, self-documenting names, and no duplicated logic</li>
+          <li><span class="opt-key">B</span> Functions always run faster</li>
+          <li><span class="opt-key">C</span> JavaScript requires at least five</li>
+          <li><span class="opt-key">D</span> To use more memory</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Reuse, easier testing, self-documenting names, and no duplicated logic</p>
+          <p class="expl">A well-named function replaces a comment and can be tested in isolation. The DRY principle - Don't Repeat Yourself - is the core motivation.</p>
+          <p class="tags"><span>DRY</span><span>Code organisation</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (11)</h2>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const f = n =&gt; { n * 2 };
+console.log(f(5));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined - braces create a block body, which needs an explicit return</li>
+          <li><span class="opt-key">B</span> 10</li>
+          <li><span class="opt-key">C</span> 5</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined - braces create a block body, which needs an explicit return</p>
+          <p class="expl">Curly braces switch the arrow to a full function body. Either remove them (n =&gt; n * 2) or add return (n =&gt; { return n * 2; }). A very common bug inside map().</p>
+          <p class="tags"><span>Arrow functions</span><span>Common mistakes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between rest (...) in a definition and spread (...) in a call?</p>
+        <pre class="code"><code>function sum(...nums) { }     // rest: gather
+sum(...[1, 2, 3]);              // spread: scatter</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Rest COLLECTS arguments into an array; spread EXPANDS an array into separate arguments</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> Rest only works with numbers</li>
+          <li><span class="opt-key">D</span> Spread only works in definitions</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Rest COLLECTS arguments into an array; spread EXPANDS an array into separate arguments</p>
+          <p class="expl">Same three dots, opposite directions - context decides. Definition side = gather; call side = scatter.</p>
+          <p class="tags"><span>Rest</span><span>Spread</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the arguments object, and do arrow functions have it?</p>
+        <pre class="code"><code>function old() { console.log(arguments[0]); }
+const modern = (...args) =&gt; console.log(args[0]);   // preferred</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An array-LIKE object of all passed arguments in regular functions - arrow functions do NOT have it</li>
+          <li><span class="opt-key">B</span> A real array available everywhere</li>
+          <li><span class="opt-key">C</span> Only available in arrow functions</li>
+          <li><span class="opt-key">D</span> It stores return values</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An array-LIKE object of all passed arguments in regular functions - arrow functions do NOT have it</p>
+          <p class="expl">arguments exists in traditional functions but is not a real array (no map/filter). Arrow functions inherit it from the enclosing scope instead. Modern code prefers rest parameters.</p>
+          <p class="tags"><span>arguments</span><span>Rest parameters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between passing greet and greet()?
+btn.addEventListener(&quot;click&quot;, greet);</p>
+        <pre class="code"><code>btn.addEventListener(&quot;click&quot;, greet);         // correct
+btn.addEventListener(&quot;click&quot;, greet());       // WRONG - runs now
+btn.addEventListener(&quot;click&quot;, () =&gt; greet(1)); // correct with args</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> greet passes the FUNCTION itself; greet() CALLS it immediately and passes its return value</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> greet() is required for events</li>
+          <li><span class="opt-key">D</span> greet is invalid</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — greet passes the FUNCTION itself; greet() CALLS it immediately and passes its return value</p>
+          <p class="expl">Adding parentheses runs the function right away and registers whatever it returned (usually undefined) as the handler - so nothing happens on click. Omit them, or wrap in an arrow: () =&gt; greet(arg).</p>
+          <ul class="notes"><li>A top-three beginner bug with event listeners.</li></ul>
+          <p class="tags"><span>Callbacks</span><span>Events</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is an IIFE?
+(function() { ... })();</p>
+        <pre class="code"><code>(function() {
+  const secret = 42;   // not global
+})();
+
+(() =&gt; { /* arrow IIFE */ })();</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Immediately Invoked Function Expression - it runs the moment it is defined, creating a private scope</li>
+          <li><span class="opt-key">B</span> A function that never runs</li>
+          <li><span class="opt-key">C</span> An imported function</li>
+          <li><span class="opt-key">D</span> A class constructor</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Immediately Invoked Function Expression - it runs the moment it is defined, creating a private scope</p>
+          <p class="expl">Before ES6 modules, IIFEs were the way to avoid polluting the global scope. The wrapping parentheses turn the declaration into an expression, and the trailing () invokes it.</p>
+          <p class="tags"><span>IIFE</span><span>Scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function f(x) { x = 99; }
+let a = 5;
+f(a);
+console.log(a);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5 - primitives are passed BY VALUE, so the function got a copy</li>
+          <li><span class="opt-key">B</span> 99</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5 - primitives are passed BY VALUE, so the function got a copy</p>
+          <p class="expl">Reassigning a parameter only changes the local copy. To change the caller's value, return the new one and reassign.</p>
+          <p class="tags"><span>Pass by value</span><span>Primitives</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function f(obj) { obj.n = 99; }
+const o = { n: 5 };
+f(o);
+console.log(o.n);</p>
+        <pre class="code"><code>function g(obj) { obj = { n: 0 }; }   // no outside effect
+g(o);
+console.log(o.n);   // still 99</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 99 - objects are passed by reference VALUE, so mutations are visible outside</li>
+          <li><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 99 - objects are passed by reference VALUE, so mutations are visible outside</p>
+          <p class="expl">The parameter points at the same object, so mutating its properties affects the caller. But REASSIGNING the parameter (obj = {}) would not - the reference itself was copied.</p>
+          <p class="tags"><span>Pass by reference</span><span>Mutation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do arrow functions differ from regular functions regarding this?</p>
+        <pre class="code"><code>const timer = {
+  count: 0,
+  start() {
+    setInterval(() =&gt; this.count++, 1000);   // arrow keeps this
+  }
+};</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Arrows have no own this - they inherit it from the surrounding scope (lexical this)</li>
+          <li><span class="opt-key">B</span> Arrows always set this to window</li>
+          <li><span class="opt-key">C</span> They behave identically</li>
+          <li><span class="opt-key">D</span> Arrows set this to undefined always</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Arrows have no own this - they inherit it from the surrounding scope (lexical this)</p>
+          <p class="expl">This is the biggest practical difference. Arrows are perfect for callbacks inside methods (where you want the outer this) and wrong as object methods (where you want the object).</p>
+          <p class="tags"><span>this</span><span>Arrow functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which is NOT true of arrow functions?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They can be used as constructors with new</li>
+          <li><span class="opt-key">B</span> They have no own this</li>
+          <li><span class="opt-key">C</span> They have no arguments object</li>
+          <li><span class="opt-key">D</span> They can have implicit returns</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They can be used as constructors with new</p>
+          <p class="expl">Arrow functions cannot be called with new - 'is not a constructor'. They also lack prototype, this, arguments and super. Use regular functions or classes for constructors.</p>
+          <p class="tags"><span>Arrow limitations</span><span>Constructors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this return?
+function add(a) { return b =&gt; a + b; }
+const add5 = add(5);
+console.log(add5(3));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 8 - add returns a function that remembers a (a closure)</li>
+          <li><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 8 - add returns a function that remembers a (a closure)</p>
+          <p class="expl">add(5) produces a specialised function with a fixed at 5. This technique - a function returning a function - is called currying and relies on closures.</p>
+          <p class="tags"><span>Closures</span><span>Currying</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function f() { return; 
+  42; }
+console.log(f());</p>
+        <pre class="code"><code>return {      // correct - brace on the same line
+  a: 1
+};</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined - Automatic Semicolon Insertion ends the return statement at the line break</li>
+          <li><span class="opt-key">B</span> 42</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined - Automatic Semicolon Insertion ends the return statement at the line break</p>
+          <p class="expl">ASI inserts a semicolon right after return, making 42 unreachable code. Always put the returned value on the SAME line as return - especially with multi-line objects (use a parenthesis on the return line).</p>
+          <p class="tags"><span>ASI</span><span>return</span><span>Gotchas</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="10-objects.html">← Objects</a>
+      <a href="12-scope-and-hoisting.html">Scope &amp; Hoisting →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-10">Practice “Functions &amp; Arrow Functions” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

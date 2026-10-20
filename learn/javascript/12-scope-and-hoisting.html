@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scope &amp; Hoisting – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Scope &amp; Hoisting with answers and detailed explanations — 2 easy, 16 medium and 12 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/12-scope-and-hoisting.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Scope &amp; Hoisting – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Scope &amp; Hoisting with answers and detailed explanations — 2 easy, 16 medium and 12 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/12-scope-and-hoisting.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Scope & Hoisting","item":"https://velnov.co.in/learn/javascript/12-scope-and-hoisting.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Scope &amp; Hoisting</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 12 of 20</p>
+      <h1>Scope &amp; Hoisting — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Scope &amp; Hoisting</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-11">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 16 medium · 12 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Scope</span><span>Variables</span><span>Function scope</span><span>Block scope</span><span>var vs let</span><span>let</span><span>const</span><span>Hoisting</span><span>Execution context</span><span>var</span><span>TDZ</span><span>Declarations</span><span>TypeError</span><span>Lexical scope</span><span>Closures</span><span>Scope chain</span><span>Lookup</span><span>Shadowing</span><span>Global scope</span><span>window</span><span>Globals</span><span>Modules</span><span>Implicit globals</span><span>Strict mode</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is 'scope'?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The region of code where a variable is accessible</li>
+          <li><span class="opt-key">B</span> The size of a variable</li>
+          <li><span class="opt-key">C</span> The type of a variable</li>
+          <li><span class="opt-key">D</span> How long a variable lives in memory</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The region of code where a variable is accessible</p>
+          <p class="expl">Scope decides where a name can be seen. JavaScript has global scope, function scope, block scope and module scope.</p>
+          <p class="tags"><span>Scope</span><span>Variables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which declarations are BLOCK-scoped?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> let and const</li>
+          <li><span class="opt-key">B</span> var only</li>
+          <li><span class="opt-key">C</span> All three</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — let and const</p>
+          <p class="expl">let and const respect { } braces (if, for, while, or a bare block). var is function-scoped and ignores blocks - the main reason modern code avoids it.</p>
+          <p class="tags"><span>let</span><span>const</span><span>Block scope</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+function f() { var x = 1; }
+f();
+console.log(x);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ReferenceError - x is local to f</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ReferenceError - x is local to f</p>
+          <p class="expl">Variables declared inside a function are invisible outside it. This encapsulation is a feature - it prevents name collisions.</p>
+          <p class="tags"><span>Function scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+if (true) { var a = 1; let b = 2; }
+console.log(a, typeof b);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 &quot;undefined&quot; - var leaks out of the block, let does not</li>
+          <li><span class="opt-key">B</span> 1 2</li>
+          <li><span class="opt-key">C</span> ReferenceError</li>
+          <li><span class="opt-key">D</span> undefined undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 &quot;undefined&quot; - var leaks out of the block, let does not</p>
+          <p class="expl">var ignores blocks and belongs to the whole function, so a escapes. b is block-scoped, so it does not exist outside - typeof safely reports &quot;undefined&quot; instead of throwing.</p>
+          <p class="tags"><span>Block scope</span><span>var vs let</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is hoisting?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> JavaScript moving DECLARATIONS to the top of their scope before running the code</li>
+          <li><span class="opt-key">B</span> Moving code to the server</li>
+          <li><span class="opt-key">C</span> Optimising loops</li>
+          <li><span class="opt-key">D</span> Deleting unused variables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — JavaScript moving DECLARATIONS to the top of their scope before running the code</p>
+          <p class="expl">During compilation, declarations are registered first. Only the declaration is hoisted, not the assigned value - which is why var variables read as undefined before their assignment line.</p>
+          <p class="tags"><span>Hoisting</span><span>Execution context</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(x);
+var x = 5;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined - the declaration is hoisted but the assignment is not</li>
+          <li><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> ReferenceError</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined - the declaration is hoisted but the assignment is not</p>
+          <p class="expl">JavaScript effectively runs 'var x;' first (giving undefined), then 'x = 5' at its original position.</p>
+          <p class="tags"><span>Hoisting</span><span>var</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Are FUNCTION DECLARATIONS hoisted with their body?</p>
+        <pre class="code"><code>greet();                    // works
+function greet() { }
+
+hello();                    // TypeError
+var hello = function() { };</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - you can call them before they are defined in the file</li>
+          <li><span class="opt-key">B</span> No, never</li>
+          <li><span class="opt-key">C</span> Only in strict mode</li>
+          <li><span class="opt-key">D</span> Only inside functions</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - you can call them before they are defined in the file</p>
+          <p class="expl">Function declarations are fully hoisted, so helper functions can be defined at the bottom of a file. Function EXPRESSIONS follow variable rules and cannot be called early.</p>
+          <p class="tags"><span>Hoisting</span><span>Declarations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is lexical scope?</p>
+        <pre class="code"><code>function outer() {
+  const msg = &quot;hi&quot;;
+  function inner() { console.log(msg); }   // sees msg
+  inner();
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Inner functions can access variables from the scope where they were WRITTEN</li>
+          <li><span class="opt-key">B</span> Scope determined by where a function is called</li>
+          <li><span class="opt-key">C</span> Global scope only</li>
+          <li><span class="opt-key">D</span> Random scoping</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Inner functions can access variables from the scope where they were WRITTEN</p>
+          <p class="expl">JavaScript uses static/lexical scoping: nesting in the source decides visibility, not the call site. This is what makes closures predictable.</p>
+          <p class="tags"><span>Lexical scope</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the scope chain?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The lookup path: current scope, then enclosing scopes, up to global</li>
+          <li><span class="opt-key">B</span> A list of all functions</li>
+          <li><span class="opt-key">C</span> The call stack</li>
+          <li><span class="opt-key">D</span> A linked list of objects</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The lookup path: current scope, then enclosing scopes, up to global</p>
+          <p class="expl">When a name is used, JavaScript searches outward one level at a time and stops at the first match. Not finding it anywhere gives a ReferenceError.</p>
+          <p class="tags"><span>Scope chain</span><span>Lookup</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is variable shadowing?
+let x = 1;
+function f() { let x = 2; }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An inner variable with the same name HIDES the outer one inside that scope</li>
+          <li><span class="opt-key">B</span> An error</li>
+          <li><span class="opt-key">C</span> The outer value is deleted</li>
+          <li><span class="opt-key">D</span> Both variables merge</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An inner variable with the same name HIDES the outer one inside that scope</p>
+          <p class="expl">The inner x is a separate variable; the outer one is untouched and reappears outside the function. Shadowing is legal but can confuse readers if overused.</p>
+          <p class="tags"><span>Shadowing</span><span>Scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the global scope in a browser?</p>
+        <pre class="code"><code>var a = 1;
+let b = 2;
+console.log(window.a);   // 1
+console.log(window.b);   // undefined</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The outermost scope, whose var declarations and function declarations attach to window</li>
+          <li><span class="opt-key">B</span> Any function's scope</li>
+          <li><span class="opt-key">C</span> The scope inside a module</li>
+          <li><span class="opt-key">D</span> Block scope</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The outermost scope, whose var declarations and function declarations attach to window</p>
+          <p class="expl">var x = 1 at top level creates window.x. let/const do NOT attach to window, and ES modules have their own module scope entirely.</p>
+          <p class="tags"><span>Global scope</span><span>window</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why is polluting the global scope a problem?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Names can collide between scripts, causing hard-to-trace bugs</li>
+          <li><span class="opt-key">B</span> It uses more disk space</li>
+          <li><span class="opt-key">C</span> Globals are always slower</li>
+          <li><span class="opt-key">D</span> It is a syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Names can collide between scripts, causing hard-to-trace bugs</p>
+          <p class="expl">Two libraries both defining 'config' would overwrite each other. Modules, IIFEs and block scoping exist to keep names contained.</p>
+          <p class="tags"><span>Globals</span><span>Modules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Do blocks like { } (standalone) create scope for let?</p>
+        <pre class="code"><code>{
+  let temp = compute();
+  use(temp);
+}
+// temp is gone here</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - any pair of braces creates a block scope for let/const</li>
+          <li><span class="opt-key">B</span> Only in functions</li>
+          <li><span class="opt-key">C</span> No</li>
+          <li><span class="opt-key">D</span> Only in loops</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - any pair of braces creates a block scope for let/const</p>
+          <p class="expl">You can use a bare block to limit a temporary variable's lifetime, useful in switch cases to avoid redeclaration errors.</p>
+          <p class="tags"><span>Block scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does 'use strict' change about scope?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Assigning to an undeclared variable throws instead of creating a global</li>
+          <li><span class="opt-key">B</span> It removes function scope</li>
+          <li><span class="opt-key">C</span> It makes everything global</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Assigning to an undeclared variable throws instead of creating a global</p>
+          <p class="expl">Strict mode also forbids duplicate parameter names and changes this in plain function calls from window to undefined. ES modules and class bodies are strict automatically.</p>
+          <p class="tags"><span>Strict mode</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What scope do ES modules have?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Their own module scope - top-level declarations are NOT global</li>
+          <li><span class="opt-key">B</span> Always global</li>
+          <li><span class="opt-key">C</span> Block scope only</li>
+          <li><span class="opt-key">D</span> No scope</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Their own module scope - top-level declarations are NOT global</p>
+          <p class="expl">Each module file has a private scope; you share values deliberately with export/import. Modules are also strict mode by default - a major reason to prefer them.</p>
+          <p class="tags"><span>Modules</span><span>import/export</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can a function access variables declared AFTER it in the same scope?</p>
+        <pre class="code"><code>function show() { console.log(msg); }
+let msg = &quot;hi&quot;;
+show();   // &quot;hi&quot; - called after msg exists</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes, if it is CALLED after those lines run - scope is about location, timing decides the value</li>
+          <li><span class="opt-key">B</span> Never</li>
+          <li><span class="opt-key">C</span> Always, immediately</li>
+          <li><span class="opt-key">D</span> Only with var</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes, if it is CALLED after those lines run - scope is about location, timing decides the value</p>
+          <p class="expl">The function body is evaluated at CALL time, so by then later declarations have executed. Calling it too early gives undefined (var) or a TDZ error (let).</p>
+          <p class="tags"><span>Scope</span><span>Execution order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the practical advice about var today?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Avoid it - use const by default and let when reassignment is needed</li>
+          <li><span class="opt-key">B</span> Use var for all loops</li>
+          <li><span class="opt-key">C</span> var is required for globals</li>
+          <li><span class="opt-key">D</span> var is faster</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Avoid it - use const by default and let when reassignment is needed</p>
+          <p class="expl">var's function scoping and silent hoisting cause bugs that let/const prevent. You still need to RECOGNISE var in older code, but there is no reason to write it in new code.</p>
+          <p class="tags"><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why does minified/bundled code rarely break due to scope?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Because module and function scoping keep names private, so renaming is safe</li>
+          <li><span class="opt-key">B</span> Because everything is global</li>
+          <li><span class="opt-key">C</span> Minifiers avoid variables</li>
+          <li><span class="opt-key">D</span> It often does break</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Because module and function scoping keep names private, so renaming is safe</p>
+          <p class="expl">Tools can safely shorten local names precisely because scope guarantees nothing outside references them - another practical benefit of avoiding globals.</p>
+          <p class="tags"><span>Modules</span><span>Tooling</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (12)</h2>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(y);
+let y = 5;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ReferenceError: Cannot access 'y' before initialization</li>
+          <li><span class="opt-key">B</span> undefined</li>
+          <li><span class="opt-key">C</span> 5</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ReferenceError: Cannot access 'y' before initialization</p>
+          <p class="expl">let and const ARE hoisted, but sit in the Temporal Dead Zone until their declaration line - accessing them there throws. This surfaces bugs that var would have hidden as undefined.</p>
+          <p class="tags"><span>TDZ</span><span>let</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the Temporal Dead Zone (TDZ)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The span between entering a scope and the let/const declaration, where the variable exists but cannot be touched</li>
+          <li><span class="opt-key">B</span> A memory leak</li>
+          <li><span class="opt-key">C</span> A slow region of code</li>
+          <li><span class="opt-key">D</span> An old browser feature</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The span between entering a scope and the let/const declaration, where the variable exists but cannot be touched</p>
+          <p class="expl">The TDZ is why let/const feel 'not hoisted' - they are, but access is forbidden until initialised. It catches use-before-declare mistakes early.</p>
+          <p class="tags"><span>TDZ</span><span>Hoisting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+hello();
+var hello = function() { console.log(&quot;hi&quot;); };</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TypeError: hello is not a function - the var is hoisted as undefined</li>
+          <li><span class="opt-key">B</span> hi</li>
+          <li><span class="opt-key">C</span> ReferenceError</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TypeError: hello is not a function - the var is hoisted as undefined</p>
+          <p class="expl">At call time hello holds undefined, and calling undefined throws a TypeError. Note the ERROR TYPE differs from a truly undeclared name (ReferenceError) - useful for diagnosing.</p>
+          <p class="tags"><span>Hoisting</span><span>TypeError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+let x = 1;
+function f() { console.log(x); let x = 2; }
+f();</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ReferenceError - the inner let shadows x for the WHOLE function, creating a TDZ</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> 2</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ReferenceError - the inner let shadows x for the WHOLE function, creating a TDZ</p>
+          <p class="expl">Because f declares its own x, every reference inside f refers to the LOCAL x - which is in its TDZ on the console.log line. Shadowing applies to the entire block, not just after the declaration.</p>
+          <p class="tags"><span>TDZ</span><span>Shadowing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output (non-strict mode)?
+function f() { undeclared = 5; }
+f();
+console.log(undeclared);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5 - assigning without a keyword creates an accidental GLOBAL</li>
+          <li><span class="opt-key">B</span> ReferenceError</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5 - assigning without a keyword creates an accidental GLOBAL</p>
+          <p class="expl">Sloppy mode silently creates a global, which is why 'use strict' (and modules) turn this into a ReferenceError. Always declare with const or let.</p>
+          <p class="tags"><span>Implicit globals</span><span>Strict mode</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+for (var i = 0; i &lt; 3; i++) { }
+console.log(i);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 3 - var leaks out of the loop and keeps its final value</li>
+          <li><span class="opt-key">B</span> ReferenceError</li>
+          <li><span class="opt-key">C</span> 2</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 3 - var leaks out of the loop and keeps its final value</p>
+          <p class="expl">var is function-scoped, so the counter survives the loop. With let, i exists only inside the loop and this line would throw - usually what you want.</p>
+          <p class="tags"><span>var</span><span>let</span><span>Loops</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+for (let i = 0; i &lt; 3; i++) setTimeout(() =&gt; console.log(i));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 0 1 2 - let creates a fresh binding per iteration</li>
+          <li><span class="opt-key">B</span> 3 3 3</li>
+          <li><span class="opt-key">C</span> 0 0 0</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 0 1 2 - let creates a fresh binding per iteration</p>
+          <p class="expl">Each iteration gets its own i, so each callback captures a different value. With var, all three would share one binding and print 3 3 3.</p>
+          <p class="tags"><span>Closures</span><span>let</span><span>Loops</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does this throw in a switch?
+switch (x) { case 1: let a = 1; break; case 2: let a = 2; }</p>
+        <pre class="code"><code>case 1: { let a = 1; break; }
+case 2: { let a = 2; break; }</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The whole switch body is ONE block, so a is declared twice</li>
+          <li><span class="opt-key">B</span> let is not allowed in switch</li>
+          <li><span class="opt-key">C</span> break is missing</li>
+          <li><span class="opt-key">D</span> It does not throw</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The whole switch body is ONE block, so a is declared twice</p>
+          <p class="expl">All cases share a single block scope. Wrap each case body in its own braces { } to give each a private scope.</p>
+          <p class="tags"><span>switch</span><span>Block scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In a regular (non-method) function call in strict mode, what is this?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined (in sloppy mode it would be window)</li>
+          <li><span class="opt-key">B</span> Always window</li>
+          <li><span class="opt-key">C</span> The function itself</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined (in sloppy mode it would be window)</p>
+          <p class="expl">Strict mode stops this from silently defaulting to the global object, which prevents accidental global property writes inside functions.</p>
+          <p class="tags"><span>this</span><span>Strict mode</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+var x = 1;
+function f() { console.log(x); var x = 2; }
+f();</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined - the local var x is hoisted, shadowing the global before assignment</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> 2</li>
+          <li><span class="opt-key">D</span> ReferenceError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined - the local var x is hoisted, shadowing the global before assignment</p>
+          <p class="expl">The function's own x is hoisted to the top as undefined, so the console.log sees the local (not the global 1). This confusing behaviour is exactly what let's TDZ replaced with a clear error.</p>
+          <p class="tags"><span>Hoisting</span><span>Shadowing</span><span>var</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What creates a new scope in JavaScript?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Functions (all declarations) and blocks { } (let/const only), plus modules</li>
+          <li><span class="opt-key">B</span> Only functions</li>
+          <li><span class="opt-key">C</span> Only blocks</li>
+          <li><span class="opt-key">D</span> Every statement</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Functions (all declarations) and blocks { } (let/const only), plus modules</p>
+          <p class="expl">Functions create scope for everything including var. Blocks create scope only for let/const/class. Modules add a file-level scope.</p>
+          <p class="tags"><span>Scope types</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+let count = 0;
+function inc() { count++; }
+inc(); inc();
+console.log(count);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 - the function modifies the outer variable through the scope chain</li>
+          <li><span class="opt-key">B</span> 0</li>
+          <li><span class="opt-key">C</span> 1</li>
+          <li><span class="opt-key">D</span> ReferenceError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 - the function modifies the outer variable through the scope chain</p>
+          <p class="expl">Functions can READ and WRITE outer variables (unlike creating a new local, which needs a declaration keyword). This is the basis of closures holding state.</p>
+          <p class="tags"><span>Scope chain</span><span>Closures</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="11-functions-and-arrow-functions.html">← Functions &amp; Arrow Functions</a>
+      <a href="13-closures.html">Closures →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-11">Practice “Scope &amp; Hoisting” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

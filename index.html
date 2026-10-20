@@ -6,13 +6,14 @@
   <title>Velnov – Online Quizzes, Practice Questions &amp; Learning Tools</title>
   <meta name="description" content="Learn and practice with Velnov. Explore online quizzes, practice questions, math formulas and useful learning tools for Python, JavaScript, SQL, Physics, History and more." />
   <link rel="canonical" href="https://velnov.co.in/" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093"
-     crossorigin="anonymous"></script>
+  <!-- No ad code on this page: it is the interactive quiz/calculator app.
+       Ads run only on the content pages in learn/ and formulas/. -->
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=14" />
+  <link rel="stylesheet" href="css/style.css?v=15" />
 
   <!-- Minimal, accurate structured data for the site itself -->
   <script type="application/ld+json">
@@ -54,6 +55,9 @@
       <button class="side-link" data-view="calculator" onclick="showView('calculator'); closeSidebar();">
         <span class="side-ico">🧮</span> Calculator
       </button>
+      <a class="side-link" href="learn/">
+        <span class="side-ico">📝</span> Study Notes
+      </a>
     </nav>
 
     <div class="side-divider"></div>
@@ -138,6 +142,24 @@
           factorials and constants.
         </li>
       </ul>
+
+      <h3>Study notes: every question with its answer</h3>
+      <p>
+        Prefer to read before you test yourself? The
+        <a href="learn/">Velnov study notes</a> list every quiz question with
+        the correct answer and a full explanation, topic by topic:
+        <a href="learn/python/">Python</a>,
+        <a href="learn/javascript/">JavaScript</a>,
+        <a href="learn/sql/">SQL</a>,
+        <a href="learn/physics/">Physics</a>,
+        <a href="learn/chemistry/">Chemistry</a>,
+        <a href="learn/biology/">Biology</a>,
+        <a href="learn/indian-history/">Indian History</a>,
+        <a href="learn/mathematics/">Mathematics</a> and
+        <a href="learn/english/">English</a>.
+        The <a href="formulas/">math formula pages</a> explain each formula with
+        its meaning, uses and an example.
+      </p>
 
       <p>
         Nothing needs to be installed and there is no sign-up.
@@ -308,6 +330,6 @@
   <script src="data/formulas/10-advanced.js?v=2"></script>
 
   <!-- App logic (must load AFTER the question files) -->
-  <script src="js/app.js?v=8"></script>
+  <script src="js/app.js?v=9"></script>
 </body>
 </html>

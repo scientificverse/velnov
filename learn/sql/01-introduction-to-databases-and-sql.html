@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Databases &amp; SQL – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Introduction to Databases &amp; SQL with answers and detailed explanations — 9 easy, 16 medium and 5 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/01-introduction-to-databases-and-sql.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Introduction to Databases &amp; SQL – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Introduction to Databases &amp; SQL with answers and detailed explanations — 9 easy, 16 medium and 5 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/01-introduction-to-databases-and-sql.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Introduction to Databases & SQL","item":"https://velnov.co.in/learn/sql/01-introduction-to-databases-and-sql.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Introduction to Databases &amp; SQL</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 1 of 20</p>
+      <h1>Introduction to Databases &amp; SQL — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Introduction to Databases &amp; SQL</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-0">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">9 easy · 16 medium · 5 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Databases</span><span>RDBMS</span><span>Tables</span><span>Keys</span><span>Rows</span><span>Columns</span><span>Data types</span><span>Primary key</span><span>Constraints</span><span>Foreign key</span><span>Relationships</span><span>Dialects</span><span>DDL</span><span>DML</span><span>TCL</span><span>Style</span><span>Conventions</span><span>Comments</span><span>Syntax</span><span>Schema</span><span>Design</span><span>NULL</span><span>Three-valued logic</span><span>SELECT</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (9)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does SQL stand for?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Structured Query Language</li>
+          <li><span class="opt-key">B</span> Simple Question Language</li>
+          <li><span class="opt-key">C</span> Standard Quality Language</li>
+          <li><span class="opt-key">D</span> Sequential Query Logic</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Structured Query Language</p>
+          <p class="expl">SQL is the standard language for storing, retrieving and managing data in relational databases. It is often pronounced 'sequel' or spelled out as S-Q-L.</p>
+          <p class="tags"><span>Databases</span><span>RDBMS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is a relational database?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Data organised into TABLES of rows and columns, which can be linked by keys</li>
+          <li><span class="opt-key">B</span> A database stored only in memory</li>
+          <li><span class="opt-key">C</span> A collection of text files</li>
+          <li><span class="opt-key">D</span> A spreadsheet program</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Data organised into TABLES of rows and columns, which can be linked by keys</p>
+          <p class="expl">Relational databases store data in tables. Relationships between tables are created with keys - for example an Orders table referencing a Customers table.</p>
+          <p class="tags"><span>Tables</span><span>Keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">In a table, what does a ROW represent?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A single record - one complete entry, such as one customer</li>
+          <li><span class="opt-key">B</span> One field of data</li>
+          <li><span class="opt-key">C</span> The table name</li>
+          <li><span class="opt-key">D</span> A query result only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A single record - one complete entry, such as one customer</p>
+          <p class="expl">A row (also called a record or tuple) is one complete item. A column (field or attribute) is one property shared by every row, such as email.</p>
+          <p class="tags"><span>Rows</span><span>Columns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is a COLUMN in a table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A named field with a fixed data type, holding one attribute for every row</li>
+          <li><span class="opt-key">B</span> One customer's data</li>
+          <li><span class="opt-key">C</span> A group of tables</li>
+          <li><span class="opt-key">D</span> A saved query</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A named field with a fixed data type, holding one attribute for every row</p>
+          <p class="expl">Every column has a name and a data type (INT, VARCHAR, DATE...). That type is enforced, so a numeric column cannot accidentally store text.</p>
+          <p class="tags"><span>Columns</span><span>Data types</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which of these is a popular relational database system?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> MySQL, PostgreSQL, SQL Server, Oracle, SQLite</li>
+          <li><span class="opt-key">B</span> MongoDB only</li>
+          <li><span class="opt-key">C</span> Excel</li>
+          <li><span class="opt-key">D</span> JSON</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — MySQL, PostgreSQL, SQL Server, Oracle, SQLite</p>
+          <p class="expl">All of those speak SQL with small dialect differences. MongoDB is a NoSQL document database and does not use SQL.</p>
+          <p class="tags"><span>RDBMS</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Is SQL case-sensitive for its KEYWORDS?</p>
+        <pre class="code"><code>SELECT name FROM students;   -- conventional
+select name from students;   -- also valid</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - select and SELECT both work, though uppercase keywords are the convention</li>
+          <li><span class="opt-key">B</span> Yes, keywords must be uppercase</li>
+          <li><span class="opt-key">C</span> Yes, keywords must be lowercase</li>
+          <li><span class="opt-key">D</span> Only in MySQL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - select and SELECT both work, though uppercase keywords are the convention</p>
+          <p class="expl">Keywords are case-insensitive. Writing them in CAPS makes queries easier to read. Note that DATA and table/column names may be case-sensitive depending on the database and operating system.</p>
+          <p class="tags"><span>Style</span><span>Conventions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you write a comment in SQL?</p>
+        <pre class="code"><code>-- get active users
+SELECT * FROM users   /* all columns */
+WHERE active = 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> -- for a single line, /* ... */ for multiple lines</li>
+          <li><span class="opt-key">B</span> # only</li>
+          <li><span class="opt-key">C</span> // only</li>
+          <li><span class="opt-key">D</span> Comments are not supported</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — -- for a single line, /* ... */ for multiple lines</p>
+          <p class="expl">Two hyphens start a single-line comment; /* */ wraps a block. (MySQL also accepts # for single lines, but -- is the standard.)</p>
+          <p class="tags"><span>Comments</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What character traditionally ends an SQL statement?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A semicolon ;</li>
+          <li><span class="opt-key">B</span> A full stop .</li>
+          <li><span class="opt-key">C</span> A colon :</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A semicolon ;</p>
+          <p class="expl">The semicolon separates statements. Some tools let you omit it for a single query, but it is required when running several statements together.</p>
+          <p class="tags"><span>Syntax</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which clause specifies WHICH TABLE to read from?</p>
+        <pre class="code"><code>SELECT name, email
+FROM customers;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FROM</li>
+          <li><span class="opt-key">B</span> SELECT</li>
+          <li><span class="opt-key">C</span> WHERE</li>
+          <li><span class="opt-key">D</span> TABLE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FROM</p>
+          <p class="expl">SELECT lists the columns you want; FROM names the source table. Both are required in a basic query.</p>
+          <p class="tags"><span>SELECT</span><span>FROM</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a PRIMARY KEY?</p>
+        <pre class="code"><code>CREATE TABLE students (
+  id INT PRIMARY KEY,
+  name VARCHAR(50)
+);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A column (or set of columns) that uniquely identifies each row - never NULL, never duplicated</li>
+          <li><span class="opt-key">B</span> The first column of a table</li>
+          <li><span class="opt-key">C</span> A password for the table</li>
+          <li><span class="opt-key">D</span> The most important data in a row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A column (or set of columns) that uniquely identifies each row - never NULL, never duplicated</p>
+          <p class="expl">The primary key guarantees every row can be identified unambiguously. Typical choices are an auto-incrementing id or a natural unique value like an ISBN.</p>
+          <p class="tags"><span>Primary key</span><span>Constraints</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a FOREIGN KEY?</p>
+        <pre class="code"><code>CREATE TABLE orders (
+  id INT PRIMARY KEY,
+  customer_id INT,
+  FOREIGN KEY (customer_id) REFERENCES customers(id)
+);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A column that references the primary key of another table, creating a relationship</li>
+          <li><span class="opt-key">B</span> A key from a foreign country</li>
+          <li><span class="opt-key">C</span> An encrypted key</li>
+          <li><span class="opt-key">D</span> A backup key</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A column that references the primary key of another table, creating a relationship</p>
+          <p class="expl">Foreign keys enforce referential integrity: an order cannot reference a customer_id that does not exist, and the database can block deleting a customer who still has orders.</p>
+          <p class="tags"><span>Foreign key</span><span>Relationships</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between SQL and MySQL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SQL is the LANGUAGE; MySQL is a database product that implements it</li>
+          <li><span class="opt-key">B</span> They are the same thing</li>
+          <li><span class="opt-key">C</span> MySQL is newer SQL</li>
+          <li><span class="opt-key">D</span> SQL is only for Microsoft</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SQL is the LANGUAGE; MySQL is a database product that implements it</p>
+          <p class="expl">You write SQL; MySQL, PostgreSQL and SQL Server are programs that run it. Each adds its own extensions, which is why some syntax differs between them.</p>
+          <p class="tags"><span>Dialects</span><span>RDBMS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does DDL stand for, and what does it do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Data Definition Language - defines STRUCTURE: CREATE, ALTER, DROP</li>
+          <li><span class="opt-key">B</span> Data Deletion Language</li>
+          <li><span class="opt-key">C</span> Database Design Logic</li>
+          <li><span class="opt-key">D</span> Dynamic Data Loader</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Data Definition Language - defines STRUCTURE: CREATE, ALTER, DROP</p>
+          <p class="expl">DDL builds and changes the schema itself. DML (Data Manipulation Language) handles the data inside: SELECT, INSERT, UPDATE, DELETE.</p>
+          <p class="tags"><span>DDL</span><span>DML</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which statements belong to DML (Data Manipulation Language)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT, INSERT, UPDATE, DELETE</li>
+          <li><span class="opt-key">B</span> CREATE, ALTER, DROP</li>
+          <li><span class="opt-key">C</span> GRANT, REVOKE</li>
+          <li><span class="opt-key">D</span> COMMIT, ROLLBACK</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT, INSERT, UPDATE, DELETE</p>
+          <p class="expl">DML works with the rows. DDL changes structure, DCL (GRANT/REVOKE) handles permissions, and TCL (COMMIT/ROLLBACK) manages transactions.</p>
+          <p class="tags"><span>DML</span><span>DDL</span><span>TCL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a SCHEMA?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The structure/blueprint of a database - its tables, columns, types and relationships</li>
+          <li><span class="opt-key">B</span> The data itself</li>
+          <li><span class="opt-key">C</span> A backup copy</li>
+          <li><span class="opt-key">D</span> A query result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The structure/blueprint of a database - its tables, columns, types and relationships</p>
+          <p class="expl">The schema describes how data is organised. In some systems (PostgreSQL, SQL Server) a schema is also a named namespace that groups tables, like public.users.</p>
+          <p class="tags"><span>Schema</span><span>Design</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a NULL value in SQL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The absence of a value - 'unknown' or 'not applicable', which is NOT the same as 0 or an empty string</li>
+          <li><span class="opt-key">B</span> The number zero</li>
+          <li><span class="opt-key">C</span> An empty string</li>
+          <li><span class="opt-key">D</span> A syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The absence of a value - 'unknown' or 'not applicable', which is NOT the same as 0 or an empty string</p>
+          <p class="expl">NULL means 'no value recorded'. Because it is unknown, comparisons with it behave specially - you must use IS NULL, never = NULL.</p>
+          <p class="tags"><span>NULL</span><span>Three-valued logic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a QUERY?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A statement that asks the database for data, typically starting with SELECT</li>
+          <li><span class="opt-key">B</span> A table</li>
+          <li><span class="opt-key">C</span> A database backup</li>
+          <li><span class="opt-key">D</span> A user account</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A statement that asks the database for data, typically starting with SELECT</p>
+          <p class="expl">A query requests data and returns a RESULT SET - itself a table of rows and columns, which is why queries can be nested and combined.</p>
+          <p class="tags"><span>SELECT</span><span>Result set</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a result set?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The table of rows and columns returned by a query</li>
+          <li><span class="opt-key">B</span> A permanent table</li>
+          <li><span class="opt-key">C</span> An error message</li>
+          <li><span class="opt-key">D</span> The database log</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The table of rows and columns returned by a query</p>
+          <p class="expl">Result sets are temporary. Because they look like tables, they can feed into subqueries, CTEs and views.</p>
+          <p class="tags"><span>Queries</span><span>Subqueries</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between a database and a table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A database is the container; tables are the individual data structures inside it</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> A table contains databases</li>
+          <li><span class="opt-key">D</span> A database holds only one table</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A database is the container; tables are the individual data structures inside it</p>
+          <p class="expl">One database typically holds many related tables - for a shop: customers, products, orders, order_items.</p>
+          <p class="tags"><span>Database</span><span>Tables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a composite (compound) primary key?</p>
+        <pre class="code"><code>CREATE TABLE enrollments (
+  student_id INT,
+  course_id INT,
+  PRIMARY KEY (student_id, course_id)
+);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A primary key made of TWO OR MORE columns combined</li>
+          <li><span class="opt-key">B</span> A key that is encrypted</li>
+          <li><span class="opt-key">C</span> A key shared by two tables</li>
+          <li><span class="opt-key">D</span> A backup key</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A primary key made of TWO OR MORE columns combined</p>
+          <p class="expl">Common in link tables: in enrollments, neither student_id nor course_id is unique alone, but together they uniquely identify one enrolment.</p>
+          <p class="tags"><span>Composite key</span><span>Many-to-many</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between SQL and NoSQL databases?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SQL databases use fixed table schemas and relationships; NoSQL stores flexible documents/key-values without a rigid schema</li>
+          <li><span class="opt-key">B</span> NoSQL cannot store data</li>
+          <li><span class="opt-key">C</span> SQL is always faster</li>
+          <li><span class="opt-key">D</span> They are identical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SQL databases use fixed table schemas and relationships; NoSQL stores flexible documents/key-values without a rigid schema</p>
+          <p class="expl">Relational databases excel where data is structured and consistency matters (banking, orders). NoSQL suits flexible or rapidly changing data at large scale. Many systems use both.</p>
+          <p class="tags"><span>NoSQL</span><span>MongoDB</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is an ENTITY in database design?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A real-world thing you store data about - which usually becomes a table</li>
+          <li><span class="opt-key">B</span> A single column</li>
+          <li><span class="opt-key">C</span> A query</li>
+          <li><span class="opt-key">D</span> A user login</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A real-world thing you store data about - which usually becomes a table</p>
+          <p class="expl">Entities (Customer, Product, Order) become tables; their attributes become columns; the links between them become foreign keys. This is the basis of ER modelling.</p>
+          <p class="tags"><span>ER model</span><span>Design</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is an INDEX, in one sentence?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A data structure that speeds up lookups on a column - like the index at the back of a book</li>
+          <li><span class="opt-key">B</span> A numbered list of rows</li>
+          <li><span class="opt-key">C</span> The primary key</li>
+          <li><span class="opt-key">D</span> A backup of the table</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A data structure that speeds up lookups on a column - like the index at the back of a book</p>
+          <p class="expl">Without an index the database scans every row. With one it jumps straight to matches. The cost is extra storage and slightly slower writes.</p>
+          <p class="tags"><span>Indexes</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which statement retrieves data WITHOUT changing it?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT</li>
+          <li><span class="opt-key">B</span> UPDATE</li>
+          <li><span class="opt-key">C</span> DELETE</li>
+          <li><span class="opt-key">D</span> INSERT</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT</p>
+          <p class="expl">SELECT is read-only, so it is always safe to run. The other three modify data - always test them with a SELECT using the same WHERE clause first.</p>
+          <p class="tags"><span>SELECT</span><span>Safety</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why is SQL still essential decades after its creation?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It is a standard, declarative way to work with structured data, supported by nearly every data tool</li>
+          <li><span class="opt-key">B</span> It is the only programming language</li>
+          <li><span class="opt-key">C</span> It is required by browsers</li>
+          <li><span class="opt-key">D</span> It replaced Python</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It is a standard, declarative way to work with structured data, supported by nearly every data tool</p>
+          <p class="expl">Analytics, reporting, dashboards and machine-learning pipelines all pull from relational stores, so SQL remains one of the most in-demand data skills.</p>
+          <p class="tags"><span>Careers</span><span>Data analysis</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (5)</h2>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does it mean that SQL is a DECLARATIVE language?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> You describe WHAT data you want; the database decides HOW to fetch it efficiently</li>
+          <li><span class="opt-key">B</span> You must declare every variable</li>
+          <li><span class="opt-key">C</span> It runs line by line like Python</li>
+          <li><span class="opt-key">D</span> It only works with declarations</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — You describe WHAT data you want; the database decides HOW to fetch it efficiently</p>
+          <p class="expl">You never write loops over rows. The query optimiser chooses the execution plan - which indexes to use and which join order - based on statistics about your data.</p>
+          <p class="tags"><span>Declarative</span><span>Query optimiser</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is referential integrity?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The guarantee that foreign key values always point to rows that actually exist</li>
+          <li><span class="opt-key">B</span> That all data is encrypted</li>
+          <li><span class="opt-key">C</span> That tables have the same number of rows</li>
+          <li><span class="opt-key">D</span> That queries run fast</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The guarantee that foreign key values always point to rows that actually exist</p>
+          <p class="expl">The database refuses to insert an order for a non-existent customer, and blocks (or cascades) deletion of a customer with existing orders - preventing 'orphan' records.</p>
+          <p class="tags"><span>Foreign keys</span><span>Integrity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a one-to-many relationship?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> One row in table A relates to many rows in table B - e.g. one customer has many orders</li>
+          <li><span class="opt-key">B</span> Two tables with equal rows</li>
+          <li><span class="opt-key">C</span> Two primary keys</li>
+          <li><span class="opt-key">D</span> A table with one column</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — One row in table A relates to many rows in table B - e.g. one customer has many orders</p>
+          <p class="expl">It is implemented by putting the foreign key on the MANY side: orders.customer_id references customers.id. It is the most common relationship type.</p>
+          <p class="tags"><span>Relationships</span><span>Foreign keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How is a many-to-many relationship implemented?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> With a third JUNCTION table holding foreign keys to both sides</li>
+          <li><span class="opt-key">B</span> By adding two primary keys to one table</li>
+          <li><span class="opt-key">C</span> It is impossible in SQL</li>
+          <li><span class="opt-key">D</span> With a single foreign key</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — With a third JUNCTION table holding foreign keys to both sides</p>
+          <p class="expl">Students take many courses and courses have many students, so an enrollments table links them. Junction tables often carry extra data such as enrolment_date or grade.</p>
+          <p class="tags"><span>Junction table</span><span>Many-to-many</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does ACID stand for in database transactions?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Atomicity, Consistency, Isolation, Durability</li>
+          <li><span class="opt-key">B</span> Accuracy, Control, Integrity, Design</li>
+          <li><span class="opt-key">C</span> Access, Create, Insert, Delete</li>
+          <li><span class="opt-key">D</span> Automatic Column Index Definition</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Atomicity, Consistency, Isolation, Durability</p>
+          <p class="expl">These properties guarantee reliable transactions: all-or-nothing (atomicity), valid state (consistency), no interference between concurrent transactions (isolation), and permanence after commit (durability).</p>
+          <p class="tags"><span>ACID</span><span>Transactions</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <span></span>
+      <a href="02-select-basics.html">SELECT Basics →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-0">Practice “Introduction to Databases &amp; SQL” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The this Keyword – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on The this Keyword with answers and detailed explanations — 1 easy, 13 medium and 16 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/14-the-this-keyword.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="The this Keyword – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on The this Keyword with answers and detailed explanations — 1 easy, 13 medium and 16 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/14-the-this-keyword.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"The this Keyword","item":"https://velnov.co.in/learn/javascript/14-the-this-keyword.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>The this Keyword</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 14 of 20</p>
+      <h1>The this Keyword — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>The this Keyword</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-13">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">1 easy · 13 medium · 16 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>this</span><span>Binding</span><span>Methods</span><span>Implicit binding</span><span>Losing this</span><span>bind</span><span>Strict mode</span><span>Default binding</span><span>Arrow functions</span><span>Lexical this</span><span>Common mistakes</span><span>Callbacks</span><span>call</span><span>apply</span><span>Spread</span><span>Hard binding</span><span>new</span><span>Constructors</span><span>Binding rules</span><span>Precedence</span><span>Events</span><span>DOM</span><span>Nested functions</span><span>this loss</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (1)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is this inside an object method?
+const user = { name: &quot;Ana&quot;, greet() { return this.name; } };
+user.greet();</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The object before the dot - user, so it returns &quot;Ana&quot;</li>
+          <li><span class="opt-key">B</span> The global object</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> The function itself</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The object before the dot - user, so it returns &quot;Ana&quot;</p>
+          <p class="expl">In a method call obj.method(), this is obj. This 'implicit binding' is the most common case.</p>
+          <p class="tags"><span>Methods</span><span>Implicit binding</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What determines the value of this in a regular function?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> HOW the function is called (the call site), not where it was defined</li>
+          <li><span class="opt-key">B</span> Where the function was written</li>
+          <li><span class="opt-key">C</span> The function's name</li>
+          <li><span class="opt-key">D</span> It is always the global object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — HOW the function is called (the call site), not where it was defined</p>
+          <p class="expl">this is bound at call time. The same function can have different this values depending on whether it is called as a method, standalone, with new, or via call/apply/bind.</p>
+          <p class="tags"><span>this</span><span>Binding</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is this in a plain function call in STRICT mode?
+function f() { return this; }
+f();</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined</li>
+          <li><span class="opt-key">B</span> window</li>
+          <li><span class="opt-key">C</span> The function</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined</p>
+          <p class="expl">Strict mode (and ES modules) leave this undefined for standalone calls, preventing accidental writes to the global object. In sloppy mode it would be window.</p>
+          <p class="tags"><span>Strict mode</span><span>Default binding</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does .call() do?
+fn.call(obj, a, b)</p>
+        <pre class="code"><code>function greet(greeting) { return `${greeting} ${this.name}`; }
+console.log(greet.call({name: &quot;Ana&quot;}, &quot;Hi&quot;));   // &quot;Hi Ana&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Calls fn immediately with this set to obj and arguments listed individually</li>
+          <li><span class="opt-key">B</span> Returns a new bound function</li>
+          <li><span class="opt-key">C</span> Calls fn with an array of arguments</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Calls fn immediately with this set to obj and arguments listed individually</p>
+          <p class="expl">call invokes right away with an explicit this. apply is identical but takes an ARRAY of arguments; bind returns a new function instead of calling.</p>
+          <p class="tags"><span>call</span><span>apply</span><span>bind</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between call() and apply()?</p>
+        <pre class="code"><code>fn.call(obj, 1, 2);
+fn.apply(obj, [1, 2]);
+fn(...[1, 2]);   // modern equivalent</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> call takes arguments separately; apply takes them as an ARRAY</li>
+          <li><span class="opt-key">B</span> apply does not set this</li>
+          <li><span class="opt-key">C</span> call returns a function</li>
+          <li><span class="opt-key">D</span> They are identical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — call takes arguments separately; apply takes them as an ARRAY</p>
+          <p class="expl">Mnemonic: Apply = Array, Call = Comma. Modern spread syntax has made apply largely unnecessary: fn(...args).</p>
+          <p class="tags"><span>call</span><span>apply</span><span>Spread</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does .bind() return?</p>
+        <pre class="code"><code>const greet = user.greet.bind(user);
+btn.addEventListener(&quot;click&quot;, greet);   // this stays user</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A NEW function permanently bound to the given this - it does not call it</li>
+          <li><span class="opt-key">B</span> The result of calling the function</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> The original function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A NEW function permanently bound to the given this - it does not call it</p>
+          <p class="expl">bind creates a copy with this locked in, useful for callbacks and event handlers. You must store or pass the returned function.</p>
+          <p class="tags"><span>bind</span><span>Callbacks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is this in an event handler added with addEventListener?
+btn.addEventListener(&quot;click&quot;, function() { ... });</p>
+        <pre class="code"><code>btn.addEventListener(&quot;click&quot;, function() {
+  this.classList.add(&quot;active&quot;);   // this = btn
+});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The element the listener is attached to (btn)</li>
+          <li><span class="opt-key">B</span> window</li>
+          <li><span class="opt-key">C</span> The event object</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The element the listener is attached to (btn)</p>
+          <p class="expl">DOM listeners call the handler with this set to the current target - the same as event.currentTarget. But an ARROW handler would inherit this from the outer scope instead.</p>
+          <p class="tags"><span>Events</span><span>DOM</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the old 'const self = this' pattern for?</p>
+        <pre class="code"><code>run() {
+  const self = this;
+  setTimeout(function() { console.log(self.name); }, 100);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Saving the outer this in a variable so nested regular functions can use it</li>
+          <li><span class="opt-key">B</span> Creating a copy of the object</li>
+          <li><span class="opt-key">C</span> Making this global</li>
+          <li><span class="opt-key">D</span> Deleting this</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Saving the outer this in a variable so nested regular functions can use it</p>
+          <p class="expl">Before arrow functions, developers wrote 'var self = this' (or that/_this) to carry the context into callbacks. Arrows made this unnecessary.</p>
+          <p class="tags"><span>Legacy patterns</span><span>Arrow functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is this inside a class method?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The instance the method was called on</li>
+          <li><span class="opt-key">B</span> The class itself</li>
+          <li><span class="opt-key">C</span> window</li>
+          <li><span class="opt-key">D</span> undefined always</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The instance the method was called on</p>
+          <p class="expl">Class methods behave like object methods: user.getName() sets this to user. But class bodies are strict mode, so a detached method call gives undefined rather than window.</p>
+          <p class="tags"><span>Classes</span><span>Methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is this at the TOP LEVEL of a browser script (non-module)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> window (the global object)</li>
+          <li><span class="opt-key">B</span> undefined</li>
+          <li><span class="opt-key">C</span> document</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — window (the global object)</p>
+          <p class="expl">In classic scripts top-level this is window. In ES MODULES it is undefined, and in Node.js CommonJS it is module.exports - three different answers worth knowing.</p>
+          <p class="tags"><span>Global this</span><span>Modules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+function f() { return this; }
+console.log(f.call(null));  // strict mode</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> null - strict mode passes the given value through unchanged</li>
+          <li><span class="opt-key">B</span> window</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> TypeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — null - strict mode passes the given value through unchanged</p>
+          <p class="expl">In sloppy mode, null/undefined would be replaced by the global object ('boxing'). Strict mode keeps exactly what you pass.</p>
+          <p class="tags"><span>call</span><span>Strict mode</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+const o = {
+  a: 1,
+  inner: { a: 2, get() { return this.a; } }
+};
+console.log(o.inner.get());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 - this is the object immediately before the dot (inner)</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 - this is the object immediately before the dot (inner)</p>
+          <p class="expl">Only the LAST object in the chain matters for implicit binding. o.inner.get() binds this to inner, not o.</p>
+          <p class="tags"><span>Implicit binding</span><span>Nested objects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does this exist inside a standalone arrow function at module top level?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It resolves to the module's this, which is undefined in ES modules</li>
+          <li><span class="opt-key">B</span> It is always window</li>
+          <li><span class="opt-key">C</span> It throws</li>
+          <li><span class="opt-key">D</span> It is the function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It resolves to the module's this, which is undefined in ES modules</p>
+          <p class="expl">Arrows have no own this, so they look outward. At module top level that is undefined; in a classic script it would be window.</p>
+          <p class="tags"><span>Modules</span><span>Arrow functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When should you deliberately choose a REGULAR function over an arrow?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> When you need a dynamic this - object methods, constructors, prototype methods, some DOM handlers</li>
+          <li><span class="opt-key">B</span> Never - arrows are always better</li>
+          <li><span class="opt-key">C</span> Only for long functions</li>
+          <li><span class="opt-key">D</span> Only at top level</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — When you need a dynamic this - object methods, constructors, prototype methods, some DOM handlers</p>
+          <p class="expl">Arrows are great for callbacks that should keep the outer this. Regular functions are correct where this must be determined by the caller.</p>
+          <p class="tags"><span>Arrow vs regular</span><span>Best practices</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (16)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const user = { name: &quot;Ana&quot;, greet() { return this.name; } };
+const g = user.greet;
+console.log(g());</p>
+        <pre class="code"><code>const g = user.greet.bind(user);
+console.log(g());   // &quot;Ana&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined - the function LOST its binding when detached from the object</li>
+          <li><span class="opt-key">B</span> &quot;Ana&quot;</li>
+          <li><span class="opt-key">C</span> TypeError</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined - the function LOST its binding when detached from the object</p>
+          <p class="expl">this depends on the call site: g() has no object before the dot, so this is undefined (strict) or window (sloppy). Fix with g.bind(user) or an arrow wrapper.</p>
+          <ul class="notes"><li>This is why passing methods as callbacks often breaks.</li></ul>
+          <p class="tags"><span>Losing this</span><span>bind</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is this inside an ARROW function?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Inherited from the surrounding (lexical) scope - arrows have no own this</li>
+          <li><span class="opt-key">B</span> Always the global object</li>
+          <li><span class="opt-key">C</span> Always undefined</li>
+          <li><span class="opt-key">D</span> The object that called it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Inherited from the surrounding (lexical) scope - arrows have no own this</p>
+          <p class="expl">Arrows capture this where they are DEFINED, permanently. That makes them ideal for callbacks inside methods, and unsuitable as object methods themselves.</p>
+          <p class="tags"><span>Arrow functions</span><span>Lexical this</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const user = {
+  name: &quot;Ana&quot;,
+  greet: () =&gt; `Hi ${this.name}`
+};
+console.log(user.greet());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;Hi undefined&quot; - the arrow's this is the outer scope, not user</li>
+          <li><span class="opt-key">B</span> &quot;Hi Ana&quot;</li>
+          <li><span class="opt-key">C</span> TypeError</li>
+          <li><span class="opt-key">D</span> &quot;Hi null&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;Hi undefined&quot; - the arrow's this is the outer scope, not user</p>
+          <p class="expl">The arrow captured this from module/global scope where there is no name. Use shorthand method syntax: greet() { return `Hi ${this.name}`; }</p>
+          <p class="tags"><span>Arrow functions</span><span>Common mistakes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does this arrow function work correctly?
+const timer = {
+  count: 0,
+  start() { setInterval(() =&gt; this.count++, 1000); }
+};</p>
+        <pre class="code"><code>// broken version:
+setInterval(function() { this.count++; }, 1000);   // this is not timer</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The arrow inherits this from start(), where this is timer</li>
+          <li><span class="opt-key">B</span> setInterval binds this</li>
+          <li><span class="opt-key">C</span> It does not work</li>
+          <li><span class="opt-key">D</span> count is global</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The arrow inherits this from start(), where this is timer</p>
+          <p class="expl">This is the canonical good use of arrows: a callback inside a method that must keep the object's this. A regular function callback would get undefined/window instead.</p>
+          <p class="tags"><span>Arrow functions</span><span>Callbacks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Can a bound function be re-bound?
+const f = fn.bind(a);
+f.call(b);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - the first bind wins; call/apply cannot override it</li>
+          <li><span class="opt-key">B</span> Yes, call overrides it</li>
+          <li><span class="opt-key">C</span> It throws an error</li>
+          <li><span class="opt-key">D</span> Only with apply</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - the first bind wins; call/apply cannot override it</p>
+          <p class="expl">bind creates a permanently bound function. This makes bound callbacks predictable, but means you cannot reuse them with a different this.</p>
+          <p class="tags"><span>bind</span><span>Hard binding</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is this inside a constructor called with new?
+function User(name) { this.name = name; }
+new User(&quot;Ana&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The brand-new empty object being created, which is returned automatically</li>
+          <li><span class="opt-key">B</span> The global object</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> The User function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The brand-new empty object being created, which is returned automatically</p>
+          <p class="expl">new creates an object, sets this to it, runs the function, and returns the object. This 'new binding' takes precedence over default and implicit binding.</p>
+          <p class="tags"><span>new</span><span>Constructors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the precedence order of this binding rules?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> new &gt; explicit (bind/call/apply) &gt; implicit (obj.method) &gt; default (global/undefined)</li>
+          <li><span class="opt-key">B</span> default &gt; implicit &gt; explicit &gt; new</li>
+          <li><span class="opt-key">C</span> They are all equal</li>
+          <li><span class="opt-key">D</span> Alphabetical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — new &gt; explicit (bind/call/apply) &gt; implicit (obj.method) &gt; default (global/undefined)</p>
+          <p class="expl">Check in that order to determine this. Arrow functions sit outside this system entirely - they simply inherit lexically.</p>
+          <p class="tags"><span>Binding rules</span><span>Precedence</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+btn.addEventListener(&quot;click&quot;, () =&gt; console.log(this));</p>
+        <pre class="code"><code>btn.addEventListener(&quot;click&quot;, (e) =&gt; {
+  e.currentTarget.classList.add(&quot;on&quot;);   // reliable
+});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The surrounding scope's this (module/window) - NOT the button</li>
+          <li><span class="opt-key">B</span> The button</li>
+          <li><span class="opt-key">C</span> undefined always</li>
+          <li><span class="opt-key">D</span> The event</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The surrounding scope's this (module/window) - NOT the button</p>
+          <p class="expl">Arrows ignore the DOM's this binding. If you need the element inside an arrow handler, use event.currentTarget instead.</p>
+          <p class="tags"><span>Arrow functions</span><span>Events</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const obj = {
+  name: &quot;outer&quot;,
+  run() {
+    function inner() { return this?.name; }
+    return inner();
+  }
+};
+console.log(obj.run());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined - inner is a plain call, so it loses obj's this</li>
+          <li><span class="opt-key">B</span> &quot;outer&quot;</li>
+          <li><span class="opt-key">C</span> TypeError</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined - inner is a plain call, so it loses obj's this</p>
+          <p class="expl">Nested regular functions do not inherit this. Classic fixes: make inner an arrow function, or capture 'const self = this' before it.</p>
+          <p class="tags"><span>Nested functions</span><span>this loss</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why do React class components need this.handleClick = this.handleClick.bind(this)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Because passing the method as a callback detaches it from the instance, losing this</li>
+          <li><span class="opt-key">B</span> React requires bind for all methods</li>
+          <li><span class="opt-key">C</span> To speed up rendering</li>
+          <li><span class="opt-key">D</span> It is optional decoration</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Because passing the method as a callback detaches it from the instance, losing this</p>
+          <p class="expl">onClick={this.handleClick} passes the function alone. Without binding, this is undefined inside it. Modern alternative: define the handler as a class field arrow: handleClick = () =&gt; { }.</p>
+          <p class="tags"><span>React</span><span>bind</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const a = { name: &quot;A&quot;, get() { return this.name; } };
+const b = { name: &quot;B&quot; };
+b.get = a.get;
+console.log(b.get());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;B&quot; - this follows the CALL SITE, not where the function was defined</li>
+          <li><span class="opt-key">B</span> &quot;A&quot;</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> TypeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;B&quot; - this follows the CALL SITE, not where the function was defined</p>
+          <p class="expl">The same function borrowed by another object gets that object's this. This 'method borrowing' is intentional and powers utilities like Array.prototype.slice.call(arguments).</p>
+          <p class="tags"><span>Implicit binding</span><span>Method borrowing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does Array.prototype.slice.call(arguments) do?</p>
+        <pre class="code"><code>// modern equivalents:
+Array.from(arguments);
+[...arguments];</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Borrows the array method to convert an array-LIKE object into a real array</li>
+          <li><span class="opt-key">B</span> Slices an array</li>
+          <li><span class="opt-key">C</span> Creates a new prototype</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Borrows the array method to convert an array-LIKE object into a real array</p>
+          <p class="expl">Before Array.from and spread, this was the standard way to arrayify arguments or NodeLists - by explicitly setting this to the array-like object.</p>
+          <p class="tags"><span>call</span><span>Array-like</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you make a method safe to pass as a callback?</p>
+        <pre class="code"><code>class Btn {
+  handle = () =&gt; { console.log(this); };   // always bound
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Bind it (obj.m.bind(obj)), wrap it in an arrow (() =&gt; obj.m()), or define it as a class-field arrow</li>
+          <li><span class="opt-key">B</span> Add the this keyword</li>
+          <li><span class="opt-key">C</span> Make it global</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Bind it (obj.m.bind(obj)), wrap it in an arrow (() =&gt; obj.m()), or define it as a class-field arrow</p>
+          <p class="expl">All three preserve the intended context. Class fields with arrows are popular because they bind once at construction with no extra code at the call site.</p>
+          <p class="tags"><span>bind</span><span>Class fields</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+class A {
+  constructor() { this.v = 1; }
+  get() { return this.v; }
+}
+const a = new A();
+const g = a.get;
+console.log(g());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TypeError - class code is strict, so this is undefined and reading .v throws</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TypeError - class code is strict, so this is undefined and reading .v throws</p>
+          <p class="expl">'Cannot read properties of undefined' - the classic detached-method error in classes. Bind it or use a class-field arrow.</p>
+          <p class="tags"><span>Classes</span><span>Strict mode</span><span>bind</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const o = { name: &quot;o&quot; };
+function f() { return this.name; }
+console.log(f.bind(o).call({name: &quot;x&quot;}));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;o&quot; - bind wins; call cannot override a bound function</li>
+          <li><span class="opt-key">B</span> &quot;x&quot;</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> TypeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;o&quot; - bind wins; call cannot override a bound function</p>
+          <p class="expl">Hard binding takes precedence over explicit call/apply. Only 'new' can override a bound this (and even then, only partially).</p>
+          <p class="tags"><span>bind</span><span>Precedence</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is globalThis?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A standard reference to the global object that works in browsers, Node and workers</li>
+          <li><span class="opt-key">B</span> The same as this in every context</li>
+          <li><span class="opt-key">C</span> A deprecated feature</li>
+          <li><span class="opt-key">D</span> The document object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A standard reference to the global object that works in browsers, Node and workers</p>
+          <p class="expl">Before globalThis you needed window (browser), global (Node) or self (workers). It gives one portable way to reach the global object.</p>
+          <p class="tags"><span>globalThis</span><span>Environments</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="13-closures.html">← Closures</a>
+      <a href="15-error-handling.html">Error Handling →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-13">Practice “The this Keyword” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

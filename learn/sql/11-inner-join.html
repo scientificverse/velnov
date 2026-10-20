@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INNER JOIN – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on INNER JOIN with answers and detailed explanations — 3 easy, 15 medium and 12 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/11-inner-join.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="INNER JOIN – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on INNER JOIN with answers and detailed explanations — 3 easy, 15 medium and 12 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/11-inner-join.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"INNER JOIN","item":"https://velnov.co.in/learn/sql/11-inner-join.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>INNER JOIN</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 11 of 20</p>
+      <h1>INNER JOIN — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>INNER JOIN</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-10">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">3 easy · 15 medium · 12 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>JOIN</span><span>Relationships</span><span>INNER JOIN</span><span>Matching</span><span>Syntax</span><span>ON</span><span>Join condition</span><span>Aliases</span><span>Qualified names</span><span>CROSS JOIN</span><span>Cartesian product</span><span>Multi-table joins</span><span>Self join</span><span>Hierarchies</span><span>Commutativity</span><span>USING</span><span>Join syntax</span><span>NATURAL JOIN</span><span>Best practices</span><span>Composite keys</span><span>Join conditions</span><span>GROUP BY</span><span>Fan-out</span><span>One-to-many</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (3)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does a JOIN do?</p>
+        <pre class="code"><code>SELECT o.id, c.name
+FROM orders o
+JOIN customers c ON o.customer_id = c.id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Combines rows from two or more tables based on a related column</li>
+          <li><span class="opt-key">B</span> Merges two databases</li>
+          <li><span class="opt-key">C</span> Sorts a table</li>
+          <li><span class="opt-key">D</span> Deletes duplicate rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Combines rows from two or more tables based on a related column</p>
+          <p class="expl">Joins reunite data that normalisation split across tables - for example matching each order to its customer via customer_id.</p>
+          <p class="tags"><span>JOIN</span><span>Relationships</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does INNER JOIN return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Only rows that have a MATCH in BOTH tables</li>
+          <li><span class="opt-key">B</span> All rows from both tables</li>
+          <li><span class="opt-key">C</span> All rows from the left table</li>
+          <li><span class="opt-key">D</span> Rows with no match</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Only rows that have a MATCH in BOTH tables</p>
+          <p class="expl">INNER JOIN keeps only matched pairs. An order with a NULL or non-existent customer_id, or a customer with no orders, is excluded.</p>
+          <p class="tags"><span>INNER JOIN</span><span>Matching</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Is 'JOIN' the same as 'INNER JOIN'?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - INNER is the default, so plain JOIN means INNER JOIN</li>
+          <li><span class="opt-key">B</span> No, JOIN means CROSS JOIN</li>
+          <li><span class="opt-key">C</span> No, JOIN means LEFT JOIN</li>
+          <li><span class="opt-key">D</span> They are different in every database</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - INNER is the default, so plain JOIN means INNER JOIN</p>
+          <p class="expl">Writing INNER is optional but makes the intent explicit. Many style guides recommend spelling it out for clarity.</p>
+          <p class="tags"><span>INNER JOIN</span><span>Syntax</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (15)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the ON clause specify?</p>
+        <pre class="code"><code>... JOIN customers c ON o.customer_id = c.id</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The condition that matches rows between the tables (the join key)</li>
+          <li><span class="opt-key">B</span> Which columns to return</li>
+          <li><span class="opt-key">C</span> How to sort the result</li>
+          <li><span class="opt-key">D</span> The table name</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The condition that matches rows between the tables (the join key)</p>
+          <p class="expl">ON defines how rows relate, usually foreign key = primary key. Without a correct ON condition you get wrong or exploded results.</p>
+          <p class="tags"><span>ON</span><span>Join condition</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why are table aliases (o, c) useful in joins?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They shorten qualified column names and are required when the same column exists in both tables</li>
+          <li><span class="opt-key">B</span> They speed up the query</li>
+          <li><span class="opt-key">C</span> They sort the tables</li>
+          <li><span class="opt-key">D</span> They are never needed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They shorten qualified column names and are required when the same column exists in both tables</p>
+          <p class="expl">When both tables have an 'id' column, you must qualify it (o.id vs c.id). Short aliases keep long joins readable.</p>
+          <p class="tags"><span>Aliases</span><span>Qualified names</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you join THREE tables?</p>
+        <pre class="code"><code>SELECT o.id, c.name, p.title
+FROM orders o
+JOIN customers c ON o.customer_id = c.id
+JOIN order_items i ON i.order_id = o.id
+JOIN products p ON p.id = i.product_id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Chain JOINs: FROM a JOIN b ON ... JOIN c ON ...</li>
+          <li><span class="opt-key">B</span> Use three FROM clauses</li>
+          <li><span class="opt-key">C</span> You cannot join more than two</li>
+          <li><span class="opt-key">D</span> Nest three SELECTs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Chain JOINs: FROM a JOIN b ON ... JOIN c ON ...</p>
+          <p class="expl">Each additional JOIN adds another table and its ON condition. Order rarely affects results for inner joins, but readability improves when you follow the relationships.</p>
+          <p class="tags"><span>Multi-table joins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you join a table to itself?</p>
+        <pre class="code"><code>SELECT e.name AS emp, m.name AS manager
+FROM employees e JOIN employees m ON e.manager_id = m.id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - a self join uses two aliases of the same table (e.g. employees to their managers)</li>
+          <li><span class="opt-key">B</span> No, that is forbidden</li>
+          <li><span class="opt-key">C</span> Only with UNION</li>
+          <li><span class="opt-key">D</span> Only for numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - a self join uses two aliases of the same table (e.g. employees to their managers)</p>
+          <p class="expl">Self joins model hierarchies and comparisons within one table. Aliases are mandatory to distinguish the two roles. (Covered further in Advanced Joins.)</p>
+          <p class="tags"><span>Self join</span><span>Hierarchies</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does USING(customer_id) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A shorthand for ON when both tables share the same column name - it also merges the column in output</li>
+          <li><span class="opt-key">B</span> Selects a column</li>
+          <li><span class="opt-key">C</span> Creates an index</li>
+          <li><span class="opt-key">D</span> Filters rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A shorthand for ON when both tables share the same column name - it also merges the column in output</p>
+          <p class="expl">JOIN customers USING(customer_id) equals ON a.customer_id = b.customer_id. It works only when the join column has an identical name in both tables.</p>
+          <p class="tags"><span>USING</span><span>Join syntax</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can the ON condition use more than one column?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - combine with AND for composite keys: ON a.x = b.x AND a.y = b.y</li>
+          <li><span class="opt-key">B</span> No, only one column</li>
+          <li><span class="opt-key">C</span> Only with USING</li>
+          <li><span class="opt-key">D</span> Only two tables allow it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - combine with AND for composite keys: ON a.x = b.x AND a.y = b.y</p>
+          <p class="expl">Composite-key tables (like a junction table) need multi-column ON conditions to match correctly.</p>
+          <p class="tags"><span>Composite keys</span><span>ON</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this return?
+SELECT c.name, COUNT(o.id) FROM customers c JOIN orders o ON c.id = o.customer_id GROUP BY c.name;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Each customer WHO HAS orders, with their order count</li>
+          <li><span class="opt-key">B</span> All customers including those with zero orders</li>
+          <li><span class="opt-key">C</span> Only customers with no orders</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Each customer WHO HAS orders, with their order count</p>
+          <p class="expl">INNER JOIN excludes customers with no matching orders, so they never appear - even with COUNT. To include zero-order customers you need a LEFT JOIN.</p>
+          <p class="tags"><span>INNER JOIN</span><span>GROUP BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you select all columns from one table but only some from another?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT o.*, c.name FROM orders o JOIN customers c ON ...</li>
+          <li><span class="opt-key">B</span> SELECT * FROM both</li>
+          <li><span class="opt-key">C</span> SELECT o AND c.name</li>
+          <li><span class="opt-key">D</span> It is not possible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT o.*, c.name FROM orders o JOIN customers c ON ...</p>
+          <p class="expl">table.* expands to all columns of that table, and you can mix it with individually named columns from others.</p>
+          <p class="tags"><span>SELECT</span><span>Qualified *</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does joining on the WRONG columns typically produce?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Wrong matches or a near-Cartesian explosion of rows</li>
+          <li><span class="opt-key">B</span> A syntax error always</li>
+          <li><span class="opt-key">C</span> An empty result always</li>
+          <li><span class="opt-key">D</span> The correct result anyway</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Wrong matches or a near-Cartesian explosion of rows</p>
+          <p class="expl">Joining orders.id = customers.id (instead of orders.customer_id = customers.id) matches unrelated rows by coincidence. Always verify the join key represents the real relationship.</p>
+          <p class="tags"><span>Join keys</span><span>Bugs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this find?
+SELECT p.title FROM products p JOIN order_items i ON p.id = i.product_id;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Titles of products that appear in at least one order (with duplicates per order line)</li>
+          <li><span class="opt-key">B</span> All products</li>
+          <li><span class="opt-key">C</span> Products never ordered</li>
+          <li><span class="opt-key">D</span> One row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Titles of products that appear in at least one order (with duplicates per order line)</p>
+          <p class="expl">INNER JOIN returns only products with matching order items, repeated once per line item. Add DISTINCT for a unique list of sold products.</p>
+          <p class="tags"><span>INNER JOIN</span><span>DISTINCT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you filter a joined result with WHERE?</p>
+        <pre class="code"><code>... JOIN customers c ON o.customer_id = c.id
+WHERE c.country = 'India';</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - WHERE applies to the combined rows after the join</li>
+          <li><span class="opt-key">B</span> No, only ON filters joins</li>
+          <li><span class="opt-key">C</span> Only for the left table</li>
+          <li><span class="opt-key">D</span> Only with HAVING</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - WHERE applies to the combined rows after the join</p>
+          <p class="expl">For INNER JOIN, an equality filter behaves the same in ON or WHERE. Use WHERE for conditions on the final result and ON for the matching logic.</p>
+          <p class="tags"><span>WHERE</span><span>JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which columns should typically be indexed to speed up joins?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The foreign key columns used in ON conditions</li>
+          <li><span class="opt-key">B</span> Every text column</li>
+          <li><span class="opt-key">C</span> Only the primary key</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The foreign key columns used in ON conditions</p>
+          <p class="expl">Primary keys are indexed automatically, but foreign keys often are not. Indexing them is one of the highest-impact tuning steps for join-heavy queries.</p>
+          <p class="tags"><span>Indexes</span><span>Foreign keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you join and show a computed column from both tables?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT i.quantity * p.price AS line_total FROM order_items i JOIN products p ON i.product_id = p.id;</li>
+          <li><span class="opt-key">B</span> SELECT quantity * price without a join</li>
+          <li><span class="opt-key">C</span> SELECT SUM(both tables)</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT i.quantity * p.price AS line_total FROM order_items i JOIN products p ON i.product_id = p.id;</p>
+          <p class="expl">After joining, columns from both tables are available in the same row, so you can compute expressions like quantity times price.</p>
+          <p class="tags"><span>Expressions</span><span>JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does DISTINCT do in a joined query?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Removes duplicate rows caused by one-to-many fan-out</li>
+          <li><span class="opt-key">B</span> Speeds up the join</li>
+          <li><span class="opt-key">C</span> Adds a column</li>
+          <li><span class="opt-key">D</span> Sorts the result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Removes duplicate rows caused by one-to-many fan-out</p>
+          <p class="expl">When a join repeats parent rows, DISTINCT can collapse them - but it is a blunt tool. Often the better fix is aggregating or selecting only the columns you need.</p>
+          <p class="tags"><span>DISTINCT</span><span>Fan-out</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the everyday purpose of INNER JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> To reassemble related data that normalisation split into separate tables</li>
+          <li><span class="opt-key">B</span> To back up tables</li>
+          <li><span class="opt-key">C</span> To delete rows</li>
+          <li><span class="opt-key">D</span> To rename columns</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — To reassemble related data that normalisation split into separate tables</p>
+          <p class="expl">Because good design stores customers, orders and products separately, nearly every real report joins them back together to answer business questions.</p>
+          <p class="tags"><span>Normalization</span><span>Reporting</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (12)</h2>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What happens if you JOIN two tables but forget the ON clause?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> You get a CROSS JOIN (Cartesian product) - every row of A paired with every row of B</li>
+          <li><span class="opt-key">B</span> A syntax error always</li>
+          <li><span class="opt-key">C</span> An empty result</li>
+          <li><span class="opt-key">D</span> Only matching rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — You get a CROSS JOIN (Cartesian product) - every row of A paired with every row of B</p>
+          <p class="expl">1000 rows joined to 1000 rows with no ON gives 1,000,000 rows. Modern databases often require ON for INNER JOIN, but implicit comma-joins without a WHERE cause this explosion.</p>
+          <ul class="notes"><li>A classic accidental-Cartesian-product bug.</li></ul>
+          <p class="tags"><span>CROSS JOIN</span><span>Cartesian product</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Does the ORDER of tables matter in an INNER JOIN result?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - INNER JOIN is symmetric; A JOIN B and B JOIN A return the same rows (columns may be ordered differently)</li>
+          <li><span class="opt-key">B</span> Yes, it changes which rows match</li>
+          <li><span class="opt-key">C</span> Yes, it changes the count</li>
+          <li><span class="opt-key">D</span> It causes an error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - INNER JOIN is symmetric; A JOIN B and B JOIN A return the same rows (columns may be ordered differently)</p>
+          <p class="expl">The result set is identical. (The optimiser may choose a different execution order for performance, but that is invisible in the output.) This symmetry does NOT hold for outer joins.</p>
+          <p class="tags"><span>INNER JOIN</span><span>Commutativity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a NATURAL JOIN, and why is it risky?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It auto-joins on ALL columns with matching names - risky because adding a column later can silently change the join</li>
+          <li><span class="opt-key">B</span> It joins without any condition</li>
+          <li><span class="opt-key">C</span> It is the same as CROSS JOIN</li>
+          <li><span class="opt-key">D</span> It only joins numeric columns</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It auto-joins on ALL columns with matching names - risky because adding a column later can silently change the join</p>
+          <p class="expl">NATURAL JOIN is convenient but fragile: if both tables gain a 'created_at' column, it suddenly becomes part of the join key. Explicit ON is safer.</p>
+          <p class="tags"><span>NATURAL JOIN</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What extra condition can go in ON besides equality?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Any boolean condition - ranges, inequalities, or extra filters (e.g. ON a.id = b.a_id AND b.active = 1)</li>
+          <li><span class="opt-key">B</span> Only = is allowed</li>
+          <li><span class="opt-key">C</span> Only column names</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Any boolean condition - ranges, inequalities, or extra filters (e.g. ON a.id = b.a_id AND b.active = 1)</p>
+          <p class="expl">ON accepts any condition. For INNER JOIN, putting a filter in ON or WHERE gives the same result - but for OUTER joins the placement matters greatly (covered next topic).</p>
+          <p class="tags"><span>ON</span><span>Join conditions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why might an INNER JOIN return MORE rows than the left table has?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A one-to-many relationship duplicates left rows - one order joined to its many items produces multiple rows</li>
+          <li><span class="opt-key">B</span> Joins never add rows</li>
+          <li><span class="opt-key">C</span> It is always a bug</li>
+          <li><span class="opt-key">D</span> Only with DISTINCT</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A one-to-many relationship duplicates left rows - one order joined to its many items produces multiple rows</p>
+          <p class="expl">This 'fan-out' is expected and correct when matching a parent to many children. It becomes a problem only when you then aggregate the parent's columns, inflating the totals.</p>
+          <p class="tags"><span>Fan-out</span><span>One-to-many</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the effect of an index on the join column?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It lets the database find matching rows quickly instead of scanning the whole table for each row</li>
+          <li><span class="opt-key">B</span> It has no effect on joins</li>
+          <li><span class="opt-key">C</span> It slows joins down</li>
+          <li><span class="opt-key">D</span> It changes the result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It lets the database find matching rows quickly instead of scanning the whole table for each row</p>
+          <p class="expl">Foreign key columns are prime candidates for indexes. Joining on unindexed columns can force slow nested-loop scans or full table sorts.</p>
+          <p class="tags"><span>Indexes</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In older syntax, how was an inner join written?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FROM a, b WHERE a.id = b.a_id - the comma (implicit) join with the condition in WHERE</li>
+          <li><span class="opt-key">B</span> FROM a INNER b</li>
+          <li><span class="opt-key">C</span> MERGE a WITH b</li>
+          <li><span class="opt-key">D</span> It was impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FROM a, b WHERE a.id = b.a_id - the comma (implicit) join with the condition in WHERE</p>
+          <p class="expl">The comma form still works but is discouraged: forgetting the WHERE condition silently produces a Cartesian product. Explicit JOIN ... ON keeps the condition attached to the join.</p>
+          <p class="tags"><span>Implicit join</span><span>Legacy syntax</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you count how many DISTINCT customers placed orders?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT COUNT(DISTINCT c.id) FROM customers c JOIN orders o ON c.id = o.customer_id;</li>
+          <li><span class="opt-key">B</span> SELECT COUNT(*) FROM customers JOIN orders;</li>
+          <li><span class="opt-key">C</span> SELECT COUNT(o.id) ...</li>
+          <li><span class="opt-key">D</span> SELECT COUNT(c.id) ...</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT COUNT(DISTINCT c.id) FROM customers c JOIN orders o ON c.id = o.customer_id;</p>
+          <p class="expl">Because the join fans out one customer to many orders, COUNT(c.id) or COUNT(*) would count orders. DISTINCT collapses each customer to one.</p>
+          <p class="tags"><span>COUNT DISTINCT</span><span>Fan-out</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does joining a junction table achieve in a many-to-many design?</p>
+        <pre class="code"><code>SELECT s.name, c.title
+FROM students s
+JOIN enrollments e ON s.id = e.student_id
+JOIN courses c ON c.id = e.course_id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It connects the two main tables - e.g. students to courses via an enrollments table</li>
+          <li><span class="opt-key">B</span> It sorts the tables</li>
+          <li><span class="opt-key">C</span> It removes duplicates</li>
+          <li><span class="opt-key">D</span> Nothing useful</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It connects the two main tables - e.g. students to courses via an enrollments table</p>
+          <p class="expl">A many-to-many relationship requires two joins through the junction table: students JOIN enrollments JOIN courses. The junction may also carry extra data like enrolment date.</p>
+          <p class="tags"><span>Many-to-many</span><span>Junction table</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the result if a join column contains NULLs in an INNER JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Those rows are excluded - NULL never equals anything, so they find no match</li>
+          <li><span class="opt-key">B</span> They match all rows</li>
+          <li><span class="opt-key">C</span> They cause an error</li>
+          <li><span class="opt-key">D</span> They match other NULLs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Those rows are excluded - NULL never equals anything, so they find no match</p>
+          <p class="expl">An order with customer_id = NULL cannot match any customer. If you need such rows, use a LEFT JOIN (which keeps them with NULLs on the right side).</p>
+          <p class="tags"><span>NULL</span><span>INNER JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why prefer explicit JOIN syntax over comma-joins?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It separates the join CONDITION (ON) from row FILTERS (WHERE), preventing accidental Cartesian products and clarifying intent</li>
+          <li><span class="opt-key">B</span> It runs faster</li>
+          <li><span class="opt-key">C</span> Comma joins are invalid</li>
+          <li><span class="opt-key">D</span> There is no reason</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It separates the join CONDITION (ON) from row FILTERS (WHERE), preventing accidental Cartesian products and clarifying intent</p>
+          <p class="expl">With explicit JOIN, forgetting the ON condition is an immediate, obvious error. It also makes outer joins possible, which comma syntax cannot express portably.</p>
+          <p class="tags"><span>Best practices</span><span>Readability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How does the query optimiser decide the physical join method?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Based on table sizes, indexes and statistics it picks nested-loop, hash or merge joins automatically</li>
+          <li><span class="opt-key">B</span> It always uses nested loops</li>
+          <li><span class="opt-key">C</span> The programmer must specify it</li>
+          <li><span class="opt-key">D</span> It joins randomly</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Based on table sizes, indexes and statistics it picks nested-loop, hash or merge joins automatically</p>
+          <p class="expl">You write WHAT to join; the optimiser chooses HOW. EXPLAIN shows the plan. Keeping statistics current and indexes appropriate helps it choose well.</p>
+          <p class="tags"><span>Optimiser</span><span>EXPLAIN</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="10-date-and-time-functions.html">← Date &amp; Time Functions</a>
+      <a href="12-outer-joins.html">OUTER JOINs →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-10">Practice “INNER JOIN” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

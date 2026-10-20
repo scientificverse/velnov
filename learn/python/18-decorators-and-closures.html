@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decorators &amp; Closures – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Decorators &amp; Closures with answers and detailed explanations — 1 easy, 13 medium and 16 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/18-decorators-and-closures.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Decorators &amp; Closures – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Decorators &amp; Closures with answers and detailed explanations — 1 easy, 13 medium and 16 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/18-decorators-and-closures.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Decorators & Closures","item":"https://velnov.co.in/learn/python/18-decorators-and-closures.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Decorators &amp; Closures</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 18 of 20</p>
+      <h1>Decorators &amp; Closures — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Decorators &amp; Closures</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-17">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">1 easy · 13 medium · 16 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Closures</span><span>Scope</span><span>Nested functions</span><span>Free variables</span><span>Variable lifetime</span><span>nonlocal</span><span>global</span><span>First-class functions</span><span>Higher-order functions</span><span>map()</span><span>Decorators</span><span>Decorator syntax</span><span>Syntactic sugar</span><span>Wrapping</span><span>*args</span><span>**kwargs</span><span>functools.wraps</span><span>Metadata</span><span>Best practices</span><span>Parametrized decorators</span><span>Use cases</span><span>DRY</span><span>Memoization</span><span>Caching</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (1)</h2>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">A lambda is best described as:</p>
+        <pre class="code"><code>add = lambda a, b: a + b
+print(sorted(data, key=lambda x: x[1]))</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A small anonymous function limited to a single expression</li>
+          <li><span class="opt-key">B</span> A named recursive function</li>
+          <li><span class="opt-key">C</span> A class method</li>
+          <li><span class="opt-key">D</span> A loop construct</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A small anonymous function limited to a single expression</p>
+          <p class="expl">lambda args: expression makes a one-line, unnamed function - handy inline where a short function is needed once, like a sort key. For anything longer, use def.</p>
+          <p class="tags"><span>Lambda</span><span>Anonymous functions</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a nested function in Python?</p>
+        <pre class="code"><code>def outer():
+    def inner():
+        print(&quot;inside&quot;)
+    inner()
+
+outer()   # inside</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function defined inside another function</li>
+          <li><span class="opt-key">B</span> A function that calls itself</li>
+          <li><span class="opt-key">C</span> Two functions with the same name</li>
+          <li><span class="opt-key">D</span> A function imported from another module</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function defined inside another function</p>
+          <p class="expl">Python lets you define a function inside another. The inner function is created fresh each time the outer runs, and it can see the outer function's variables.</p>
+          <p class="tags"><span>Closures</span><span>Scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why can a function be passed as an argument to another function?</p>
+        <pre class="code"><code>def shout(t): return t.upper()
+funcs = [shout, str.lower]
+print(funcs[0](&quot;hi&quot;))   # HI</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Functions are first-class objects - they can be stored in variables, passed around, and returned</li>
+          <li><span class="opt-key">B</span> Because of a special decorator</li>
+          <li><span class="opt-key">C</span> Only lambda functions can be passed</li>
+          <li><span class="opt-key">D</span> They can't - only their results can</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Functions are first-class objects - they can be stored in variables, passed around, and returned</p>
+          <p class="expl">In Python, functions are objects like ints or strings. You can assign them (f = print), put them in lists, pass them as arguments (sorted(key=len)), and return them from other functions.</p>
+          <p class="tags"><span>First-class functions</span><span>Higher-order functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a higher-order function?</p>
+        <pre class="code"><code>def apply_twice(f, x):
+    return f(f(x))
+
+print(apply_twice(lambda n: n + 3, 10))   # 16</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function that takes another function as an argument and/or returns a function</li>
+          <li><span class="opt-key">B</span> A function with many arguments</li>
+          <li><span class="opt-key">C</span> A recursive function</li>
+          <li><span class="opt-key">D</span> A function defined at the top of a file</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function that takes another function as an argument and/or returns a function</p>
+          <p class="expl">Higher-order functions operate on other functions. Examples: map(), filter(), sorted(key=...), and any function that returns a function (like decorators).</p>
+          <p class="tags"><span>map()</span><span>Decorators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the @ symbol mean above a function definition?
+@timer
+def slow(): ...</p>
+        <pre class="code"><code>@timer
+def slow(): ...
+# is exactly the same as:
+def slow(): ...
+slow = timer(slow)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It applies a decorator - shorthand for slow = timer(slow)</li>
+          <li><span class="opt-key">B</span> It's a comment</li>
+          <li><span class="opt-key">C</span> It imports timer</li>
+          <li><span class="opt-key">D</span> It makes slow private</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It applies a decorator - shorthand for slow = timer(slow)</p>
+          <p class="expl">@timer is syntactic sugar. It runs the decorator timer with slow as its argument and rebinds the name slow to the result. The two forms are identical.</p>
+          <p class="tags"><span>Decorator syntax</span><span>Syntactic sugar</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is a common REAL use for decorators?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Logging, timing, caching, access control, retrying - cross-cutting concerns</li>
+          <li><span class="opt-key">B</span> Declaring variables</li>
+          <li><span class="opt-key">C</span> Importing modules</li>
+          <li><span class="opt-key">D</span> Creating loops</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Logging, timing, caching, access control, retrying - cross-cutting concerns</p>
+          <p class="expl">Decorators shine for behavior you want around MANY functions without repeating it: @lru_cache (caching), Flask's @app.route (web routing), @staticmethod, timing, authentication.</p>
+          <p class="tags"><span>Use cases</span><span>DRY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you stack multiple decorators on one function?
+@a
+@b
+def f(): ...</p>
+        <pre class="code"><code>@a
+@b
+def f(): ...
+# equivalent to: f = a(b(f))</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - they apply bottom-up: f = a(b(f))</li>
+          <li><span class="opt-key">B</span> No, only one decorator per function</li>
+          <li><span class="opt-key">C</span> Yes, but they apply top-down: f = b(a(f))</li>
+          <li><span class="opt-key">D</span> Only if they take arguments</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - they apply bottom-up: f = a(b(f))</p>
+          <p class="expl">Decorators stack closest-first: b wraps f, then a wraps the result. Reading order matters - @a on top runs its 'before' code first at call time, but wraps last.</p>
+          <p class="tags"><span>Decorator stacking</span><span>Order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+def power(base):
+    def raise_to(exp):
+        return base ** exp
+    return raise_to
+square = power(2)
+print(square(5))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 32</li>
+          <li><span class="opt-key">B</span> 10</li>
+          <li><span class="opt-key">C</span> 25</li>
+          <li><span class="opt-key">D</span> 7</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 32</p>
+          <p class="expl">power(2) returns raise_to with base=2 remembered. square(5) computes 2 ** 5 = 32. A closure acting as a configurable function factory.</p>
+          <p class="tags"><span>Closures</span><span>Function factories</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How can you inspect the values a closure has captured?</p>
+        <pre class="code"><code>def outer():
+    x = 42
+    return lambda: x
+f = outer()
+print(f.__closure__[0].cell_contents)   # 42</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> func.__closure__ (each cell has .cell_contents)</li>
+          <li><span class="opt-key">B</span> func.__vars__</li>
+          <li><span class="opt-key">C</span> func.closure()</li>
+          <li><span class="opt-key">D</span> You can't inspect them</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — func.__closure__ (each cell has .cell_contents)</p>
+          <p class="expl">The __closure__ attribute holds cell objects, one per captured variable, each exposing .cell_contents. Rarely needed, but proves closures really do store the values.</p>
+          <p class="tags"><span>__closure__</span><span>Introspection</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why might you prefer a CLOSURE over a full CLASS for simple state?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Less boilerplate when you only need one method plus some remembered state</li>
+          <li><span class="opt-key">B</span> Closures are always faster</li>
+          <li><span class="opt-key">C</span> Classes can't hold state</li>
+          <li><span class="opt-key">D</span> Closures support inheritance</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Less boilerplate when you only need one method plus some remembered state</p>
+          <p class="expl">For a single behavior over some captured data (a counter, a multiplier, a validator), a closure is lighter than a class with __init__ and one method. For richer state/behavior, a class is clearer.</p>
+          <p class="tags"><span>Closures vs classes</span><span>Design</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output ORDER?
+@deco
+def f(): print(&quot;body&quot;)
+# where deco prints 'decorating' at wrap time
+print(&quot;---&quot;)
+f()</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> decorating / --- / body (decorator runs at definition, before the call)</li>
+          <li><span class="opt-key">B</span> --- / decorating / body</li>
+          <li><span class="opt-key">C</span> body / decorating / ---</li>
+          <li><span class="opt-key">D</span> --- / body</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — decorating / --- / body (decorator runs at definition, before the call)</p>
+          <p class="expl">The decorator runs ONCE when the function is defined (that's when @deco is applied) - printing 'decorating' immediately. The wrapper body runs later, when f() is called.</p>
+          <p class="tags"><span>Decoration time</span><span>Call time</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which built-in decorators are common on class methods?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> @property, @staticmethod, @classmethod</li>
+          <li><span class="opt-key">B</span> @public, @private, @protected</li>
+          <li><span class="opt-key">C</span> @method, @class, @object</li>
+          <li><span class="opt-key">D</span> @get, @set, @delete</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — @property, @staticmethod, @classmethod</p>
+          <p class="expl">These three shape how methods work: @property exposes a method as an attribute, @staticmethod drops self, @classmethod passes cls. All are decorators applied above the method.</p>
+          <p class="tags"><span>@property</span><span>@staticmethod</span><span>@classmethod</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+def tag(name):
+    def deco(f):
+        def wrapper():
+            return f&quot;&lt;{name}&gt;{f()}&lt;/{name}&gt;&quot;
+        return wrapper
+    return deco
+@tag(&quot;b&quot;)
+def text():
+    return &quot;hi&quot;
+print(text())</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &lt;b&gt;hi&lt;/b&gt;</li>
+          <li><span class="opt-key">B</span> hi</li>
+          <li><span class="opt-key">C</span> &lt;b&gt;&lt;/b&gt;</li>
+          <li><span class="opt-key">D</span> &lt;tag&gt;hi&lt;/tag&gt;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &lt;b&gt;hi&lt;/b&gt;</p>
+          <p class="expl">tag(&quot;b&quot;) returns a decorator that wraps text(). Calling text() runs the wrapper: it calls the original (returning 'hi') and surrounds it with &lt;b&gt; tags -&gt; '&lt;b&gt;hi&lt;/b&gt;'. A parametrized decorator in action.</p>
+          <p class="tags"><span>Parametrized decorators</span><span>Tracing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why can't a lambda contain statements like if/for or assignments?</p>
+        <pre class="code"><code>grade = lambda s: &quot;pass&quot; if s &gt;= 50 else &quot;fail&quot;   # OK
+# lambda s: for i in s: ...   # SyntaxError</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A lambda body must be a single EXPRESSION - use def for anything with statements</li>
+          <li><span class="opt-key">B</span> Lambdas are too slow for them</li>
+          <li><span class="opt-key">C</span> They can, with semicolons</li>
+          <li><span class="opt-key">D</span> Only in Python 2</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A lambda body must be a single EXPRESSION - use def for anything with statements</p>
+          <p class="expl">Lambdas are limited to one expression that becomes the return value. You can use a conditional EXPRESSION (a if c else b), but not statements. Reach for def when you need real logic.</p>
+          <p class="tags"><span>Lambda limits</span><span>def</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (16)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a CLOSURE?</p>
+        <pre class="code"><code>def make_adder(n):
+    def add(x):
+        return x + n   # remembers n
+    return add
+
+add5 = make_adder(5)
+print(add5(10))   # 15 - n=5 is remembered</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An inner function that remembers variables from its enclosing function, even after that function has finished</li>
+          <li><span class="opt-key">B</span> A function that closes a file</li>
+          <li><span class="opt-key">C</span> The end of a loop</li>
+          <li><span class="opt-key">D</span> A private variable</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An inner function that remembers variables from its enclosing function, even after that function has finished</p>
+          <p class="expl">When an inner function uses a variable from the outer function AND is returned, it keeps ('closes over') that variable alive - even after the outer function returns.</p>
+          <p class="tags"><span>Nested functions</span><span>Free variables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+def outer():
+    x = 10
+    def inner():
+        return x
+    return inner
+f = outer()
+print(f())</p>
+        <pre class="code"><code>f = outer()   # outer finishes, but x lives on in f
+print(f())     # 10</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 10</li>
+          <li><span class="opt-key">B</span> None</li>
+          <li><span class="opt-key">C</span> NameError - x is gone</li>
+          <li><span class="opt-key">D</span> &lt;function&gt;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 10</p>
+          <p class="expl">Even though outer() has finished, the returned inner function still remembers x=10 through the closure. Calling f() returns 10.</p>
+          <p class="tags"><span>Closures</span><span>Variable lifetime</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which keyword lets an inner function MODIFY a variable in the enclosing (outer) function?</p>
+        <pre class="code"><code>def counter():
+    count = 0
+    def inc():
+        nonlocal count
+        count += 1
+        return count
+    return inc
+
+c = counter()
+print(c(), c(), c())   # 1 2 3</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> nonlocal</li>
+          <li><span class="opt-key">B</span> global</li>
+          <li><span class="opt-key">C</span> outer</li>
+          <li><span class="opt-key">D</span> enclosing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — nonlocal</p>
+          <p class="expl">nonlocal targets the nearest enclosing function's variable (not the global one). Without it, assigning inside the inner function would create a new local instead.</p>
+          <p class="tags"><span>nonlocal</span><span>global</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a decorator?</p>
+        <pre class="code"><code>def logged(func):
+    def wrapper(*args, **kwargs):
+        print(f&quot;calling {func.__name__}&quot;)
+        return func(*args, **kwargs)
+    return wrapper
+
+@logged
+def greet(): print(&quot;hi&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function that takes a function and returns a NEW function, usually adding behavior around it</li>
+          <li><span class="opt-key">B</span> A comment style</li>
+          <li><span class="opt-key">C</span> A type of loop</li>
+          <li><span class="opt-key">D</span> A class attribute</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function that takes a function and returns a NEW function, usually adding behavior around it</p>
+          <p class="expl">A decorator wraps a function to add behavior (logging, timing, access checks) without changing the original function's code. It receives the function and returns a replacement.</p>
+          <p class="tags"><span>Closures</span><span>Wrapping</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In a decorator's wrapper, why use *args and **kwargs?
+def wrapper(*args, **kwargs):</p>
+        <pre class="code"><code>def logged(func):
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs)   # pass all through
+    return wrapper</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> So the wrapper can accept ANY arguments and pass them through to the wrapped function unchanged</li>
+          <li><span class="opt-key">B</span> To make it faster</li>
+          <li><span class="opt-key">C</span> They are required keywords for decorators</li>
+          <li><span class="opt-key">D</span> To limit the function to two arguments</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — So the wrapper can accept ANY arguments and pass them through to the wrapped function unchanged</p>
+          <p class="expl">The decorator doesn't know what arguments the decorated function takes. *args/**kwargs let the wrapper accept everything and forward it: func(*args, **kwargs).</p>
+          <p class="tags"><span>*args</span><span>**kwargs</span><span>Decorators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+def deco(f):
+    def wrapper():
+        print(&quot;before&quot;)
+        f()
+        print(&quot;after&quot;)
+    return wrapper
+@deco
+def hello():
+    print(&quot;hello&quot;)
+hello()</p>
+        <pre class="code"><code># output:
+# before
+# hello
+# after</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> before / hello / after</li>
+          <li><span class="opt-key">B</span> hello</li>
+          <li><span class="opt-key">C</span> before / after</li>
+          <li><span class="opt-key">D</span> hello / before / after</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — before / hello / after</p>
+          <p class="expl">@deco replaces hello with wrapper. Calling hello() now runs wrapper: prints 'before', calls the original hello ('hello'), then 'after'.</p>
+          <p class="tags"><span>Decorators</span><span>Wrapping</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">After @deco wraps hello(), what does hello.__name__ show WITHOUT functools.wraps?</p>
+        <pre class="code"><code>from functools import wraps
+def deco(f):
+    @wraps(f)          # preserves f's name/doc
+    def wrapper(*a, **k):
+        return f(*a, **k)
+    return wrapper</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'wrapper' - the wrapper's name replaces the original, losing metadata</li>
+          <li><span class="opt-key">B</span> 'hello' - the name is preserved automatically</li>
+          <li><span class="opt-key">C</span> 'deco'</li>
+          <li><span class="opt-key">D</span> An empty string</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'wrapper' - the wrapper's name replaces the original, losing metadata</p>
+          <p class="expl">The decorated name now points to wrapper, so its __name__, __doc__ etc. are the wrapper's. This confuses debuggers and docs. functools.wraps copies the original's metadata onto the wrapper.</p>
+          <p class="tags"><span>functools.wraps</span><span>Metadata</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does functools.wraps do inside a decorator?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Copies the original function's name, docstring and metadata onto the wrapper</li>
+          <li><span class="opt-key">B</span> Wraps the function in a try/except</li>
+          <li><span class="opt-key">C</span> Makes the function run twice</li>
+          <li><span class="opt-key">D</span> Caches the result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Copies the original function's name, docstring and metadata onto the wrapper</p>
+          <p class="expl">@wraps(func) on the wrapper preserves func.__name__, __doc__ and __module__, so tools and help() still see the real function's identity. Best practice in every decorator.</p>
+          <p class="tags"><span>functools.wraps</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How can a decorator itself take arguments?
+@repeat(3)
+def greet(): ...</p>
+        <pre class="code"><code>def repeat(n):
+    def decorator(func):
+        def wrapper(*a, **k):
+            for _ in range(n):
+                func(*a, **k)
+        return wrapper
+    return decorator
+
+@repeat(3)
+def hi(): print(&quot;hi&quot;)   # prints hi 3 times</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> You need THREE nested functions - the outer takes the argument and returns the actual decorator</li>
+          <li><span class="opt-key">B</span> Decorators can't take arguments</li>
+          <li><span class="opt-key">C</span> Use @repeat, 3</li>
+          <li><span class="opt-key">D</span> Pass it to the wrapped function instead</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — You need THREE nested functions - the outer takes the argument and returns the actual decorator</p>
+          <p class="expl">@repeat(3) first CALLS repeat(3), which returns a decorator, which then wraps greet. That's three layers: repeat(n) -&gt; decorator(func) -&gt; wrapper(*args).</p>
+          <p class="tags"><span>Parametrized decorators</span><span>Nested functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does @functools.lru_cache do?</p>
+        <pre class="code"><code>from functools import lru_cache
+@lru_cache
+def fib(n):
+    return n if n &lt; 2 else fib(n-1) + fib(n-2)
+print(fib(50))   # instant, not slow</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Caches a function's results so repeated calls with the same arguments return instantly</li>
+          <li><span class="opt-key">B</span> Limits how many times a function runs</li>
+          <li><span class="opt-key">C</span> Logs the function calls</li>
+          <li><span class="opt-key">D</span> Clears memory</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Caches a function's results so repeated calls with the same arguments return instantly</p>
+          <p class="expl">lru_cache memoizes: it stores results by arguments. A slow recursive fib() becomes fast because repeated subproblems are looked up, not recomputed. LRU = Least Recently Used eviction when the cache is full.</p>
+          <p class="tags"><span>Memoization</span><span>Caching</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+def make_multipliers():
+    return [lambda x: x * i for i in range(3)]
+print([m(10) for m in make_multipliers()])</p>
+        <pre class="code"><code># Fix with a default argument to capture the value:
+[lambda x, i=i: x * i for i in range(3)]
+# -&gt; [0, 10, 20]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [20, 20, 20] - all lambdas share the SAME i, which ends at 2</li>
+          <li><span class="opt-key">B</span> [0, 10, 20]</li>
+          <li><span class="opt-key">C</span> [0, 20, 40]</li>
+          <li><span class="opt-key">D</span> [10, 10, 10]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [20, 20, 20] - all lambdas share the SAME i, which ends at 2</p>
+          <p class="expl">The lambdas close over the VARIABLE i, not its value at creation. By the time they run, the loop finished with i=2, so every lambda computes x*2 -&gt; [20, 20, 20]. Classic closure trap.</p>
+          <ul class="notes"><li>Same root cause as the setTimeout(var i) trap in JavaScript.</li></ul>
+          <p class="tags"><span>Late binding</span><span>Closure traps</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you FIX late-binding so each lambda captures its own i?
+[lambda x: x * i for i in range(3)]</p>
+        <pre class="code"><code>mults = [lambda x, i=i: x * i for i in range(3)]
+print([m(10) for m in mults])   # [0, 10, 20]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Add a default argument: [lambda x, i=i: x * i for i in range(3)]</li>
+          <li><span class="opt-key">B</span> Use global i</li>
+          <li><span class="opt-key">C</span> Remove the loop</li>
+          <li><span class="opt-key">D</span> It cannot be fixed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Add a default argument: [lambda x, i=i: x * i for i in range(3)]</p>
+          <p class="expl">Default arguments are evaluated at definition time, so i=i freezes the CURRENT value into each lambda. Now they give 0, 10, 20. (A factory function that takes i also works.)</p>
+          <p class="tags"><span>Default arguments</span><span>Late binding</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">A class-based decorator implements which method to make instances act as the wrapper?</p>
+        <pre class="code"><code>class CountCalls:
+    def __init__(self, f):
+        self.f = f
+        self.n = 0
+    def __call__(self, *a, **k):
+        self.n += 1
+        return self.f(*a, **k)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __call__</li>
+          <li><span class="opt-key">B</span> __wrap__</li>
+          <li><span class="opt-key">C</span> __deco__</li>
+          <li><span class="opt-key">D</span> __init__ only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __call__</p>
+          <p class="expl">The class stores the function in __init__ and defines __call__ so instances are callable. @MyDeco replaces the function with an instance; calling it runs __call__.</p>
+          <p class="tags"><span>__call__</span><span>Class decorators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does a decorator usually RETURN the wrapper function instead of calling it?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The decorator replaces the original name; it must return a callable to be called later, not the result of one call</li>
+          <li><span class="opt-key">B</span> Returning is optional</li>
+          <li><span class="opt-key">C</span> To save memory</li>
+          <li><span class="opt-key">D</span> So the function runs immediately once</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The decorator replaces the original name; it must return a callable to be called later, not the result of one call</p>
+          <p class="expl">@deco sets f = deco(f). If deco returned wrapper() (a result) instead of wrapper (the function), then f would be that result, and calling f() would fail. Return the function object.</p>
+          <p class="tags"><span>Decorators</span><span>Common mistakes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is memoization (as done by a caching decorator)?</p>
+        <pre class="code"><code>def memoize(f):
+    cache = {}
+    def wrapper(n):
+        if n not in cache:
+            cache[n] = f(n)
+        return cache[n]
+    return wrapper</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Storing results of expensive calls and reusing them for repeated inputs</li>
+          <li><span class="opt-key">B</span> Writing memos in comments</li>
+          <li><span class="opt-key">C</span> Freeing memory automatically</li>
+          <li><span class="opt-key">D</span> Running a function in memory only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Storing results of expensive calls and reusing them for repeated inputs</p>
+          <p class="expl">Memoization trades memory for speed: a dict maps arguments to results, so a repeated call is a lookup, not a recomputation. A decorator is the clean way to add it. lru_cache does exactly this.</p>
+          <p class="tags"><span>Caching</span><span>lru_cache</span><span>Dynamic programming</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+counter = 0
+def make():
+    counter = 0
+    def inc():
+        nonlocal counter
+        counter += 1
+        return counter
+    return inc
+a = make()
+b = make()
+print(a(), a(), b())</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 2 1 - each closure has its OWN independent counter</li>
+          <li><span class="opt-key">B</span> 1 2 3 - they share one counter</li>
+          <li><span class="opt-key">C</span> 1 1 1</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 2 1 - each closure has its OWN independent counter</p>
+          <p class="expl">Each call to make() creates a fresh counter variable and a fresh inc closure over it. a and b are independent: a advances its own counter to 2, b's starts fresh at 1.</p>
+          <p class="tags"><span>Closures</span><span>Independent state</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="17-iterators-and-generators.html">← Iterators &amp; Generators</a>
+      <a href="19-advanced-concepts.html">Advanced Concepts →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-17">Practice “Decorators &amp; Closures” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

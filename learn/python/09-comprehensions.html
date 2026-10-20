@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comprehensions – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Comprehensions with answers and detailed explanations — 6 easy, 15 medium and 9 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/09-comprehensions.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Comprehensions – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Comprehensions with answers and detailed explanations — 6 easy, 15 medium and 9 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/09-comprehensions.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Comprehensions","item":"https://velnov.co.in/learn/python/09-comprehensions.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Comprehensions</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 9 of 20</p>
+      <h1>Comprehensions — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Comprehensions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-8">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">6 easy · 15 medium · 9 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>List comprehensions</span><span>range()</span><span>append()</span><span>Patterns</span><span>Filtering</span><span>Modulo</span><span>Filter + transform</span><span>String methods</span><span>Transformation</span><span>len()</span><span>Mapping</span><span>Ternary expression</span><span>Dict comprehensions</span><span>Set comprehensions</span><span>Uniqueness</span><span>Generators</span><span>Lazy evaluation</span><span>Memory efficiency</span><span>join()</span><span>Nested comprehensions</span><span>Cartesian product</span><span>Flattening</span><span>Nested loops</span><span>Tuples</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (6)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print([x * 2 for x in range(3)])</p>
+        <pre class="code"><code>print([x * 2 for x in range(3)])   # [0, 2, 4]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [0, 2, 4]</li>
+          <li><span class="opt-key">B</span> [2, 4, 6]</li>
+          <li><span class="opt-key">C</span> [0, 1, 2]</li>
+          <li><span class="opt-key">D</span> [0, 2, 4, 6]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [0, 2, 4]</p>
+          <p class="expl">A list comprehension applies the expression (x * 2) to every value of x in range(3) = 0, 1, 2 -&gt; [0, 2, 4].</p>
+          <p class="tags"><span>List comprehensions</span><span>range()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which ordinary loop is equivalent to: squares = [x**2 for x in nums]</p>
+        <pre class="code"><code># comprehension:
+squares = [x**2 for x in nums]
+
+# equivalent loop:
+squares = []
+for x in nums:
+    squares.append(x**2)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> squares = []\nfor x in nums:\n    squares.append(x**2)</li>
+          <li><span class="opt-key">B</span> for x in nums: squares = x**2</li>
+          <li><span class="opt-key">C</span> squares = for x in nums: x**2</li>
+          <li><span class="opt-key">D</span> while nums: squares.append(x**2)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — squares = []\nfor x in nums:\n    squares.append(x**2)</p>
+          <p class="expl">A comprehension is exactly a build-a-list loop compressed to one line: create empty list, loop, append the expression. Same result, less code.</p>
+          <p class="tags"><span>append()</span><span>Patterns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print([w.upper() for w in [&quot;hi&quot;, &quot;bye&quot;]])</p>
+        <pre class="code"><code>words = [&quot;hi&quot;, &quot;bye&quot;]
+print([w.upper() for w in words])   # ['HI', 'BYE']</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ['HI', 'BYE']</li>
+          <li><span class="opt-key">B</span> ['hi', 'bye']</li>
+          <li><span class="opt-key">C</span> 'HI BYE'</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ['HI', 'BYE']</p>
+          <p class="expl">The expression can call any method: each word is uppercased -&gt; ['HI', 'BYE']. Comprehensions shine for transforming every item.</p>
+          <p class="tags"><span>String methods</span><span>Transformation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the main reason to use a comprehension instead of a loop?</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It's the only way to build lists</li>
+          <li class="correct"><span class="opt-key">B</span> Shorter, clearer 'build a list from a list' code (and often slightly faster)</li>
+          <li><span class="opt-key">C</span> It uses no memory at all</li>
+          <li><span class="opt-key">D</span> Loops are deprecated</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Shorter, clearer 'build a list from a list' code (and often slightly faster)</p>
+          <p class="expl">For simple transform/filter operations, one readable line beats four. But if the logic needs multiple steps or side effects, a normal loop is clearer - don't force everything into a comprehension.</p>
+          <p class="tags"><span>Pythonic style</span><span>Readability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print([len(x) for x in [&quot;a&quot;, &quot;bb&quot;, &quot;ccc&quot;]])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 2, 3]</li>
+          <li><span class="opt-key">B</span> [3, 2, 1]</li>
+          <li><span class="opt-key">C</span> 6</li>
+          <li><span class="opt-key">D</span> ['a', 'bb', 'ccc']</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 2, 3]</p>
+          <p class="expl">len() of each string: 1, 2, 3. A straightforward mapping comprehension.</p>
+          <p class="tags"><span>len()</span><span>Mapping</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print([x for x in &quot;abc&quot;])</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> ['abc']</li>
+          <li class="correct"><span class="opt-key">B</span> ['a', 'b', 'c']</li>
+          <li><span class="opt-key">C</span> 'abc'</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — ['a', 'b', 'c']</p>
+          <p class="expl">Iterating a string yields characters, and the comprehension collects them: ['a', 'b', 'c'] - same result as list(&quot;abc&quot;).</p>
+          <p class="tags"><span>Strings as iterables</span><span>list()</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (15)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print([x for x in range(10) if x % 3 == 0])</p>
+        <pre class="code"><code>print([x for x in range(10) if x % 3 == 0])
+# [0, 3, 6, 9]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [3, 6, 9]</li>
+          <li class="correct"><span class="opt-key">B</span> [0, 3, 6, 9]</li>
+          <li><span class="opt-key">C</span> [1, 2, 4, 5, 7, 8]</li>
+          <li><span class="opt-key">D</span> [0, 3, 6]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — [0, 3, 6, 9]</p>
+          <p class="expl">The if clause FILTERS: only x values divisible by 3 are kept - 0, 3, 6, 9. Don't forget 0 is divisible by 3!</p>
+          <p class="tags"><span>Filtering</span><span>Modulo</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this build?
+lengths = [len(w) for w in [&quot;apple&quot;, &quot;fig&quot;, &quot;banana&quot;]]</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [5, 3, 6]</li>
+          <li><span class="opt-key">B</span> ['apple', 'fig', 'banana']</li>
+          <li><span class="opt-key">C</span> 14</li>
+          <li><span class="opt-key">D</span> [6, 3, 5]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [5, 3, 6]</p>
+          <p class="expl">len() runs on each word: 'apple' -&gt; 5, 'fig' -&gt; 3, 'banana' -&gt; 6, giving [5, 3, 6] in the same order.</p>
+          <p class="tags"><span>len()</span><span>Mapping</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which comprehension creates a DICT of squares: {1: 1, 2: 4, 3: 9}?</p>
+        <pre class="code"><code>squares = {x: x**2 for x in range(1, 4)}
+print(squares)   # {1: 1, 2: 4, 3: 9}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> {x: x**2 for x in range(1, 4)}</li>
+          <li><span class="opt-key">B</span> [x: x**2 for x in range(1, 4)]</li>
+          <li><span class="opt-key">C</span> {x, x**2 for x in range(1, 4)}</li>
+          <li><span class="opt-key">D</span> dict(x**2 for x in range(1, 4))</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — {x: x**2 for x in range(1, 4)}</p>
+          <p class="expl">Dict comprehensions use braces with a key: value expression. {x: x**2 ...} maps each number to its square.</p>
+          <p class="tags"><span>Dict comprehensions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this produce?
+{c for c in &quot;banana&quot;}</p>
+        <pre class="code"><code>print({c for c in &quot;banana&quot;})   # {'b', 'a', 'n'}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A set: {'b', 'a', 'n'} - unique characters only</li>
+          <li><span class="opt-key">B</span> A list of 6 characters</li>
+          <li><span class="opt-key">C</span> A dict</li>
+          <li><span class="opt-key">D</span> The string 'ban'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A set: {'b', 'a', 'n'} - unique characters only</p>
+          <p class="expl">Braces without a colon make a SET comprehension - duplicates are dropped automatically, leaving the unique characters of 'banana'.</p>
+          <p class="tags"><span>Set comprehensions</span><span>Uniqueness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is (x**2 for x in range(3)) - with PARENTHESES?</p>
+        <pre class="code"><code>gen = (x**2 for x in range(3))
+print(gen)         # &lt;generator object ...&gt;
+print(list(gen))   # [0, 1, 4]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> A tuple comprehension</li>
+          <li class="correct"><span class="opt-key">B</span> A generator expression - values are produced lazily, one at a time</li>
+          <li><span class="opt-key">C</span> A syntax error</li>
+          <li><span class="opt-key">D</span> The same as a list comprehension</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — A generator expression - values are produced lazily, one at a time</p>
+          <p class="expl">Parentheses make a GENERATOR expression: nothing is computed until you iterate it, and values are produced one by one - using almost no memory. There is no 'tuple comprehension'; use tuple(...) to get a tuple.</p>
+          <p class="tags"><span>Generators</span><span>Lazy evaluation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+print([c for c in &quot;hello&quot; if c in &quot;aeiou&quot;])</p>
+        <pre class="code"><code>vowels = [c for c in &quot;hello&quot; if c in &quot;aeiou&quot;]
+print(vowels)             # ['e', 'o']
+print(&quot;&quot;.join(vowels))   # eo</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ['e', 'o']</li>
+          <li><span class="opt-key">B</span> ['h', 'l', 'l']</li>
+          <li><span class="opt-key">C</span> 'eo'</li>
+          <li><span class="opt-key">D</span> ['a', 'e', 'i', 'o', 'u']</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ['e', 'o']</p>
+          <p class="expl">Loop over each character, keep only vowels: 'e' and 'o' -&gt; ['e', 'o']. Use &quot;&quot;.join(...) if you want them as one string.</p>
+          <p class="tags"><span>Filtering</span><span>join()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which builds a list of (number, square) PAIRS: [(1, 1), (2, 4), (3, 9)]?</p>
+        <pre class="code"><code>pairs = [(x, x**2) for x in range(1, 4)]
+print(pairs)   # [(1, 1), (2, 4), (3, 9)]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [(x, x**2) for x in range(1, 4)]</li>
+          <li><span class="opt-key">B</span> [x, x**2 for x in range(1, 4)]</li>
+          <li><span class="opt-key">C</span> {x: x**2 for x in range(1, 4)}</li>
+          <li><span class="opt-key">D</span> [(x)(x**2) for x in range(1, 4)]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [(x, x**2) for x in range(1, 4)]</p>
+          <p class="expl">Wrap the pair in parentheses to make a tuple per item: (x, x**2). Without the inner parentheses (option B) it's a SyntaxError.</p>
+          <p class="tags"><span>Tuples</span><span>Pairs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you swap keys and values of d = {&quot;a&quot;: 1, &quot;b&quot;: 2} with a comprehension?</p>
+        <pre class="code"><code>d = {&quot;a&quot;: 1, &quot;b&quot;: 2}
+flipped = {v: k for k, v in d.items()}
+print(flipped)   # {1: 'a', 2: 'b'}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> {v: k for k, v in d.items()}</li>
+          <li><span class="opt-key">B</span> {k: v for v, k in d.items()}</li>
+          <li><span class="opt-key">C</span> d.swap()</li>
+          <li><span class="opt-key">D</span> {d[k]: k for k in d.values()}</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — {v: k for k, v in d.items()}</p>
+          <p class="expl">Loop over items() to get (key, value) pairs, then write them flipped: value becomes the key -&gt; {1: 'a', 2: 'b'}.</p>
+          <ul class="notes"><li>Only safe when values are unique and hashable.</li></ul>
+          <p class="tags"><span>Dict comprehensions</span><span>items()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does any() return here?
+any(x &gt; 10 for x in [3, 15, 7])</p>
+        <pre class="code"><code>nums = [3, 15, 7]
+print(any(x &gt; 10 for x in nums))   # True
+print(all(x &gt; 10 for x in nums))   # False</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True - at least one value passes the test</li>
+          <li><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> [False, True, False]</li>
+          <li><span class="opt-key">D</span> 15</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True - at least one value passes the test</p>
+          <p class="expl">any() is True if AT LEAST ONE element of the iterable is truthy - 15 &gt; 10 passes, so True. It even stops early at the first success.</p>
+          <p class="tags"><span>any()</span><span>all()</span><span>Generators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does all() return here?
+all(x &gt; 0 for x in [1, 2, 3])</p>
+        <pre class="code"><code>print(all(x &gt; 0 for x in [1, 2, 3]))    # True
+print(all(x &gt; 0 for x in [1, -2, 3]))   # False</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> False</li>
+          <li class="correct"><span class="opt-key">B</span> True - every element passes</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> [True, True, True]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — True - every element passes</p>
+          <p class="expl">all() is True only when EVERY element is truthy - all three numbers are positive, so True. One failure would make it False (and it stops checking there).</p>
+          <p class="tags"><span>all()</span><span>any()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+print(sorted([3, 1, 2], reverse=True))</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [1, 2, 3]</li>
+          <li class="correct"><span class="opt-key">B</span> [3, 2, 1]</li>
+          <li><span class="opt-key">C</span> [2, 1, 3]</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — [3, 2, 1]</p>
+          <p class="expl">sorted() with reverse=True sorts descending: [3, 2, 1]. Comprehensions often feed into sorted(): sorted([w.lower() for w in words]).</p>
+          <p class="tags"><span>sorted()</span><span>reverse parameter</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Convert with a comprehension: strings = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;] into numbers [1, 2, 3]</p>
+        <pre class="code"><code>strings = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]
+nums = [int(s) for s in strings]
+print(sum(nums))   # 6</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [int(s) for s in strings]</li>
+          <li><span class="opt-key">B</span> int(strings)</li>
+          <li><span class="opt-key">C</span> [s.int() for s in strings]</li>
+          <li><span class="opt-key">D</span> strings.to_int()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [int(s) for s in strings]</p>
+          <p class="expl">Apply int() to each element: [int(s) for s in strings]. int(strings) fails - int() can't convert a whole list at once.</p>
+          <p class="tags"><span>Type conversion</span><span>map()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+print([i for i in range(20) if i % 2 == 0 if i % 3 == 0])</p>
+        <pre class="code"><code>[i for i in range(20) if i % 2 == 0 if i % 3 == 0]
+# same as: if i % 6 == 0</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [0, 6, 12, 18]</li>
+          <li><span class="opt-key">B</span> [6, 12, 18]</li>
+          <li><span class="opt-key">C</span> [0, 2, 3, 4, 6...]</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [0, 6, 12, 18]</p>
+          <p class="expl">Multiple if clauses act like AND - keep numbers divisible by 2 AND by 3 (i.e. by 6): 0, 6, 12, 18. Equivalent to one if with and.</p>
+          <p class="tags"><span>Multiple filters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Marks: {&quot;Ana&quot;: 92, &quot;Ben&quot;: 45}. Which builds a list of names who PASSED (&gt;= 50)?</p>
+        <pre class="code"><code>marks = {&quot;Ana&quot;: 92, &quot;Ben&quot;: 45}
+passed = [n for n, m in marks.items() if m &gt;= 50]
+print(passed)   # ['Ana']</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [name for name, mark in marks.items() if mark &gt;= 50]</li>
+          <li><span class="opt-key">B</span> [mark for mark in marks if mark &gt;= 50]</li>
+          <li><span class="opt-key">C</span> [name for name in marks.values() if name &gt;= 50]</li>
+          <li><span class="opt-key">D</span> marks.passed()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [name for name, mark in marks.items() if mark &gt;= 50]</p>
+          <p class="expl">Iterate items() to get both name and mark, filter on the mark, collect the name: ['Ana']. Option B loops over keys (strings) and compares them to 50 - TypeError.</p>
+          <p class="tags"><span>items()</span><span>Filtering dicts</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Clean this data with one comprehension: names = [&quot; ana &quot;, &quot;BEN &quot;, &quot; Cy&quot;] -&gt; [&quot;Ana&quot;, &quot;Ben&quot;, &quot;Cy&quot;]</p>
+        <pre class="code"><code>names = [&quot; ana &quot;, &quot;BEN &quot;, &quot; Cy&quot;]
+clean = [n.strip().title() for n in names]
+print(clean)   # ['Ana', 'Ben', 'Cy']</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [n.strip().title() for n in names]</li>
+          <li><span class="opt-key">B</span> [n.title() for n in names.strip()]</li>
+          <li><span class="opt-key">C</span> names.strip().title()</li>
+          <li><span class="opt-key">D</span> [strip(n) + title(n) for n in names]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [n.strip().title() for n in names]</p>
+          <p class="expl">Chain methods inside the expression: strip() removes the spaces, then title() fixes the capitalization - applied to each name. Option B calls strip() on the LIST, which doesn't exist.</p>
+          <p class="tags"><span>Method chaining</span><span>Data cleaning</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (9)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print([x * 2 for x in range(4) if x % 2 == 0])</p>
+        <pre class="code"><code># x in 0,1,2,3 -&gt; keep 0,2 -&gt; double -&gt; [0, 4]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [0, 2, 4, 6]</li>
+          <li class="correct"><span class="opt-key">B</span> [0, 4]</li>
+          <li><span class="opt-key">C</span> [2, 6]</li>
+          <li><span class="opt-key">D</span> [0, 2]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — [0, 4]</p>
+          <p class="expl">First the filter keeps even x (0 and 2), then the expression doubles them -&gt; [0, 4]. Filter first, transform second.</p>
+          <p class="tags"><span>Filter + transform</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Where does if-ELSE go in a comprehension?
+result = [x if x &gt; 0 else 0 for x in nums]</p>
+        <pre class="code"><code>nums = [3, -1, 5]
+print([x if x &gt; 0 else 0 for x in nums])  # [3, 0, 5] - transform
+print([x for x in nums if x &gt; 0])           # [3, 5]    - filter</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> BEFORE the for - because with else it's a conditional EXPRESSION, not a filter</li>
+          <li><span class="opt-key">B</span> After the for, like a filter</li>
+          <li><span class="opt-key">C</span> if-else is not allowed in comprehensions</li>
+          <li><span class="opt-key">D</span> Either position works</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — BEFORE the for - because with else it's a conditional EXPRESSION, not a filter</p>
+          <p class="expl">Two different ifs! A filtering if (no else) goes AFTER the for and drops items. A conditional expression (with else) goes BEFORE the for and transforms every item. [x if x &gt; 0 else 0 ...] keeps all items, replacing negatives with 0.</p>
+          <ul class="notes"><li>[x for x in nums if x &gt; 0 else 0] is a SyntaxError.</li></ul>
+          <p class="tags"><span>Ternary expression</span><span>Filtering</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why prefer sum(x*x for x in range(10**7)) over sum([x*x for x in range(10**7)])?</p>
+        <pre class="code"><code>total = sum(x*x for x in range(10**7))  # memory-friendly</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> The first is shorter to type only</li>
+          <li class="correct"><span class="opt-key">B</span> The generator version never builds a 10-million-item list in memory - values stream one by one</li>
+          <li><span class="opt-key">C</span> The list version gives a wrong answer</li>
+          <li><span class="opt-key">D</span> There is no difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — The generator version never builds a 10-million-item list in memory - values stream one by one</p>
+          <p class="expl">The list comprehension materializes ALL 10 million squares in RAM before summing. The generator produces each value, hands it to sum(), and forgets it - constant memory. For large data, generators win.</p>
+          <p class="tags"><span>Generators</span><span>Memory efficiency</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of:
+print([x + y for x in &quot;ab&quot; for y in &quot;cd&quot;])</p>
+        <pre class="code"><code># same as:
+for x in &quot;ab&quot;:
+    for y in &quot;cd&quot;:
+        result.append(x + y)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ['ac', 'ad', 'bc', 'bd']</li>
+          <li><span class="opt-key">B</span> ['ac', 'bd']</li>
+          <li><span class="opt-key">C</span> ['ab', 'cd']</li>
+          <li><span class="opt-key">D</span> ['ca', 'da', 'cb', 'db']</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ['ac', 'ad', 'bc', 'bd']</p>
+          <p class="expl">Two for clauses nest like a double loop - the FIRST for is the outer loop. For each x ('a', then 'b'), y runs through 'c', 'd': ac, ad, bc, bd.</p>
+          <p class="tags"><span>Nested comprehensions</span><span>Cartesian product</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you FLATTEN matrix = [[1, 2], [3, 4]] into [1, 2, 3, 4] with a comprehension?</p>
+        <pre class="code"><code>matrix = [[1, 2], [3, 4]]
+flat = [x for row in matrix for x in row]
+print(flat)   # [1, 2, 3, 4]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [x for row in matrix for x in row]</li>
+          <li><span class="opt-key">B</span> [x for x in row for row in matrix]</li>
+          <li><span class="opt-key">C</span> [matrix for row in x]</li>
+          <li><span class="opt-key">D</span> flatten(matrix)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [x for row in matrix for x in row]</p>
+          <p class="expl">Read the for clauses LEFT TO RIGHT like nested loops: first 'for row in matrix' (outer), then 'for x in row' (inner). Option B is backwards - row isn't defined yet.</p>
+          <ul class="notes"><li>Order rule: the fors appear in the same order as in the loop version.</li></ul>
+          <p class="tags"><span>Flattening</span><span>Nested loops</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which correctly builds a 3x3 grid of zeros where rows are INDEPENDENT?</p>
+        <pre class="code"><code>bad = [[0] * 3] * 3
+bad[0][0] = 9
+print(bad)    # [[9,0,0],[9,0,0],[9,0,0]] !!
+
+good = [[0] * 3 for _ in range(3)]
+good[0][0] = 9
+print(good)   # [[9,0,0],[0,0,0],[0,0,0]]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> grid = [[0] * 3 for _ in range(3)]</li>
+          <li><span class="opt-key">B</span> grid = [[0] * 3] * 3</li>
+          <li><span class="opt-key">C</span> Both A and B are identical</li>
+          <li><span class="opt-key">D</span> grid = [0] * 9</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — grid = [[0] * 3 for _ in range(3)]</p>
+          <p class="expl">Option B repeats a reference to the SAME row three times - changing grid[0][0] would change all three rows! The comprehension creates a fresh list each iteration, so rows are independent.</p>
+          <ul class="notes"><li>A classic trap when building 2D grids for games or matrices.</li></ul>
+          <p class="tags"><span>References</span><span>2D lists</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In Python 3, does the loop variable of a comprehension LEAK outside?
+[x for x in range(3)]
+print(x)</p>
+        <pre class="code"><code>[x for x in range(3)]
+# print(x)   # NameError in Python 3</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Yes - x is 2 afterwards</li>
+          <li class="correct"><span class="opt-key">B</span> No - NameError: comprehensions have their own scope in Python 3</li>
+          <li><span class="opt-key">C</span> x becomes the whole list</li>
+          <li><span class="opt-key">D</span> x is always 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — No - NameError: comprehensions have their own scope in Python 3</p>
+          <p class="expl">In Python 3, comprehension variables live in their own hidden scope and vanish afterwards - print(x) raises NameError (unless x existed before). In Python 2 they leaked; this was fixed.</p>
+          <p class="tags"><span>Scope</span><span>Python 2 vs 3</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which is equivalent to map(str.upper, words)?</p>
+        <pre class="code"><code>words = [&quot;hi&quot;, &quot;bye&quot;]
+print(list(map(str.upper, words)))   # ['HI', 'BYE']
+print([w.upper() for w in words])     # same</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [str.upper for w in words]</li>
+          <li class="correct"><span class="opt-key">B</span> [w.upper() for w in words]</li>
+          <li><span class="opt-key">C</span> {w.upper() for w in words}</li>
+          <li><span class="opt-key">D</span> (words.upper())</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — [w.upper() for w in words]</p>
+          <p class="expl">map(function, iterable) applies the function to each item - exactly what [w.upper() for w in words] does. Most Python style guides prefer the comprehension for readability.</p>
+          <p class="tags"><span>map()</span><span>filter()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+funcs = [x**2 for x in range(3)]
+print(funcs[-1])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 4</li>
+          <li><span class="opt-key">B</span> 2</li>
+          <li><span class="opt-key">C</span> 9</li>
+          <li><span class="opt-key">D</span> [0, 1, 4]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 4</p>
+          <p class="expl">The comprehension builds [0, 1, 4] (squares of 0, 1, 2), and [-1] takes the last element: 4. Combining comprehension results with indexing is common in interview snippets.</p>
+          <p class="tags"><span>Indexing</span><span>Tracing code</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="08-dictionaries-and-sets.html">← Dictionaries &amp; Sets</a>
+      <a href="10-functions.html">Functions →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-8">Practice “Comprehensions” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

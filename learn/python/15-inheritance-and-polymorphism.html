@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inheritance &amp; Polymorphism – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Inheritance &amp; Polymorphism with answers and detailed explanations — 7 easy, 16 medium and 7 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/15-inheritance-and-polymorphism.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Inheritance &amp; Polymorphism – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Inheritance &amp; Polymorphism with answers and detailed explanations — 7 easy, 16 medium and 7 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/15-inheritance-and-polymorphism.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Inheritance & Polymorphism","item":"https://velnov.co.in/learn/python/15-inheritance-and-polymorphism.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Inheritance &amp; Polymorphism</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 15 of 20</p>
+      <h1>Inheritance &amp; Polymorphism — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Inheritance &amp; Polymorphism</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-14">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">7 easy · 16 medium · 7 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Code reuse</span><span>is-a relationship</span><span>Syntax</span><span>Parent classes</span><span>Method lookup</span><span>Inheritance</span><span>Overriding</span><span>MRO</span><span>super()</span><span>__init__ chaining</span><span>AttributeError</span><span>isinstance()</span><span>is-a</span><span>issubclass()</span><span>Class relationships</span><span>Polymorphism</span><span>Duck typing</span><span>Protocols</span><span>Isolation</span><span>Extension</span><span>Inheritance direction</span><span>is-a vs has-a</span><span>Composition</span><span>Design principles</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (7)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is inheritance in OOP?</p>
+        <pre class="code"><code>class Animal:
+    def eat(self):
+        print(&quot;eating&quot;)
+
+class Dog(Animal):     # Dog inherits eat()
+    pass
+
+Dog().eat()             # eating</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A class (child) automatically gets the attributes and methods of another class (parent)</li>
+          <li><span class="opt-key">B</span> Copying code between files</li>
+          <li><span class="opt-key">C</span> Objects sharing memory</li>
+          <li><span class="opt-key">D</span> Importing modules</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A class (child) automatically gets the attributes and methods of another class (parent)</p>
+          <p class="expl">Inheritance lets you build a specialized class on top of a general one: Dog inherits everything Animal has, then adds or changes what it needs. Write the common code once.</p>
+          <p class="tags"><span>Code reuse</span><span>is-a relationship</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which syntax makes Dog inherit from Animal?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> class Dog(Animal):</li>
+          <li><span class="opt-key">B</span> class Dog extends Animal:</li>
+          <li><span class="opt-key">C</span> class Dog inherits Animal:</li>
+          <li><span class="opt-key">D</span> class Animal(Dog):</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — class Dog(Animal):</p>
+          <p class="expl">The parent goes in parentheses after the child's name. (extends is Java; option D is backwards - it would make Animal the child.)</p>
+          <p class="tags"><span>Syntax</span><span>Parent classes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">class Cat(Animal): pass - and Animal has a sleep() method. What does Cat().sleep() do?</p>
+        <pre class="code"><code>class Animal:
+    def sleep(self):
+        print(&quot;zzz&quot;)
+
+class Cat(Animal):
+    pass
+
+Cat().sleep()   # zzz</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Works - Cat inherited sleep() from Animal</li>
+          <li><span class="opt-key">B</span> AttributeError - Cat is empty</li>
+          <li><span class="opt-key">C</span> Returns None only</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Works - Cat inherited sleep() from Animal</p>
+          <p class="expl">An empty child still owns everything the parent defined. Python looks for sleep on Cat, doesn't find it, and walks UP to Animal - found, called.</p>
+          <p class="tags"><span>Method lookup</span><span>Inheritance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">dog = Dog() where Dog inherits Animal. What is isinstance(dog, Animal)?</p>
+        <pre class="code"><code>print(isinstance(dog, Dog))      # True
+print(isinstance(dog, Animal))   # True
+print(type(dog) == Animal)        # False - exact type only</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True - an instance of a subclass IS an instance of the parent too</li>
+          <li><span class="opt-key">B</span> False - dog is only a Dog</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True - an instance of a subclass IS an instance of the parent too</p>
+          <p class="expl">isinstance() respects inheritance: every Dog IS an Animal (the 'is-a' relationship). That's why isinstance is preferred over type() == for checks.</p>
+          <p class="tags"><span>isinstance()</span><span>is-a</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Can a child class ADD methods the parent doesn't have?</p>
+        <pre class="code"><code>class Dog(Animal):
+    def fetch(self):
+        print(&quot;fetching!&quot;)
+
+Dog().fetch()      # fine
+# Animal().fetch() # AttributeError</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - children extend parents freely (e.g. Dog adds fetch())</li>
+          <li><span class="opt-key">B</span> No - children can only override</li>
+          <li><span class="opt-key">C</span> Only one new method</li>
+          <li><span class="opt-key">D</span> Only attributes, not methods</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - children extend parents freely (e.g. Dog adds fetch())</p>
+          <p class="expl">Children = parent's features + anything new. Dog gets eat() and sleep() from Animal and adds fetch(). Note Animal instances do NOT get fetch - inheritance flows downward only.</p>
+          <p class="tags"><span>Extension</span><span>Inheritance direction</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">In class Rectangle(Shape): - which is the parent (base) class?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Shape</li>
+          <li><span class="opt-key">B</span> Rectangle</li>
+          <li><span class="opt-key">C</span> Both</li>
+          <li><span class="opt-key">D</span> Neither</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Shape</p>
+          <p class="expl">The class in parentheses is the parent (also called base or super class); Rectangle is the child (derived/sub class).</p>
+          <p class="tags"><span>Terminology</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the main PURPOSE of inheritance?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Reuse and organize shared behavior - write common code once in the parent</li>
+          <li><span class="opt-key">B</span> Make programs run faster</li>
+          <li><span class="opt-key">C</span> Hide code from other developers</li>
+          <li><span class="opt-key">D</span> It's required for classes to work</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Reuse and organize shared behavior - write common code once in the parent</p>
+          <p class="expl">Shared logic lives once in the base class; specializations only express their differences. Less duplication, clearer structure - though don't force it where 'is-a' doesn't hold.</p>
+          <p class="tags"><span>Code reuse</span><span>DRY</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Class Dog inherits from Animal. Both define speak(). What runs for Dog().speak()?</p>
+        <pre class="code"><code>class Animal:
+    def speak(self):
+        return &quot;...&quot;
+
+class Dog(Animal):
+    def speak(self):
+        return &quot;Woof!&quot;
+
+print(Dog().speak())   # Woof!</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Animal.speak() - parents win</li>
+          <li class="correct"><span class="opt-key">B</span> Dog.speak() - the child's version OVERRIDES the parent's</li>
+          <li><span class="opt-key">C</span> Both run automatically</li>
+          <li><span class="opt-key">D</span> TypeError - ambiguous</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Dog.speak() - the child's version OVERRIDES the parent's</p>
+          <p class="expl">Method overriding: Python checks the instance's own class FIRST. Dog.speak() shadows Animal.speak(). The parent's version still exists - reachable via super().speak().</p>
+          <p class="tags"><span>Overriding</span><span>MRO</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does super() give you inside a child class?</p>
+        <pre class="code"><code>class Animal:
+    def __init__(self, name):
+        self.name = name
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)   # parent sets name
+        self.breed = breed        # child adds breed</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Access to the PARENT class's methods - e.g. super().__init__(...)</li>
+          <li><span class="opt-key">B</span> A more powerful version of self</li>
+          <li><span class="opt-key">C</span> The grandchild class</li>
+          <li><span class="opt-key">D</span> Administrator rights</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Access to the PARENT class's methods - e.g. super().__init__(...)</p>
+          <p class="expl">super() reaches the next class up the chain - most commonly used to run the parent's __init__ so its setup isn't lost when the child overrides it.</p>
+          <p class="tags"><span>super()</span><span>__init__ chaining</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does issubclass(Dog, Animal) check?</p>
+        <pre class="code"><code>print(issubclass(Dog, Animal))    # True
+print(issubclass(bool, int))       # True - fun fact!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Whether the Dog CLASS inherits from Animal - True here</li>
+          <li><span class="opt-key">B</span> Whether dog objects exist</li>
+          <li><span class="opt-key">C</span> Whether Animal inherits from Dog</li>
+          <li><span class="opt-key">D</span> Nothing - not a real function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Whether the Dog CLASS inherits from Animal - True here</p>
+          <p class="expl">issubclass compares CLASSES (isinstance compares an object to a class). issubclass(Dog, Animal) is True; issubclass(Animal, Dog) is False.</p>
+          <p class="tags"><span>issubclass()</span><span>Class relationships</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is polymorphism?</p>
+        <pre class="code"><code>for animal in [Dog(), Cat(), Cow()]:
+    print(animal.speak())   # Woof! Meow! Moo!
+# one loop, three behaviors</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Different classes responding to the SAME method call in their own way</li>
+          <li><span class="opt-key">B</span> One class with many names</li>
+          <li><span class="opt-key">C</span> Multiple inheritance</li>
+          <li><span class="opt-key">D</span> Converting types</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Different classes responding to the SAME method call in their own way</p>
+          <p class="expl">Poly = many, morph = forms. Call speak() on any animal - each class provides its own version, and the calling code doesn't care which: the same line of code works for every type.</p>
+          <p class="tags"><span>Polymorphism</span><span>Overriding</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When the child overrides a method, is the PARENT class changed?</p>
+        <pre class="code"><code>class Cat(Animal):
+    pass
+
+print(Dog().speak())   # Woof! (overridden)
+print(Cat().speak())   # ...   (parent's original)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - Animal.speak() still works exactly as before; only Dog's lookup changed</li>
+          <li><span class="opt-key">B</span> Yes, the parent method is replaced everywhere</li>
+          <li><span class="opt-key">C</span> The parent method is deleted</li>
+          <li><span class="opt-key">D</span> Both methods merge</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - Animal.speak() still works exactly as before; only Dog's lookup changed</p>
+          <p class="expl">Overriding adds a method to the CHILD class; the parent is untouched. Animal instances (and other subclasses) keep the original behavior.</p>
+          <p class="tags"><span>Overriding</span><span>Isolation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which real-world pairs fit INHERITANCE ('is-a') best?</p>
+        <pre class="code"><code>class Car(Vehicle):          # is-a
+    def __init__(self):
+        self.engine = Engine()  # has-a (composition)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Car is-a Vehicle; Circle is-a Shape; Admin is-a User</li>
+          <li><span class="opt-key">B</span> Car is-a Engine; House is-a Door</li>
+          <li><span class="opt-key">C</span> Engine is-a Car</li>
+          <li><span class="opt-key">D</span> All pairs fit inheritance</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Car is-a Vehicle; Circle is-a Shape; Admin is-a User</p>
+          <p class="expl">Inheritance models 'is-a': every Car IS a Vehicle. A Car HAS an Engine - that's composition (storing an Engine object as an attribute), not inheritance. Choosing wrong leads to awkward classes.</p>
+          <p class="tags"><span>is-a vs has-a</span><span>Composition</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the ultimate ancestor of EVERY Python class?</p>
+        <pre class="code"><code>print(issubclass(Dog, object))   # True
+print(issubclass(int, object))   # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> object</li>
+          <li><span class="opt-key">B</span> type</li>
+          <li><span class="opt-key">C</span> class</li>
+          <li><span class="opt-key">D</span> root</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — object</p>
+          <p class="expl">All classes inherit from object (explicitly or not) - it provides the defaults: __init__, __str__, __eq__ and more. 'class Dog:' and 'class Dog(object):' are identical in Python 3.</p>
+          <p class="tags"><span>object</span><span>Class hierarchy</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Is multiple inheritance allowed?
+class FlyingCar(Car, Airplane):</p>
+        <pre class="code"><code>class FlyingCar(Car, Airplane):
+    pass
+# lookup order: FlyingCar -&gt; Car -&gt; Airplane -&gt; object</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - a class may inherit from several parents (listed in order)</li>
+          <li><span class="opt-key">B</span> No - Python allows only one parent</li>
+          <li><span class="opt-key">C</span> Only with a plugin</li>
+          <li><span class="opt-key">D</span> Only for built-in types</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - a class may inherit from several parents (listed in order)</p>
+          <p class="expl">Python supports multiple inheritance: FlyingCar gets methods from BOTH parents. When both define the same method, the Method Resolution Order decides (left-to-right: Car wins here).</p>
+          <p class="tags"><span>Multiple inheritance</span><span>MRO</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">In what ORDER does Python search for a method you call on an object?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The object's class first, then its parent, then grandparent... up to object</li>
+          <li><span class="opt-key">B</span> object first, then down</li>
+          <li><span class="opt-key">C</span> Random order</li>
+          <li><span class="opt-key">D</span> Alphabetical by class name</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The object's class first, then its parent, then grandparent... up to object</p>
+          <p class="expl">Lookup climbs the inheritance chain from most-specific to most-general, stopping at the FIRST match - which is exactly why child methods override parent ones.</p>
+          <p class="tags"><span>Method lookup</span><span>MRO</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Trace the output:
+class A:
+    def greet(self):
+        return &quot;hi from A&quot;
+class B(A):
+    def greet(self):
+        return super().greet() + &quot; and B&quot;
+print(B().greet())</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> hi from A and B</li>
+          <li><span class="opt-key">B</span> hi from A</li>
+          <li><span class="opt-key">C</span> and B</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — hi from A and B</p>
+          <p class="expl">B's greet calls the parent's version via super() (getting 'hi from A') and extends it. This extend-not-replace pattern is what super() is for.</p>
+          <p class="tags"><span>super()</span><span>Extending methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you inherit from BUILT-IN types like list?</p>
+        <pre class="code"><code>class Stack(list):
+    def push(self, x):
+        self.append(x)
+    def peek(self):
+        return self[-1]
+
+s = Stack()
+s.push(5)
+print(s.peek())   # 5</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - class Stack(list): adds/changes behavior on top of a real list</li>
+          <li><span class="opt-key">B</span> No - built-ins are sealed</li>
+          <li><span class="opt-key">C</span> Only from str</li>
+          <li><span class="opt-key">D</span> Only in Python 2</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - class Stack(list): adds/changes behavior on top of a real list</p>
+          <p class="expl">Built-ins are classes like any other. A Stack(list) gets append, len, iteration for free and can add push/peek. (For dict, collections.UserDict is often smoother.)</p>
+          <p class="tags"><span>Subclassing built-ins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which line lets Dog's __init__ accept name AND breed while reusing Animal's name setup?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> def __init__(self, name, breed):\n    super().__init__(name)\n    self.breed = breed</li>
+          <li><span class="opt-key">B</span> def __init__(self, breed):\n    self.breed = breed</li>
+          <li><span class="opt-key">C</span> def __init__(self, name, breed):\n    Animal(name)\n    self.breed = breed</li>
+          <li><span class="opt-key">D</span> No way to do this</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — def __init__(self, name, breed):\n    super().__init__(name)\n    self.breed = breed</p>
+          <p class="expl">Accept all needed data, delegate the parent's part to super().__init__(name), then set what's new. Option C creates a THROWAWAY Animal object instead of initializing self.</p>
+          <p class="tags"><span>super()</span><span>__init__ patterns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+class Bird:
+    def move(self):
+        return &quot;fly&quot;
+class Penguin(Bird):
+    def move(self):
+        return &quot;waddle&quot;
+animals = [Bird(), Penguin(), Bird()]
+print([a.move() for a in animals])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ['fly', 'waddle', 'fly']</li>
+          <li><span class="opt-key">B</span> ['fly', 'fly', 'fly']</li>
+          <li><span class="opt-key">C</span> ['waddle', 'waddle', 'waddle']</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ['fly', 'waddle', 'fly']</p>
+          <p class="expl">Each object uses ITS OWN class's move() - Bird flies, Penguin waddles - even inside one uniform loop. Polymorphism in action.</p>
+          <p class="tags"><span>Polymorphism</span><span>Overriding</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">A child needs the parent's method PLUS extra work. The cleanest pattern is:</p>
+        <pre class="code"><code>class LoggedAccount(Account):
+    def deposit(self, amt):
+        super().deposit(amt)      # original logic
+        print(f&quot;logged: +{amt}&quot;)  # the extra bit</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Override it, call super().method() inside, then add the extra steps</li>
+          <li><span class="opt-key">B</span> Copy-paste the parent's code</li>
+          <li><span class="opt-key">C</span> Rename the parent method</li>
+          <li><span class="opt-key">D</span> Make everything global</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Override it, call super().method() inside, then add the extra steps</p>
+          <p class="expl">Extend, don't duplicate: super() runs the original, your code adds the difference. Parent bug-fixes automatically reach the child.</p>
+          <p class="tags"><span>super()</span><span>DRY principle</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Grandparent -&gt; Parent -&gt; Child. Child calls a method only Grandparent defines. Does it work?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - lookup climbs the WHOLE chain, however many levels</li>
+          <li><span class="opt-key">B</span> No - only direct parents are searched</li>
+          <li><span class="opt-key">C</span> Only with two super() calls</li>
+          <li><span class="opt-key">D</span> Only if Parent re-exports it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - lookup climbs the WHOLE chain, however many levels</p>
+          <p class="expl">Inheritance chains any depth: Child -&gt; Parent -&gt; Grandparent -&gt; object are all searched in order. Deep hierarchies work - though beyond 2-3 levels they get hard to follow; prefer shallow designs.</p>
+          <p class="tags"><span>Inheritance chains</span><span>Design advice</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does method overriding let a subclass do?</p>
+        <pre class="code"><code>class Animal:
+    def speak(self):
+        return &quot;some sound&quot;
+
+class Cat(Animal):
+    def speak(self):        # overrides
+        return &quot;Meow&quot;
+
+print(Cat().speak())        # Meow
+print(Animal().speak())     # some sound</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Provide its OWN version of a method the parent already defined, replacing it for instances of the subclass</li>
+          <li><span class="opt-key">B</span> Delete the parent's method everywhere</li>
+          <li><span class="opt-key">C</span> Rename the parent method</li>
+          <li><span class="opt-key">D</span> Call two methods at once</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Provide its OWN version of a method the parent already defined, replacing it for instances of the subclass</p>
+          <p class="expl">Overriding = redefining an inherited method in the child with the same name. The child's version is used for child instances; the parent (and other subclasses) keep the original. Combine with super() to extend rather than fully replace.</p>
+          <p class="tags"><span>Overriding</span><span>super()</span><span>Polymorphism</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (7)</h2>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What breaks here?
+class Animal:
+    def __init__(self, name):
+        self.name = name
+class Dog(Animal):
+    def __init__(self, breed):
+        self.breed = breed
+d = Dog(&quot;lab&quot;)
+print(d.name)</p>
+        <pre class="code"><code>class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)   # don't skip this!
+        self.breed = breed</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> AttributeError - Dog's __init__ REPLACED Animal's, so self.name was never set</li>
+          <li><span class="opt-key">B</span> Prints lab</li>
+          <li><span class="opt-key">C</span> Prints None</li>
+          <li><span class="opt-key">D</span> Nothing breaks</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — AttributeError - Dog's __init__ REPLACED Animal's, so self.name was never set</p>
+          <p class="expl">Overriding __init__ means the parent's initializer does NOT run automatically - name never gets set. Fix: call super().__init__(name) inside Dog's __init__ (and accept name as a parameter).</p>
+          <ul class="notes"><li>Forgetting super().__init__() is the #1 inheritance bug.</li></ul>
+          <p class="tags"><span>super()</span><span>AttributeError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is DUCK TYPING?</p>
+        <pre class="code"><code>class Robot:            # no Animal parent!
+    def speak(self):
+        return &quot;beep&quot;
+
+for thing in [Dog(), Robot()]:
+    print(thing.speak())   # works - both can speak</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'If it walks like a duck and quacks like a duck...' - Python cares about what an object CAN DO, not what class it is</li>
+          <li><span class="opt-key">B</span> A special duck class in the standard library</li>
+          <li><span class="opt-key">C</span> Typing very fast</li>
+          <li><span class="opt-key">D</span> Inheritance from birds</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'If it walks like a duck and quacks like a duck...' - Python cares about what an object CAN DO, not what class it is</p>
+          <p class="expl">Python doesn't require a shared parent class for polymorphism: ANY object with a speak() method works in code that calls .speak(). len() works on anything with __len__. Behavior over ancestry.</p>
+          <p class="tags"><span>Duck typing</span><span>Protocols</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is COMPOSITION, and when is it better than inheritance?</p>
+        <pre class="code"><code>class Engine:
+    def start(self): print(&quot;vroom&quot;)
+
+class Car:
+    def __init__(self):
+        self.engine = Engine()   # has-a
+    def start(self):
+        self.engine.start()</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Storing other objects as attributes ('has-a') - better when the relationship isn't truly 'is-a'</li>
+          <li><span class="opt-key">B</span> Combining two classes into one file</li>
+          <li><span class="opt-key">C</span> A stricter form of inheritance</li>
+          <li><span class="opt-key">D</span> Composing music with Python</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Storing other objects as attributes ('has-a') - better when the relationship isn't truly 'is-a'</p>
+          <p class="expl">A Car HAS an Engine, so Engine is an attribute - not a parent. Composition is flexible (swap engines at runtime, no fragile hierarchies). Modern advice: 'prefer composition over inheritance' unless the is-a test clearly passes.</p>
+          <p class="tags"><span>Composition</span><span>Design principles</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">class C(A, B) - both A and B define hello(). Which runs for C().hello()?</p>
+        <pre class="code"><code>class A:
+    def hello(self): return &quot;A&quot;
+class B:
+    def hello(self): return &quot;B&quot;
+class C(A, B): pass
+
+print(C().hello())   # A
+print(C.__mro__)      # (C, A, B, object)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A's - the MRO checks parents LEFT to RIGHT as listed</li>
+          <li><span class="opt-key">B</span> B's - rightmost wins</li>
+          <li><span class="opt-key">C</span> Both run</li>
+          <li><span class="opt-key">D</span> TypeError - conflict</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A's - the MRO checks parents LEFT to RIGHT as listed</p>
+          <p class="expl">The Method Resolution Order for C(A, B) is C -&gt; A -&gt; B -&gt; object. First match wins: A.hello(). Inspect any class's order with C.__mro__ or C.mro().</p>
+          <p class="tags"><span>MRO</span><span>Multiple inheritance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you make a 'template' method that children MUST implement?</p>
+        <pre class="code"><code>class Shape:
+    def area(self):
+        raise NotImplementedError(&quot;subclass must define area&quot;)
+
+class Circle(Shape):
+    def area(self):
+        return 3.14159 * self.r ** 2</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Raise NotImplementedError in the parent (or use the abc module's @abstractmethod)</li>
+          <li><span class="opt-key">B</span> Leave the method out entirely</li>
+          <li><span class="opt-key">C</span> Name it _must_implement</li>
+          <li><span class="opt-key">D</span> Python can't express this</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Raise NotImplementedError in the parent (or use the abc module's @abstractmethod)</p>
+          <p class="expl">The simple way: the parent's method raises NotImplementedError, so forgetting to override it fails loudly. The formal way: inherit from abc.ABC and mark methods @abstractmethod - then instantiating an incomplete child is impossible.</p>
+          <p class="tags"><span>Abstract classes</span><span>NotImplementedError</span><span>abc module</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is 'type(x) == Dog' usually WORSE than 'isinstance(x, Dog)'?</p>
+        <pre class="code"><code>class Puppy(Dog): pass
+p = Puppy()
+print(type(p) == Dog)        # False!
+print(isinstance(p, Dog))    # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> type() ignores inheritance - a Puppy(Dog) instance would FAIL the type check but pass isinstance</li>
+          <li><span class="opt-key">B</span> type() is slower</li>
+          <li><span class="opt-key">C</span> type() doesn't exist</li>
+          <li><span class="opt-key">D</span> They're always identical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — type() ignores inheritance - a Puppy(Dog) instance would FAIL the type check but pass isinstance</p>
+          <p class="expl">Exact-type checks break polymorphism: code demanding type(x) == Dog rejects perfectly good subclasses. isinstance accepts the whole family - almost always what you want.</p>
+          <p class="tags"><span>isinstance()</span><span>Liskov principle</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the 'diamond problem', and how does Python cope?</p>
+        <pre class="code"><code>class A: pass
+class B(A): pass
+class C(A): pass
+class D(B, C): pass
+print(D.__mro__)   # D, B, C, A, object</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> D inherits from B and C which both inherit A - Python's MRO (C3 linearization) gives ONE consistent lookup order, each class visited once</li>
+          <li><span class="opt-key">B</span> A crash when classes form a square</li>
+          <li><span class="opt-key">C</span> Python forbids the diamond shape entirely</li>
+          <li><span class="opt-key">D</span> Methods run twice</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — D inherits from B and C which both inherit A - Python's MRO (C3 linearization) gives ONE consistent lookup order, each class visited once</p>
+          <p class="expl">The diamond: D(B, C), B(A), C(A). Which A-method does D see, and does A run twice? Python's C3 algorithm computes a deterministic order (D, B, C, A) and super() follows it - so cooperative calls visit each class exactly once.</p>
+          <p class="tags"><span>Diamond problem</span><span>MRO</span><span>C3 linearization</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="14-classes-and-objects.html">← Classes &amp; Objects</a>
+      <a href="16-magic-methods-and-advanced-oop.html">Magic Methods &amp; Advanced OOP →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-14">Practice “Inheritance &amp; Polymorphism” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

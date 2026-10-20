@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GROUP BY &amp; HAVING – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on GROUP BY &amp; HAVING with answers and detailed explanations — 1 easy, 16 medium and 13 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/07-group-by-and-having.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="GROUP BY &amp; HAVING – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on GROUP BY &amp; HAVING with answers and detailed explanations — 1 easy, 16 medium and 13 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/07-group-by-and-having.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"GROUP BY & HAVING","item":"https://velnov.co.in/learn/sql/07-group-by-and-having.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>GROUP BY &amp; HAVING</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 7 of 20</p>
+      <h1>GROUP BY &amp; HAVING — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>GROUP BY &amp; HAVING</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-6">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">1 easy · 16 medium · 13 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>GROUP BY</span><span>Aggregates</span><span>Rules</span><span>ONLY_FULL_GROUP_BY</span><span>HAVING</span><span>WHERE</span><span>Execution order</span><span>Performance</span><span>Multiple columns</span><span>ORDER BY</span><span>NULL</span><span>Duplicates</span><span>Business queries</span><span>Aliases</span><span>Dialects</span><span>Dates</span><span>DATE_TRUNC</span><span>Positional grouping</span><span>WHERE vs HAVING</span><span>ROLLUP</span><span>CUBE</span><span>Reporting</span><span>AVG</span><span>COUNT DISTINCT</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (1)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does GROUP BY do?</p>
+        <pre class="code"><code>SELECT city, COUNT(*) AS customers
+FROM customers
+GROUP BY city;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Collapses rows sharing the same value into ONE row per group, so aggregates can be computed per group</li>
+          <li><span class="opt-key">B</span> Sorts the rows</li>
+          <li><span class="opt-key">C</span> Filters the rows</li>
+          <li><span class="opt-key">D</span> Joins tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Collapses rows sharing the same value into ONE row per group, so aggregates can be computed per group</p>
+          <p class="expl">GROUP BY city turns a table of customers into one row per city, letting COUNT(*) report customers per city.</p>
+          <p class="tags"><span>GROUP BY</span><span>Aggregates</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which columns may appear in SELECT alongside GROUP BY?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Only the grouped columns and aggregate functions</li>
+          <li><span class="opt-key">B</span> Any column</li>
+          <li><span class="opt-key">C</span> Only aggregates</li>
+          <li><span class="opt-key">D</span> Only the first column</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Only the grouped columns and aggregate functions</p>
+          <p class="expl">Every other column would have many possible values per group, so the database cannot pick one. Group by it, or aggregate it with MAX/MIN.</p>
+          <p class="tags"><span>GROUP BY</span><span>Rules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does HAVING do?</p>
+        <pre class="code"><code>SELECT city, COUNT(*) AS n
+FROM customers
+WHERE active = 1      -- rows
+GROUP BY city
+HAVING COUNT(*) &gt; 10; -- groups</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Filters the GROUPS after aggregation - it can use aggregate functions</li>
+          <li><span class="opt-key">B</span> Filters rows before grouping</li>
+          <li><span class="opt-key">C</span> Sorts groups</li>
+          <li><span class="opt-key">D</span> Is the same as WHERE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Filters the GROUPS after aggregation - it can use aggregate functions</p>
+          <p class="expl">WHERE filters raw rows first; HAVING then filters the summarised groups. Both can appear in one query.</p>
+          <p class="tags"><span>HAVING</span><span>WHERE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is more efficient for filtering rows that will never be needed?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE - it removes rows BEFORE the expensive grouping</li>
+          <li><span class="opt-key">B</span> HAVING - it filters at the end</li>
+          <li><span class="opt-key">C</span> They are identical</li>
+          <li><span class="opt-key">D</span> Neither</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE - it removes rows BEFORE the expensive grouping</p>
+          <p class="expl">Filter as early as possible. Reserve HAVING for conditions that genuinely depend on aggregated values.</p>
+          <p class="tags"><span>Performance</span><span>WHERE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you GROUP BY several columns?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - it groups by each unique COMBINATION of those columns</li>
+          <li><span class="opt-key">B</span> No, only one column</li>
+          <li><span class="opt-key">C</span> Only with a JOIN</li>
+          <li><span class="opt-key">D</span> Only two columns maximum</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - it groups by each unique COMBINATION of those columns</p>
+          <p class="expl">GROUP BY country, city produces one row per country+city pair - the standard way to build multi-level summaries.</p>
+          <p class="tags"><span>GROUP BY</span><span>Multiple columns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this produce?
+SELECT dept, COUNT(*) FROM employees GROUP BY dept ORDER BY COUNT(*) DESC;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Departments listed from largest to smallest headcount</li>
+          <li><span class="opt-key">B</span> Departments in alphabetical order</li>
+          <li><span class="opt-key">C</span> An error - you cannot ORDER BY an aggregate</li>
+          <li><span class="opt-key">D</span> One row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Departments listed from largest to smallest headcount</p>
+          <p class="expl">ORDER BY runs after aggregation, so it can sort by aggregate values (or by their alias). This is the classic 'top categories' report.</p>
+          <p class="tags"><span>ORDER BY</span><span>Aggregates</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can HAVING be used without GROUP BY?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - the whole result is treated as one group</li>
+          <li><span class="opt-key">B</span> No, GROUP BY is mandatory</li>
+          <li><span class="opt-key">C</span> Only with COUNT</li>
+          <li><span class="opt-key">D</span> It is always an error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - the whole result is treated as one group</p>
+          <p class="expl">SELECT COUNT(*) FROM t HAVING COUNT(*) &gt; 100 returns the count only if it exceeds 100. Rare, but valid.</p>
+          <p class="tags"><span>HAVING</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this answer?
+SELECT customer_id, SUM(total) FROM orders GROUP BY customer_id HAVING SUM(total) &gt; 10000;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Which customers have spent more than 10,000 in total</li>
+          <li><span class="opt-key">B</span> Which single orders exceed 10,000</li>
+          <li><span class="opt-key">C</span> All customers</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Which customers have spent more than 10,000 in total</p>
+          <p class="expl">The condition applies to the SUM per customer, not to individual orders. Using WHERE total &gt; 10000 would ask a different question entirely.</p>
+          <p class="tags"><span>HAVING</span><span>Business queries</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How would you count orders per month?</p>
+        <pre class="code"><code>SELECT DATE_TRUNC('month', order_date) AS month, COUNT(*)
+FROM orders GROUP BY 1 ORDER BY 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> GROUP BY a date expression such as DATE_TRUNC('month', order_date) or EXTRACT(MONTH FROM order_date)</li>
+          <li><span class="opt-key">B</span> GROUP BY order_date</li>
+          <li><span class="opt-key">C</span> GROUP BY month</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — GROUP BY a date expression such as DATE_TRUNC('month', order_date) or EXTRACT(MONTH FROM order_date)</p>
+          <p class="expl">Grouping by the raw timestamp would create a group per second. Truncating to the month collapses them correctly. Include the year, or January 2025 and January 2026 merge.</p>
+          <p class="tags"><span>Dates</span><span>DATE_TRUNC</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How many rows does GROUP BY return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> One row per unique group</li>
+          <li><span class="opt-key">B</span> The same as the original table</li>
+          <li><span class="opt-key">C</span> Always one</li>
+          <li><span class="opt-key">D</span> Twice the groups</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — One row per unique group</p>
+          <p class="expl">Ten cities produce ten rows. This 'collapse' is why non-grouped, non-aggregated columns are not allowed.</p>
+          <p class="tags"><span>GROUP BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which query finds departments with an average salary above 50000?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT dept, AVG(salary) FROM emp GROUP BY dept HAVING AVG(salary) &gt; 50000;</li>
+          <li><span class="opt-key">B</span> SELECT dept FROM emp WHERE AVG(salary) &gt; 50000;</li>
+          <li><span class="opt-key">C</span> SELECT dept, AVG(salary) FROM emp WHERE salary &gt; 50000;</li>
+          <li><span class="opt-key">D</span> SELECT AVG(dept) FROM emp;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT dept, AVG(salary) FROM emp GROUP BY dept HAVING AVG(salary) &gt; 50000;</p>
+          <p class="expl">Option B is invalid (aggregate in WHERE). Option C is a different question - it averages only the high salaries, ignoring low earners.</p>
+          <p class="tags"><span>HAVING</span><span>AVG</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this find?
+SELECT product_id FROM order_items GROUP BY product_id HAVING COUNT(DISTINCT order_id) &gt;= 3;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Products appearing in at least 3 different orders</li>
+          <li><span class="opt-key">B</span> Products ordered 3 times total</li>
+          <li><span class="opt-key">C</span> The three most popular products</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Products appearing in at least 3 different orders</p>
+          <p class="expl">COUNT(DISTINCT order_id) counts distinct orders, not line items - so a product bought 3 times in ONE order would not qualify. Precision matters in metrics.</p>
+          <p class="tags"><span>COUNT DISTINCT</span><span>HAVING</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you show groups WITHOUT the aggregate column?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Just omit it from SELECT - GROUP BY still works: SELECT city FROM t GROUP BY city;</li>
+          <li><span class="opt-key">B</span> It is required in SELECT</li>
+          <li><span class="opt-key">C</span> Use DISTINCT instead only</li>
+          <li><span class="opt-key">D</span> Not possible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Just omit it from SELECT - GROUP BY still works: SELECT city FROM t GROUP BY city;</p>
+          <p class="expl">That query is effectively SELECT DISTINCT city. GROUP BY without aggregates is legal, though DISTINCT states the intent more clearly.</p>
+          <p class="tags"><span>DISTINCT</span><span>GROUP BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which finds cities with exactly one customer?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> GROUP BY city HAVING COUNT(*) = 1</li>
+          <li><span class="opt-key">B</span> WHERE COUNT(*) = 1</li>
+          <li><span class="opt-key">C</span> GROUP BY city LIMIT 1</li>
+          <li><span class="opt-key">D</span> SELECT DISTINCT city</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — GROUP BY city HAVING COUNT(*) = 1</p>
+          <p class="expl">HAVING can test for any count - equal to, greater than, or a range. Useful for finding one-off or anomalous values.</p>
+          <p class="tags"><span>HAVING</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you get the top 3 categories by revenue?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> GROUP BY category, ORDER BY SUM(revenue) DESC, LIMIT 3</li>
+          <li><span class="opt-key">B</span> HAVING TOP 3</li>
+          <li><span class="opt-key">C</span> GROUP BY category LIMIT 3</li>
+          <li><span class="opt-key">D</span> MAX(revenue, 3)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — GROUP BY category, ORDER BY SUM(revenue) DESC, LIMIT 3</p>
+          <p class="expl">Aggregate, sort by the aggregate, then limit. Option C would return three arbitrary categories because LIMIT applies before any sorting is specified.</p>
+          <p class="tags"><span>Top N</span><span>ORDER BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which clause would you add to only show groups with no NULL values in a column?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> HAVING COUNT(col) = COUNT(*)</li>
+          <li><span class="opt-key">B</span> WHERE col IS NOT NULL only</li>
+          <li><span class="opt-key">C</span> HAVING col IS NOT NULL</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — HAVING COUNT(col) = COUNT(*)</p>
+          <p class="expl">COUNT(col) skips NULLs, so equality with COUNT(*) means the group is complete. A neat data-quality check - option B would instead remove the NULL rows before grouping.</p>
+          <p class="tags"><span>COUNT</span><span>Data quality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you combine WHERE, GROUP BY, HAVING and ORDER BY in one query?</p>
+        <pre class="code"><code>SELECT city, COUNT(*) AS n
+FROM customers
+WHERE active = 1
+GROUP BY city
+HAVING COUNT(*) &gt; 5
+ORDER BY n DESC;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - in that exact order: WHERE (rows), GROUP BY (group), HAVING (groups), ORDER BY (sort)</li>
+          <li><span class="opt-key">B</span> No, only one filter is allowed</li>
+          <li><span class="opt-key">C</span> HAVING must come before GROUP BY</li>
+          <li><span class="opt-key">D</span> ORDER BY must come first</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - in that exact order: WHERE (rows), GROUP BY (group), HAVING (groups), ORDER BY (sort)</p>
+          <p class="expl">A full aggregate query commonly uses all four. Written order is fixed; the database executes them as WHERE, GROUP BY, HAVING, then ORDER BY - which is why each clause can only reference what already exists at its stage.</p>
+          <p class="tags"><span>Clause order</span><span>Execution order</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (13)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does this fail in most databases?
+SELECT city, name, COUNT(*) FROM customers GROUP BY city;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> name is neither grouped nor aggregated - each city has many names</li>
+          <li><span class="opt-key">B</span> COUNT cannot be used with GROUP BY</li>
+          <li><span class="opt-key">C</span> city must be aggregated</li>
+          <li><span class="opt-key">D</span> It always works</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — name is neither grouped nor aggregated - each city has many names</p>
+          <p class="expl">Add name to GROUP BY (giving one row per city+name), or aggregate it: MAX(name). MySQL historically allowed this and returned an arbitrary name - a source of silently wrong reports.</p>
+          <p class="tags"><span>GROUP BY</span><span>ONLY_FULL_GROUP_BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In what ORDER does the database process these clauses?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT</li>
+          <li><span class="opt-key">B</span> SELECT, FROM, WHERE, GROUP BY</li>
+          <li><span class="opt-key">C</span> GROUP BY, WHERE, SELECT</li>
+          <li><span class="opt-key">D</span> The order they are written</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT</p>
+          <p class="expl">This single fact explains most GROUP BY rules: WHERE cannot see aggregates (they do not exist yet), and SELECT aliases are unavailable to WHERE, GROUP BY and HAVING - but ARE available to ORDER BY.</p>
+          <p class="tags"><span>Execution order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How does GROUP BY treat NULL values?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> All NULLs form ONE group together</li>
+          <li><span class="opt-key">B</span> Each NULL becomes its own group</li>
+          <li><span class="opt-key">C</span> NULL rows are excluded</li>
+          <li><span class="opt-key">D</span> It errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — All NULLs form ONE group together</p>
+          <p class="expl">Even though NULL = NULL is not TRUE in comparisons, grouping and DISTINCT treat NULLs as the same value. Your report will show a single NULL row.</p>
+          <p class="tags"><span>NULL</span><span>GROUP BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which query finds duplicate emails?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT email, COUNT(*) FROM users GROUP BY email HAVING COUNT(*) &gt; 1;</li>
+          <li><span class="opt-key">B</span> SELECT DISTINCT email FROM users;</li>
+          <li><span class="opt-key">C</span> SELECT email FROM users WHERE COUNT(*) &gt; 1;</li>
+          <li><span class="opt-key">D</span> SELECT COUNT(email) FROM users;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT email, COUNT(*) FROM users GROUP BY email HAVING COUNT(*) &gt; 1;</p>
+          <p class="expl">Group by the column and keep groups appearing more than once - the canonical duplicate-finding query, and a common interview question.</p>
+          <p class="tags"><span>Duplicates</span><span>HAVING</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Can you use a column ALIAS in GROUP BY?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It depends - MySQL and PostgreSQL allow it, but the standard (and SQL Server) require the full expression</li>
+          <li><span class="opt-key">B</span> Always yes</li>
+          <li><span class="opt-key">C</span> Never</li>
+          <li><span class="opt-key">D</span> Only for numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It depends - MySQL and PostgreSQL allow it, but the standard (and SQL Server) require the full expression</p>
+          <p class="expl">For portable code, repeat the expression in GROUP BY or wrap the query in a subquery. Aliases are always safe in ORDER BY.</p>
+          <p class="tags"><span>Aliases</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does GROUP BY 1 mean?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Group by the FIRST column in the SELECT list (positional reference)</li>
+          <li><span class="opt-key">B</span> Group into one group</li>
+          <li><span class="opt-key">C</span> Group by the number 1</li>
+          <li><span class="opt-key">D</span> A syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Group by the FIRST column in the SELECT list (positional reference)</p>
+          <p class="expl">Convenient shorthand for long expressions, common in analytics. The risk is that reordering SELECT silently changes the grouping.</p>
+          <p class="tags"><span>Positional grouping</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between these two?
+A) WHERE status='paid' GROUP BY city
+B) GROUP BY city HAVING MIN(status)='paid'</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A counts only paid rows per city; B keeps cities where a condition holds across the whole group</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> B is invalid</li>
+          <li><span class="opt-key">D</span> A is invalid</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A counts only paid rows per city; B keeps cities where a condition holds across the whole group</p>
+          <p class="expl">WHERE changes which rows enter each group; HAVING decides which finished groups survive. Mixing them up changes the meaning of a report entirely.</p>
+          <p class="tags"><span>WHERE vs HAVING</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does GROUP BY ROLLUP(country, city) add?</p>
+        <pre class="code"><code>SELECT country, city, SUM(sales)
+FROM t GROUP BY ROLLUP(country, city);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Subtotal rows per country plus a grand total, alongside the detail rows</li>
+          <li><span class="opt-key">B</span> Sorting by country</li>
+          <li><span class="opt-key">C</span> Nothing extra</li>
+          <li><span class="opt-key">D</span> It removes duplicates</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Subtotal rows per country plus a grand total, alongside the detail rows</p>
+          <p class="expl">ROLLUP generates hierarchical subtotals - very useful for financial reports. The subtotal rows show NULL in the columns they aggregate over.</p>
+          <p class="tags"><span>ROLLUP</span><span>CUBE</span><span>Reporting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Can HAVING reference a column NOT in GROUP BY or an aggregate?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - HAVING can only use grouped columns and aggregates</li>
+          <li><span class="opt-key">B</span> Yes, any column</li>
+          <li><span class="opt-key">C</span> Only text columns</li>
+          <li><span class="opt-key">D</span> Only with a subquery</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - HAVING can only use grouped columns and aggregates</p>
+          <p class="expl">After grouping, individual row values no longer exist. Conditions on raw values belong in WHERE.</p>
+          <p class="tags"><span>HAVING</span><span>Rules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why might GROUP BY be slow, and what helps?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It must sort or hash all rows - an index on the grouped column, and filtering first with WHERE, both help</li>
+          <li><span class="opt-key">B</span> It is never slow</li>
+          <li><span class="opt-key">C</span> Only more RAM helps</li>
+          <li><span class="opt-key">D</span> Removing SELECT helps</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It must sort or hash all rows - an index on the grouped column, and filtering first with WHERE, both help</p>
+          <p class="expl">Grouping a million rows requires organising them all. Reducing the input with WHERE and supporting the grouping with an index are the main levers.</p>
+          <p class="tags"><span>Performance</span><span>Indexes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does FILTER (WHERE ...) do on an aggregate?</p>
+        <pre class="code"><code>SELECT
+  COUNT(*) AS total,
+  COUNT(*) FILTER (WHERE status='paid') AS paid
+FROM orders;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Applies a condition to that ONE aggregate only - a cleaner alternative to CASE inside aggregates</li>
+          <li><span class="opt-key">B</span> Filters the whole query</li>
+          <li><span class="opt-key">C</span> Sorts the aggregate</li>
+          <li><span class="opt-key">D</span> Is invalid SQL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Applies a condition to that ONE aggregate only - a cleaner alternative to CASE inside aggregates</p>
+          <p class="expl">Standard SQL, supported by PostgreSQL and SQLite. Elsewhere use SUM(CASE WHEN ... THEN 1 ELSE 0 END).</p>
+          <p class="tags"><span>FILTER</span><span>Conditional aggregation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the risk of GROUP BY after a one-to-many JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Parent values are duplicated by the join, so SUM/COUNT on them is inflated</li>
+          <li><span class="opt-key">B</span> GROUP BY cannot follow a join</li>
+          <li><span class="opt-key">C</span> It removes NULLs</li>
+          <li><span class="opt-key">D</span> There is no risk</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Parent values are duplicated by the join, so SUM/COUNT on them is inflated</p>
+          <p class="expl">Joining customers to orders repeats each customer per order. COUNT(*) then counts orders, not customers - use COUNT(DISTINCT customer_id) or aggregate before joining.</p>
+          <p class="tags"><span>Joins</span><span>Fan-out</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does GROUP BY GROUPING SETS give you?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Several different groupings computed in ONE query - e.g. by country, by city, and overall</li>
+          <li><span class="opt-key">B</span> Only one grouping</li>
+          <li><span class="opt-key">C</span> A sorted output</li>
+          <li><span class="opt-key">D</span> A join</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Several different groupings computed in ONE query - e.g. by country, by city, and overall</p>
+          <p class="expl">It avoids running three separate queries and UNIONing them. ROLLUP and CUBE are convenient shorthands for common grouping sets.</p>
+          <p class="tags"><span>GROUPING SETS</span><span>ROLLUP</span><span>CUBE</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="06-aggregate-functions.html">← Aggregate Functions</a>
+      <a href="08-data-types.html">Data Types →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-6">Practice “GROUP BY &amp; HAVING” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

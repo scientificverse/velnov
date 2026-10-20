@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variables &amp; Operators – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Variables &amp; Operators with answers and detailed explanations — 16 easy, 10 medium and 4 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/02-variables-and-operators.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Variables &amp; Operators – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Variables &amp; Operators with answers and detailed explanations — 16 easy, 10 medium and 4 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/02-variables-and-operators.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Variables & Operators","item":"https://velnov.co.in/learn/python/02-variables-and-operators.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Variables &amp; Operators</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 2 of 20</p>
+      <h1>Variables &amp; Operators — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Variables &amp; Operators</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-1">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">16 easy · 10 medium · 4 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Keywords</span><span>Identifiers</span><span>Assignment</span><span>References</span><span>Case sensitivity</span><span>NameError</span><span>lambda</span><span>Unpacking</span><span>Tuples</span><span>Swapping</span><span>Augmented assignment</span><span>Operators</span><span>Floor division</span><span>Division</span><span>Modulo</span><span>Even/odd check</span><span>Exponentiation</span><span>pow()</span><span>Numeric types</span><span>Operator precedence</span><span>BODMAS</span><span>Parentheses</span><span>Comparison operators</span><span>Logical operators</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (16)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which of the following is a valid variable name in Python?</p>
+        <pre class="code"><code>_total = 100      # valid
+count2 = 5        # valid
+# 2count = 5      # SyntaxError
+# class = 'math'  # SyntaxError: keyword</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 2count</li>
+          <li><span class="opt-key">B</span> my-var</li>
+          <li class="correct"><span class="opt-key">C</span> _total</li>
+          <li><span class="opt-key">D</span> class</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — _total</p>
+          <p class="expl">Variable names must start with a letter or underscore, cannot contain hyphens, and cannot be reserved keywords. &quot;_total&quot; is valid. &quot;2count&quot; starts with a digit, &quot;my-var&quot; contains a hyphen, and &quot;class&quot; is a keyword.</p>
+          <ul class="notes"><li>By convention, use snake_case: student_name, total_marks.</li></ul>
+          <p class="tags"><span>Keywords</span><span>Identifiers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+x = 5
+y = x
+x = 10
+print(y)</p>
+        <pre class="code"><code>x = 5
+y = x     # y refers to 5
+x = 10    # only x changes
+print(y)  # 5</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 10</li>
+          <li class="correct"><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 5</p>
+          <p class="expl">y = x makes y refer to the value 5. Reassigning x to 10 later does not change y - numbers are immutable, and y still points to 5.</p>
+          <p class="tags"><span>Assignment</span><span>References</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Are total and Total the same variable in Python?</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Yes, capitalization doesn't matter</li>
+          <li class="correct"><span class="opt-key">B</span> No - Python is case-sensitive, they are two different variables</li>
+          <li><span class="opt-key">C</span> Only inside functions</li>
+          <li><span class="opt-key">D</span> Only if declared with var</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — No - Python is case-sensitive, they are two different variables</p>
+          <p class="expl">Python is case-sensitive: total, Total and TOTAL are three separate variables. Using the wrong capitalization gives a NameError.</p>
+          <p class="tags"><span>Case sensitivity</span><span>NameError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which of these words CANNOT be used as a variable name?</p>
+        <pre class="code"><code>import keyword
+print(keyword.kwlist)   # shows all 35+ reserved words</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> value</li>
+          <li class="correct"><span class="opt-key">B</span> lambda</li>
+          <li><span class="opt-key">C</span> data</li>
+          <li><span class="opt-key">D</span> result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — lambda</p>
+          <p class="expl">lambda is a reserved keyword (it creates anonymous functions), so it cannot be a variable name. Other keywords include if, for, class, def, return, True, False, None.</p>
+          <p class="tags"><span>Keywords</span><span>lambda</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does this multiple assignment do?
+a, b = 1, 2</p>
+        <pre class="code"><code>a, b = 1, 2
+x, y, z = &quot;do&quot;, &quot;re&quot;, &quot;mi&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Error - only one variable per line</li>
+          <li class="correct"><span class="opt-key">B</span> a becomes 1 and b becomes 2</li>
+          <li><span class="opt-key">C</span> Both a and b become (1, 2)</li>
+          <li><span class="opt-key">D</span> a becomes 2 and b becomes 1</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — a becomes 1 and b becomes 2</p>
+          <p class="expl">Python unpacks the values left to right: a gets 1, b gets 2. This is called tuple unpacking and works with any matching number of values.</p>
+          <p class="tags"><span>Unpacking</span><span>Tuples</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does x += 3 mean?</p>
+        <pre class="code"><code>x = 10
+x += 3    # x is now 13
+x *= 2    # x is now 26</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> x = x + 3</li>
+          <li><span class="opt-key">B</span> x = 3</li>
+          <li><span class="opt-key">C</span> Compare x with 3</li>
+          <li><span class="opt-key">D</span> x = x * 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — x = x + 3</p>
+          <p class="expl">+= is an augmented assignment operator: it adds 3 to the current value of x. Similar shortcuts: -=, *=, /=, //=, %=, **=.</p>
+          <p class="tags"><span>Augmented assignment</span><span>Operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(7 // 2)</p>
+        <pre class="code"><code>print(7 / 2)    # 3.5
+print(7 // 2)   # 3</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 3.5</li>
+          <li class="correct"><span class="opt-key">B</span> 3</li>
+          <li><span class="opt-key">C</span> 4</li>
+          <li><span class="opt-key">D</span> 3.0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 3</p>
+          <p class="expl">// is floor division - it divides and rounds DOWN to a whole number: 7 // 2 = 3. Regular division 7 / 2 would give 3.5.</p>
+          <p class="tags"><span>Floor division</span><span>Division</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(7 % 2)</p>
+        <pre class="code"><code>print(10 % 3)   # 1
+print(8 % 2)    # 0  (even numbers % 2 == 0)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 3</li>
+          <li><span class="opt-key">B</span> 3.5</li>
+          <li class="correct"><span class="opt-key">C</span> 1</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — 1</p>
+          <p class="expl">% is the modulo operator - it gives the REMAINDER after division. 7 divided by 2 is 3 remainder 1, so 7 % 2 = 1.</p>
+          <ul class="notes"><li>n % 2 == 0 is the standard test for even numbers.</li></ul>
+          <p class="tags"><span>Modulo</span><span>Even/odd check</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(2 ** 3)</p>
+        <pre class="code"><code>print(2 ** 3)    # 8
+print(5 ** 2)    # 25
+print(9 ** 0.5)  # 3.0 (square root!)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 6</li>
+          <li class="correct"><span class="opt-key">B</span> 8</li>
+          <li><span class="opt-key">C</span> 9</li>
+          <li><span class="opt-key">D</span> 23</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 8</p>
+          <p class="expl">** is the power (exponent) operator: 2 ** 3 = 2 x 2 x 2 = 8. It is not multiplication (2 * 3 = 6).</p>
+          <p class="tags"><span>Exponentiation</span><span>pow()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(2 + 3 * 4)</p>
+        <pre class="code"><code>print(2 + 3 * 4)     # 14
+print((2 + 3) * 4)   # 20 - parentheses first</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 20</li>
+          <li class="correct"><span class="opt-key">B</span> 14</li>
+          <li><span class="opt-key">C</span> 24</li>
+          <li><span class="opt-key">D</span> 9</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 14</p>
+          <p class="expl">Multiplication happens before addition (standard math precedence): 3 * 4 = 12, then 2 + 12 = 14.</p>
+          <p class="tags"><span>Operator precedence</span><span>BODMAS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you force the addition to happen first in 2 + 3 * 4?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Write it as (2 + 3) * 4</li>
+          <li><span class="opt-key">B</span> Use the keyword 'first'</li>
+          <li><span class="opt-key">C</span> Put it on a separate line</li>
+          <li><span class="opt-key">D</span> You cannot change the order</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Write it as (2 + 3) * 4</p>
+          <p class="expl">Parentheses have the highest precedence - anything inside them is evaluated first: (2 + 3) * 4 = 5 * 4 = 20.</p>
+          <p class="tags"><span>Operator precedence</span><span>Parentheses</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the difference between = and == ?</p>
+        <pre class="code"><code>x = 5          # assignment
+print(x == 5)  # True (comparison)
+print(x == 7)  # False</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> No difference</li>
+          <li class="correct"><span class="opt-key">B</span> = assigns a value; == compares two values</li>
+          <li><span class="opt-key">C</span> == assigns a value; = compares</li>
+          <li><span class="opt-key">D</span> == is only for strings</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — = assigns a value; == compares two values</p>
+          <p class="expl">One equals sign stores a value in a variable (x = 5). Two equals signs ask a question - are these equal? - and give True or False (x == 5).</p>
+          <ul class="notes"><li>Writing if x = 5: instead of if x == 5: is a SyntaxError in Python.</li></ul>
+          <p class="tags"><span>Assignment</span><span>Comparison operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which operator means NOT EQUAL in Python?</p>
+        <pre class="code"><code>print(5 != 3)   # True
+print(5 != 5)   # False</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> &lt;&gt;</li>
+          <li class="correct"><span class="opt-key">B</span> !=</li>
+          <li><span class="opt-key">C</span> =/=</li>
+          <li><span class="opt-key">D</span> not=</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — !=</p>
+          <p class="expl">!= tests inequality: 5 != 3 is True. (The old &lt;&gt; form existed in Python 2 but was removed in Python 3.)</p>
+          <p class="tags"><span>Comparison operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(True and False)</p>
+        <pre class="code"><code>print(True and True)    # True
+print(True and False)   # False
+print(True or False)    # True</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> True</li>
+          <li class="correct"><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> 1</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — False</p>
+          <p class="expl">and is True only when BOTH sides are True. True and False -&gt; False. Compare: or is True when AT LEAST ONE side is True.</p>
+          <p class="tags"><span>Logical operators</span><span>Truth tables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">By convention, how are constants written in Python?</p>
+        <pre class="code"><code>PI = 3.14159
+MAX_USERS = 100</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALL_CAPS_WITH_UNDERSCORES</li>
+          <li><span class="opt-key">B</span> camelCase</li>
+          <li><span class="opt-key">C</span> with the const keyword</li>
+          <li><span class="opt-key">D</span> prefixed with $</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALL_CAPS_WITH_UNDERSCORES</p>
+          <p class="expl">Python has no true const keyword - instead, ALL_CAPS names like MAX_SPEED = 120 signal 'please don't change this'. It's a convention, not enforced by the language.</p>
+          <p class="tags"><span>Naming conventions</span><span>PEP 8</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(abs(-5))</p>
+        <pre class="code"><code>print(abs(-5))    # 5
+print(abs(3.7))   # 3.7</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> -5</li>
+          <li class="correct"><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 5</p>
+          <p class="expl">abs() returns the absolute value - the distance from zero, always positive: abs(-5) = 5, abs(5) = 5.</p>
+          <p class="tags"><span>Built-in functions</span><span>Numbers</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (10)</h2>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+a, b = 5, 10
+a, b = b, a
+print(a, b)</p>
+        <pre class="code"><code>a, b = 5, 10
+a, b = b, a     # swap!
+print(a, b)     # 10 5</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 5 10</li>
+          <li class="correct"><span class="opt-key">B</span> 10 5</li>
+          <li><span class="opt-key">C</span> 10 10</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 10 5</p>
+          <p class="expl">a, b = b, a swaps the two variables in one line - the right side (10, 5) is built first, then unpacked. Most languages need a temporary third variable for this.</p>
+          <ul class="notes"><li>This one-line swap is a favorite Python interview question.</li></ul>
+          <p class="tags"><span>Unpacking</span><span>Swapping</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">After: x = y = z = 7 - what are the values?</p>
+        <pre class="code"><code>x = y = z = 7
+print(x, y, z)   # 7 7 7</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Only z is 7; x and y are undefined</li>
+          <li class="correct"><span class="opt-key">B</span> x, y and z are all 7</li>
+          <li><span class="opt-key">C</span> Error - chained assignment is not allowed</li>
+          <li><span class="opt-key">D</span> x is 7, y and z are None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — x, y and z are all 7</p>
+          <p class="expl">Chained assignment gives the same value to every name in the chain: all three variables now refer to 7.</p>
+          <ul class="notes"><li>Careful with mutable objects: x = y = [] makes BOTH names share ONE list.</li></ul>
+          <p class="tags"><span>Assignment</span><span>References</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the result type of: 10 / 5</p>
+        <pre class="code"><code>print(10 / 5)    # 2.0
+print(10 // 5)   # 2</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> int (2)</li>
+          <li class="correct"><span class="opt-key">B</span> float (2.0)</li>
+          <li><span class="opt-key">C</span> str ('2')</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — float (2.0)</p>
+          <p class="expl">In Python 3, / ALWAYS returns a float - even when the division is exact: 10 / 5 gives 2.0, not 2. Use // if you need an integer result.</p>
+          <p class="tags"><span>Division</span><span>Numeric types</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(not (5 &gt; 3))</p>
+        <pre class="code"><code>print(not True)      # False
+print(not (5 &gt; 3))   # False</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> True</li>
+          <li class="correct"><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> 5</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — False</p>
+          <p class="expl">5 &gt; 3 is True, and not flips it to False. not simply reverses a boolean value.</p>
+          <p class="tags"><span>not operator</span><span>Booleans</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(1 &lt; 2 &lt; 3)</p>
+        <pre class="code"><code>age = 25
+print(18 &lt;= age &lt; 60)   # True - very readable!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True</li>
+          <li><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True</p>
+          <p class="expl">Python allows chained comparisons: 1 &lt; 2 &lt; 3 means (1 &lt; 2) and (2 &lt; 3) - both are True, so the result is True. Most languages don't support this.</p>
+          <p class="tags"><span>Chained comparison</span><span>Comparison operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does divmod(7, 2) return?</p>
+        <pre class="code"><code>q, r = divmod(7, 2)
+print(q, r)   # 3 1</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 3.5</li>
+          <li class="correct"><span class="opt-key">B</span> (3, 1) - the quotient and remainder</li>
+          <li><span class="opt-key">C</span> [3, 1]</li>
+          <li><span class="opt-key">D</span> 1</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — (3, 1) - the quotient and remainder</p>
+          <p class="expl">divmod(a, b) returns the tuple (a // b, a % b) - the whole-number quotient and the remainder in one call.</p>
+          <p class="tags"><span>Floor division</span><span>Modulo</span><span>Tuples</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens after:
+x = 10
+del x
+print(x)</p>
+        <pre class="code"><code>x = 10
+del x
+# print(x)   # NameError: name 'x' is not defined</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Prints 10</li>
+          <li><span class="opt-key">B</span> Prints None</li>
+          <li class="correct"><span class="opt-key">C</span> NameError - x is not defined</li>
+          <li><span class="opt-key">D</span> Prints 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — NameError - x is not defined</p>
+          <p class="expl">del removes the name x entirely. Using it afterwards raises NameError, exactly as if x had never existed.</p>
+          <p class="tags"><span>del statement</span><span>NameError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this show about Python?
+x = 5
+x = &quot;hello&quot;
+print(x)</p>
+        <pre class="code"><code>x = 5          # int
+x = &quot;hello&quot;    # now str - perfectly legal
+print(type(x))  # &lt;class 'str'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Error - x is locked to numbers</li>
+          <li class="correct"><span class="opt-key">B</span> Prints hello - variables can be rebound to any type (dynamic typing)</li>
+          <li><span class="opt-key">C</span> Prints 5</li>
+          <li><span class="opt-key">D</span> Prints 5hello</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Prints hello - variables can be rebound to any type (dynamic typing)</p>
+          <p class="expl">Python is dynamically typed: a variable is just a name and can point to a value of any type at any time. x pointed to an int, now it points to a string.</p>
+          <ul class="notes"><li>Convenient, but it means type errors appear at runtime, not before.</li></ul>
+          <p class="tags"><span>Dynamic typing</span><span>type()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the global keyword do inside a function?</p>
+        <pre class="code"><code>count = 0
+
+def increment():
+    global count
+    count += 1
+
+increment()
+print(count)  # 1</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Creates a new local variable</li>
+          <li class="correct"><span class="opt-key">B</span> Lets the function modify a variable defined at module level</li>
+          <li><span class="opt-key">C</span> Makes the variable visible to other files</li>
+          <li><span class="opt-key">D</span> Declares a constant</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Lets the function modify a variable defined at module level</p>
+          <p class="expl">Assigning inside a function normally creates a LOCAL variable. global tells Python the name refers to the module-level variable, so the function modifies the global one.</p>
+          <ul class="notes"><li>Prefer return values over globals - easier to test and debug.</li></ul>
+          <p class="tags"><span>Scope</span><span>LEGB rule</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(min(4, 7, 1), max(4, 7, 1))</p>
+        <pre class="code"><code>print(min(4, 7, 1))   # 1
+print(max(4, 7, 1))   # 7
+print(sum([4, 7, 1])) # 12</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 7</li>
+          <li><span class="opt-key">B</span> 4 1</li>
+          <li><span class="opt-key">C</span> 7 1</li>
+          <li><span class="opt-key">D</span> 1 4</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 7</p>
+          <p class="expl">min() returns the smallest of its arguments (1) and max() the largest (7). They also work on lists: min([4, 7, 1]).</p>
+          <p class="tags"><span>Built-in functions</span><span>sum()</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (4)</h2>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of:
+result = 0 or &quot;hello&quot;
+print(result)</p>
+        <pre class="code"><code>print(0 or &quot;hello&quot;)    # hello
+print(&quot;hi&quot; or &quot;bye&quot;)   # hi (first truthy wins)
+print(0 and &quot;hello&quot;)   # 0 (and stops at first falsy)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 0</li>
+          <li><span class="opt-key">B</span> True</li>
+          <li class="correct"><span class="opt-key">C</span> hello</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — hello</p>
+          <p class="expl">or returns the FIRST truthy value (not just True/False!). 0 is falsy, so or moves on and returns &quot;hello&quot; itself. This is called short-circuit evaluation.</p>
+          <ul class="notes"><li>Common use: name = user_input or &quot;Guest&quot;  (default value).</li></ul>
+          <p class="tags"><span>Short-circuit evaluation</span><span>Truthiness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print(-7 // 2)</p>
+        <pre class="code"><code>print(7 // 2)    # 3
+print(-7 // 2)   # -4  (not -3!)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> -3</li>
+          <li><span class="opt-key">B</span> -3.5</li>
+          <li class="correct"><span class="opt-key">C</span> -4</li>
+          <li><span class="opt-key">D</span> 4</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — -4</p>
+          <p class="expl">Floor division rounds DOWN (toward negative infinity), not toward zero. -7 / 2 = -3.5, and rounding DOWN gives -4. This surprises people from C/Java where -7/2 truncates to -3.</p>
+          <p class="tags"><span>Floor division</span><span>Negative numbers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between == and is?</p>
+        <pre class="code"><code>a = [1, 2]
+b = [1, 2]
+print(a == b)   # True  - same values
+print(a is b)   # False - two separate lists
+print(a is None) # False - the correct use of is</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> They are identical</li>
+          <li class="correct"><span class="opt-key">B</span> == compares values; is checks if both names point to the SAME object in memory</li>
+          <li><span class="opt-key">C</span> is compares values; == checks memory</li>
+          <li><span class="opt-key">D</span> is only works with numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — == compares values; is checks if both names point to the SAME object in memory</p>
+          <p class="expl">== asks 'do these have equal values?'. is asks 'are these literally the same object?'. Two equal lists are == but not is. Use is only for None checks.</p>
+          <ul class="notes"><li>Always write: if x is None:  (not == None).</li></ul>
+          <p class="tags"><span>Identity</span><span>id()</span><span>None</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print(round(2.5), round(3.5))</p>
+        <pre class="code"><code>print(round(2.5))   # 2
+print(round(3.5))   # 4
+print(round(2.6))   # 3 (normal rounding)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 3 4</li>
+          <li class="correct"><span class="opt-key">B</span> 2 4</li>
+          <li><span class="opt-key">C</span> 3 3</li>
+          <li><span class="opt-key">D</span> 2 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 2 4</p>
+          <p class="expl">Python uses banker's rounding: exact halves round to the nearest EVEN number. round(2.5) -&gt; 2, round(3.5) -&gt; 4. This reduces bias when rounding many values.</p>
+          <p class="tags"><span>Rounding</span><span>Floating point</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="01-introduction-and-setup.html">← Introduction &amp; Setup</a>
+      <a href="03-data-types-and-conversion.html">Data Types &amp; Conversion →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-1">Practice “Variables &amp; Operators” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

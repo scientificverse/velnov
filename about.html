@@ -3,94 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>About Velnov – Online Learning & Quizzes</title>
-  <meta name="description" content="Learn more about Velnov, an online learning platform for quizzes, practice questions, math formulas and useful learning tools." />
-
+  <title>About Velnov – Free Study Notes, Practice Quizzes and Math Formulas</title>
+  <meta name="description" content="Velnov is a free learning site with 5,400 practice questions (each with an explanation) across 9 subjects, 420 math formulas explained in plain language, and a scientific calculator." />
   <link rel="canonical" href="https://velnov.co.in/about.html" />
-
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="About Velnov" />
+  <meta property="og:url" content="https://velnov.co.in/about.html" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/study.css?v=1" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 850px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      line-height: 1.7;
-      color: #222;
-    }
-
-    h1, h2 {
-      color: #222;
-    }
-
-    a {
-      color: #4f46e5;
-    }
-
-    .back {
-      display: inline-block;
-      margin-bottom: 25px;
-    }
+    .prose p, .prose ul, .prose table { margin-top: 12px; }
+    .prose ul { padding-left: 22px; }
+    .prose li + li { margin-top: 6px; }
+    .facts { width: 100%; border-collapse: collapse; font-size: 0.95rem; background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .facts th, .facts td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .facts th { background: var(--inset); font-weight: 700; }
+    .facts tr:last-child td { border-bottom: none; }
+    .box { margin-top: 14px; }
   </style>
 </head>
-
 <body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="learn/">Study Notes</a>
+        <a href="formulas/">Formulas</a>
+        <a href="index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
 
-  <a class="back" href="https://velnov.co.in/">← Back to Velnov</a>
+  <main class="wrap prose">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> › <span>About</span></nav>
+    <header class="page-head">
+      <h1>About Velnov</h1>
+      <p class="lead">Velnov is a free learning website where you can read a topic as revision notes, test yourself with an interactive quiz, and look up maths formulas explained in everyday language — all in your browser, with no account needed.</p>
+    </header>
 
-  <h1>About Velnov</h1>
+    <h2>What you will find here</h2>
+    <p>Velnov currently has <strong>5,400 practice questions across 9 subjects</strong> (600 per subject), and <strong>420 maths formulas</strong> organised into 10 topics.</p>
 
-  <p>
-    Velnov is an online learning platform designed to make learning
-    simple, practical, and engaging through quizzes, practice
-    questions, explanations, reference materials, and useful learning
-    tools.
-  </p>
+    <table class="facts">
+      <thead><tr><th>Subject</th><th>Level</th><th>Topics</th></tr></thead>
+      <tbody>
+        <tr><td><a href="learn/python/">Python</a></td><td>Beginner to advanced programming</td><td>20</td></tr>
+        <tr><td><a href="learn/javascript/">JavaScript</a></td><td>Beginner to advanced web programming</td><td>20</td></tr>
+        <tr><td><a href="learn/sql/">SQL</a></td><td>Database basics to window functions</td><td>20</td></tr>
+        <tr><td><a href="learn/indian-history/">Indian History</a></td><td>Ancient India, NCERT-based, for competitive exams</td><td>9</td></tr>
+        <tr><td><a href="learn/physics/">Physics</a></td><td>Class 6–8, following NCERT topics</td><td>10</td></tr>
+        <tr><td><a href="learn/chemistry/">Chemistry</a></td><td>Class 6–8, following NCERT topics</td><td>10</td></tr>
+        <tr><td><a href="learn/biology/">Biology</a></td><td>Class 6–8, following NCERT topics</td><td>10</td></tr>
+        <tr><td><a href="learn/mathematics/">Mathematics</a></td><td>Class 1–5 word problems and basics</td><td>10</td></tr>
+        <tr><td><a href="learn/english/">English Grammar</a></td><td>Class 1–5 grammar</td><td>10</td></tr>
+      </tbody>
+    </table>
 
-  <h2>What You Can Find on Velnov</h2>
+    <h2>How a topic page works</h2>
+    <p>Every topic has its own <a href="learn/">study-notes page</a>. Instead of showing only the correct option, each question is written out in full with:</p>
+    <ul>
+      <li>all four answer choices, with the correct one highlighted,</li>
+      <li>an <strong>explanation of why that answer is right</strong> — and, where it helps, why the other choices are wrong,</li>
+      <li>a difficulty level (easy, medium or hard) so you can start simple and build up,</li>
+      <li>the key concepts the question tests, listed at the top of the page.</li>
+    </ul>
+    <p>When you feel ready, you can take the same topic as a timed <a href="index.html">interactive quiz</a>. At the end you get your score, the time taken, and a review of every question you got wrong, together with its explanation.</p>
 
-  <p>
-    Velnov provides learning resources across a range of subjects and
-    topics, including programming, science, mathematics, history,
-    English grammar, and more.
-  </p>
+    <h2>Maths formulas, explained twice</h2>
+    <p>The <a href="formulas/">formula reference</a> groups formulas by topic rather than by class, so all of trigonometry (or algebra, or mensuration) is in one place, from the basics up to Class 12. Each formula comes with what every symbol means, a worked example, and two short explanations: <em>where it is used</em> in real life, and <em>what it means in plain words</em>. A scientific calculator is built into the site for checking answers.</p>
 
-  <p>
-    Users can choose a subject, explore topics, take quizzes, answer
-    practice questions, and review explanations to strengthen their
-    understanding.
-  </p>
+    <h2>Who Velnov is for</h2>
+    <ul>
+      <li><strong>Primary school children (Class 1–5)</strong> practising maths and English grammar, ideally with a parent or teacher.</li>
+      <li><strong>Middle school students (Class 6–8)</strong> revising physics, chemistry and biology chapter by chapter.</li>
+      <li><strong>Exam aspirants</strong> revising ancient Indian history.</li>
+      <li><strong>Beginners learning to code</strong> who want to check their understanding of Python, JavaScript or SQL one concept at a time.</li>
+    </ul>
 
-  <h2>Learning Tools</h2>
+    <h2>Free to use, privacy-friendly</h2>
+    <p>Velnov is free and does not require you to sign up or share any personal information. If you take quizzes, your recent scores are saved only in your own browser so you can see your progress — they are never sent to us. The site is supported by advertising shown on the study-notes and formula pages. There are no ads inside the quiz app, and none on the Class 1–5 Mathematics and English pages. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
 
-  <p>
-    In addition to quizzes, Velnov provides mathematics formulas and a
-    scientific calculator to support learning and problem solving.
-  </p>
+    <h2>Found a mistake?</h2>
+    <p>We want every answer and explanation to be correct. If you think something is wrong or unclear, please <a href="contact.html">contact us</a> with the subject, the topic and the question number (for example, "Physics · Topic 3 · Q12"), and we will check it and fix it.</p>
 
-  <h2>Our Approach</h2>
+    <div class="box">
+      <h2>Start learning</h2>
+      <p><a href="learn/">Browse the study notes</a> · <a href="formulas/">Open the formula reference</a> · <a href="index.html">Take a quiz</a></p>
+    </div>
+  </main>
 
-  <p>
-    Velnov follows a simple approach: learn a concept, practice with
-    questions, review the explanation, and continue improving.
-  </p>
-
-  <p>
-    The goal is to provide an easy-to-use learning environment that
-    students, learners, and anyone interested in practicing a subject
-    can access from their browser.
-  </p>
-
-  <h2>Contact</h2>
-
-  <p>
-    For questions, feedback, or suggestions about Velnov, please use
-    the contact information provided on our Contact page.
-  </p>
-
-  <p>
-    <a href="https://velnov.co.in/">Return to Velnov</a>
-  </p>
-
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="about.html">About Velnov</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
 </body>
 </html>

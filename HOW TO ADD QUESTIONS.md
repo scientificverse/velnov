@@ -119,6 +119,18 @@ Inside a subject file, add a new block to the `topics: [ ... ]` list:
    ```
 Refresh the browser — the new subject card appears automatically.
 
+## After any change: rebuild the study pages
+The quiz app reads `data/` directly, but the study-note pages in `learn/` and
+`formulas/` (plus `sitemap.xml`, `robots.txt` and `ads.txt`) are generated from it.
+After adding or editing questions, formulas or topic overviews, run this once in
+the site folder (it needs only Node.js, nothing to install):
+
+```
+node tools/build-pages.js
+```
+
+Then commit and push everything that changed.
+
 ## Tips
 - If the page suddenly shows nothing after an edit, you probably missed a comma
   or a quote. Press **F12** in the browser → Console tab shows which file and line.

@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Types – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Data Types with answers and detailed explanations — 2 easy, 17 medium and 11 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/08-data-types.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Data Types – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Data Types with answers and detailed explanations — 2 easy, 17 medium and 11 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/08-data-types.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Data Types","item":"https://velnov.co.in/learn/sql/08-data-types.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Data Types</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 8 of 20</p>
+      <h1>Data Types — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Data Types</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-7">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 17 medium · 11 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Data types</span><span>Integrity</span><span>INT</span><span>Numeric types</span><span>CHAR</span><span>VARCHAR</span><span>Length</span><span>DECIMAL</span><span>FLOAT</span><span>Precision</span><span>Precision and scale</span><span>DATE</span><span>Temporal types</span><span>TIMESTAMP</span><span>Timezones</span><span>BOOLEAN</span><span>Dialects</span><span>TEXT</span><span>Data modelling</span><span>Sorting</span><span>Primary keys</span><span>Sequences</span><span>UUID</span><span>Distributed systems</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Why does every column need a data type?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It enforces valid values, determines storage size, and defines how comparisons and sorting behave</li>
+          <li><span class="opt-key">B</span> It is only documentation</li>
+          <li><span class="opt-key">C</span> To make queries shorter</li>
+          <li><span class="opt-key">D</span> It is optional</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It enforces valid values, determines storage size, and defines how comparisons and sorting behave</p>
+          <p class="expl">A DATE column rejects 'hello' and sorts chronologically; a VARCHAR column would accept anything and sort alphabetically. Types are your first line of data quality.</p>
+          <p class="tags"><span>Data types</span><span>Integrity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which type stores whole numbers?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> INTEGER (INT)</li>
+          <li><span class="opt-key">B</span> VARCHAR</li>
+          <li><span class="opt-key">C</span> DECIMAL only</li>
+          <li><span class="opt-key">D</span> TEXT</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — INTEGER (INT)</p>
+          <p class="expl">INT typically holds about +/- 2.1 billion. Use BIGINT for larger values and SMALLINT/TINYINT where space matters.</p>
+          <p class="tags"><span>INT</span><span>Numeric types</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (17)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between CHAR(10) and VARCHAR(10)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CHAR always uses 10 characters (padding with spaces); VARCHAR stores only what you put in</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> VARCHAR is always faster</li>
+          <li><span class="opt-key">D</span> CHAR holds more</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CHAR always uses 10 characters (padding with spaces); VARCHAR stores only what you put in</p>
+          <p class="expl">CHAR suits fixed-length codes like country codes; VARCHAR suits names and emails. CHAR padding can cause surprising trailing spaces in comparisons.</p>
+          <p class="tags"><span>CHAR</span><span>VARCHAR</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does VARCHAR(50) mean?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Variable-length text with a MAXIMUM of 50 characters</li>
+          <li><span class="opt-key">B</span> Exactly 50 characters</li>
+          <li><span class="opt-key">C</span> 50 rows</li>
+          <li><span class="opt-key">D</span> 50 bytes only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Variable-length text with a MAXIMUM of 50 characters</p>
+          <p class="expl">Inserting a longer string either errors or truncates depending on settings. Choose limits that reflect real data - overly tight limits cause production failures.</p>
+          <p class="tags"><span>VARCHAR</span><span>Length</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does DECIMAL(10, 2) specify?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Precision 10 (total digits) and scale 2 (digits after the decimal point)</li>
+          <li><span class="opt-key">B</span> 10 rows, 2 columns</li>
+          <li><span class="opt-key">C</span> A range of 10 to 2</li>
+          <li><span class="opt-key">D</span> 10 bytes with 2 decimals</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Precision 10 (total digits) and scale 2 (digits after the decimal point)</p>
+          <p class="expl">So the largest value is 99999999.99. Exceeding the scale rounds; exceeding the precision raises an error.</p>
+          <p class="tags"><span>DECIMAL</span><span>Precision and scale</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which type stores a date WITHOUT a time?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DATE</li>
+          <li><span class="opt-key">B</span> DATETIME</li>
+          <li><span class="opt-key">C</span> TIMESTAMP</li>
+          <li><span class="opt-key">D</span> TIME</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DATE</p>
+          <p class="expl">DATE holds year-month-day. DATETIME/TIMESTAMP add the time of day, and TIME stores only the clock portion.</p>
+          <p class="tags"><span>DATE</span><span>Temporal types</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do booleans work across databases?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> PostgreSQL has a real BOOLEAN; MySQL stores it as TINYINT(1) where 1 is true and 0 is false</li>
+          <li><span class="opt-key">B</span> All databases have BOOLEAN</li>
+          <li><span class="opt-key">C</span> Booleans are impossible in SQL</li>
+          <li><span class="opt-key">D</span> Only strings can hold true/false</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — PostgreSQL has a real BOOLEAN; MySQL stores it as TINYINT(1) where 1 is true and 0 is false</p>
+          <p class="expl">SQL Server uses BIT. This is why some codebases compare with = 1 and others with = TRUE - both are correct for their platform.</p>
+          <p class="tags"><span>BOOLEAN</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is TEXT used for?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Long or unbounded strings - articles, descriptions, comments</li>
+          <li><span class="opt-key">B</span> Numbers stored as text</li>
+          <li><span class="opt-key">C</span> Exactly 255 characters</li>
+          <li><span class="opt-key">D</span> Binary files</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Long or unbounded strings - articles, descriptions, comments</p>
+          <p class="expl">TEXT has no practical length limit but often cannot be fully indexed and may be stored separately. Use VARCHAR when you have a sensible maximum.</p>
+          <p class="tags"><span>TEXT</span><span>VARCHAR</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does AUTO_INCREMENT / SERIAL / IDENTITY do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Automatically assigns the next unique number to a new row - typically for primary keys</li>
+          <li><span class="opt-key">B</span> Counts rows</li>
+          <li><span class="opt-key">C</span> Sorts the table</li>
+          <li><span class="opt-key">D</span> Encrypts the id</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Automatically assigns the next unique number to a new row - typically for primary keys</p>
+          <p class="expl">AUTO_INCREMENT in MySQL, SERIAL/GENERATED AS IDENTITY in PostgreSQL, IDENTITY in SQL Server. Gaps in the sequence are normal after failed inserts - do not treat ids as a count.</p>
+          <p class="tags"><span>Primary keys</span><span>Sequences</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you convert between types?</p>
+        <pre class="code"><code>SELECT CAST('2026-07-04' AS DATE);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CAST(value AS type) - standard SQL</li>
+          <li><span class="opt-key">B</span> CONVERT_TO(value)</li>
+          <li><span class="opt-key">C</span> TYPEOF(value)</li>
+          <li><span class="opt-key">D</span> It happens automatically always</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CAST(value AS type) - standard SQL</p>
+          <p class="expl">CAST is portable; CONVERT() exists in SQL Server and MySQL with extra formatting options. PostgreSQL also allows the shorthand value::type.</p>
+          <p class="tags"><span>CAST</span><span>Conversion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the JSON data type allow?</p>
+        <pre class="code"><code>SELECT data-&gt;&gt;'email' FROM users WHERE data-&gt;&gt;'plan' = 'pro';</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Storing structured documents in a column, with functions to query inside them</li>
+          <li><span class="opt-key">B</span> Only plain text</li>
+          <li><span class="opt-key">C</span> Nothing special</li>
+          <li><span class="opt-key">D</span> Binary images</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Storing structured documents in a column, with functions to query inside them</p>
+          <p class="expl">PostgreSQL's JSONB and MySQL's JSON support indexing and path queries - useful for flexible attributes. Overusing it, though, sacrifices the integrity relational design gives you.</p>
+          <p class="tags"><span>JSON</span><span>Semi-structured data</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the ENUM type?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A column restricted to a fixed list of allowed string values</li>
+          <li><span class="opt-key">B</span> A numbering system</li>
+          <li><span class="opt-key">C</span> An index type</li>
+          <li><span class="opt-key">D</span> A join type</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A column restricted to a fixed list of allowed string values</p>
+          <p class="expl">ENUM('small','medium','large') enforces valid values. Changing the list later requires altering the table, so many teams prefer a lookup table plus a foreign key.</p>
+          <p class="tags"><span>ENUM</span><span>Constraints</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between NULL and a DEFAULT value?</p>
+        <pre class="code"><code>status VARCHAR(20) NOT NULL DEFAULT 'pending'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DEFAULT supplies a value when none is given at insert; NULL means no value is stored</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> DEFAULT only works for numbers</li>
+          <li><span class="opt-key">D</span> NULL is a kind of default</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DEFAULT supplies a value when none is given at insert; NULL means no value is stored</p>
+          <p class="expl">Combining NOT NULL with a DEFAULT guarantees a usable value in every row - often better than allowing NULLs you must handle in every query.</p>
+          <p class="tags"><span>DEFAULT</span><span>NOT NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which type would you choose for a percentage like 87.5?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DECIMAL(5,2) - exact and bounded</li>
+          <li><span class="opt-key">B</span> INT</li>
+          <li><span class="opt-key">C</span> VARCHAR</li>
+          <li><span class="opt-key">D</span> BOOLEAN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DECIMAL(5,2) - exact and bounded</p>
+          <p class="expl">INT would lose the fraction and text would prevent arithmetic. DECIMAL keeps the value exact and lets you add a CHECK constraint for 0-100.</p>
+          <p class="tags"><span>DECIMAL</span><span>Modelling</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a BLOB used for?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Binary Large Objects - images, PDFs and other binary data</li>
+          <li><span class="opt-key">B</span> Long text only</li>
+          <li><span class="opt-key">C</span> Boolean lists</li>
+          <li><span class="opt-key">D</span> Backups</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Binary Large Objects - images, PDFs and other binary data</p>
+          <p class="expl">Storing files in the database is possible but often discouraged: it bloats backups and slows queries. Storing a file PATH or URL is usually better.</p>
+          <p class="tags"><span>BLOB</span><span>File storage</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How should you store a phone number?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> As VARCHAR - to preserve leading zeros, plus signs and formatting</li>
+          <li><span class="opt-key">B</span> As INT</li>
+          <li><span class="opt-key">C</span> As DECIMAL</li>
+          <li><span class="opt-key">D</span> As BOOLEAN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — As VARCHAR - to preserve leading zeros, plus signs and formatting</p>
+          <p class="expl">Numeric storage destroys leading zeros and cannot hold '+91' or extensions. The rule of thumb: if you never do arithmetic on it, it is not a number.</p>
+          <p class="tags"><span>Modelling</span><span>VARCHAR</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you change a column's type?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALTER TABLE t ALTER COLUMN c TYPE new_type  (syntax varies by database)</li>
+          <li><span class="opt-key">B</span> UPDATE TYPE</li>
+          <li><span class="opt-key">C</span> CHANGE COLUMN TYPE</li>
+          <li><span class="opt-key">D</span> Types cannot be changed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALTER TABLE t ALTER COLUMN c TYPE new_type  (syntax varies by database)</p>
+          <p class="expl">MySQL uses MODIFY COLUMN; PostgreSQL uses ALTER COLUMN ... TYPE. On huge tables this can lock and rewrite the table, so plan such migrations carefully.</p>
+          <p class="tags"><span>ALTER TABLE</span><span>Migrations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is an ARRAY column (PostgreSQL)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A column holding multiple values of the same type in one field</li>
+          <li><span class="opt-key">B</span> A table with many columns</li>
+          <li><span class="opt-key">C</span> A JSON alias</li>
+          <li><span class="opt-key">D</span> Not supported anywhere</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A column holding multiple values of the same type in one field</p>
+          <p class="expl">Convenient for simple lists like tags, but it breaks first normal form. A junction table remains the better choice when you need joins, constraints or per-item data.</p>
+          <p class="tags"><span>Arrays</span><span>Normalization</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is the safest way to store money?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DECIMAL with an explicit scale - or an INTEGER count of the smallest unit (paise/cents)</li>
+          <li><span class="opt-key">B</span> FLOAT</li>
+          <li><span class="opt-key">C</span> DOUBLE</li>
+          <li><span class="opt-key">D</span> VARCHAR</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DECIMAL with an explicit scale - or an INTEGER count of the smallest unit (paise/cents)</p>
+          <p class="expl">Both approaches avoid binary rounding. Storing integer cents is common in payment systems because every arithmetic operation stays exact.</p>
+          <p class="tags"><span>DECIMAL</span><span>Money</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (11)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why should you use DECIMAL/NUMERIC for money instead of FLOAT?</p>
+        <pre class="code"><code>price DECIMAL(10, 2)   -- 8 digits before the point, 2 after</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FLOAT is binary and cannot represent 0.1 exactly, causing rounding errors in totals</li>
+          <li><span class="opt-key">B</span> DECIMAL is faster</li>
+          <li><span class="opt-key">C</span> FLOAT cannot store decimals</li>
+          <li><span class="opt-key">D</span> There is no difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FLOAT is binary and cannot represent 0.1 exactly, causing rounding errors in totals</p>
+          <p class="expl">DECIMAL(10,2) stores exact values. With FLOAT, summing thousands of prices drifts by fractions of a cent - unacceptable for financial data.</p>
+          <ul class="notes"><li>A standard interview question about numeric precision.</li></ul>
+          <p class="tags"><span>DECIMAL</span><span>FLOAT</span><span>Precision</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the key difference between TIMESTAMP and DATETIME (MySQL)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TIMESTAMP is timezone-aware and converts to UTC; DATETIME stores the literal value unchanged</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> DATETIME is smaller</li>
+          <li><span class="opt-key">D</span> TIMESTAMP cannot store dates</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TIMESTAMP is timezone-aware and converts to UTC; DATETIME stores the literal value unchanged</p>
+          <p class="expl">TIMESTAMP also has a narrower range (roughly 1970-2038). For global applications, storing UTC timestamps and converting for display is the usual approach.</p>
+          <p class="tags"><span>TIMESTAMP</span><span>Timezones</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why store numbers in numeric columns rather than VARCHAR?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Text sorts alphabetically ('10' before '9'), blocks arithmetic, and wastes space</li>
+          <li><span class="opt-key">B</span> There is no difference</li>
+          <li><span class="opt-key">C</span> VARCHAR is faster for numbers</li>
+          <li><span class="opt-key">D</span> Numeric types cannot be indexed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Text sorts alphabetically ('10' before '9'), blocks arithmetic, and wastes space</p>
+          <p class="expl">The classic symptom is a report where 100 appears before 20. Note that identifiers like phone numbers and postcodes ARE text - leading zeros matter and you never do arithmetic on them.</p>
+          <p class="tags"><span>Data modelling</span><span>Sorting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a UUID/GUID key, and when is it preferred?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A 128-bit globally unique identifier - useful for distributed systems where ids must be generated without a central counter</li>
+          <li><span class="opt-key">B</span> A faster integer</li>
+          <li><span class="opt-key">C</span> An encrypted password</li>
+          <li><span class="opt-key">D</span> A type of index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A 128-bit globally unique identifier - useful for distributed systems where ids must be generated without a central counter</p>
+          <p class="expl">UUIDs avoid collisions across servers and hide row counts, at the cost of more storage and (for random UUIDs) worse index locality than sequential integers.</p>
+          <p class="tags"><span>UUID</span><span>Distributed systems</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is implicit type conversion, and why be careful?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The database silently converts types to compare them - which can produce surprises and block index use</li>
+          <li><span class="opt-key">B</span> It never happens</li>
+          <li><span class="opt-key">C</span> It always errors</li>
+          <li><span class="opt-key">D</span> It is always faster</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The database silently converts types to compare them - which can produce surprises and block index use</p>
+          <p class="expl">Comparing a VARCHAR column to a number may force converting EVERY row, ignoring the index. Match types explicitly in your queries and schema.</p>
+          <p class="tags"><span>Implicit conversion</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can INT overflow be a real problem?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An id column can exhaust its maximum (about 2.1 billion for INT), causing insert failures</li>
+          <li><span class="opt-key">B</span> INT never overflows</li>
+          <li><span class="opt-key">C</span> It only wastes space</li>
+          <li><span class="opt-key">D</span> It corrupts other tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An id column can exhaust its maximum (about 2.1 billion for INT), causing insert failures</p>
+          <p class="expl">Several large platforms have hit this in production. For high-volume tables (events, logs, messages) choose BIGINT from the start - migrating later is painful.</p>
+          <p class="tags"><span>BIGINT</span><span>Capacity planning</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why do string comparisons depend on COLLATION?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Collation defines sort order and case/accent sensitivity for text</li>
+          <li><span class="opt-key">B</span> It only affects storage size</li>
+          <li><span class="opt-key">C</span> It has no effect on comparisons</li>
+          <li><span class="opt-key">D</span> It is a type of index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Collation defines sort order and case/accent sensitivity for text</p>
+          <p class="expl">The same query can return different results on two servers with different collations - a subtle portability issue. It also determines whether 'a' = 'A'.</p>
+          <p class="tags"><span>Collation</span><span>Character sets</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What happens when you INSERT a 60-character string into VARCHAR(50)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Standard behaviour is an error; some configurations truncate with a warning instead</li>
+          <li><span class="opt-key">B</span> It always truncates silently</li>
+          <li><span class="opt-key">C</span> The column expands</li>
+          <li><span class="opt-key">D</span> It becomes NULL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Standard behaviour is an error; some configurations truncate with a warning instead</p>
+          <p class="expl">MySQL in strict mode errors, but older/lax modes silently truncated - which quietly corrupted data. Validate input length in the application too.</p>
+          <p class="tags"><span>VARCHAR</span><span>Strict mode</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the advantage of choosing the SMALLEST adequate type?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Less storage means more rows per page, smaller indexes and faster scans</li>
+          <li><span class="opt-key">B</span> It has no effect</li>
+          <li><span class="opt-key">C</span> It only saves disk</li>
+          <li><span class="opt-key">D</span> It prevents NULLs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Less storage means more rows per page, smaller indexes and faster scans</p>
+          <p class="expl">On large tables the savings compound: narrower rows mean fewer disk reads and better cache use. Balance this against future growth needs.</p>
+          <p class="tags"><span>Performance</span><span>Storage</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the INTERVAL type represent?</p>
+        <pre class="code"><code>SELECT order_date + INTERVAL '7 days' AS due_date FROM orders;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A span of time (e.g. '3 days'), which can be added to or subtracted from dates</li>
+          <li><span class="opt-key">B</span> A range of numbers</li>
+          <li><span class="opt-key">C</span> An index gap</li>
+          <li><span class="opt-key">D</span> A transaction period</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A span of time (e.g. '3 days'), which can be added to or subtracted from dates</p>
+          <p class="expl">PostgreSQL and Oracle support INTERVAL directly; MySQL uses it in expressions like DATE_ADD(d, INTERVAL 3 DAY).</p>
+          <p class="tags"><span>INTERVAL</span><span>Date arithmetic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is choosing types an important DESIGN decision, not a detail?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Types enforce correctness at the database level and are costly to change once a table holds millions of rows</li>
+          <li><span class="opt-key">B</span> They only matter for documentation</li>
+          <li><span class="opt-key">C</span> Types can be changed instantly at any scale</li>
+          <li><span class="opt-key">D</span> Applications handle all validation anyway</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Types enforce correctness at the database level and are costly to change once a table holds millions of rows</p>
+          <p class="expl">The database is the last line of defence: applications get rewritten, but a well-typed schema keeps rejecting invalid data for years.</p>
+          <p class="tags"><span>Design</span><span>Data integrity</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="07-group-by-and-having.html">← GROUP BY &amp; HAVING</a>
+      <a href="09-string-functions.html">String Functions →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-7">Practice “Data Types” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

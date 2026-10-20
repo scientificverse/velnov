@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting &amp; Limiting – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Sorting &amp; Limiting with answers and detailed explanations — 2 easy, 18 medium and 10 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/04-sorting-and-limiting.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Sorting &amp; Limiting – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Sorting &amp; Limiting with answers and detailed explanations — 2 easy, 18 medium and 10 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/04-sorting-and-limiting.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Sorting & Limiting","item":"https://velnov.co.in/learn/sql/04-sorting-and-limiting.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Sorting &amp; Limiting</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 4 of 20</p>
+      <h1>Sorting &amp; Limiting — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Sorting &amp; Limiting</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-3">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 18 medium · 10 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>ORDER BY</span><span>Sorting</span><span>ASC</span><span>DESC</span><span>Multi-column sort</span><span>Guarantees</span><span>DISTINCT</span><span>Aliases</span><span>Execution order</span><span>Positional sort</span><span>Best practices</span><span>LIMIT</span><span>TOP</span><span>Dialects</span><span>OFFSET</span><span>Pagination</span><span>Performance</span><span>Keyset pagination</span><span>NULL</span><span>CASE</span><span>Custom sorting</span><span>Data types</span><span>CAST</span><span>MAX</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which clause sorts the result rows?</p>
+        <pre class="code"><code>SELECT name, marks FROM students ORDER BY marks;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ORDER BY</li>
+          <li><span class="opt-key">B</span> SORT BY</li>
+          <li><span class="opt-key">C</span> GROUP BY</li>
+          <li><span class="opt-key">D</span> ARRANGE BY</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ORDER BY</p>
+          <p class="expl">ORDER BY sorts the final result. GROUP BY groups rows for aggregation and does NOT guarantee any ordering.</p>
+          <p class="tags"><span>ORDER BY</span><span>Sorting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the DEFAULT sort direction?</p>
+        <pre class="code"><code>ORDER BY marks DESC;   -- highest first</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ASC - ascending (smallest first, A to Z)</li>
+          <li><span class="opt-key">B</span> DESC - descending</li>
+          <li><span class="opt-key">C</span> Random</li>
+          <li><span class="opt-key">D</span> Insertion order</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ASC - ascending (smallest first, A to Z)</p>
+          <p class="expl">ORDER BY marks is the same as ORDER BY marks ASC. Write DESC explicitly for highest-first.</p>
+          <p class="tags"><span>ASC</span><span>DESC</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (18)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you sort by class ascending, then by marks descending within each class?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ORDER BY class ASC, marks DESC</li>
+          <li><span class="opt-key">B</span> ORDER BY class, marks ASC DESC</li>
+          <li><span class="opt-key">C</span> ORDER BY class AND marks DESC</li>
+          <li><span class="opt-key">D</span> ORDER BY class DESC marks</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ORDER BY class ASC, marks DESC</p>
+          <p class="expl">List columns in priority order, each with its own direction. The second column only breaks ties within equal values of the first.</p>
+          <p class="tags"><span>Multi-column sort</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you sort by a column that is NOT in the SELECT list?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - ORDER BY can use any column from the source table</li>
+          <li><span class="opt-key">B</span> No, it must be selected</li>
+          <li><span class="opt-key">C</span> Only with an alias</li>
+          <li><span class="opt-key">D</span> Only for numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - ORDER BY can use any column from the source table</p>
+          <p class="expl">SELECT name FROM students ORDER BY marks works fine. (The exception is with SELECT DISTINCT or UNION, where the sort column must appear in the result.)</p>
+          <p class="tags"><span>ORDER BY</span><span>DISTINCT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can ORDER BY use a column ALIAS defined in SELECT?</p>
+        <pre class="code"><code>SELECT price * qty AS total
+FROM items
+ORDER BY total DESC;   -- alias works here</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - ORDER BY runs AFTER SELECT, so the alias exists</li>
+          <li><span class="opt-key">B</span> No, aliases never work there</li>
+          <li><span class="opt-key">C</span> Only in MySQL</li>
+          <li><span class="opt-key">D</span> Only for computed columns</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - ORDER BY runs AFTER SELECT, so the alias exists</p>
+          <p class="expl">This is the mirror of the WHERE rule: WHERE runs before SELECT (no alias), ORDER BY runs after (alias available).</p>
+          <p class="tags"><span>Aliases</span><span>Execution order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which clause limits how many rows are returned in MySQL/PostgreSQL?</p>
+        <pre class="code"><code>-- MySQL / PostgreSQL
+SELECT * FROM students ORDER BY marks DESC LIMIT 10;
+
+-- SQL Server
+SELECT TOP 10 * FROM students ORDER BY marks DESC;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LIMIT 10</li>
+          <li><span class="opt-key">B</span> TOP 10</li>
+          <li><span class="opt-key">C</span> MAX 10</li>
+          <li><span class="opt-key">D</span> FIRST 10</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LIMIT 10</p>
+          <p class="expl">MySQL, PostgreSQL and SQLite use LIMIT. SQL Server uses SELECT TOP 10, and the SQL standard is FETCH FIRST 10 ROWS ONLY.</p>
+          <p class="tags"><span>LIMIT</span><span>TOP</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does OFFSET do?
+LIMIT 10 OFFSET 20</p>
+        <pre class="code"><code>SELECT * FROM posts
+ORDER BY created_at DESC
+LIMIT 10 OFFSET 20;   -- page 3</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Skips the first 20 rows, then returns the next 10 - used for pagination</li>
+          <li><span class="opt-key">B</span> Returns rows 10 to 20</li>
+          <li><span class="opt-key">C</span> Skips 10 rows</li>
+          <li><span class="opt-key">D</span> Returns 30 rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Skips the first 20 rows, then returns the next 10 - used for pagination</p>
+          <p class="expl">For page N with a page size of 10: OFFSET = (N - 1) * 10. Page 3 skips 20 rows.</p>
+          <p class="tags"><span>OFFSET</span><span>Pagination</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Where do NULLs appear when sorting ascending?</p>
+        <pre class="code"><code>ORDER BY score DESC NULLS LAST;   -- PostgreSQL/Oracle</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It depends on the database - PostgreSQL puts them LAST, MySQL puts them FIRST</li>
+          <li><span class="opt-key">B</span> Always first</li>
+          <li><span class="opt-key">C</span> Always last</li>
+          <li><span class="opt-key">D</span> They are excluded</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It depends on the database - PostgreSQL puts them LAST, MySQL puts them FIRST</p>
+          <p class="expl">For portable, explicit control use NULLS FIRST / NULLS LAST where supported, or sort on a CASE expression that maps NULLs to a chosen position.</p>
+          <p class="tags"><span>NULL</span><span>Sorting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do numbers stored as TEXT sort?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Alphabetically - so '10' comes before '9'</li>
+          <li><span class="opt-key">B</span> Numerically</li>
+          <li><span class="opt-key">C</span> Randomly</li>
+          <li><span class="opt-key">D</span> They cannot be sorted</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Alphabetically - so '10' comes before '9'</p>
+          <p class="expl">Character-by-character comparison puts '10' before '9' because '1' &lt; '9'. Cast to a number to fix it: ORDER BY CAST(code AS INT). Better still, store numbers in numeric columns.</p>
+          <p class="tags"><span>Data types</span><span>CAST</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you find the single highest-scoring student?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT * FROM students ORDER BY marks DESC LIMIT 1;</li>
+          <li><span class="opt-key">B</span> SELECT MAX(*) FROM students;</li>
+          <li><span class="opt-key">C</span> SELECT TOP marks FROM students;</li>
+          <li><span class="opt-key">D</span> SELECT FIRST(marks) FROM students;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT * FROM students ORDER BY marks DESC LIMIT 1;</p>
+          <p class="expl">Sorting descending and taking one row also gives you the whole row, not just the maximum value (which is all MAX(marks) would return).</p>
+          <p class="tags"><span>LIMIT</span><span>MAX</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you get a random row?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ORDER BY RANDOM() LIMIT 1  (RAND() in MySQL, NEWID() in SQL Server)</li>
+          <li><span class="opt-key">B</span> SELECT RANDOM FROM t</li>
+          <li><span class="opt-key">C</span> LIMIT RANDOM</li>
+          <li><span class="opt-key">D</span> It is not possible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ORDER BY RANDOM() LIMIT 1  (RAND() in MySQL, NEWID() in SQL Server)</p>
+          <p class="expl">It works but is expensive on big tables because every row gets a random value and the whole set is sorted. For large data, sample by id range instead.</p>
+          <p class="tags"><span>Random</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does ORDER BY affect which rows are returned?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - it only changes their ORDER (unless combined with LIMIT)</li>
+          <li><span class="opt-key">B</span> Yes, it filters rows</li>
+          <li><span class="opt-key">C</span> Yes, it removes duplicates</li>
+          <li><span class="opt-key">D</span> It groups rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - it only changes their ORDER (unless combined with LIMIT)</p>
+          <p class="expl">Filtering is WHERE's job. But with LIMIT, the order determines WHICH rows survive the cut - which is why the pair must be considered together.</p>
+          <p class="tags"><span>ORDER BY</span><span>LIMIT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you sort case-insensitively?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ORDER BY LOWER(name)</li>
+          <li><span class="opt-key">B</span> ORDER BY name IGNORE CASE</li>
+          <li><span class="opt-key">C</span> ORDER BY name ASC ASC</li>
+          <li><span class="opt-key">D</span> It is automatic everywhere</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ORDER BY LOWER(name)</p>
+          <p class="expl">Without it, some databases place all capitals before lowercase, so 'Zoe' sorts before 'anna'. Collation settings can also control this.</p>
+          <p class="tags"><span>Collation</span><span>LOWER</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you show the 5 most recent orders?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ORDER BY order_date DESC LIMIT 5</li>
+          <li><span class="opt-key">B</span> ORDER BY order_date ASC LIMIT 5</li>
+          <li><span class="opt-key">C</span> LIMIT 5 ORDER BY order_date</li>
+          <li><span class="opt-key">D</span> SELECT LAST 5 FROM orders</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ORDER BY order_date DESC LIMIT 5</p>
+          <p class="expl">Most recent means largest date, so sort descending. Option B would give the five OLDEST orders.</p>
+          <p class="tags"><span>Dates</span><span>LIMIT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is the SQL-standard way to limit rows?</p>
+        <pre class="code"><code>SELECT * FROM t ORDER BY id
+OFFSET 20 ROWS FETCH FIRST 10 ROWS ONLY;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FETCH FIRST 10 ROWS ONLY</li>
+          <li><span class="opt-key">B</span> LIMIT 10</li>
+          <li><span class="opt-key">C</span> TOP 10</li>
+          <li><span class="opt-key">D</span> ROWNUM &lt;= 10</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FETCH FIRST 10 ROWS ONLY</p>
+          <p class="expl">OFFSET ... FETCH is the standard, supported by PostgreSQL, Oracle 12c+ and SQL Server. LIMIT is more common in practice; ROWNUM is old Oracle syntax.</p>
+          <p class="tags"><span>Standards</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you use ORDER BY inside a subquery meaningfully?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Usually not - the outer query may reorder it; it only matters with LIMIT inside the subquery</li>
+          <li><span class="opt-key">B</span> Yes, order is always preserved</li>
+          <li><span class="opt-key">C</span> It is a syntax error</li>
+          <li><span class="opt-key">D</span> Only in views</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Usually not - the outer query may reorder it; it only matters with LIMIT inside the subquery</p>
+          <p class="expl">Sorting a subquery is generally pointless (and some databases forbid it without LIMIT). Apply ORDER BY at the outermost level.</p>
+          <p class="tags"><span>Subqueries</span><span>ORDER BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does ORDER BY slow down a query?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It can, since sorting takes work - but an index on the sort column can make it nearly free</li>
+          <li><span class="opt-key">B</span> Never</li>
+          <li><span class="opt-key">C</span> Always doubles the time</li>
+          <li><span class="opt-key">D</span> Only with LIMIT</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It can, since sorting takes work - but an index on the sort column can make it nearly free</p>
+          <p class="expl">If an index already stores rows in the required order, the database can read them in order and skip sorting entirely - a big win for paginated queries.</p>
+          <p class="tags"><span>Indexes</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you return rows 11-20 of a sorted list?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ORDER BY ... LIMIT 10 OFFSET 10</li>
+          <li><span class="opt-key">B</span> LIMIT 11, 20</li>
+          <li><span class="opt-key">C</span> BETWEEN 11 AND 20</li>
+          <li><span class="opt-key">D</span> OFFSET 20 LIMIT 10</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ORDER BY ... LIMIT 10 OFFSET 10</p>
+          <p class="expl">Skip the first 10, then take 10. (MySQL also supports the shorthand LIMIT 10, 10 where the first number is the offset - easy to misread.)</p>
+          <p class="tags"><span>Pagination</span><span>OFFSET</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the safest ORDER BY for a paginated API?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A meaningful column plus a unique tiebreaker: ORDER BY created_at DESC, id DESC</li>
+          <li><span class="opt-key">B</span> ORDER BY created_at only</li>
+          <li><span class="opt-key">C</span> No ORDER BY, just LIMIT</li>
+          <li><span class="opt-key">D</span> ORDER BY RANDOM()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A meaningful column plus a unique tiebreaker: ORDER BY created_at DESC, id DESC</p>
+          <p class="expl">The unique column guarantees a total order, so pages never overlap or skip rows when timestamps are identical.</p>
+          <p class="tags"><span>Pagination</span><span>Stability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this query answer?
+SELECT city, COUNT(*) AS n FROM customers GROUP BY city ORDER BY n DESC LIMIT 3;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The three cities with the most customers</li>
+          <li><span class="opt-key">B</span> The first three cities alphabetically</li>
+          <li><span class="opt-key">C</span> Three random customers</li>
+          <li><span class="opt-key">D</span> It is invalid</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The three cities with the most customers</p>
+          <p class="expl">Group to count per city, sort by that count descending, then keep the top 3 - the standard 'top N by category' report pattern.</p>
+          <p class="tags"><span>GROUP BY</span><span>Top N</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (10)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Is the row order guaranteed WITHOUT an ORDER BY?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - never rely on it, even if results look sorted; the database may return rows in any order</li>
+          <li><span class="opt-key">B</span> Yes, always insertion order</li>
+          <li><span class="opt-key">C</span> Yes, primary key order</li>
+          <li><span class="opt-key">D</span> Yes, alphabetical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - never rely on it, even if results look sorted; the database may return rows in any order</p>
+          <p class="expl">Order can change with indexes, parallel execution or data growth. If order matters, say so explicitly with ORDER BY.</p>
+          <ul class="notes"><li>A classic source of bugs that appear only in production.</li></ul>
+          <p class="tags"><span>ORDER BY</span><span>Guarantees</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does ORDER BY 2 mean?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Sort by the SECOND column in the SELECT list (positional reference)</li>
+          <li><span class="opt-key">B</span> Sort by the value 2</li>
+          <li><span class="opt-key">C</span> Return 2 rows</li>
+          <li><span class="opt-key">D</span> A syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Sort by the SECOND column in the SELECT list (positional reference)</p>
+          <p class="expl">It works, but it is fragile: changing the SELECT list silently changes the sort. Name the column or alias instead.</p>
+          <p class="tags"><span>Positional sort</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why must LIMIT almost always be paired with ORDER BY?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Without a defined order, 'the top 10' is arbitrary and can differ between runs</li>
+          <li><span class="opt-key">B</span> LIMIT is a syntax error alone</li>
+          <li><span class="opt-key">C</span> It is only for performance</li>
+          <li><span class="opt-key">D</span> They are unrelated</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Without a defined order, 'the top 10' is arbitrary and can differ between runs</p>
+          <p class="expl">LIMIT truncates whatever order the database happened to produce. 'Top 10 scorers' only means something after ORDER BY marks DESC.</p>
+          <p class="tags"><span>LIMIT</span><span>ORDER BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does OFFSET become slow on very large tables?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The database must still read and discard all skipped rows - OFFSET 100000 scans 100,000 rows first</li>
+          <li><span class="opt-key">B</span> It locks the table</li>
+          <li><span class="opt-key">C</span> It uses no index at all</li>
+          <li><span class="opt-key">D</span> It is not slow</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The database must still read and discard all skipped rows - OFFSET 100000 scans 100,000 rows first</p>
+          <p class="expl">For deep pagination, use keyset (cursor) pagination instead: remember the last row's sort value and filter WHERE id &gt; last_id ORDER BY id LIMIT 10.</p>
+          <p class="tags"><span>Pagination</span><span>Performance</span><span>Keyset pagination</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How would you sort so that a specific status appears first?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ORDER BY CASE WHEN status = 'urgent' THEN 0 ELSE 1 END, created_at</li>
+          <li><span class="opt-key">B</span> ORDER BY status = 'urgent'</li>
+          <li><span class="opt-key">C</span> ORDER BY urgent FIRST</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ORDER BY CASE WHEN status = 'urgent' THEN 0 ELSE 1 END, created_at</p>
+          <p class="expl">A CASE expression creates a custom sort key. This 'priority sort' pattern is very common for dashboards and task lists.</p>
+          <p class="tags"><span>CASE</span><span>Custom sorting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a problem with ORDER BY marks DESC LIMIT 1 when there are TIES?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It arbitrarily picks ONE of the tied rows - the others are hidden</li>
+          <li><span class="opt-key">B</span> It errors on ties</li>
+          <li><span class="opt-key">C</span> It returns all tied rows</li>
+          <li><span class="opt-key">D</span> Ties are impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It arbitrarily picks ONE of the tied rows - the others are hidden</p>
+          <p class="expl">To return every top scorer, use a subquery (WHERE marks = (SELECT MAX(marks) ...)) or window functions with RANK(), which is covered in topic 20.</p>
+          <p class="tags"><span>Ties</span><span>RANK</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In which order does the database EXECUTE these clauses?
+SELECT / FROM / WHERE / ORDER BY / LIMIT</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FROM, WHERE, SELECT, ORDER BY, LIMIT</li>
+          <li><span class="opt-key">B</span> SELECT, FROM, WHERE, ORDER BY, LIMIT</li>
+          <li><span class="opt-key">C</span> LIMIT, ORDER BY, WHERE, FROM, SELECT</li>
+          <li><span class="opt-key">D</span> The same order as written</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FROM, WHERE, SELECT, ORDER BY, LIMIT</p>
+          <p class="expl">Data is read, filtered, projected, sorted and finally truncated. This explains why aliases work in ORDER BY but not WHERE, and why LIMIT applies to sorted output.</p>
+          <p class="tags"><span>Execution order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why might the same LIMIT query return different rows on different runs?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Because ties (or a missing ORDER BY) leave the order undefined - add a unique tiebreaker column</li>
+          <li><span class="opt-key">B</span> Because LIMIT is random</li>
+          <li><span class="opt-key">C</span> Because of caching</li>
+          <li><span class="opt-key">D</span> It cannot happen</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Because ties (or a missing ORDER BY) leave the order undefined - add a unique tiebreaker column</p>
+          <p class="expl">For stable pagination always end with a unique column: ORDER BY created_at DESC, id DESC. Otherwise rows can repeat or vanish between pages.</p>
+          <p class="tags"><span>Pagination</span><span>Deterministic order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you sort by a value's position in a custom list?</p>
+        <pre class="code"><code>ORDER BY CASE size
+  WHEN 'S' THEN 1 WHEN 'M' THEN 2
+  WHEN 'L' THEN 3 ELSE 4 END;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use CASE (or FIELD() in MySQL) to map each value to a sort number</li>
+          <li><span class="opt-key">B</span> ORDER BY LIST(...)</li>
+          <li><span class="opt-key">C</span> ORDER BY IN (...)</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use CASE (or FIELD() in MySQL) to map each value to a sort number</p>
+          <p class="expl">For example ordering sizes S, M, L, XL - which are neither alphabetical nor numeric. Map them explicitly.</p>
+          <p class="tags"><span>CASE</span><span>Custom order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does DISTINCT combined with ORDER BY require?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The ORDER BY columns must appear in the SELECT list</li>
+          <li><span class="opt-key">B</span> Nothing special</li>
+          <li><span class="opt-key">C</span> DISTINCT cannot be sorted</li>
+          <li><span class="opt-key">D</span> ORDER BY must come first</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The ORDER BY columns must appear in the SELECT list</p>
+          <p class="expl">After DISTINCT collapses rows, a column that was not selected no longer has a single well-defined value to sort by, so most databases reject it.</p>
+          <p class="tags"><span>DISTINCT</span><span>ORDER BY</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="03-filtering-with-where.html">← Filtering with WHERE</a>
+      <a href="05-operators-null-and-patterns.html">Operators, NULL &amp; Patterns →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-3">Practice “Sorting &amp; Limiting” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OUTER JOINs – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on OUTER JOINs with answers and detailed explanations — 1 easy, 14 medium and 15 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/12-outer-joins.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="OUTER JOINs – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on OUTER JOINs with answers and detailed explanations — 1 easy, 14 medium and 15 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/12-outer-joins.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"OUTER JOINs","item":"https://velnov.co.in/learn/sql/12-outer-joins.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>OUTER JOINs</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 12 of 20</p>
+      <h1>OUTER JOINs — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>OUTER JOINs</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-11">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">1 easy · 14 medium · 15 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>LEFT JOIN</span><span>Outer joins</span><span>Direction</span><span>RIGHT JOIN</span><span>FULL OUTER JOIN</span><span>Anti-join</span><span>NULL</span><span>ON vs WHERE</span><span>COUNT</span><span>Gotchas</span><span>Empty tables</span><span>Reconciliation</span><span>Order</span><span>Join chains</span><span>COALESCE</span><span>SUM</span><span>Optional data</span><span>MySQL</span><span>Terminology</span><span>NOT EXISTS</span><span>Row counts</span><span>Style</span><span>Readability</span><span>Fan-out</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (1)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does a LEFT JOIN return?</p>
+        <pre class="code"><code>SELECT c.name, o.id
+FROM customers c
+LEFT JOIN orders o ON c.id = o.customer_id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALL rows from the left table, plus matching right-table columns (NULL where no match)</li>
+          <li><span class="opt-key">B</span> Only matching rows</li>
+          <li><span class="opt-key">C</span> All rows from the right table</li>
+          <li><span class="opt-key">D</span> Rows with no match only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALL rows from the left table, plus matching right-table columns (NULL where no match)</p>
+          <p class="expl">LEFT JOIN preserves every left row. Customers with no orders still appear, with the order columns showing NULL - which INNER JOIN would have dropped.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>Outer joins</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">In 'orders LEFT JOIN customers', which table keeps all its rows?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> orders - the LEFT (first) table</li>
+          <li><span class="opt-key">B</span> customers - the right table</li>
+          <li><span class="opt-key">C</span> Both tables</li>
+          <li><span class="opt-key">D</span> Neither</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — orders - the LEFT (first) table</p>
+          <p class="expl">LEFT JOIN keeps everything from the table on the left of the keyword. Every order appears, even those whose customer_id has no matching customer.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>Direction</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does RIGHT JOIN return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> All rows from the RIGHT table, plus matching left-table columns (NULL where no match)</li>
+          <li><span class="opt-key">B</span> Only matches</li>
+          <li><span class="opt-key">C</span> All left rows</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — All rows from the RIGHT table, plus matching left-table columns (NULL where no match)</p>
+          <p class="expl">RIGHT JOIN is the mirror of LEFT JOIN. In practice most people rewrite RIGHT joins as LEFT joins by swapping table order, because left-to-right reads more naturally.</p>
+          <p class="tags"><span>RIGHT JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does FULL OUTER JOIN return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALL rows from BOTH tables - matched where possible, NULLs filled in where not</li>
+          <li><span class="opt-key">B</span> Only matching rows</li>
+          <li><span class="opt-key">C</span> Only unmatched rows</li>
+          <li><span class="opt-key">D</span> The left table only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALL rows from BOTH tables - matched where possible, NULLs filled in where not</p>
+          <p class="expl">FULL OUTER JOIN is the union of LEFT and RIGHT: every unmatched row from either side is kept. (MySQL lacks it natively; emulate with LEFT JOIN UNION RIGHT JOIN.)</p>
+          <p class="tags"><span>FULL OUTER JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this count?
+SELECT c.name, COUNT(o.id) FROM customers c LEFT JOIN orders o ON c.id = o.customer_id GROUP BY c.name;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Every customer's order count, showing 0 for customers with no orders</li>
+          <li><span class="opt-key">B</span> Only customers with orders</li>
+          <li><span class="opt-key">C</span> Total orders</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Every customer's order count, showing 0 for customers with no orders</p>
+          <p class="expl">COUNT(o.id) counts non-NULL order ids, so unmatched customers correctly show 0. Note COUNT(*) would show 1 for them (the single NULL-padded row), which is a subtle trap.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>COUNT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does a LEFT JOIN return when the left table is empty?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Zero rows - there are no left rows to preserve</li>
+          <li><span class="opt-key">B</span> All right rows</li>
+          <li><span class="opt-key">C</span> One NULL row</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Zero rows - there are no left rows to preserve</p>
+          <p class="expl">LEFT JOIN preserves LEFT rows; with none, the result is empty regardless of the right table's contents.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>Empty tables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does the ORDER of tables matter for LEFT JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - LEFT JOIN is NOT symmetric; A LEFT JOIN B differs from B LEFT JOIN A</li>
+          <li><span class="opt-key">B</span> No, it is symmetric</li>
+          <li><span class="opt-key">C</span> Only for three tables</li>
+          <li><span class="opt-key">D</span> Only with WHERE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - LEFT JOIN is NOT symmetric; A LEFT JOIN B differs from B LEFT JOIN A</p>
+          <p class="expl">The left table's rows are always preserved, so swapping the tables changes which side keeps its unmatched rows. This is a key difference from INNER JOIN.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>Order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you show all products and their total sales, INCLUDING never-sold products?</p>
+        <pre class="code"><code>SELECT p.title, COALESCE(SUM(i.quantity), 0) AS sold
+FROM products p
+LEFT JOIN order_items i ON p.id = i.product_id
+GROUP BY p.title;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LEFT JOIN from products to order_items, then SUM with COALESCE for zero</li>
+          <li><span class="opt-key">B</span> INNER JOIN products to order_items</li>
+          <li><span class="opt-key">C</span> RIGHT JOIN order_items</li>
+          <li><span class="opt-key">D</span> CROSS JOIN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LEFT JOIN from products to order_items, then SUM with COALESCE for zero</p>
+          <p class="expl">Starting from products and LEFT JOINing sales keeps every product. Wrap the sum: COALESCE(SUM(i.quantity), 0) so unsold products show 0 rather than NULL.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>COALESCE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a common real-world use of LEFT JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Listing all items and their optional related data - e.g. all users with their last login (or none)</li>
+          <li><span class="opt-key">B</span> Deleting orphan rows</li>
+          <li><span class="opt-key">C</span> Speeding up queries</li>
+          <li><span class="opt-key">D</span> Sorting tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Listing all items and their optional related data - e.g. all users with their last login (or none)</p>
+          <p class="expl">Whenever the related data is optional - a profile photo, a last order, a manager - LEFT JOIN ensures the main entity is not dropped just because the optional part is missing.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>Optional data</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the term 'outer' mean in outer join?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Rows OUTSIDE the matched set (unmatched rows) are preserved, unlike inner join</li>
+          <li><span class="opt-key">B</span> It joins external databases</li>
+          <li><span class="opt-key">C</span> It refers to the outermost query</li>
+          <li><span class="opt-key">D</span> Nothing specific</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Rows OUTSIDE the matched set (unmatched rows) are preserved, unlike inner join</p>
+          <p class="expl">INNER keeps only the intersection; OUTER additionally keeps the 'outer' unmatched rows from one side (LEFT/RIGHT) or both (FULL).</p>
+          <p class="tags"><span>Outer joins</span><span>Terminology</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What appears in the right-table columns for an unmatched LEFT JOIN row?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> NULL</li>
+          <li><span class="opt-key">B</span> 0</li>
+          <li><span class="opt-key">C</span> Empty string</li>
+          <li><span class="opt-key">D</span> The default value</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — NULL</p>
+          <p class="expl">Every right column is NULL when there is no match. This is why you test for NULL to find unmatched rows, and use COALESCE to supply display defaults.</p>
+          <p class="tags"><span>NULL</span><span>LEFT JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you LEFT JOIN more than two tables?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - chain them, keeping in mind each LEFT preserves rows accumulated so far</li>
+          <li><span class="opt-key">B</span> No, only two</li>
+          <li><span class="opt-key">C</span> Only with FULL join</li>
+          <li><span class="opt-key">D</span> Only in subqueries</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - chain them, keeping in mind each LEFT preserves rows accumulated so far</p>
+          <p class="expl">Multiple LEFT JOINs are common (a user, their optional profile, their optional settings). Be careful that a later INNER JOIN does not filter out preserved rows.</p>
+          <p class="tags"><span>Join chains</span><span>LEFT JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is clearer to read: LEFT JOIN or RIGHT JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LEFT JOIN - reading left to right, the 'main' table comes first</li>
+          <li><span class="opt-key">B</span> RIGHT JOIN always</li>
+          <li><span class="opt-key">C</span> They are equally clear</li>
+          <li><span class="opt-key">D</span> FULL JOIN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LEFT JOIN - reading left to right, the 'main' table comes first</p>
+          <p class="expl">Convention favours LEFT JOIN so the preserved (main) table leads the FROM clause. Consistent direction makes complex queries easier to follow.</p>
+          <p class="tags"><span>Style</span><span>Readability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does COALESCE(o.status, 'no orders') do in a LEFT JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Displays 'no orders' for unmatched customers instead of NULL</li>
+          <li><span class="opt-key">B</span> Filters out NULLs</li>
+          <li><span class="opt-key">C</span> Counts orders</li>
+          <li><span class="opt-key">D</span> Sorts the result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Displays 'no orders' for unmatched customers instead of NULL</p>
+          <p class="expl">COALESCE gives friendly labels to the NULLs that outer joins produce - much nicer in a report than blank cells.</p>
+          <p class="tags"><span>COALESCE</span><span>LEFT JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When should you choose LEFT JOIN over INNER JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> When you must keep ALL rows of the main table even if the related data is missing</li>
+          <li><span class="opt-key">B</span> Always</li>
+          <li><span class="opt-key">C</span> Never - INNER is always better</li>
+          <li><span class="opt-key">D</span> Only for two tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — When you must keep ALL rows of the main table even if the related data is missing</p>
+          <p class="expl">If missing related data should hide the main row, use INNER. If the main row must always appear (all customers, all products), use LEFT. Choosing correctly is the heart of join design.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>INNER JOIN</span><span>Design</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (15)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How can any RIGHT JOIN be rewritten?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> As a LEFT JOIN with the two tables swapped</li>
+          <li><span class="opt-key">B</span> As an INNER JOIN</li>
+          <li><span class="opt-key">C</span> As a CROSS JOIN</li>
+          <li><span class="opt-key">D</span> It cannot be rewritten</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — As a LEFT JOIN with the two tables swapped</p>
+          <p class="expl">A RIGHT JOIN B equals B LEFT JOIN A. Because LEFT joins are more intuitive, many teams standardise on them and avoid RIGHT joins entirely.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>RIGHT JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find customers who have placed NO orders (an anti-join)?</p>
+        <pre class="code"><code>SELECT c.name
+FROM customers c
+LEFT JOIN orders o ON c.id = o.customer_id
+WHERE o.id IS NULL;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LEFT JOIN orders and keep rows WHERE o.id IS NULL</li>
+          <li><span class="opt-key">B</span> INNER JOIN and count zero</li>
+          <li><span class="opt-key">C</span> RIGHT JOIN customers</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LEFT JOIN orders and keep rows WHERE o.id IS NULL</p>
+          <p class="expl">A LEFT JOIN gives NULLs for unmatched right rows; filtering for those NULLs finds the 'orphans'. This is the anti-join pattern - a very common interview question.</p>
+          <ul class="notes"><li>Filter on the right table's PRIMARY KEY being NULL for reliability.</li></ul>
+          <p class="tags"><span>Anti-join</span><span>LEFT JOIN</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In an anti-join, which column should you test for IS NULL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The right table's PRIMARY KEY (or a NOT NULL column) - a nullable column could be NULL even when matched</li>
+          <li><span class="opt-key">B</span> Any column works</li>
+          <li><span class="opt-key">C</span> The left table's key</li>
+          <li><span class="opt-key">D</span> The join column of the left table</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The right table's PRIMARY KEY (or a NOT NULL column) - a nullable column could be NULL even when matched</p>
+          <p class="expl">If you test a nullable right column, a matched row that happens to store NULL there would be falsely flagged as unmatched. The primary key is never NULL in a real match.</p>
+          <p class="tags"><span>Anti-join</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does putting a right-table filter in WHERE 'break' a LEFT JOIN?
+LEFT JOIN orders o ON ... WHERE o.status = 'paid'</p>
+        <pre class="code"><code>LEFT JOIN orders o ON c.id = o.customer_id AND o.status = 'paid'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The WHERE removes the NULL rows, silently turning the LEFT JOIN into an INNER JOIN</li>
+          <li><span class="opt-key">B</span> It causes a syntax error</li>
+          <li><span class="opt-key">C</span> It has no effect</li>
+          <li><span class="opt-key">D</span> It duplicates rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The WHERE removes the NULL rows, silently turning the LEFT JOIN into an INNER JOIN</p>
+          <p class="expl">Unmatched left rows have o.status = NULL, and NULL = 'paid' is not TRUE, so WHERE discards them. To keep them, move the condition into the ON clause instead.</p>
+          <ul class="notes"><li>A subtle, very common bug.</li></ul>
+          <p class="tags"><span>LEFT JOIN</span><span>ON vs WHERE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between putting a condition in ON vs WHERE for a LEFT JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ON filters which rows MATCH (unmatched left rows are still kept); WHERE filters the final result (can drop unmatched rows)</li>
+          <li><span class="opt-key">B</span> No difference</li>
+          <li><span class="opt-key">C</span> ON is only for inner joins</li>
+          <li><span class="opt-key">D</span> WHERE runs first</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ON filters which rows MATCH (unmatched left rows are still kept); WHERE filters the final result (can drop unmatched rows)</p>
+          <p class="expl">For INNER JOIN the placement is equivalent, but for OUTER joins it changes the result fundamentally. Conditions on the outer (right) table usually belong in ON.</p>
+          <p class="tags"><span>ON vs WHERE</span><span>Outer joins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why use COUNT(o.id) instead of COUNT(*) in a LEFT JOIN aggregate?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> COUNT(*) counts the NULL-padded row as 1; COUNT(o.id) counts only real matches, giving 0 for no orders</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> COUNT(*) is faster and correct</li>
+          <li><span class="opt-key">D</span> COUNT(o.id) is invalid</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — COUNT(*) counts the NULL-padded row as 1; COUNT(o.id) counts only real matches, giving 0 for no orders</p>
+          <p class="expl">A customer with no orders still produces one result row (all order columns NULL). COUNT(*) counts that row; COUNT of a specific order column ignores it. Getting this wrong overstates counts by one.</p>
+          <p class="tags"><span>COUNT</span><span>NULL</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find rows that exist in EITHER table but not both (symmetric difference)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FULL OUTER JOIN with WHERE a.id IS NULL OR b.id IS NULL</li>
+          <li><span class="opt-key">B</span> INNER JOIN</li>
+          <li><span class="opt-key">C</span> CROSS JOIN</li>
+          <li><span class="opt-key">D</span> LEFT JOIN only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FULL OUTER JOIN with WHERE a.id IS NULL OR b.id IS NULL</p>
+          <p class="expl">FULL join keeps unmatched rows from both sides; filtering for NULL on either key leaves only the non-overlapping rows. Useful for reconciling two data sources.</p>
+          <p class="tags"><span>FULL OUTER JOIN</span><span>Reconciliation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In a chain of LEFT JOINs, why can a later INNER JOIN undo earlier ones?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An INNER JOIN after LEFT JOINs discards rows that had NULLs, effectively filtering out the preserved rows</li>
+          <li><span class="opt-key">B</span> It never happens</li>
+          <li><span class="opt-key">C</span> INNER always comes first</li>
+          <li><span class="opt-key">D</span> Chained joins are invalid</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An INNER JOIN after LEFT JOINs discards rows that had NULLs, effectively filtering out the preserved rows</p>
+          <p class="expl">Once you switch to INNER later in the chain, any row lacking a match there is dropped - including the NULL-padded rows the LEFT JOIN kept. Keep the chain LEFT if you must preserve rows throughout.</p>
+          <p class="tags"><span>Join chains</span><span>Outer joins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why might SUM over a LEFT JOIN return NULL for unmatched rows?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> There are no values to sum, and SUM of nothing is NULL - wrap with COALESCE(SUM(x), 0)</li>
+          <li><span class="opt-key">B</span> SUM always errors on joins</li>
+          <li><span class="opt-key">C</span> LEFT JOIN removes the row</li>
+          <li><span class="opt-key">D</span> It returns 0 automatically</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — There are no values to sum, and SUM of nothing is NULL - wrap with COALESCE(SUM(x), 0)</p>
+          <p class="expl">The unmatched right columns are all NULL, so SUM has nothing to add and yields NULL. COALESCE converts it to a numeric 0 for clean reports.</p>
+          <p class="tags"><span>SUM</span><span>NULL</span><span>COALESCE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Does MySQL support FULL OUTER JOIN?</p>
+        <pre class="code"><code>SELECT * FROM a LEFT JOIN b ON a.id=b.a_id
+UNION
+SELECT * FROM a RIGHT JOIN b ON a.id=b.a_id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Not directly - you emulate it with LEFT JOIN UNION RIGHT JOIN</li>
+          <li><span class="opt-key">B</span> Yes, fully</li>
+          <li><span class="opt-key">C</span> Only in views</li>
+          <li><span class="opt-key">D</span> Only with indexes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Not directly - you emulate it with LEFT JOIN UNION RIGHT JOIN</p>
+          <p class="expl">PostgreSQL, SQL Server and Oracle support FULL OUTER JOIN. In MySQL, combine a LEFT JOIN and a RIGHT JOIN with UNION to get the same result.</p>
+          <p class="tags"><span>FULL OUTER JOIN</span><span>MySQL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How would you list departments and their employee count, showing empty departments too?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT d.name, COUNT(e.id) FROM departments d LEFT JOIN employees e ON d.id = e.dept_id GROUP BY d.name;</li>
+          <li><span class="opt-key">B</span> INNER JOIN departments and employees</li>
+          <li><span class="opt-key">C</span> RIGHT JOIN employees</li>
+          <li><span class="opt-key">D</span> Count employees only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT d.name, COUNT(e.id) FROM departments d LEFT JOIN employees e ON d.id = e.dept_id GROUP BY d.name;</p>
+          <p class="expl">LEFT JOIN from departments preserves every department; COUNT(e.id) yields 0 for empty ones. INNER JOIN would silently hide departments with no staff.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>COUNT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which join finds products that have NEVER been ordered?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> products LEFT JOIN order_items ... WHERE order_items.id IS NULL</li>
+          <li><span class="opt-key">B</span> products INNER JOIN order_items</li>
+          <li><span class="opt-key">C</span> products RIGHT JOIN order_items</li>
+          <li><span class="opt-key">D</span> products CROSS JOIN order_items</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — products LEFT JOIN order_items ... WHERE order_items.id IS NULL</p>
+          <p class="expl">The anti-join again: keep all products, then filter to those with no matching order line. Equivalent to WHERE NOT EXISTS (SELECT 1 FROM order_items ...).</p>
+          <p class="tags"><span>Anti-join</span><span>NOT EXISTS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the row count of A LEFT JOIN B when every A row matches exactly one B row, plus 5 A rows match none?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The number of A rows (matched rows once each, plus the 5 unmatched once each)</li>
+          <li><span class="opt-key">B</span> A rows minus 5</li>
+          <li><span class="opt-key">C</span> A times B</li>
+          <li><span class="opt-key">D</span> Only the matched rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The number of A rows (matched rows once each, plus the 5 unmatched once each)</p>
+          <p class="expl">One-to-one matches produce one row each, and unmatched A rows also produce one (NULL-padded) row each - so the total equals the A row count. Fan-out only occurs with one-to-many matches.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>Row counts</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How does a LEFT JOIN interact with a one-to-many relationship?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Matched left rows still fan out to multiple rows; unmatched left rows appear once with NULLs</li>
+          <li><span class="opt-key">B</span> It prevents fan-out</li>
+          <li><span class="opt-key">C</span> It always returns one row per left row</li>
+          <li><span class="opt-key">D</span> It errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Matched left rows still fan out to multiple rows; unmatched left rows appear once with NULLs</p>
+          <p class="expl">LEFT JOIN does not stop duplication - a customer with 3 orders still yields 3 rows. It only guarantees that customers with 0 orders are not lost.</p>
+          <p class="tags"><span>Fan-out</span><span>LEFT JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can a LEFT JOIN sometimes be SLOWER than an INNER JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It must preserve unmatched rows, giving the optimiser fewer ways to prune and reorder</li>
+          <li><span class="opt-key">B</span> It is always slower</li>
+          <li><span class="opt-key">C</span> It scans twice</li>
+          <li><span class="opt-key">D</span> It never differs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It must preserve unmatched rows, giving the optimiser fewer ways to prune and reorder</p>
+          <p class="expl">INNER joins let the optimiser drop non-matching rows early and choose join order freely. Outer joins constrain this, so use INNER when you genuinely only need matches.</p>
+          <p class="tags"><span>Performance</span><span>Optimiser</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="11-inner-join.html">← INNER JOIN</a>
+      <a href="13-advanced-joins.html">Advanced Joins →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-11">Practice “OUTER JOINs” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

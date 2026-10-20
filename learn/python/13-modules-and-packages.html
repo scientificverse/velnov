@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modules &amp; Packages – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Modules &amp; Packages with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/13-modules-and-packages.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Modules &amp; Packages – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Modules &amp; Packages with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/13-modules-and-packages.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Modules & Packages","item":"https://velnov.co.in/learn/python/13-modules-and-packages.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Modules &amp; Packages</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 13 of 20</p>
+      <h1>Modules &amp; Packages — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Modules &amp; Packages</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-12">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">12 easy · 13 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>import</span><span>Code reuse</span><span>Namespaces</span><span>from-import</span><span>Aliases</span><span>Conventions</span><span>Best practices</span><span>random module</span><span>randint vs randrange</span><span>choice()</span><span>sample()</span><span>shuffle()</span><span>random()</span><span>uniform()</span><span>math module</span><span>Rounding</span><span>datetime module</span><span>time module</span><span>PyPI</span><span>Third-party packages</span><span>Batteries included</span><span>pip</span><span>Custom modules</span><span>Project structure</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (12)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is a module in Python?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A .py file whose functions/variables you can import and reuse</li>
+          <li><span class="opt-key">B</span> A type of loop</li>
+          <li><span class="opt-key">C</span> A compressed archive</li>
+          <li><span class="opt-key">D</span> A class method</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A .py file whose functions/variables you can import and reuse</p>
+          <p class="expl">Any Python file is a module. import makes its functions, classes and variables available in your code - the basic unit of code reuse.</p>
+          <p class="tags"><span>import</span><span>Code reuse</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">After 'import math', how do you call its square root function?</p>
+        <pre class="code"><code>import math
+print(math.sqrt(16))   # 4.0
+print(math.pi)          # 3.141592653589793</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> math.sqrt(16)</li>
+          <li><span class="opt-key">B</span> sqrt(16)</li>
+          <li><span class="opt-key">C</span> math-&gt;sqrt(16)</li>
+          <li><span class="opt-key">D</span> import sqrt(16)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — math.sqrt(16)</p>
+          <p class="expl">Plain import binds the MODULE name - you access contents with the dot: math.sqrt(16). Bare sqrt(16) only works after 'from math import sqrt'.</p>
+          <p class="tags"><span>import</span><span>Namespaces</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does 'from math import sqrt' let you write?</p>
+        <pre class="code"><code>from math import sqrt, pi
+print(sqrt(16))   # 4.0
+print(pi)          # 3.14159...</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> sqrt(16) - directly, without the math. prefix</li>
+          <li><span class="opt-key">B</span> math.sqrt(16) only</li>
+          <li><span class="opt-key">C</span> Nothing - it's invalid</li>
+          <li><span class="opt-key">D</span> sqrt.math(16)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — sqrt(16) - directly, without the math. prefix</p>
+          <p class="expl">from-import copies a specific name into your file's namespace: sqrt(16) works directly. The rest of math stays unimported (math.pi would be a NameError).</p>
+          <p class="tags"><span>from-import</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does 'import numpy as np' do?</p>
+        <pre class="code"><code>import numpy as np
+import pandas as pd
+arr = np.array([1, 2, 3])</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Imports numpy under the shorter alias np</li>
+          <li><span class="opt-key">B</span> Imports only the np part of numpy</li>
+          <li><span class="opt-key">C</span> Renames the numpy package on disk</li>
+          <li><span class="opt-key">D</span> Creates a copy of numpy</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Imports numpy under the shorter alias np</p>
+          <p class="expl">as creates an alias - the module is used as np.array(...) instead of numpy.array(...). Common conventions: numpy as np, pandas as pd.</p>
+          <p class="tags"><span>Aliases</span><span>Conventions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does random.randint(1, 6) return?</p>
+        <pre class="code"><code>import random
+dice = random.randint(1, 6)   # 1,2,3,4,5 or 6</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A random integer from 1 to 6, BOTH ends included - like a dice roll</li>
+          <li><span class="opt-key">B</span> 1 to 5 (6 excluded)</li>
+          <li><span class="opt-key">C</span> A random float</li>
+          <li><span class="opt-key">D</span> Always 6</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A random integer from 1 to 6, BOTH ends included - like a dice roll</p>
+          <p class="expl">randint is INCLUSIVE on both ends - unusual for Python (range excludes its stop!). Perfect dice: random.randint(1, 6).</p>
+          <ul class="notes"><li>Contrast: random.randrange(1, 6) gives 1-5.</li></ul>
+          <p class="tags"><span>random module</span><span>randint vs randrange</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which picks ONE random item from a list?</p>
+        <pre class="code"><code>import random
+winner = random.choice([&quot;Ana&quot;, &quot;Ben&quot;, &quot;Cy&quot;])
+print(winner)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> random.choice(items)</li>
+          <li><span class="opt-key">B</span> random.pick(items)</li>
+          <li><span class="opt-key">C</span> items.random()</li>
+          <li><span class="opt-key">D</span> random.one(items)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — random.choice(items)</p>
+          <p class="expl">random.choice(sequence) returns one random element. Related: random.sample(items, 3) picks 3 without repeats; random.shuffle(items) reorders the list in place.</p>
+          <p class="tags"><span>choice()</span><span>sample()</span><span>shuffle()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What do math.floor(2.7) and math.ceil(2.1) return?</p>
+        <pre class="code"><code>import math
+print(math.floor(2.7))   # 2
+print(math.ceil(2.1))    # 3</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 and 3</li>
+          <li><span class="opt-key">B</span> 3 and 2</li>
+          <li><span class="opt-key">C</span> 2.7 and 2.1</li>
+          <li><span class="opt-key">D</span> 3 and 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 and 3</p>
+          <p class="expl">floor() rounds DOWN to the nearest integer (2.7 -&gt; 2), ceil() rounds UP (2.1 -&gt; 3). Both return ints.</p>
+          <p class="tags"><span>math module</span><span>Rounding</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you get today's date?</p>
+        <pre class="code"><code>from datetime import date, datetime
+print(date.today())      # 2026-07-03
+print(datetime.now())    # 2026-07-03 14:30:05.123</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> from datetime import date; date.today()</li>
+          <li><span class="opt-key">B</span> import today</li>
+          <li><span class="opt-key">C</span> time.today()</li>
+          <li><span class="opt-key">D</span> date.now.today</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — from datetime import date; date.today()</p>
+          <p class="expl">The datetime module handles dates and times: date.today() gives the current date; datetime.now() adds the time of day.</p>
+          <p class="tags"><span>datetime module</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which pauses the program for 2 seconds?</p>
+        <pre class="code"><code>import time
+print(&quot;3...&quot;)
+time.sleep(1)
+print(&quot;2...&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> time.sleep(2)</li>
+          <li><span class="opt-key">B</span> time.wait(2)</li>
+          <li><span class="opt-key">C</span> sleep.time(2)</li>
+          <li><span class="opt-key">D</span> pause(2)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — time.sleep(2)</p>
+          <p class="expl">time.sleep(seconds) blocks execution for that long - used for delays, animations, rate limiting.</p>
+          <p class="tags"><span>time module</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is pip?</p>
+        <pre class="code"><code># in the terminal (not in Python!):
+pip install requests
+pip list            # show installed packages</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Python's package installer - downloads third-party libraries from PyPI</li>
+          <li><span class="opt-key">B</span> A Python IDE</li>
+          <li><span class="opt-key">C</span> A file format</li>
+          <li><span class="opt-key">D</span> Python's debugger</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Python's package installer - downloads third-party libraries from PyPI</p>
+          <p class="expl">pip installs packages from the Python Package Index (PyPI): pip install requests. The standard library needs no installing; pip is for everything beyond it.</p>
+          <p class="tags"><span>PyPI</span><span>Third-party packages</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which computes the average of [80, 90, 100] using the standard library?</p>
+        <pre class="code"><code>import statistics
+print(statistics.mean([80, 90, 100]))    # 90
+print(statistics.median([1, 3, 99]))      # 3</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> statistics.mean([80, 90, 100])</li>
+          <li><span class="opt-key">B</span> math.average([80, 90, 100])</li>
+          <li><span class="opt-key">C</span> avg([80, 90, 100])</li>
+          <li><span class="opt-key">D</span> numpy only can do this</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — statistics.mean([80, 90, 100])</p>
+          <p class="expl">The statistics module has mean, median, mode, stdev - no installation needed. (math has no average function; numpy works too but isn't required.)</p>
+          <p class="tags"><span>statistics module</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which command shows every package pip has installed?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> pip list</li>
+          <li><span class="opt-key">B</span> pip show all</li>
+          <li><span class="opt-key">C</span> python --packages</li>
+          <li><span class="opt-key">D</span> pip everything</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — pip list</p>
+          <p class="expl">pip list prints installed packages and versions. pip show &lt;name&gt; gives details of one; pip freeze outputs the requirements.txt format.</p>
+          <p class="tags"><span>pip</span><span>requirements.txt</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why is 'from math import *' discouraged?</p>
+        <pre class="code"><code># unclear:
+from math import *
+print(floor(2.7))    # where's floor from?
+
+# clear:
+import math
+print(math.floor(2.7))</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It dumps EVERY name into your file - unclear origins, and it can silently overwrite your own variables</li>
+          <li><span class="opt-key">B</span> It's slower to run</li>
+          <li><span class="opt-key">C</span> It's a syntax error</li>
+          <li><span class="opt-key">D</span> It only imports half the module</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It dumps EVERY name into your file - unclear origins, and it can silently overwrite your own variables</p>
+          <p class="expl">Star imports pollute the namespace: readers can't tell where a function came from, and two star imports can clash (both defining e.g. sqrt). Import what you need, explicitly.</p>
+          <p class="tags"><span>Namespaces</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does random.random() return?</p>
+        <pre class="code"><code>import random
+print(random.random())        # e.g. 0.7134...
+print(random.uniform(1, 10))  # float between 1 and 10</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A float from 0.0 up to (but not including) 1.0</li>
+          <li><span class="opt-key">B</span> A random integer</li>
+          <li><span class="opt-key">C</span> 0 or 1</li>
+          <li><span class="opt-key">D</span> A float from -1 to 1</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A float from 0.0 up to (but not including) 1.0</p>
+          <p class="expl">random.random() gives a float in [0.0, 1.0). Scale it for other ranges, or use random.uniform(a, b) directly.</p>
+          <p class="tags"><span>random()</span><span>uniform()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the STANDARD LIBRARY?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The modules that ship WITH Python - math, random, os, json... no pip needed</li>
+          <li><span class="opt-key">B</span> Any code on GitHub</li>
+          <li><span class="opt-key">C</span> Packages you must pay for</li>
+          <li><span class="opt-key">D</span> Only the built-in functions like print</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The modules that ship WITH Python - math, random, os, json... no pip needed</p>
+          <p class="expl">Python comes 'batteries included': hundreds of ready modules (math, random, datetime, os, json, csv, sqlite3...) available to import immediately. Third-party packages (numpy, requests) are the ones pip installs.</p>
+          <p class="tags"><span>Batteries included</span><span>pip</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">You wrote helpers.py with a function greet(). How does main.py (same folder) use it?</p>
+        <pre class="code"><code># helpers.py
+def greet(name):
+    return f&quot;Hello {name}&quot;
+
+# main.py
+import helpers
+print(helpers.greet(&quot;Ana&quot;))</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> import helpers, then helpers.greet()</li>
+          <li><span class="opt-key">B</span> include helpers.py</li>
+          <li><span class="opt-key">C</span> using helpers</li>
+          <li><span class="opt-key">D</span> You can't import your own files</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — import helpers, then helpers.greet()</p>
+          <p class="expl">Your own .py files are modules too! import helpers (no .py extension) loads the file; call its contents with the dot. This is how projects split into multiple files.</p>
+          <p class="tags"><span>Custom modules</span><span>Project structure</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which exception does 'import nosuchmodule' raise?</p>
+        <pre class="code"><code>try:
+    import numpy
+except ModuleNotFoundError:
+    print(&quot;run: pip install numpy&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ModuleNotFoundError</li>
+          <li><span class="opt-key">B</span> FileNotFoundError</li>
+          <li><span class="opt-key">C</span> NameError</li>
+          <li><span class="opt-key">D</span> KeyError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ModuleNotFoundError</p>
+          <p class="expl">Importing something that isn't installed or doesn't exist raises ModuleNotFoundError (a subclass of ImportError). Usually the fix: pip install it, or check the spelling.</p>
+          <p class="tags"><span>ModuleNotFoundError</span><span>pip</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does dir(math) show?</p>
+        <pre class="code"><code>import math
+print(dir(math))
+# ['ceil', 'cos', 'floor', 'pi', 'sqrt', ...]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Every name (functions, constants) defined in the math module</li>
+          <li><span class="opt-key">B</span> The folder containing math</li>
+          <li><span class="opt-key">C</span> The math source code</li>
+          <li><span class="opt-key">D</span> Math homework</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Every name (functions, constants) defined in the math module</p>
+          <p class="expl">dir(anything) lists its attributes - for a module, all its functions and constants. Great for exploring: dir(str), dir(list), dir(random).</p>
+          <p class="tags"><span>dir()</span><span>help()</span><span>Exploration</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the os module mainly for?</p>
+        <pre class="code"><code>import os
+print(os.getcwd())          # current folder
+print(os.listdir(&quot;.&quot;))     # files in it
+os.makedirs(&quot;output&quot;, exist_ok=True)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Talking to the operating system - files, folders, paths, environment variables</li>
+          <li><span class="opt-key">B</span> Object serialization</li>
+          <li><span class="opt-key">C</span> Online services</li>
+          <li><span class="opt-key">D</span> Optimizing speed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Talking to the operating system - files, folders, paths, environment variables</p>
+          <p class="expl">os (and its friend os.path, plus the modern pathlib) handles OS tasks: list folders (os.listdir), make dirs (os.makedirs), check paths, read environment variables.</p>
+          <p class="tags"><span>os module</span><span>pathlib</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does collections.Counter do?
+Counter([&quot;a&quot;, &quot;b&quot;, &quot;a&quot;, &quot;a&quot;])</p>
+        <pre class="code"><code>from collections import Counter
+votes = [&quot;ana&quot;, &quot;ben&quot;, &quot;ana&quot;, &quot;ana&quot;]
+c = Counter(votes)
+print(c)                  # Counter({'ana': 3, 'ben': 1})
+print(c.most_common(1))   # [('ana', 3)]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Counts occurrences: Counter({'a': 3, 'b': 1})</li>
+          <li><span class="opt-key">B</span> Counts to infinity</li>
+          <li><span class="opt-key">C</span> Removes duplicates</li>
+          <li><span class="opt-key">D</span> Sorts the list</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Counts occurrences: Counter({'a': 3, 'b': 1})</p>
+          <p class="expl">Counter is a dict subclass that counts items in one line - replacing the manual get(x, 0) + 1 loop. Bonus: .most_common(n) gives the top n.</p>
+          <p class="tags"><span>Counter</span><span>collections module</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">You named your script random.py and 'import random' now breaks. Why?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Your own file shadows the standard random module - Python imports YOUR file instead</li>
+          <li><span class="opt-key">B</span> random was removed from Python</li>
+          <li><span class="opt-key">C</span> You must restart the computer</li>
+          <li><span class="opt-key">D</span> randint is Python 2 only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Your own file shadows the standard random module - Python imports YOUR file instead</p>
+          <p class="expl">The script's own folder is FIRST on the import path, so random.py (yours) wins over the standard library. Symptoms: AttributeError: module 'random' has no attribute 'randint'. Fix: rename your file.</p>
+          <p class="tags"><span>Shadowing</span><span>sys.path</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does sys.argv contain?</p>
+        <pre class="code"><code>import sys
+# python app.py Ana
+print(sys.argv)        # ['app.py', 'Ana']
+print(sys.argv[1])     # Ana</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The command-line arguments: sys.argv[0] is the script name, the rest are user-supplied</li>
+          <li><span class="opt-key">B</span> All environment variables</li>
+          <li><span class="opt-key">C</span> The Python version</li>
+          <li><span class="opt-key">D</span> System errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The command-line arguments: sys.argv[0] is the script name, the rest are user-supplied</p>
+          <p class="expl">Running 'python app.py hello 42' gives sys.argv = ['app.py', 'hello', '42'] - all strings. It's the simplest way to accept command-line input.</p>
+          <p class="tags"><span>sys module</span><span>Command line</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does math.pi ** 2 compute, roughly?</p>
+        <pre class="code"><code>import math
+print(math.pi ** 2)     # 9.869...
+area = math.pi * r**2   # circle area</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 9.87 (pi squared)</li>
+          <li><span class="opt-key">B</span> 6.28 (2 pi)</li>
+          <li><span class="opt-key">C</span> 3.14</li>
+          <li><span class="opt-key">D</span> Error - pi is a function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 9.87 (pi squared)</p>
+          <p class="expl">math.pi is a CONSTANT (3.14159...), not a function - no parentheses. pi squared is about 9.87.</p>
+          <p class="tags"><span>math constants</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is requirements.txt used for?</p>
+        <pre class="code"><code># requirements.txt
+requests==2.31.0
+numpy&gt;=1.24
+
+# install everything:
+pip install -r requirements.txt</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Listing a project's package dependencies so others can 'pip install -r requirements.txt'</li>
+          <li><span class="opt-key">B</span> Python's TODO list</li>
+          <li><span class="opt-key">C</span> License requirements</li>
+          <li><span class="opt-key">D</span> The program's system requirements</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Listing a project's package dependencies so others can 'pip install -r requirements.txt'</p>
+          <p class="expl">It records exactly what packages (and versions) a project needs. Anyone cloning your project runs one command to install them all - reproducible environments.</p>
+          <p class="tags"><span>Dependencies</span><span>pip</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which import style does PEP 8 recommend at the TOP of a file?</p>
+        <pre class="code"><code>import os
+import json
+
+import requests
+
+from myapp import helpers</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Standard library first, then third-party, then your own modules - in separate groups</li>
+          <li><span class="opt-key">B</span> Alphabetical single list, mixed</li>
+          <li><span class="opt-key">C</span> Imports go at the bottom</li>
+          <li><span class="opt-key">D</span> One giant from x import *</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Standard library first, then third-party, then your own modules - in separate groups</p>
+          <p class="expl">PEP 8 groups imports: 1) standard library, 2) third-party, 3) local modules - blank line between groups, all at the top of the file. Readers instantly see what the file depends on.</p>
+          <p class="tags"><span>PEP 8</span><span>Code style</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (5)</h2>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the purpose of:
+if __name__ == &quot;__main__&quot;:
+    main()</p>
+        <pre class="code"><code># helpers.py
+def greet(): ...
+
+if __name__ == &quot;__main__&quot;:
+    greet()   # runs only via: python helpers.py
+              # NOT when: import helpers</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Run main() only when the file is executed DIRECTLY - not when it's imported by another file</li>
+          <li><span class="opt-key">B</span> Declare the program's name</li>
+          <li><span class="opt-key">C</span> Make the file importable at all</li>
+          <li><span class="opt-key">D</span> It's required in every Python file</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Run main() only when the file is executed DIRECTLY - not when it's imported by another file</p>
+          <p class="expl">Python sets __name__ to &quot;__main__&quot; in the file being run, but to the module's name when imported. The guard lets a file be BOTH a runnable script AND an importable library - imports get the functions without side effects.</p>
+          <ul class="notes"><li>A favorite interview question - know this one cold.</li></ul>
+          <p class="tags"><span>__name__</span><span>Scripts vs modules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">print(&quot;loading!&quot;) sits at the TOP of helpers.py (outside any function). What happens on 'import helpers'?</p>
+        <pre class="code"><code># helpers.py
+print(&quot;loading!&quot;)     # runs on import!
+def greet(): ...
+
+# main.py
+import helpers   # prints: loading!
+import helpers   # (cached - nothing prints)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It prints 'loading!' - top-level code RUNS at import time (but only on the first import)</li>
+          <li><span class="opt-key">B</span> Nothing - imports never execute code</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> It prints on every import statement, even repeated ones</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It prints 'loading!' - top-level code RUNS at import time (but only on the first import)</p>
+          <p class="expl">Importing EXECUTES the module top to bottom - defs create functions, and loose statements run. Python caches modules, so a second 'import helpers' does NOT re-run it. This is why the __main__ guard matters.</p>
+          <p class="tags"><span>Import mechanics</span><span>Module caching</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a PACKAGE, as opposed to a module?</p>
+        <pre class="code"><code>myapp/
+  __init__.py
+  utils.py
+  models.py
+
+# usage:
+from myapp import utils
+from myapp.models import User</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A folder of modules (traditionally marked by an __init__.py file) - importable as package.module</li>
+          <li><span class="opt-key">B</span> A zip file</li>
+          <li><span class="opt-key">C</span> Any file over 1000 lines</li>
+          <li><span class="opt-key">D</span> A module with classes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A folder of modules (traditionally marked by an __init__.py file) - importable as package.module</p>
+          <p class="expl">Packages organize related modules into folders: myapp/utils.py imports as 'from myapp import utils'. __init__.py marks the folder as a package (optional since 3.3 but still common) and runs on package import.</p>
+          <p class="tags"><span>Packages</span><span>__init__.py</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Where does Python LOOK for modules when you import?</p>
+        <pre class="code"><code>import sys
+print(sys.path)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The script's folder, then the paths in sys.path (standard library, installed packages)</li>
+          <li><span class="opt-key">B</span> The whole hard drive</li>
+          <li><span class="opt-key">C</span> Only the standard library</li>
+          <li><span class="opt-key">D</span> The internet</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The script's folder, then the paths in sys.path (standard library, installed packages)</p>
+          <p class="expl">Python walks sys.path in order: the running script's directory first, then standard library locations, then site-packages (pip installs). This is why a local file named random.py can SHADOW the real random module - a classic bug!</p>
+          <ul class="notes"><li>Never name your files math.py, random.py, string.py...</li></ul>
+          <p class="tags"><span>sys.path</span><span>Shadowing</span><span>Import order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a circular import?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> a.py imports b.py while b.py imports a.py - one gets a half-loaded module and often crashes</li>
+          <li><span class="opt-key">B</span> Importing the same module twice</li>
+          <li><span class="opt-key">C</span> Importing with a loop</li>
+          <li><span class="opt-key">D</span> A pip feature</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — a.py imports b.py while b.py imports a.py - one gets a half-loaded module and often crashes</p>
+          <p class="expl">When two modules import each other, Python starts loading a, pauses to load b, which asks for a - but a is only half-executed, so names may be missing (ImportError/AttributeError). Fix: restructure, move shared code to a third module, or import inside functions.</p>
+          <p class="tags"><span>Circular imports</span><span>Architecture</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="12-file-handling.html">← File Handling</a>
+      <a href="14-classes-and-objects.html">Classes &amp; Objects →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-12">Practice “Modules &amp; Packages” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

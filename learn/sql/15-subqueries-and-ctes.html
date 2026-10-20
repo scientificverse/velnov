@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subqueries &amp; CTEs – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Subqueries &amp; CTEs with answers and detailed explanations — 1 easy, 14 medium and 15 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/15-subqueries-and-ctes.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Subqueries &amp; CTEs – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Subqueries &amp; CTEs with answers and detailed explanations — 1 easy, 14 medium and 15 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/15-subqueries-and-ctes.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Subqueries & CTEs","item":"https://velnov.co.in/learn/sql/15-subqueries-and-ctes.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Subqueries &amp; CTEs</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 15 of 20</p>
+      <h1>Subqueries &amp; CTEs — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Subqueries &amp; CTEs</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-14">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">1 easy · 14 medium · 15 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Subqueries</span><span>Nesting</span><span>Scalar subquery</span><span>AVG</span><span>Correlated subquery</span><span>Performance</span><span>Execution</span><span>EXISTS</span><span>Semi-join</span><span>IN</span><span>NULL</span><span>Derived table</span><span>Inline view</span><span>CTE</span><span>WITH</span><span>Readability</span><span>Chaining</span><span>Recursive CTE</span><span>Hierarchies</span><span>Structure</span><span>SELECT</span><span>Subquery</span><span>Ties</span><span>Placement</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (1)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is a subquery?</p>
+        <pre class="code"><code>SELECT name FROM students
+WHERE marks &gt; (SELECT AVG(marks) FROM students);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A query nested inside another query, whose result feeds the outer query</li>
+          <li><span class="opt-key">B</span> A second database</li>
+          <li><span class="opt-key">C</span> A backup query</li>
+          <li><span class="opt-key">D</span> A type of join</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A query nested inside another query, whose result feeds the outer query</p>
+          <p class="expl">Subqueries appear in WHERE, FROM, SELECT or HAVING. They let you use the result of one query as an input to another - for example, comparing against an average.</p>
+          <p class="tags"><span>Subqueries</span><span>Nesting</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a scalar subquery?</p>
+        <pre class="code"><code>SELECT name, (SELECT AVG(marks) FROM students) AS class_avg FROM students;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A subquery that returns exactly ONE value (one row, one column)</li>
+          <li><span class="opt-key">B</span> A subquery returning many rows</li>
+          <li><span class="opt-key">C</span> A subquery with no result</li>
+          <li><span class="opt-key">D</span> A subquery in FROM</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A subquery that returns exactly ONE value (one row, one column)</p>
+          <p class="expl">Scalar subqueries can be used anywhere a single value is expected, such as = comparisons or the SELECT list. Returning more than one row causes an error.</p>
+          <p class="tags"><span>Scalar subquery</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this find?
+SELECT name FROM products WHERE price &gt; (SELECT AVG(price) FROM products);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Products priced above the overall average</li>
+          <li><span class="opt-key">B</span> The most expensive product</li>
+          <li><span class="opt-key">C</span> All products</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Products priced above the overall average</p>
+          <p class="expl">The subquery computes one average value, and the outer query compares each product to it. A classic 'above average' pattern that a single query cannot express with an aggregate in WHERE.</p>
+          <p class="tags"><span>Scalar subquery</span><span>AVG</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does EXISTS with a correlated subquery test?</p>
+        <pre class="code"><code>SELECT c.name FROM customers c
+WHERE EXISTS (SELECT 1 FROM orders o WHERE o.customer_id = c.id);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Whether at least one matching row exists for the current outer row - it stops at the first match</li>
+          <li><span class="opt-key">B</span> The count of rows</li>
+          <li><span class="opt-key">C</span> Whether a table exists</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Whether at least one matching row exists for the current outer row - it stops at the first match</p>
+          <p class="expl">EXISTS is a semi-join: it returns the outer row if the subquery finds anything. It is efficient because it short-circuits and does not care what the subquery selects.</p>
+          <p class="tags"><span>EXISTS</span><span>Semi-join</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does a subquery in the FROM clause create?</p>
+        <pre class="code"><code>SELECT dept, avg_sal FROM (
+  SELECT dept, AVG(salary) AS avg_sal FROM employees GROUP BY dept
+) t WHERE avg_sal &gt; 50000;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A derived table (inline view) that the outer query treats as a regular table</li>
+          <li><span class="opt-key">B</span> A permanent table</li>
+          <li><span class="opt-key">C</span> An index</li>
+          <li><span class="opt-key">D</span> A join</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A derived table (inline view) that the outer query treats as a regular table</p>
+          <p class="expl">A derived table must be given an alias. It is handy for pre-aggregating or filtering before the outer query works on the result.</p>
+          <p class="tags"><span>Derived table</span><span>Inline view</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a CTE (Common Table Expression)?</p>
+        <pre class="code"><code>WITH dept_avg AS (
+  SELECT dept, AVG(salary) AS avg_sal FROM employees GROUP BY dept
+)
+SELECT * FROM dept_avg WHERE avg_sal &gt; 50000;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A named temporary result defined with WITH, usable in the query that follows</li>
+          <li><span class="opt-key">B</span> A permanent table</li>
+          <li><span class="opt-key">C</span> A type of index</li>
+          <li><span class="opt-key">D</span> A backup</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A named temporary result defined with WITH, usable in the query that follows</p>
+          <p class="expl">CTEs improve readability by naming and separating steps. They exist only for the duration of the query, acting like a labelled subquery you can reference by name.</p>
+          <p class="tags"><span>CTE</span><span>WITH</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the main advantage of a CTE over a nested subquery?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Readability - complex logic is broken into named, top-to-bottom steps</li>
+          <li><span class="opt-key">B</span> It is always faster</li>
+          <li><span class="opt-key">C</span> It uses less storage</li>
+          <li><span class="opt-key">D</span> It prevents errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Readability - complex logic is broken into named, top-to-bottom steps</p>
+          <p class="expl">Deeply nested subqueries are hard to follow. CTEs read like a sequence of named steps, and one CTE can be referenced multiple times in the same query.</p>
+          <p class="tags"><span>CTE</span><span>Readability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this scalar subquery in SELECT do?
+SELECT name, (SELECT COUNT(*) FROM orders o WHERE o.customer_id = c.id) AS order_count FROM customers c;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Shows each customer with their order count via a correlated subquery</li>
+          <li><span class="opt-key">B</span> Counts all orders once</li>
+          <li><span class="opt-key">C</span> Returns an error</li>
+          <li><span class="opt-key">D</span> Lists all orders</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Shows each customer with their order count via a correlated subquery</p>
+          <p class="expl">The correlated subquery runs per customer, counting their orders. A LEFT JOIN with GROUP BY often does this more efficiently, but the subquery form is readable.</p>
+          <p class="tags"><span>Correlated subquery</span><span>SELECT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Where can subqueries appear in a statement?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> In SELECT, FROM, WHERE, HAVING - and even in INSERT/UPDATE/DELETE</li>
+          <li><span class="opt-key">B</span> Only in WHERE</li>
+          <li><span class="opt-key">C</span> Only in FROM</li>
+          <li><span class="opt-key">D</span> Only in SELECT</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — In SELECT, FROM, WHERE, HAVING - and even in INSERT/UPDATE/DELETE</p>
+          <p class="expl">Subqueries are versatile. A scalar one in SELECT computes a value per row; one in FROM is a derived table; one in WHERE filters; and they drive many INSERT ... SELECT operations.</p>
+          <p class="tags"><span>Subqueries</span><span>Placement</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Are CTEs materialised (computed once) or inlined?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It depends on the database - some materialise them, others inline them into the main query</li>
+          <li><span class="opt-key">B</span> Always materialised</li>
+          <li><span class="opt-key">C</span> Always inlined</li>
+          <li><span class="opt-key">D</span> They are never computed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It depends on the database - some materialise them, others inline them into the main query</p>
+          <p class="expl">PostgreSQL historically materialised CTEs (an optimisation fence) but now can inline them; MySQL and SQL Server generally inline. Behaviour affects performance, so test on your platform.</p>
+          <p class="tags"><span>CTE</span><span>Optimisation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What must a derived table (FROM subquery) always have?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An ALIAS - a name by which the outer query refers to it</li>
+          <li><span class="opt-key">B</span> An index</li>
+          <li><span class="opt-key">C</span> A primary key</li>
+          <li><span class="opt-key">D</span> A WHERE clause</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An ALIAS - a name by which the outer query refers to it</p>
+          <p class="expl">Most databases require an alias for a subquery in FROM, e.g. ) AS t. Without it you get a syntax error.</p>
+          <p class="tags"><span>Derived table</span><span>Alias</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can a CTE be referenced more than once in the main query?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - define it once with WITH and use its name multiple times</li>
+          <li><span class="opt-key">B</span> No, only once</li>
+          <li><span class="opt-key">C</span> Only in subqueries</li>
+          <li><span class="opt-key">D</span> Only with UNION</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - define it once with WITH and use its name multiple times</p>
+          <p class="expl">This is a readability win over subqueries: a self join on a computed set can reference the same CTE twice by name instead of repeating the subquery.</p>
+          <p class="tags"><span>CTE</span><span>Reuse</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you filter a GROUP BY result using a subquery threshold?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Compute the threshold in a subquery and compare in HAVING (or wrap in a CTE and filter outside)</li>
+          <li><span class="opt-key">B</span> Use WHERE with the aggregate</li>
+          <li><span class="opt-key">C</span> It cannot be done</li>
+          <li><span class="opt-key">D</span> Use ORDER BY</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Compute the threshold in a subquery and compare in HAVING (or wrap in a CTE and filter outside)</p>
+          <p class="expl">For example, HAVING SUM(total) &gt; (SELECT AVG(order_total) FROM ...). A CTE that pre-aggregates then a plain WHERE is often clearer.</p>
+          <p class="tags"><span>HAVING</span><span>Subquery</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does WHERE col = (SELECT MAX(col) FROM t) return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The row(s) holding the maximum value - including ties</li>
+          <li><span class="opt-key">B</span> Only one row always</li>
+          <li><span class="opt-key">C</span> All rows</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The row(s) holding the maximum value - including ties</p>
+          <p class="expl">Unlike ORDER BY ... LIMIT 1, comparing to the MAX subquery returns every tied maximum. Useful when ties matter.</p>
+          <p class="tags"><span>Subquery</span><span>MAX</span><span>Ties</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does a subquery in SELECT run for every output row?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A correlated one does; a non-correlated scalar subquery is typically evaluated once and reused</li>
+          <li><span class="opt-key">B</span> Always once</li>
+          <li><span class="opt-key">C</span> Always per row</li>
+          <li><span class="opt-key">D</span> It never runs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A correlated one does; a non-correlated scalar subquery is typically evaluated once and reused</p>
+          <p class="expl">Correlation is the key: if the subquery references the outer row it recomputes per row; if it is constant, the optimiser can compute it a single time.</p>
+          <p class="tags"><span>Correlated subquery</span><span>Performance</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (15)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a correlated subquery?</p>
+        <pre class="code"><code>SELECT e.name FROM employees e
+WHERE e.salary &gt; (SELECT AVG(salary) FROM employees WHERE dept = e.dept);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A subquery that REFERENCES a column from the outer query, so it re-runs for each outer row</li>
+          <li><span class="opt-key">B</span> A subquery that runs once</li>
+          <li><span class="opt-key">C</span> A subquery with no WHERE</li>
+          <li><span class="opt-key">D</span> Two unrelated queries</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A subquery that REFERENCES a column from the outer query, so it re-runs for each outer row</p>
+          <p class="expl">Correlated subqueries depend on the current outer row, executing repeatedly. Powerful but potentially slow - often rewritable as a join or window function.</p>
+          <p class="tags"><span>Correlated subquery</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How does a correlated subquery differ from a regular (non-correlated) one in execution?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A non-correlated subquery runs ONCE; a correlated one runs for EACH outer row</li>
+          <li><span class="opt-key">B</span> They run identically</li>
+          <li><span class="opt-key">C</span> Correlated runs once</li>
+          <li><span class="opt-key">D</span> Non-correlated never runs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A non-correlated subquery runs ONCE; a correlated one runs for EACH outer row</p>
+          <p class="expl">Because it references the outer row, the correlated subquery is conceptually re-evaluated per row. Optimisers can sometimes transform it into a join, but be mindful of the performance model.</p>
+          <p class="tags"><span>Correlated subquery</span><span>Execution</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is EXISTS often preferred over IN for large subqueries?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> EXISTS can stop at the first match and handles NULLs safely; IN may materialise the whole list and mishandle NULLs</li>
+          <li><span class="opt-key">B</span> IN is always faster</li>
+          <li><span class="opt-key">C</span> They are identical</li>
+          <li><span class="opt-key">D</span> EXISTS is invalid</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — EXISTS can stop at the first match and handles NULLs safely; IN may materialise the whole list and mishandle NULLs</p>
+          <p class="expl">IN with a subquery containing NULL can behave unexpectedly (especially NOT IN). EXISTS/NOT EXISTS avoid the NULL trap and often perform better on big data.</p>
+          <p class="tags"><span>EXISTS</span><span>IN</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Can you define MULTIPLE CTEs in one query?</p>
+        <pre class="code"><code>WITH sales AS (...),
+     ranked AS (SELECT *, RANK() OVER (...) FROM sales)
+SELECT * FROM ranked WHERE rnk &lt;= 3;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - separate them with commas after a single WITH, and later CTEs can reference earlier ones</li>
+          <li><span class="opt-key">B</span> No, only one</li>
+          <li><span class="opt-key">C</span> Only two</li>
+          <li><span class="opt-key">D</span> Only with UNION</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - separate them with commas after a single WITH, and later CTEs can reference earlier ones</p>
+          <p class="expl">Chaining CTEs builds a readable pipeline: WITH a AS (...), b AS (SELECT ... FROM a) SELECT ... FROM b. Each step names an intermediate result.</p>
+          <p class="tags"><span>CTE</span><span>Chaining</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a RECURSIVE CTE used for?</p>
+        <pre class="code"><code>WITH RECURSIVE nums AS (
+  SELECT 1 AS n
+  UNION ALL
+  SELECT n + 1 FROM nums WHERE n &lt; 10
+)
+SELECT * FROM nums;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Traversing hierarchies or generating sequences - it references ITSELF until a stopping condition</li>
+          <li><span class="opt-key">B</span> Nothing special</li>
+          <li><span class="opt-key">C</span> Faster joins</li>
+          <li><span class="opt-key">D</span> Sorting data</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Traversing hierarchies or generating sequences - it references ITSELF until a stopping condition</p>
+          <p class="expl">WITH RECURSIVE has an anchor (starting rows) and a recursive part that repeatedly joins back to the CTE - ideal for org charts, category trees and number series.</p>
+          <p class="tags"><span>Recursive CTE</span><span>Hierarchies</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What are the two parts of a recursive CTE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The anchor member (base rows) and the recursive member (which references the CTE), joined by UNION ALL</li>
+          <li><span class="opt-key">B</span> SELECT and FROM</li>
+          <li><span class="opt-key">C</span> WHERE and HAVING</li>
+          <li><span class="opt-key">D</span> Two subqueries</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The anchor member (base rows) and the recursive member (which references the CTE), joined by UNION ALL</p>
+          <p class="expl">The anchor runs once to seed the result; the recursive member runs repeatedly, each time using the previous iteration's rows, until it produces no new rows.</p>
+          <p class="tags"><span>Recursive CTE</span><span>Structure</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find the customer(s) with the maximum total spend?</p>
+        <pre class="code"><code>WITH t AS (SELECT customer_id, SUM(total) s FROM orders GROUP BY 1)
+SELECT * FROM t WHERE s = (SELECT MAX(s) FROM t);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use a subquery for the max: WHERE total = (SELECT MAX(total) FROM ...) after aggregating</li>
+          <li><span class="opt-key">B</span> ORDER BY total LIMIT 1 always suffices</li>
+          <li><span class="opt-key">C</span> MAX(customer)</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use a subquery for the max: WHERE total = (SELECT MAX(total) FROM ...) after aggregating</p>
+          <p class="expl">Comparing to a MAX subquery returns ALL tied top spenders, whereas LIMIT 1 arbitrarily picks one. A CTE that computes totals first makes this clean.</p>
+          <p class="tags"><span>Subquery</span><span>Ties</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does WHERE col IN (SELECT ...) do, and its risk?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Keeps rows whose col matches any value the subquery returns; risky as NOT IN with a NULL returns no rows</li>
+          <li><span class="opt-key">B</span> It always works safely</li>
+          <li><span class="opt-key">C</span> It joins tables</li>
+          <li><span class="opt-key">D</span> It sorts rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Keeps rows whose col matches any value the subquery returns; risky as NOT IN with a NULL returns no rows</p>
+          <p class="expl">IN is fine, but its negation NOT IN silently returns nothing if the subquery yields a NULL. Prefer NOT EXISTS for anti-membership tests.</p>
+          <p class="tags"><span>IN</span><span>NOT IN</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How can a correlated subquery often be rewritten for speed?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> As a JOIN or a window function that computes the value once per group instead of per row</li>
+          <li><span class="opt-key">B</span> It cannot be rewritten</li>
+          <li><span class="opt-key">C</span> As a CROSS JOIN</li>
+          <li><span class="opt-key">D</span> As a UNION</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — As a JOIN or a window function that computes the value once per group instead of per row</p>
+          <p class="expl">For example, 'salary above department average' via a correlated subquery can become AVG(salary) OVER (PARTITION BY dept) - one pass instead of many.</p>
+          <p class="tags"><span>Window functions</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this recursive CTE compute?
+WITH RECURSIVE t AS (SELECT 1 n UNION ALL SELECT n*2 FROM t WHERE n &lt; 100) SELECT * FROM t;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Powers of 2 up to 128 (1, 2, 4, ... doubling until n &gt;= 100)</li>
+          <li><span class="opt-key">B</span> Numbers 1 to 100</li>
+          <li><span class="opt-key">C</span> An infinite loop</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Powers of 2 up to 128 (1, 2, 4, ... doubling until n &gt;= 100)</p>
+          <p class="expl">The anchor seeds 1; each step doubles the previous value while it is under 100, yielding 1, 2, 4, 8, 16, 32, 64, 128 (128 is produced from 64, which was &lt; 100).</p>
+          <p class="tags"><span>Recursive CTE</span><span>Sequences</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What prevents a recursive CTE from looping forever?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A termination condition in the recursive member's WHERE - and databases also enforce a max recursion depth</li>
+          <li><span class="opt-key">B</span> Nothing - they always stop</li>
+          <li><span class="opt-key">C</span> The LIMIT clause only</li>
+          <li><span class="opt-key">D</span> They cannot loop</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A termination condition in the recursive member's WHERE - and databases also enforce a max recursion depth</p>
+          <p class="expl">You must ensure the recursive part eventually produces no rows. Cyclic data (A manages B manages A) can loop, so many databases cap recursion depth as a safety net.</p>
+          <p class="tags"><span>Recursive CTE</span><span>Termination</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does a subquery returning multiple rows require in a comparison?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An operator like IN, ANY or ALL - a bare = expects a single value and errors</li>
+          <li><span class="opt-key">B</span> Nothing special</li>
+          <li><span class="opt-key">C</span> Only =</li>
+          <li><span class="opt-key">D</span> A join</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An operator like IN, ANY or ALL - a bare = expects a single value and errors</p>
+          <p class="expl">= (SELECT ...) fails if the subquery returns many rows. Use IN for membership, or &gt; ANY / &gt; ALL for range comparisons against the set.</p>
+          <p class="tags"><span>IN</span><span>ANY</span><span>ALL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">When would you choose a CTE over a temporary table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> For a single query's readability without persistence; temp tables suit reuse across multiple statements or very large intermediate data</li>
+          <li><span class="opt-key">B</span> CTEs are always better</li>
+          <li><span class="opt-key">C</span> Temp tables cannot be indexed</li>
+          <li><span class="opt-key">D</span> They are identical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — For a single query's readability without persistence; temp tables suit reuse across multiple statements or very large intermediate data</p>
+          <p class="expl">A CTE lives only within one statement. If you need the intermediate result across several queries, or want to index it, a temporary table is the better tool.</p>
+          <p class="tags"><span>CTE</span><span>Temp tables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a common readability pattern for a multi-step analysis?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Chained CTEs: filter in one, aggregate in the next, rank in the next, then SELECT the final result</li>
+          <li><span class="opt-key">B</span> One giant nested subquery</li>
+          <li><span class="opt-key">C</span> Many separate queries copied by hand</li>
+          <li><span class="opt-key">D</span> CROSS JOINs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Chained CTEs: filter in one, aggregate in the next, rank in the next, then SELECT the final result</p>
+          <p class="expl">Building a pipeline of named CTEs mirrors how you think about the problem and makes each step testable. It is the modern idiom for complex analytical SQL.</p>
+          <p class="tags"><span>CTE</span><span>Pipelines</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find the second-highest salary using a subquery?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT MAX(salary) FROM emp WHERE salary &lt; (SELECT MAX(salary) FROM emp)</li>
+          <li><span class="opt-key">B</span> SELECT MAX(salary) FROM emp</li>
+          <li><span class="opt-key">C</span> ORDER BY salary LIMIT 2</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT MAX(salary) FROM emp WHERE salary &lt; (SELECT MAX(salary) FROM emp)</p>
+          <p class="expl">The subquery finds the top salary; the outer MAX finds the highest below it - the second highest. A famous interview question; window functions (DENSE_RANK) generalise it to Nth.</p>
+          <p class="tags"><span>Subquery</span><span>Nth highest</span><span>Interview</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="14-set-operations.html">← Set Operations</a>
+      <a href="16-insert-update-delete.html">INSERT, UPDATE, DELETE →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-14">Practice “Subqueries &amp; CTEs” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

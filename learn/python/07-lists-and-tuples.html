@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lists &amp; Tuples – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Lists &amp; Tuples with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/07-lists-and-tuples.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Lists &amp; Tuples – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Lists &amp; Tuples with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/07-lists-and-tuples.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Lists & Tuples","item":"https://velnov.co.in/learn/python/07-lists-and-tuples.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Lists &amp; Tuples</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 7 of 20</p>
+      <h1>Lists &amp; Tuples — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Lists &amp; Tuples</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-6">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">12 easy · 13 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Lists</span><span>Tuples</span><span>Sets</span><span>Indexing</span><span>Negative indexing</span><span>append()</span><span>insert()</span><span>remove()</span><span>pop()</span><span>del</span><span>len()</span><span>Concatenation</span><span>Repetition</span><span>sort()</span><span>sorted()</span><span>sort() vs sorted()</span><span>In-place methods</span><span>Dynamic typing</span><span>Nested lists</span><span>2D data</span><span>Mutability</span><span>References</span><span>copy()</span><span>Aliasing</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (12)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which line creates a list of three numbers?</p>
+        <pre class="code"><code>nums = [1, 2, 3]      # list
+point = (1, 2)          # tuple
+ids = {1, 2, 3}         # set</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> nums = [1, 2, 3]</li>
+          <li><span class="opt-key">B</span> nums = (1, 2, 3)</li>
+          <li><span class="opt-key">C</span> nums = {1, 2, 3}</li>
+          <li><span class="opt-key">D</span> nums = list 1, 2, 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — nums = [1, 2, 3]</p>
+          <p class="expl">Square brackets [] create a list. Parentheses () make a tuple and curly braces {} make a set - three different types!</p>
+          <p class="tags"><span>Lists</span><span>Tuples</span><span>Sets</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+fruits = [&quot;apple&quot;, &quot;mango&quot;, &quot;banana&quot;]
+print(fruits[1])</p>
+        <pre class="code"><code>fruits = [&quot;apple&quot;, &quot;mango&quot;, &quot;banana&quot;]
+#          0        1        2
+print(fruits[1])   # mango</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> apple</li>
+          <li class="correct"><span class="opt-key">B</span> mango</li>
+          <li><span class="opt-key">C</span> banana</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — mango</p>
+          <p class="expl">List indexing starts at 0: fruits[0] is 'apple', fruits[1] is 'mango'. Same rule as strings.</p>
+          <p class="tags"><span>Indexing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does fruits[-1] give for fruits = [&quot;apple&quot;, &quot;mango&quot;, &quot;banana&quot;]?</p>
+        <pre class="code"><code>print(fruits[-1])   # banana
+print(fruits[-2])   # mango</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> apple</li>
+          <li><span class="opt-key">B</span> mango</li>
+          <li class="correct"><span class="opt-key">C</span> banana</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — banana</p>
+          <p class="expl">Negative indexes count from the end: -1 is the LAST item ('banana'), -2 is 'mango'.</p>
+          <p class="tags"><span>Negative indexing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which method adds an item to the END of a list?</p>
+        <pre class="code"><code>cart = [&quot;pen&quot;]
+cart.append(&quot;book&quot;)
+print(cart)   # ['pen', 'book']</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> add()</li>
+          <li class="correct"><span class="opt-key">B</span> append()</li>
+          <li><span class="opt-key">C</span> push()</li>
+          <li><span class="opt-key">D</span> insert()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — append()</p>
+          <p class="expl">.append(item) adds one item at the end. (push is JavaScript, add is for sets; insert puts an item at a chosen position.)</p>
+          <p class="tags"><span>append()</span><span>insert()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(len([1, 2, 3, 4]))</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 3</li>
+          <li class="correct"><span class="opt-key">B</span> 4</li>
+          <li><span class="opt-key">C</span> 10</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 4</p>
+          <p class="expl">len() returns the number of items in the list: 4. Works on strings, tuples, dicts and sets too.</p>
+          <p class="tags"><span>len()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print([1, 2] + [3, 4])</p>
+        <pre class="code"><code>print([1, 2] + [3, 4])   # [1, 2, 3, 4]
+print([0] * 3)            # [0, 0, 0]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [4, 6]</li>
+          <li class="correct"><span class="opt-key">B</span> [1, 2, 3, 4]</li>
+          <li><span class="opt-key">C</span> [[1, 2], [3, 4]]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — [1, 2, 3, 4]</p>
+          <p class="expl">+ on lists concatenates them into a new longer list - it does NOT add the numbers element by element. [1,2] + [3,4] -&gt; [1, 2, 3, 4].</p>
+          <p class="tags"><span>Concatenation</span><span>Repetition</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Can a Python list hold different types at once, like [1, &quot;two&quot;, 3.0, True]?</p>
+        <pre class="code"><code>stuff = [1, &quot;two&quot;, 3.0, True, [4, 5]]
+print(stuff[4][0])   # 4</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> No - all items must share one type</li>
+          <li class="correct"><span class="opt-key">B</span> Yes - lists can mix any types freely</li>
+          <li><span class="opt-key">C</span> Only numbers and strings</li>
+          <li><span class="opt-key">D</span> Only with the mixed keyword</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Yes - lists can mix any types freely</p>
+          <p class="expl">Python lists are completely flexible - any mix of types, even other lists. (In practice most lists hold one type, but nothing enforces it.)</p>
+          <p class="tags"><span>Dynamic typing</span><span>Nested lists</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you change the first item of nums = [10, 20, 30] to 99?</p>
+        <pre class="code"><code>nums = [10, 20, 30]
+nums[0] = 99
+print(nums)   # [99, 20, 30]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> nums[0] = 99</li>
+          <li><span class="opt-key">B</span> nums.change(0, 99)</li>
+          <li><span class="opt-key">C</span> nums = 99</li>
+          <li><span class="opt-key">D</span> You can't - lists are immutable</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — nums[0] = 99</p>
+          <p class="expl">Lists ARE mutable - assign directly to an index: nums[0] = 99. (It's tuples and strings that can't be changed.)</p>
+          <p class="tags"><span>Mutability</span><span>Indexing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(3 in [1, 2, 3])</p>
+        <pre class="code"><code>print(3 in [1, 2, 3])       # True
+print(5 not in [1, 2, 3])   # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True</li>
+          <li><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> 2</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True</p>
+          <p class="expl">in tests membership: is 3 one of the list's items? Yes -&gt; True. Works on lists, tuples, strings, sets and dict keys.</p>
+          <p class="tags"><span>in operator</span><span>Membership</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What do max(), min() and sum() return for [4, 1, 7]?</p>
+        <pre class="code"><code>nums = [4, 1, 7]
+print(max(nums), min(nums), sum(nums))  # 7 1 12
+print(sum(nums) / len(nums))             # 4.0 - average</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 7, 1 and 12</li>
+          <li><span class="opt-key">B</span> 7, 4 and 11</li>
+          <li><span class="opt-key">C</span> 1, 7 and 12</li>
+          <li><span class="opt-key">D</span> Error - they need two arguments</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 7, 1 and 12</p>
+          <p class="expl">These built-ins take a whole list: max is 7, min is 1, sum is 4+1+7 = 12. Average = sum(nums) / len(nums).</p>
+          <p class="tags"><span>Built-in functions</span><span>Averages</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which line creates a TUPLE?</p>
+        <pre class="code"><code>point = (3, 5)
+print(point[0])   # 3 - indexing works like lists</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> t = (1, 2, 3)</li>
+          <li><span class="opt-key">B</span> t = [1, 2, 3]</li>
+          <li><span class="opt-key">C</span> t = {1, 2, 3}</li>
+          <li><span class="opt-key">D</span> t = tuple[1, 2, 3]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — t = (1, 2, 3)</p>
+          <p class="expl">Parentheses create a tuple - an ordered collection like a list, but IMMUTABLE (cannot be changed after creation).</p>
+          <p class="tags"><span>Tuples</span><span>Immutability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does list(&quot;abc&quot;) return?</p>
+        <pre class="code"><code>print(list(&quot;abc&quot;))       # ['a', 'b', 'c']
+print(list(range(3)))     # [0, 1, 2]
+print(list((1, 2)))       # [1, 2] - tuple to list</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [&quot;abc&quot;]</li>
+          <li class="correct"><span class="opt-key">B</span> ['a', 'b', 'c']</li>
+          <li><span class="opt-key">C</span> (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — ['a', 'b', 'c']</p>
+          <p class="expl">list() converts any iterable to a list - for a string, each CHARACTER becomes an item: ['a', 'b', 'c'].</p>
+          <p class="tags"><span>list()</span><span>Type conversion</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does nums.insert(1, 99) do to nums = [10, 20, 30]?</p>
+        <pre class="code"><code>nums = [10, 20, 30]
+nums.insert(1, 99)
+print(nums)   # [10, 99, 20, 30]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Replaces 20 with 99 -&gt; [10, 99, 30]</li>
+          <li class="correct"><span class="opt-key">B</span> Inserts 99 AT index 1 -&gt; [10, 99, 20, 30]</li>
+          <li><span class="opt-key">C</span> Appends 99 -&gt; [10, 20, 30, 99]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Inserts 99 AT index 1 -&gt; [10, 99, 20, 30]</p>
+          <p class="expl">insert(position, item) squeezes the item in at that index, shifting the rest right - nothing is overwritten: [10, 99, 20, 30].</p>
+          <p class="tags"><span>insert()</span><span>append()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between remove() and pop() on a list?</p>
+        <pre class="code"><code>nums = [10, 20, 30]
+nums.remove(20)      # by value -&gt; [10, 30]
+last = nums.pop()    # by position -&gt; last = 30, nums = [10]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> No difference</li>
+          <li class="correct"><span class="opt-key">B</span> remove(x) deletes by VALUE; pop(i) deletes by POSITION and returns the item</li>
+          <li><span class="opt-key">C</span> pop() deletes by value; remove() by position</li>
+          <li><span class="opt-key">D</span> remove() empties the whole list</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — remove(x) deletes by VALUE; pop(i) deletes by POSITION and returns the item</p>
+          <p class="expl">nums.remove(20) searches for the value 20 and deletes its first occurrence. nums.pop(1) removes whatever sits at index 1 AND hands it back to you. pop() with no argument removes the last item.</p>
+          <p class="tags"><span>remove()</span><span>pop()</span><span>del</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+nums = [5, 2, 8, 1]
+nums.sort()
+print(nums)</p>
+        <pre class="code"><code>nums = [5, 2, 8, 1]
+nums.sort()
+print(nums)   # [1, 2, 5, 8]
+nums.sort(reverse=True)
+print(nums)   # [8, 5, 2, 1]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [5, 2, 8, 1]</li>
+          <li class="correct"><span class="opt-key">B</span> [1, 2, 5, 8]</li>
+          <li><span class="opt-key">C</span> [8, 5, 2, 1]</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — [1, 2, 5, 8]</p>
+          <p class="expl">.sort() rearranges the list itself into ascending order (in place). For descending: nums.sort(reverse=True).</p>
+          <p class="tags"><span>sort()</span><span>sorted()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between sort() and sorted()?</p>
+        <pre class="code"><code>nums = [3, 1, 2]
+new = sorted(nums)
+print(nums)   # [3, 1, 2] - unchanged
+print(new)    # [1, 2, 3]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> They are identical</li>
+          <li class="correct"><span class="opt-key">B</span> list.sort() changes the original list; sorted() returns a NEW sorted list and works on any iterable</li>
+          <li><span class="opt-key">C</span> sorted() changes the original; sort() returns new</li>
+          <li><span class="opt-key">D</span> sorted() only works on numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — list.sort() changes the original list; sorted() returns a NEW sorted list and works on any iterable</p>
+          <p class="expl">nums.sort() modifies nums itself (and returns None). sorted(anything) leaves the original untouched and returns a new sorted list - it even accepts strings, tuples and sets.</p>
+          <p class="tags"><span>sort()</span><span>sorted()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+matrix = [[1, 2], [3, 4]]
+print(matrix[1][0])</p>
+        <pre class="code"><code>matrix = [[1, 2],
+          [3, 4]]
+print(matrix[1][0])   # 3  (row 1, col 0)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 1</li>
+          <li><span class="opt-key">B</span> 2</li>
+          <li class="correct"><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> 4</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — 3</p>
+          <p class="expl">Chained indexing: matrix[1] is the second inner list [3, 4], and [0] takes its first element -&gt; 3. Read left to right: row 1, column 0.</p>
+          <p class="tags"><span>Nested lists</span><span>2D data</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which of these creates an independent (shallow) COPY of list a?</p>
+        <pre class="code"><code>b = a.copy()   # method
+b = a[:]        # full slice
+b = list(a)     # constructor - all equivalent</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> b = a</li>
+          <li class="correct"><span class="opt-key">B</span> b = a.copy()  (or b = a[:])</li>
+          <li><span class="opt-key">C</span> b = copy a</li>
+          <li><span class="opt-key">D</span> b = a.clone()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — b = a.copy()  (or b = a[:])</p>
+          <p class="expl">a.copy(), a[:] and list(a) all create a new list with the same items. Plain b = a only creates a second name for the same list.</p>
+          <p class="tags"><span>copy()</span><span>Slicing</span><span>References</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does [10, 20, 30, 40][1:3] return?</p>
+        <pre class="code"><code>nums = [10, 20, 30, 40]
+print(nums[1:3])    # [20, 30]
+print(nums[:2])     # [10, 20]
+print(nums[::-1])   # [40, 30, 20, 10]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [20, 30]</li>
+          <li><span class="opt-key">B</span> [20, 30, 40]</li>
+          <li><span class="opt-key">C</span> [10, 20, 30]</li>
+          <li><span class="opt-key">D</span> [30, 40]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [20, 30]</p>
+          <p class="expl">List slicing works exactly like string slicing: indexes 1 and 2 (stop 3 excluded) -&gt; [20, 30]. Slices always return a NEW list.</p>
+          <p class="tags"><span>Slicing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does nums.index(20) return for nums = [10, 20, 30, 20]?</p>
+        <pre class="code"><code>nums = [10, 20, 30, 20]
+print(nums.index(20))    # 1
+print(nums.count(20))    # 2 - counts ALL occurrences</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 - the position of the FIRST 20</li>
+          <li><span class="opt-key">B</span> [1, 3]</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> 20</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 - the position of the FIRST 20</p>
+          <p class="expl">.index(value) returns the position of the first match only: 1. If the value isn't present it raises ValueError - check with in first.</p>
+          <p class="tags"><span>index()</span><span>count()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens?
+t = (1, 2, 3)
+t[0] = 99</p>
+        <pre class="code"><code>t = (1, 2, 3)
+# t[0] = 99          # TypeError!
+t = (99,) + t[1:]    # build a new tuple
+print(t)              # (99, 2, 3)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> t becomes (99, 2, 3)</li>
+          <li class="correct"><span class="opt-key">B</span> TypeError - tuples don't support item assignment</li>
+          <li><span class="opt-key">C</span> t becomes (99,)</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — TypeError - tuples don't support item assignment</p>
+          <p class="expl">Tuples are immutable - no assigning, appending or removing after creation. If you need to modify it, convert to a list first or build a new tuple.</p>
+          <p class="tags"><span>Immutability</span><span>TypeError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does tuple unpacking do here?
+point = (3, 7)
+x, y = point</p>
+        <pre class="code"><code>point = (3, 7)
+x, y = point
+print(x, y)   # 3 7</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> x = 3 and y = 7</li>
+          <li><span class="opt-key">B</span> x = (3, 7) and y is undefined</li>
+          <li><span class="opt-key">C</span> Error - tuples can't be split</li>
+          <li><span class="opt-key">D</span> x = 7 and y = 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — x = 3 and y = 7</p>
+          <p class="expl">Unpacking assigns each tuple element to a variable, position by position: x gets 3, y gets 7. The variable count must match the element count.</p>
+          <p class="tags"><span>Unpacking</span><span>Multiple assignment</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When should you prefer a TUPLE over a list?</p>
+        <pre class="code"><code>locations = {(0, 0): &quot;origin&quot;, (3, 5): &quot;target&quot;}  # tuple keys OK
+# {[0, 0]: &quot;x&quot;}   # TypeError - list keys not allowed</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> For data that should never change - like coordinates, or dictionary keys</li>
+          <li><span class="opt-key">B</span> When you need to add items later</li>
+          <li><span class="opt-key">C</span> When sorting frequently</li>
+          <li><span class="opt-key">D</span> Never - lists are always better</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — For data that should never change - like coordinates, or dictionary keys</p>
+          <p class="expl">Use tuples for fixed collections: a point (x, y), an RGB color, a date triple. Being immutable makes them safe from accidental changes and usable as dict keys (lists can't be keys).</p>
+          <p class="tags"><span>Immutability</span><span>Dictionary keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+nums = [1, 2, 3]
+nums.reverse()
+print(nums)</p>
+        <pre class="code"><code>nums = [1, 2, 3]
+nums.reverse()
+print(nums)         # [3, 2, 1]
+# nums[::-1] gives a reversed COPY instead</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [3, 2, 1]</li>
+          <li><span class="opt-key">B</span> [1, 2, 3]</li>
+          <li><span class="opt-key">C</span> None</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [3, 2, 1]</p>
+          <p class="expl">.reverse() flips the list in place: [3, 2, 1]. Like sort(), it returns None - the change happens inside the original list.</p>
+          <p class="tags"><span>reverse()</span><span>reversed()</span><span>Slicing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you delete the item at index 1 from nums = [10, 20, 30] using del?</p>
+        <pre class="code"><code>nums = [10, 20, 30]
+del nums[1]
+print(nums)   # [10, 30]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> del nums[1]</li>
+          <li><span class="opt-key">B</span> nums.del(1)</li>
+          <li><span class="opt-key">C</span> delete nums[1]</li>
+          <li><span class="opt-key">D</span> nums - 20</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — del nums[1]</p>
+          <p class="expl">The del statement removes by position: del nums[1] leaves [10, 30]. del can also delete slices (del nums[1:3]) or the whole variable (del nums).</p>
+          <p class="tags"><span>del</span><span>pop()</span><span>remove()</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (5)</h2>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of:
+nums = [3, 1, 2]
+result = nums.sort()
+print(result)</p>
+        <pre class="code"><code>nums = [3, 1, 2]
+print(nums.sort())     # None !
+print(nums)             # [1, 2, 3]
+print(sorted([3,1,2]))  # [1, 2, 3] - returns a NEW list</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [1, 2, 3]</li>
+          <li class="correct"><span class="opt-key">B</span> None</li>
+          <li><span class="opt-key">C</span> [3, 1, 2]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — None</p>
+          <p class="expl">Classic trap! .sort() sorts IN PLACE and returns None - the sorted data is in nums, not in result. Use sorted(nums) when you want the sorted list as a return value.</p>
+          <ul class="notes"><li>Rule: methods that modify in place (sort, append, reverse) return None.</li></ul>
+          <p class="tags"><span>sort() vs sorted()</span><span>In-place methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)</p>
+        <pre class="code"><code>a = [1, 2, 3]
+b = a            # same list, two names!
+b.append(4)
+print(a)          # [1, 2, 3, 4]
+
+c = a.copy()      # independent copy
+c.append(5)
+print(a)          # [1, 2, 3, 4] - unaffected</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [1, 2, 3]</li>
+          <li class="correct"><span class="opt-key">B</span> [1, 2, 3, 4]</li>
+          <li><span class="opt-key">C</span> [4]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — [1, 2, 3, 4]</p>
+          <p class="expl">b = a does NOT copy the list - both names point to the SAME list object. Appending through b changes the one shared list, so a shows [1, 2, 3, 4] too. To get an independent copy: b = a.copy() or b = a[:].</p>
+          <ul class="notes"><li>One of the most important Python concepts - assignment never copies.</li></ul>
+          <p class="tags"><span>References</span><span>copy()</span><span>Aliasing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference in result?
+a = [1, 2]; a.append([3, 4])
+versus
+b = [1, 2]; b.extend([3, 4])</p>
+        <pre class="code"><code>a = [1, 2]
+a.append([3, 4])
+print(a)   # [1, 2, [3, 4]] - length 3!
+
+b = [1, 2]
+b.extend([3, 4])
+print(b)   # [1, 2, 3, 4] - length 4</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Both give [1, 2, 3, 4]</li>
+          <li class="correct"><span class="opt-key">B</span> append gives [1, 2, [3, 4]] (nested); extend gives [1, 2, 3, 4] (flattened)</li>
+          <li><span class="opt-key">C</span> extend gives [1, 2, [3, 4]]; append flattens</li>
+          <li><span class="opt-key">D</span> Both give [1, 2, [3, 4]]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — append gives [1, 2, [3, 4]] (nested); extend gives [1, 2, 3, 4] (flattened)</p>
+          <p class="expl">append() adds its argument as ONE item - even if it's a list, so you get a list inside a list. extend() unpacks the argument and adds each element individually.</p>
+          <p class="tags"><span>append()</span><span>extend()</span><span>+= on lists</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the type of x?
+x = (5)</p>
+        <pre class="code"><code>a = (5)
+print(type(a))   # &lt;class 'int'&gt;
+b = (5,)
+print(type(b))   # &lt;class 'tuple'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> tuple</li>
+          <li class="correct"><span class="opt-key">B</span> int - parentheses alone don't make a tuple; you need a comma: (5,)</li>
+          <li><span class="opt-key">C</span> list</li>
+          <li><span class="opt-key">D</span> str</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — int - parentheses alone don't make a tuple; you need a comma: (5,)</p>
+          <p class="expl">(5) is just the number 5 in parentheses - like in math. A one-element tuple needs a trailing COMMA: (5,). The comma makes the tuple, not the parentheses!</p>
+          <ul class="notes"><li>A famous Python gotcha - remember: the comma makes the tuple.</li></ul>
+          <p class="tags"><span>Tuples</span><span>Common gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print([0] * 3 == [0, 0, 0])</p>
+        <pre class="code"><code>print([0] * 3)              # [0, 0, 0]
+grid = [[0] * 3 for _ in range(2)]  # safe 2D grid</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True</li>
+          <li><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> [0, 0, 0]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True</p>
+          <p class="expl">[0] * 3 builds [0, 0, 0], and == on lists compares element by element - same length, same values -&gt; True.</p>
+          <ul class="notes"><li>Careful: [[0]*3]*2 makes 2 references to the SAME row - use a comprehension for 2D grids.</li></ul>
+          <p class="tags"><span>Repetition</span><span>List equality</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="06-loops.html">← Loops</a>
+      <a href="08-dictionaries-and-sets.html">Dictionaries &amp; Sets →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-6">Practice “Lists &amp; Tuples” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Type Coercion &amp; Equality – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Type Coercion &amp; Equality with answers and detailed explanations — 2 easy, 12 medium and 16 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/04-type-coercion-and-equality.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Type Coercion &amp; Equality – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Type Coercion &amp; Equality with answers and detailed explanations — 2 easy, 12 medium and 16 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/04-type-coercion-and-equality.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Type Coercion & Equality","item":"https://velnov.co.in/learn/javascript/04-type-coercion-and-equality.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Type Coercion &amp; Equality</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 4 of 20</p>
+      <h1>Type Coercion &amp; Equality — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Type Coercion &amp; Equality</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-3">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 12 medium · 16 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Coercion</span><span>Type conversion</span><span>Strict equality</span><span>Best practices</span><span>Truthy</span><span>Falsy</span><span>Truthiness</span><span>Objects</span><span>Loose equality</span><span>Gotchas</span><span>Coercion rules</span><span>null</span><span>undefined</span><span>NaN</span><span>Number.isNaN</span><span>Number()</span><span>Number conversion</span><span>Boolean coercion</span><span>Arithmetic</span><span>Array coercion</span><span>Object coercion</span><span>toString</span><span>Numeric coercion</span><span>String comparison</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is type coercion?</p>
+        <pre class="code"><code>console.log(&quot;5&quot; + 3);   // &quot;53&quot; - number coerced to string
+console.log(&quot;5&quot; - 3);   // 2    - string coerced to number</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> JavaScript automatically converting a value from one type to another during an operation</li>
+          <li><span class="opt-key">B</span> Forcing a variable to keep one type</li>
+          <li><span class="opt-key">C</span> Deleting a type</li>
+          <li><span class="opt-key">D</span> A syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — JavaScript automatically converting a value from one type to another during an operation</p>
+          <p class="expl">When operands have different types, JavaScript silently converts one to match - like turning 5 into &quot;5&quot; for concatenation. Convenient, but the cause of many surprises.</p>
+          <p class="tags"><span>Coercion</span><span>Type conversion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the difference between == and ===?</p>
+        <pre class="code"><code>console.log(5 == &quot;5&quot;);    // true
+console.log(5 === &quot;5&quot;);   // false</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> == converts types before comparing (loose); === requires the same type (strict)</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> === is slower and deprecated</li>
+          <li><span class="opt-key">D</span> == only works with numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — == converts types before comparing (loose); === requires the same type (strict)</p>
+          <p class="expl">5 == &quot;5&quot; is true (the string is converted). 5 === &quot;5&quot; is false (number vs string). Best practice: always use === unless you deliberately want coercion.</p>
+          <p class="tags"><span>Strict equality</span><span>Best practices</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (12)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which values are FALSY in JavaScript?</p>
+        <pre class="code"><code>if (&quot;&quot;) { }       // skipped
+if (&quot;0&quot;) { }      // runs! non-empty string
+if ([]) { }       // runs! empty array is truthy</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false, 0, -0, &quot;&quot;, null, undefined, NaN (and 0n)</li>
+          <li><span class="opt-key">B</span> Only false</li>
+          <li><span class="opt-key">C</span> false, 0 and []</li>
+          <li><span class="opt-key">D</span> Everything except true</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false, 0, -0, &quot;&quot;, null, undefined, NaN (and 0n)</p>
+          <p class="expl">Those are the only falsy values - EVERYTHING else is truthy, including &quot;0&quot;, &quot;false&quot;, [], {} and negative numbers. Memorising this short list explains most if-statement surprises.</p>
+          <p class="tags"><span>Truthy</span><span>Falsy</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(null == undefined, null === undefined);</p>
+        <pre class="code"><code>if (value == null) { }   // catches null AND undefined</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true false</li>
+          <li><span class="opt-key">B</span> true true</li>
+          <li><span class="opt-key">C</span> false false</li>
+          <li><span class="opt-key">D</span> false true</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true false</p>
+          <p class="expl">A special rule makes null and undefined loosely equal to each other (and to nothing else). Strictly they are different types. Handy: value == null tests for 'null OR undefined' in one check.</p>
+          <p class="tags"><span>null</span><span>undefined</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does Number(&quot;&quot;) return?</p>
+        <pre class="code"><code>console.log(Number(&quot;&quot;));      // 0
+console.log(Number(&quot;  &quot;));    // 0
+console.log(Number(&quot;abc&quot;));   // NaN</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 0 - an empty string converts to zero</li>
+          <li><span class="opt-key">B</span> NaN</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> &quot;&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 0 - an empty string converts to zero</p>
+          <p class="expl">Number(&quot;&quot;) and Number(&quot;   &quot;) are both 0, which surprises people expecting NaN. Number(&quot;abc&quot;) is NaN. This is why empty form fields can silently become 0.</p>
+          <p class="tags"><span>Number()</span><span>Coercion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(Number(true), Number(false), Number(null));</p>
+        <pre class="code"><code>console.log(Number(undefined));   // NaN
+console.log(Number(null));        // 0</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 0 0</li>
+          <li><span class="opt-key">B</span> true false null</li>
+          <li><span class="opt-key">C</span> 1 0 NaN</li>
+          <li><span class="opt-key">D</span> NaN NaN NaN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 0 0</p>
+          <p class="expl">true converts to 1, false to 0, and null to 0. (But Number(undefined) is NaN - another inconsistency between null and undefined.)</p>
+          <p class="tags"><span>Number conversion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;10&quot; &gt; &quot;9&quot;);</p>
+        <pre class="code"><code>console.log(&quot;10&quot; &gt; &quot;9&quot;);           // false - string compare
+console.log(10 &gt; 9);                // true
+console.log(&quot;10&quot; &gt; 9);              // true - mixed types convert to number</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false - two strings compare ALPHABETICALLY, and &quot;1&quot; comes before &quot;9&quot;</li>
+          <li><span class="opt-key">B</span> true</li>
+          <li><span class="opt-key">C</span> NaN</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false - two strings compare ALPHABETICALLY, and &quot;1&quot; comes before &quot;9&quot;</p>
+          <p class="expl">When both operands are strings, comparison is lexicographic (character by character), not numeric. &quot;10&quot; &gt; &quot;9&quot; is false. Convert first: Number(&quot;10&quot;) &gt; Number(&quot;9&quot;) is true.</p>
+          <p class="tags"><span>String comparison</span><span>Sorting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the safest way to compare two values?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use === (and !==) so no hidden conversion happens</li>
+          <li><span class="opt-key">B</span> Always use ==</li>
+          <li><span class="opt-key">C</span> Use = for comparison</li>
+          <li><span class="opt-key">D</span> Convert everything to strings first</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use === (and !==) so no hidden conversion happens</p>
+          <p class="expl">=== compares type and value with no surprises. The single accepted exception is x == null to catch both null and undefined at once.</p>
+          <p class="tags"><span>Best practices</span><span>Strict equality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you safely convert user input &quot;42&quot; to a number?</p>
+        <pre class="code"><code>const n = Number(input);
+if (Number.isNaN(n)) {
+  alert(&quot;Please enter a number&quot;);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Number(input) or parseInt(input, 10) - then check with Number.isNaN()</li>
+          <li><span class="opt-key">B</span> input.toNumber()</li>
+          <li><span class="opt-key">C</span> (int) input</li>
+          <li><span class="opt-key">D</span> input * &quot;1&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Number(input) or parseInt(input, 10) - then check with Number.isNaN()</p>
+          <p class="expl">Number() is strict (rejects &quot;42abc&quot;); parseInt(str, 10) reads leading digits. Always pass the radix 10 to parseInt and verify the result is not NaN.</p>
+          <p class="tags"><span>parseInt</span><span>Validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does String(null) return?</p>
+        <pre class="code"><code>console.log(&quot;Value: &quot; + null);   // &quot;Value: null&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;null&quot; (the text)</li>
+          <li><span class="opt-key">B</span> &quot;&quot;</li>
+          <li><span class="opt-key">C</span> null</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;null&quot; (the text)</p>
+          <p class="expl">String() turns any value into readable text, including &quot;null&quot; and &quot;undefined&quot;. That is why concatenating a null value shows the word null in the UI.</p>
+          <p class="tags"><span>String()</span><span>Concatenation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How can you check whether a value is a real number (not NaN, not a numeric string)?</p>
+        <pre class="code"><code>Number.isFinite(42);      // true
+Number.isFinite(&quot;42&quot;);    // false
+Number.isFinite(NaN);     // false</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> typeof v === &quot;number&quot; &amp;&amp; !Number.isNaN(v)  (or Number.isFinite(v))</li>
+          <li><span class="opt-key">B</span> typeof v === &quot;number&quot; only</li>
+          <li><span class="opt-key">C</span> v &gt; 0</li>
+          <li><span class="opt-key">D</span> isNaN(v) === false</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — typeof v === &quot;number&quot; &amp;&amp; !Number.isNaN(v)  (or Number.isFinite(v))</p>
+          <p class="expl">typeof alone accepts NaN (whose type is &quot;number&quot;). Number.isFinite(v) is the neat one-call version - it rejects NaN, Infinity and non-numbers.</p>
+          <p class="tags"><span>Number.isFinite</span><span>Validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does JSON.parse() do with the string '{&quot;a&quot;:1}'?</p>
+        <pre class="code"><code>const obj = JSON.parse('{&quot;a&quot;:1}');
+console.log(obj.a);              // 1
+console.log(JSON.stringify(obj)); // '{&quot;a&quot;:1}'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Converts JSON TEXT into a real JavaScript object</li>
+          <li><span class="opt-key">B</span> Converts an object into text</li>
+          <li><span class="opt-key">C</span> Validates the object</li>
+          <li><span class="opt-key">D</span> Deletes the object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Converts JSON TEXT into a real JavaScript object</p>
+          <p class="expl">JSON.parse turns text into objects (used on API responses); JSON.stringify does the reverse (used before sending or storing data).</p>
+          <p class="tags"><span>JSON</span><span>APIs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which comparison is safe for checking if a variable exists and has a value?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if (value != null) - catches both null and undefined</li>
+          <li><span class="opt-key">B</span> if (value) - also rejects 0 and &quot;&quot;</li>
+          <li><span class="opt-key">C</span> if (value !== false)</li>
+          <li><span class="opt-key">D</span> if (typeof value)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if (value != null) - catches both null and undefined</p>
+          <p class="expl">if (value) rejects legitimate values like 0 and &quot;&quot;. value != null (the one accepted use of loose equality) checks only for null/undefined. Modern alternative: value ?? fallback.</p>
+          <p class="tags"><span>null checks</span><span>Nullish</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does Object.is(NaN, NaN) return?</p>
+        <pre class="code"><code>console.log(Object.is(NaN, NaN));   // true
+console.log(NaN === NaN);            // false
+console.log(Object.is(0, -0));       // false</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true - Object.is treats NaN as equal to itself, unlike === </li>
+          <li><span class="opt-key">B</span> false</li>
+          <li><span class="opt-key">C</span> NaN</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true - Object.is treats NaN as equal to itself, unlike === </p>
+          <p class="expl">Object.is is like === with two fixes: NaN equals NaN, and +0 is NOT equal to -0. Useful for precise value comparison.</p>
+          <p class="tags"><span>Object.is</span><span>NaN</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (16)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(Boolean([]), Boolean({}));</p>
+        <pre class="code"><code>if (arr.length === 0) { }              // correct emptiness test
+if (Object.keys(obj).length === 0) { }</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true true - empty arrays and objects are TRUTHY</li>
+          <li><span class="opt-key">B</span> false false</li>
+          <li><span class="opt-key">C</span> true false</li>
+          <li><span class="opt-key">D</span> false true</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true true - empty arrays and objects are TRUTHY</p>
+          <p class="expl">Any object - including an empty array or object - is truthy. To test emptiness check arr.length === 0 or Object.keys(obj).length === 0.</p>
+          <ul class="notes"><li>This trips up people coming from Python, where [] is falsy.</li></ul>
+          <p class="tags"><span>Truthiness</span><span>Objects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([] == false);</p>
+        <pre class="code"><code>console.log([] == false);    // true  (coerced)
+console.log(Boolean([]));    // true  (truthy)
+console.log([] === false);   // false (strict)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true - [] converts to &quot;&quot; then to 0, and false converts to 0</li>
+          <li><span class="opt-key">B</span> false</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> TypeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true - [] converts to &quot;&quot; then to 0, and false converts to 0</p>
+          <p class="expl">Loose equality converts both sides to numbers: [] becomes &quot;&quot; becomes 0, and false becomes 0. So 0 == 0 is true - even though Boolean([]) is true! A perfect argument for using ===.</p>
+          <p class="tags"><span>Loose equality</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;&quot; == 0, &quot;0&quot; == 0, &quot;&quot; == &quot;0&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true true false - == converts strings to numbers, but &quot;&quot; and &quot;0&quot; are different strings</li>
+          <li><span class="opt-key">B</span> true true true</li>
+          <li><span class="opt-key">C</span> false false false</li>
+          <li><span class="opt-key">D</span> false true false</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true true false - == converts strings to numbers, but &quot;&quot; and &quot;0&quot; are different strings</p>
+          <p class="expl">&quot;&quot; converts to 0 (true), &quot;0&quot; converts to 0 (true), but comparing two STRINGS does no numeric conversion, so &quot;&quot; == &quot;0&quot; is false. Loose equality is not transitive - a classic demonstration of why to avoid it.</p>
+          <p class="tags"><span>Loose equality</span><span>Coercion rules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(NaN == NaN, NaN === NaN);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false false - NaN is never equal to anything, including itself</li>
+          <li><span class="opt-key">B</span> true true</li>
+          <li><span class="opt-key">C</span> true false</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false false - NaN is never equal to anything, including itself</p>
+          <p class="expl">The IEEE floating-point standard defines NaN as unequal to everything. Test with Number.isNaN(x) or Object.is(x, NaN).</p>
+          <p class="tags"><span>NaN</span><span>Number.isNaN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(true + true);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 - booleans convert to 1 and 0 in arithmetic</li>
+          <li><span class="opt-key">B</span> &quot;truetrue&quot;</li>
+          <li><span class="opt-key">C</span> true</li>
+          <li><span class="opt-key">D</span> NaN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 - booleans convert to 1 and 0 in arithmetic</p>
+          <p class="expl">Arithmetic coerces booleans to numbers: true is 1, so 1 + 1 = 2. A neat trick: array.filter(Boolean).length or summing booleans to count matches.</p>
+          <p class="tags"><span>Boolean coercion</span><span>Arithmetic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([] + []);</p>
+        <pre class="code"><code>console.log(typeof ([] + []));   // &quot;string&quot;
+console.log([1,2] + [3]);        // &quot;1,23&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;&quot; (an empty string) - both arrays convert to empty strings and concatenate</li>
+          <li><span class="opt-key">B</span> []</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> NaN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;&quot; (an empty string) - both arrays convert to empty strings and concatenate</p>
+          <p class="expl">The + operator converts objects to primitives; an array becomes its join(&quot;,&quot;) string, so [] becomes &quot;&quot;. Empty + empty = empty string. The result is a string, not an array.</p>
+          <p class="tags"><span>Array coercion</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([] + {});</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;[object Object]&quot; - [] becomes &quot;&quot; and {} becomes &quot;[object Object]&quot;</li>
+          <li><span class="opt-key">B</span> &quot;{}&quot;</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> TypeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;[object Object]&quot; - [] becomes &quot;&quot; and {} becomes &quot;[object Object]&quot;</p>
+          <p class="expl">A plain object's default string form is &quot;[object Object]&quot;, so &quot;&quot; + &quot;[object Object]&quot; gives that famous string. Seeing it in your UI means you printed an object instead of its contents - use JSON.stringify() instead.</p>
+          <p class="tags"><span>Object coercion</span><span>toString</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;5&quot; * &quot;2&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 10 - both strings are converted to numbers</li>
+          <li><span class="opt-key">B</span> &quot;52&quot;</li>
+          <li><span class="opt-key">C</span> NaN</li>
+          <li><span class="opt-key">D</span> &quot;10&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 10 - both strings are converted to numbers</p>
+          <p class="expl">*, -, / and % have only a numeric meaning, so both operands are converted. Only + is ambiguous because it also concatenates.</p>
+          <p class="tags"><span>Numeric coercion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does [10, 9, 100].sort() give [10, 100, 9]?</p>
+        <pre class="code"><code>console.log([10, 9, 100].sort());              // [10, 100, 9]
+console.log([10, 9, 100].sort((a,b) =&gt; a-b));   // [9, 10, 100]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> sort() converts elements to STRINGS by default and sorts alphabetically</li>
+          <li><span class="opt-key">B</span> sort() is broken</li>
+          <li><span class="opt-key">C</span> It sorts by length</li>
+          <li><span class="opt-key">D</span> It sorts randomly</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — sort() converts elements to STRINGS by default and sorts alphabetically</p>
+          <p class="expl">The default sort compares string forms: &quot;10&quot; &lt; &quot;100&quot; &lt; &quot;9&quot;. For numbers you must pass a comparator: sort((a, b) =&gt; a - b).</p>
+          <ul class="notes"><li>One of the most common real-world JavaScript bugs.</li></ul>
+          <p class="tags"><span>sort()</span><span>Comparator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;5&quot; === 5, &quot;5&quot; == 5);</p>
+        <pre class="code"><code>const input = &quot;5&quot;;        // from a form
+if (input === 5) { }       // never runs!
+if (Number(input) === 5) { }  // correct</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false true</li>
+          <li><span class="opt-key">B</span> true true</li>
+          <li><span class="opt-key">C</span> false false</li>
+          <li><span class="opt-key">D</span> true false</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false true</p>
+          <p class="expl">Strict comparison fails because the types differ. Loose comparison converts the string to a number first, so it succeeds. Data from input fields and APIs is often a string - a frequent source of this bug.</p>
+          <p class="tags"><span>Forms</span><span>Input validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(0.1 + 0.2 === 0.3);</p>
+        <pre class="code"><code>console.log(0.1 + 0.2);   // 0.30000000000000004
+console.log(Math.abs(0.1 + 0.2 - 0.3) &lt; Number.EPSILON);   // true</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false - floating-point maths gives 0.30000000000000004</li>
+          <li><span class="opt-key">B</span> true</li>
+          <li><span class="opt-key">C</span> NaN</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false - floating-point maths gives 0.30000000000000004</p>
+          <p class="expl">Binary floating point cannot represent 0.1 and 0.2 exactly. Compare with a tolerance: Math.abs(a - b) &lt; Number.EPSILON, or work in integers (cents instead of rupees).</p>
+          <p class="tags"><span>Floating point</span><span>Number.EPSILON</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(1 + &quot;2&quot; - 3);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 9 - 1 + &quot;2&quot; gives &quot;12&quot;, then &quot;12&quot; - 3 converts back to 12 - 3</li>
+          <li><span class="opt-key">B</span> 0</li>
+          <li><span class="opt-key">C</span> &quot;12-3&quot;</li>
+          <li><span class="opt-key">D</span> NaN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 9 - 1 + &quot;2&quot; gives &quot;12&quot;, then &quot;12&quot; - 3 converts back to 12 - 3</p>
+          <p class="expl">Left to right: + with a string concatenates to &quot;12&quot;; then - forces numeric conversion, giving 12 - 3 = 9. A perfect illustration of mixed coercion.</p>
+          <p class="tags"><span>Coercion</span><span>Operator order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(!!&quot;false&quot;, !!&quot;0&quot;, !!0);</p>
+        <pre class="code"><code>const flag = &quot;false&quot;;
+if (flag) { }                  // runs! (truthy string)
+if (flag === &quot;true&quot;) { }       // correct check</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true true false - any non-empty string is truthy regardless of its content</li>
+          <li><span class="opt-key">B</span> false false false</li>
+          <li><span class="opt-key">C</span> true false false</li>
+          <li><span class="opt-key">D</span> false true true</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true true false - any non-empty string is truthy regardless of its content</p>
+          <p class="expl">The strings &quot;false&quot; and &quot;0&quot; are non-empty, so they are truthy. Only the number 0 is falsy here. Reading &quot;false&quot; from an API and using it in an if is a common bug - compare explicitly instead.</p>
+          <p class="tags"><span>Truthiness</span><span>API data</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(typeof (&quot;5&quot; - 3), typeof (&quot;5&quot; + 3));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;number&quot; &quot;string&quot;</li>
+          <li><span class="opt-key">B</span> &quot;string&quot; &quot;string&quot;</li>
+          <li><span class="opt-key">C</span> &quot;number&quot; &quot;number&quot;</li>
+          <li><span class="opt-key">D</span> &quot;string&quot; &quot;number&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;number&quot; &quot;string&quot;</p>
+          <p class="expl">Subtraction always produces a number (2), while + with a string produces a string (&quot;53&quot;). Same operands, different result types - the essence of JavaScript coercion.</p>
+          <p class="tags"><span>typeof</span><span>Coercion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([1] == 1, [1,2] == &quot;1,2&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true true - arrays convert to their comma-joined string, then compare</li>
+          <li><span class="opt-key">B</span> false false</li>
+          <li><span class="opt-key">C</span> true false</li>
+          <li><span class="opt-key">D</span> TypeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true true - arrays convert to their comma-joined string, then compare</p>
+          <p class="expl">[1] becomes &quot;1&quot; then the number 1 - equal. [1,2] becomes &quot;1,2&quot;, matching the string. Bizarre, but consistent with the coercion rules. Yet another reason to use ===.</p>
+          <p class="tags"><span>Array coercion</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why should you write === almost everywhere, in one sentence?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It compares without hidden conversions, so results are predictable and bug-free</li>
+          <li><span class="opt-key">B</span> It is faster to type</li>
+          <li><span class="opt-key">C</span> == was removed from the language</li>
+          <li><span class="opt-key">D</span> === works on more types</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It compares without hidden conversions, so results are predictable and bug-free</p>
+          <p class="expl">Loose equality follows a complex conversion table that is not even transitive (&quot;&quot; == 0 and &quot;0&quot; == 0, but &quot;&quot; != &quot;0&quot;). Strict equality has one simple rule: same type, same value. Linters flag == for this reason.</p>
+          <p class="tags"><span>Best practices</span><span>Linting</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="03-operators.html">← Operators</a>
+      <a href="05-strings-and-template-literals.html">Strings &amp; Template Literals →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-3">Practice “Type Coercion &amp; Equality” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Array Methods – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Array Methods with answers and detailed explanations — 2 easy, 17 medium and 11 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/09-array-methods.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Array Methods – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Array Methods with answers and detailed explanations — 2 easy, 17 medium and 11 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/09-array-methods.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Array Methods","item":"https://velnov.co.in/learn/javascript/09-array-methods.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Array Methods</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 9 of 20</p>
+      <h1>Array Methods — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Array Methods</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-8">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 17 medium · 11 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>map</span><span>Immutability</span><span>filter</span><span>Predicates</span><span>forEach</span><span>reduce</span><span>Accumulator</span><span>Edge cases</span><span>find</span><span>findIndex</span><span>some</span><span>every</span><span>Chaining</span><span>Arrow functions</span><span>Implicit return</span><span>Object literals</span><span>Callbacks</span><span>Parameters</span><span>parseInt</span><span>Gotchas</span><span>Real-world</span><span>Counting</span><span>Grouping</span><span>flatMap</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does map() return?</p>
+        <pre class="code"><code>const nums = [1, 2, 3];
+console.log(nums.map(n =&gt; n * 2));   // [2, 4, 6]
+console.log(nums);                    // [1, 2, 3] - unchanged</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A NEW array with the callback applied to every element</li>
+          <li><span class="opt-key">B</span> The same array, modified</li>
+          <li><span class="opt-key">C</span> A single value</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A NEW array with the callback applied to every element</p>
+          <p class="expl">map transforms each element into a new one, always producing an array of the SAME length. The original is untouched.</p>
+          <p class="tags"><span>map</span><span>Immutability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does filter() return?</p>
+        <pre class="code"><code>const nums = [1, 2, 3, 4];
+console.log(nums.filter(n =&gt; n % 2 === 0));   // [2, 4]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A new array with ONLY the elements whose callback returned truthy</li>
+          <li><span class="opt-key">B</span> The first matching element</li>
+          <li><span class="opt-key">C</span> true or false</li>
+          <li><span class="opt-key">D</span> The removed elements</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A new array with ONLY the elements whose callback returned truthy</p>
+          <p class="expl">filter keeps elements that pass the test, so the result can be shorter (or empty). It never modifies the original.</p>
+          <p class="tags"><span>filter</span><span>Predicates</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (17)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the key difference between map() and forEach()?</p>
+        <pre class="code"><code>const doubled = nums.map(n =&gt; n * 2);   // use the result
+nums.forEach(n =&gt; console.log(n));       // side effect only</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> map RETURNS a new array; forEach returns undefined and is used for side effects</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> forEach is faster and returns an array</li>
+          <li><span class="opt-key">D</span> map cannot use arrow functions</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — map RETURNS a new array; forEach returns undefined and is used for side effects</p>
+          <p class="expl">Use map when you want a transformed array back; use forEach when you just want to DO something per element (logging, DOM updates). Using map without using its result is a code smell.</p>
+          <p class="tags"><span>map</span><span>forEach</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does reduce() do?</p>
+        <pre class="code"><code>const total = [1, 2, 3].reduce((sum, n) =&gt; sum + n, 0);
+console.log(total);   // 6</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Boils an array down to a SINGLE value using an accumulator</li>
+          <li><span class="opt-key">B</span> Removes elements</li>
+          <li><span class="opt-key">C</span> Shrinks the array length</li>
+          <li><span class="opt-key">D</span> Sorts the array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Boils an array down to a SINGLE value using an accumulator</p>
+          <p class="expl">reduce((acc, item) =&gt; ..., initialValue) carries a running result across the array - sums, counts, groupings, even building objects.</p>
+          <p class="tags"><span>reduce</span><span>Accumulator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does find() return?</p>
+        <pre class="code"><code>const users = [{id:1},{id:2}];
+console.log(users.find(u =&gt; u.id === 2));       // {id: 2}
+console.log(users.findIndex(u =&gt; u.id === 2));  // 1</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The FIRST element matching the test, or undefined</li>
+          <li><span class="opt-key">B</span> All matching elements</li>
+          <li><span class="opt-key">C</span> The index of the match</li>
+          <li><span class="opt-key">D</span> true or false</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The FIRST element matching the test, or undefined</p>
+          <p class="expl">find returns the element itself and stops at the first match. findIndex returns its position instead (or -1).</p>
+          <p class="tags"><span>find</span><span>findIndex</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between find() and filter()?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> find returns ONE element (or undefined); filter returns an ARRAY of all matches</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> find returns an array</li>
+          <li><span class="opt-key">D</span> filter stops at the first match</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — find returns ONE element (or undefined); filter returns an ARRAY of all matches</p>
+          <p class="expl">Use find when you expect a single result (it also stops early, so it is faster). filter always scans the whole array.</p>
+          <p class="tags"><span>find</span><span>filter</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What do some() and every() return?</p>
+        <pre class="code"><code>const n = [2, 4, 6];
+console.log(n.some(x =&gt; x &gt; 5));    // true
+console.log(n.every(x =&gt; x % 2 === 0)); // true
+console.log([].every(x =&gt; false));   // true!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Booleans - some: does AT LEAST ONE pass? every: do ALL pass?</li>
+          <li><span class="opt-key">B</span> Arrays of matches</li>
+          <li><span class="opt-key">C</span> The matching elements</li>
+          <li><span class="opt-key">D</span> Counts</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Booleans - some: does AT LEAST ONE pass? every: do ALL pass?</p>
+          <p class="expl">Both short-circuit: some stops at the first true, every stops at the first false. Note every() on an EMPTY array is true (vacuous truth).</p>
+          <p class="tags"><span>some</span><span>every</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log([1, 2, 3].map(n =&gt; n * 2).filter(n =&gt; n &gt; 2));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [4, 6] - map first gives [2,4,6], then filter keeps &gt; 2</li>
+          <li><span class="opt-key">B</span> [2, 4, 6]</li>
+          <li><span class="opt-key">C</span> [4]</li>
+          <li><span class="opt-key">D</span> [2, 3]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [4, 6] - map first gives [2,4,6], then filter keeps &gt; 2</p>
+          <p class="expl">Array methods return arrays, so they CHAIN left to right. Each step creates a new array - readable, though it iterates more than once.</p>
+          <p class="tags"><span>Chaining</span><span>map</span><span>filter</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What arguments does the map callback receive?</p>
+        <pre class="code"><code>[&quot;a&quot;,&quot;b&quot;].map((val, i) =&gt; `${i}: ${val}`);
+// [&quot;0: a&quot;, &quot;1: b&quot;]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> (element, index, wholeArray)</li>
+          <li><span class="opt-key">B</span> (index, element)</li>
+          <li><span class="opt-key">C</span> Only the element</li>
+          <li><span class="opt-key">D</span> (array, index)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — (element, index, wholeArray)</p>
+          <p class="expl">All iteration methods pass (value, index, array). You may ignore the extras - most callbacks only use the value.</p>
+          <p class="tags"><span>Callbacks</span><span>Parameters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you sum an array of objects' prices?</p>
+        <pre class="code"><code>const cart = [{price: 100}, {price: 250}];
+const total = cart.reduce((s, i) =&gt; s + i.price, 0);   // 350</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> items.reduce((sum, item) =&gt; sum + item.price, 0)</li>
+          <li><span class="opt-key">B</span> items.sum(&quot;price&quot;)</li>
+          <li><span class="opt-key">C</span> items.map(i =&gt; i.price).total()</li>
+          <li><span class="opt-key">D</span> items.add(price)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — items.reduce((sum, item) =&gt; sum + item.price, 0)</p>
+          <p class="expl">reduce with an accumulator starting at 0 is the standard total. Alternatively items.map(i =&gt; i.price).reduce((a,b) =&gt; a+b, 0).</p>
+          <p class="tags"><span>reduce</span><span>Real-world</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does flatMap() do?</p>
+        <pre class="code"><code>console.log([&quot;a b&quot;, &quot;c&quot;].flatMap(s =&gt; s.split(&quot; &quot;)));
+// [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Maps each element then flattens the result one level</li>
+          <li><span class="opt-key">B</span> Flattens only</li>
+          <li><span class="opt-key">C</span> Maps twice</li>
+          <li><span class="opt-key">D</span> Sorts and maps</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Maps each element then flattens the result one level</p>
+          <p class="expl">flatMap is map + flat(1) in one pass - ideal when each input produces zero, one or many outputs.</p>
+          <p class="tags"><span>flatMap</span><span>flat</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you sort numbers ascending?</p>
+        <pre class="code"><code>[10, 9, 100].sort((a, b) =&gt; a - b);   // [9, 10, 100]
+[10, 9, 100].sort((a, b) =&gt; b - a);   // [100, 10, 9]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> arr.sort((a, b) =&gt; a - b)</li>
+          <li><span class="opt-key">B</span> arr.sort()</li>
+          <li><span class="opt-key">C</span> arr.sort(&quot;asc&quot;)</li>
+          <li><span class="opt-key">D</span> arr.sortNumbers()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — arr.sort((a, b) =&gt; a - b)</p>
+          <p class="expl">A comparator returning a negative number means 'a first', positive means 'b first', 0 means equal. a - b gives ascending; b - a gives descending.</p>
+          <p class="tags"><span>sort</span><span>Comparator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you sort an array of objects by a property?</p>
+        <pre class="code"><code>users.sort((a, b) =&gt; a.age - b.age);
+users.sort((a, b) =&gt; a.name.localeCompare(b.name));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> arr.sort((a, b) =&gt; a.age - b.age) for numbers, or localeCompare for strings</li>
+          <li><span class="opt-key">B</span> arr.sort(&quot;age&quot;)</li>
+          <li><span class="opt-key">C</span> arr.sortBy(age)</li>
+          <li><span class="opt-key">D</span> arr.order(age)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — arr.sort((a, b) =&gt; a.age - b.age) for numbers, or localeCompare for strings</p>
+          <p class="expl">Subtract for numeric fields; use a.name.localeCompare(b.name) for text so that accents and locale rules are handled correctly.</p>
+          <p class="tags"><span>sort</span><span>localeCompare</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which methods do NOT mutate the original array?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> map, filter, slice, concat, reduce, join</li>
+          <li><span class="opt-key">B</span> push, pop, splice, sort</li>
+          <li><span class="opt-key">C</span> All array methods mutate</li>
+          <li><span class="opt-key">D</span> No array methods mutate</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — map, filter, slice, concat, reduce, join</p>
+          <p class="expl">The functional methods return new values. The mutators are push, pop, shift, unshift, splice, sort, reverse and fill. Knowing which is which prevents surprise bugs.</p>
+          <p class="tags"><span>Immutability</span><span>Mutation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log([1, 2, 3].includes(2), [1, 2, 3].indexOf(2));</p>
+        <pre class="code"><code>console.log([NaN].includes(NaN));   // true
+console.log([NaN].indexOf(NaN));    // -1</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true 1</li>
+          <li><span class="opt-key">B</span> 1 true</li>
+          <li><span class="opt-key">C</span> true true</li>
+          <li><span class="opt-key">D</span> 2 2</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true 1</p>
+          <p class="expl">includes gives a boolean; indexOf gives the position. includes also finds NaN correctly, which indexOf cannot.</p>
+          <p class="tags"><span>includes</span><span>indexOf</span><span>NaN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does Array.from() do?</p>
+        <pre class="code"><code>Array.from(&quot;abc&quot;);                      // [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+Array.from({length: 3}, (_, i) =&gt; i);    // [0, 1, 2]
+Array.from(document.querySelectorAll(&quot;p&quot;));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Creates an array from an iterable or array-like object, optionally mapping each item</li>
+          <li><span class="opt-key">B</span> Copies only arrays</li>
+          <li><span class="opt-key">C</span> Sorts an array</li>
+          <li><span class="opt-key">D</span> Converts an array to a string</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Creates an array from an iterable or array-like object, optionally mapping each item</p>
+          <p class="expl">Array.from turns strings, Sets, Maps, NodeLists and {length: n} objects into real arrays, with an optional map function as the second argument.</p>
+          <p class="tags"><span>Array.from</span><span>Array-like</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you find the maximum value in an array?</p>
+        <pre class="code"><code>console.log(Math.max(...[3, 7, 2]));   // 7
+console.log([3,7,2].reduce((m, x) =&gt; x &gt; m ? x : m));   // 7</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Math.max(...arr)</li>
+          <li><span class="opt-key">B</span> arr.max()</li>
+          <li><span class="opt-key">C</span> Math.max(arr)</li>
+          <li><span class="opt-key">D</span> arr.sort()[0]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Math.max(...arr)</p>
+          <p class="expl">Math.max takes separate arguments, so spread the array. Math.max(arr) would give NaN. For very large arrays use reduce to avoid argument limits.</p>
+          <p class="tags"><span>Math.max</span><span>Spread</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+const users = [{name:&quot;Ana&quot;, age:30}, {name:&quot;Ben&quot;, age:20}];
+console.log(users.map(u =&gt; u.name).join(&quot;, &quot;));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;Ana, Ben&quot;</li>
+          <li><span class="opt-key">B</span> [&quot;Ana&quot;,&quot;Ben&quot;]</li>
+          <li><span class="opt-key">C</span> &quot;AnaBen&quot;</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;Ana, Ben&quot;</p>
+          <p class="expl">map extracts the names into an array, then join turns them into a readable string. Extract-then-join is an everyday pattern for displaying lists.</p>
+          <p class="tags"><span>map</span><span>join</span><span>Real-world</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which method would you use to check if EVERY form field is filled?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> fields.every(f =&gt; f.value.trim() !== &quot;&quot;)</li>
+          <li><span class="opt-key">B</span> fields.some(...)</li>
+          <li><span class="opt-key">C</span> fields.filter(...)</li>
+          <li><span class="opt-key">D</span> fields.map(...)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — fields.every(f =&gt; f.value.trim() !== &quot;&quot;)</p>
+          <p class="expl">every returns true only when all elements pass - exactly 'is the whole form valid?'. some would answer 'is at least one filled?'.</p>
+          <p class="tags"><span>every</span><span>Validation</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (11)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why should you pass an initial value to reduce()?
+arr.reduce(fn, 0)</p>
+        <pre class="code"><code>[].reduce((a, b) =&gt; a + b);        // TypeError!
+[].reduce((a, b) =&gt; a + b, 0);     // 0 - safe</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Without it, reduce throws a TypeError on an EMPTY array and starts with element 0 otherwise</li>
+          <li><span class="opt-key">B</span> It is purely decorative</li>
+          <li><span class="opt-key">C</span> It makes reduce faster</li>
+          <li><span class="opt-key">D</span> It reverses the array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Without it, reduce throws a TypeError on an EMPTY array and starts with element 0 otherwise</p>
+          <p class="expl">With no initial value, the first element becomes the accumulator and an empty array raises 'Reduce of empty array with no initial value'. Passing 0 (or {} or []) also makes the intended type explicit.</p>
+          <p class="tags"><span>reduce</span><span>Edge cases</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([1, 2, 3].map(n =&gt; { n * 2; }));</p>
+        <pre class="code"><code>n =&gt; n * 2         // implicit return
+n =&gt; { return n * 2; }   // explicit return
+n =&gt; { n * 2; }    // returns undefined!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [undefined, undefined, undefined] - the arrow body has braces but no return</li>
+          <li><span class="opt-key">B</span> [2, 4, 6]</li>
+          <li><span class="opt-key">C</span> [1, 2, 3]</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [undefined, undefined, undefined] - the arrow body has braces but no return</p>
+          <p class="expl">With curly braces you must write return explicitly. Concise bodies without braces return automatically: n =&gt; n * 2. A very common beginner bug.</p>
+          <p class="tags"><span>Arrow functions</span><span>Implicit return</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you return an OBJECT from a concise arrow function?</p>
+        <pre class="code"><code>const wrap = n =&gt; ({ value: n });
+console.log([1,2].map(wrap));   // [{value:1},{value:2}]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Wrap it in parentheses: n =&gt; ({ value: n })</li>
+          <li><span class="opt-key">B</span> n =&gt; { value: n }</li>
+          <li><span class="opt-key">C</span> n =&gt; return { value: n }</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Wrap it in parentheses: n =&gt; ({ value: n })</p>
+          <p class="expl">Without parentheses the braces are parsed as a function BODY, not an object literal (giving undefined). Parentheses tell JavaScript it is an expression.</p>
+          <p class="tags"><span>Arrow functions</span><span>Object literals</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([&quot;1&quot;, &quot;2&quot;, &quot;3&quot;].map(parseInt));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, NaN, NaN] - map passes the index as parseInt's radix argument</li>
+          <li><span class="opt-key">B</span> [1, 2, 3]</li>
+          <li><span class="opt-key">C</span> [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</li>
+          <li><span class="opt-key">D</span> [NaN, NaN, NaN]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, NaN, NaN] - map passes the index as parseInt's radix argument</p>
+          <p class="expl">map calls parseInt(value, index): parseInt(&quot;1&quot;,0)=1, parseInt(&quot;2&quot;,1)=NaN (radix 1 is invalid), parseInt(&quot;3&quot;,2)=NaN (3 is not a binary digit). Fix by wrapping: map(s =&gt; parseInt(s, 10)) or map(Number).</p>
+          <ul class="notes"><li>A famous interview question about accidental extra arguments.</li></ul>
+          <p class="tags"><span>parseInt</span><span>Callbacks</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this reduce build?
+arr.reduce((acc, x) =&gt; { acc[x] = (acc[x] || 0) + 1; return acc; }, {})</p>
+        <pre class="code"><code>const votes = [&quot;a&quot;, &quot;b&quot;, &quot;a&quot;];
+console.log(votes.reduce((acc, v) =&gt; {
+  acc[v] = (acc[v] || 0) + 1; return acc;
+}, {}));   // { a: 2, b: 1 }</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A frequency count object: { value: howManyTimes }</li>
+          <li><span class="opt-key">B</span> A sum</li>
+          <li><span class="opt-key">C</span> A sorted array</li>
+          <li><span class="opt-key">D</span> A filtered array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A frequency count object: { value: howManyTimes }</p>
+          <p class="expl">Starting with an empty object, each element increments its own counter. Counting occurrences is one of reduce's most useful patterns.</p>
+          <p class="tags"><span>reduce</span><span>Counting</span><span>Grouping</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const a = [3, 1, 2];
+const b = a.sort();
+b.push(9);
+console.log(a);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 2, 3, 9] - sort mutates AND returns the SAME array, so a and b are one array</li>
+          <li><span class="opt-key">B</span> [3, 1, 2]</li>
+          <li><span class="opt-key">C</span> [1, 2, 3]</li>
+          <li><span class="opt-key">D</span> [9]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 2, 3, 9] - sort mutates AND returns the SAME array, so a and b are one array</p>
+          <p class="expl">sort() sorts in place and returns a reference to the same array - it does not copy. Use [...a].sort() or a.toSorted() when you need to keep the original.</p>
+          <p class="tags"><span>sort</span><span>Mutation</span><span>References</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you get unique values, sorted, from [3,1,3,2]?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [...new Set([3,1,3,2])].sort((a,b) =&gt; a-b)</li>
+          <li><span class="opt-key">B</span> [3,1,3,2].unique().sort()</li>
+          <li><span class="opt-key">C</span> [3,1,3,2].filter(unique)</li>
+          <li><span class="opt-key">D</span> Set([3,1,3,2]).sort()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [...new Set([3,1,3,2])].sort((a,b) =&gt; a-b)</p>
+          <p class="expl">Set removes duplicates, spread converts back to an array, then sort with a numeric comparator gives [1, 2, 3]. Note a Set itself has no sort method.</p>
+          <p class="tags"><span>Set</span><span>sort</span><span>Chaining</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([1,2,3].reduce((a, b) =&gt; a + b));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 6 - without an initial value, the first element becomes the accumulator</li>
+          <li><span class="opt-key">B</span> TypeError</li>
+          <li><span class="opt-key">C</span> [1,2,3]</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 6 - without an initial value, the first element becomes the accumulator</p>
+          <p class="expl">Omitting the initial value starts with acc=1, b=2 (giving 3), then acc=3, b=3 (giving 6). It works for non-empty arrays, but always passing an initial value is safer.</p>
+          <p class="tags"><span>reduce</span><span>Initial value</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this do?
+arr.filter(Boolean)</p>
+        <pre class="code"><code>console.log([0, &quot;a&quot;, null, &quot;b&quot;, &quot;&quot;].filter(Boolean));
+// [&quot;a&quot;, &quot;b&quot;]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Removes all falsy values (0, &quot;&quot;, null, undefined, NaN, false)</li>
+          <li><span class="opt-key">B</span> Converts everything to booleans</li>
+          <li><span class="opt-key">C</span> Keeps only booleans</li>
+          <li><span class="opt-key">D</span> Throws an error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Removes all falsy values (0, &quot;&quot;, null, undefined, NaN, false)</p>
+          <p class="expl">Boolean is passed as the callback: each element is converted, and only truthy ones survive. A clean idiom for cleaning data.</p>
+          <p class="tags"><span>filter</span><span>Truthiness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the performance concern with chaining many array methods?
+arr.map(...).filter(...).map(...)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Each step creates a new array and iterates again - fine for small data, wasteful for very large arrays</li>
+          <li><span class="opt-key">B</span> It always crashes</li>
+          <li><span class="opt-key">C</span> Chaining is impossible</li>
+          <li><span class="opt-key">D</span> It mutates the original</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Each step creates a new array and iterates again - fine for small data, wasteful for very large arrays</p>
+          <p class="expl">Three chained calls mean three passes and three temporary arrays. For typical UI data this is irrelevant and readability wins; for huge datasets a single reduce or for...of loop is more efficient.</p>
+          <p class="tags"><span>Performance</span><span>Chaining</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How would you group items by a property using reduce?</p>
+        <pre class="code"><code>const byType = items.reduce((acc, item) =&gt; {
+  (acc[item.type] ||= []).push(item);
+  return acc;
+}, {});</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> reduce((acc, item) =&gt; { (acc[item.type] ||= []).push(item); return acc; }, {})</li>
+          <li><span class="opt-key">B</span> arr.groupBy(&quot;type&quot;)</li>
+          <li><span class="opt-key">C</span> arr.filter(&quot;type&quot;)</li>
+          <li><span class="opt-key">D</span> arr.sort(&quot;type&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — reduce((acc, item) =&gt; { (acc[item.type] ||= []).push(item); return acc; }, {})</p>
+          <p class="expl">Create the array for a key if missing, then push. (Object.groupBy exists in very new environments, but the reduce pattern works everywhere.)</p>
+          <p class="tags"><span>reduce</span><span>Grouping</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="08-arrays.html">← Arrays</a>
+      <a href="10-objects.html">Objects →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-8">Practice “Array Methods” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

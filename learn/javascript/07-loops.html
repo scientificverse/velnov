@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loops – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Loops with answers and detailed explanations — 3 easy, 18 medium and 9 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/07-loops.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Loops – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Loops with answers and detailed explanations — 3 easy, 18 medium and 9 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/07-loops.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Loops","item":"https://velnov.co.in/learn/javascript/07-loops.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Loops</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 7 of 20</p>
+      <h1>Loops — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Loops</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-6">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">3 easy · 18 medium · 9 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>for loop</span><span>Syntax</span><span>Off-by-one</span><span>break</span><span>continue</span><span>while</span><span>do-while</span><span>Debugging</span><span>for...of</span><span>Iterables</span><span>for...in</span><span>Objects</span><span>Gotchas</span><span>forEach</span><span>Callbacks</span><span>some</span><span>Early exit</span><span>Closures</span><span>let vs var</span><span>Event loop</span><span>let</span><span>Reverse iteration</span><span>reverse()</span><span>Accumulator</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (3)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What are the three parts of a classic for loop?
+for (A; B; C)</p>
+        <pre class="code"><code>for (let i = 0; i &lt; 5; i++) {
+  console.log(i);   // 0 1 2 3 4
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Initialisation; condition; update</li>
+          <li><span class="opt-key">B</span> Start; end; step size</li>
+          <li><span class="opt-key">C</span> Variable; array; index</li>
+          <li><span class="opt-key">D</span> Condition; body; return</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Initialisation; condition; update</p>
+          <p class="expl">for (let i = 0; i &lt; 5; i++) means: create i, keep going while the condition holds, and run the update after each pass.</p>
+          <p class="tags"><span>for loop</span><span>Syntax</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How many times does this run?
+for (let i = 0; i &lt; 5; i++) { }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5 times (i = 0,1,2,3,4)</li>
+          <li><span class="opt-key">B</span> 4 times</li>
+          <li><span class="opt-key">C</span> 6 times</li>
+          <li><span class="opt-key">D</span> Infinite</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5 times (i = 0,1,2,3,4)</p>
+          <p class="expl">Starting at 0 and stopping before 5 gives five iterations. Starting at 0 with &lt; length is the standard array pattern.</p>
+          <p class="tags"><span>for loop</span><span>Off-by-one</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the difference between while and do...while?</p>
+        <pre class="code"><code>let i = 10;
+while (i &lt; 5) { console.log(&quot;never&quot;); }
+do { console.log(&quot;once&quot;); } while (i &lt; 5);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> do...while checks the condition AFTER the body, so it always runs at least once</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> while runs at least once</li>
+          <li><span class="opt-key">D</span> do...while cannot use break</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — do...while checks the condition AFTER the body, so it always runs at least once</p>
+          <p class="expl">while may run zero times if the condition starts false; do...while guarantees one execution - handy for menus and input prompts.</p>
+          <p class="tags"><span>while</span><span>do-while</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (18)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does break do inside a loop?</p>
+        <pre class="code"><code>for (const n of nums) {
+  if (n &gt; 100) break;   // stop searching
+  console.log(n);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Exits the loop immediately</li>
+          <li><span class="opt-key">B</span> Skips one iteration</li>
+          <li><span class="opt-key">C</span> Pauses the loop</li>
+          <li><span class="opt-key">D</span> Restarts the loop</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Exits the loop immediately</p>
+          <p class="expl">break stops the loop entirely and continues after it - useful once you have found what you were searching for.</p>
+          <p class="tags"><span>break</span><span>continue</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does continue do?</p>
+        <pre class="code"><code>for (let i = 0; i &lt; 5; i++) {
+  if (i === 2) continue;
+  console.log(i);   // 0 1 3 4
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Skips the rest of the current iteration and moves to the next one</li>
+          <li><span class="opt-key">B</span> Exits the loop</li>
+          <li><span class="opt-key">C</span> Restarts from zero</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Skips the rest of the current iteration and moves to the next one</p>
+          <p class="expl">continue jumps to the next iteration, skipping the remaining statements in the body for this pass only.</p>
+          <p class="tags"><span>continue</span><span>break</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What causes an INFINITE loop most often?</p>
+        <pre class="code"><code>let i = 0;
+while (i &lt; 5) {
+  console.log(i);
+  // forgot i++  -&gt; infinite!
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Forgetting to update the variable the condition depends on</li>
+          <li><span class="opt-key">B</span> Using const</li>
+          <li><span class="opt-key">C</span> Using break</li>
+          <li><span class="opt-key">D</span> Nesting loops</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Forgetting to update the variable the condition depends on</p>
+          <p class="expl">If nothing changes the condition, it stays true forever and the browser tab freezes. Always ensure the loop makes progress toward termination.</p>
+          <p class="tags"><span>while</span><span>Debugging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does for...of iterate over?</p>
+        <pre class="code"><code>for (const fruit of [&quot;apple&quot;, &quot;mango&quot;]) {
+  console.log(fruit);   // apple, mango
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The VALUES of an iterable (array, string, Map, Set)</li>
+          <li><span class="opt-key">B</span> The keys/indexes</li>
+          <li><span class="opt-key">C</span> Object properties</li>
+          <li><span class="opt-key">D</span> Only numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The VALUES of an iterable (array, string, Map, Set)</p>
+          <p class="expl">for...of gives you each value directly - the cleanest way to loop an array when you do not need the index.</p>
+          <p class="tags"><span>for...of</span><span>Iterables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does for...in iterate over?</p>
+        <pre class="code"><code>const user = { name: &quot;Ana&quot;, age: 21 };
+for (const key in user) {
+  console.log(key, user[key]);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The KEYS (property names) of an object - or indexes of an array</li>
+          <li><span class="opt-key">B</span> The values</li>
+          <li><span class="opt-key">C</span> Only arrays</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The KEYS (property names) of an object - or indexes of an array</p>
+          <p class="expl">for...in walks enumerable property names. Use it for plain objects; for arrays prefer for...of or forEach, because for...in gives string indexes and can include inherited properties.</p>
+          <p class="tags"><span>for...in</span><span>Objects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which loop is best for iterating an array's values?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> for...of (or forEach) - clear and index-free</li>
+          <li><span class="opt-key">B</span> for...in</li>
+          <li><span class="opt-key">C</span> do...while</li>
+          <li><span class="opt-key">D</span> A while loop with a counter</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — for...of (or forEach) - clear and index-free</p>
+          <p class="expl">for...of reads naturally and avoids index bugs. Use a classic for loop when you need the index or must skip/step, and forEach when you like the callback style.</p>
+          <p class="tags"><span>for...of</span><span>forEach</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+const arr = [10, 20, 30];
+arr.forEach((v, i) =&gt; console.log(i, v));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 0 10 / 1 20 / 2 30 - the callback receives (value, index)</li>
+          <li><span class="opt-key">B</span> 10 0 / 20 1 / 30 2</li>
+          <li><span class="opt-key">C</span> Only the values</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 0 10 / 1 20 / 2 30 - the callback receives (value, index)</p>
+          <p class="expl">forEach passes (value, index, array) to the callback. Note the VALUE comes first, which surprises people expecting index first.</p>
+          <p class="tags"><span>forEach</span><span>Callbacks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why does let fix the loop-closure problem?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> let creates a NEW binding for each iteration, so every callback captures its own value</li>
+          <li><span class="opt-key">B</span> let is faster</li>
+          <li><span class="opt-key">C</span> let delays the callbacks</li>
+          <li><span class="opt-key">D</span> It does not fix it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — let creates a NEW binding for each iteration, so every callback captures its own value</p>
+          <p class="expl">The specification re-binds a let loop variable per iteration, giving each closure its own copy. var has a single shared binding for the whole function.</p>
+          <p class="tags"><span>let</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you loop BACKWARDS through an array?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> for (let i = arr.length - 1; i &gt;= 0; i--)</li>
+          <li><span class="opt-key">B</span> for (let i = arr.length; i &gt; 0; i++)</li>
+          <li><span class="opt-key">C</span> for (const x of arr.reverse())  // mutates!</li>
+          <li><span class="opt-key">D</span> for (let i = 0; i &lt; arr.length; i--)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — for (let i = arr.length - 1; i &gt;= 0; i--)</p>
+          <p class="expl">Start at the last index (length - 1), continue while &gt;= 0, and decrement. Option C works but reverse() MUTATES the original array - use [...arr].reverse() to avoid that.</p>
+          <p class="tags"><span>Reverse iteration</span><span>reverse()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+let sum = 0;
+for (let i = 1; i &lt;= 3; i++) sum += i;
+console.log(sum);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 6</li>
+          <li><span class="opt-key">B</span> 3</li>
+          <li><span class="opt-key">C</span> 5</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 6</p>
+          <p class="expl">1 + 2 + 3 = 6. The accumulator pattern (start at 0, add each value) is the most common loop use.</p>
+          <p class="tags"><span>Accumulator</span><span>reduce</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How many times does the inner body run?
+for (let i = 0; i &lt; 3; i++)
+  for (let j = 0; j &lt; 4; j++) { }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 12 - 3 x 4</li>
+          <li><span class="opt-key">B</span> 7</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> 4</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 12 - 3 x 4</p>
+          <p class="expl">The inner loop runs fully for every outer iteration, so counts multiply. Nested loops are common for grids and tables - watch out for performance with large data.</p>
+          <p class="tags"><span>Nested loops</span><span>Complexity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this loop over?
+for (const [key, value] of Object.entries(obj))</p>
+        <pre class="code"><code>const user = { name: &quot;Ana&quot;, age: 21 };
+for (const [k, v] of Object.entries(user)) {
+  console.log(`${k}: ${v}`);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Each key/value pair of the object, destructured into two variables</li>
+          <li><span class="opt-key">B</span> Only keys</li>
+          <li><span class="opt-key">C</span> Only values</li>
+          <li><span class="opt-key">D</span> Nothing - objects are not iterable</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Each key/value pair of the object, destructured into two variables</p>
+          <p class="expl">Object.entries returns [key, value] arrays; destructuring in the loop header unpacks them. The modern, readable way to iterate objects (alternatives: Object.keys / Object.values).</p>
+          <p class="tags"><span>Object.entries</span><span>Destructuring</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+for (const ch of &quot;hi&quot;) console.log(ch);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> h then i - strings are iterable</li>
+          <li><span class="opt-key">B</span> hi</li>
+          <li><span class="opt-key">C</span> 0 1</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — h then i - strings are iterable</p>
+          <p class="expl">for...of works on any iterable, including strings (character by character), arrays, Maps, Sets and NodeLists.</p>
+          <p class="tags"><span>Iterables</span><span>Strings</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does for (;;) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Creates an infinite loop (all three parts omitted) - needs a break inside</li>
+          <li><span class="opt-key">B</span> SyntaxError</li>
+          <li><span class="opt-key">C</span> Runs once</li>
+          <li><span class="opt-key">D</span> Runs zero times</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Creates an infinite loop (all three parts omitted) - needs a break inside</p>
+          <p class="expl">All three clauses are optional; an absent condition is treated as true. Equivalent to while (true) - use break to exit.</p>
+          <p class="tags"><span>Infinite loops</span><span>while(true)</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which loop should you choose when you do not know how many iterations are needed?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> while - it is condition-driven rather than count-driven</li>
+          <li><span class="opt-key">B</span> for - always</li>
+          <li><span class="opt-key">C</span> for...of</li>
+          <li><span class="opt-key">D</span> forEach</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — while - it is condition-driven rather than count-driven</p>
+          <p class="expl">Use for/for...of when iterating a known collection or count; use while when looping until some state changes ('until the user quits', 'until the queue is empty').</p>
+          <p class="tags"><span>while</span><span>Choosing loops</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the modern way to repeat something N times without needing the index?</p>
+        <pre class="code"><code>const squares = Array.from({length: 5}, (_, i) =&gt; i * i);
+// [0, 1, 4, 9, 16]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> for (let i = 0; i &lt; n; i++) - or Array.from({length: n}).forEach(...)</li>
+          <li><span class="opt-key">B</span> repeat(n)</li>
+          <li><span class="opt-key">C</span> times(n)</li>
+          <li><span class="opt-key">D</span> loop n</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — for (let i = 0; i &lt; n; i++) - or Array.from({length: n}).forEach(...)</p>
+          <p class="expl">JavaScript has no times() helper. A plain for loop is clearest; Array.from({length: n}, (_, i) =&gt; ...) is handy when you want to BUILD an array of n items.</p>
+          <p class="tags"><span>Array.from</span><span>Repetition</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the map() method do compared with a for loop?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Builds a NEW array by transforming every element - a loop that returns a result</li>
+          <li><span class="opt-key">B</span> Loops without returning anything</li>
+          <li><span class="opt-key">C</span> Filters elements</li>
+          <li><span class="opt-key">D</span> Sorts the array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Builds a NEW array by transforming every element - a loop that returns a result</p>
+          <p class="expl">map is a declarative loop for transformation: [1,2,3].map(n =&gt; n * 2) gives [2,4,6]. It never mutates the original. (forEach is the version that returns nothing.)</p>
+          <p class="tags"><span>map</span><span>forEach</span><span>Array methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you loop over a NodeList returned by querySelectorAll?</p>
+        <pre class="code"><code>document.querySelectorAll(&quot;.item&quot;).forEach(el =&gt; el.classList.add(&quot;on&quot;));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> for...of or forEach - NodeLists are iterable and have forEach</li>
+          <li><span class="opt-key">B</span> Only a classic for loop works</li>
+          <li><span class="opt-key">C</span> You must convert with Array.from() first, always</li>
+          <li><span class="opt-key">D</span> NodeLists cannot be looped</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — for...of or forEach - NodeLists are iterable and have forEach</p>
+          <p class="expl">Modern NodeLists support both for...of and forEach. Convert with Array.from(list) or [...list] only when you need array methods like map or filter.</p>
+          <p class="tags"><span>DOM</span><span>NodeList</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (9)</h2>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+for (const i in [&quot;a&quot;, &quot;b&quot;]) console.log(typeof i);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;string&quot; twice - for...in gives indexes as STRINGS</li>
+          <li><span class="opt-key">B</span> &quot;number&quot; twice</li>
+          <li><span class="opt-key">C</span> &quot;a&quot; &quot;b&quot;</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;string&quot; twice - for...in gives indexes as STRINGS</p>
+          <p class="expl">Object keys are always strings, so array indexes come out as &quot;0&quot; and &quot;1&quot;. This breaks arithmetic (i + 1 becomes &quot;01&quot;) - one reason to avoid for...in on arrays.</p>
+          <p class="tags"><span>for...in</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Can you break out of a forEach loop?</p>
+        <pre class="code"><code>// early exit alternatives:
+for (const x of arr) { if (x &gt; 10) break; }
+arr.some(x =&gt; x &gt; 10);   // stops at first true</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - break is not allowed; use for...of, some(), or every() instead</li>
+          <li><span class="opt-key">B</span> Yes, with break</li>
+          <li><span class="opt-key">C</span> Yes, with return</li>
+          <li><span class="opt-key">D</span> Yes, with continue</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - break is not allowed; use for...of, some(), or every() instead</p>
+          <p class="expl">forEach always visits every element; break is a syntax error inside it, and return only exits the current callback (acting like continue). For early exit use for...of with break, or some()/find().</p>
+          <p class="tags"><span>forEach</span><span>some</span><span>Early exit</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+for (var i = 0; i &lt; 3; i++) {
+  setTimeout(() =&gt; console.log(i), 0);
+}</p>
+        <pre class="code"><code>for (let i = 0; i &lt; 3; i++) {
+  setTimeout(() =&gt; console.log(i), 0);   // 0 1 2
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 3 3 3 - var is function-scoped, so all callbacks share one i</li>
+          <li><span class="opt-key">B</span> 0 1 2</li>
+          <li><span class="opt-key">C</span> 0 0 0</li>
+          <li><span class="opt-key">D</span> undefined x3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 3 3 3 - var is function-scoped, so all callbacks share one i</p>
+          <p class="expl">The timeouts run after the loop finishes, when i is 3. Changing var to let creates a fresh binding per iteration and prints 0 1 2 - the classic demonstration of why let exists.</p>
+          <ul class="notes"><li>The single most famous JavaScript interview question.</li></ul>
+          <p class="tags"><span>Closures</span><span>let vs var</span><span>Event loop</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In nested loops, what does a plain break exit?</p>
+        <pre class="code"><code>outer:
+for (let i = 0; i &lt; 3; i++) {
+  for (let j = 0; j &lt; 3; j++) {
+    if (j === 1) break outer;   // exits BOTH
+  }
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Only the INNERMOST loop containing it</li>
+          <li><span class="opt-key">B</span> All loops</li>
+          <li><span class="opt-key">C</span> The function</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Only the INNERMOST loop containing it</p>
+          <p class="expl">break leaves just its own loop. To exit both, use a labelled break, a flag variable, or extract the loops into a function and return.</p>
+          <p class="tags"><span>Labels</span><span>break</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is caching the length sometimes suggested?
+for (let i = 0, n = arr.length; i &lt; n; i++)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It avoids re-reading .length each iteration - a micro-optimisation, rarely needed today</li>
+          <li><span class="opt-key">B</span> It is required for correctness</li>
+          <li><span class="opt-key">C</span> It prevents infinite loops</li>
+          <li><span class="opt-key">D</span> It changes the iteration order</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It avoids re-reading .length each iteration - a micro-optimisation, rarely needed today</p>
+          <p class="expl">Modern engines optimise .length access, so this matters only in extreme hot loops. Readability usually wins - but it IS important if the loop modifies the array's length.</p>
+          <p class="tags"><span>Performance</span><span>Optimisation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the danger of modifying an array WHILE looping over it by index?</p>
+        <pre class="code"><code>// safest:
+arr = arr.filter(x =&gt; x &gt;= 0);
+// or loop backwards when removing</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Removing items shifts positions, so the loop can SKIP elements</li>
+          <li><span class="opt-key">B</span> It throws an error</li>
+          <li><span class="opt-key">C</span> The array becomes read-only</li>
+          <li><span class="opt-key">D</span> Nothing happens</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Removing items shifts positions, so the loop can SKIP elements</p>
+          <p class="expl">After splice(i, 1), every later element moves left while i still advances - skipping one. Loop backwards, or build a new array with filter().</p>
+          <p class="tags"><span>splice</span><span>filter</span><span>Mutation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const arr = [1, 2, 3];
+for (let i = 0; i &lt; arr.length; i++) {
+  if (i === 1) arr.push(99);
+}
+console.log(arr.length, i_ran_times = &quot;?&quot;);</p>
+        <pre class="code"><code>// safe: iterate a copy
+for (const x of [...arr]) { arr.push(x); }   // terminates</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Length 4, and the loop runs 4 times - the condition re-reads the GROWN length each pass</li>
+          <li><span class="opt-key">B</span> Length 4, but the loop still runs only 3 times</li>
+          <li><span class="opt-key">C</span> Length 3 - push inside a loop is ignored</li>
+          <li><span class="opt-key">D</span> Infinite loop</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Length 4, and the loop runs 4 times - the condition re-reads the GROWN length each pass</p>
+          <p class="expl">i &lt; arr.length is re-evaluated every iteration. At i=1 the push makes length 4, so the loop continues to i=3 and runs four times instead of three. Pushing on every pass would loop forever - which is why mutating an array while looping over it is dangerous.</p>
+          <p class="tags"><span>Mutation</span><span>Tracing</span><span>Infinite loops</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+let i = 0;
+while (i &lt; 3) {
+  i++;
+  if (i === 2) continue;
+  console.log(i);
+}</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 then 3</li>
+          <li><span class="opt-key">B</span> 1 2 3</li>
+          <li><span class="opt-key">C</span> 1 2</li>
+          <li><span class="opt-key">D</span> 2 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 then 3</p>
+          <p class="expl">i increments first, so values are 1, 2, 3. When i is 2, continue skips the log. Note the increment comes BEFORE continue here - if it came after, this would loop forever.</p>
+          <p class="tags"><span>continue</span><span>while</span><span>Tracing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log([1,2,3].reduce((a, b) =&gt; a + b, 0));</p>
+        <pre class="code"><code>const total = cart.reduce((sum, item) =&gt; sum + item.price, 0);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 6 - reduce accumulates the array into a single value</li>
+          <li><span class="opt-key">B</span> [1,2,3]</li>
+          <li><span class="opt-key">C</span> 123</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 6 - reduce accumulates the array into a single value</p>
+          <p class="expl">reduce runs a callback over each element carrying an accumulator: 0+1=1, 1+2=3, 3+3=6. It is the loop-with-a-running-total expressed as one call.</p>
+          <p class="tags"><span>reduce</span><span>Accumulator</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="06-conditionals.html">← Conditionals</a>
+      <a href="08-arrays.html">Arrays →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-6">Practice “Loops” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

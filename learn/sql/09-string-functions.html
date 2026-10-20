@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>String Functions – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on String Functions with answers and detailed explanations — 3 easy, 17 medium and 10 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/09-string-functions.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="String Functions – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on String Functions with answers and detailed explanations — 3 easy, 17 medium and 10 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/09-string-functions.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"String Functions","item":"https://velnov.co.in/learn/sql/09-string-functions.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>String Functions</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 9 of 20</p>
+      <h1>String Functions — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>String Functions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-8">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">3 easy · 17 medium · 10 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>CONCAT</span><span>String joining</span><span>LENGTH</span><span>LEN</span><span>UPPER</span><span>LOWER</span><span>TRIM</span><span>LTRIM</span><span>RTRIM</span><span>SUBSTRING</span><span>SUBSTR</span><span>Indexing</span><span>REPLACE</span><span>POSITION</span><span>CHARINDEX</span><span>INSTR</span><span>LEFT</span><span>RIGHT</span><span>REVERSE</span><span>NULL</span><span>Dialects</span><span>CONCAT_WS</span><span>LPAD</span><span>RPAD</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (3)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which function joins two or more strings together?</p>
+        <pre class="code"><code>SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM users;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CONCAT(first, ' ', last)</li>
+          <li><span class="opt-key">B</span> JOIN(first, last)</li>
+          <li><span class="opt-key">C</span> MERGE(first, last)</li>
+          <li><span class="opt-key">D</span> ADD(first, last)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CONCAT(first, ' ', last)</p>
+          <p class="expl">CONCAT joins its arguments into one string and works in most databases. The standard operator || does the same in PostgreSQL, Oracle and SQLite; SQL Server uses +.</p>
+          <p class="tags"><span>CONCAT</span><span>String joining</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does LENGTH('hello') return?</p>
+        <pre class="code"><code>SELECT LENGTH('hello');   -- 5</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5</li>
+          <li><span class="opt-key">B</span> 4</li>
+          <li><span class="opt-key">C</span> 6</li>
+          <li><span class="opt-key">D</span> 'hello'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5</p>
+          <p class="expl">LENGTH (LEN in SQL Server) returns the number of characters. Be careful with trailing spaces and with multi-byte characters, where CHAR_LENGTH may differ from byte length.</p>
+          <p class="tags"><span>LENGTH</span><span>LEN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which function converts text to capital letters?</p>
+        <pre class="code"><code>SELECT UPPER('sql');   -- 'SQL'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UPPER()</li>
+          <li><span class="opt-key">B</span> CAPS()</li>
+          <li><span class="opt-key">C</span> TOUPPER()</li>
+          <li><span class="opt-key">D</span> BIG()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UPPER()</p>
+          <p class="expl">UPPER() uppercases and LOWER() lowercases. They are essential for case-insensitive comparisons: WHERE LOWER(email) = LOWER(:input).</p>
+          <p class="tags"><span>UPPER</span><span>LOWER</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (17)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does TRIM('  hello  ') return?</p>
+        <pre class="code"><code>SELECT TRIM('  hello  ');   -- 'hello'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'hello' - leading and trailing spaces removed</li>
+          <li><span class="opt-key">B</span> '  hello  '</li>
+          <li><span class="opt-key">C</span> 'hello  '</li>
+          <li><span class="opt-key">D</span> 'h e l l o'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'hello' - leading and trailing spaces removed</p>
+          <p class="expl">TRIM removes whitespace from both ends. LTRIM removes only the left side and RTRIM only the right. Spaces inside the string are untouched.</p>
+          <p class="tags"><span>TRIM</span><span>LTRIM</span><span>RTRIM</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does SUBSTRING('database', 1, 4) return?</p>
+        <pre class="code"><code>SELECT SUBSTRING('database', 1, 4);   -- 'data'
+SELECT SUBSTRING('database', 5, 4);   -- 'base'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'data' - 4 characters starting at position 1</li>
+          <li><span class="opt-key">B</span> 'base'</li>
+          <li><span class="opt-key">C</span> 'atab'</li>
+          <li><span class="opt-key">D</span> 'databa'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'data' - 4 characters starting at position 1</p>
+          <p class="expl">SUBSTRING(string, start, length) extracts a portion. Note SQL positions are usually 1-based, not 0-based like most programming languages.</p>
+          <p class="tags"><span>SUBSTRING</span><span>SUBSTR</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does REPLACE('2026-07-04', '-', '/') return?</p>
+        <pre class="code"><code>SELECT REPLACE(phone, '-', '');   -- strip dashes</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> '2026/07/04' - every '-' replaced with '/'</li>
+          <li><span class="opt-key">B</span> '20260704'</li>
+          <li><span class="opt-key">C</span> Only the first '-' replaced</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — '2026/07/04' - every '-' replaced with '/'</p>
+          <p class="expl">REPLACE swaps EVERY occurrence of the search text, not just the first. It is commonly used for reformatting and cleaning data.</p>
+          <p class="tags"><span>REPLACE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you find the position of a substring?</p>
+        <pre class="code"><code>SELECT SUBSTRING(email, 1, POSITION('@' IN email) - 1) AS username;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> POSITION('@' IN email)  or  CHARINDEX / INSTR depending on the database</li>
+          <li><span class="opt-key">B</span> FIND('@', email)</li>
+          <li><span class="opt-key">C</span> INDEX(email, '@')</li>
+          <li><span class="opt-key">D</span> SEARCH(email, '@')</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — POSITION('@' IN email)  or  CHARINDEX / INSTR depending on the database</p>
+          <p class="expl">POSITION is standard SQL; SQL Server uses CHARINDEX('@', email) and MySQL/Oracle use INSTR(email, '@'). All return 1-based positions, or 0 when not found.</p>
+          <p class="tags"><span>POSITION</span><span>CHARINDEX</span><span>INSTR</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What do LEFT('hello', 3) and RIGHT('hello', 2) return?</p>
+        <pre class="code"><code>SELECT LEFT(code, 2) AS prefix, RIGHT(code, 4) AS suffix FROM items;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'hel' and 'lo'</li>
+          <li><span class="opt-key">B</span> 'llo' and 'he'</li>
+          <li><span class="opt-key">C</span> 'hel' and 'll'</li>
+          <li><span class="opt-key">D</span> 'lo' and 'hel'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'hel' and 'lo'</p>
+          <p class="expl">LEFT takes characters from the start, RIGHT from the end. They are shorthand for common SUBSTRING cases. (Oracle lacks them; use SUBSTR instead.)</p>
+          <p class="tags"><span>LEFT</span><span>RIGHT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does REVERSE('SQL') return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'LQS'</li>
+          <li><span class="opt-key">B</span> 'SQL'</li>
+          <li><span class="opt-key">C</span> 'QLS'</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'LQS'</p>
+          <p class="expl">REVERSE flips the character order. It is occasionally useful for extracting text after the LAST occurrence of a character (reverse, find, reverse again).</p>
+          <p class="tags"><span>REVERSE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does CONCAT_WS(', ', city, state, country) do?</p>
+        <pre class="code"><code>SELECT CONCAT_WS(', ', city, state, country) AS location FROM addresses;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Joins with a separator AND skips NULL arguments - no doubled separators</li>
+          <li><span class="opt-key">B</span> Joins without any separator</li>
+          <li><span class="opt-key">C</span> Only joins two strings</li>
+          <li><span class="opt-key">D</span> Reverses the string</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Joins with a separator AND skips NULL arguments - no doubled separators</p>
+          <p class="expl">CONCAT_WS ('with separator') is ideal for addresses: it puts ', ' between values and gracefully skips missing fields instead of leaving ', , '.</p>
+          <p class="tags"><span>CONCAT_WS</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you pad a number to a fixed width, like '007'?</p>
+        <pre class="code"><code>SELECT LPAD(CAST(id AS CHAR), 5, '0') FROM invoices;   -- 00042</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LPAD('7', 3, '0')</li>
+          <li><span class="opt-key">B</span> PAD('7', 3)</li>
+          <li><span class="opt-key">C</span> FILL('7', '0', 3)</li>
+          <li><span class="opt-key">D</span> FORMAT('7', 3)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LPAD('7', 3, '0')</p>
+          <p class="expl">LPAD pads on the left to reach a target length; RPAD pads on the right. Useful for invoice numbers and codes. (SQL Server lacks LPAD - use RIGHT('000' + val, 3).)</p>
+          <p class="tags"><span>LPAD</span><span>RPAD</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does SUBSTRING('database' FROM 5) return (no length given)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'base' - from position 5 to the end</li>
+          <li><span class="opt-key">B</span> 'data'</li>
+          <li><span class="opt-key">C</span> 'd'</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'base' - from position 5 to the end</p>
+          <p class="expl">Omitting the length extracts everything from the start position onward. This is handy when you know where to start but not how long the remainder is.</p>
+          <p class="tags"><span>SUBSTRING</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you capitalise the first letter of each word (title case)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> INITCAP('hello world') in PostgreSQL/Oracle returns 'Hello World'</li>
+          <li><span class="opt-key">B</span> UPPER() does it automatically</li>
+          <li><span class="opt-key">C</span> TITLE('hello world')</li>
+          <li><span class="opt-key">D</span> CAPITALIZE()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — INITCAP('hello world') in PostgreSQL/Oracle returns 'Hello World'</p>
+          <p class="expl">INITCAP handles title case in PostgreSQL and Oracle. MySQL and SQL Server lack it, so you build it with SUBSTRING + UPPER or a custom function.</p>
+          <p class="tags"><span>INITCAP</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you split a full name into first and last using space position?</p>
+        <pre class="code"><code>SELECT SPLIT_PART(name, ' ', 1) AS first_name;   -- PostgreSQL</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use POSITION(' ' IN name) with SUBSTRING for each part</li>
+          <li><span class="opt-key">B</span> SPLIT(name, ' ')</li>
+          <li><span class="opt-key">C</span> name.split(' ')</li>
+          <li><span class="opt-key">D</span> EXPLODE(name)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use POSITION(' ' IN name) with SUBSTRING for each part</p>
+          <p class="expl">Most databases lack a simple SPLIT into columns. You locate the delimiter and slice around it. (PostgreSQL has SPLIT_PART(name, ' ', 1) which is much cleaner.)</p>
+          <p class="tags"><span>SPLIT_PART</span><span>POSITION</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you count occurrences of a character in a string?</p>
+        <pre class="code"><code>SELECT LENGTH(tags) - LENGTH(REPLACE(tags, ',', '')) + 1 AS tag_count;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LENGTH(str) - LENGTH(REPLACE(str, 'x', '')) gives the count of 'x'</li>
+          <li><span class="opt-key">B</span> COUNT('x', str)</li>
+          <li><span class="opt-key">C</span> OCCURRENCES(str, 'x')</li>
+          <li><span class="opt-key">D</span> There is no way</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LENGTH(str) - LENGTH(REPLACE(str, 'x', '')) gives the count of 'x'</p>
+          <p class="expl">A clever idiom: remove the character, and the drop in length equals how many were removed. Works in any database with LENGTH and REPLACE.</p>
+          <p class="tags"><span>LENGTH</span><span>REPLACE</span><span>Tricks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the || operator do in PostgreSQL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> String concatenation - 'Hello' || ' World' gives 'Hello World'</li>
+          <li><span class="opt-key">B</span> Logical OR</li>
+          <li><span class="opt-key">C</span> Bitwise OR</li>
+          <li><span class="opt-key">D</span> Absolute value</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — String concatenation - 'Hello' || ' World' gives 'Hello World'</p>
+          <p class="expl">In standard SQL, || concatenates strings (it is NOT logical OR - that is the keyword OR). Remember it returns NULL if either side is NULL.</p>
+          <p class="tags"><span>Concatenation</span><span>Operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does FORMAT or TO_CHAR help with?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Formatting numbers and dates as strings - e.g. adding commas or currency symbols</li>
+          <li><span class="opt-key">B</span> Only uppercasing</li>
+          <li><span class="opt-key">C</span> Splitting strings</li>
+          <li><span class="opt-key">D</span> Counting rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Formatting numbers and dates as strings - e.g. adding commas or currency symbols</p>
+          <p class="expl">TO_CHAR(1234567, '9,999,999') gives '1,234,567' in PostgreSQL/Oracle; SQL Server uses FORMAT(). Ideally do display formatting in the application, not the query.</p>
+          <p class="tags"><span>TO_CHAR</span><span>FORMAT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you remove all spaces from a string?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> REPLACE(str, ' ', '')</li>
+          <li><span class="opt-key">B</span> TRIM(str)</li>
+          <li><span class="opt-key">C</span> DELETE(str, ' ')</li>
+          <li><span class="opt-key">D</span> STRIP(str)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — REPLACE(str, ' ', '')</p>
+          <p class="expl">TRIM only removes spaces at the ENDS. REPLACE with an empty string removes them everywhere - useful for normalising phone numbers or codes.</p>
+          <p class="tags"><span>REPLACE</span><span>TRIM</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you mask a value like a credit card, showing only the last 4?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CONCAT('****-****-****-', RIGHT(card, 4))</li>
+          <li><span class="opt-key">B</span> HIDE(card)</li>
+          <li><span class="opt-key">C</span> MASK(card, 4)</li>
+          <li><span class="opt-key">D</span> card - 4</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CONCAT('****-****-****-', RIGHT(card, 4))</p>
+          <p class="expl">Combine a literal mask with RIGHT to reveal only the tail. This is a common display transformation - though real card numbers should never be stored in plain text.</p>
+          <p class="tags"><span>RIGHT</span><span>CONCAT</span><span>Security</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you compare strings ignoring case portably?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LOWER(a) = LOWER(b) - normalise both sides</li>
+          <li><span class="opt-key">B</span> a == b</li>
+          <li><span class="opt-key">C</span> a EQUALS b</li>
+          <li><span class="opt-key">D</span> IGNORECASE(a, b)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LOWER(a) = LOWER(b) - normalise both sides</p>
+          <p class="expl">Since collation defaults differ between databases, normalising with LOWER (or UPPER) guarantees consistent case-insensitive comparison - at the cost of possibly bypassing an index.</p>
+          <p class="tags"><span>LOWER</span><span>Collation</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (10)</h2>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In SQL, string positions typically start at what number?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 - SQL is 1-indexed, unlike most programming languages</li>
+          <li><span class="opt-key">B</span> 0</li>
+          <li><span class="opt-key">C</span> -1</li>
+          <li><span class="opt-key">D</span> It varies randomly</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 - SQL is 1-indexed, unlike most programming languages</p>
+          <p class="expl">SUBSTRING('abc', 1, 1) returns 'a'. This 1-based indexing catches out developers used to Python or JavaScript, where the first character is at index 0.</p>
+          <p class="tags"><span>Indexing</span><span>SUBSTRING</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How would you extract the username (before @) from an email?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SUBSTRING(email, 1, POSITION('@' IN email) - 1)</li>
+          <li><span class="opt-key">B</span> LEFT(email, '@')</li>
+          <li><span class="opt-key">C</span> SPLIT(email, '@')</li>
+          <li><span class="opt-key">D</span> email BEFORE '@'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SUBSTRING(email, 1, POSITION('@' IN email) - 1)</p>
+          <p class="expl">Find the @ position, then take everything before it. The -1 excludes the @ itself. Combining POSITION with SUBSTRING is a common text-parsing pattern.</p>
+          <p class="tags"><span>SUBSTRING</span><span>POSITION</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does CONCAT('Hi', NULL, 'there') return in MySQL vs the || operator?</p>
+        <pre class="code"><code>-- safe with ||:
+first || COALESCE(' ' || middle, '') || ' ' || last</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CONCAT ignores NULL and returns 'Hithere'; || in standard SQL would return NULL</li>
+          <li><span class="opt-key">B</span> Both return NULL</li>
+          <li><span class="opt-key">C</span> Both return 'Hithere'</li>
+          <li><span class="opt-key">D</span> Both error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CONCAT ignores NULL and returns 'Hithere'; || in standard SQL would return NULL</p>
+          <p class="expl">CONCAT() in MySQL and SQL Server treats NULL as an empty string, but the standard || operator (and Oracle) returns NULL if any operand is NULL. This difference causes real bugs when building names.</p>
+          <p class="tags"><span>CONCAT</span><span>NULL</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why might WHERE UPPER(name) = 'ANA' be slow on a large table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Wrapping the column in a function prevents the index on name from being used</li>
+          <li><span class="opt-key">B</span> UPPER is always slow</li>
+          <li><span class="opt-key">C</span> It returns wrong results</li>
+          <li><span class="opt-key">D</span> It is not slow</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Wrapping the column in a function prevents the index on name from being used</p>
+          <p class="expl">The database must compute UPPER for every row. Solutions: a case-insensitive collation, a functional index on UPPER(name), or a generated column storing the uppercased value.</p>
+          <p class="tags"><span>Sargability</span><span>Indexes</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does TRIM(BOTH 'x' FROM 'xxhelloxx') return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'hello' - TRIM can remove characters other than spaces</li>
+          <li><span class="opt-key">B</span> 'xxhelloxx'</li>
+          <li><span class="opt-key">C</span> 'helloxx'</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'hello' - TRIM can remove characters other than spaces</p>
+          <p class="expl">Standard TRIM accepts a character set and a direction (BOTH, LEADING, TRAILING). Not every database supports the full syntax, but it is powerful for cleaning delimited data.</p>
+          <p class="tags"><span>TRIM</span><span>Standard SQL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does SPLIT_PART('a,b,c', ',', 2) return in PostgreSQL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'b' - the 2nd part when split on comma</li>
+          <li><span class="opt-key">B</span> 'a'</li>
+          <li><span class="opt-key">C</span> 'c'</li>
+          <li><span class="opt-key">D</span> 'a,b'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'b' - the 2nd part when split on comma</p>
+          <p class="expl">SPLIT_PART extracts one field from delimited text by position (1-based). It is the neat way to parse CSV-like values stored in a single column.</p>
+          <p class="tags"><span>SPLIT_PART</span><span>Parsing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which finds rows where a name contains only letters (basic validation)?</p>
+        <pre class="code"><code>WHERE name ~ '^[A-Za-z ]+$';   -- letters and spaces only</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE name ~ '^[A-Za-z]+$' (PostgreSQL regex) or a LIKE/pattern check</li>
+          <li><span class="opt-key">B</span> WHERE name = LETTERS</li>
+          <li><span class="opt-key">C</span> WHERE ISALPHA(name)</li>
+          <li><span class="opt-key">D</span> WHERE name LIKE '%[0-9]%'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE name ~ '^[A-Za-z]+$' (PostgreSQL regex) or a LIKE/pattern check</p>
+          <p class="expl">PostgreSQL's ~ operator applies a regular expression. MySQL uses REGEXP, and SQL Server uses LIKE with character ranges. Regex is the flexible tool for text validation.</p>
+          <p class="tags"><span>Regex</span><span>Validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can trailing spaces in CHAR columns cause comparison surprises?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CHAR pads with spaces, so 'ab' stored in CHAR(5) is really 'ab   ' - comparisons may ignore or include the padding depending on rules</li>
+          <li><span class="opt-key">B</span> CHAR never pads</li>
+          <li><span class="opt-key">C</span> Spaces are always removed</li>
+          <li><span class="opt-key">D</span> It never causes issues</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CHAR pads with spaces, so 'ab' stored in CHAR(5) is really 'ab   ' - comparisons may ignore or include the padding depending on rules</p>
+          <p class="expl">Standard SQL comparison ignores trailing spaces for equality, but LENGTH and LIKE may not. VARCHAR avoids the whole problem by storing exactly what you insert.</p>
+          <p class="tags"><span>CHAR</span><span>Trailing spaces</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does REGEXP_REPLACE do?</p>
+        <pre class="code"><code>SELECT REGEXP_REPLACE(phone, '[^0-9]', '', 'g') AS digits FROM contacts;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Replaces text matching a regular expression pattern - more powerful than plain REPLACE</li>
+          <li><span class="opt-key">B</span> Only replaces the first character</li>
+          <li><span class="opt-key">C</span> Reverses a string</li>
+          <li><span class="opt-key">D</span> Counts matches</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Replaces text matching a regular expression pattern - more powerful than plain REPLACE</p>
+          <p class="expl">REGEXP_REPLACE(phone, '[^0-9]', '', 'g') strips every non-digit in one call. Available in PostgreSQL, Oracle and MySQL 8+.</p>
+          <p class="tags"><span>REGEXP_REPLACE</span><span>Regex</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which query finds names with leading or trailing spaces (a data-quality check)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE name &lt;&gt; TRIM(name)</li>
+          <li><span class="opt-key">B</span> WHERE name LIKE ' %'</li>
+          <li><span class="opt-key">C</span> WHERE LENGTH(name) &gt; 0</li>
+          <li><span class="opt-key">D</span> WHERE name IS NULL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE name &lt;&gt; TRIM(name)</p>
+          <p class="expl">If a value differs from its trimmed version, it has stray spaces. This one-line check finds messy data that would otherwise break joins and grouping. (Option B only catches leading spaces.)</p>
+          <p class="tags"><span>TRIM</span><span>Data quality</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="08-data-types.html">← Data Types</a>
+      <a href="10-date-and-time-functions.html">Date &amp; Time Functions →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-8">Practice “String Functions” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

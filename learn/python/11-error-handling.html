@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Handling – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Error Handling with answers and detailed explanations — 9 easy, 15 medium and 6 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/11-error-handling.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Error Handling – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Error Handling with answers and detailed explanations — 9 easy, 15 medium and 6 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/11-error-handling.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Error Handling","item":"https://velnov.co.in/learn/python/11-error-handling.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Error Handling</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 11 of 20</p>
+      <h1>Error Handling — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Error Handling</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-10">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">9 easy · 15 medium · 6 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Runtime errors</span><span>SyntaxError vs exceptions</span><span>try/except</span><span>ZeroDivisionError</span><span>ValueError</span><span>TypeError</span><span>IndexError</span><span>KeyError</span><span>NameError</span><span>Typos</span><span>Traceback</span><span>Debugging</span><span>Control flow</span><span>Exception objects</span><span>as keyword</span><span>Multiple except</span><span>Exception matching</span><span>Exception tuples</span><span>try/else</span><span>Minimal try blocks</span><span>finally</span><span>Cleanup</span><span>raise</span><span>Validation</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (9)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is an exception in Python?</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> A syntax mistake caught before running</li>
+          <li class="correct"><span class="opt-key">B</span> An error that occurs WHILE the program runs, which can be caught and handled</li>
+          <li><span class="opt-key">C</span> A warning message</li>
+          <li><span class="opt-key">D</span> A special comment</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — An error that occurs WHILE the program runs, which can be caught and handled</p>
+          <p class="expl">Exceptions are runtime errors - division by zero, missing file, bad conversion. Unlike syntax errors (caught before the program starts), exceptions happen mid-run and CAN be caught with try/except.</p>
+          <p class="tags"><span>Runtime errors</span><span>SyntaxError vs exceptions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which is the correct basic structure for handling an error?</p>
+        <pre class="code"><code>try:
+    n = int(input(&quot;Number: &quot;))
+except ValueError:
+    print(&quot;That's not a number&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> try:\n    risky()\nexcept:\n    handle()</li>
+          <li><span class="opt-key">B</span> attempt:\n    risky()\nrescue:\n    handle()</li>
+          <li><span class="opt-key">C</span> try risky() catch handle()</li>
+          <li><span class="opt-key">D</span> if error: handle()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — try:\n    risky()\nexcept:\n    handle()</p>
+          <p class="expl">Python uses try/except: the risky code goes in try; if it raises an exception, the except block runs instead of crashing.</p>
+          <p class="tags"><span>try/except</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What exception does 10 / 0 raise?</p>
+        <pre class="code"><code>try:
+    print(10 / 0)
+except ZeroDivisionError:
+    print(&quot;Can't divide by zero!&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> ValueError</li>
+          <li class="correct"><span class="opt-key">B</span> ZeroDivisionError</li>
+          <li><span class="opt-key">C</span> MathError</li>
+          <li><span class="opt-key">D</span> TypeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — ZeroDivisionError</p>
+          <p class="expl">Dividing by zero raises ZeroDivisionError. Its message: 'division by zero'.</p>
+          <p class="tags"><span>ZeroDivisionError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What exception does int(&quot;abc&quot;) raise?</p>
+        <pre class="code"><code>try:
+    n = int(&quot;abc&quot;)
+except ValueError as e:
+    print(&quot;Bad value:&quot;, e)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> TypeError</li>
+          <li><span class="opt-key">B</span> NameError</li>
+          <li class="correct"><span class="opt-key">C</span> ValueError</li>
+          <li><span class="opt-key">D</span> ConversionError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — ValueError</p>
+          <p class="expl">The TYPE is right (a string) but the VALUE can't be converted - that's ValueError. TypeError would be for a wrong type entirely, like int([1,2]).</p>
+          <p class="tags"><span>ValueError</span><span>TypeError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Using a variable that was never defined raises:</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> NameError</li>
+          <li><span class="opt-key">B</span> ValueError</li>
+          <li><span class="opt-key">C</span> KeyError</li>
+          <li><span class="opt-key">D</span> UndefinedError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — NameError</p>
+          <p class="expl">NameError: name 'x' is not defined - Python doesn't know that name. Often caused by typos in variable names.</p>
+          <p class="tags"><span>NameError</span><span>Typos</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What happens to a program when an exception is NOT caught?</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It continues from the next line</li>
+          <li class="correct"><span class="opt-key">B</span> It stops and prints a traceback showing where the error happened</li>
+          <li><span class="opt-key">C</span> It restarts</li>
+          <li><span class="opt-key">D</span> Nothing visible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — It stops and prints a traceback showing where the error happened</p>
+          <p class="expl">An unhandled exception crashes the program and prints a traceback - the chain of calls that led to the error, ending with the exception type and message. Learning to READ tracebacks is a superpower.</p>
+          <ul class="notes"><li>Read tracebacks bottom-up: the last line names the error; lines above show where.</li></ul>
+          <p class="tags"><span>Traceback</span><span>Debugging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which statement deliberately TRIGGERS an exception?</p>
+        <pre class="code"><code>def set_age(age):
+    if age &lt; 0:
+        raise ValueError(&quot;age cannot be negative&quot;)
+    return age</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> raise</li>
+          <li><span class="opt-key">B</span> throw</li>
+          <li><span class="opt-key">C</span> error</li>
+          <li><span class="opt-key">D</span> panic</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — raise</p>
+          <p class="expl">raise fires an exception on purpose: raise ValueError(&quot;age cannot be negative&quot;). (throw is Java/JavaScript.)</p>
+          <p class="tags"><span>raise</span><span>Validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">&quot;hello&quot; + 5 raises which exception?</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> ValueError</li>
+          <li class="correct"><span class="opt-key">B</span> TypeError</li>
+          <li><span class="opt-key">C</span> NameError</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — TypeError</p>
+          <p class="expl">Mixing incompatible TYPES (str + int) is TypeError: can only concatenate str (not &quot;int&quot;) to str. Compare: int(&quot;abc&quot;) is ValueError - right type, bad value.</p>
+          <p class="tags"><span>TypeError</span><span>ValueError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which of these is a SYNTAX error rather than an exception?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if x &gt; 5   (missing colon)</li>
+          <li><span class="opt-key">B</span> 10 / 0</li>
+          <li><span class="opt-key">C</span> int(&quot;abc&quot;)</li>
+          <li><span class="opt-key">D</span> nums[99]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if x &gt; 5   (missing colon)</p>
+          <p class="expl">A missing colon breaks Python's grammar - detected BEFORE the program even starts, and try/except cannot catch it. The other three are runtime exceptions.</p>
+          <p class="tags"><span>SyntaxError</span><span>Runtime vs parse time</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (15)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Match the exception: accessing nums[10] when nums has 3 items?</p>
+        <pre class="code"><code>nums = [1, 2, 3]
+# nums[10]        # IndexError: list index out of range
+d = {&quot;a&quot;: 1}
+# d[&quot;z&quot;]           # KeyError: 'z'</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> KeyError</li>
+          <li class="correct"><span class="opt-key">B</span> IndexError</li>
+          <li><span class="opt-key">C</span> ValueError</li>
+          <li><span class="opt-key">D</span> RangeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — IndexError</p>
+          <p class="expl">Lists raise IndexError for out-of-range positions. KeyError is the dict equivalent (missing key). There is no RangeError in Python.</p>
+          <p class="tags"><span>IndexError</span><span>KeyError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">In a try/except, what runs when NO exception occurs?</p>
+        <pre class="code"><code>try:
+    print(&quot;works fine&quot;)
+except ValueError:
+    print(&quot;never printed here&quot;)
+# output: works fine</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Both try and except blocks</li>
+          <li class="correct"><span class="opt-key">B</span> Only the try block - except is skipped entirely</li>
+          <li><span class="opt-key">C</span> Only the except block</li>
+          <li><span class="opt-key">D</span> Neither</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Only the try block - except is skipped entirely</p>
+          <p class="expl">except is the emergency exit - it only runs when its exception actually happens. On a clean run, the try body completes and except is ignored.</p>
+          <p class="tags"><span>Control flow</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you get the error MESSAGE inside except?</p>
+        <pre class="code"><code>try:
+    int(&quot;abc&quot;)
+except ValueError as e:
+    print(&quot;Problem:&quot;, e)
+# Problem: invalid literal for int() with base 10: 'abc'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> except ValueError as e: print(e)</li>
+          <li><span class="opt-key">B</span> except ValueError: print(error)</li>
+          <li><span class="opt-key">C</span> except ValueError(e): print(e)</li>
+          <li><span class="opt-key">D</span> print(except.message)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — except ValueError as e: print(e)</p>
+          <p class="expl">'as e' binds the exception object to a name; printing it shows the message. e is only available inside that except block.</p>
+          <p class="tags"><span>Exception objects</span><span>as keyword</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you handle TWO different exceptions DIFFERENTLY?</p>
+        <pre class="code"><code>try:
+    n = int(input())
+    print(10 / n)
+except ValueError:
+    print(&quot;Not a number&quot;)
+except ZeroDivisionError:
+    print(&quot;Can't divide by zero&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Multiple except blocks, one per exception type</li>
+          <li><span class="opt-key">B</span> Two try blocks</li>
+          <li><span class="opt-key">C</span> except handles everything the same way always</li>
+          <li><span class="opt-key">D</span> Use if/else inside try</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Multiple except blocks, one per exception type</p>
+          <p class="expl">Stack except blocks - Python runs the FIRST one matching the raised exception. Order specific-to-general.</p>
+          <p class="tags"><span>Multiple except</span><span>Exception matching</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you catch ValueError AND TypeError with the SAME handler?</p>
+        <pre class="code"><code>try:
+    risky()
+except (ValueError, TypeError) as e:
+    print(&quot;Bad input:&quot;, e)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> except (ValueError, TypeError):</li>
+          <li><span class="opt-key">B</span> except ValueError and TypeError:</li>
+          <li><span class="opt-key">C</span> except ValueError, TypeError:</li>
+          <li><span class="opt-key">D</span> except [ValueError, TypeError]:</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — except (ValueError, TypeError):</p>
+          <p class="expl">A TUPLE of exception types shares one handler: except (ValueError, TypeError) as e. Option C was Python 2 syntax and is now an error.</p>
+          <p class="tags"><span>Exception tuples</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When does the FINALLY block run?</p>
+        <pre class="code"><code>try:
+    risky()
+except ValueError:
+    print(&quot;handled&quot;)
+finally:
+    print(&quot;always runs&quot;)  # cleanup here</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Only on success</li>
+          <li><span class="opt-key">B</span> Only on error</li>
+          <li class="correct"><span class="opt-key">C</span> ALWAYS - success, exception, even a return</li>
+          <li><span class="opt-key">D</span> Only if except matched</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — ALWAYS - success, exception, even a return</p>
+          <p class="expl">finally is guaranteed cleanup - it runs no matter how the try block exits: normally, via an exception (caught or not), or via return/break. Perfect for closing files and connections.</p>
+          <p class="tags"><span>finally</span><span>Cleanup</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why raise an exception in your OWN function instead of returning -1 or None on bad input?</p>
+        <pre class="code"><code>def withdraw(balance, amount):
+    if amount &gt; balance:
+        raise ValueError(&quot;insufficient funds&quot;)
+    return balance - amount</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Exceptions can't be ignored silently, carry a clear message, and stop bad data spreading</li>
+          <li><span class="opt-key">B</span> Exceptions are faster</li>
+          <li><span class="opt-key">C</span> return doesn't work for errors</li>
+          <li><span class="opt-key">D</span> No reason - error codes are better</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Exceptions can't be ignored silently, carry a clear message, and stop bad data spreading</p>
+          <p class="expl">A returned -1 can be forgotten and treated as data; a raised exception demands attention and pinpoints the problem. 'Errors should never pass silently' - the Zen of Python.</p>
+          <p class="tags"><span>raise</span><span>API design</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Trying to open a file that doesn't exist raises:</p>
+        <pre class="code"><code>try:
+    f = open(&quot;nofile.txt&quot;)
+except FileNotFoundError:
+    print(&quot;File not found - creating a new one&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FileNotFoundError</li>
+          <li><span class="opt-key">B</span> IOError only in Python 2</li>
+          <li><span class="opt-key">C</span> MissingFileError</li>
+          <li><span class="opt-key">D</span> KeyError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FileNotFoundError</p>
+          <p class="expl">open(&quot;nofile.txt&quot;) raises FileNotFoundError - one of the most commonly handled exceptions in real programs.</p>
+          <p class="tags"><span>FileNotFoundError</span><span>Files</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+try:
+    print(&quot;A&quot;)
+    x = 1 / 0
+    print(&quot;B&quot;)
+except ZeroDivisionError:
+    print(&quot;C&quot;)
+print(&quot;D&quot;)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A C D</li>
+          <li><span class="opt-key">B</span> A B C D</li>
+          <li><span class="opt-key">C</span> A C</li>
+          <li><span class="opt-key">D</span> C D</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A C D</p>
+          <p class="expl">'A' prints, then 1/0 raises - the rest of try ('B') is SKIPPED, control jumps to except ('C'), and the program continues normally after ('D').</p>
+          <ul class="notes"><li>Key point: the try block stops at the line that raised.</li></ul>
+          <p class="tags"><span>Control flow</span><span>Tracing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which loop keeps asking until the user types a valid number?</p>
+        <pre class="code"><code>while True:
+    try:
+        n = int(input(&quot;Number: &quot;))
+        break
+    except ValueError:
+        print(&quot;Not a number - try again&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> while True:\n    try:\n        n = int(input()); break\n    except ValueError:\n        print(&quot;try again&quot;)</li>
+          <li><span class="opt-key">B</span> try until valid: n = int(input())</li>
+          <li><span class="opt-key">C</span> n = int(input()) repeat except</li>
+          <li><span class="opt-key">D</span> for i in valid: input()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — while True:\n    try:\n        n = int(input()); break\n    except ValueError:\n        print(&quot;try again&quot;)</p>
+          <p class="expl">The standard robust-input pattern: loop forever, try the conversion, break on success, catch ValueError and re-ask on failure.</p>
+          <p class="tags"><span>Input validation</span><span>while True</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Inside except, what does a bare 'raise' (no arguments) do?</p>
+        <pre class="code"><code>try:
+    process()
+except ValueError:
+    print(&quot;logging the error...&quot;)
+    raise    # pass it up unchanged</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Re-raises the SAME exception it just caught</li>
+          <li><span class="opt-key">B</span> Raises a new generic Exception</li>
+          <li><span class="opt-key">C</span> Cancels the exception</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Re-raises the SAME exception it just caught</p>
+          <p class="expl">Bare raise re-throws the current exception - useful to log or clean up but still let the error propagate upward for someone else to handle.</p>
+          <p class="tags"><span>Re-raising</span><span>Logging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">except Exception: catches...</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Almost all normal errors - but NOT KeyboardInterrupt or SystemExit</li>
+          <li><span class="opt-key">B</span> Absolutely everything including Ctrl+C</li>
+          <li><span class="opt-key">C</span> Only built-in exceptions</li>
+          <li><span class="opt-key">D</span> Only one error per program</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Almost all normal errors - but NOT KeyboardInterrupt or SystemExit</p>
+          <p class="expl">Nearly every error inherits from Exception. KeyboardInterrupt (Ctrl+C) and SystemExit inherit from BaseException instead - deliberately, so except Exception doesn't block a user trying to quit. That's why it's safer than a bare except.</p>
+          <p class="tags"><span>Exception hierarchy</span><span>BaseException</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+def f():
+    try:
+        return &quot;from try&quot;
+    finally:
+        print(&quot;cleanup&quot;)
+print(f())</p>
+        <pre class="code"><code>def f():
+    try:
+        return &quot;from try&quot;
+    finally:
+        print(&quot;cleanup&quot;)   # runs first!
+print(f())
+# cleanup
+# from try</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> cleanup then from try</li>
+          <li><span class="opt-key">B</span> from try then cleanup</li>
+          <li><span class="opt-key">C</span> only from try</li>
+          <li><span class="opt-key">D</span> only cleanup</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — cleanup then from try</p>
+          <p class="expl">finally runs even on return - the return value is computed, finally executes ('cleanup'), THEN the function actually returns ('from try' is printed by the outer print).</p>
+          <p class="tags"><span>finally</span><span>return interaction</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Where in a traceback do you find the actual error?</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> The FIRST line</li>
+          <li class="correct"><span class="opt-key">B</span> The LAST line names the exception; the lines above show the path of calls to it</li>
+          <li><span class="opt-key">C</span> The middle</li>
+          <li><span class="opt-key">D</span> Tracebacks don't show errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — The LAST line names the exception; the lines above show the path of calls to it</p>
+          <p class="expl">Read from the bottom: last line = exception type + message; the 'File ..., line ...' entries above show where - the DEEPEST one is usually your bug. 'most recent call last' means the bottom entries are closest to the error.</p>
+          <p class="tags"><span>Traceback</span><span>Debugging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Best practice: which code goes INSIDE the try block?</p>
+        <pre class="code"><code>try:
+    n = int(text)          # only the risky line
+except ValueError:
+    n = 0
+result = n * 2              # safe code outside</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> As little as possible - only the line(s) that can actually fail</li>
+          <li><span class="opt-key">B</span> The whole program</li>
+          <li><span class="opt-key">C</span> Only print statements</li>
+          <li><span class="opt-key">D</span> Nothing - try can be empty</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — As little as possible - only the line(s) that can actually fail</p>
+          <p class="expl">Small try blocks make it obvious WHICH operation failed and avoid accidentally catching unrelated bugs. Wrap the risky line, handle the specific error, keep the rest outside (or in else).</p>
+          <p class="tags"><span>Best practices</span><span>try/else</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (6)</h2>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the ELSE clause do in try/except/else?</p>
+        <pre class="code"><code>try:
+    n = int(text)
+except ValueError:
+    print(&quot;bad input&quot;)
+else:
+    print(&quot;got number&quot;, n)   # only on success</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Runs when an exception WAS raised</li>
+          <li class="correct"><span class="opt-key">B</span> Runs only when the try block completed WITHOUT any exception</li>
+          <li><span class="opt-key">C</span> Always runs</li>
+          <li><span class="opt-key">D</span> Same as finally</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Runs only when the try block completed WITHOUT any exception</p>
+          <p class="expl">else is the 'success path' - it runs after a clean try. Putting follow-up code there (rather than inside try) keeps the try block small, so you only catch errors from the truly risky line.</p>
+          <p class="tags"><span>try/else</span><span>Minimal try blocks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is a BARE except (catching everything) considered bad practice?</p>
+        <pre class="code"><code># BAD - hides all bugs:
+try: process()
+except: pass
+
+# GOOD:
+try: process()
+except FileNotFoundError:
+    print(&quot;file missing&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It's slower</li>
+          <li class="correct"><span class="opt-key">B</span> It hides real bugs and even catches Ctrl+C - you can't tell WHAT went wrong</li>
+          <li><span class="opt-key">C</span> It's a syntax error in Python 3</li>
+          <li><span class="opt-key">D</span> It only catches ValueError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — It hides real bugs and even catches Ctrl+C - you can't tell WHAT went wrong</p>
+          <p class="expl">except: swallows EVERYTHING - typos (NameError), logic bugs, even KeyboardInterrupt - making failures invisible. Catch the specific exceptions you expect; at worst use except Exception as e and log it.</p>
+          <p class="tags"><span>Bare except</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does assert x &gt; 0, &quot;x must be positive&quot; do?</p>
+        <pre class="code"><code>def average(nums):
+    assert len(nums) &gt; 0, &quot;empty list!&quot;
+    return sum(nums) / len(nums)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Raises AssertionError with that message if the condition is False</li>
+          <li><span class="opt-key">B</span> Prints the message always</li>
+          <li><span class="opt-key">C</span> Converts x to positive</li>
+          <li><span class="opt-key">D</span> Nothing in any mode</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Raises AssertionError with that message if the condition is False</p>
+          <p class="expl">assert is a development-time sanity check: if the condition fails, AssertionError is raised with your message. Note: assertions are STRIPPED when Python runs with -O, so never use them for real input validation.</p>
+          <p class="tags"><span>assert</span><span>AssertionError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is EAFP - the Pythonic error philosophy?</p>
+        <pre class="code"><code># EAFP (Pythonic):
+try:
+    value = d[&quot;key&quot;]
+except KeyError:
+    value = default
+
+# LBYL:
+if &quot;key&quot; in d:
+    value = d[&quot;key&quot;]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'Easier to Ask Forgiveness than Permission' - just try it and catch the exception, instead of checking first</li>
+          <li><span class="opt-key">B</span> 'Every Assertion Fails Predictably'</li>
+          <li><span class="opt-key">C</span> A testing framework</li>
+          <li><span class="opt-key">D</span> 'Except All, Fix Later'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'Easier to Ask Forgiveness than Permission' - just try it and catch the exception, instead of checking first</p>
+          <p class="expl">EAFP: try the operation and handle failure - vs LBYL ('Look Before You Leap'): check conditions first. Python favors EAFP: it avoids race conditions and duplicate checks.</p>
+          <p class="tags"><span>EAFP vs LBYL</span><span>Python philosophy</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you define your OWN exception type?</p>
+        <pre class="code"><code>class InsufficientFunds(Exception):
+    pass
+
+def withdraw(bal, amt):
+    if amt &gt; bal:
+        raise InsufficientFunds(f&quot;short by {amt - bal}&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> class InsufficientFunds(Exception): pass</li>
+          <li><span class="opt-key">B</span> def InsufficientFunds(Exception):</li>
+          <li><span class="opt-key">C</span> exception InsufficientFunds:</li>
+          <li><span class="opt-key">D</span> new Exception(&quot;InsufficientFunds&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — class InsufficientFunds(Exception): pass</p>
+          <p class="expl">Custom exceptions are classes inheriting from Exception - often just 'pass' bodies. They let callers catch YOUR specific error: except InsufficientFunds.</p>
+          <p class="tags"><span>Custom exceptions</span><span>Inheritance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+try:
+    try:
+        1 / 0
+    except ValueError:
+        print(&quot;inner&quot;)
+except ZeroDivisionError:
+    print(&quot;outer&quot;)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> inner</li>
+          <li class="correct"><span class="opt-key">B</span> outer</li>
+          <li><span class="opt-key">C</span> inner outer</li>
+          <li><span class="opt-key">D</span> Uncaught error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — outer</p>
+          <p class="expl">The inner except only handles ValueError - it does NOT match ZeroDivisionError, so the exception keeps travelling outward until the OUTER handler matches: 'outer'. Unmatched exceptions bubble up.</p>
+          <p class="tags"><span>Exception propagation</span><span>Nested try</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="10-functions.html">← Functions</a>
+      <a href="12-file-handling.html">File Handling →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-10">Practice “Error Handling” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

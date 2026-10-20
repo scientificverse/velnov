@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced (Sets, Vectors, Matrices…) Formulas – with Meaning, Uses and Examples | Velnov</title>
+  <meta name="description" content="32 Advanced (Sets, Vectors, Matrices…) formulas grouped by sub-topic, each with what the symbols mean, where it is used, a simple explanation and a worked example." />
+  <link rel="canonical" href="https://velnov.co.in/formulas/10-advanced-sets-vectors-matrices.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Advanced (Sets, Vectors, Matrices…) Formulas – with Meaning, Uses and Examples | Velnov" />
+  <meta property="og:description" content="32 Advanced (Sets, Vectors, Matrices…) formulas grouped by sub-topic, each with what the symbols mean, where it is used, a simple explanation and a worked example." />
+  <meta property="og:url" content="https://velnov.co.in/formulas/10-advanced-sets-vectors-matrices.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Math Formulas","item":"https://velnov.co.in/formulas/"},{"@type":"ListItem","position":2,"name":"Advanced (Sets, Vectors, Matrices…)","item":"https://velnov.co.in/formulas/10-advanced-sets-vectors-matrices.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../learn/">Study Notes</a>
+        <a href="../formulas/">Formulas</a>
+        <a href="../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="./">Math Formulas</a> <span aria-hidden="true">›</span> <span>Advanced (Sets, Vectors, Matrices…)</span></nav>
+    <header class="page-head">
+      <p class="kicker">🎓 Math Formulas</p>
+      <h1>Advanced (Sets, Vectors, Matrices…) Formulas</h1>
+      <p class="lead">32 formulas in 10 sections. For each one you get the formula, what every symbol means, where it is used, an explanation in plain words and a worked example.</p>
+      <p class="jump">Sections: <a href="#sets">Sets</a> · <a href="#permutations">Permutations</a> · <a href="#combinations">Combinations</a> · <a href="#binomial-theorem">Binomial Theorem</a> · <a href="#complex-numbers">Complex Numbers</a> · <a href="#matrices">Matrices</a> · <a href="#determinants">Determinants</a> · <a href="#vectors">Vectors</a> · <a href="#functions">Functions</a> · <a href="#relations-and-functions">Relations &amp; Functions</a></p>
+    </header>
+    <section>
+      <h2 id="sets">Sets</h2>
+      <article class="formula">
+        <h3>Number of elements in a union <span class="badge">Class 11</span></h3>
+        <p class="f-eq">n(A ∪ B) = n(A) + n(B) − n(A ∩ B)</p>
+        <table class="sym"><tbody><tr><th>n(A), n(B)</th><td>sizes of sets A and B</td></tr><tr><th>n(A ∩ B)</th><td>number common to both</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To count elements in the union of two overlapping sets — surveys, group counting without double-counting.</p>
+        <p><strong>In simple words:</strong> Add the two group sizes, then subtract the overlap so shared members aren't counted twice.</p>
+        <p class="eg"><strong>Example:</strong> <code>n(A)=20, n(B)=15, common 5 → 20+15−5 = 30</code></p>
+      </article>
+      <article class="formula">
+        <h3>Union of three sets</h3>
+        <p class="f-eq">n(A∪B∪C) = n(A)+n(B)+n(C) − n(A∩B) − n(B∩C) − n(C∩A) + n(A∩B∩C)</p>
+        <table class="sym"><tbody><tr><th>n(...)</th><td>sizes of the sets and overlaps</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To count elements in three overlapping sets — survey problems with three categories.</p>
+        <p><strong>In simple words:</strong> Add the three groups, remove each double-counted overlap, then add back the triple overlap.</p>
+        <p class="eg"><strong>Example:</strong> <code>Used in 'students who like tea/coffee/juice' problems</code></p>
+      </article>
+      <article class="formula">
+        <h3>Number of subsets</h3>
+        <p class="f-eq">Subsets = 2ⁿ,   Proper subsets = 2ⁿ − 1</p>
+        <table class="sym"><tbody><tr><th>n</th><td>number of elements in the set</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To count how many subsets a set has.</p>
+        <p><strong>In simple words:</strong> Each element is either in or out, giving 2 choices each, so 2ⁿ subsets in all.</p>
+        <p class="eg"><strong>Example:</strong> <code>Set {a,b,c} has 2³ = 8 subsets</code></p>
+      </article>
+      <article class="formula">
+        <h3>De Morgan's laws</h3>
+        <p class="f-eq">(A∪B)' = A'∩B',   (A∩B)' = A'∪B'</p>
+        <table class="sym"><tbody><tr><th>'</th><td>complement (not in the set)</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To simplify complements of unions and intersections — logic and set theory.</p>
+        <p><strong>In simple words:</strong> The 'not' of an OR becomes an AND of 'nots', and vice versa.</p>
+        <p class="eg"><strong>Example:</strong> <code>Not(A or B) = (not A) and (not B)</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="permutations">Permutations</h2>
+      <article class="formula">
+        <h3>Permutations (arrangements) <span class="badge">Class 11</span></h3>
+        <p class="f-eq">ⁿPᵣ = n! ÷ (n − r)!</p>
+        <table class="sym"><tbody><tr><th>n</th><td>total items</td></tr><tr><th>r</th><td>items chosen and arranged</td></tr><tr><th>!</th><td>factorial</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To count ordered arrangements — passwords, seat orders, race finishes where order matters.</p>
+        <p><strong>In simple words:</strong> Counts how many ways to arrange r things out of n when the order matters.</p>
+        <p class="eg"><strong>Example:</strong> <code>⁵P₂ = 5!/3! = 20</code></p>
+      </article>
+      <article class="formula">
+        <h3>Factorial</h3>
+        <p class="f-eq">n! = n × (n−1) × (n−2) × … × 2 × 1</p>
+        <table class="sym"><tbody><tr><th>n</th><td>a whole number</td></tr><tr><th>0!</th><td>defined as 1</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> The building block of permutations and combinations — counting arrangements.</p>
+        <p><strong>In simple words:</strong> Multiply all whole numbers from n down to 1. It counts how many ways to order n things.</p>
+        <p class="eg"><strong>Example:</strong> <code>5! = 5×4×3×2×1 = 120</code></p>
+      </article>
+      <article class="formula">
+        <h3>Circular permutations</h3>
+        <p class="f-eq">Circular arrangements = (n − 1)!</p>
+        <table class="sym"><tbody><tr><th>n</th><td>number of items in a circle</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To count seatings around a round table, where rotations are the same.</p>
+        <p><strong>In simple words:</strong> In a circle there's no fixed start, so fix one person and arrange the rest: (n−1)!.</p>
+        <p class="eg"><strong>Example:</strong> <code>5 people round a table → 4! = 24 ways</code></p>
+      </article>
+      <article class="formula">
+        <h3>Permutations with repeated items</h3>
+        <p class="f-eq">Arrangements = n! ÷ (p! × q! × …)</p>
+        <table class="sym"><tbody><tr><th>n</th><td>total items</td></tr><tr><th>p, q</th><td>counts of each repeated item</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To count arrangements of a word or set with repeated letters.</p>
+        <p><strong>In simple words:</strong> Divide by the factorials of the repeats, since swapping identical items doesn't make a new order.</p>
+        <p class="eg"><strong>Example:</strong> <code>LEVEL: 5!/(2!·2!) = 30 arrangements</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="combinations">Combinations</h2>
+      <article class="formula">
+        <h3>Combinations (selections) <span class="badge">Class 11</span></h3>
+        <p class="f-eq">ⁿCᵣ = n! ÷ [r!(n − r)!]</p>
+        <table class="sym"><tbody><tr><th>n</th><td>total items</td></tr><tr><th>r</th><td>items chosen</td></tr><tr><th>!</th><td>factorial</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To count selections where order does NOT matter — teams, committees, lottery picks.</p>
+        <p><strong>In simple words:</strong> Counts how many ways to pick r things out of n when the order doesn't matter.</p>
+        <p class="eg"><strong>Example:</strong> <code>⁵C₂ = 5!/(2!·3!) = 10</code></p>
+      </article>
+      <article class="formula">
+        <h3>Relation between nPr and nCr</h3>
+        <p class="f-eq">ⁿPᵣ = ⁿCᵣ × r!</p>
+        <table class="sym"><tbody><tr><th>ⁿPᵣ</th><td>arrangements</td></tr><tr><th>ⁿCᵣ</th><td>selections</td></tr><tr><th>r!</th><td>r factorial</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To convert between selections and arrangements of r items from n.</p>
+        <p><strong>In simple words:</strong> Arrangements = selections times the number of ways to order the chosen r items.</p>
+        <p class="eg"><strong>Example:</strong> <code>⁵P₂ = ⁵C₂ × 2! = 10 × 2 = 20</code></p>
+      </article>
+      <article class="formula">
+        <h3>Symmetry of combinations</h3>
+        <p class="f-eq">ⁿCᵣ = ⁿCₙ₋ᵣ,   ⁿC₀ + ⁿC₁ + … + ⁿCₙ = 2ⁿ</p>
+        <table class="sym"><tbody><tr><th>n, r</th><td>total and chosen</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> Useful identities for combinations — choosing r is the same as leaving out (n−r).</p>
+        <p><strong>In simple words:</strong> Picking r to keep is the same as picking (n−r) to drop; all the combinations add to 2ⁿ.</p>
+        <p class="eg"><strong>Example:</strong> <code>⁵C₂ = ⁵C₃ = 10</code></p>
+      </article>
+      <article class="formula">
+        <h3>Pascal's rule</h3>
+        <p class="f-eq">ⁿCᵣ + ⁿCᵣ₋₁ = ⁿ⁺¹Cᵣ</p>
+        <table class="sym"><tbody><tr><th>n, r</th><td>total and chosen</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> The rule that builds Pascal's triangle and the binomial coefficients.</p>
+        <p><strong>In simple words:</strong> Each number in Pascal's triangle is the sum of the two above it.</p>
+        <p class="eg"><strong>Example:</strong> <code>⁴C₂ + ⁴C₁ = 6 + 4 = 10 = ⁵C₂</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="binomial-theorem">Binomial Theorem</h2>
+      <article class="formula">
+        <h3>General term of a binomial expansion <span class="badge">Class 11</span></h3>
+        <p class="f-eq">Tᵣ₊₁ = ⁿCᵣ · aⁿ⁻ʳ · bʳ</p>
+        <table class="sym"><tbody><tr><th>n</th><td>the power</td></tr><tr><th>r</th><td>term position (from 0)</td></tr><tr><th>a, b</th><td>the two terms of (a+b)ⁿ</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find any single term in the expansion of (a+b)ⁿ without expanding the whole thing.</p>
+        <p><strong>In simple words:</strong> A shortcut to jump straight to the term you want when expanding a bracket raised to a power.</p>
+        <p class="eg"><strong>Example:</strong> <code>(x+2)⁵, term with x³: ⁵C₂·x³·2² = 40x³</code></p>
+      </article>
+      <article class="formula">
+        <h3>Binomial expansion</h3>
+        <p class="f-eq">(a + b)ⁿ = Σ ⁿCᵣ · aⁿ⁻ʳ · bʳ</p>
+        <table class="sym"><tbody><tr><th>n</th><td>the power</td></tr><tr><th>ⁿCᵣ</th><td>the binomial coefficients</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To expand a bracket raised to a whole-number power without multiplying it out step by step.</p>
+        <p><strong>In simple words:</strong> A shortcut to expand (a+b) raised to any power using the counting numbers ⁿCᵣ.</p>
+        <p class="eg"><strong>Example:</strong> <code>(a+b)² = a² + 2ab + b²</code></p>
+      </article>
+      <article class="formula">
+        <h3>Number of terms and middle term</h3>
+        <p class="f-eq">Terms in (a+b)ⁿ = n+1;  middle term at (n/2 + 1) if n even</p>
+        <table class="sym"><tbody><tr><th>n</th><td>the power</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To locate the middle term of a binomial expansion.</p>
+        <p><strong>In simple words:</strong> An expansion of power n has n+1 terms; the middle one is often asked for.</p>
+        <p class="eg"><strong>Example:</strong> <code>(a+b)⁶ has 7 terms; middle is the 4th</code></p>
+      </article>
+      <article class="formula">
+        <h3>Sum of binomial coefficients</h3>
+        <p class="f-eq">ⁿC₀ + ⁿC₁ + … + ⁿCₙ = 2ⁿ</p>
+        <table class="sym"><tbody><tr><th>n</th><td>the power</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find the sum of all coefficients in a binomial expansion (put a=b=1).</p>
+        <p><strong>In simple words:</strong> Setting both terms to 1 shows all the coefficients add to 2ⁿ.</p>
+        <p class="eg"><strong>Example:</strong> <code>(1+1)³ = 8 = 1+3+3+1</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="complex-numbers">Complex Numbers</h2>
+      <article class="formula">
+        <h3>Modulus of a complex number <span class="badge">Class 11</span></h3>
+        <p class="f-eq">|z| = √(a² + b²),  z = a + bi</p>
+        <table class="sym"><tbody><tr><th>a</th><td>real part</td></tr><tr><th>b</th><td>imaginary part</td></tr><tr><th>i</th><td>√(−1)</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find the size (distance from origin) of a complex number — used in engineering and physics.</p>
+        <p><strong>In simple words:</strong> Treat the real and imaginary parts like the sides of a right triangle; the modulus is the hypotenuse.</p>
+        <p class="eg"><strong>Example:</strong> <code>z = 3 + 4i → |z| = √(9+16) = 5</code></p>
+      </article>
+      <article class="formula">
+        <h3>Powers of i</h3>
+        <p class="f-eq">i² = −1, i³ = −i, i⁴ = 1  (i = √−1)</p>
+        <table class="sym"><tbody><tr><th>i</th><td>the imaginary unit √(−1)</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> The basic rules for simplifying powers of i in complex-number arithmetic.</p>
+        <p><strong>In simple words:</strong> i squared is −1, and higher powers cycle in a pattern of four.</p>
+        <p class="eg"><strong>Example:</strong> <code>i⁴ = 1, so i⁵ = i</code></p>
+      </article>
+      <article class="formula">
+        <h3>Conjugate of a complex number</h3>
+        <p class="f-eq">z = a + bi  →  z̄ = a − bi</p>
+        <table class="sym"><tbody><tr><th>a</th><td>real part</td></tr><tr><th>b</th><td>imaginary part</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> Used to divide complex numbers and to find modulus (z·z̄ = |z|²).</p>
+        <p><strong>In simple words:</strong> The conjugate just flips the sign of the imaginary part.</p>
+        <p class="eg"><strong>Example:</strong> <code>z = 3+4i → z̄ = 3−4i</code></p>
+      </article>
+      <article class="formula">
+        <h3>Product of modulus</h3>
+        <p class="f-eq">|z₁ z₂| = |z₁| × |z₂|</p>
+        <table class="sym"><tbody><tr><th>z₁, z₂</th><td>two complex numbers</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find the modulus of a product of complex numbers.</p>
+        <p><strong>In simple words:</strong> The size of a product equals the product of the sizes.</p>
+        <p class="eg"><strong>Example:</strong> <code>|z₁|=2, |z₂|=3 → |z₁z₂| = 6</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="matrices">Matrices</h2>
+      <article class="formula">
+        <h3>Order of a matrix <span class="badge">Class 12</span></h3>
+        <p class="f-eq">Order = (rows) × (columns) = m × n</p>
+        <table class="sym"><tbody><tr><th>m</th><td>number of rows</td></tr><tr><th>n</th><td>number of columns</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To describe the size of a matrix, which decides whether operations like multiplication are possible.</p>
+        <p><strong>In simple words:</strong> Count the rows and columns; a matrix with m rows and n columns is 'm by n'.</p>
+        <p class="eg"><strong>Example:</strong> <code>A matrix with 2 rows and 3 columns is order 2×3</code></p>
+      </article>
+      <article class="formula">
+        <h3>Identity matrix property</h3>
+        <p class="f-eq">A × I = I × A = A</p>
+        <table class="sym"><tbody><tr><th>A</th><td>any square matrix</td></tr><tr><th>I</th><td>the identity matrix</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> The identity matrix acts like the number 1 for matrices — used in inverses and solving systems.</p>
+        <p><strong>In simple words:</strong> Just as multiplying a number by 1 leaves it unchanged, multiplying a matrix by I leaves it unchanged.</p>
+        <p class="eg"><strong>Example:</strong> <code>Any 2×2 matrix times the 2×2 identity stays the same</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="determinants">Determinants</h2>
+      <article class="formula">
+        <h3>Determinant of a 2×2 matrix <span class="badge">Class 12</span></h3>
+        <p class="f-eq">|A| = ad − bc,  A = [[a, b], [c, d]]</p>
+        <table class="sym"><tbody><tr><th>a, b, c, d</th><td>the four entries of the matrix</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To solve linear equations, find inverses and check if a matrix is invertible.</p>
+        <p><strong>In simple words:</strong> Multiply the main diagonal, subtract the other diagonal's product.</p>
+        <p class="eg"><strong>Example:</strong> <code>[[1,2],[3,4]] → 1·4 − 2·3 = −2</code></p>
+      </article>
+      <article class="formula">
+        <h3>Area of triangle (determinant)</h3>
+        <p class="f-eq">Area = ½ |det of the coordinate matrix|</p>
+        <table class="sym"><tbody><tr><th>det</th><td>the 3×3 determinant of the vertices</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find a triangle's area from coordinates using a determinant (Class 12).</p>
+        <p><strong>In simple words:</strong> A neat determinant of the three corner points gives twice the area.</p>
+        <p class="eg"><strong>Example:</strong> <code>Vertices (0,0),(4,0),(0,3) → area 6</code></p>
+      </article>
+      <article class="formula">
+        <h3>Determinant of a 3×3 matrix</h3>
+        <p class="f-eq">|A| = a(ei − fh) − b(di − fg) + c(dh − eg)</p>
+        <table class="sym"><tbody><tr><th>a…i</th><td>the nine entries by rows</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To evaluate a 3×3 determinant by expansion along the first row.</p>
+        <p><strong>In simple words:</strong> Expand along the top row, alternating signs, using 2×2 determinants.</p>
+        <p class="eg"><strong>Example:</strong> <code>Used to solve 3-variable equations</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="vectors">Vectors</h2>
+      <article class="formula">
+        <h3>Magnitude of a vector <span class="badge">Class 12</span></h3>
+        <p class="f-eq">|v| = √(x² + y² + z²)</p>
+        <table class="sym"><tbody><tr><th>x, y, z</th><td>the vector's components</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find the length of a vector in 2D or 3D — physics (force, velocity), computer graphics.</p>
+        <p><strong>In simple words:</strong> Square each direction component, add them, and take the square root to get the arrow's length.</p>
+        <p class="eg"><strong>Example:</strong> <code>v = (2,3,6) → |v| = √(4+9+36) = 7</code></p>
+      </article>
+      <article class="formula">
+        <h3>Dot product of two vectors <span class="badge">Class 12</span></h3>
+        <p class="f-eq">a · b = |a||b| cos θ</p>
+        <table class="sym"><tbody><tr><th>|a|, |b|</th><td>the vectors' magnitudes</td></tr><tr><th>θ</th><td>angle between them</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find the angle between vectors or the work done by a force — physics and geometry.</p>
+        <p><strong>In simple words:</strong> Multiplies two arrows in a way that depends on how much they point the same way.</p>
+        <p class="eg"><strong>Example:</strong> <code>If a⊥b (θ=90°), a·b = 0</code></p>
+      </article>
+      <article class="formula">
+        <h3>Cross product magnitude</h3>
+        <p class="f-eq">|a × b| = |a||b| sin θ</p>
+        <table class="sym"><tbody><tr><th>|a|,|b|</th><td>the magnitudes</td></tr><tr><th>θ</th><td>angle between them</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find the area of a parallelogram formed by two vectors, and directions in physics (torque, force).</p>
+        <p><strong>In simple words:</strong> Multiplies two arrows in a way that is largest when they point at right angles.</p>
+        <p class="eg"><strong>Example:</strong> <code>If a∥b (θ=0), a × b = 0</code></p>
+      </article>
+      <article class="formula">
+        <h3>Unit vector</h3>
+        <p class="f-eq">â = a⃗ ÷ |a⃗|</p>
+        <table class="sym"><tbody><tr><th>a⃗</th><td>the vector</td></tr><tr><th>|a⃗|</th><td>its magnitude</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find a vector of length 1 in the same direction — directions in physics and graphics.</p>
+        <p><strong>In simple words:</strong> Divide a vector by its own length to get a pure-direction arrow of length 1.</p>
+        <p class="eg"><strong>Example:</strong> <code>a⃗=(3,4), |a⃗|=5 → â = (0.6, 0.8)</code></p>
+      </article>
+      <article class="formula">
+        <h3>Angle between two vectors</h3>
+        <p class="f-eq">cos θ = (a⃗ · b⃗) ÷ (|a⃗| |b⃗|)</p>
+        <table class="sym"><tbody><tr><th>a⃗ · b⃗</th><td>the dot product</td></tr><tr><th>|a⃗|,|b⃗|</th><td>magnitudes</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To find the angle between two vectors — forces, directions, geometry.</p>
+        <p><strong>In simple words:</strong> The dot product over the two lengths gives the cosine of the angle between them.</p>
+        <p class="eg"><strong>Example:</strong> <code>Perpendicular vectors → cosθ = 0, θ = 90°</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="functions">Functions</h2>
+      <article class="formula">
+        <h3>Distance a function idea (f(x)) <span class="badge">Class 11</span></h3>
+        <p class="f-eq">y = f(x)</p>
+        <table class="sym"><tbody><tr><th>x</th><td>the input</td></tr><tr><th>f</th><td>the rule</td></tr><tr><th>y</th><td>the output</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> The basic idea of a function — a rule that turns each input into exactly one output. Foundation of all higher maths.</p>
+        <p><strong>In simple words:</strong> A function is a machine: put a number in, apply the rule, and get one number out.</p>
+        <p class="eg"><strong>Example:</strong> <code>f(x) = 2x+1 → f(3) = 7</code></p>
+      </article>
+    </section>
+    <section>
+      <h2 id="relations-and-functions">Relations &amp; Functions</h2>
+      <article class="formula">
+        <h3>Number of relations and functions</h3>
+        <p class="f-eq">Relations from A to B = 2^(m·n);  Functions = nᵐ</p>
+        <table class="sym"><tbody><tr><th>m</th><td>elements in A</td></tr><tr><th>n</th><td>elements in B</td></tr></tbody></table>
+        <p><strong>Where it is used:</strong> To count possible relations and functions between two sets.</p>
+        <p><strong>In simple words:</strong> Counts how many ways elements of one set can be linked or mapped to another.</p>
+        <p class="eg"><strong>Example:</strong> <code>|A|=2, |B|=3 → functions = 3² = 9</code></p>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="09-calculus.html">← Calculus</a>
+      <span></span>
+    </nav>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../about.html">About Velnov</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

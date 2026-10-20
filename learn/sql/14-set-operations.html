@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set Operations – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Set Operations with answers and detailed explanations — 2 easy, 15 medium and 13 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/14-set-operations.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Set Operations – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Set Operations with answers and detailed explanations — 2 easy, 15 medium and 13 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/14-set-operations.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Set Operations","item":"https://velnov.co.in/learn/sql/14-set-operations.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Set Operations</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 14 of 20</p>
+      <h1>Set Operations — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Set Operations</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-13">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 15 medium · 13 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>UNION</span><span>Set operations</span><span>UNION ALL</span><span>Performance</span><span>Compatibility</span><span>ORDER BY</span><span>INTERSECT</span><span>Overlap</span><span>EXCEPT</span><span>MINUS</span><span>Set difference</span><span>Direction</span><span>Column names</span><span>Literals</span><span>Precedence</span><span>Chaining</span><span>UNION vs JOIN</span><span>Errors</span><span>Anti-join</span><span>Duplicates</span><span>NULL</span><span>VALUES</span><span>Type compatibility</span><span>CAST</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does UNION do?</p>
+        <pre class="code"><code>SELECT city FROM customers
+UNION
+SELECT city FROM suppliers;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Combines the rows of two queries into one result, REMOVING duplicates</li>
+          <li><span class="opt-key">B</span> Joins two tables side by side</li>
+          <li><span class="opt-key">C</span> Multiplies rows</li>
+          <li><span class="opt-key">D</span> Filters rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Combines the rows of two queries into one result, REMOVING duplicates</p>
+          <p class="expl">UNION stacks result sets vertically (adding rows) and removes duplicates. JOIN, by contrast, combines tables horizontally (adding columns).</p>
+          <p class="tags"><span>UNION</span><span>Set operations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the difference between UNION and UNION ALL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UNION removes duplicates; UNION ALL keeps ALL rows including duplicates (and is faster)</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> UNION ALL removes duplicates</li>
+          <li><span class="opt-key">D</span> UNION is faster</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UNION removes duplicates; UNION ALL keeps ALL rows including duplicates (and is faster)</p>
+          <p class="expl">UNION does an extra de-duplication pass, which costs time. If you know there are no duplicates (or want them), UNION ALL is faster and preferred.</p>
+          <p class="tags"><span>UNION ALL</span><span>Performance</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (15)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What must be true for two queries to be combined with UNION?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They must have the SAME number of columns, in compatible data types and order</li>
+          <li><span class="opt-key">B</span> They must query the same table</li>
+          <li><span class="opt-key">C</span> They must have the same column names</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They must have the SAME number of columns, in compatible data types and order</p>
+          <p class="expl">UNION aligns columns by POSITION, not name. Column 1 of both queries must be type-compatible, and so on. The result uses the first query's column names.</p>
+          <p class="tags"><span>UNION</span><span>Compatibility</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does INTERSECT return?</p>
+        <pre class="code"><code>SELECT email FROM customers
+INTERSECT
+SELECT email FROM newsletter_subscribers;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Only rows that appear in BOTH queries</li>
+          <li><span class="opt-key">B</span> All rows from both</li>
+          <li><span class="opt-key">C</span> Rows in the first but not the second</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Only rows that appear in BOTH queries</p>
+          <p class="expl">INTERSECT is the overlap - customers who are also suppliers, for example. Like UNION, it removes duplicates by default.</p>
+          <p class="tags"><span>INTERSECT</span><span>Overlap</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does EXCEPT (or MINUS in Oracle) return?</p>
+        <pre class="code"><code>SELECT email FROM customers
+EXCEPT
+SELECT email FROM unsubscribed;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Rows in the FIRST query that are NOT in the second</li>
+          <li><span class="opt-key">B</span> Rows in both</li>
+          <li><span class="opt-key">C</span> All rows</li>
+          <li><span class="opt-key">D</span> Rows in the second only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Rows in the FIRST query that are NOT in the second</p>
+          <p class="expl">EXCEPT is set difference. Customers who never subscribed = customers EXCEPT subscribers. Oracle spells it MINUS; the meaning is identical.</p>
+          <p class="tags"><span>EXCEPT</span><span>MINUS</span><span>Set difference</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How does UNION handle the column NAMES of the result?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It uses the column names (or aliases) from the FIRST SELECT</li>
+          <li><span class="opt-key">B</span> It combines both names</li>
+          <li><span class="opt-key">C</span> It uses the second query's names</li>
+          <li><span class="opt-key">D</span> Columns become unnamed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It uses the column names (or aliases) from the FIRST SELECT</p>
+          <p class="expl">Only the first query's names (or aliases) appear in the output. Alias the first query's columns to control the result headers.</p>
+          <p class="tags"><span>UNION</span><span>Column names</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you tag which query each row came from in a UNION?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Add a literal column: SELECT name, 'A' AS source ... UNION ALL SELECT name, 'B' ...</li>
+          <li><span class="opt-key">B</span> It is automatic</li>
+          <li><span class="opt-key">C</span> Use GROUP BY</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Add a literal column: SELECT name, 'A' AS source ... UNION ALL SELECT name, 'B' ...</p>
+          <p class="expl">A constant column labels the origin of each row - very useful when merging similar data from different sources into one list.</p>
+          <p class="tags"><span>UNION</span><span>Literals</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you UNION more than two queries?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - chain them: SELECT ... UNION SELECT ... UNION SELECT ...</li>
+          <li><span class="opt-key">B</span> No, only two</li>
+          <li><span class="opt-key">C</span> Only with ALL</li>
+          <li><span class="opt-key">D</span> Only three</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - chain them: SELECT ... UNION SELECT ... UNION SELECT ...</p>
+          <p class="expl">Any number of compatible queries can be unioned. Each must have the same column count and compatible types.</p>
+          <p class="tags"><span>UNION</span><span>Chaining</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens if the two queries have different column COUNTS?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An error - 'each UNION query must have the same number of columns'</li>
+          <li><span class="opt-key">B</span> Missing columns become NULL</li>
+          <li><span class="opt-key">C</span> Extra columns are dropped</li>
+          <li><span class="opt-key">D</span> It works anyway</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An error - 'each UNION query must have the same number of columns'</p>
+          <p class="expl">The counts must match exactly. If one query lacks a column, add a placeholder like NULL AS missing_col or a constant to line them up.</p>
+          <p class="tags"><span>UNION</span><span>Errors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does INTERSECT remove duplicates?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - like UNION, it returns distinct rows (INTERSECT ALL keeps duplicates where supported)</li>
+          <li><span class="opt-key">B</span> No, it keeps all</li>
+          <li><span class="opt-key">C</span> Only for text</li>
+          <li><span class="opt-key">D</span> It errors on duplicates</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - like UNION, it returns distinct rows (INTERSECT ALL keeps duplicates where supported)</p>
+          <p class="expl">The set operators default to distinct results. Some databases offer INTERSECT ALL and EXCEPT ALL to preserve duplicate multiplicities.</p>
+          <p class="tags"><span>INTERSECT</span><span>Duplicates</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a practical use of UNION ALL with literals?</p>
+        <pre class="code"><code>SELECT * FROM (VALUES ('S'),('M'),('L')) AS sizes(label);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Building a small fixed list of values inline without creating a table</li>
+          <li><span class="opt-key">B</span> Deleting rows</li>
+          <li><span class="opt-key">C</span> Indexing</li>
+          <li><span class="opt-key">D</span> Sorting</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Building a small fixed list of values inline without creating a table</p>
+          <p class="expl">SELECT 'S' UNION ALL SELECT 'M' UNION ALL SELECT 'L' creates a quick lookup set. (Modern SQL also offers VALUES lists for this.)</p>
+          <p class="tags"><span>UNION ALL</span><span>VALUES</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you combine two monthly report queries into one result?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UNION ALL the two SELECTs (rows are distinct by month, so no dedup needed)</li>
+          <li><span class="opt-key">B</span> JOIN them</li>
+          <li><span class="opt-key">C</span> INTERSECT them</li>
+          <li><span class="opt-key">D</span> CROSS JOIN them</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UNION ALL the two SELECTs (rows are distinct by month, so no dedup needed)</p>
+          <p class="expl">When each query returns non-overlapping rows, UNION ALL simply stacks them efficiently. Add a month label column to distinguish the segments.</p>
+          <p class="tags"><span>UNION ALL</span><span>Reporting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you apply LIMIT to a UNION result?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - a LIMIT (with ORDER BY) at the end applies to the combined result</li>
+          <li><span class="opt-key">B</span> No, LIMIT is forbidden</li>
+          <li><span class="opt-key">C</span> Only in each SELECT</li>
+          <li><span class="opt-key">D</span> Only with INTERSECT</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - a LIMIT (with ORDER BY) at the end applies to the combined result</p>
+          <p class="expl">Place ORDER BY and LIMIT after the final query to page the whole union. To limit an individual branch, wrap that SELECT in a subquery.</p>
+          <p class="tags"><span>UNION</span><span>LIMIT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Do the queries in a UNION need matching WHERE clauses?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - each SELECT can have completely different logic, as long as the output columns line up</li>
+          <li><span class="opt-key">B</span> Yes, identical WHERE</li>
+          <li><span class="opt-key">C</span> They must query one table</li>
+          <li><span class="opt-key">D</span> WHERE is not allowed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - each SELECT can have completely different logic, as long as the output columns line up</p>
+          <p class="expl">The branches are independent queries; only their output shape must match. This flexibility lets you merge quite different selections into one list.</p>
+          <p class="tags"><span>UNION</span><span>Flexibility</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you deduplicate a combined list of tags from two tables?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT tag FROM a UNION SELECT tag FROM b  (UNION removes duplicates)</li>
+          <li><span class="opt-key">B</span> UNION ALL</li>
+          <li><span class="opt-key">C</span> JOIN a and b</li>
+          <li><span class="opt-key">D</span> CROSS JOIN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT tag FROM a UNION SELECT tag FROM b  (UNION removes duplicates)</p>
+          <p class="expl">Plain UNION is exactly the tool for a distinct merged list. Use UNION ALL only if you deliberately want to keep the repeats.</p>
+          <p class="tags"><span>UNION</span><span>Deduplication</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which set operation answers 'who is in both group A and group B'?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> INTERSECT</li>
+          <li><span class="opt-key">B</span> UNION</li>
+          <li><span class="opt-key">C</span> EXCEPT</li>
+          <li><span class="opt-key">D</span> CROSS JOIN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — INTERSECT</p>
+          <p class="expl">INTERSECT returns the common membership. UNION would give everyone in either group, and EXCEPT gives those in one but not the other.</p>
+          <p class="tags"><span>INTERSECT</span><span>Membership</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which set operation combines two result sets and keeps duplicates for maximum speed?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UNION ALL</li>
+          <li><span class="opt-key">B</span> UNION</li>
+          <li><span class="opt-key">C</span> INTERSECT</li>
+          <li><span class="opt-key">D</span> EXCEPT</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UNION ALL</p>
+          <p class="expl">UNION ALL simply appends the second result to the first with no de-duplication pass, so it is the fastest way to stack rows. Use plain UNION only when you actually need to remove duplicates.</p>
+          <p class="tags"><span>UNION ALL</span><span>Performance</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (13)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Where does ORDER BY go in a UNION query?</p>
+        <pre class="code"><code>SELECT name, 'customer' AS type FROM customers
+UNION ALL
+SELECT name, 'supplier' FROM suppliers
+ORDER BY name;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> At the very END, after the last SELECT - it sorts the combined result</li>
+          <li><span class="opt-key">B</span> In each SELECT</li>
+          <li><span class="opt-key">C</span> Before UNION</li>
+          <li><span class="opt-key">D</span> ORDER BY is not allowed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — At the very END, after the last SELECT - it sorts the combined result</p>
+          <p class="expl">A single ORDER BY at the end applies to the whole union. Putting it inside an individual SELECT is either an error or ignored, since the union reorders everything anyway.</p>
+          <p class="tags"><span>UNION</span><span>ORDER BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Is EXCEPT symmetric - does A EXCEPT B equal B EXCEPT A?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - order matters; A EXCEPT B keeps A's extras, B EXCEPT A keeps B's extras</li>
+          <li><span class="opt-key">B</span> Yes, always symmetric</li>
+          <li><span class="opt-key">C</span> Only for numbers</li>
+          <li><span class="opt-key">D</span> They both return everything</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - order matters; A EXCEPT B keeps A's extras, B EXCEPT A keeps B's extras</p>
+          <p class="expl">Set difference is directional, unlike UNION and INTERSECT which are symmetric. Choose the order based on which side's unmatched rows you want.</p>
+          <p class="tags"><span>EXCEPT</span><span>Direction</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why might UNION ALL be preferred even when duplicates are possible?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It avoids the costly de-duplication sort; if downstream logic handles duplicates, it is faster</li>
+          <li><span class="opt-key">B</span> It is always wrong</li>
+          <li><span class="opt-key">C</span> It removes more duplicates</li>
+          <li><span class="opt-key">D</span> It sorts automatically</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It avoids the costly de-duplication sort; if downstream logic handles duplicates, it is faster</p>
+          <p class="expl">On large data the distinct pass of UNION is expensive. When you know rows are unique (e.g. non-overlapping date ranges), UNION ALL gives the same result faster.</p>
+          <p class="tags"><span>UNION ALL</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the precedence between INTERSECT and UNION when combined?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> INTERSECT binds tighter than UNION/EXCEPT - use parentheses to be explicit</li>
+          <li><span class="opt-key">B</span> UNION binds tighter</li>
+          <li><span class="opt-key">C</span> They are equal, left to right</li>
+          <li><span class="opt-key">D</span> You cannot combine them</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — INTERSECT binds tighter than UNION/EXCEPT - use parentheses to be explicit</p>
+          <p class="expl">In standard SQL INTERSECT has higher precedence, so A UNION B INTERSECT C means A UNION (B INTERSECT C). Parentheses remove any doubt and improve readability.</p>
+          <p class="tags"><span>Precedence</span><span>Set operations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">When would you use UNION instead of a JOIN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> When STACKING similar rows from different sources (adding rows), not correlating tables (adding columns)</li>
+          <li><span class="opt-key">B</span> They are interchangeable</li>
+          <li><span class="opt-key">C</span> UNION is always better</li>
+          <li><span class="opt-key">D</span> Never use UNION</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — When STACKING similar rows from different sources (adding rows), not correlating tables (adding columns)</p>
+          <p class="expl">JOIN answers 'what related data goes with this row?'. UNION answers 'combine these two lists into one'. Choosing the right one starts with whether you need more columns or more rows.</p>
+          <p class="tags"><span>UNION vs JOIN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find values in table A that are NOT in table B, using set operations?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT x FROM A EXCEPT SELECT x FROM B</li>
+          <li><span class="opt-key">B</span> A INTERSECT B</li>
+          <li><span class="opt-key">C</span> A UNION B</li>
+          <li><span class="opt-key">D</span> A JOIN B</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT x FROM A EXCEPT SELECT x FROM B</p>
+          <p class="expl">EXCEPT is the direct set-difference tool. Alternatives include LEFT JOIN ... IS NULL and NOT EXISTS, which can be faster and handle multiple columns more flexibly.</p>
+          <p class="tags"><span>EXCEPT</span><span>Anti-join</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do set operations treat NULLs when deciding if rows are equal?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They treat two NULLs as the SAME (unlike = comparisons), so duplicate NULL rows collapse</li>
+          <li><span class="opt-key">B</span> NULLs are always different</li>
+          <li><span class="opt-key">C</span> NULLs are removed</li>
+          <li><span class="opt-key">D</span> It errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They treat two NULLs as the SAME (unlike = comparisons), so duplicate NULL rows collapse</p>
+          <p class="expl">Set operations use 'not distinct' semantics: NULL matches NULL for de-duplication and intersection. This differs from the WHERE clause, where NULL = NULL is UNKNOWN.</p>
+          <p class="tags"><span>NULL</span><span>Set operations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does data-type compatibility matter in UNION?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Corresponding columns are merged, so mixing e.g. a number and a date causes an error or implicit conversion</li>
+          <li><span class="opt-key">B</span> It does not matter</li>
+          <li><span class="opt-key">C</span> Types are ignored</li>
+          <li><span class="opt-key">D</span> Only names matter</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Corresponding columns are merged, so mixing e.g. a number and a date causes an error or implicit conversion</p>
+          <p class="expl">Each output column takes a single type derived from both inputs. Incompatible types (text vs date) either fail or coerce unexpectedly - align them with CAST.</p>
+          <p class="tags"><span>Type compatibility</span><span>CAST</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the row count of 'SELECT 1 UNION SELECT 1 UNION ALL SELECT 1'?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 - the first UNION dedups to one, then UNION ALL adds another</li>
+          <li><span class="opt-key">B</span> 3</li>
+          <li><span class="opt-key">C</span> 1</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 - the first UNION dedups to one, then UNION ALL adds another</p>
+          <p class="expl">Evaluated left to right: SELECT 1 UNION SELECT 1 gives one row, then UNION ALL SELECT 1 appends a duplicate, giving two. Mixing UNION and UNION ALL requires care.</p>
+          <p class="tags"><span>UNION</span><span>UNION ALL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How would you find emails common to two lists AND unique to the first, in one query set?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use INTERSECT for the common ones and EXCEPT for the unique ones (as separate queries or combined with care)</li>
+          <li><span class="opt-key">B</span> One UNION does it</li>
+          <li><span class="opt-key">C</span> A single JOIN</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use INTERSECT for the common ones and EXCEPT for the unique ones (as separate queries or combined with care)</p>
+          <p class="expl">INTERSECT gives the overlap; EXCEPT gives list-one-only. Set operators are a clean vocabulary for these membership questions, complementing joins.</p>
+          <p class="tags"><span>INTERSECT</span><span>EXCEPT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a performance advantage of EXCEPT/INTERSECT over equivalent joins?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They express set logic concisely and can be optimised well - though NOT EXISTS/LEFT JOIN are sometimes faster on large indexed data</li>
+          <li><span class="opt-key">B</span> They are always fastest</li>
+          <li><span class="opt-key">C</span> They never use indexes</li>
+          <li><span class="opt-key">D</span> There is no difference ever</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They express set logic concisely and can be optimised well - though NOT EXISTS/LEFT JOIN are sometimes faster on large indexed data</p>
+          <p class="expl">Set operators are readable for whole-row membership tests. For large tables, benchmark against NOT EXISTS and anti-joins, which can leverage indexes more directly.</p>
+          <p class="tags"><span>Performance</span><span>EXCEPT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why must you sometimes wrap a UNION in a subquery?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> To apply further operations (GROUP BY, JOIN, additional filtering) to the combined result as a whole</li>
+          <li><span class="opt-key">B</span> UNION cannot be used otherwise</li>
+          <li><span class="opt-key">C</span> For syntax reasons only</li>
+          <li><span class="opt-key">D</span> You never need to</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — To apply further operations (GROUP BY, JOIN, additional filtering) to the combined result as a whole</p>
+          <p class="expl">A UNION is a single result set; to aggregate or join it, place it in a subquery or CTE: SELECT type, COUNT(*) FROM (SELECT ... UNION ALL ...) t GROUP BY type.</p>
+          <p class="tags"><span>Subqueries</span><span>UNION</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the safest way to ensure UNION columns align correctly?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Explicitly list and, if needed, CAST each column in both queries in the same order</li>
+          <li><span class="opt-key">B</span> Use SELECT * in both</li>
+          <li><span class="opt-key">C</span> Rely on column names matching</li>
+          <li><span class="opt-key">D</span> Add extra columns</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Explicitly list and, if needed, CAST each column in both queries in the same order</p>
+          <p class="expl">SELECT * across differently structured tables is fragile - column order or count can drift. Naming (and casting) columns makes the alignment explicit and change-proof.</p>
+          <p class="tags"><span>UNION</span><span>Best practices</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="13-advanced-joins.html">← Advanced Joins</a>
+      <a href="15-subqueries-and-ctes.html">Subqueries &amp; CTEs →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-13">Practice “Set Operations” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

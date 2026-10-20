@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Types &amp; Conversion – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Data Types &amp; Conversion with answers and detailed explanations — 13 easy, 12 medium and 5 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/03-data-types-and-conversion.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Data Types &amp; Conversion – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Data Types &amp; Conversion with answers and detailed explanations — 13 easy, 12 medium and 5 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/03-data-types-and-conversion.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Data Types & Conversion","item":"https://velnov.co.in/learn/python/03-data-types-and-conversion.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Data Types &amp; Conversion</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 3 of 20</p>
+      <h1>Data Types &amp; Conversion — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Data Types &amp; Conversion</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-2">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">13 easy · 12 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>type()</span><span>Numeric types</span><span>Booleans</span><span>Comparison results</span><span>Type conversion</span><span>int()</span><span>str()</span><span>String concatenation</span><span>TypeError</span><span>round()</span><span>Truncation</span><span>Division</span><span>Floor division</span><span>isinstance()</span><span>Introspection</span><span>Truthiness</span><span>bool()</span><span>Common gotchas</span><span>Type promotion</span><span>Mixed arithmetic</span><span>ValueError</span><span>float()</span><span>None</span><span>is operator</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (13)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the type of the value 5?</p>
+        <pre class="code"><code>print(type(5))     # &lt;class 'int'&gt;
+print(type(5.0))   # &lt;class 'float'&gt;
+print(type(&quot;5&quot;))   # &lt;class 'str'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> float</li>
+          <li class="correct"><span class="opt-key">B</span> int</li>
+          <li><span class="opt-key">C</span> str</li>
+          <li><span class="opt-key">D</span> number</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — int</p>
+          <p class="expl">Whole numbers without a decimal point are int (integers). 5.0 would be a float, and &quot;5&quot; (in quotes) would be a str.</p>
+          <p class="tags"><span>type()</span><span>Numeric types</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the type of True?</p>
+        <pre class="code"><code>print(type(True))   # &lt;class 'bool'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> str</li>
+          <li><span class="opt-key">B</span> int</li>
+          <li class="correct"><span class="opt-key">C</span> bool</li>
+          <li><span class="opt-key">D</span> boolean</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — bool</p>
+          <p class="expl">True and False are the two values of the bool type. Note the capital letters - true and false (lowercase) are NameErrors in Python.</p>
+          <ul class="notes"><li>The type is spelled bool, not boolean.</li></ul>
+          <p class="tags"><span>Booleans</span><span>Comparison results</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(int(&quot;12&quot;) + 3)</p>
+        <pre class="code"><code>print(int(&quot;12&quot;) + 3)   # 15
+# print(&quot;12&quot; + 3)      # TypeError!</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 123</li>
+          <li class="correct"><span class="opt-key">B</span> 15</li>
+          <li><span class="opt-key">C</span> &quot;123&quot;</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 15</p>
+          <p class="expl">int(&quot;12&quot;) converts the string to the number 12, then 12 + 3 = 15. Without the conversion, &quot;12&quot; + 3 would be a TypeError.</p>
+          <p class="tags"><span>Type conversion</span><span>int()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(str(5) + &quot;5&quot;)</p>
+        <pre class="code"><code>print(str(5) + &quot;5&quot;)   # 55  (text joining)
+print(5 + 5)           # 10  (math)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 10</li>
+          <li class="correct"><span class="opt-key">B</span> 55</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> 5 5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 55</p>
+          <p class="expl">str(5) converts the number to the text &quot;5&quot;, and + on two strings joins them: &quot;5&quot; + &quot;5&quot; = &quot;55&quot;.</p>
+          <p class="tags"><span>str()</span><span>String concatenation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What happens when you run: print(&quot;5&quot; + 5)</p>
+        <pre class="code"><code># print(&quot;5&quot; + 5)      # TypeError
+print(int(&quot;5&quot;) + 5)   # 10
+print(&quot;5&quot; + str(5))   # 55</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Prints 10</li>
+          <li><span class="opt-key">B</span> Prints 55</li>
+          <li class="correct"><span class="opt-key">C</span> TypeError - can't add str and int</li>
+          <li><span class="opt-key">D</span> Prints 5 5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — TypeError - can't add str and int</p>
+          <p class="expl">Python refuses to mix a string and a number with + . You must convert one side first: int(&quot;5&quot;) + 5 = 10, or &quot;5&quot; + str(5) = &quot;55&quot;. (JavaScript would silently give &quot;55&quot; - Python is stricter.)</p>
+          <p class="tags"><span>TypeError</span><span>Type conversion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(int(3.9))</p>
+        <pre class="code"><code>print(int(3.9))     # 3  (cut, not rounded)
+print(round(3.9))   # 4
+print(int(-3.9))    # -3 (cuts toward zero)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 4</li>
+          <li class="correct"><span class="opt-key">B</span> 3</li>
+          <li><span class="opt-key">C</span> 3.9</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 3</p>
+          <p class="expl">int() TRUNCATES a float - it simply cuts off the decimal part, it does not round. int(3.9) is 3. Use round(3.9) if you want 4.</p>
+          <p class="tags"><span>int()</span><span>round()</span><span>Truncation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which function tells you the type of a value?</p>
+        <pre class="code"><code>print(type(42))       # &lt;class 'int'&gt;
+print(type([1, 2]))   # &lt;class 'list'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> typeof()</li>
+          <li class="correct"><span class="opt-key">B</span> type()</li>
+          <li><span class="opt-key">C</span> gettype()</li>
+          <li><span class="opt-key">D</span> kind()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — type()</p>
+          <p class="expl">type(x) returns the type of x, e.g. type(3.14) is &lt;class 'float'&gt;. (typeof is JavaScript, gettype is PHP.)</p>
+          <p class="tags"><span>isinstance()</span><span>Introspection</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(bool(0), bool(-1))</p>
+        <pre class="code"><code>print(bool(0))     # False
+print(bool(-1))    # True
+print(bool(0.0))   # False</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> False False</li>
+          <li class="correct"><span class="opt-key">B</span> False True</li>
+          <li><span class="opt-key">C</span> True True</li>
+          <li><span class="opt-key">D</span> True False</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — False True</p>
+          <p class="expl">Only zero is falsy among numbers. ANY non-zero number - including negatives - is truthy, so bool(-1) is True.</p>
+          <p class="tags"><span>Truthiness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which data type would you use to store 3.14?</p>
+        <pre class="code"><code>pi = 3.14
+print(type(pi))   # &lt;class 'float'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> int</li>
+          <li class="correct"><span class="opt-key">B</span> float</li>
+          <li><span class="opt-key">C</span> str</li>
+          <li><span class="opt-key">D</span> bool</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — float</p>
+          <p class="expl">Numbers with a decimal point are floats (floating-point numbers). Integers (int) hold only whole numbers.</p>
+          <p class="tags"><span>Numeric types</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does float(&quot;7&quot;) return?</p>
+        <pre class="code"><code>print(float(&quot;7&quot;))     # 7.0
+print(float(&quot;3.14&quot;))  # 3.14
+print(float(5))        # 5.0</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 7</li>
+          <li class="correct"><span class="opt-key">B</span> 7.0</li>
+          <li><span class="opt-key">C</span> &quot;7.0&quot;</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 7.0</p>
+          <p class="expl">float() converts a value to a floating-point number: float(&quot;7&quot;) is 7.0. It accepts integer strings, decimal strings, and numbers.</p>
+          <p class="tags"><span>float()</span><span>Type conversion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Converting a value from one type to another (e.g. int(&quot;5&quot;)) is commonly called:</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Mutation</li>
+          <li class="correct"><span class="opt-key">B</span> Type casting / type conversion</li>
+          <li><span class="opt-key">C</span> Inheritance</li>
+          <li><span class="opt-key">D</span> Compilation</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Type casting / type conversion</p>
+          <p class="expl">Changing a value's type - int(&quot;5&quot;), str(3.14), float(2) - is called type conversion or type casting. Python requires it to be explicit; it won't silently convert strings to numbers.</p>
+          <p class="tags"><span>int()</span><span>str()</span><span>float()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which of these creates a string?</p>
+        <pre class="code"><code>a = 'hello'   # str
+b = &quot;hello&quot;   # also str - same thing</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> x = 5</li>
+          <li class="correct"><span class="opt-key">B</span> x = 'hello'</li>
+          <li><span class="opt-key">C</span> x = True</li>
+          <li><span class="opt-key">D</span> x = 5.5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — x = 'hello'</p>
+          <p class="expl">Text wrapped in quotes (single OR double - both work identically) is a string. 5 is int, True is bool, 5.5 is float.</p>
+          <p class="tags"><span>Strings</span><span>Quotes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(len(&quot;hello&quot;))</p>
+        <pre class="code"><code>print(len(&quot;hello&quot;))    # 5
+print(len(&quot;&quot;))          # 0
+print(len([1, 2, 3]))   # 3</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 4</li>
+          <li class="correct"><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> 6</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 5</p>
+          <p class="expl">len() returns the number of characters in a string: &quot;hello&quot; has 5 letters. len() also works on lists, tuples, dicts and sets.</p>
+          <p class="tags"><span>len()</span><span>Strings</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (12)</h2>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the result type of: 3 / 2 in Python 3?</p>
+        <pre class="code"><code>print(3 / 2)         # 1.5
+print(3 // 2)        # 1
+print(type(3 / 2))   # &lt;class 'float'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> int</li>
+          <li class="correct"><span class="opt-key">B</span> float</li>
+          <li><span class="opt-key">C</span> decimal</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — float</p>
+          <p class="expl">The / operator always returns a float in Python 3, even for integers: 3 / 2 = 1.5. Use // for integer (floor) division.</p>
+          <ul class="notes"><li>Key difference from Python 2, where 3 / 2 gave 1.</li></ul>
+          <p class="tags"><span>Division</span><span>Floor division</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(bool(&quot;&quot;))</p>
+        <pre class="code"><code>print(bool(&quot;&quot;))      # False
+print(bool(&quot;hi&quot;))    # True
+print(bool(0))        # False
+print(bool([]))       # False</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> True</li>
+          <li class="correct"><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — False</p>
+          <p class="expl">An EMPTY string is falsy - bool(&quot;&quot;) is False. Empty containers ([], {}, ()), the number 0, and None are all falsy. Everything else is truthy.</p>
+          <p class="tags"><span>Truthiness</span><span>bool()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the type of the result: 2 + 3.0</p>
+        <pre class="code"><code>print(2 + 3.0)        # 5.0
+print(type(2 + 3.0))  # &lt;class 'float'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> int</li>
+          <li class="correct"><span class="opt-key">B</span> float</li>
+          <li><span class="opt-key">C</span> str</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — float</p>
+          <p class="expl">When int and float mix in arithmetic, Python converts the int to float automatically: 2 + 3.0 = 5.0 (a float). The 'wider' type wins.</p>
+          <p class="tags"><span>Type promotion</span><span>Mixed arithmetic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens with: int(&quot;3.5&quot;)</p>
+        <pre class="code"><code># int(&quot;3.5&quot;)          # ValueError!
+print(float(&quot;3.5&quot;))    # 3.5
+print(int(float(&quot;3.5&quot;)))  # 3</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Returns 3</li>
+          <li><span class="opt-key">B</span> Returns 3.5</li>
+          <li><span class="opt-key">C</span> Returns 4</li>
+          <li class="correct"><span class="opt-key">D</span> ValueError - int() can't parse a decimal string</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: D</strong> — ValueError - int() can't parse a decimal string</p>
+          <p class="expl">int() can convert &quot;3&quot; but NOT &quot;3.5&quot; - the decimal point makes it invalid. Convert in two steps: int(float(&quot;3.5&quot;)) gives 3.</p>
+          <p class="tags"><span>ValueError</span><span>Type conversion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the value and type of x?
+x = None</p>
+        <pre class="code"><code>x = None
+print(type(x))     # &lt;class 'NoneType'&gt;
+print(x is None)   # True - the proper check</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 0, int</li>
+          <li><span class="opt-key">B</span> Empty string, str</li>
+          <li class="correct"><span class="opt-key">C</span> None, NoneType - it represents 'no value'</li>
+          <li><span class="opt-key">D</span> False, bool</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — None, NoneType - it represents 'no value'</p>
+          <p class="expl">None is Python's special 'nothing here' value, with its own type NoneType. It is NOT zero, not an empty string, and not False - though it is falsy in conditions.</p>
+          <p class="tags"><span>None</span><span>is operator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the value of: 1e3</p>
+        <pre class="code"><code>print(1e3)     # 1000.0
+print(1e-2)    # 0.01</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 13</li>
+          <li class="correct"><span class="opt-key">B</span> 1000.0</li>
+          <li><span class="opt-key">C</span> 103</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 1000.0</p>
+          <p class="expl">1e3 is scientific notation: 1 x 10^3 = 1000.0 (always a float). Similarly 2.5e2 = 250.0 and 1e-2 = 0.01.</p>
+          <p class="tags"><span>Scientific notation</span><span>Floats</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is the better way to check if x is a number, and why?
+A) type(x) == int   B) isinstance(x, int)</p>
+        <pre class="code"><code>print(isinstance(5, int))          # True
+print(isinstance(5.0, (int, float)))  # True - multiple types</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> A - type() is faster</li>
+          <li class="correct"><span class="opt-key">B</span> B - isinstance() also accepts subclasses and is the Python convention</li>
+          <li><span class="opt-key">C</span> Both are identical</li>
+          <li><span class="opt-key">D</span> Neither works</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — B - isinstance() also accepts subclasses and is the Python convention</p>
+          <p class="expl">isinstance(x, int) is preferred: it returns True for int AND its subclasses (like bool), works with a tuple of types, and reads better. type(x) == int does strict exact-type matching only.</p>
+          <p class="tags"><span>isinstance()</span><span>type()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Python has a built-in type for complex numbers. Which literal creates one?</p>
+        <pre class="code"><code>z = 2 + 3j
+print(z.real)   # 2.0
+print(z.imag)   # 3.0
+print(type(z))  # &lt;class 'complex'&gt;</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 2 + 3i</li>
+          <li><span class="opt-key">B</span> complex only via import</li>
+          <li class="correct"><span class="opt-key">C</span> 2 + 3j</li>
+          <li><span class="opt-key">D</span> (2, 3)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — 2 + 3j</p>
+          <p class="expl">Python uses j (from engineering) for the imaginary unit: 2 + 3j is a complex number with real part 2 and imaginary part 3. No import needed.</p>
+          <p class="tags"><span>Numeric types</span><span>complex()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(int(&quot;ff&quot;, 16))</p>
+        <pre class="code"><code>print(int(&quot;ff&quot;, 16))    # 255 (hex)
+print(int(&quot;1010&quot;, 2))   # 10 (binary)
+print(int(&quot;77&quot;, 8))     # 63 (octal)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Error</li>
+          <li class="correct"><span class="opt-key">B</span> 255</li>
+          <li><span class="opt-key">C</span> ff</li>
+          <li><span class="opt-key">D</span> 1616</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 255</p>
+          <p class="expl">int() takes an optional base: int(&quot;ff&quot;, 16) reads &quot;ff&quot; as hexadecimal, which is 255 in decimal. Base 2 works too: int(&quot;1010&quot;, 2) = 10.</p>
+          <p class="tags"><span>Number bases</span><span>hex()</span><span>bin()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(str(3.0))</p>
+        <pre class="code"><code>print(str(3.0))    # 3.0
+print(str(True))   # True
+print(str(None))   # None</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 3</li>
+          <li class="correct"><span class="opt-key">B</span> 3.0</li>
+          <li><span class="opt-key">C</span> '3.0'</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 3.0</p>
+          <p class="expl">str(3.0) converts the float to the text &quot;3.0&quot;, and print shows it without quotes: 3.0. The .0 is kept because the float's standard representation includes it.</p>
+          <p class="tags"><span>str()</span><span>String representation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(type(10) == type(10.0))</p>
+        <pre class="code"><code>print(10 == 10.0)              # True - equal values
+print(type(10) == type(10.0))  # False - different types</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> True</li>
+          <li class="correct"><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> 10</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — False</p>
+          <p class="expl">type(10) is int and type(10.0) is float - two different types, so the comparison is False. Note that 10 == 10.0 (comparing VALUES) is True!</p>
+          <p class="tags"><span>type()</span><span>Value vs type equality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which core types will we meet later that hold COLLECTIONS of values?</p>
+        <pre class="code"><code>nums = [1, 2, 3]          # list
+point = (4, 5)             # tuple
+ages = {&quot;Ana&quot;: 21}        # dict
+ids = {101, 102, 103}      # set</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> list, tuple, dict, set</li>
+          <li><span class="opt-key">B</span> int, float, bool, str</li>
+          <li><span class="opt-key">C</span> array, vector, map, table</li>
+          <li><span class="opt-key">D</span> group, bundle, pack, batch</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — list, tuple, dict, set</p>
+          <p class="expl">Python's four main collection types: list (ordered, changeable), tuple (ordered, unchangeable), dict (key-value pairs), set (unique values). Each gets its own topic later in this course.</p>
+          <p class="tags"><span>Lists</span><span>Tuples</span><span>Dictionaries</span><span>Sets</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (5)</h2>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print(bool(&quot;False&quot;))</p>
+        <pre class="code"><code>print(bool(&quot;False&quot;))  # True (non-empty text!)
+print(bool(&quot;0&quot;))       # True
+print(bool(&quot;&quot;))        # False</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> False</li>
+          <li class="correct"><span class="opt-key">B</span> True</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — True</p>
+          <p class="expl">Tricky! &quot;False&quot; is a NON-EMPTY string, and any non-empty string is truthy - regardless of what it says. Only the empty string &quot;&quot; is falsy.</p>
+          <ul class="notes"><li>This matters when reading 'True'/'False' from files or input - compare the text instead.</li></ul>
+          <p class="tags"><span>Truthiness</span><span>Common gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print(0.1 + 0.2 == 0.3)</p>
+        <pre class="code"><code>print(0.1 + 0.2)            # 0.30000000000000004
+import math
+print(math.isclose(0.1 + 0.2, 0.3))  # True</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> True</li>
+          <li class="correct"><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> 0.3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — False</p>
+          <p class="expl">Floats are stored in binary, and 0.1, 0.2, 0.3 can't be represented exactly - 0.1 + 0.2 is actually 0.30000000000000004. Never compare floats with ==; use math.isclose() or round first.</p>
+          <ul class="notes"><li>This is true in nearly every language, not just Python.</li></ul>
+          <p class="tags"><span>Floating point precision</span><span>math.isclose()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print(True + True)</p>
+        <pre class="code"><code>print(True + True)   # 2
+print(True * 10)     # 10
+marks = [True, False, True]
+print(sum(marks))    # 2 - counts passes</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> TrueTrue</li>
+          <li class="correct"><span class="opt-key">B</span> 2</li>
+          <li><span class="opt-key">C</span> True</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 2</p>
+          <p class="expl">bool is actually a subclass of int: True behaves as 1 and False as 0 in arithmetic. So True + True = 2. Useful trick: sum(list_of_bools) counts the Trues.</p>
+          <p class="tags"><span>bool as int</span><span>sum()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print(isinstance(True, int))</p>
+        <pre class="code"><code>print(isinstance(True, bool))  # True
+print(isinstance(True, int))   # True (subclass!)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> False</li>
+          <li class="correct"><span class="opt-key">B</span> True</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — True</p>
+          <p class="expl">Surprising but true: bool is a subclass of int in Python, so True IS an instance of int. This is why True + 1 equals 2.</p>
+          <p class="tags"><span>isinstance()</span><span>Inheritance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which statement about int in Python 3 is TRUE?</p>
+        <pre class="code"><code>print(2 ** 100)
+# 1267650600228229401496703205376</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It overflows above 2 billion like in C</li>
+          <li class="correct"><span class="opt-key">B</span> It has unlimited precision - it can hold arbitrarily large numbers</li>
+          <li><span class="opt-key">C</span> It maxes out at 64 bits</li>
+          <li><span class="opt-key">D</span> Big numbers must use the long type</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — It has unlimited precision - it can hold arbitrarily large numbers</p>
+          <p class="expl">Python 3 integers grow as large as memory allows - 2**1000 works fine. There's no overflow and no separate long type (that was Python 2). This is unusual: C, Java and JavaScript all have fixed-size integers.</p>
+          <p class="tags"><span>Arbitrary precision</span><span>Python 2 vs 3</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="02-variables-and-operators.html">← Variables &amp; Operators</a>
+      <a href="04-strings.html">Strings →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-2">Practice “Data Types &amp; Conversion” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

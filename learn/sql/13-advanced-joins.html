@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Joins – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Advanced Joins with answers and detailed explanations — 1 easy, 14 medium and 15 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/13-advanced-joins.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Advanced Joins – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Advanced Joins with answers and detailed explanations — 1 easy, 14 medium and 15 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/13-advanced-joins.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Advanced Joins","item":"https://velnov.co.in/learn/sql/13-advanced-joins.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Advanced Joins</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 13 of 20</p>
+      <h1>Advanced Joins — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Advanced Joins</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-12">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">1 easy · 14 medium · 15 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Self join</span><span>Hierarchies</span><span>Aliases</span><span>Pairs</span><span>CROSS JOIN</span><span>Cartesian product</span><span>Combinations</span><span>Bugs</span><span>Recursive CTE</span><span>Multi-table joins</span><span>Fan-out</span><span>LAG</span><span>LEAD</span><span>Non-equi join</span><span>Range join</span><span>Duplicates</span><span>Performance</span><span>Optimiser</span><span>Org chart</span><span>LEFT JOIN</span><span>WHERE</span><span>Date spine</span><span>generate_series</span><span>LATERAL</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (1)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does CROSS JOIN produce?</p>
+        <pre class="code"><code>SELECT s.size, c.color FROM sizes s CROSS JOIN colors c;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The Cartesian product - every row of A combined with every row of B</li>
+          <li><span class="opt-key">B</span> Only matching rows</li>
+          <li><span class="opt-key">C</span> All left rows</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The Cartesian product - every row of A combined with every row of B</p>
+          <p class="expl">CROSS JOIN has no ON condition. 5 rows crossed with 4 rows gives 20. Useful for generating combinations like every size/colour pairing.</p>
+          <p class="tags"><span>CROSS JOIN</span><span>Cartesian product</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a SELF JOIN?</p>
+        <pre class="code"><code>SELECT e.name AS employee, m.name AS manager
+FROM employees e
+JOIN employees m ON e.manager_id = m.id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Joining a table to ITSELF using two aliases</li>
+          <li><span class="opt-key">B</span> A join that repeats automatically</li>
+          <li><span class="opt-key">C</span> A join with no condition</li>
+          <li><span class="opt-key">D</span> A join between two databases</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Joining a table to ITSELF using two aliases</p>
+          <p class="expl">The same table appears twice under different aliases, letting you relate rows within one table - such as employees to their managers.</p>
+          <p class="tags"><span>Self join</span><span>Hierarchies</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why are aliases mandatory in a self join?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Both sides are the same table, so aliases distinguish the two roles and remove ambiguity</li>
+          <li><span class="opt-key">B</span> For speed</li>
+          <li><span class="opt-key">C</span> To sort the rows</li>
+          <li><span class="opt-key">D</span> They are optional</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Both sides are the same table, so aliases distinguish the two roles and remove ambiguity</p>
+          <p class="expl">Without aliases like e and m, the database cannot tell which 'name' or 'id' you mean. Aliases give each copy of the table a distinct identity.</p>
+          <p class="tags"><span>Self join</span><span>Aliases</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When is a CROSS JOIN genuinely useful?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Generating all combinations - e.g. a calendar of every date x every store, or product variants</li>
+          <li><span class="opt-key">B</span> It is never useful</li>
+          <li><span class="opt-key">C</span> For filtering rows</li>
+          <li><span class="opt-key">D</span> For sorting</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Generating all combinations - e.g. a calendar of every date x every store, or product variants</p>
+          <p class="expl">Deliberate CROSS JOINs build complete grids: all days for all stores to plot sales (filling gaps with zeros), or all size/colour combinations for inventory.</p>
+          <p class="tags"><span>CROSS JOIN</span><span>Combinations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you join four tables in one query?</p>
+        <pre class="code"><code>FROM orders o
+JOIN customers c ON o.customer_id = c.id
+JOIN order_items i ON i.order_id = o.id
+JOIN products p ON p.id = i.product_id</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Chain the JOINs, each with its own ON condition following the relationships</li>
+          <li><span class="opt-key">B</span> Use four FROM clauses</li>
+          <li><span class="opt-key">C</span> You cannot join four tables</li>
+          <li><span class="opt-key">D</span> Use four subqueries</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Chain the JOINs, each with its own ON condition following the relationships</p>
+          <p class="expl">Multi-table joins are routine in reporting. Follow the foreign keys: orders to customers, orders to items, items to products.</p>
+          <p class="tags"><span>Multi-table joins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you compare each row to the previous row using a self join?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Join the table to itself ON b.id = a.id - 1 (or on a matching sequence)</li>
+          <li><span class="opt-key">B</span> It cannot be done</li>
+          <li><span class="opt-key">C</span> Use CROSS JOIN</li>
+          <li><span class="opt-key">D</span> Use GROUP BY</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Join the table to itself ON b.id = a.id - 1 (or on a matching sequence)</p>
+          <p class="expl">Self joining on adjacent ids compares consecutive rows - though window functions (LAG/LEAD, topic 20) are the modern, more reliable tool for this.</p>
+          <p class="tags"><span>Self join</span><span>LAG</span><span>LEAD</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you find duplicate rows using a self join?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Join ON matching columns AND a.id &lt;&gt; b.id to find rows that share values</li>
+          <li><span class="opt-key">B</span> Use CROSS JOIN</li>
+          <li><span class="opt-key">C</span> Duplicates cannot be found</li>
+          <li><span class="opt-key">D</span> Use DISTINCT only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Join ON matching columns AND a.id &lt;&gt; b.id to find rows that share values</p>
+          <p class="expl">Rows with equal email but different id are duplicates. GROUP BY ... HAVING COUNT(*) &gt; 1 is usually cleaner, but a self join can also list the offending pairs.</p>
+          <p class="tags"><span>Duplicates</span><span>Self join</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How does a self join model an org chart at one level?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Employee row joins to another employee row via manager_id = id</li>
+          <li><span class="opt-key">B</span> It joins two tables</li>
+          <li><span class="opt-key">C</span> It uses CROSS JOIN</li>
+          <li><span class="opt-key">D</span> It cannot</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Employee row joins to another employee row via manager_id = id</p>
+          <p class="expl">Each employee stores their manager's id, which points back into the same table. One self join gives employee + manager; two levels need two joins or recursion.</p>
+          <p class="tags"><span>Self join</span><span>Org chart</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can CROSS JOIN be combined with a WHERE clause?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - and a CROSS JOIN plus a WHERE equality condition is effectively an INNER JOIN</li>
+          <li><span class="opt-key">B</span> No, CROSS JOIN forbids WHERE</li>
+          <li><span class="opt-key">C</span> Only with ON</li>
+          <li><span class="opt-key">D</span> It errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - and a CROSS JOIN plus a WHERE equality condition is effectively an INNER JOIN</p>
+          <p class="expl">FROM a CROSS JOIN b WHERE a.id = b.a_id filters the product down to matches - the old implicit-join style. Explicit INNER JOIN ON expresses the same intent more safely.</p>
+          <p class="tags"><span>CROSS JOIN</span><span>WHERE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you list every combination of two small lists?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CROSS JOIN the two tables</li>
+          <li><span class="opt-key">B</span> INNER JOIN with no ON</li>
+          <li><span class="opt-key">C</span> UNION them</li>
+          <li><span class="opt-key">D</span> GROUP BY both</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CROSS JOIN the two tables</p>
+          <p class="expl">CROSS JOIN is the intended tool for building all combinations, such as a menu of every base x every topping.</p>
+          <p class="tags"><span>CROSS JOIN</span><span>Combinations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does joining a lookup/reference table achieve?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It replaces stored codes with human-readable labels (e.g. status_id -&gt; status name)</li>
+          <li><span class="opt-key">B</span> It speeds up writes</li>
+          <li><span class="opt-key">C</span> It deletes codes</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It replaces stored codes with human-readable labels (e.g. status_id -&gt; status name)</p>
+          <p class="expl">Normalised designs store small codes and keep the labels in a lookup table. Joining brings back readable text: JOIN statuses s ON o.status_id = s.id.</p>
+          <p class="tags"><span>Lookup table</span><span>Normalization</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you find employees who have the same manager as 'Ana'?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Self join on manager_id, matching Ana's manager to others</li>
+          <li><span class="opt-key">B</span> CROSS JOIN employees</li>
+          <li><span class="opt-key">C</span> GROUP BY manager</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Self join on manager_id, matching Ana's manager to others</p>
+          <p class="expl">Self join a (the person) to b (Ana) on a.manager_id = b.manager_id where b.name = 'Ana'. Peer-finding is a natural self-join task.</p>
+          <p class="tags"><span>Self join</span><span>Peers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a bridge (junction) table's role in joins?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It sits between two tables in a many-to-many relationship, joined to each side</li>
+          <li><span class="opt-key">B</span> It stores backups</li>
+          <li><span class="opt-key">C</span> It sorts data</li>
+          <li><span class="opt-key">D</span> It has no role</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It sits between two tables in a many-to-many relationship, joined to each side</p>
+          <p class="expl">students &lt;-&gt; enrollments &lt;-&gt; courses: two joins through the bridge connect the many-to-many sides. The bridge often carries relationship data like a grade.</p>
+          <p class="tags"><span>Junction table</span><span>Many-to-many</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you show a manager and ALL their direct reports?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Self join employees (report) to employees (manager) ON report.manager_id = manager.id</li>
+          <li><span class="opt-key">B</span> CROSS JOIN employees</li>
+          <li><span class="opt-key">C</span> GROUP BY manager only</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Self join employees (report) to employees (manager) ON report.manager_id = manager.id</p>
+          <p class="expl">One self join lists each direct report alongside their manager. Ordering by manager groups each team together.</p>
+          <p class="tags"><span>Self join</span><span>Reporting lines</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which join type has no ON condition by design?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CROSS JOIN</li>
+          <li><span class="opt-key">B</span> INNER JOIN</li>
+          <li><span class="opt-key">C</span> LEFT JOIN</li>
+          <li><span class="opt-key">D</span> FULL JOIN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CROSS JOIN</p>
+          <p class="expl">CROSS JOIN deliberately pairs every combination and needs no matching condition. All other join types require an ON (or USING) clause.</p>
+          <p class="tags"><span>CROSS JOIN</span><span>Join types</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (15)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find pairs of employees in the SAME department (without duplicates)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Self join ON a.dept = b.dept AND a.id &lt; b.id</li>
+          <li><span class="opt-key">B</span> Self join ON a.dept = b.dept</li>
+          <li><span class="opt-key">C</span> INNER JOIN with GROUP BY</li>
+          <li><span class="opt-key">D</span> CROSS JOIN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Self join ON a.dept = b.dept AND a.id &lt; b.id</p>
+          <p class="expl">The a.id &lt; b.id condition prevents matching a row with itself and avoids listing each pair twice (A-B and B-A). A classic self-join interview question.</p>
+          <p class="tags"><span>Self join</span><span>Pairs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is an accidental Cartesian product, and how does it happen?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A huge result from a missing or wrong join condition - rows multiply instead of matching</li>
+          <li><span class="opt-key">B</span> A deliberate CROSS JOIN</li>
+          <li><span class="opt-key">C</span> A type of index</li>
+          <li><span class="opt-key">D</span> An empty result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A huge result from a missing or wrong join condition - rows multiply instead of matching</p>
+          <p class="expl">Forgetting ON (or a comma-join without WHERE) pairs every row with every row. Two 10,000-row tables produce 100 million rows - a common cause of runaway queries.</p>
+          <p class="tags"><span>Cartesian product</span><span>Bugs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you build a hierarchy of unlimited depth (e.g. org chart)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A recursive CTE (WITH RECURSIVE) - a self join only reaches a fixed number of levels</li>
+          <li><span class="opt-key">B</span> Nested self joins forever</li>
+          <li><span class="opt-key">C</span> CROSS JOIN</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A recursive CTE (WITH RECURSIVE) - a self join only reaches a fixed number of levels</p>
+          <p class="expl">Each self join adds exactly one level. For arbitrary depth (manager of manager of ...), a recursive CTE walks the tree. (CTEs are covered in topic 15.)</p>
+          <p class="tags"><span>Recursive CTE</span><span>Hierarchies</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In a multi-table join, why can row counts balloon unexpectedly?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Each one-to-many join multiplies rows - joining orders to items AND to payments can multiply items by payments</li>
+          <li><span class="opt-key">B</span> Joins always reduce rows</li>
+          <li><span class="opt-key">C</span> It is a syntax error</li>
+          <li><span class="opt-key">D</span> Only with CROSS JOIN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Each one-to-many join multiplies rows - joining orders to items AND to payments can multiply items by payments</p>
+          <p class="expl">If an order has 3 items and 2 payments, joining both to the order yields 3 x 2 = 6 rows. Aggregate each branch separately (in subqueries) before combining to avoid inflated totals.</p>
+          <ul class="notes"><li>A hard-to-spot cause of wrong sums in reports.</li></ul>
+          <p class="tags"><span>Fan-out</span><span>Multi-table joins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does a self join reveal here?
+SELECT a.name FROM employees a JOIN employees b ON a.salary &lt; b.salary WHERE b.name = 'Ana';</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Employees who earn LESS than Ana</li>
+          <li><span class="opt-key">B</span> Ana's manager</li>
+          <li><span class="opt-key">C</span> Employees earning more than Ana</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Employees who earn LESS than Ana</p>
+          <p class="expl">Self joins with inequality conditions compare rows against a reference row - here, everyone paid below Ana. Non-equi joins (using &lt;, &gt;, BETWEEN) are a powerful advanced technique.</p>
+          <p class="tags"><span>Non-equi join</span><span>Self join</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a non-equi join?</p>
+        <pre class="code"><code>SELECT s.id, t.discount
+FROM sales s JOIN tiers t ON s.amount BETWEEN t.min_amt AND t.max_amt;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A join whose condition uses something other than equality (&lt;, &gt;, BETWEEN)</li>
+          <li><span class="opt-key">B</span> A join with no condition</li>
+          <li><span class="opt-key">C</span> An invalid join</li>
+          <li><span class="opt-key">D</span> A join on two equal columns</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A join whose condition uses something other than equality (&lt;, &gt;, BETWEEN)</p>
+          <p class="expl">For example joining sales to a tier table ON amount BETWEEN tier.low AND tier.high to assign a discount band. Equality is common but not required.</p>
+          <p class="tags"><span>Non-equi join</span><span>Range join</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why order multi-table joins to filter the largest table early?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Reducing rows early means later joins process fewer rows - though the optimiser often reorders automatically</li>
+          <li><span class="opt-key">B</span> Order never matters</li>
+          <li><span class="opt-key">C</span> It changes the result</li>
+          <li><span class="opt-key">D</span> To avoid syntax errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Reducing rows early means later joins process fewer rows - though the optimiser often reorders automatically</p>
+          <p class="expl">For INNER joins the RESULT is order-independent, but applying selective filters early can help performance. Good indexes and current statistics matter more than manual ordering.</p>
+          <p class="tags"><span>Performance</span><span>Optimiser</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does a LEFT self join achieve for the top of a hierarchy?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It keeps the CEO (whose manager_id is NULL) in the result with a NULL manager</li>
+          <li><span class="opt-key">B</span> It removes the CEO</li>
+          <li><span class="opt-key">C</span> It duplicates the CEO</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It keeps the CEO (whose manager_id is NULL) in the result with a NULL manager</p>
+          <p class="expl">An INNER self join would drop the top person because they have no manager to match. LEFT JOIN preserves them, showing NULL for the manager column.</p>
+          <p class="tags"><span>LEFT JOIN</span><span>Self join</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you generate a row for every date in a range (a date spine)?</p>
+        <pre class="code"><code>-- PostgreSQL
+SELECT d::date, COALESCE(SUM(s.amt),0)
+FROM generate_series('2026-01-01','2026-01-31',INTERVAL '1 day') d
+LEFT JOIN sales s ON s.day = d::date GROUP BY 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CROSS JOIN or a recursive CTE / generate_series to produce all dates, then LEFT JOIN the data</li>
+          <li><span class="opt-key">B</span> Data always has every date</li>
+          <li><span class="opt-key">C</span> GROUP BY date</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CROSS JOIN or a recursive CTE / generate_series to produce all dates, then LEFT JOIN the data</p>
+          <p class="expl">Reports often need zero-filled gaps (days with no sales). Build a complete date spine, then LEFT JOIN the actual data so missing days show 0.</p>
+          <p class="tags"><span>Date spine</span><span>generate_series</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does LATERAL / CROSS APPLY allow?</p>
+        <pre class="code"><code>SELECT c.name, o.total
+FROM customers c
+CROSS JOIN LATERAL (
+  SELECT total FROM orders WHERE customer_id = c.id ORDER BY total DESC LIMIT 3
+) o;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A subquery in the FROM clause that references columns from the preceding table - like a per-row lookup</li>
+          <li><span class="opt-key">B</span> Nothing new</li>
+          <li><span class="opt-key">C</span> A faster CROSS JOIN</li>
+          <li><span class="opt-key">D</span> Joining three tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A subquery in the FROM clause that references columns from the preceding table - like a per-row lookup</p>
+          <p class="expl">LATERAL (PostgreSQL) and CROSS APPLY (SQL Server) let a join's right side depend on the left row - perfect for 'top 3 orders per customer'.</p>
+          <p class="tags"><span>LATERAL</span><span>CROSS APPLY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">In a query joining orders, items and payments, how do you avoid inflated sums?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Aggregate items and payments in SEPARATE subqueries first, then join the summaries to orders</li>
+          <li><span class="opt-key">B</span> Use DISTINCT on everything</li>
+          <li><span class="opt-key">C</span> Join all three directly and SUM</li>
+          <li><span class="opt-key">D</span> Use CROSS JOIN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Aggregate items and payments in SEPARATE subqueries first, then join the summaries to orders</p>
+          <p class="expl">Joining two one-to-many branches multiplies rows. Pre-aggregating each branch to one row per order removes the fan-out before you combine them.</p>
+          <p class="tags"><span>Fan-out</span><span>Subqueries</span><span>Aggregation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the danger of SELECT * in a multi-table join?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Duplicate column names, huge unnecessary output, and fragile code if any table changes</li>
+          <li><span class="opt-key">B</span> It is always fine</li>
+          <li><span class="opt-key">C</span> It errors</li>
+          <li><span class="opt-key">D</span> It sorts the result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Duplicate column names, huge unnecessary output, and fragile code if any table changes</p>
+          <p class="expl">Several tables may each have an 'id' or 'name'. Selecting only the qualified columns you need avoids ambiguous output and reduces data transfer.</p>
+          <p class="tags"><span>SELECT *</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How does an anti-join differ from a semi-join?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Semi-join keeps left rows that HAVE a match (EXISTS); anti-join keeps those that have NO match (NOT EXISTS)</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> Semi-join duplicates rows</li>
+          <li><span class="opt-key">D</span> Anti-join is invalid</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Semi-join keeps left rows that HAVE a match (EXISTS); anti-join keeps those that have NO match (NOT EXISTS)</p>
+          <p class="expl">EXISTS is a semi-join (existence test, no fan-out). NOT EXISTS or LEFT JOIN ... IS NULL is an anti-join. Both return left columns only, unlike a normal join.</p>
+          <p class="tags"><span>Semi-join</span><span>Anti-join</span><span>EXISTS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can a range self join (t.value BETWEEN a AND b) be slow?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Range conditions are harder to index than equality, often forcing more comparisons</li>
+          <li><span class="opt-key">B</span> It is always fast</li>
+          <li><span class="opt-key">C</span> Ranges are not allowed in joins</li>
+          <li><span class="opt-key">D</span> It errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Range conditions are harder to index than equality, often forcing more comparisons</p>
+          <p class="expl">Equality joins can use hash/merge strategies efficiently; range joins often fall back to nested loops. Appropriate indexes and small tier tables keep them manageable.</p>
+          <p class="tags"><span>Non-equi join</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the safest way to verify a complex join is correct?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Check the row count and spot-check sample rows against expected relationships before trusting aggregates</li>
+          <li><span class="opt-key">B</span> Assume it is correct</li>
+          <li><span class="opt-key">C</span> Only run it in production</li>
+          <li><span class="opt-key">D</span> Add more joins</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Check the row count and spot-check sample rows against expected relationships before trusting aggregates</p>
+          <p class="expl">Unexpected row counts reveal fan-out or Cartesian products. Verifying the grain (one row per what?) before aggregating prevents silently wrong reports.</p>
+          <p class="tags"><span>Testing</span><span>Debugging joins</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="12-outer-joins.html">← OUTER JOINs</a>
+      <a href="14-set-operations.html">Set Operations →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-12">Practice “Advanced Joins” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

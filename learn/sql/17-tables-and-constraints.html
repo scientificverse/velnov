@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tables &amp; Constraints – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Tables &amp; Constraints with answers and detailed explanations — 2 easy, 16 medium and 12 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/17-tables-and-constraints.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Tables &amp; Constraints – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Tables &amp; Constraints with answers and detailed explanations — 2 easy, 16 medium and 12 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/17-tables-and-constraints.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Tables & Constraints","item":"https://velnov.co.in/learn/sql/17-tables-and-constraints.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Tables &amp; Constraints</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 17 of 20</p>
+      <h1>Tables &amp; Constraints — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Tables &amp; Constraints</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-16">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 16 medium · 12 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>CREATE TABLE</span><span>DDL</span><span>PRIMARY KEY</span><span>Constraints</span><span>FOREIGN KEY</span><span>Referential integrity</span><span>UNIQUE</span><span>NULL</span><span>NOT NULL</span><span>CHECK</span><span>Validation</span><span>DEFAULT</span><span>ON DELETE CASCADE</span><span>Foreign keys</span><span>Referential actions</span><span>ALTER TABLE</span><span>Migrations</span><span>DROP COLUMN</span><span>DROP TABLE</span><span>Composite key</span><span>Junction table</span><span>Auto-increment</span><span>Surrogate key</span><span>Natural key</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which statement creates a new table?</p>
+        <pre class="code"><code>CREATE TABLE students (
+  id INT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CREATE TABLE</li>
+          <li><span class="opt-key">B</span> NEW TABLE</li>
+          <li><span class="opt-key">C</span> MAKE TABLE</li>
+          <li><span class="opt-key">D</span> ADD TABLE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CREATE TABLE</p>
+          <p class="expl">CREATE TABLE name (column definitions) defines a table's structure - its columns, types and constraints.</p>
+          <p class="tags"><span>CREATE TABLE</span><span>DDL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you delete an entire table and its data?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DROP TABLE t;</li>
+          <li><span class="opt-key">B</span> DELETE TABLE t;</li>
+          <li><span class="opt-key">C</span> REMOVE TABLE t;</li>
+          <li><span class="opt-key">D</span> TRUNCATE t;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DROP TABLE t;</p>
+          <p class="expl">DROP TABLE removes the table structure, data, indexes and constraints entirely. TRUNCATE only empties the rows; DELETE removes rows selectively.</p>
+          <p class="tags"><span>DROP TABLE</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does a PRIMARY KEY constraint guarantee?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The column(s) are UNIQUE and NOT NULL - uniquely identifying each row</li>
+          <li><span class="opt-key">B</span> The column is the first one</li>
+          <li><span class="opt-key">C</span> The column is indexed only</li>
+          <li><span class="opt-key">D</span> The column is encrypted</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The column(s) are UNIQUE and NOT NULL - uniquely identifying each row</p>
+          <p class="expl">A primary key combines UNIQUE + NOT NULL and is automatically indexed. Every table should normally have one to identify rows unambiguously.</p>
+          <p class="tags"><span>PRIMARY KEY</span><span>Constraints</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does a FOREIGN KEY constraint enforce?</p>
+        <pre class="code"><code>FOREIGN KEY (customer_id) REFERENCES customers(id)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> That the value must exist as a key in the referenced table (referential integrity)</li>
+          <li><span class="opt-key">B</span> That the column is unique</li>
+          <li><span class="opt-key">C</span> That the column is NOT NULL</li>
+          <li><span class="opt-key">D</span> Encryption</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — That the value must exist as a key in the referenced table (referential integrity)</p>
+          <p class="expl">A foreign key prevents orphan rows: you cannot insert an order for a customer_id that does not exist, and (with RESTRICT) cannot delete a referenced customer.</p>
+          <p class="tags"><span>FOREIGN KEY</span><span>Referential integrity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does a UNIQUE constraint do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Ensures no two rows have the same value in that column (but allows NULLs, usually)</li>
+          <li><span class="opt-key">B</span> Makes the column the primary key</li>
+          <li><span class="opt-key">C</span> Sorts the column</li>
+          <li><span class="opt-key">D</span> Encrypts values</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Ensures no two rows have the same value in that column (but allows NULLs, usually)</p>
+          <p class="expl">UNIQUE enforces distinct values - ideal for emails or usernames. Unlike PRIMARY KEY, a table can have several UNIQUE constraints, and they typically permit one (or more) NULLs.</p>
+          <p class="tags"><span>UNIQUE</span><span>Constraints</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does NOT NULL enforce?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The column must always have a value - inserts/updates cannot leave it NULL</li>
+          <li><span class="opt-key">B</span> The column cannot be zero</li>
+          <li><span class="opt-key">C</span> The column is unique</li>
+          <li><span class="opt-key">D</span> The column is a key</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The column must always have a value - inserts/updates cannot leave it NULL</p>
+          <p class="expl">NOT NULL rejects missing values, guaranteeing the data is present. Pair it with a DEFAULT so inserts that omit the column still succeed.</p>
+          <p class="tags"><span>NOT NULL</span><span>Constraints</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does a CHECK constraint do?</p>
+        <pre class="code"><code>price DECIMAL(10,2) CHECK (price &gt;= 0)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Enforces a custom condition on values, e.g. CHECK (age &gt;= 0)</li>
+          <li><span class="opt-key">B</span> Checks spelling</li>
+          <li><span class="opt-key">C</span> Indexes the column</li>
+          <li><span class="opt-key">D</span> Runs a query</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Enforces a custom condition on values, e.g. CHECK (age &gt;= 0)</p>
+          <p class="expl">CHECK validates data at write time: prices non-negative, status in a set, end date after start date. The database rejects any row that fails the condition.</p>
+          <p class="tags"><span>CHECK</span><span>Validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does a DEFAULT do?</p>
+        <pre class="code"><code>created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Supplies a value automatically when an insert omits the column</li>
+          <li><span class="opt-key">B</span> Sets the primary key</li>
+          <li><span class="opt-key">C</span> Makes the column unique</li>
+          <li><span class="opt-key">D</span> Deletes old values</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Supplies a value automatically when an insert omits the column</p>
+          <p class="expl">DEFAULT 'pending' or DEFAULT CURRENT_TIMESTAMP fills in a value so callers need not specify it. Combined with NOT NULL, it guarantees a usable value in every row.</p>
+          <p class="tags"><span>DEFAULT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you ADD a column to an existing table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALTER TABLE t ADD COLUMN email VARCHAR(100);</li>
+          <li><span class="opt-key">B</span> UPDATE TABLE ADD email</li>
+          <li><span class="opt-key">C</span> CREATE COLUMN email</li>
+          <li><span class="opt-key">D</span> INSERT COLUMN email</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALTER TABLE t ADD COLUMN email VARCHAR(100);</p>
+          <p class="expl">ALTER TABLE changes structure. You can add, drop or modify columns and constraints. On large tables, adding a column can lock or rewrite the table, so plan migrations carefully.</p>
+          <p class="tags"><span>ALTER TABLE</span><span>Migrations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you remove a column?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALTER TABLE t DROP COLUMN email;</li>
+          <li><span class="opt-key">B</span> DELETE COLUMN email</li>
+          <li><span class="opt-key">C</span> REMOVE email</li>
+          <li><span class="opt-key">D</span> DROP email FROM t</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALTER TABLE t DROP COLUMN email;</p>
+          <p class="expl">DROP COLUMN permanently removes the column and its data. This is irreversible without a backup, so confirm it is truly unused first.</p>
+          <p class="tags"><span>ALTER TABLE</span><span>DROP COLUMN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you make a column auto-increment?</p>
+        <pre class="code"><code>id INT AUTO_INCREMENT PRIMARY KEY   -- MySQL</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> AUTO_INCREMENT (MySQL), SERIAL / GENERATED AS IDENTITY (PostgreSQL), or IDENTITY (SQL Server)</li>
+          <li><span class="opt-key">B</span> AUTO NUMBER everywhere</li>
+          <li><span class="opt-key">C</span> INCREMENT BY 1</li>
+          <li><span class="opt-key">D</span> It is automatic</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — AUTO_INCREMENT (MySQL), SERIAL / GENERATED AS IDENTITY (PostgreSQL), or IDENTITY (SQL Server)</p>
+          <p class="expl">These generate a unique increasing value for each new row, typically for surrogate primary keys. Syntax varies by database, but the concept is universal.</p>
+          <p class="tags"><span>Auto-increment</span><span>Surrogate key</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you name a constraint?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - CONSTRAINT chk_price CHECK (price &gt;= 0) - named constraints are easier to reference and drop</li>
+          <li><span class="opt-key">B</span> No, constraints are anonymous</li>
+          <li><span class="opt-key">C</span> Only primary keys can be named</li>
+          <li><span class="opt-key">D</span> Names are random</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - CONSTRAINT chk_price CHECK (price &gt;= 0) - named constraints are easier to reference and drop</p>
+          <p class="expl">Naming constraints gives clearer error messages and lets you drop or alter a specific one later: ALTER TABLE ... DROP CONSTRAINT chk_price.</p>
+          <p class="tags"><span>Named constraints</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does CREATE TABLE IF NOT EXISTS do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Creates the table only if it does not already exist - avoiding an error on re-run</li>
+          <li><span class="opt-key">B</span> Always recreates the table</li>
+          <li><span class="opt-key">C</span> Deletes the table first</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Creates the table only if it does not already exist - avoiding an error on re-run</p>
+          <p class="expl">Useful in setup scripts and migrations so re-running them does not fail. Similarly, DROP TABLE IF EXISTS avoids errors when the table is absent.</p>
+          <p class="tags"><span>IF NOT EXISTS</span><span>Idempotency</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you rename a table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALTER TABLE old_name RENAME TO new_name;  (syntax varies slightly)</li>
+          <li><span class="opt-key">B</span> RENAME COLUMN</li>
+          <li><span class="opt-key">C</span> UPDATE TABLE NAME</li>
+          <li><span class="opt-key">D</span> Tables cannot be renamed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALTER TABLE old_name RENAME TO new_name;  (syntax varies slightly)</p>
+          <p class="expl">Most databases support renaming via ALTER TABLE ... RENAME TO (MySQL also has RENAME TABLE). Be aware that views and code referencing the old name will break.</p>
+          <p class="tags"><span>ALTER TABLE</span><span>RENAME</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens if you insert a row that violates a CHECK constraint?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The insert is rejected with a constraint-violation error</li>
+          <li><span class="opt-key">B</span> It inserts anyway</li>
+          <li><span class="opt-key">C</span> The value is corrected</li>
+          <li><span class="opt-key">D</span> The constraint is dropped</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The insert is rejected with a constraint-violation error</p>
+          <p class="expl">Constraints reject invalid data rather than silently accepting it - exactly the protection you want. Handle the error gracefully in the application.</p>
+          <p class="tags"><span>CHECK</span><span>Errors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a self-referencing foreign key?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A foreign key that references the same table - e.g. employees.manager_id -&gt; employees.id</li>
+          <li><span class="opt-key">B</span> A key that references itself literally</li>
+          <li><span class="opt-key">C</span> An invalid key</li>
+          <li><span class="opt-key">D</span> A primary key</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A foreign key that references the same table - e.g. employees.manager_id -&gt; employees.id</p>
+          <p class="expl">It models hierarchies within one table. The top of the hierarchy (a CEO) has a NULL in the self-referencing column since they have no parent.</p>
+          <p class="tags"><span>Self-reference</span><span>Hierarchies</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you change a column to allow (or disallow) NULL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALTER TABLE t ALTER COLUMN c SET/DROP NOT NULL (or MODIFY in MySQL)</li>
+          <li><span class="opt-key">B</span> You cannot change nullability</li>
+          <li><span class="opt-key">C</span> DROP the column</li>
+          <li><span class="opt-key">D</span> Recreate the table only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALTER TABLE t ALTER COLUMN c SET/DROP NOT NULL (or MODIFY in MySQL)</p>
+          <p class="expl">Adding NOT NULL requires that no existing rows are NULL, or the change fails. Syntax differs: PostgreSQL uses SET/DROP NOT NULL; MySQL uses MODIFY COLUMN.</p>
+          <p class="tags"><span>ALTER TABLE</span><span>NOT NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which constraint would ensure an email column has no duplicates and is always provided?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UNIQUE combined with NOT NULL</li>
+          <li><span class="opt-key">B</span> PRIMARY KEY only</li>
+          <li><span class="opt-key">C</span> CHECK only</li>
+          <li><span class="opt-key">D</span> DEFAULT only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UNIQUE combined with NOT NULL</p>
+          <p class="expl">UNIQUE stops duplicates and NOT NULL stops missing values. Together they guarantee every row has a distinct, present email - without making it the primary key.</p>
+          <p class="tags"><span>UNIQUE</span><span>NOT NULL</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (12)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How does UNIQUE treat NULL values?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> In most databases multiple NULLs are allowed (NULL is 'unknown', not equal to another NULL)</li>
+          <li><span class="opt-key">B</span> Only one NULL is allowed</li>
+          <li><span class="opt-key">C</span> NULLs are forbidden</li>
+          <li><span class="opt-key">D</span> NULLs cause errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — In most databases multiple NULLs are allowed (NULL is 'unknown', not equal to another NULL)</p>
+          <p class="expl">Because NULL != NULL, a UNIQUE column usually permits many NULLs (SQL Server allows only one). If you need every row to have a distinct real value, combine UNIQUE with NOT NULL.</p>
+          <p class="tags"><span>UNIQUE</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does ON DELETE CASCADE do on a foreign key?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Automatically deletes child rows when the referenced parent row is deleted</li>
+          <li><span class="opt-key">B</span> Blocks the delete</li>
+          <li><span class="opt-key">C</span> Sets children to NULL</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Automatically deletes child rows when the referenced parent row is deleted</p>
+          <p class="expl">CASCADE keeps data consistent by removing dependents (deleting an order deletes its order_items). Use carefully - it can remove more than you expect. Alternatives: RESTRICT (block) and SET NULL.</p>
+          <p class="tags"><span>ON DELETE CASCADE</span><span>Foreign keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between ON DELETE RESTRICT and CASCADE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> RESTRICT blocks deleting a parent that has children; CASCADE deletes the children too</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> RESTRICT deletes children</li>
+          <li><span class="opt-key">D</span> CASCADE blocks the delete</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — RESTRICT blocks deleting a parent that has children; CASCADE deletes the children too</p>
+          <p class="expl">RESTRICT (and NO ACTION) protect data by refusing the delete. CASCADE propagates it. SET NULL orphans children by nulling their foreign key. Choose based on business rules.</p>
+          <p class="tags"><span>Referential actions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a composite primary key defined in DDL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> PRIMARY KEY (col1, col2) - the combination is unique, though neither column need be alone</li>
+          <li><span class="opt-key">B</span> Two separate primary keys</li>
+          <li><span class="opt-key">C</span> A foreign key</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — PRIMARY KEY (col1, col2) - the combination is unique, though neither column need be alone</p>
+          <p class="expl">Common in junction tables: PRIMARY KEY (student_id, course_id) means a student can enrol in a course only once, though each id repeats across rows.</p>
+          <p class="tags"><span>Composite key</span><span>Junction table</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between a natural key and a surrogate key?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A natural key uses meaningful data (email, ISBN); a surrogate key is a system-generated id with no business meaning</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> Natural keys are always integers</li>
+          <li><span class="opt-key">D</span> Surrogate keys must be text</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A natural key uses meaningful data (email, ISBN); a surrogate key is a system-generated id with no business meaning</p>
+          <p class="expl">Surrogate keys (auto-increment ids) are stable and simple, so they are the common default. Natural keys carry meaning but can change, which complicates foreign keys.</p>
+          <p class="tags"><span>Surrogate key</span><span>Natural key</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you add a foreign key to an EXISTING table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALTER TABLE orders ADD CONSTRAINT fk_cust FOREIGN KEY (customer_id) REFERENCES customers(id);</li>
+          <li><span class="opt-key">B</span> You must recreate the table</li>
+          <li><span class="opt-key">C</span> CREATE FOREIGN KEY</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALTER TABLE orders ADD CONSTRAINT fk_cust FOREIGN KEY (customer_id) REFERENCES customers(id);</p>
+          <p class="expl">ALTER TABLE ... ADD CONSTRAINT adds it after the fact. The database first checks that all existing values satisfy the constraint, or the ALTER fails.</p>
+          <p class="tags"><span>ALTER TABLE</span><span>FOREIGN KEY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why are constraints better than validating only in application code?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The database enforces them for EVERY client and script - a last line of defence that never gets bypassed</li>
+          <li><span class="opt-key">B</span> They are faster to write</li>
+          <li><span class="opt-key">C</span> Application checks are always enough</li>
+          <li><span class="opt-key">D</span> Constraints are optional decoration</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The database enforces them for EVERY client and script - a last line of defence that never gets bypassed</p>
+          <p class="expl">Multiple apps, admin scripts and manual edits all touch a database. Constraints guarantee integrity regardless of how the data arrives, whereas app validation can be skipped.</p>
+          <p class="tags"><span>Data integrity</span><span>Defence in depth</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does a CHECK constraint referencing two columns enforce?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A relationship between them, e.g. CHECK (end_date &gt;= start_date)</li>
+          <li><span class="opt-key">B</span> Only single-column checks are allowed</li>
+          <li><span class="opt-key">C</span> It indexes both</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A relationship between them, e.g. CHECK (end_date &gt;= start_date)</p>
+          <p class="expl">Multi-column CHECKs validate cross-field rules at the database level - ensuring, for instance, that a booking's end is never before its start.</p>
+          <p class="tags"><span>CHECK</span><span>Cross-column</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why index foreign key columns?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Joins and cascade checks scan them frequently; without an index those operations are slow</li>
+          <li><span class="opt-key">B</span> Foreign keys index automatically everywhere</li>
+          <li><span class="opt-key">C</span> It is never needed</li>
+          <li><span class="opt-key">D</span> To save space</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Joins and cascade checks scan them frequently; without an index those operations are slow</p>
+          <p class="expl">Primary keys are indexed automatically, but foreign keys often are not (except in some databases). Indexing them speeds joins and makes ON DELETE checks efficient.</p>
+          <p class="tags"><span>Indexes</span><span>Foreign keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the effect of a DEFERRABLE constraint?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Its check can be postponed until the transaction commits, allowing temporary violations mid-transaction</li>
+          <li><span class="opt-key">B</span> It disables the constraint</li>
+          <li><span class="opt-key">C</span> It runs the constraint twice</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Its check can be postponed until the transaction commits, allowing temporary violations mid-transaction</p>
+          <p class="expl">Deferrable foreign keys (PostgreSQL, Oracle) let you insert rows in an order that would momentarily violate the constraint, as long as everything is consistent at COMMIT - useful for circular references.</p>
+          <p class="tags"><span>Deferrable constraints</span><span>Transactions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a generated (computed) column?</p>
+        <pre class="code"><code>total DECIMAL(12,2) GENERATED ALWAYS AS (price * qty) STORED</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A column whose value is derived from other columns by a formula, maintained automatically</li>
+          <li><span class="opt-key">B</span> A random column</li>
+          <li><span class="opt-key">C</span> A backup column</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A column whose value is derived from other columns by a formula, maintained automatically</p>
+          <p class="expl">GENERATED ALWAYS AS (price * quantity) STORED computes and stores a value from other columns. Great for search or indexing on derived data without app-side maintenance.</p>
+          <p class="tags"><span>Generated columns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why prefer defining constraints at table creation over adding them later?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The table starts valid, and adding constraints later can fail on existing bad data or require costly full-table validation</li>
+          <li><span class="opt-key">B</span> It is faster to type</li>
+          <li><span class="opt-key">C</span> Later constraints are ignored</li>
+          <li><span class="opt-key">D</span> There is no difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The table starts valid, and adding constraints later can fail on existing bad data or require costly full-table validation</p>
+          <p class="expl">Constraints defined upfront prevent bad data from ever entering. Adding them to a populated table forces a validation scan and may fail if pre-existing rows violate the rule.</p>
+          <p class="tags"><span>Design</span><span>Migrations</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="16-insert-update-delete.html">← INSERT, UPDATE, DELETE</a>
+      <a href="18-normalization-and-design.html">Normalization &amp; Design →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-16">Practice “Tables &amp; Constraints” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

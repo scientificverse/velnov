@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes &amp; Objects – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Classes &amp; Objects with answers and detailed explanations — 11 easy, 14 medium and 5 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/14-classes-and-objects.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Classes &amp; Objects – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Classes &amp; Objects with answers and detailed explanations — 11 easy, 14 medium and 5 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/14-classes-and-objects.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Classes & Objects","item":"https://velnov.co.in/learn/python/14-classes-and-objects.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Classes &amp; Objects</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 14 of 20</p>
+      <h1>Classes &amp; Objects — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Classes &amp; Objects</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-13">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">11 easy · 14 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Classes</span><span>Instances</span><span>class keyword</span><span>Naming conventions</span><span>__init__</span><span>Constructors</span><span>self</span><span>Instantiation</span><span>Attributes</span><span>Dot notation</span><span>Method calls</span><span>TypeError</span><span>Instance attributes</span><span>Independence</span><span>PEP 8</span><span>Methods</span><span>Functions</span><span>State</span><span>Class attributes</span><span>Counting instances</span><span>type()</span><span>isinstance()</span><span>AttributeError</span><span>hasattr()</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (11)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the relationship between a CLASS and an OBJECT?</p>
+        <pre class="code"><code>class Dog:            # blueprint
+    pass
+
+rex = Dog()            # object #1
+buddy = Dog()          # object #2</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A class is the blueprint; objects are the individual things built from it</li>
+          <li><span class="opt-key">B</span> They are the same thing</li>
+          <li><span class="opt-key">C</span> Objects contain classes</li>
+          <li><span class="opt-key">D</span> A class is one specific example of an object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A class is the blueprint; objects are the individual things built from it</p>
+          <p class="expl">The class defines what attributes and methods exist (the cookie cutter); each object (instance) is a concrete item made from it (a cookie) with its own data.</p>
+          <p class="tags"><span>Classes</span><span>Instances</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which is the correct syntax to define a class?</p>
+        <pre class="code"><code>class Student:
+    def __init__(self, name):
+        self.name = name</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> class Student:</li>
+          <li><span class="opt-key">B</span> def Student:</li>
+          <li><span class="opt-key">C</span> class Student():{}</li>
+          <li><span class="opt-key">D</span> new class Student</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — class Student:</p>
+          <p class="expl">The class keyword, a name (CamelCase by convention), and a colon. The body - methods and attributes - is indented below.</p>
+          <p class="tags"><span>class keyword</span><span>Naming conventions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the purpose of the __init__ method?</p>
+        <pre class="code"><code>class Student:
+    def __init__(self, name, grade):
+        self.name = name
+        self.grade = grade
+
+s = Student(&quot;Ravi&quot;, &quot;A&quot;)   # __init__ runs here
+print(s.name)                # Ravi</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> To delete an object</li>
+          <li class="correct"><span class="opt-key">B</span> To initialize a new object's attributes - it runs automatically on creation</li>
+          <li><span class="opt-key">C</span> To import the class</li>
+          <li><span class="opt-key">D</span> To print the object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — To initialize a new object's attributes - it runs automatically on creation</p>
+          <p class="expl">__init__ is the initializer: Python calls it automatically every time you create an instance, letting you set up the object's starting attribute values.</p>
+          <p class="tags"><span>__init__</span><span>Constructors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does self refer to inside a class method?</p>
+        <pre class="code"><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+    def bark(self):
+        print(self.name, &quot;says woof&quot;)
+
+rex = Dog(&quot;Rex&quot;)
+rex.bark()    # Rex says woof  (self = rex)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> The class itself</li>
+          <li class="correct"><span class="opt-key">B</span> The specific OBJECT the method was called on</li>
+          <li><span class="opt-key">C</span> The Python interpreter</li>
+          <li><span class="opt-key">D</span> The parent class</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — The specific OBJECT the method was called on</p>
+          <p class="expl">self is the current instance - when you call rex.bark(), self IS rex inside the method. It's how each object accesses ITS OWN attributes: self.name, self.age.</p>
+          <p class="tags"><span>self</span><span>Instances</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you CREATE an object of class Dog?</p>
+        <pre class="code"><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+
+d = Dog(&quot;Rex&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> d = Dog()</li>
+          <li><span class="opt-key">B</span> d = new Dog()</li>
+          <li><span class="opt-key">C</span> d = create Dog</li>
+          <li><span class="opt-key">D</span> d = Dog.new()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — d = Dog()</p>
+          <p class="expl">Call the class like a function: Dog(). Arguments go to __init__: Dog(&quot;Rex&quot;, 3). No 'new' keyword in Python (that's Java/JavaScript/C++).</p>
+          <p class="tags"><span>Instantiation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does self.name = name do inside __init__(self, name)?</p>
+        <pre class="code"><code>def __init__(self, name):
+    self.name = name     # kept on the object
+    nickname = name       # lost after __init__!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Stores the parameter's value as an ATTRIBUTE on the object, so it survives after __init__ ends</li>
+          <li><span class="opt-key">B</span> Creates a global variable</li>
+          <li><span class="opt-key">C</span> Renames the class</li>
+          <li><span class="opt-key">D</span> Nothing - it's redundant</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Stores the parameter's value as an ATTRIBUTE on the object, so it survives after __init__ ends</p>
+          <p class="expl">The parameter name is a temporary local variable; self.name attaches the value to the OBJECT itself, making it available later as obj.name. Without self. the value would vanish when __init__ returns.</p>
+          <p class="tags"><span>Attributes</span><span>self</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you read the name attribute of object s?</p>
+        <pre class="code"><code>s = Student(&quot;Ana&quot;)
+print(s.name)      # Ana
+s.name = &quot;Anita&quot;  # attributes can be updated too</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> s.name</li>
+          <li><span class="opt-key">B</span> s[name]</li>
+          <li><span class="opt-key">C</span> name(s)</li>
+          <li><span class="opt-key">D</span> s-&gt;name</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — s.name</p>
+          <p class="expl">Dot notation: object.attribute. (Square brackets are for lists/dicts; arrows are C++.)</p>
+          <p class="tags"><span>Dot notation</span><span>Attributes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">By convention, class names are written in:</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CamelCase: BankAccount, StudentRecord</li>
+          <li><span class="opt-key">B</span> snake_case: bank_account</li>
+          <li><span class="opt-key">C</span> ALLCAPS: BANKACCOUNT</li>
+          <li><span class="opt-key">D</span> lowercase: bankaccount</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CamelCase: BankAccount, StudentRecord</p>
+          <p class="expl">PEP 8: classes use CamelCase (CapWords); functions/variables use snake_case; constants use ALL_CAPS. Seeing BankAccount() you instantly know it's a class.</p>
+          <p class="tags"><span>PEP 8</span><span>Naming conventions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the main benefit of OOP (classes) over loose variables and functions?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It bundles related DATA and the FUNCTIONS that work on it into one unit</li>
+          <li><span class="opt-key">B</span> Programs always run faster</li>
+          <li><span class="opt-key">C</span> Less typing in all cases</li>
+          <li><span class="opt-key">D</span> It's required by Python</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It bundles related DATA and the FUNCTIONS that work on it into one unit</p>
+          <p class="expl">A BankAccount class keeps balance (data) and deposit/withdraw (behavior) together - instead of parallel lists and free functions hoping to stay in sync. Encapsulation makes bigger programs manageable.</p>
+          <p class="tags"><span>Encapsulation</span><span>OOP benefits</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">A class Car should store its color and speed. Which __init__ is right?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> def __init__(self, color, speed):\n    self.color = color\n    self.speed = speed</li>
+          <li><span class="opt-key">B</span> def __init__(color, speed):\n    color = color</li>
+          <li><span class="opt-key">C</span> def init(self):\n    self.color</li>
+          <li><span class="opt-key">D</span> def __init__(self):\n    color = color</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — def __init__(self, color, speed):\n    self.color = color\n    self.speed = speed</p>
+          <p class="expl">Take self plus the values, then store each with self.attr = value. Option B forgets self entirely; C misspells __init__ and stores nothing; D never receives the values.</p>
+          <p class="tags"><span>__init__</span><span>Attributes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">In rex = Dog(&quot;Rex&quot;), which part triggers __init__?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Calling the class: Dog(&quot;Rex&quot;)</li>
+          <li><span class="opt-key">B</span> The assignment to rex</li>
+          <li><span class="opt-key">C</span> The quotes around Rex</li>
+          <li><span class="opt-key">D</span> __init__ must be called manually</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Calling the class: Dog(&quot;Rex&quot;)</p>
+          <p class="expl">Calling a class creates the object and automatically runs __init__ with your arguments. The assignment merely names the finished object.</p>
+          <p class="tags"><span>Instantiation</span><span>__init__</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why must methods declare self as their first parameter?</p>
+        <pre class="code"><code>class Dog:
+    def bark(self):        # receives the instance
+        print(&quot;woof&quot;)
+
+rex.bark()                  # same as Dog.bark(rex)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Python passes the instance automatically as the first argument - self receives it</li>
+          <li><span class="opt-key">B</span> It's optional decoration</li>
+          <li><span class="opt-key">C</span> For speed</li>
+          <li><span class="opt-key">D</span> To make methods private</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Python passes the instance automatically as the first argument - self receives it</p>
+          <p class="expl">rex.bark() is really Dog.bark(rex) behind the scenes - the instance is passed in as the first argument, which the method receives as self. Forget self in the def and calls break.</p>
+          <p class="tags"><span>self</span><span>Method calls</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What error results from this, and when?
+class Dog:
+    def bark():
+        print(&quot;woof&quot;)
+Dog().bark()</p>
+        <pre class="code"><code>class Dog:
+    def bark(self):    # fixed
+        print(&quot;woof&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TypeError when calling - bark() takes 0 arguments but 1 was given (the instance!)</li>
+          <li><span class="opt-key">B</span> SyntaxError at definition</li>
+          <li><span class="opt-key">C</span> No error</li>
+          <li><span class="opt-key">D</span> NameError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TypeError when calling - bark() takes 0 arguments but 1 was given (the instance!)</p>
+          <p class="expl">The def compiles fine, but the CALL passes the instance automatically - and bark() declared no parameter to receive it. The confusing message 'takes 0 positional arguments but 1 was given' almost always means: you forgot self.</p>
+          <ul class="notes"><li>Learn to recognize this error message - everyone hits it.</li></ul>
+          <p class="tags"><span>self</span><span>TypeError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">a = Dog(&quot;Rex&quot;) and b = Dog(&quot;Buddy&quot;). Does changing a.name affect b.name?</p>
+        <pre class="code"><code>a = Dog(&quot;Rex&quot;)
+b = Dog(&quot;Buddy&quot;)
+a.name = &quot;King&quot;
+print(b.name)    # Buddy - unaffected</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - each instance has its OWN attributes</li>
+          <li><span class="opt-key">B</span> Yes - all objects share attributes</li>
+          <li><span class="opt-key">C</span> Only if they were created on the same line</li>
+          <li><span class="opt-key">D</span> b is deleted</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - each instance has its OWN attributes</p>
+          <p class="expl">Instance attributes (set via self.x = ...) belong to each object separately. a and b are independent - that's the point of instances.</p>
+          <p class="tags"><span>Instance attributes</span><span>Independence</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between a FUNCTION and a METHOD?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A method is a function defined inside a class and called on an object: obj.method()</li>
+          <li><span class="opt-key">B</span> Methods are faster</li>
+          <li><span class="opt-key">C</span> Functions can't take arguments</li>
+          <li><span class="opt-key">D</span> No difference at all</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A method is a function defined inside a class and called on an object: obj.method()</p>
+          <p class="expl">Methods live in classes and receive the instance (self) automatically: &quot;hi&quot;.upper(), list.append(), dog.bark(). Plain functions stand alone: len(), print().</p>
+          <p class="tags"><span>Methods</span><span>Functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+class Counter:
+    def __init__(self):
+        self.count = 0
+    def increment(self):
+        self.count += 1
+c = Counter()
+c.increment()
+c.increment()
+print(c.count)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 0</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li class="correct"><span class="opt-key">C</span> 2</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — 2</p>
+          <p class="expl">count starts at 0 in __init__; each increment() adds 1 to THIS object's count: 0 -&gt; 1 -&gt; 2. Objects carrying state between method calls is the essence of OOP.</p>
+          <p class="tags"><span>State</span><span>Methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does type(rex) return for rex = Dog(&quot;Rex&quot;)?</p>
+        <pre class="code"><code>print(type(rex))              # &lt;class '__main__.Dog'&gt;
+print(isinstance(rex, Dog))   # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &lt;class '__main__.Dog'&gt; - the object's class</li>
+          <li><span class="opt-key">B</span> 'Rex'</li>
+          <li><span class="opt-key">C</span> object</li>
+          <li><span class="opt-key">D</span> dog</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &lt;class '__main__.Dog'&gt; - the object's class</p>
+          <p class="expl">type() reveals which class made the object. For checks, prefer isinstance(rex, Dog) - it also accepts subclasses.</p>
+          <p class="tags"><span>type()</span><span>isinstance()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Accessing an attribute that doesn't exist (rex.age when never set) raises:</p>
+        <pre class="code"><code>print(hasattr(rex, &quot;age&quot;))       # False
+print(getattr(rex, &quot;age&quot;, 0))    # 0 - default</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> AttributeError</li>
+          <li><span class="opt-key">B</span> KeyError</li>
+          <li><span class="opt-key">C</span> NameError</li>
+          <li><span class="opt-key">D</span> ValueError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — AttributeError</p>
+          <p class="expl">AttributeError: 'Dog' object has no attribute 'age'. Check safely with hasattr(rex, &quot;age&quot;) or supply a fallback with getattr(rex, &quot;age&quot;, 0).</p>
+          <p class="tags"><span>AttributeError</span><span>hasattr()</span><span>getattr()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can one method call another method of the same object?</p>
+        <pre class="code"><code>class Order:
+    def total(self):
+        return self.subtotal() + self.tax()
+    def subtotal(self): ...
+    def tax(self): ...</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - via self: self.other_method()</li>
+          <li><span class="opt-key">B</span> No, methods are isolated</li>
+          <li><span class="opt-key">C</span> Only with global</li>
+          <li><span class="opt-key">D</span> Only in subclasses</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - via self: self.other_method()</p>
+          <p class="expl">self gives access to everything on the object - attributes AND other methods. Building bigger methods from smaller ones keeps classes tidy.</p>
+          <p class="tags"><span>self</span><span>Method composition</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this print?
+class Product:
+    def __init__(self, name, price=100):
+        self.name = name
+        self.price = price
+p = Product(&quot;Pen&quot;)
+print(p.price)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 100</li>
+          <li><span class="opt-key">B</span> None</li>
+          <li><span class="opt-key">C</span> Error - price missing</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 100</p>
+          <p class="expl">__init__ is a normal function - default parameter values work exactly the same: price defaults to 100 when not supplied.</p>
+          <p class="tags"><span>Default arguments</span><span>__init__</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does print(rex) show by DEFAULT (no __str__ defined)?</p>
+        <pre class="code"><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return f&quot;Dog named {self.name}&quot;
+
+print(Dog(&quot;Rex&quot;))   # Dog named Rex</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Something like &lt;__main__.Dog object at 0x000001A2B3C4D5E6&gt;</li>
+          <li><span class="opt-key">B</span> All the attributes nicely formatted</li>
+          <li><span class="opt-key">C</span> The name attribute</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Something like &lt;__main__.Dog object at 0x000001A2B3C4D5E6&gt;</p>
+          <p class="expl">The default representation shows the class and memory address - not helpful. Define __str__ to control what print() shows (covered in the Magic Methods topic).</p>
+          <p class="tags"><span>__str__</span><span>Object representation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you add a NEW attribute to an object after creation?
+rex = Dog(&quot;Rex&quot;)
+rex.tricks = [&quot;sit&quot;]</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - Python objects accept new attributes at any time (by default)</li>
+          <li><span class="opt-key">B</span> No - only __init__ can create attributes</li>
+          <li><span class="opt-key">C</span> Only with add_attribute()</li>
+          <li><span class="opt-key">D</span> It deletes the object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - Python objects accept new attributes at any time (by default)</p>
+          <p class="expl">Python is dynamic - rex.tricks = [...] just works, attaching the attribute to that one object. Handy but risky (typos create NEW attributes silently: rex.nmae = ... !). Best practice: define everything in __init__.</p>
+          <ul class="notes"><li>A typo like rex.nmae = 'x' creates a new attribute instead of failing!</li></ul>
+          <p class="tags"><span>Dynamic attributes</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Trace the output:
+class Account:
+    def __init__(self, balance):
+        self.balance = balance
+    def deposit(self, amt):
+        self.balance += amt
+        return self.balance
+acc = Account(100)
+print(acc.deposit(50))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 150</li>
+          <li><span class="opt-key">B</span> 100</li>
+          <li><span class="opt-key">C</span> 50</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 150</p>
+          <p class="expl">balance starts at 100; deposit adds 50 and returns the new balance: 150. A miniature of every real-world class: state + methods that change it.</p>
+          <p class="tags"><span>State</span><span>Tracing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Where does the code in the CLASS BODY (outside methods) run?
+class Config:
+    print(&quot;setting up&quot;)
+    version = 1</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Once, when the class statement is first executed - NOT on each instance</li>
+          <li><span class="opt-key">B</span> Every time an object is created</li>
+          <li><span class="opt-key">C</span> Never</li>
+          <li><span class="opt-key">D</span> On every method call</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Once, when the class statement is first executed - NOT on each instance</p>
+          <p class="expl">The class body executes top-to-bottom ONCE to build the class - creating class attributes and methods. Creating instances later runs only __init__, not the body again.</p>
+          <p class="tags"><span>Class body</span><span>Class creation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">isinstance(x, (int, float)) returns True when...</p>
+        <pre class="code"><code>def half(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError(&quot;number required&quot;)
+    return x / 2</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> x is an int OR a float (or a subclass of either)</li>
+          <li><span class="opt-key">B</span> x is both at once</li>
+          <li><span class="opt-key">C</span> x is exactly the tuple (int, float)</li>
+          <li><span class="opt-key">D</span> Never - invalid syntax</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — x is an int OR a float (or a subclass of either)</p>
+          <p class="expl">isinstance accepts a tuple of types - True if x matches ANY of them. The standard way to accept 'any number'.</p>
+          <p class="tags"><span>isinstance()</span><span>Type checking</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (5)</h2>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between these two attributes?
+class Dog:
+    species = &quot;canine&quot;      # (1)
+    def __init__(self):
+        self.name = &quot;Rex&quot;   # (2)</p>
+        <pre class="code"><code>print(Dog.species)     # canine - via the class
+a, b = Dog(), Dog()
+print(a.species)        # canine - shared
+a.name = &quot;King&quot;        # only a's name changes</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> (1) is a CLASS attribute shared by all dogs; (2) is an INSTANCE attribute unique to each dog</li>
+          <li><span class="opt-key">B</span> Both are identical</li>
+          <li><span class="opt-key">C</span> (1) is private, (2) is public</li>
+          <li><span class="opt-key">D</span> (2) is shared, (1) is unique</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — (1) is a CLASS attribute shared by all dogs; (2) is an INSTANCE attribute unique to each dog</p>
+          <p class="expl">species lives on the CLASS - one copy, seen by every instance (Dog.species). self.name lives on EACH object separately. Use class attributes for values common to all instances.</p>
+          <p class="tags"><span>Class attributes</span><span>Instance attributes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+class Dog:
+    count = 0
+    def __init__(self):
+        Dog.count += 1
+a = Dog(); b = Dog(); c = Dog()
+print(Dog.count)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 0</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li class="correct"><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — 3</p>
+          <p class="expl">Dog.count is a class attribute - one shared counter. Each __init__ increments it, so after three instances it's 3. A classic pattern for counting how many objects exist.</p>
+          <p class="tags"><span>Class attributes</span><span>Counting instances</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+a = Dog(&quot;Rex&quot;)
+b = Dog(&quot;Rex&quot;)
+print(a == b)</p>
+        <pre class="code"><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+    def __eq__(self, other):
+        return self.name == other.name
+
+print(Dog(&quot;Rex&quot;) == Dog(&quot;Rex&quot;))   # True now</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> False - by default == compares object IDENTITY, and these are two separate objects</li>
+          <li><span class="opt-key">B</span> True - same name means equal</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — False - by default == compares object IDENTITY, and these are two separate objects</p>
+          <p class="expl">Unless a class defines __eq__, == falls back to 'are they the SAME object?' - and a, b are two distinct instances, however identical their data. Defining __eq__ lets you compare by content.</p>
+          <p class="tags"><span>__eq__</span><span>Identity vs equality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does obj.__dict__ show?</p>
+        <pre class="code"><code>rex = Dog(&quot;Rex&quot;)
+rex.age = 3
+print(rex.__dict__)   # {'name': 'Rex', 'age': 3}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A dict of the object's instance attributes: {'name': 'Rex', 'age': 3}</li>
+          <li><span class="opt-key">B</span> The class's methods</li>
+          <li><span class="opt-key">C</span> Python's built-in dictionary</li>
+          <li><span class="opt-key">D</span> Nothing - it's an error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A dict of the object's instance attributes: {'name': 'Rex', 'age': 3}</p>
+          <p class="expl">Instance attributes are literally stored in a dict per object - __dict__ exposes it. Great for debugging: see exactly what data an object carries.</p>
+          <p class="tags"><span>__dict__</span><span>Introspection</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+class Team:
+    members = []
+    def add(self, name):
+        self.members.append(name)
+a = Team(); b = Team()
+a.add(&quot;Ana&quot;)
+print(b.members)</p>
+        <pre class="code"><code>class Team:
+    def __init__(self):
+        self.members = []   # each team its own list</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ['Ana'] - the CLASS-level list is shared by ALL instances!</li>
+          <li><span class="opt-key">B</span> [] - each team has its own list</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ['Ana'] - the CLASS-level list is shared by ALL instances!</p>
+          <p class="expl">members = [] in the class body creates ONE list on the class, shared by every instance - a.add() mutates the list b sees too. For per-instance lists, create them in __init__: self.members = [].</p>
+          <ul class="notes"><li>The mutable-class-attribute trap - sibling of the mutable default argument.</li></ul>
+          <p class="tags"><span>Class attributes</span><span>Mutability traps</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="13-modules-and-packages.html">← Modules &amp; Packages</a>
+      <a href="15-inheritance-and-polymorphism.html">Inheritance &amp; Polymorphism →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-13">Practice “Classes &amp; Objects” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

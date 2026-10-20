@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Handling – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on File Handling with answers and detailed explanations — 10 easy, 14 medium and 6 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/12-file-handling.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="File Handling – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on File Handling with answers and detailed explanations — 10 easy, 14 medium and 6 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/12-file-handling.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"File Handling","item":"https://velnov.co.in/learn/python/12-file-handling.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>File Handling</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 12 of 20</p>
+      <h1>File Handling — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>File Handling</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-11">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">10 easy · 14 medium · 6 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>open()</span><span>File modes</span><span>FileNotFoundError</span><span>Write mode</span><span>Append mode</span><span>Logs</span><span>with statement</span><span>Context managers</span><span>read()</span><span>readlines()</span><span>readline()</span><span>Iteration</span><span>Memory efficiency</span><span>strip()</span><span>Newlines</span><span>write()</span><span>TypeError</span><span>str()</span><span>try/except</span><span>Exclusive mode</span><span>FileExistsError</span><span>Binary mode</span><span>bytes</span><span>ValueError</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (10)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which function opens a file in Python?</p>
+        <pre class="code"><code>f = open(&quot;notes.txt&quot;, &quot;r&quot;)
+text = f.read()
+f.close()</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> open()</li>
+          <li><span class="opt-key">B</span> file()</li>
+          <li><span class="opt-key">C</span> read()</li>
+          <li><span class="opt-key">D</span> load()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — open()</p>
+          <p class="expl">open(path, mode) returns a file object: open(&quot;notes.txt&quot;, &quot;r&quot;) opens for reading. The mode defaults to &quot;r&quot; if omitted.</p>
+          <p class="tags"><span>open()</span><span>File modes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does mode &quot;r&quot; mean in open(&quot;data.txt&quot;, &quot;r&quot;)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Read - file must already exist</li>
+          <li><span class="opt-key">B</span> Remove the file</li>
+          <li><span class="opt-key">C</span> Rename the file</li>
+          <li><span class="opt-key">D</span> Read and write</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Read - file must already exist</p>
+          <p class="expl">&quot;r&quot; opens for READING only. If the file doesn't exist you get FileNotFoundError. Other modes: &quot;w&quot; write, &quot;a&quot; append, &quot;x&quot; create-new.</p>
+          <p class="tags"><span>File modes</span><span>FileNotFoundError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which mode ADDS to the end of a file without deleting what's there?</p>
+        <pre class="code"><code>with open(&quot;log.txt&quot;, &quot;a&quot;) as f:
+    f.write(&quot;user logged in\n&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> &quot;w&quot;</li>
+          <li class="correct"><span class="opt-key">B</span> &quot;a&quot;</li>
+          <li><span class="opt-key">C</span> &quot;r&quot;</li>
+          <li><span class="opt-key">D</span> &quot;end&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — &quot;a&quot;</p>
+          <p class="expl">&quot;a&quot; = append. Writes always go to the end; existing content is safe. Perfect for log files. The file is created if it doesn't exist.</p>
+          <p class="tags"><span>Append mode</span><span>Logs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the PREFERRED way to open files, and why?</p>
+        <pre class="code"><code>with open(&quot;notes.txt&quot;) as f:
+    text = f.read()
+# file is ALREADY closed here</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> with open(...) as f: - the file closes automatically, even on errors</li>
+          <li><span class="opt-key">B</span> f = open(...) - simpler</li>
+          <li><span class="opt-key">C</span> It makes no difference</li>
+          <li><span class="opt-key">D</span> global open</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — with open(...) as f: - the file closes automatically, even on errors</p>
+          <p class="expl">The with statement (context manager) guarantees the file is closed when the block ends - even if an exception occurs inside. No forgotten close(), no leaked file handles.</p>
+          <ul class="notes"><li>Modern Python code almost never calls close() manually.</li></ul>
+          <p class="tags"><span>with statement</span><span>Context managers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does f.read() return?</p>
+        <pre class="code"><code>with open(&quot;poem.txt&quot;) as f:
+    text = f.read()      # one big string
+print(len(text))</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The ENTIRE file content as one string</li>
+          <li><span class="opt-key">B</span> One line</li>
+          <li><span class="opt-key">C</span> A list of lines</li>
+          <li><span class="opt-key">D</span> The file size</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The ENTIRE file content as one string</p>
+          <p class="expl">read() slurps the whole file into a single string (newlines included). readline() gives one line; readlines() gives a list of all lines.</p>
+          <p class="tags"><span>read()</span><span>readlines()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you WRITE text to an open file f?</p>
+        <pre class="code"><code>with open(&quot;out.txt&quot;, &quot;w&quot;) as f:
+    f.write(&quot;hello\n&quot;)
+    f.write(&quot;world\n&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> f.write(&quot;hello&quot;)</li>
+          <li><span class="opt-key">B</span> f.print(&quot;hello&quot;)</li>
+          <li><span class="opt-key">C</span> write(f, &quot;hello&quot;)</li>
+          <li><span class="opt-key">D</span> f &lt;&lt; &quot;hello&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — f.write(&quot;hello&quot;)</p>
+          <p class="expl">f.write(string) writes exactly the string you give - and returns the number of characters written.</p>
+          <p class="tags"><span>write()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Opening a missing file in &quot;r&quot; mode raises:</p>
+        <pre class="code"><code>try:
+    with open(&quot;ghost.txt&quot;) as f:
+        data = f.read()
+except FileNotFoundError:
+    data = &quot;&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FileNotFoundError</li>
+          <li><span class="opt-key">B</span> ValueError</li>
+          <li><span class="opt-key">C</span> KeyError</li>
+          <li><span class="opt-key">D</span> Nothing - it creates the file</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FileNotFoundError</p>
+          <p class="expl">Read mode requires the file to exist. Write (&quot;w&quot;) and append (&quot;a&quot;) modes CREATE missing files instead.</p>
+          <p class="tags"><span>FileNotFoundError</span><span>try/except</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you count the lines in a file?</p>
+        <pre class="code"><code>with open(&quot;data.txt&quot;) as f:
+    count = sum(1 for _ in f)
+print(count, &quot;lines&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> sum(1 for line in f)  or  len(f.readlines())</li>
+          <li><span class="opt-key">B</span> f.count_lines()</li>
+          <li><span class="opt-key">C</span> f.length</li>
+          <li><span class="opt-key">D</span> count(f)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — sum(1 for line in f)  or  len(f.readlines())</p>
+          <p class="expl">Iterate and count: sum(1 for line in f) is memory-friendly; len(f.readlines()) is fine for small files. There's no built-in line counter.</p>
+          <p class="tags"><span>Iteration</span><span>Generator expressions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which snippet appends one log entry safely?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> with open(&quot;app.log&quot;, &quot;a&quot;) as f:\n    f.write(&quot;login ok\n&quot;)</li>
+          <li><span class="opt-key">B</span> with open(&quot;app.log&quot;, &quot;w&quot;) as f:\n    f.write(&quot;login ok\n&quot;)</li>
+          <li><span class="opt-key">C</span> open(&quot;app.log&quot;).write(&quot;login ok&quot;)</li>
+          <li><span class="opt-key">D</span> append(&quot;app.log&quot;, &quot;login ok&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — with open(&quot;app.log&quot;, &quot;a&quot;) as f:\n    f.write(&quot;login ok\n&quot;)</p>
+          <p class="expl">Mode &quot;a&quot; preserves old entries; with guarantees the file closes. Option B wipes the log each time; option C never closes and uses read mode.</p>
+          <p class="tags"><span>Append mode</span><span>with statement</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">After 'with open(...) as f:' ends, is the file open or closed?</p>
+        <pre class="code"><code>with open(&quot;a.txt&quot;) as f:
+    pass
+print(f.closed)   # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Closed - automatically, always</li>
+          <li><span class="opt-key">B</span> Open until program exit</li>
+          <li><span class="opt-key">C</span> Open until garbage collection</li>
+          <li><span class="opt-key">D</span> Depends on the mode</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Closed - automatically, always</p>
+          <p class="expl">That's the whole point of with: the file is closed the instant the block exits - normally or via an exception. f.closed is True afterwards.</p>
+          <p class="tags"><span>Context managers</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the DANGER of mode &quot;w&quot;?</p>
+        <pre class="code"><code>open(&quot;log.txt&quot;, &quot;w&quot;)   # content GONE
+open(&quot;log.txt&quot;, &quot;a&quot;)   # content kept, writes go to the end</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It's slower</li>
+          <li class="correct"><span class="opt-key">B</span> It ERASES the file's existing content the moment it opens</li>
+          <li><span class="opt-key">C</span> It can't create new files</li>
+          <li><span class="opt-key">D</span> It locks the file forever</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — It ERASES the file's existing content the moment it opens</p>
+          <p class="expl">&quot;w&quot; truncates: opening an existing file in &quot;w&quot; instantly wipes it - even if you never write anything. Use &quot;a&quot; (append) to keep existing content and add to the end.</p>
+          <ul class="notes"><li>Real data has been lost to this. Double-check your mode!</li></ul>
+          <p class="tags"><span>Write mode</span><span>Append mode</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between readline() and readlines()?</p>
+        <pre class="code"><code>with open(&quot;data.csv&quot;) as f:
+    header = f.readline()     # first line only
+    rest = f.readlines()       # remaining lines as a list</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> readline() returns the NEXT single line; readlines() returns ALL lines as a list</li>
+          <li><span class="opt-key">B</span> They're identical</li>
+          <li><span class="opt-key">C</span> readlines() reads one line</li>
+          <li><span class="opt-key">D</span> readline() returns a list</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — readline() returns the NEXT single line; readlines() returns ALL lines as a list</p>
+          <p class="expl">readline() advances one line per call - good for reading just the header. readlines() loads every line into a list at once - convenient, but memory-heavy for huge files.</p>
+          <p class="tags"><span>readline()</span><span>readlines()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the BEST way to process a large file line by line?</p>
+        <pre class="code"><code>with open(&quot;big.log&quot;) as f:
+    for line in f:
+        if &quot;ERROR&quot; in line:
+            print(line.strip())</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> for line in f: - iterate the file object directly</li>
+          <li><span class="opt-key">B</span> f.read().split() always</li>
+          <li><span class="opt-key">C</span> readlines() then loop</li>
+          <li><span class="opt-key">D</span> while f.next():</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — for line in f: - iterate the file object directly</p>
+          <p class="expl">A file object is iterable - looping it reads ONE line at a time, so even gigabyte files use tiny memory. readlines() would load everything at once.</p>
+          <p class="tags"><span>Iteration</span><span>Memory efficiency</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why call line.strip() when reading lines from a file?</p>
+        <pre class="code"><code>for line in f:
+    name = line.strip()
+    if name == &quot;cat&quot;:    # now matches
+        print(&quot;found&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Each line ends with an invisible \n newline - strip() removes it</li>
+          <li><span class="opt-key">B</span> To remove all spaces inside the line</li>
+          <li><span class="opt-key">C</span> Files require it</li>
+          <li><span class="opt-key">D</span> To convert to lowercase</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Each line ends with an invisible \n newline - strip() removes it</p>
+          <p class="expl">Lines keep their trailing newline character, so print(line) double-spaces and comparisons fail ('cat\n' != 'cat'). strip() (or rstrip()) cleans it off.</p>
+          <p class="tags"><span>strip()</span><span>Newlines</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What's the catch with f.write() compared to print()?</p>
+        <pre class="code"><code>f.write(&quot;a&quot;)
+f.write(&quot;b&quot;)     # file contains: ab
+f.write(&quot;c\n&quot;)   # add \n yourself
+print(&quot;d&quot;, file=f)  # or use print</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> write() does NOT add a newline automatically - you must include \n yourself</li>
+          <li><span class="opt-key">B</span> write() adds two newlines</li>
+          <li><span class="opt-key">C</span> write() can't write strings</li>
+          <li><span class="opt-key">D</span> No difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — write() does NOT add a newline automatically - you must include \n yourself</p>
+          <p class="expl">print() appends \n for you; write() writes ONLY what you pass. Forgetting \n glues all your lines into one. Alternative: print(&quot;text&quot;, file=f) adds the newline.</p>
+          <p class="tags"><span>write()</span><span>Newlines</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens with f.write(42)?</p>
+        <pre class="code"><code>total = 42
+f.write(str(total) + &quot;\n&quot;)
+f.write(f&quot;Total: {total}\n&quot;)   # cleaner</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Writes 42</li>
+          <li class="correct"><span class="opt-key">B</span> TypeError - write() needs a string, so convert: f.write(str(42))</li>
+          <li><span class="opt-key">C</span> Writes '42' automatically</li>
+          <li><span class="opt-key">D</span> Writes binary</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — TypeError - write() needs a string, so convert: f.write(str(42))</p>
+          <p class="expl">write() only accepts strings (in text mode). Numbers must be converted first: str(42) or an f-string f&quot;{42}\n&quot;.</p>
+          <p class="tags"><span>TypeError</span><span>str()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When do you need mode &quot;rb&quot; or &quot;wb&quot;?</p>
+        <pre class="code"><code>with open(&quot;photo.jpg&quot;, &quot;rb&quot;) as src:
+    data = src.read()          # bytes
+with open(&quot;copy.jpg&quot;, &quot;wb&quot;) as dst:
+    dst.write(data)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> For BINARY files - images, audio, zip files - where data is bytes, not text</li>
+          <li><span class="opt-key">B</span> For very big text files</li>
+          <li><span class="opt-key">C</span> For read-backwards mode</li>
+          <li><span class="opt-key">D</span> Never - text mode handles everything</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — For BINARY files - images, audio, zip files - where data is bytes, not text</p>
+          <p class="expl">The b suffix switches to binary mode: read() returns bytes instead of str, and no newline translation happens. Copying an image in text mode corrupts it.</p>
+          <p class="tags"><span>Binary mode</span><span>bytes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens when you read from a file AFTER closing it?</p>
+        <pre class="code"><code>with open(&quot;a.txt&quot;) as f:
+    data = f.read()      # inside: OK
+# f.read()               # outside: ValueError!</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Returns empty string</li>
+          <li class="correct"><span class="opt-key">B</span> ValueError: I/O operation on closed file</li>
+          <li><span class="opt-key">C</span> Reopens automatically</li>
+          <li><span class="opt-key">D</span> Returns None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — ValueError: I/O operation on closed file</p>
+          <p class="expl">A closed file object refuses all operations with ValueError. A common bug: doing f.read() OUTSIDE the with block - the file is already closed there.</p>
+          <p class="tags"><span>with statement</span><span>ValueError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">A simple way to parse the CSV line &quot;Ana,21,Delhi&quot;?</p>
+        <pre class="code"><code>with open(&quot;students.csv&quot;) as f:
+    for line in f:
+        name, age, city = line.strip().split(&quot;,&quot;)
+        print(name, age)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> line.strip().split(&quot;,&quot;) -&gt; ['Ana', '21', 'Delhi']</li>
+          <li><span class="opt-key">B</span> line.parse()</li>
+          <li><span class="opt-key">C</span> line.csv()</li>
+          <li><span class="opt-key">D</span> int(line)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — line.strip().split(&quot;,&quot;) -&gt; ['Ana', '21', 'Delhi']</p>
+          <p class="expl">split(&quot;,&quot;) cuts a comma-separated line into fields. For real CSV files with quoted commas, use the csv module - but split() handles simple data fine.</p>
+          <p class="tags"><span>split()</span><span>csv module</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which module converts Python dicts to/from the JSON text format?</p>
+        <pre class="code"><code>import json
+
+data = {&quot;name&quot;: &quot;Ana&quot;, &quot;score&quot;: 92}
+with open(&quot;save.json&quot;, &quot;w&quot;) as f:
+    json.dump(data, f)
+
+with open(&quot;save.json&quot;) as f:
+    loaded = json.load(f)
+print(loaded[&quot;score&quot;])   # 92</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> json</li>
+          <li><span class="opt-key">B</span> dict</li>
+          <li><span class="opt-key">C</span> text</li>
+          <li><span class="opt-key">D</span> xml</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — json</p>
+          <p class="expl">The built-in json module: json.dump(data, f) writes a dict as JSON to a file; json.load(f) reads it back. The universal format for configs and APIs.</p>
+          <p class="tags"><span>json module</span><span>Serialization</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you check whether a file exists BEFORE opening it?</p>
+        <pre class="code"><code>import os
+if os.path.exists(&quot;save.json&quot;):
+    load_game()
+else:
+    new_game()</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> os.path.exists(&quot;data.txt&quot;)  (or pathlib's Path(&quot;data.txt&quot;).exists())</li>
+          <li><span class="opt-key">B</span> open.exists(&quot;data.txt&quot;)</li>
+          <li><span class="opt-key">C</span> file.check(&quot;data.txt&quot;)</li>
+          <li><span class="opt-key">D</span> exists &quot;data.txt&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — os.path.exists(&quot;data.txt&quot;)  (or pathlib's Path(&quot;data.txt&quot;).exists())</p>
+          <p class="expl">os.path.exists() returns True/False. (The EAFP alternative: just open it and catch FileNotFoundError - equally Pythonic.)</p>
+          <p class="tags"><span>os.path</span><span>pathlib</span><span>EAFP</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why pass encoding=&quot;utf-8&quot; to open()?</p>
+        <pre class="code"><code>with open(&quot;notes.txt&quot;, encoding=&quot;utf-8&quot;) as f:
+    text = f.read()   # handles any language</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> So text with any language/emoji reads and writes correctly on every OS</li>
+          <li><span class="opt-key">B</span> It compresses the file</li>
+          <li><span class="opt-key">C</span> It's required for numbers</li>
+          <li><span class="opt-key">D</span> It makes files read-only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — So text with any language/emoji reads and writes correctly on every OS</p>
+          <p class="expl">Without it, Python uses a platform-dependent default (often cp1252 on Windows) - files with ñ, 中文 or emoji can crash or garble. Explicit utf-8 makes your code portable.</p>
+          <ul class="notes"><li>Good habit: always specify encoding for text files.</li></ul>
+          <p class="tags"><span>Encoding</span><span>Unicode</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does writelines() do - and what does it NOT do?</p>
+        <pre class="code"><code>lines = [&quot;one\n&quot;, &quot;two\n&quot;, &quot;three\n&quot;]
+with open(&quot;out.txt&quot;, &quot;w&quot;) as f:
+    f.writelines(lines)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Writes each string from a list; it does NOT add newlines between them</li>
+          <li><span class="opt-key">B</span> Writes lines and adds newlines automatically</li>
+          <li><span class="opt-key">C</span> Reads lines</li>
+          <li><span class="opt-key">D</span> Writes one line only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Writes each string from a list; it does NOT add newlines between them</p>
+          <p class="expl">Despite the name, writelines(list) just concatenates the strings - no separators added. Include \n in each string yourself.</p>
+          <p class="tags"><span>writelines()</span><span>Newlines</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does mode &quot;r+&quot; allow?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Both reading AND writing, without erasing the file first</li>
+          <li><span class="opt-key">B</span> Reading twice as fast</li>
+          <li><span class="opt-key">C</span> Reading with automatic retry</li>
+          <li><span class="opt-key">D</span> Read-only, but raises no errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Both reading AND writing, without erasing the file first</p>
+          <p class="expl">&quot;r+&quot; opens an EXISTING file for read and write - the cursor starts at the beginning, and writes overwrite bytes in place. (&quot;w+&quot; also reads+writes but truncates first.)</p>
+          <p class="tags"><span>File modes</span><span>r+ vs w+</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (6)</h2>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does mode &quot;x&quot; do?</p>
+        <pre class="code"><code>try:
+    with open(&quot;config.ini&quot;, &quot;x&quot;) as f:
+        f.write(&quot;[defaults]\n&quot;)
+except FileExistsError:
+    print(&quot;config already exists - not touching it&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Creates a NEW file - fails with FileExistsError if it already exists</li>
+          <li><span class="opt-key">B</span> Extracts the file</li>
+          <li><span class="opt-key">C</span> Executes the file</li>
+          <li><span class="opt-key">D</span> Deletes the file</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Creates a NEW file - fails with FileExistsError if it already exists</p>
+          <p class="expl">&quot;x&quot; is exclusive creation - a safe 'create only if new'. Unlike &quot;w&quot; it can never accidentally wipe an existing file.</p>
+          <p class="tags"><span>Exclusive mode</span><span>FileExistsError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does the SECOND read() return an empty string?
+data1 = f.read()
+data2 = f.read()</p>
+        <pre class="code"><code>data1 = f.read()   # everything; cursor at end
+data2 = f.read()   # '' - nothing left
+f.seek(0)           # rewind
+data3 = f.read()   # everything again</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The file position is at the END after the first read - there's nothing left to read</li>
+          <li><span class="opt-key">B</span> Files can only be read once ever</li>
+          <li><span class="opt-key">C</span> It's a bug in Python</li>
+          <li><span class="opt-key">D</span> The file gets deleted after reading</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The file position is at the END after the first read - there's nothing left to read</p>
+          <p class="expl">A file object keeps a position cursor. read() moves it to the end; the next read() starts there and finds nothing. f.seek(0) rewinds to the beginning to read again.</p>
+          <p class="tags"><span>File position</span><span>seek()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does f.seek(0) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Moves the read/write position back to the START of the file</li>
+          <li><span class="opt-key">B</span> Deletes the first byte</li>
+          <li><span class="opt-key">C</span> Searches for the number 0</li>
+          <li><span class="opt-key">D</span> Closes the file</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Moves the read/write position back to the START of the file</p>
+          <p class="expl">seek(position) jumps the file cursor to that byte offset - seek(0) rewinds to the beginning. f.tell() reports the current position.</p>
+          <p class="tags"><span>seek()</span><span>tell()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between json.dump() and json.dumps()?</p>
+        <pre class="code"><code>import json
+text = json.dumps({&quot;a&quot;: 1})   # '{&quot;a&quot;: 1}' - a string
+data = json.loads(text)        # back to a dict</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> dump() writes to a FILE; dumps() returns a STRING (s = string)</li>
+          <li><span class="opt-key">B</span> dumps() is the plural version for lists</li>
+          <li><span class="opt-key">C</span> dump() deletes the data after</li>
+          <li><span class="opt-key">D</span> No difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — dump() writes to a FILE; dumps() returns a STRING (s = string)</p>
+          <p class="expl">The trailing s means 'string': dumps(data) gives you the JSON text to use however you like; dump(data, f) writes it straight into a file. Same pair for reading: loads(text) vs load(f).</p>
+          <p class="tags"><span>json module</span><span>dumps vs dump</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Copy a text file. Fill the blank:
+with open(&quot;a.txt&quot;) as src, ______ as dst:
+    dst.write(src.read())</p>
+        <pre class="code"><code>with open(&quot;a.txt&quot;) as src, open(&quot;b.txt&quot;, &quot;w&quot;) as dst:
+    dst.write(src.read())</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> open(&quot;b.txt&quot;, &quot;w&quot;)</li>
+          <li><span class="opt-key">B</span> open(&quot;b.txt&quot;, &quot;r&quot;)</li>
+          <li><span class="opt-key">C</span> copy(&quot;b.txt&quot;)</li>
+          <li><span class="opt-key">D</span> open(&quot;b.txt&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — open(&quot;b.txt&quot;, &quot;w&quot;)</p>
+          <p class="expl">One with statement can manage MULTIPLE files (comma-separated). The destination needs write mode; options B/D open read-only and writing would fail.</p>
+          <p class="tags"><span>Multiple context managers</span><span>Copying</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">You need to save a Python LIST so another run of your program can reload it. Best simple approach?</p>
+        <pre class="code"><code>import json
+scores = [90, 85, 77]
+with open(&quot;scores.json&quot;, &quot;w&quot;) as f:
+    json.dump(scores, f)
+
+with open(&quot;scores.json&quot;) as f:
+    scores = json.load(f)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> json.dump() it to a file, json.load() to restore</li>
+          <li><span class="opt-key">B</span> write(str(list)) and eval() it back</li>
+          <li><span class="opt-key">C</span> Print it and copy-paste later</li>
+          <li><span class="opt-key">D</span> Lists can't be saved</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — json.dump() it to a file, json.load() to restore</p>
+          <p class="expl">JSON handles lists, dicts, strings, numbers and bools - safe and readable. eval() on file content is a security hole (it executes anything). For arbitrary Python objects, the pickle module exists - but JSON is the safe default.</p>
+          <p class="tags"><span>json</span><span>pickle</span><span>eval() dangers</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="11-error-handling.html">← Error Handling</a>
+      <a href="13-modules-and-packages.html">Modules &amp; Packages →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-11">Practice “File Handling” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

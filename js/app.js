@@ -967,6 +967,19 @@ window.addEventListener('popstate', function (event) {
 if (!QUIZ_DATA.length) {
   app.innerHTML = '<p class="muted">No question files loaded. Check the &lt;script&gt; tags in index.html.</p>';
 } else {
-  history.replaceState({ view: 'quizzes' }, '', '#quizzes');
-  showView('quizzes', true);
+  // Deep links from the study pages: #quiz-<subject>-<topic>, #formulas, #calculator
+  const deep = location.hash.match(/^#quiz-(\d+)-(\d+)$/);
+  const deepSubject = deep && QUIZ_DATA[+deep[1]];
+  if (deepSubject && deepSubject.topics[+deep[2]]) {
+    history.replaceState({ view: 'quizzes' }, '', '#quizzes');
+    showView('quizzes', true);
+    startQuiz(+deep[1], +deep[2]);
+  } else if (location.hash === '#formulas' || location.hash === '#calculator') {
+    const view = location.hash.slice(1);
+    history.replaceState({ view: view }, '', location.hash);
+    showView(view, true);
+  } else {
+    history.replaceState({ view: 'quizzes' }, '', '#quizzes');
+    showView('quizzes', true);
+  }
 }

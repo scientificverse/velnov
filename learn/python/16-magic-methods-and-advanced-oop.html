@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Methods &amp; Advanced OOP – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Magic Methods &amp; Advanced OOP with answers and detailed explanations — 4 easy, 14 medium and 12 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/16-magic-methods-and-advanced-oop.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Magic Methods &amp; Advanced OOP – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Magic Methods &amp; Advanced OOP with answers and detailed explanations — 4 easy, 14 medium and 12 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/16-magic-methods-and-advanced-oop.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Magic Methods & Advanced OOP","item":"https://velnov.co.in/learn/python/16-magic-methods-and-advanced-oop.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Magic Methods &amp; Advanced OOP</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 16 of 20</p>
+      <h1>Magic Methods &amp; Advanced OOP — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Magic Methods &amp; Advanced OOP</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-15">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">4 easy · 14 medium · 12 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Dunder methods</span><span>Protocols</span><span>__str__</span><span>print()</span><span>__repr__</span><span>Debugging</span><span>__len__</span><span>__eq__</span><span>Equality</span><span>Operator overloading</span><span>__add__</span><span>__lt__</span><span>sorted()</span><span>total_ordering</span><span>__getitem__</span><span>Indexing</span><span>__contains__</span><span>in operator</span><span>__call__</span><span>Callables</span><span>Encapsulation</span><span>Conventions</span><span>Name mangling</span><span>@property</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (4)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What are 'magic methods' (dunder methods)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Methods with double underscores (__str__, __len__...) that hook your class into Python's built-in behavior</li>
+          <li><span class="opt-key">B</span> Methods that run magically fast</li>
+          <li><span class="opt-key">C</span> Hidden methods you can't call</li>
+          <li><span class="opt-key">D</span> Deprecated Python 2 methods</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Methods with double underscores (__str__, __len__...) that hook your class into Python's built-in behavior</p>
+          <p class="expl">'Dunder' = Double UNDERscore. Python calls them automatically: print(obj) calls __str__, len(obj) calls __len__, a + b calls __add__. Define them to make your objects behave like built-ins.</p>
+          <p class="tags"><span>Dunder methods</span><span>Protocols</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which method controls what print(obj) displays?</p>
+        <pre class="code"><code>class Book:
+    def __init__(self, title):
+        self.title = title
+    def __str__(self):
+        return f&quot;Book: {self.title}&quot;
+
+print(Book(&quot;Dune&quot;))   # Book: Dune</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __str__</li>
+          <li><span class="opt-key">B</span> __print__</li>
+          <li><span class="opt-key">C</span> __show__</li>
+          <li><span class="opt-key">D</span> __display__</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __str__</p>
+          <p class="expl">__str__ returns the human-readable text for your object - used by print(), str() and f-strings. Without it you get the ugly &lt;__main__.X object at 0x...&gt;.</p>
+          <p class="tags"><span>__str__</span><span>print()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">str(obj) and f&quot;{obj}&quot; both call which method?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __str__</li>
+          <li><span class="opt-key">B</span> __format__ only</li>
+          <li><span class="opt-key">C</span> __text__</li>
+          <li><span class="opt-key">D</span> __value__</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __str__</p>
+          <p class="expl">str(), print() and f-string interpolation all route through __str__ (f-strings via __format__, which defaults to __str__). One method, consistent display everywhere.</p>
+          <p class="tags"><span>__str__</span><span>f-strings</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">dir(obj) is useful because it...</p>
+        <pre class="code"><code>print(dir([]))
+# [..., 'append', 'clear', 'copy', 'count', ...]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Lists all attributes and methods of the object - including inherited and dunder ones</li>
+          <li><span class="opt-key">B</span> Shows the object's folder on disk</li>
+          <li><span class="opt-key">C</span> Deletes the object</li>
+          <li><span class="opt-key">D</span> Sorts the object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Lists all attributes and methods of the object - including inherited and dunder ones</p>
+          <p class="expl">dir() is your class X-ray: every method (own, inherited, magic) in one list. Pair with help(obj.method) to read docs.</p>
+          <p class="tags"><span>dir()</span><span>Introspection</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which method makes len(obj) work for your class?</p>
+        <pre class="code"><code>class Cart:
+    def __init__(self):
+        self.items = []
+    def __len__(self):
+        return len(self.items)
+
+print(len(Cart()))   # 0</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __len__</li>
+          <li><span class="opt-key">B</span> __size__</li>
+          <li><span class="opt-key">C</span> __count__</li>
+          <li><span class="opt-key">D</span> length()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __len__</p>
+          <p class="expl">len(cart) simply calls cart.__len__(). Return an integer - typically the length of an internal collection.</p>
+          <p class="tags"><span>__len__</span><span>Protocols</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which method makes == compare your objects by CONTENT?</p>
+        <pre class="code"><code>class Point:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+print(Point(1, 2) == Point(1, 2))   # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __eq__</li>
+          <li><span class="opt-key">B</span> __equals__</li>
+          <li><span class="opt-key">C</span> __compare__</li>
+          <li><span class="opt-key">D</span> __is__</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __eq__</p>
+          <p class="expl">a == b calls a.__eq__(b). Without it, == falls back to identity (same object?). Define it to compare data instead.</p>
+          <p class="tags"><span>__eq__</span><span>Equality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which method lets you write v1 + v2 for your own Vector class?</p>
+        <pre class="code"><code>class Vector:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+v = Vector(1, 2) + Vector(3, 4)
+print(v.x, v.y)   # 4 6</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __add__</li>
+          <li><span class="opt-key">B</span> __plus__</li>
+          <li><span class="opt-key">C</span> __sum__</li>
+          <li><span class="opt-key">D</span> add()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __add__</p>
+          <p class="expl">v1 + v2 calls v1.__add__(v2) - operator overloading. Return a NEW object with the combined values. Siblings: __sub__ (-), __mul__ (*), __truediv__ (/).</p>
+          <p class="tags"><span>Operator overloading</span><span>__add__</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which method makes square brackets work: playlist[0]?</p>
+        <pre class="code"><code>class Playlist:
+    def __init__(self, songs):
+        self.songs = songs
+    def __getitem__(self, i):
+        return self.songs[i]
+
+p = Playlist([&quot;a&quot;, &quot;b&quot;])
+print(p[1])          # b
+for song in p: ...    # even iteration works!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __getitem__</li>
+          <li><span class="opt-key">B</span> __index__</li>
+          <li><span class="opt-key">C</span> __bracket__</li>
+          <li><span class="opt-key">D</span> __at__</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __getitem__</p>
+          <p class="expl">obj[key] calls obj.__getitem__(key). Bonus: defining it also enables for-loops and 'in' over your object (Python iterates by index automatically).</p>
+          <p class="tags"><span>__getitem__</span><span>Indexing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which method powers 'x in obj'?</p>
+        <pre class="code"><code>class Playlist:
+    def __contains__(self, song):
+        return song in self.songs</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __contains__</li>
+          <li><span class="opt-key">B</span> __in__</li>
+          <li><span class="opt-key">C</span> __has__</li>
+          <li><span class="opt-key">D</span> __member__</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __contains__</p>
+          <p class="expl">'song in playlist' calls playlist.__contains__(song). Without it Python falls back to iterating and comparing - __contains__ lets you do it smarter/faster.</p>
+          <p class="tags"><span>__contains__</span><span>in operator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does a SINGLE leading underscore mean: self._balance?</p>
+        <pre class="code"><code>class Account:
+    def __init__(self):
+        self._balance = 0   # internal by convention</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A convention: 'internal - please don't touch from outside' (not enforced)</li>
+          <li><span class="opt-key">B</span> Truly private - Python blocks access</li>
+          <li><span class="opt-key">C</span> A syntax error</li>
+          <li><span class="opt-key">D</span> The attribute is constant</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A convention: 'internal - please don't touch from outside' (not enforced)</p>
+          <p class="expl">_name is a gentleman's agreement - the language doesn't stop anyone, but tools and developers treat it as private API. Python's philosophy: 'we're all consenting adults'.</p>
+          <p class="tags"><span>Encapsulation</span><span>Conventions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a @staticmethod?</p>
+        <pre class="code"><code>class MathUtils:
+    @staticmethod
+    def add(a, b):        # no self!
+        return a + b
+
+print(MathUtils.add(2, 3))   # 5</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A method that gets NO automatic self/cls - a plain function stored in the class for organization</li>
+          <li><span class="opt-key">B</span> A method that can't be changed</li>
+          <li><span class="opt-key">C</span> A method shared with other classes</li>
+          <li><span class="opt-key">D</span> A method that runs at import</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A method that gets NO automatic self/cls - a plain function stored in the class for organization</p>
+          <p class="expl">Static methods neither read nor modify instance/class state - they just belong logically to the class. Call via the class or an instance: MathUtils.add(2, 3).</p>
+          <p class="tags"><span>@staticmethod</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which method decides your object's truthiness in 'if obj:'?</p>
+        <pre class="code"><code>class Cart:
+    def __init__(self):
+        self.items = []
+    def __len__(self):
+        return len(self.items)
+
+if not Cart():
+    print(&quot;empty cart&quot;)   # prints!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __bool__ (falling back to __len__ != 0 if absent)</li>
+          <li><span class="opt-key">B</span> __true__</li>
+          <li><span class="opt-key">C</span> __if__</li>
+          <li><span class="opt-key">D</span> Objects are always False</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __bool__ (falling back to __len__ != 0 if absent)</p>
+          <p class="expl">if cart: calls cart.__bool__() - or, if undefined, treats the object as truthy unless __len__ returns 0. That's why empty custom containers naturally read as falsy once __len__ exists.</p>
+          <p class="tags"><span>__bool__</span><span>Truthiness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why is c.area (a @property) better Python style than c.get_area()?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Attribute syntax is cleaner, and you can start as a plain attribute and add logic later WITHOUT breaking callers</li>
+          <li><span class="opt-key">B</span> get_ methods are illegal</li>
+          <li><span class="opt-key">C</span> Properties are faster</li>
+          <li><span class="opt-key">D</span> No reason - Java style is preferred</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Attribute syntax is cleaner, and you can start as a plain attribute and add logic later WITHOUT breaking callers</p>
+          <p class="expl">In Java you write getters defensively from day one. Python lets you expose a plain attribute now and transparently swap in a @property later - same c.area syntax for callers. So write simple attributes first; add properties only when logic is needed.</p>
+          <p class="tags"><span>@property</span><span>API design</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does Python have truly PRIVATE attributes like Java's private keyword?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - only conventions (_x) and name mangling (__x); everything remains reachable</li>
+          <li><span class="opt-key">B</span> Yes - the private keyword</li>
+          <li><span class="opt-key">C</span> Yes - via @private</li>
+          <li><span class="opt-key">D</span> Only in classes marked sealed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - only conventions (_x) and name mangling (__x); everything remains reachable</p>
+          <p class="expl">Python chose openness: nothing is enforced-private. _x says 'don't', __x adds mangling, but a determined caller can reach anything. Discipline over locks.</p>
+          <p class="tags"><span>Encapsulation philosophy</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Trace:
+class Money:
+    def __init__(self, amt):
+        self.amt = amt
+    def __add__(self, other):
+        return Money(self.amt + other.amt)
+    def __str__(self):
+        return f&quot;Rs.{self.amt}&quot;
+print(Money(100) + Money(50))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Rs.150</li>
+          <li><span class="opt-key">B</span> 150</li>
+          <li><span class="opt-key">C</span> Money(150)</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Rs.150</p>
+          <p class="expl">+ triggers __add__ (returning Money(150)); print then triggers __str__ ('Rs.150'). Two magic methods cooperating - exactly how int and str themselves work.</p>
+          <p class="tags"><span>Operator overloading</span><span>Tracing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which dunder pair powers the WITH statement (context managers)?</p>
+        <pre class="code"><code>class Timer:
+    def __enter__(self):
+        self.start = time.time()
+        return self
+    def __exit__(self, *args):
+        print(f&quot;took {time.time() - self.start:.2f}s&quot;)
+
+with Timer():
+    do_work()</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __enter__ and __exit__</li>
+          <li><span class="opt-key">B</span> __open__ and __close__</li>
+          <li><span class="opt-key">C</span> __start__ and __stop__</li>
+          <li><span class="opt-key">D</span> __with__ and __without__</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __enter__ and __exit__</p>
+          <p class="expl">with obj: calls obj.__enter__() at the start and obj.__exit__() at the end - ALWAYS, even on exceptions. Define both and your class works in with statements, like open() does.</p>
+          <p class="tags"><span>Context managers</span><span>with statement</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does @dataclass (from dataclasses) generate for you?</p>
+        <pre class="code"><code>from dataclasses import dataclass
+
+@dataclass
+class Point:
+    x: int
+    y: int
+
+p = Point(1, 2)
+print(p)               # Point(x=1, y=2)
+print(p == Point(1, 2))  # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __init__, __repr__ and __eq__ automatically from the declared fields</li>
+          <li><span class="opt-key">B</span> A database table</li>
+          <li><span class="opt-key">C</span> Only documentation</li>
+          <li><span class="opt-key">D</span> Getters and setters</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __init__, __repr__ and __eq__ automatically from the declared fields</p>
+          <p class="expl">For classes that mainly hold data, @dataclass writes the boilerplate: constructor, nice repr, equality by fields. Three lines replace fifteen.</p>
+          <p class="tags"><span>dataclasses</span><span>Boilerplate</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why define __repr__ on every class you debug often?</p>
+        <pre class="code"><code>def __repr__(self):
+    return f&quot;Order(id={self.id}, status={self.status!r})&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Debuggers, logs, lists and the REPL all show __repr__ - a good one makes object state visible at a glance</li>
+          <li><span class="opt-key">B</span> Python requires it</li>
+          <li><span class="opt-key">C</span> It speeds up the class</li>
+          <li><span class="opt-key">D</span> It enables inheritance</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Debuggers, logs, lists and the REPL all show __repr__ - a good one makes object state visible at a glance</p>
+          <p class="expl">When a log line says &lt;Order object at 0x7f...&gt; you know nothing; Order(id=42, status='paid') tells the whole story. One method, hours of debugging saved.</p>
+          <p class="tags"><span>__repr__</span><span>Debugging</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (12)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between __str__ and __repr__?</p>
+        <pre class="code"><code>class Book:
+    def __repr__(self):
+        return f&quot;Book({self.title!r})&quot;
+
+books = [Book(&quot;Dune&quot;)]
+print(books)   # [Book('Dune')] - repr used inside lists!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __str__ is the friendly display for users; __repr__ is the unambiguous version for developers/debugging (shown in the REPL and inside lists)</li>
+          <li><span class="opt-key">B</span> They are interchangeable aliases</li>
+          <li><span class="opt-key">C</span> __repr__ repeats the string twice</li>
+          <li><span class="opt-key">D</span> __str__ is Python 2 only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __str__ is the friendly display for users; __repr__ is the unambiguous version for developers/debugging (shown in the REPL and inside lists)</p>
+          <p class="expl">print(obj) uses __str__; typing obj in the shell, or printing a LIST of objects, uses __repr__. Convention: __repr__ looks like the code to recreate the object: Book('Dune'). If you define only one, define __repr__ - str falls back to it.</p>
+          <p class="tags"><span>__repr__</span><span>Debugging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does defining __lt__ (less-than) unlock for your class?</p>
+        <pre class="code"><code>class Student:
+    def __init__(self, marks):
+        self.marks = marks
+    def __lt__(self, other):
+        return self.marks &lt; other.marks
+
+print(sorted([Student(90), Student(70)])[0].marks)  # 70</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The &lt; operator AND sorting: sorted() can order your objects</li>
+          <li><span class="opt-key">B</span> Only printing</li>
+          <li><span class="opt-key">C</span> Nothing without __gt__ too</li>
+          <li><span class="opt-key">D</span> Subtraction</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The &lt; operator AND sorting: sorted() can order your objects</p>
+          <p class="expl">sorted() compares elements with &lt; - so one __lt__ makes lists of your objects sortable. (functools.total_ordering can derive the other comparisons from __lt__ + __eq__.)</p>
+          <p class="tags"><span>__lt__</span><span>sorted()</span><span>total_ordering</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does __call__ do?
+class Greeter:
+    def __call__(self, name):
+        return f&quot;Hi {name}&quot;
+g = Greeter()
+print(g(&quot;Ana&quot;))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Makes INSTANCES callable like functions - g(&quot;Ana&quot;) works, printing Hi Ana</li>
+          <li><span class="opt-key">B</span> Calls the constructor again</li>
+          <li><span class="opt-key">C</span> It's an error - objects can't be called</li>
+          <li><span class="opt-key">D</span> Renames the object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Makes INSTANCES callable like functions - g(&quot;Ana&quot;) works, printing Hi Ana</p>
+          <p class="expl">__call__ turns objects into function-like things: g(&quot;Ana&quot;) runs g.__call__(&quot;Ana&quot;). Useful for objects that act like configurable functions (and it's how decorator classes work).</p>
+          <p class="tags"><span>__call__</span><span>Callables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does a DOUBLE leading underscore do: self.__secret?</p>
+        <pre class="code"><code>class Account:
+    def __init__(self):
+        self.__pin = 1234
+
+a = Account()
+# a.__pin              # AttributeError
+print(a._Account__pin)  # 1234 - mangled name</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Name mangling - Python renames it to _ClassName__secret, making accidental outside access harder</li>
+          <li><span class="opt-key">B</span> Makes it 100% inaccessible</li>
+          <li><span class="opt-key">C</span> Deletes it after __init__</li>
+          <li><span class="opt-key">D</span> Nothing different from one underscore</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Name mangling - Python renames it to _ClassName__secret, making accidental outside access harder</p>
+          <p class="expl">__secret becomes _Account__secret internally - obj.__secret fails with AttributeError, though obj._Account__secret still works (so it's tamper-resistant, not secure). Main real use: avoiding name clashes in subclasses.</p>
+          <p class="tags"><span>Name mangling</span><span>Encapsulation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does @property do?
+class Circle:
+    @property
+    def area(self):
+        return 3.14 * self.r ** 2</p>
+        <pre class="code"><code>c = Circle()
+c.r = 2
+print(c.area)    # 12.56 - no () needed</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Lets you access area WITHOUT parentheses - c.area - computed fresh each time like an attribute</li>
+          <li><span class="opt-key">B</span> Caches the value forever</li>
+          <li><span class="opt-key">C</span> Makes area static</li>
+          <li><span class="opt-key">D</span> Prints the area</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Lets you access area WITHOUT parentheses - c.area - computed fresh each time like an attribute</p>
+          <p class="expl">@property turns a method into a computed attribute: c.area (no parentheses!) runs the method. The Pythonic replacement for Java-style get_area() - callers see a simple attribute, you keep the logic.</p>
+          <p class="tags"><span>@property</span><span>Getters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you add validation when SETTING obj.age = value?</p>
+        <pre class="code"><code>class Person:
+    @property
+    def age(self):
+        return self._age
+    @age.setter
+    def age(self, value):
+        if value &lt; 0:
+            raise ValueError(&quot;age can't be negative&quot;)
+        self._age = value</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Define @property for age plus an @age.setter method that checks the value before storing</li>
+          <li><span class="opt-key">B</span> Python can't intercept assignment</li>
+          <li><span class="opt-key">C</span> Override __init__ only</li>
+          <li><span class="opt-key">D</span> Use a global validator</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Define @property for age plus an @age.setter method that checks the value before storing</p>
+          <p class="expl">The property/setter pair intercepts both read and write. Assignment (p.age = -5) runs the setter, which can validate and raise. Callers still use plain attribute syntax.</p>
+          <p class="tags"><span>Setters</span><span>Validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does @classmethod receive instead of self?</p>
+        <pre class="code"><code>class Date:
+    def __init__(self, d, m, y):
+        self.d, self.m, self.y = d, m, y
+    @classmethod
+    def from_string(cls, text):     # 'Date' arrives as cls
+        d, m, y = map(int, text.split(&quot;-&quot;))
+        return cls(d, m, y)          # builds the instance
+
+date = Date.from_string(&quot;03-07-2026&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> cls - the CLASS itself, so it can read class attributes or build instances</li>
+          <li><span class="opt-key">B</span> Nothing at all</li>
+          <li><span class="opt-key">C</span> A copy of every instance</li>
+          <li><span class="opt-key">D</span> The parent class</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — cls - the CLASS itself, so it can read class attributes or build instances</p>
+          <p class="expl">Class methods get the class as their first argument (named cls). Their killer use: ALTERNATIVE CONSTRUCTORS - building instances from different input formats.</p>
+          <p class="tags"><span>@classmethod</span><span>Alternative constructors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">staticmethod vs classmethod vs normal method - which first argument does each receive?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> normal: self (the instance); classmethod: cls (the class); staticmethod: nothing automatic</li>
+          <li><span class="opt-key">B</span> All three receive self</li>
+          <li><span class="opt-key">C</span> normal: cls; classmethod: self; staticmethod: both</li>
+          <li><span class="opt-key">D</span> They're interchangeable</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — normal: self (the instance); classmethod: cls (the class); staticmethod: nothing automatic</p>
+          <p class="expl">The rule of thumb: needs instance data -&gt; normal method. Needs the class (attributes, alternative constructor) -&gt; classmethod. Needs neither but belongs thematically -&gt; staticmethod.</p>
+          <p class="tags"><span>Method types</span><span>Choosing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the true division of labor between __new__ and __init__?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __new__ CREATES the object; __init__ then INITIALIZES the already-created object</li>
+          <li><span class="opt-key">B</span> __init__ creates, __new__ initializes</li>
+          <li><span class="opt-key">C</span> They are aliases</li>
+          <li><span class="opt-key">D</span> __new__ is Python 2 only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __new__ CREATES the object; __init__ then INITIALIZES the already-created object</p>
+          <p class="expl">Calling Dog() first runs __new__ (allocates the instance) then __init__ (fills in attributes). You almost never touch __new__ - exceptions: immutable subclasses and singletons. Strictly, __init__ is an initializer, not a constructor.</p>
+          <p class="tags"><span>__new__</span><span>Object creation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">print([Book(&quot;Dune&quot;)]) shows &lt;Book object at 0x...&gt; even though Book defines __str__. Why?</p>
+        <pre class="code"><code>class Book:
+    def __repr__(self):
+        return f&quot;Book({self.title!r})&quot;
+print([Book(&quot;Dune&quot;)])   # [Book('Dune')]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Containers display their items using __repr__, not __str__ - define __repr__ too</li>
+          <li><span class="opt-key">B</span> Lists erase methods</li>
+          <li><span class="opt-key">C</span> __str__ has a typo</li>
+          <li><span class="opt-key">D</span> print can't handle lists</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Containers display their items using __repr__, not __str__ - define __repr__ too</p>
+          <p class="expl">A list's own str() calls repr() on every element - by design, to show unambiguous contents. This surprise is the #1 reason to always define __repr__ on your classes.</p>
+          <p class="tags"><span>__repr__</span><span>Containers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">v * 3 works on your Vector but 3 * v fails. Which method fixes the reversed order?</p>
+        <pre class="code"><code>class Vector:
+    def __mul__(self, n):
+        return Vector(self.x * n, self.y * n)
+    __rmul__ = __mul__     # 3 * v now works too</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> __rmul__</li>
+          <li><span class="opt-key">B</span> __mul2__</li>
+          <li><span class="opt-key">C</span> __xmul__</li>
+          <li><span class="opt-key">D</span> It cannot be fixed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — __rmul__</p>
+          <p class="expl">3 * v first tries (3).__mul__(v) - int doesn't know Vector, so Python then tries v.__rmul__(3). The r-prefixed 'reflected' methods handle your object on the RIGHT side of an operator.</p>
+          <p class="tags"><span>Reflected operators</span><span>__rmul__</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a SINGLETON, and which method is typically overridden to make one?</p>
+        <pre class="code"><code>class Config:
+    _instance = None
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+print(Config() is Config())   # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A class allowing only ONE instance ever - override __new__ to return the same stored instance</li>
+          <li><span class="opt-key">B</span> A class with one method - override __init__</li>
+          <li><span class="opt-key">C</span> A single-file module</li>
+          <li><span class="opt-key">D</span> An unmarried class</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A class allowing only ONE instance ever - override __new__ to return the same stored instance</p>
+          <p class="expl">__new__ controls creation, so it can hand back a cached instance instead of a fresh one - every Config() call returns the same object. (In practice, a module-level instance is often the simpler Python singleton.)</p>
+          <p class="tags"><span>Singleton</span><span>__new__</span><span>Design patterns</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="15-inheritance-and-polymorphism.html">← Inheritance &amp; Polymorphism</a>
+      <a href="17-iterators-and-generators.html">Iterators &amp; Generators →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-15">Practice “Magic Methods &amp; Advanced OOP” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

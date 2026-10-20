@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Functions – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Functions with answers and detailed explanations — 8 easy, 14 medium and 8 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/10-functions.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Functions – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Functions with answers and detailed explanations — 8 easy, 14 medium and 8 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/10-functions.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Functions","item":"https://velnov.co.in/learn/python/10-functions.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Functions</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 10 of 20</p>
+      <h1>Functions — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Functions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-9">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">8 easy · 14 medium · 8 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>def</span><span>Function calls</span><span>Calling</span><span>None</span><span>return</span><span>print()</span><span>Parameters</span><span>Arguments</span><span>Default arguments</span><span>Keyword arguments</span><span>Readability</span><span>Argument order</span><span>SyntaxError</span><span>*args</span><span>**kwargs</span><span>Dictionaries</span><span>Tuples</span><span>Unpacking</span><span>lambda</span><span>Anonymous functions</span><span>sorted()</span><span>key functions</span><span>Local scope</span><span>NameError</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (8)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which is the correct way to define a function called greet?</p>
+        <pre class="code"><code>def greet():
+    print(&quot;Hello!&quot;)
+
+greet()   # call it - Hello!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> def greet():</li>
+          <li><span class="opt-key">B</span> function greet():</li>
+          <li><span class="opt-key">C</span> define greet():</li>
+          <li><span class="opt-key">D</span> greet() =</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — def greet():</p>
+          <p class="expl">Functions are defined with the def keyword, the name, parentheses for parameters, and a colon. The body is indented below.</p>
+          <p class="tags"><span>def</span><span>Function calls</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What happens if you define a function but never CALL it?</p>
+        <pre class="code"><code>def greet():
+    print(&quot;Hi&quot;)   # not printed yet!
+
+greet()            # NOW it prints</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Its body runs once automatically</li>
+          <li class="correct"><span class="opt-key">B</span> Nothing - the body only runs when the function is called</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> It runs at the end of the program</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Nothing - the body only runs when the function is called</p>
+          <p class="expl">def only CREATES the function. The body executes each time you call it with parentheses: greet(). Defining without calling produces no output.</p>
+          <p class="tags"><span>def</span><span>Calling</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does a function return if it has no return statement?</p>
+        <pre class="code"><code>def greet(name):
+    print(f&quot;Hello {name}&quot;)
+
+result = greet(&quot;Ana&quot;)   # prints Hello Ana
+print(result)            # None</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 0</li>
+          <li><span class="opt-key">B</span> Empty string</li>
+          <li class="correct"><span class="opt-key">C</span> None</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — None</p>
+          <p class="expl">Every function returns something. Reaching the end without return (or a bare return) gives None.</p>
+          <ul class="notes"><li>print displays; return hands a value back - the classic beginner confusion.</li></ul>
+          <p class="tags"><span>None</span><span>return</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the difference between print() and return in a function?</p>
+        <pre class="code"><code>def add(a, b):
+    return a + b
+
+total = add(2, 3) * 10   # 50 - reusable!
+</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> None - they do the same</li>
+          <li class="correct"><span class="opt-key">B</span> print shows a value on screen; return sends the value back to the caller for further use</li>
+          <li><span class="opt-key">C</span> return shows on screen; print sends back</li>
+          <li><span class="opt-key">D</span> return only works with numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — print shows a value on screen; return sends the value back to the caller for further use</p>
+          <p class="expl">print() is for humans (display only); return is for code - the caller receives the value and can store, compare or reuse it. A function that only prints can't have its result used in calculations.</p>
+          <p class="tags"><span>return</span><span>print()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">In def greet(name): ... and the call greet(&quot;Ana&quot;) - what are name and &quot;Ana&quot; called?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> name is the parameter; &quot;Ana&quot; is the argument</li>
+          <li><span class="opt-key">B</span> name is the argument; &quot;Ana&quot; is the parameter</li>
+          <li><span class="opt-key">C</span> Both are parameters</li>
+          <li><span class="opt-key">D</span> Both are arguments</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — name is the parameter; &quot;Ana&quot; is the argument</p>
+          <p class="expl">PARAMETER = the placeholder in the definition (name). ARGUMENT = the actual value passed when calling (&quot;Ana&quot;). Parameter is the parking spot, argument is the car.</p>
+          <p class="tags"><span>Parameters</span><span>Arguments</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does return do the moment it executes?</p>
+        <pre class="code"><code>def check(n):
+    if n &lt; 0:
+        return &quot;negative&quot;   # exits here for negatives
+    return &quot;positive&quot;
+    print(&quot;never runs&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Pauses the function</li>
+          <li class="correct"><span class="opt-key">B</span> Immediately EXITS the function, handing back the value - remaining lines don't run</li>
+          <li><span class="opt-key">C</span> Prints the value</li>
+          <li><span class="opt-key">D</span> Restarts the function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Immediately EXITS the function, handing back the value - remaining lines don't run</p>
+          <p class="expl">return ends the function on the spot. Code after an executed return is unreachable. Multiple returns are fine - typically one per branch.</p>
+          <p class="tags"><span>return</span><span>Early return</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">By PEP 8 convention, function names should be written as:</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> snake_case: calculate_total()</li>
+          <li><span class="opt-key">B</span> CamelCase: CalculateTotal()</li>
+          <li><span class="opt-key">C</span> ALLCAPS: CALCULATETOTAL()</li>
+          <li><span class="opt-key">D</span> kebab-case: calculate-total()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — snake_case: calculate_total()</p>
+          <p class="expl">Functions and variables use snake_case; CamelCase is reserved for class names; ALL_CAPS for constants. (kebab-case is illegal - hyphens mean subtraction.)</p>
+          <p class="tags"><span>PEP 8</span><span>Naming conventions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Why split a program into functions at all?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Reuse, readability, easier testing, and no copy-pasted code</li>
+          <li><span class="opt-key">B</span> Functions make programs run faster automatically</li>
+          <li><span class="opt-key">C</span> Python requires at least 5 functions</li>
+          <li><span class="opt-key">D</span> Only to use return</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Reuse, readability, easier testing, and no copy-pasted code</p>
+          <p class="expl">Functions package logic behind a name: write once, call anywhere, test in isolation, and read programs as a story of well-named steps. The DRY principle: Don't Repeat Yourself.</p>
+          <p class="tags"><span>DRY principle</span><span>Code organization</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+def greet(name=&quot;Guest&quot;):
+    print(&quot;Hello&quot;, name)
+greet()</p>
+        <pre class="code"><code>def greet(name=&quot;Guest&quot;):
+    print(&quot;Hello&quot;, name)
+
+greet()         # Hello Guest
+greet(&quot;Ana&quot;)   # Hello Ana</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Hello</li>
+          <li class="correct"><span class="opt-key">B</span> Hello Guest</li>
+          <li><span class="opt-key">C</span> Error - missing argument</li>
+          <li><span class="opt-key">D</span> Hello name</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Hello Guest</p>
+          <p class="expl">name=&quot;Guest&quot; is a DEFAULT argument - used when the caller doesn't supply one. greet() -&gt; 'Hello Guest'; greet(&quot;Ana&quot;) -&gt; 'Hello Ana'.</p>
+          <p class="tags"><span>Default arguments</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What are keyword arguments in: book_ticket(seat=&quot;12A&quot;, meal=&quot;veg&quot;)?</p>
+        <pre class="code"><code>def book(seat, meal):
+    print(seat, meal)
+
+book(meal=&quot;veg&quot;, seat=&quot;12A&quot;)   # order-free</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Arguments passed by NAME, so order doesn't matter</li>
+          <li><span class="opt-key">B</span> Arguments that must be strings</li>
+          <li><span class="opt-key">C</span> Reserved Python keywords</li>
+          <li><span class="opt-key">D</span> Arguments that can't have defaults</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Arguments passed by NAME, so order doesn't matter</p>
+          <p class="expl">Passing name=value lets you give arguments in ANY order and makes calls self-documenting. book_ticket(meal=&quot;veg&quot;, seat=&quot;12A&quot;) works identically.</p>
+          <p class="tags"><span>Keyword arguments</span><span>Readability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is *args used for in a function definition?</p>
+        <pre class="code"><code>def total(*args):
+    return sum(args)
+
+print(total(1, 2, 3))   # 6
+print(total(5))          # 5</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> To accept any number of positional arguments as a tuple</li>
+          <li><span class="opt-key">B</span> To multiply arguments</li>
+          <li><span class="opt-key">C</span> To pass arguments by reference</li>
+          <li><span class="opt-key">D</span> To accept keyword arguments as a dict</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — To accept any number of positional arguments as a tuple</p>
+          <p class="expl">*args collects extra positional arguments into a tuple, so the function accepts any count: total(1), total(1,2,3)... **kwargs does the same for keyword arguments (into a dict).</p>
+          <p class="tags"><span>*args</span><span>**kwargs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does **kwargs collect in def config(**kwargs)?</p>
+        <pre class="code"><code>def config(**kwargs):
+    for key, value in kwargs.items():
+        print(key, &quot;=&quot;, value)
+
+config(theme=&quot;dark&quot;, size=12)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Extra POSITIONAL arguments as a list</li>
+          <li class="correct"><span class="opt-key">B</span> Extra KEYWORD arguments as a dictionary</li>
+          <li><span class="opt-key">C</span> Only two arguments</li>
+          <li><span class="opt-key">D</span> Global variables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Extra KEYWORD arguments as a dictionary</p>
+          <p class="expl">**kwargs gathers surplus name=value arguments into a dict: config(theme=&quot;dark&quot;, size=12) gives kwargs = {'theme': 'dark', 'size': 12}.</p>
+          <p class="tags"><span>**kwargs</span><span>Dictionaries</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+def stats(nums):
+    return min(nums), max(nums)
+lo, hi = stats([3, 8, 1])
+print(lo, hi)</p>
+        <pre class="code"><code>def stats(nums):
+    return min(nums), max(nums)   # a tuple
+
+lo, hi = stats([3, 8, 1])
+print(lo, hi)   # 1 8</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 8</li>
+          <li><span class="opt-key">B</span> 3 8</li>
+          <li><span class="opt-key">C</span> (1, 8)</li>
+          <li><span class="opt-key">D</span> Error - can't return two values</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 8</p>
+          <p class="expl">Returning two values actually returns ONE tuple (1, 8), which unpacks into lo and hi. This is how Python 'returns multiple values'.</p>
+          <p class="tags"><span>Tuples</span><span>Unpacking</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a lambda function?</p>
+        <pre class="code"><code>double = lambda x: x * 2
+print(double(5))   # 10
+
+# same as:
+def double(x):
+    return x * 2</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A small anonymous one-expression function</li>
+          <li><span class="opt-key">B</span> A function that runs in parallel</li>
+          <li><span class="opt-key">C</span> A Greek module</li>
+          <li><span class="opt-key">D</span> A function with no arguments</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A small anonymous one-expression function</p>
+          <p class="expl">lambda arguments: expression creates a tiny unnamed function in one line. Best used inline where a short function is needed once - e.g. as a sort key.</p>
+          <p class="tags"><span>lambda</span><span>Anonymous functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens?
+def f():
+    x = 10
+f()
+print(x)</p>
+        <pre class="code"><code>def f():
+    x = 10
+    return x
+
+x = f()      # bring it out via return
+print(x)      # 10</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Prints 10</li>
+          <li class="correct"><span class="opt-key">B</span> NameError - x is local to f and doesn't exist outside</li>
+          <li><span class="opt-key">C</span> Prints None</li>
+          <li><span class="opt-key">D</span> Prints 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — NameError - x is local to f and doesn't exist outside</p>
+          <p class="expl">Variables created inside a function are LOCAL - they exist only while the function runs and vanish afterwards. To get the value out, return it.</p>
+          <p class="tags"><span>Local scope</span><span>NameError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+x = 5
+def show():
+    print(x)
+show()</p>
+        <pre class="code"><code>x = 5
+def show():
+    print(x)   # reading global - fine
+show()          # 5</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5 - functions can READ global variables</li>
+          <li><span class="opt-key">B</span> NameError</li>
+          <li><span class="opt-key">C</span> None</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5 - functions can READ global variables</p>
+          <p class="expl">Functions can freely READ globals (Python looks outward: Local -&gt; Enclosing -&gt; Global -&gt; Built-in, the LEGB rule). Only ASSIGNING to them requires the global keyword.</p>
+          <p class="tags"><span>LEGB rule</span><span>global</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">def f(a, b): ... What happens when you call f(1)?</p>
+        <pre class="code"><code>def f(a, b):
+    return a + b
+# f(1)         # TypeError
+f(1, 2)        # 3</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> b becomes None</li>
+          <li><span class="opt-key">B</span> b becomes 0</li>
+          <li class="correct"><span class="opt-key">C</span> TypeError: f() missing 1 required positional argument: 'b'</li>
+          <li><span class="opt-key">D</span> Runs with a=1 only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — TypeError: f() missing 1 required positional argument: 'b'</p>
+          <p class="expl">Parameters without defaults are REQUIRED. Calling with too few (or too many) arguments raises TypeError with a helpful message naming the missing parameter.</p>
+          <p class="tags"><span>TypeError</span><span>Required arguments</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is recursion?</p>
+        <pre class="code"><code>def factorial(n):
+    if n == 0:          # base case
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))   # 120</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function that calls ITSELF, with a base case to stop</li>
+          <li><span class="opt-key">B</span> A loop inside a function</li>
+          <li><span class="opt-key">C</span> Calling two functions at once</li>
+          <li><span class="opt-key">D</span> A function without a return</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function that calls ITSELF, with a base case to stop</p>
+          <p class="expl">A recursive function solves a problem by calling itself on a smaller piece, stopping at a base case. Classic example: factorial(n) = n * factorial(n-1), stopping at factorial(0) = 1.</p>
+          <p class="tags"><span>Recursion</span><span>Base case</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of factorial(3) using:
+def factorial(n):
+    if n &lt;= 1: return 1
+    return n * factorial(n - 1)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 3</li>
+          <li class="correct"><span class="opt-key">B</span> 6</li>
+          <li><span class="opt-key">C</span> 9</li>
+          <li><span class="opt-key">D</span> 1</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 6</p>
+          <p class="expl">Trace it: factorial(3) = 3 * factorial(2) = 3 * 2 * factorial(1) = 3 * 2 * 1 = 6.</p>
+          <p class="tags"><span>Recursion</span><span>Tracing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What are the type hints in: def add(a: int, b: int) -&gt; int:</p>
+        <pre class="code"><code>def add(a: int, b: int) -&gt; int:
+    return a + b
+
+add(&quot;x&quot;, &quot;y&quot;)   # runs! returns 'xy' - hints not enforced</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Optional annotations documenting expected types - not enforced at runtime</li>
+          <li><span class="opt-key">B</span> Strict type checks that raise errors on wrong types</li>
+          <li><span class="opt-key">C</span> Comments</li>
+          <li><span class="opt-key">D</span> Required in Python 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Optional annotations documenting expected types - not enforced at runtime</p>
+          <p class="expl">Hints document intent and let tools (IDEs, mypy) catch type mistakes - but Python itself ignores them at runtime: add(&quot;a&quot;, &quot;b&quot;) still runs. -&gt; int hints the return type.</p>
+          <p class="tags"><span>Type hints</span><span>mypy</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you read a function's docstring?</p>
+        <pre class="code"><code>def area(r):
+    &quot;&quot;&quot;Return the area of a circle with radius r.&quot;&quot;&quot;
+    return 3.14159 * r * r
+
+print(area.__doc__)
+help(area)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> help(func) or func.__doc__</li>
+          <li><span class="opt-key">B</span> func.doc()</li>
+          <li><span class="opt-key">C</span> docstring(func)</li>
+          <li><span class="opt-key">D</span> You can't after definition</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — help(func) or func.__doc__</p>
+          <p class="expl">The triple-quoted string right under def is stored in func.__doc__ and shown by help(func). Good docstrings say what the function does, its parameters and return value.</p>
+          <p class="tags"><span>Docstrings</span><span>help()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+def outer():
+    def inner():
+        return &quot;hi&quot;
+    return inner()
+print(outer())</p>
+        <pre class="code"><code>def outer():
+    def inner():
+        return &quot;hi&quot;
+    return inner()   # calls inner, returns 'hi'
+
+print(outer())        # hi</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> hi</li>
+          <li><span class="opt-key">B</span> inner</li>
+          <li><span class="opt-key">C</span> Error - functions can't nest</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — hi</p>
+          <p class="expl">Functions can be defined INSIDE other functions. outer defines inner, calls it (note the parentheses in 'return inner()'), and returns its result: 'hi'. Returning inner WITHOUT parentheses would return the function itself - that's how closures work (next topics!).</p>
+          <p class="tags"><span>Nested functions</span><span>Closures</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (8)</h2>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which call is INVALID for def f(a, b)?</p>
+        <pre class="code"><code>f(1, 2)       # ok - all positional
+f(1, b=2)     # ok - positional then keyword
+# f(a=1, 2)   # SyntaxError!</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> f(1, 2)</li>
+          <li><span class="opt-key">B</span> f(a=1, b=2)</li>
+          <li><span class="opt-key">C</span> f(1, b=2)</li>
+          <li class="correct"><span class="opt-key">D</span> f(a=1, 2)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: D</strong> — f(a=1, 2)</p>
+          <p class="expl">Positional arguments must come BEFORE keyword arguments. f(a=1, 2) puts a positional after a keyword - SyntaxError: positional argument follows keyword argument.</p>
+          <p class="tags"><span>Argument order</span><span>SyntaxError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the key argument do here?
+words = [&quot;banana&quot;, &quot;fig&quot;, &quot;apple&quot;]
+print(sorted(words, key=len))</p>
+        <pre class="code"><code>print(sorted(words, key=len))
+# ['fig', 'apple', 'banana']
+
+students = [{&quot;name&quot;: &quot;Ana&quot;, &quot;marks&quot;: 92}, {&quot;name&quot;: &quot;Ben&quot;, &quot;marks&quot;: 85}]
+top = sorted(students, key=lambda s: s[&quot;marks&quot;], reverse=True)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ['fig', 'apple', 'banana'] - sorts by word LENGTH</li>
+          <li><span class="opt-key">B</span> ['apple', 'banana', 'fig'] - alphabetical</li>
+          <li><span class="opt-key">C</span> Removes short words</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ['fig', 'apple', 'banana'] - sorts by word LENGTH</p>
+          <p class="expl">key tells sorted() what to compare - here each word's len(): 3, 5, 6 -&gt; fig, apple, banana. Lambdas are common keys: sorted(students, key=lambda s: s[&quot;marks&quot;]).</p>
+          <p class="tags"><span>sorted()</span><span>lambda</span><span>key functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does this raise UnboundLocalError?
+count = 0
+def inc():
+    count = count + 1
+inc()</p>
+        <pre class="code"><code>count = 0
+def inc():
+    global count
+    count += 1     # now legal
+
+# better style:
+def inc(count):
+    return count + 1</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> count doesn't exist at all</li>
+          <li class="correct"><span class="opt-key">B</span> The assignment makes count LOCAL for the whole function, so 'count + 1' reads a local that has no value yet</li>
+          <li><span class="opt-key">C</span> Functions can't use numbers</li>
+          <li><span class="opt-key">D</span> inc needs a parameter</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — The assignment makes count LOCAL for the whole function, so 'count + 1' reads a local that has no value yet</p>
+          <p class="expl">Because the function ASSIGNS to count, Python treats count as local everywhere in the function - including the right-hand side, where it hasn't been given a value yet. Fix: declare 'global count', or better, pass it in and return the new value.</p>
+          <p class="tags"><span>UnboundLocalError</span><span>global</span><span>Scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">THE classic Python trap - what is the output?
+def add(item, lst=[]):
+    lst.append(item)
+    return lst
+print(add(1))
+print(add(2))</p>
+        <pre class="code"><code>def add(item, lst=None):
+    if lst is None:
+        lst = []       # fresh list per call
+    lst.append(item)
+    return lst</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> [1] then [2]</li>
+          <li class="correct"><span class="opt-key">B</span> [1] then [1, 2] - the SAME default list is reused between calls</li>
+          <li><span class="opt-key">C</span> [1, 2] then [1, 2]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — [1] then [1, 2] - the SAME default list is reused between calls</p>
+          <p class="expl">Default values are created ONCE, at function definition - not per call. Every call without lst shares the same list, which keeps growing. Fix: default to None and create the list inside.</p>
+          <ul class="notes"><li>Asked in countless interviews - the 'mutable default argument' trap.</li></ul>
+          <p class="tags"><span>Default arguments</span><span>Mutability</span><span>Interview traps</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which definition is INVALID?</p>
+        <pre class="code"><code>def f(a, b=2):     # correct order
+# def f(a=1, b):   # SyntaxError!</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> def f(a, b=2):</li>
+          <li class="correct"><span class="opt-key">B</span> def f(a=1, b):</li>
+          <li><span class="opt-key">C</span> def f(a, b=2, c=3):</li>
+          <li><span class="opt-key">D</span> def f(*args, **kwargs):</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — def f(a=1, b):</p>
+          <p class="expl">Parameters WITH defaults must come AFTER those without: def f(a=1, b): is a SyntaxError - Python couldn't tell which argument f(5) fills. Required first, optional after.</p>
+          <p class="tags"><span>Default arguments</span><span>Parameter order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What happens to a recursive function with NO base case?</p>
+        <pre class="code"><code>def broken(n):
+    return broken(n - 1)   # no base case!
+# broken(5)   # RecursionError</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It runs forever silently</li>
+          <li class="correct"><span class="opt-key">B</span> RecursionError: maximum recursion depth exceeded</li>
+          <li><span class="opt-key">C</span> It returns None</li>
+          <li><span class="opt-key">D</span> SyntaxError at definition</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — RecursionError: maximum recursion depth exceeded</p>
+          <p class="expl">Each call stacks up; without a stopping condition Python hits its recursion limit (about 1000 calls) and raises RecursionError - its protection against a true infinite recursion crash.</p>
+          <p class="tags"><span>RecursionError</span><span>Call stack</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this show?
+def shout(text): return text.upper()
+f = shout
+print(f(&quot;hi&quot;))</p>
+        <pre class="code"><code>f = shout        # no () - the function itself
+print(f(&quot;hi&quot;))  # HI
+ops = [shout, str.lower]  # functions in a list!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> HI - functions are objects that can be assigned to variables</li>
+          <li><span class="opt-key">B</span> Error - functions can't be assigned</li>
+          <li><span class="opt-key">C</span> hi</li>
+          <li><span class="opt-key">D</span> shout</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — HI - functions are objects that can be assigned to variables</p>
+          <p class="expl">Functions are first-class objects: assign them, store them in lists, pass them to other functions. f = shout (NO parentheses) makes f another name for the same function; f(&quot;hi&quot;) calls it.</p>
+          <ul class="notes"><li>shout() with parentheses would CALL it; without, you refer to it.</li></ul>
+          <p class="tags"><span>First-class functions</span><span>Callbacks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+def apply(func, value):
+    return func(value)
+print(apply(len, &quot;hello&quot;))</p>
+        <pre class="code"><code>def apply(func, value):
+    return func(value)
+
+print(apply(len, &quot;hello&quot;))       # 5
+print(apply(str.upper, &quot;hi&quot;))    # HI</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5</li>
+          <li><span class="opt-key">B</span> hello</li>
+          <li><span class="opt-key">C</span> len</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5</p>
+          <p class="expl">apply receives the len function itself and calls it on &quot;hello&quot; -&gt; 5. Passing functions as arguments is the foundation of callbacks, map(), sorted(key=...), and decorators.</p>
+          <p class="tags"><span>Higher-order functions</span><span>Callbacks</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="09-comprehensions.html">← Comprehensions</a>
+      <a href="11-error-handling.html">Error Handling →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-9">Practice “Functions” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

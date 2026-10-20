@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Questions – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Interview Questions with answers and detailed explanations — 0 easy, 1 medium and 29 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/20-interview-questions.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Interview Questions – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Interview Questions with answers and detailed explanations — 0 easy, 1 medium and 29 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/20-interview-questions.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Interview Questions","item":"https://velnov.co.in/learn/python/20-interview-questions.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Interview Questions</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 20 of 20</p>
+      <h1>Interview Questions — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Interview Questions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-19">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">0 easy · 1 medium · 29 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Mutable defaults</span><span>Common traps</span><span>Floating point</span><span>isclose</span><span>References</span><span>Aliasing</span><span>Operator precedence</span><span>Associativity</span><span>bool as int</span><span>Truthiness</span><span>Truthiness vs equality</span><span>Comprehensions</span><span>List concatenation</span><span>Slicing</span><span>Reverse</span><span>List equality</span><span>in operator</span><span>Substrings</span><span>try/finally</span><span>return</span><span>String operations</span><span>Copying</span><span>Gotchas</span><span>Tuple immutability</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+
+    <section>
+      <h2 id="medium">Medium questions (1)</h2>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+s = &quot;hello&quot;
+print(s[::-1])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> olleh</li>
+          <li><span class="opt-key">B</span> hello</li>
+          <li><span class="opt-key">C</span> hell</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — olleh</p>
+          <p class="expl">A slice with step -1 walks the string backwards, reversing it: 'olleh'. The idiomatic Python reverse - also used to check palindromes with s == s[::-1].</p>
+          <p class="tags"><span>Slicing</span><span>Reverse</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (29)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+def f(a, b=[]):
+    b.append(a)
+    return b
+print(f(1))
+print(f(2))</p>
+        <pre class="code"><code>def f(a, b=None):
+    if b is None:
+        b = []
+    b.append(a)
+    return b</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1] then [1, 2] - the default list is created ONCE and reused across calls</li>
+          <li><span class="opt-key">B</span> [1] then [2]</li>
+          <li><span class="opt-key">C</span> [1, 2] then [1, 2]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1] then [1, 2] - the default list is created ONCE and reused across calls</p>
+          <p class="expl">The mutable default argument trap. The default [] is created once at definition and shared by every call that omits b, so it accumulates. Fix: use b=None and create the list inside.</p>
+          <p class="tags"><span>Mutable defaults</span><span>Common traps</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(0.1 + 0.2 == 0.3)</p>
+        <pre class="code"><code>import math
+print(math.isclose(0.1 + 0.2, 0.3))   # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> False - floating-point rounding makes 0.1 + 0.2 = 0.30000000000000004</li>
+          <li><span class="opt-key">B</span> True</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> 0.3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — False - floating-point rounding makes 0.1 + 0.2 = 0.30000000000000004</p>
+          <p class="expl">Floats are binary approximations; 0.1 and 0.2 can't be represented exactly. Never compare floats with ==; use math.isclose(a, b) or round to a few decimals.</p>
+          <p class="tags"><span>Floating point</span><span>isclose</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 2, 3, 4] - a and b are two names for the SAME list</li>
+          <li><span class="opt-key">B</span> [1, 2, 3]</li>
+          <li><span class="opt-key">C</span> [4]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 2, 3, 4] - a and b are two names for the SAME list</p>
+          <p class="expl">b = a does not copy; both names reference one list. Mutating through b is visible through a. For an independent copy: b = a.copy() or b = a[:].</p>
+          <p class="tags"><span>References</span><span>Aliasing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(2 ** 3 ** 2)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 512 - ** is right-associative, so it's 2 ** (3 ** 2) = 2 ** 9</li>
+          <li><span class="opt-key">B</span> 64 - (2 ** 3) ** 2</li>
+          <li><span class="opt-key">C</span> 12</li>
+          <li><span class="opt-key">D</span> 18</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 512 - ** is right-associative, so it's 2 ** (3 ** 2) = 2 ** 9</p>
+          <p class="expl">Exponentiation groups right-to-left (unlike most operators). So 3 ** 2 = 9 first, then 2 ** 9 = 512. A favorite precedence gotcha.</p>
+          <p class="tags"><span>Operator precedence</span><span>Associativity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(True == 1, False == 0, True + True)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True True 2 - bool is a subclass of int (True is 1, False is 0)</li>
+          <li><span class="opt-key">B</span> False False 0</li>
+          <li><span class="opt-key">C</span> True True True</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True True 2 - bool is a subclass of int (True is 1, False is 0)</p>
+          <p class="expl">Booleans ARE integers under the hood: True equals 1, False equals 0, and they do arithmetic. That's why sum([True, False, True]) counts the Trues (2).</p>
+          <p class="tags"><span>bool as int</span><span>Truthiness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print([] == False, bool([]) == False)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> False True - an empty list is falsy but NOT equal to False</li>
+          <li><span class="opt-key">B</span> True True</li>
+          <li><span class="opt-key">C</span> False False</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — False True - an empty list is falsy but NOT equal to False</p>
+          <p class="expl">[] == False compares a list to a boolean (different values) -&gt; False. But bool([]) converts the empty list to False first -&gt; True. Truthiness (used by if) is different from == equality.</p>
+          <p class="tags"><span>Truthiness vs equality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print([i for i in range(3)] + [i*2 for i in range(3)])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [0, 1, 2, 0, 2, 4]</li>
+          <li><span class="opt-key">B</span> [0, 1, 2, 2, 4, 6]</li>
+          <li><span class="opt-key">C</span> [0, 2, 4]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [0, 1, 2, 0, 2, 4]</p>
+          <p class="expl">First comprehension: [0, 1, 2]. Second: [0, 2, 4]. + concatenates the two lists -&gt; [0, 1, 2, 0, 2, 4].</p>
+          <p class="tags"><span>Comprehensions</span><span>List concatenation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(1 == True, [1] == [True])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True True - 1 equals True, so the lists compare equal too</li>
+          <li><span class="opt-key">B</span> True False</li>
+          <li><span class="opt-key">C</span> False False</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True True - 1 equals True, so the lists compare equal too</p>
+          <p class="expl">1 == True is True (bool is int). List equality compares elements: 1 == True is True, so [1] == [True]. Consistent once you know True behaves as 1.</p>
+          <p class="tags"><span>bool as int</span><span>List equality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(&quot;a&quot; in &quot;banana&quot;, &quot;ba&quot; in &quot;banana&quot;, &quot;ab&quot; in &quot;banana&quot;)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True True False - 'in' checks for a contiguous SUBSTRING</li>
+          <li><span class="opt-key">B</span> True True True</li>
+          <li><span class="opt-key">C</span> False False False</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True True False - 'in' checks for a contiguous SUBSTRING</p>
+          <p class="expl">in tests substrings: 'a' and 'ba' appear in 'banana', but 'ab' does not (the letters aren't adjacent in that order). Substring, not subsequence.</p>
+          <p class="tags"><span>in operator</span><span>Substrings</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+def f():
+    try:
+        return 1
+    finally:
+        return 2
+print(f())</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 - finally's return OVERRIDES the try's return</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> 1 then 2</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 - finally's return OVERRIDES the try's return</p>
+          <p class="expl">finally always runs, and its return replaces the pending one from try. This is why returning inside finally is discouraged - it silently swallows the real result (and even exceptions).</p>
+          <p class="tags"><span>try/finally</span><span>return</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(3 * &quot;ab&quot; + &quot;c&quot;)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> ababcabc</li>
+          <li class="correct"><span class="opt-key">B</span> abababc</li>
+          <li><span class="opt-key">C</span> ababab c</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — abababc</p>
+          <p class="expl">* binds tighter than +: 3 * &quot;ab&quot; = &quot;ababab&quot; first, then + &quot;c&quot; -&gt; &quot;abababc&quot;. Precedence applies to string operators too.</p>
+          <p class="tags"><span>Operator precedence</span><span>String operations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+x = [1, 2, 3]
+y = x[:]
+y.append(4)
+print(x, y)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 2, 3] [1, 2, 3, 4] - x[:] made an independent copy</li>
+          <li><span class="opt-key">B</span> [1, 2, 3, 4] [1, 2, 3, 4]</li>
+          <li><span class="opt-key">C</span> [1, 2, 3] [4]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 2, 3] [1, 2, 3, 4] - x[:] made an independent copy</p>
+          <p class="expl">x[:] creates a shallow copy, so y is a separate list. Appending to y leaves x unchanged. (Contrast with y = x, which would share the list.)</p>
+          <p class="tags"><span>Slicing</span><span>Copying</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(bool(&quot;False&quot;), bool(&quot;0&quot;), bool(0), bool(&quot;&quot;))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True True False False</li>
+          <li><span class="opt-key">B</span> False False False False</li>
+          <li><span class="opt-key">C</span> True True True True</li>
+          <li><span class="opt-key">D</span> False True False True</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True True False False</p>
+          <p class="expl">Any NON-EMPTY string is truthy - even &quot;False&quot; and &quot;0&quot;. Only the empty string is falsy. The number 0 is falsy. So: True, True, False, False.</p>
+          <p class="tags"><span>Truthiness</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+a = (1, 2, [3, 4])
+a[2].append(5)
+print(a)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> (1, 2, [3, 4, 5]) - the tuple is immutable but its inner LIST is mutable</li>
+          <li><span class="opt-key">B</span> Error - tuples can't change</li>
+          <li><span class="opt-key">C</span> (1, 2, [3, 4])</li>
+          <li><span class="opt-key">D</span> (1, 2, 3, 4, 5)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — (1, 2, [3, 4, 5]) - the tuple is immutable but its inner LIST is mutable</p>
+          <p class="expl">A tuple can't have its elements REPLACED, but if an element is itself mutable (a list), that object can still be modified. Immutability is shallow.</p>
+          <p class="tags"><span>Tuple immutability</span><span>Mutable elements</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(len(&quot;café&quot;))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 4 - Python 3 strings count CHARACTERS, not bytes</li>
+          <li><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 4 - Python 3 strings count CHARACTERS, not bytes</p>
+          <p class="expl">In Python 3, strings are sequences of Unicode characters, so 'café' has length 4 regardless of how many bytes it takes to encode. (Encoded as UTF-8 bytes it would be 5.)</p>
+          <p class="tags"><span>Unicode</span><span>len()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(list(range(0)), list(range(5, 5)), list(range(3, 0)))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [] [] [] - all three ranges are empty</li>
+          <li><span class="opt-key">B</span> [0] [5] [3, 2, 1]</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> [] [] [3, 2, 1]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [] [] [] - all three ranges are empty</p>
+          <p class="expl">range(0) and range(5,5) produce nothing. range(3, 0) is also empty because it counts UP by default and 3 is already past 0 - you'd need range(3, 0, -1) to count down.</p>
+          <p class="tags"><span>range()</span><span>Empty ranges</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(&quot;5&quot; + &quot;5&quot;, &quot;5&quot; * 2, int(&quot;5&quot;) + 5)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 55 55 10</li>
+          <li><span class="opt-key">B</span> 10 10 10</li>
+          <li><span class="opt-key">C</span> 55 25 10</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 55 55 10</p>
+          <p class="expl">&quot;5&quot; + &quot;5&quot; joins strings -&gt; &quot;55&quot;. &quot;5&quot; * 2 repeats -&gt; &quot;55&quot;. int(&quot;5&quot;) + 5 does math -&gt; 10. Same-looking data behaving three ways depending on type.</p>
+          <p class="tags"><span>Type behavior</span><span>Operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+x = {1, 2, 3}
+y = {3, 4, 5}
+print(x &amp; y, x | y, x ^ y)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> {3} {1,2,3,4,5} {1,2,4,5}</li>
+          <li><span class="opt-key">B</span> {3} {3} {3}</li>
+          <li><span class="opt-key">C</span> {1,2} {4,5} {3}</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — {3} {1,2,3,4,5} {1,2,4,5}</p>
+          <p class="expl">&amp; intersection (common: {3}), | union (all: {1,2,3,4,5}), ^ symmetric difference (in one but not both: {1,2,4,5}).</p>
+          <p class="tags"><span>Set operations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+nums = [1, 2, 3, 4]
+print(nums[::2], nums[1::2], nums[::-2])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 3] [2, 4] [4, 2]</li>
+          <li><span class="opt-key">B</span> [1, 2] [3, 4] [4, 3]</li>
+          <li><span class="opt-key">C</span> [2, 4] [1, 3] [1, 3]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 3] [2, 4] [4, 2]</p>
+          <p class="expl">[::2] every other from start -&gt; [1,3]. [1::2] every other from index 1 -&gt; [2,4]. [::-2] every other going backwards -&gt; [4,2].</p>
+          <p class="tags"><span>Slicing</span><span>Step</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(sorted([3, 1, 2]) is sorted([3, 1, 2]))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> False - sorted() returns a NEW list each call, so they're different objects</li>
+          <li><span class="opt-key">B</span> True</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> [1, 2, 3]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — False - sorted() returns a NEW list each call, so they're different objects</p>
+          <p class="expl">Both calls produce equal lists ([1,2,3]), but they're separate objects in memory, so 'is' (identity) is False. == would be True. Classic is-vs-== distinction.</p>
+          <p class="tags"><span>is vs ==</span><span>sorted()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+d = {&quot;a&quot;: 1, &quot;b&quot;: 2}
+print([k for k in d], [v for v in d.values()])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ['a', 'b'] [1, 2]</li>
+          <li><span class="opt-key">B</span> [1, 2] ['a', 'b']</li>
+          <li><span class="opt-key">C</span> ['a', 'b'] ['a', 'b']</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ['a', 'b'] [1, 2]</p>
+          <p class="expl">Iterating a dict directly gives its KEYS (['a', 'b']); .values() gives the values ([1, 2]). A frequent point of confusion when looping dicts.</p>
+          <p class="tags"><span>Dict iteration</span><span>keys/values</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(&quot;abc&quot;.find(&quot;d&quot;), &quot;abc&quot;.find(&quot;b&quot;))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> -1 1 - find returns -1 when not found, else the index</li>
+          <li><span class="opt-key">B</span> None 1</li>
+          <li><span class="opt-key">C</span> Error 1</li>
+          <li><span class="opt-key">D</span> 0 1</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — -1 1 - find returns -1 when not found, else the index</p>
+          <p class="expl">find returns the index of the substring, or -1 if absent. 'd' isn't there (-1); 'b' is at index 1. (index() would raise ValueError instead of returning -1.)</p>
+          <p class="tags"><span>find()</span><span>index()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(list(map(lambda x: x**2, filter(lambda x: x % 2, range(6)))))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 9, 25] - keep odds (1,3,5), then square them</li>
+          <li><span class="opt-key">B</span> [0, 4, 16]</li>
+          <li><span class="opt-key">C</span> [1, 4, 9, 16, 25]</li>
+          <li><span class="opt-key">D</span> [0, 1, 4, 9, 16, 25]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 9, 25] - keep odds (1,3,5), then square them</p>
+          <p class="expl">filter keeps values where x % 2 is truthy (odd): 1, 3, 5. map squares them: 1, 9, 25. Read inside-out. A comprehension would be [x**2 for x in range(6) if x % 2].</p>
+          <p class="tags"><span>map()</span><span>filter()</span><span>lambda</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+a = b = [1, 2]
+a += [3]
+print(a, b)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 2, 3] [1, 2, 3] - += mutates the shared list in place</li>
+          <li><span class="opt-key">B</span> [1, 2, 3] [1, 2]</li>
+          <li><span class="opt-key">C</span> [1, 2] [1, 2, 3]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 2, 3] [1, 2, 3] - += mutates the shared list in place</p>
+          <p class="expl">a and b point to the same list. For lists, += calls extend (in-place mutation), so both names see [1, 2, 3]. (For an int, += would rebind and NOT affect the other name.)</p>
+          <p class="tags"><span>Aliasing</span><span>In-place operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(&quot;-&quot;.join([str(x) for x in range(3)]))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 0-1-2</li>
+          <li><span class="opt-key">B</span> 012</li>
+          <li><span class="opt-key">C</span> 0 1 2</li>
+          <li><span class="opt-key">D</span> ['0-1-2']</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 0-1-2</p>
+          <p class="expl">The comprehension makes ['0', '1', '2'] (join needs strings, not ints), then join glues them with '-' -&gt; '0-1-2'.</p>
+          <p class="tags"><span>join()</span><span>Comprehensions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+x = 1
+print(x, end=&quot;&quot;)
+print(x + 1)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 12 (on one line) - end=&quot;&quot; removes the newline after the first print</li>
+          <li><span class="opt-key">B</span> 1 then 2 on separate lines</li>
+          <li><span class="opt-key">C</span> 1 2</li>
+          <li><span class="opt-key">D</span> 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 12 (on one line) - end=&quot;&quot; removes the newline after the first print</p>
+          <p class="expl">end=&quot;&quot; replaces the default trailing newline with nothing, so the second print continues on the same line: '1' then '2' -&gt; '12'.</p>
+          <p class="tags"><span>print end</span><span>Output formatting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(max(&quot;apple&quot;, &quot;banana&quot;, key=len), max(&quot;apple&quot;, &quot;banana&quot;))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> banana banana - one by LENGTH, the other alphabetically (b &gt; a)</li>
+          <li><span class="opt-key">B</span> apple apple</li>
+          <li><span class="opt-key">C</span> banana apple</li>
+          <li><span class="opt-key">D</span> apple banana</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — banana banana - one by LENGTH, the other alphabetically (b &gt; a)</p>
+          <p class="expl">With key=len, max compares lengths: 'banana' (6) wins. Without key, max compares alphabetically: 'banana' &gt; 'apple' because 'b' &gt; 'a'. Both give 'banana' here, for different reasons.</p>
+          <p class="tags"><span>max()</span><span>key functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(type([]) == list, type([]) is list, isinstance([], list))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True True True - all three confirm [] is a list</li>
+          <li><span class="opt-key">B</span> True False True</li>
+          <li><span class="opt-key">C</span> False False True</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True True True - all three confirm [] is a list</p>
+          <p class="expl">type([]) is the list class. == compares it to list (True); is checks identity - and classes are singletons, so True; isinstance is the preferred check (True). All three agree here, but isinstance is best because it respects subclasses.</p>
+          <p class="tags"><span>type()</span><span>isinstance()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">The famous one - what is the output?
+for i in range(3):
+    pass
+print(i)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 - the loop variable survives with its LAST value after the loop</li>
+          <li><span class="opt-key">B</span> 3</li>
+          <li><span class="opt-key">C</span> NameError</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 - the loop variable survives with its LAST value after the loop</p>
+          <p class="expl">Unlike comprehensions, a for-loop variable leaks into the surrounding scope and keeps its final value (2, the last item of range(3)). If range were empty, i would never be defined.</p>
+          <p class="tags"><span>Loop variable scope</span><span>Gotchas</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="19-advanced-concepts.html">← Advanced Concepts</a>
+      <span></span>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-19">Practice “Interview Questions” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

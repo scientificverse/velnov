@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operators – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Operators with answers and detailed explanations — 7 easy, 14 medium and 9 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/03-operators.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Operators – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Operators with answers and detailed explanations — 7 easy, 14 medium and 9 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/03-operators.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Operators","item":"https://velnov.co.in/learn/javascript/03-operators.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Operators</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 3 of 20</p>
+      <h1>Operators — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Operators</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-2">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">7 easy · 14 medium · 9 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Division</span><span>Math.floor</span><span>Modulo</span><span>Even/odd</span><span>Exponent</span><span>Math.pow</span><span>Increment</span><span>Prefix vs postfix</span><span>Compound assignment</span><span>Coercion</span><span>Concatenation</span><span>Operators</span><span>Associativity</span><span>Operator precedence</span><span>Strict equality</span><span>Assignment</span><span>Comparison</span><span>Inequality</span><span>Logical operators</span><span>Short-circuit</span><span>Defaults</span><span>Logical AND</span><span>Nullish coalescing</span><span>Ternary</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (7)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output?
+console.log(7 / 2);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 3.5 - JavaScript division always gives a decimal when needed</li>
+          <li><span class="opt-key">B</span> 3</li>
+          <li><span class="opt-key">C</span> 4</li>
+          <li><span class="opt-key">D</span> 3.0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 3.5 - JavaScript division always gives a decimal when needed</p>
+          <p class="expl">There is only one number type, so 7 / 2 is 3.5. To get a whole number use Math.floor(7 / 2) or Math.trunc(7 / 2).</p>
+          <p class="tags"><span>Division</span><span>Math.floor</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does the % (modulo) operator return?
+console.log(7 % 2);</p>
+        <pre class="code"><code>console.log(10 % 3);   // 1
+console.log(8 % 2);    // 0 - even</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 - the REMAINDER after division</li>
+          <li><span class="opt-key">B</span> 3.5</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> 0.5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 - the REMAINDER after division</p>
+          <p class="expl">% gives the remainder: 7 divided by 2 is 3 remainder 1. The standard even-number test is n % 2 === 0.</p>
+          <p class="tags"><span>Modulo</span><span>Even/odd</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does ** do?
+console.log(2 ** 3);</p>
+        <pre class="code"><code>console.log(2 ** 3);        // 8
+console.log(9 ** 0.5);      // 3 - square root</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 8 - exponentiation (2 to the power 3)</li>
+          <li><span class="opt-key">B</span> 6</li>
+          <li><span class="opt-key">C</span> 23</li>
+          <li><span class="opt-key">D</span> 5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 8 - exponentiation (2 to the power 3)</p>
+          <p class="expl">** is the exponent operator (ES2016): 2 ** 3 = 8. The older equivalent is Math.pow(2, 3).</p>
+          <p class="tags"><span>Exponent</span><span>Math.pow</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does += do?
+let x = 10;
+x += 5;</p>
+        <pre class="code"><code>let s = &quot;Hello&quot;;
+s += &quot; World&quot;;   // &quot;Hello World&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> x becomes 15 (x = x + 5)</li>
+          <li><span class="opt-key">B</span> x becomes 5</li>
+          <li><span class="opt-key">C</span> x becomes 105</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — x becomes 15 (x = x + 5)</p>
+          <p class="expl">Compound assignment: += adds and reassigns. Others: -=, *=, /=, %=, **=. With strings, += concatenates.</p>
+          <p class="tags"><span>Compound assignment</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which operator checks equality WITHOUT type conversion?</p>
+        <pre class="code"><code>console.log(5 === &quot;5&quot;);   // false - different types
+console.log(5 == &quot;5&quot;);    // true  - coerced</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ===</li>
+          <li><span class="opt-key">B</span> ==</li>
+          <li><span class="opt-key">C</span> =</li>
+          <li><span class="opt-key">D</span> !=</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ===</p>
+          <p class="expl">=== (strict equality) compares value AND type - no coercion. == converts types first, which causes surprises. Always prefer ===.</p>
+          <p class="tags"><span>Strict equality</span><span>Coercion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the difference between = and ==?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> = ASSIGNS a value; == COMPARES two values</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> == assigns; = compares</li>
+          <li><span class="opt-key">D</span> = only works with numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — = ASSIGNS a value; == COMPARES two values</p>
+          <p class="expl">One equals sign stores a value (x = 5). Two compare (x == 5). Three compare strictly (x === 5). Using = inside an if is a classic bug.</p>
+          <p class="tags"><span>Assignment</span><span>Comparison</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does &amp;&amp; (logical AND) return?
+console.log(true &amp;&amp; false);</p>
+        <pre class="code"><code>console.log(true &amp;&amp; true);    // true
+console.log(true &amp;&amp; false);   // false
+console.log(false || true);   // true</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false - both sides must be truthy</li>
+          <li><span class="opt-key">B</span> true</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false - both sides must be truthy</p>
+          <p class="expl">&amp;&amp; is true only when BOTH operands are truthy. || (OR) is true when at least one is.</p>
+          <p class="tags"><span>Logical operators</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+let x = 5;
+console.log(x++);
+console.log(x);</p>
+        <pre class="code"><code>let a = 5;
+console.log(a++);   // 5 (then a is 6)
+let b = 5;
+console.log(++b);   // 6</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5 then 6 - POST-increment returns the old value first, then increments</li>
+          <li><span class="opt-key">B</span> 6 then 6</li>
+          <li><span class="opt-key">C</span> 5 then 5</li>
+          <li><span class="opt-key">D</span> 6 then 7</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5 then 6 - POST-increment returns the old value first, then increments</p>
+          <p class="expl">x++ (postfix) yields the current value 5, THEN adds 1. ++x (prefix) would add first and yield 6.</p>
+          <p class="tags"><span>Increment</span><span>Prefix vs postfix</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+let x = 5;
+console.log(++x);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 6 - PRE-increment adds first, then returns</li>
+          <li><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> 7</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 6 - PRE-increment adds first, then returns</p>
+          <p class="expl">++x increments to 6 and returns the new value. The difference only matters when you use the result in the same expression.</p>
+          <p class="tags"><span>Increment</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(2 + 3 + &quot;4&quot;);</p>
+        <pre class="code"><code>console.log(2 + 3 + &quot;4&quot;);   // &quot;54&quot;
+console.log(&quot;4&quot; + 2 + 3);   // &quot;423&quot; - order matters!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;54&quot; - 2 + 3 is calculated first (5), then &quot;4&quot; turns it into a string</li>
+          <li><span class="opt-key">B</span> &quot;234&quot;</li>
+          <li><span class="opt-key">C</span> 9</li>
+          <li><span class="opt-key">D</span> &quot;9&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;54&quot; - 2 + 3 is calculated first (5), then &quot;4&quot; turns it into a string</p>
+          <p class="expl">+ evaluates left to right: 2 + 3 = 5 (both numbers), then 5 + &quot;4&quot; concatenates to &quot;54&quot;.</p>
+          <p class="tags"><span>Associativity</span><span>Coercion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(2 + 3 * 4);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 14 - multiplication happens before addition</li>
+          <li><span class="opt-key">B</span> 20</li>
+          <li><span class="opt-key">C</span> 24</li>
+          <li><span class="opt-key">D</span> 9</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 14 - multiplication happens before addition</p>
+          <p class="expl">Standard precedence: * before +. Use parentheses to change it: (2 + 3) * 4 is 20.</p>
+          <p class="tags"><span>Operator precedence</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which operator means 'strictly NOT equal'?</p>
+        <pre class="code"><code>console.log(5 !== &quot;5&quot;);   // true  - different types
+console.log(5 != &quot;5&quot;);    // false - coerced to equal</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> !==</li>
+          <li><span class="opt-key">B</span> !=</li>
+          <li><span class="opt-key">C</span> &lt;&gt;</li>
+          <li><span class="opt-key">D</span> not ===</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — !==</p>
+          <p class="expl">!== is the strict inequality operator (no type conversion), the counterpart of ===. != is the loose version.</p>
+          <p class="tags"><span>Inequality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the ternary operator do?
+let status = age &gt;= 18 ? &quot;adult&quot; : &quot;minor&quot;;</p>
+        <pre class="code"><code>const msg = score &gt; 50 ? &quot;Pass&quot; : &quot;Fail&quot;;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Returns &quot;adult&quot; if the condition is true, otherwise &quot;minor&quot; - a one-line if/else</li>
+          <li><span class="opt-key">B</span> Compares three values</li>
+          <li><span class="opt-key">C</span> Loops three times</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Returns &quot;adult&quot; if the condition is true, otherwise &quot;minor&quot; - a one-line if/else</p>
+          <p class="expl">condition ? valueIfTrue : valueIfFalse is JavaScript's only three-operand operator. Great for short assignments; avoid deep nesting.</p>
+          <p class="tags"><span>Ternary</span><span>Conditional expression</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does ! (logical NOT) do?
+console.log(!true, !0);</p>
+        <pre class="code"><code>console.log(!true);    // false
+console.log(!0);       // true
+console.log(!&quot;&quot;);      // true</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true becomes false; 0 (falsy) becomes true</li>
+          <li><span class="opt-key">B</span> Both become true</li>
+          <li><span class="opt-key">C</span> Both become false</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true becomes false; 0 (falsy) becomes true</p>
+          <p class="expl">! converts its operand to a boolean and flips it. !0 is true because 0 is falsy.</p>
+          <p class="tags"><span>Logical NOT</span><span>Truthiness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(5 &gt; 3 &amp;&amp; 2 &gt; 1);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true - both comparisons are true</li>
+          <li><span class="opt-key">B</span> false</li>
+          <li><span class="opt-key">C</span> 5</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true - both comparisons are true</p>
+          <p class="expl">Comparisons produce booleans, and &amp;&amp; requires both to be true. Comparison operators have higher precedence than &amp;&amp;, so no parentheses are needed.</p>
+          <p class="tags"><span>Comparison</span><span>Logical operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the optional chaining operator ?. do?
+user?.address?.city</p>
+        <pre class="code"><code>const city = user?.address?.city ?? &quot;Unknown&quot;;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Safely reads nested properties - returns undefined instead of throwing if something is null/undefined</li>
+          <li><span class="opt-key">B</span> Makes properties optional to declare</li>
+          <li><span class="opt-key">C</span> Creates the property if missing</li>
+          <li><span class="opt-key">D</span> Is a syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Safely reads nested properties - returns undefined instead of throwing if something is null/undefined</p>
+          <p class="expl">Without ?., reading user.address.city when address is undefined throws a TypeError. Optional chaining short-circuits to undefined instead - very handy with API data.</p>
+          <p class="tags"><span>Optional chaining</span><span>Nullish coalescing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the spread operator ... do here?
+const combined = [...arr1, ...arr2];</p>
+        <pre class="code"><code>const a = [1, 2], b = [3];
+console.log([...a, ...b]);      // [1, 2, 3]
+console.log({ ...obj1, ...obj2 });  // merged object</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Expands both arrays' elements into a new array (concatenation)</li>
+          <li><span class="opt-key">B</span> Multiplies the arrays</li>
+          <li><span class="opt-key">C</span> Nests them</li>
+          <li><span class="opt-key">D</span> Deletes duplicates</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Expands both arrays' elements into a new array (concatenation)</p>
+          <p class="expl">Spread unpacks iterables into a new array or object. It is the modern way to copy or merge without mutating the originals.</p>
+          <p class="tags"><span>Spread</span><span>Rest parameters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(10 + +&quot;5&quot;);</p>
+        <pre class="code"><code>console.log(+&quot;5&quot;);      // 5 (number)
+console.log(+true);      // 1
+console.log(+&quot;abc&quot;);    // NaN</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 15 - the unary plus converts &quot;5&quot; to the number 5</li>
+          <li><span class="opt-key">B</span> &quot;105&quot;</li>
+          <li><span class="opt-key">C</span> NaN</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 15 - the unary plus converts &quot;5&quot; to the number 5</p>
+          <p class="expl">A single + before a value is the unary plus, a compact way to convert to a number. So 10 + 5 = 15.</p>
+          <p class="tags"><span>Unary plus</span><span>Type conversion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the comma operator do?
+let x = (1, 2, 3);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Evaluates each expression and returns the LAST one - x is 3</li>
+          <li><span class="opt-key">B</span> Creates an array</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> x becomes 1</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Evaluates each expression and returns the LAST one - x is 3</p>
+          <p class="expl">The comma operator evaluates left to right and yields the final value. Rarely used deliberately, but it appears in compact for-loop headers.</p>
+          <p class="tags"><span>Comma operator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the delete operator do?
+delete user.age;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Removes the property from the object</li>
+          <li><span class="opt-key">B</span> Deletes the whole object</li>
+          <li><span class="opt-key">C</span> Sets the property to null</li>
+          <li><span class="opt-key">D</span> Deletes a variable</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Removes the property from the object</p>
+          <p class="expl">delete removes a property entirely (afterwards 'age' in user is false). It does not work on variables, and on arrays it leaves a hole rather than shifting elements - use splice() for arrays.</p>
+          <p class="tags"><span>delete</span><span>Objects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the in operator check?
+console.log(&quot;name&quot; in user);</p>
+        <pre class="code"><code>console.log(&quot;name&quot; in { name: &quot;Ana&quot; });   // true
+console.log(1 in [10, 20]);                 // true - index 1!
+console.log([10, 20].includes(20));         // true - value</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Whether the object has a property with that KEY</li>
+          <li><span class="opt-key">B</span> Whether a value exists in the object</li>
+          <li><span class="opt-key">C</span> Whether a string contains 'name'</li>
+          <li><span class="opt-key">D</span> Whether user is inside name</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Whether the object has a property with that KEY</p>
+          <p class="expl">in tests for a property key (including inherited ones). For arrays it checks INDEXES, not values - use includes() for array values.</p>
+          <p class="tags"><span>in operator</span><span>includes</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (9)</h2>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;5&quot; + 3);</p>
+        <pre class="code"><code>console.log(&quot;5&quot; + 3);   // &quot;53&quot;
+console.log(5 + 3);      // 8</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;53&quot; - the number is converted to a string and concatenated</li>
+          <li><span class="opt-key">B</span> 8</li>
+          <li><span class="opt-key">C</span> NaN</li>
+          <li><span class="opt-key">D</span> TypeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;53&quot; - the number is converted to a string and concatenated</p>
+          <p class="expl">When either operand of + is a string, JavaScript converts the other to a string and joins them. This is the most common coercion surprise.</p>
+          <p class="tags"><span>Coercion</span><span>Concatenation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;5&quot; - 3);</p>
+        <pre class="code"><code>console.log(&quot;5&quot; - 3);   // 2
+console.log(&quot;5&quot; * 2);   // 10
+console.log(&quot;5&quot; + 3);   // &quot;53&quot; - the odd one out</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 - unlike +, the minus operator converts strings to NUMBERS</li>
+          <li><span class="opt-key">B</span> &quot;53&quot;</li>
+          <li><span class="opt-key">C</span> &quot;2&quot;</li>
+          <li><span class="opt-key">D</span> NaN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 - unlike +, the minus operator converts strings to NUMBERS</p>
+          <p class="expl">Only + has the string-concatenation meaning. -, *, / and % always try numeric conversion, so &quot;5&quot; - 3 is 2. This asymmetry catches many beginners.</p>
+          <p class="tags"><span>Coercion</span><span>Operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(0 || &quot;hello&quot;);</p>
+        <pre class="code"><code>const name = userInput || &quot;Guest&quot;;   // fallback if empty</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;hello&quot; - || returns the first TRUTHY value, not just true/false</li>
+          <li><span class="opt-key">B</span> true</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> false</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;hello&quot; - || returns the first TRUTHY value, not just true/false</p>
+          <p class="expl">Logical operators return one of the OPERANDS, not booleans. 0 is falsy so || moves on and returns &quot;hello&quot;. A common way to supply a default value.</p>
+          <p class="tags"><span>Short-circuit</span><span>Defaults</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;hi&quot; &amp;&amp; &quot;bye&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;bye&quot; - &amp;&amp; returns the LAST value if all are truthy (or the first falsy one)</li>
+          <li><span class="opt-key">B</span> &quot;hi&quot;</li>
+          <li><span class="opt-key">C</span> true</li>
+          <li><span class="opt-key">D</span> false</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;bye&quot; - &amp;&amp; returns the LAST value if all are truthy (or the first falsy one)</p>
+          <p class="expl">&amp;&amp; stops at the first falsy operand and returns it; if none are falsy it returns the last one. Used for conditional execution: isLoggedIn &amp;&amp; showDashboard().</p>
+          <p class="tags"><span>Short-circuit</span><span>Logical AND</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between || and ?? (nullish coalescing)?</p>
+        <pre class="code"><code>const count = 0;
+console.log(count || 10);   // 10 - wrong!
+console.log(count ?? 10);   // 0  - correct</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> || falls back on ANY falsy value (0, &quot;&quot;, false); ?? falls back only on null or undefined</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> ?? is deprecated</li>
+          <li><span class="opt-key">D</span> ?? only works with numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — || falls back on ANY falsy value (0, &quot;&quot;, false); ?? falls back only on null or undefined</p>
+          <p class="expl">If a valid value can be 0 or &quot;&quot;, || wrongly replaces it. ?? treats only null/undefined as 'missing', which is usually what you want for defaults.</p>
+          <p class="tags"><span>Nullish coalescing</span><span>Defaults</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the double NOT !! do?
+console.log(!!&quot;hello&quot;);</p>
+        <pre class="code"><code>console.log(!!&quot;hello&quot;);   // true
+console.log(!!0);          // false
+console.log(Boolean(0));   // false - clearer alternative</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Converts any value to its boolean equivalent - here true</li>
+          <li><span class="opt-key">B</span> Nothing - it cancels out</li>
+          <li><span class="opt-key">C</span> Returns the string</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Converts any value to its boolean equivalent - here true</p>
+          <p class="expl">!! is a shorthand for Boolean(value): the first ! makes it a flipped boolean, the second flips it back. Common for turning a value into a real true/false.</p>
+          <p class="tags"><span>Boolean conversion</span><span>Truthiness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(1 &lt; 2 &lt; 3, 3 &gt; 2 &gt; 1);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true false - chaining does NOT work as maths; the second becomes (3&gt;2)=true, then true&gt;1 is false</li>
+          <li><span class="opt-key">B</span> true true</li>
+          <li><span class="opt-key">C</span> false false</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true false - chaining does NOT work as maths; the second becomes (3&gt;2)=true, then true&gt;1 is false</p>
+          <p class="expl">Comparisons evaluate left to right into booleans. 3 &gt; 2 gives true, then true &gt; 1 converts true to 1, and 1 &gt; 1 is false. Never chain comparisons - write (3 &gt; 2) &amp;&amp; (2 &gt; 1).</p>
+          <ul class="notes"><li>A favourite trick question.</li></ul>
+          <p class="tags"><span>Chained comparison</span><span>Coercion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(typeof (5 &gt; 3));</p>
+        <pre class="code"><code>const isAdult = age &gt;= 18;   // store the boolean
+return n % 2 === 0;           // return it</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;boolean&quot;</li>
+          <li><span class="opt-key">B</span> &quot;number&quot;</li>
+          <li><span class="opt-key">C</span> &quot;string&quot;</li>
+          <li><span class="opt-key">D</span> &quot;object&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;boolean&quot;</p>
+          <p class="expl">A comparison evaluates to true or false, whose type is &quot;boolean&quot;. You can store or return comparisons directly instead of writing if/else.</p>
+          <p class="tags"><span>Booleans</span><span>Comparison</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What are the bitwise operators &amp; | ^ ~ &lt;&lt; &gt;&gt; used for?</p>
+        <pre class="code"><code>console.log(5 &amp; 3);    // 1  (0101 &amp; 0011)
+console.log(5 | 3);    // 7
+console.log(5 &lt;&lt; 1);   // 10 (shift left = x2)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Operating on the individual bits of numbers - flags, masks, low-level maths</li>
+          <li><span class="opt-key">B</span> Logical AND/OR only</li>
+          <li><span class="opt-key">C</span> String manipulation</li>
+          <li><span class="opt-key">D</span> Comparing objects</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Operating on the individual bits of numbers - flags, masks, low-level maths</p>
+          <p class="expl">They convert numbers to 32-bit integers and work bit by bit. Everyday web code rarely needs them, but they appear in permissions flags, graphics and optimisation tricks.</p>
+          <p class="tags"><span>Bitwise</span><span>Binary</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="02-variables-and-data-types.html">← Variables &amp; Data Types</a>
+      <a href="04-type-coercion-and-equality.html">Type Coercion &amp; Equality →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-2">Practice “Operators” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

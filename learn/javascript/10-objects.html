@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objects – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Objects with answers and detailed explanations — 5 easy, 17 medium and 8 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/10-objects.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Objects – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Objects with answers and detailed explanations — 5 easy, 17 medium and 8 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/10-objects.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Objects","item":"https://velnov.co.in/learn/javascript/10-objects.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Objects</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 10 of 20</p>
+      <h1>Objects — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Objects</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-9">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">5 easy · 17 medium · 8 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Objects</span><span>Literals</span><span>Dot notation</span><span>Bracket notation</span><span>Dynamic keys</span><span>undefined</span><span>Optional chaining</span><span>Adding properties</span><span>const</span><span>delete</span><span>null</span><span>in operator</span><span>hasOwn</span><span>Object.keys</span><span>Iteration</span><span>Object.entries</span><span>Destructuring</span><span>Methods</span><span>this</span><span>Arrow functions</span><span>ES6</span><span>Spread</span><span>Copying</span><span>Shallow copy</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (5)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which line creates an object?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> const user = { name: &quot;Ana&quot;, age: 21 };</li>
+          <li><span class="opt-key">B</span> const user = [ name: &quot;Ana&quot; ];</li>
+          <li><span class="opt-key">C</span> const user = ( name: &quot;Ana&quot; );</li>
+          <li><span class="opt-key">D</span> const user = object(name, age);</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — const user = { name: &quot;Ana&quot;, age: 21 };</p>
+          <p class="expl">Curly braces with key: value pairs create an object literal - the most common way to group related data.</p>
+          <p class="tags"><span>Objects</span><span>Literals</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What are the two ways to read a property?</p>
+        <pre class="code"><code>console.log(user.name);
+console.log(user[&quot;name&quot;]);
+const key = &quot;name&quot;;
+console.log(user[key]);   // dynamic - brackets required</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Dot notation user.name and bracket notation user[&quot;name&quot;]</li>
+          <li><span class="opt-key">B</span> Only dot notation</li>
+          <li><span class="opt-key">C</span> user-&gt;name</li>
+          <li><span class="opt-key">D</span> user::name</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Dot notation user.name and bracket notation user[&quot;name&quot;]</p>
+          <p class="expl">Dot notation is cleaner; brackets are required when the key is stored in a variable or is not a valid identifier.</p>
+          <p class="tags"><span>Dot notation</span><span>Bracket notation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What happens when you read a property that does not exist?
+console.log(user.email);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined</li>
+          <li><span class="opt-key">B</span> null</li>
+          <li><span class="opt-key">C</span> ReferenceError</li>
+          <li><span class="opt-key">D</span> &quot;&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined</p>
+          <p class="expl">Missing properties return undefined rather than throwing. But reading a property OF undefined (user.address.city when address is missing) throws a TypeError.</p>
+          <p class="tags"><span>undefined</span><span>Optional chaining</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you ADD a new property to an existing object?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> user.email = &quot;a@b.com&quot;;</li>
+          <li><span class="opt-key">B</span> user.add(&quot;email&quot;, &quot;a@b.com&quot;);</li>
+          <li><span class="opt-key">C</span> user.push({email: &quot;a@b.com&quot;});</li>
+          <li><span class="opt-key">D</span> You cannot add properties later</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — user.email = &quot;a@b.com&quot;;</p>
+          <p class="expl">Assigning to a new key creates it; assigning to an existing key updates it. Objects are dynamic - even const objects can gain properties.</p>
+          <p class="tags"><span>Adding properties</span><span>const</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is a method?</p>
+        <pre class="code"><code>const user = {
+  name: &quot;Ana&quot;,
+  greet() { return `Hi, ${this.name}`; }
+};
+console.log(user.greet());   // Hi, Ana</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function stored as an object property</li>
+          <li><span class="opt-key">B</span> A special kind of variable</li>
+          <li><span class="opt-key">C</span> A loop</li>
+          <li><span class="opt-key">D</span> A class only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function stored as an object property</p>
+          <p class="expl">When a property's value is a function, it is called a method and can act on the object's own data via this.</p>
+          <p class="tags"><span>Methods</span><span>this</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (17)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When MUST you use bracket notation?</p>
+        <pre class="code"><code>const obj = { &quot;first name&quot;: &quot;Ana&quot; };
+console.log(obj[&quot;first name&quot;]);   // brackets required</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> When the key is in a variable, has spaces/hyphens, or starts with a digit</li>
+          <li><span class="opt-key">B</span> Never - dot always works</li>
+          <li><span class="opt-key">C</span> Only for numbers</li>
+          <li><span class="opt-key">D</span> Only inside functions</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — When the key is in a variable, has spaces/hyphens, or starts with a digit</p>
+          <p class="expl">obj.key looks for the literal key named 'key'; obj[key] uses the variable's value. Keys like &quot;first name&quot; or &quot;data-id&quot; also need brackets.</p>
+          <p class="tags"><span>Bracket notation</span><span>Dynamic keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you DELETE a property?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> delete user.age;</li>
+          <li><span class="opt-key">B</span> user.age = null;</li>
+          <li><span class="opt-key">C</span> user.remove(&quot;age&quot;);</li>
+          <li><span class="opt-key">D</span> user.age.delete();</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — delete user.age;</p>
+          <p class="expl">delete removes the key entirely, so &quot;age&quot; in user becomes false. Setting it to null keeps the key with a null value - a meaningful difference when iterating.</p>
+          <p class="tags"><span>delete</span><span>null</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you check whether an object HAS a property?</p>
+        <pre class="code"><code>console.log(&quot;name&quot; in user);
+console.log(Object.hasOwn(user, &quot;name&quot;));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;name&quot; in user  or  Object.hasOwn(user, &quot;name&quot;)</li>
+          <li><span class="opt-key">B</span> user.has(&quot;name&quot;)</li>
+          <li><span class="opt-key">C</span> user.contains(&quot;name&quot;)</li>
+          <li><span class="opt-key">D</span> user.exists(&quot;name&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;name&quot; in user  or  Object.hasOwn(user, &quot;name&quot;)</p>
+          <p class="expl">'in' also finds inherited properties; Object.hasOwn (or hasOwnProperty) checks only the object's own keys. Testing user.name !== undefined fails when the value legitimately IS undefined.</p>
+          <p class="tags"><span>in operator</span><span>hasOwn</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What do Object.keys(), Object.values() and Object.entries() return?</p>
+        <pre class="code"><code>const u = { a: 1, b: 2 };
+Object.keys(u);      // [&quot;a&quot;, &quot;b&quot;]
+Object.values(u);    // [1, 2]
+Object.entries(u);   // [[&quot;a&quot;,1], [&quot;b&quot;,2]]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Arrays of keys, of values, and of [key, value] pairs</li>
+          <li><span class="opt-key">B</span> Objects</li>
+          <li><span class="opt-key">C</span> Strings</li>
+          <li><span class="opt-key">D</span> Numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Arrays of keys, of values, and of [key, value] pairs</p>
+          <p class="expl">They convert an object into arrays so you can use array methods on it - the standard way to iterate or transform objects.</p>
+          <p class="tags"><span>Object.keys</span><span>Iteration</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you loop over an object's key/value pairs?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> for (const [k, v] of Object.entries(obj))</li>
+          <li><span class="opt-key">B</span> for (const v of obj)</li>
+          <li><span class="opt-key">C</span> obj.forEach((k, v) =&gt; ...)</li>
+          <li><span class="opt-key">D</span> for (const k of obj)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — for (const [k, v] of Object.entries(obj))</p>
+          <p class="expl">Plain objects are not iterable, so for...of on the object itself throws. Object.entries plus destructuring is the modern approach (for...in also works, giving keys only).</p>
+          <p class="tags"><span>Object.entries</span><span>Destructuring</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this refer to inside a regular object method?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The object the method was called ON (user.greet() means this = user)</li>
+          <li><span class="opt-key">B</span> The global object always</li>
+          <li><span class="opt-key">C</span> The function itself</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The object the method was called ON (user.greet() means this = user)</p>
+          <p class="expl">this is determined by HOW the function is called - the object before the dot. Arrow functions are the exception: they inherit this from the surrounding scope.</p>
+          <p class="tags"><span>this</span><span>Methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does object destructuring do?
+const { name, age } = user;</p>
+        <pre class="code"><code>const { name, age } = user;
+const { name: userName } = user;      // rename
+const { city = &quot;Unknown&quot; } = user;    // default</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Creates variables name and age from the matching properties</li>
+          <li><span class="opt-key">B</span> Deletes the properties</li>
+          <li><span class="opt-key">C</span> Creates an array</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Creates variables name and age from the matching properties</p>
+          <p class="expl">Destructuring extracts properties by NAME (order does not matter, unlike arrays). Widely used for function parameters and imports.</p>
+          <p class="tags"><span>Destructuring</span><span>ES6</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the spread operator do with objects?
+const copy = { ...user };</p>
+        <pre class="code"><code>const copy = { ...user };
+const merged = { ...defaults, ...userSettings };   // later wins</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Creates a SHALLOW copy with the same properties</li>
+          <li><span class="opt-key">B</span> Creates a deep copy</li>
+          <li><span class="opt-key">C</span> Deletes properties</li>
+          <li><span class="opt-key">D</span> Creates an array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Creates a SHALLOW copy with the same properties</p>
+          <p class="expl">Spread copies top-level properties into a new object. Nested objects are still shared - use structuredClone() for a deep copy.</p>
+          <p class="tags"><span>Spread</span><span>Copying</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you MERGE two objects?</p>
+        <pre class="code"><code>const settings = { ...defaults, ...userPrefs };</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> { ...obj1, ...obj2 } or Object.assign({}, obj1, obj2)</li>
+          <li><span class="opt-key">B</span> obj1 + obj2</li>
+          <li><span class="opt-key">C</span> obj1.merge(obj2)</li>
+          <li><span class="opt-key">D</span> obj1.concat(obj2)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — { ...obj1, ...obj2 } or Object.assign({}, obj1, obj2)</p>
+          <p class="expl">Both merge left to right, so later sources overwrite earlier keys. Note Object.assign(obj1, obj2) MUTATES obj1 - pass {} as the first argument to avoid that.</p>
+          <p class="tags"><span>Spread</span><span>Object.assign</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is shorthand property syntax?
+const name = &quot;Ana&quot;;
+const user = { name };</p>
+        <pre class="code"><code>const name = &quot;Ana&quot;, age = 21;
+const user = { name, age };   // { name: &quot;Ana&quot;, age: 21 }</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> When the key and variable have the same name, you can write it once - equals { name: name }</li>
+          <li><span class="opt-key">B</span> It creates an empty property</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> It creates a string</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — When the key and variable have the same name, you can write it once - equals { name: name }</p>
+          <p class="expl">ES6 shorthand removes repetition, very common when building objects from existing variables or returning several values.</p>
+          <p class="tags"><span>Shorthand</span><span>ES6</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What are computed property names?
+const key = &quot;score&quot;;
+const obj = { [key]: 100 };</p>
+        <pre class="code"><code>const field = &quot;email&quot;;
+setForm({ ...form, [field]: value });   // React pattern</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Square brackets let you use a VARIABLE's value as the key - giving { score: 100 }</li>
+          <li><span class="opt-key">B</span> They create an array property</li>
+          <li><span class="opt-key">C</span> They compute a number</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Square brackets let you use a VARIABLE's value as the key - giving { score: 100 }</p>
+          <p class="expl">Without brackets the key would literally be &quot;key&quot;. Computed keys are essential for dynamic objects built from data or form fields.</p>
+          <p class="tags"><span>Computed keys</span><span>Dynamic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does JSON.stringify(obj) do?</p>
+        <pre class="code"><code>localStorage.setItem(&quot;user&quot;, JSON.stringify(user));
+const back = JSON.parse(localStorage.getItem(&quot;user&quot;));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Converts the object into a JSON STRING for storage or sending</li>
+          <li><span class="opt-key">B</span> Parses a string into an object</li>
+          <li><span class="opt-key">C</span> Copies the object</li>
+          <li><span class="opt-key">D</span> Validates the object</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Converts the object into a JSON STRING for storage or sending</p>
+          <p class="expl">stringify serialises to text (dropping functions and undefined); JSON.parse does the reverse. Essential for localStorage and API requests.</p>
+          <p class="tags"><span>JSON</span><span>localStorage</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does Object.freeze(obj) do?</p>
+        <pre class="code"><code>const config = Object.freeze({ api: &quot;/v1&quot; });
+config.api = &quot;/v2&quot;;        // ignored
+console.log(config.api);    // &quot;/v1&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Prevents adding, removing or changing properties (shallowly)</li>
+          <li><span class="opt-key">B</span> Deletes the object</li>
+          <li><span class="opt-key">C</span> Makes it faster</li>
+          <li><span class="opt-key">D</span> Converts it to a string</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Prevents adding, removing or changing properties (shallowly)</p>
+          <p class="expl">Frozen objects silently ignore changes (or throw in strict mode). It is shallow - nested objects can still change unless frozen too.</p>
+          <p class="tags"><span>Object.freeze</span><span>Immutability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+const a = { x: 1 };
+const b = { x: 1 };
+console.log(a === b);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false - objects compare by REFERENCE, not contents</li>
+          <li><span class="opt-key">B</span> true</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false - objects compare by REFERENCE, not contents</p>
+          <p class="expl">Two separately created objects are never ===, even with identical contents. Compare contents with JSON.stringify or a per-key check.</p>
+          <p class="tags"><span>Reference equality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you count an object's properties?</p>
+        <pre class="code"><code>console.log(Object.keys({a:1, b:2}).length);   // 2</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Object.keys(obj).length</li>
+          <li><span class="opt-key">B</span> obj.length</li>
+          <li><span class="opt-key">C</span> obj.size</li>
+          <li><span class="opt-key">D</span> obj.count()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Object.keys(obj).length</p>
+          <p class="expl">Objects have no length property (that is arrays). Convert the keys to an array and measure it. (A Map does have .size.)</p>
+          <p class="tags"><span>Object.keys</span><span>length</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this shorthand do?
+function show({ name, age }) { }</p>
+        <pre class="code"><code>function show({ name, age = 0 }) {
+  console.log(name, age);
+}
+show({ age: 21, name: &quot;Ana&quot; });   // order-free</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Destructures the parameter object, so callers pass one object and you get named variables</li>
+          <li><span class="opt-key">B</span> Requires two arguments</li>
+          <li><span class="opt-key">C</span> Creates an object</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Destructures the parameter object, so callers pass one object and you get named variables</p>
+          <p class="expl">Parameter destructuring makes call sites self-documenting and order-independent - very common in modern APIs and React components.</p>
+          <p class="tags"><span>Destructuring</span><span>Parameters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you convert an object to an array of values and sum them?</p>
+        <pre class="code"><code>const scores = { math: 90, sci: 80 };
+console.log(Object.values(scores).reduce((a,b) =&gt; a+b, 0));   // 170</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Object.values(obj).reduce((a, b) =&gt; a + b, 0)</li>
+          <li><span class="opt-key">B</span> obj.sum()</li>
+          <li><span class="opt-key">C</span> obj.reduce(...)</li>
+          <li><span class="opt-key">D</span> Object.sum(obj)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Object.values(obj).reduce((a, b) =&gt; a + b, 0)</p>
+          <p class="expl">Objects have no array methods, so convert first with Object.values() and then use reduce. The same pattern applies with keys and entries.</p>
+          <p class="tags"><span>Object.values</span><span>reduce</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (8)</h2>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does this break?
+const user = { name: &quot;Ana&quot;, greet: () =&gt; `Hi ${this.name}` };</p>
+        <pre class="code"><code>const user = {
+  name: &quot;Ana&quot;,
+  greet() { return `Hi ${this.name}`; }   // works
+};</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Arrow functions have no own this - it comes from the outer scope, not the object</li>
+          <li><span class="opt-key">B</span> Template literals cannot use this</li>
+          <li><span class="opt-key">C</span> greet must be called with new</li>
+          <li><span class="opt-key">D</span> It works fine</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Arrow functions have no own this - it comes from the outer scope, not the object</p>
+          <p class="expl">An arrow function as an object method captures this from where the object was DEFINED (often the module or window), so this.name is undefined. Use shorthand method syntax instead.</p>
+          <p class="tags"><span>Arrow functions</span><span>this</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const a = { x: { y: 1 } };
+const b = { ...a };
+b.x.y = 99;
+console.log(a.x.y);</p>
+        <pre class="code"><code>const deep = structuredClone(a);
+deep.x.y = 99;
+console.log(a.x.y);   // 1 - safe</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 99 - spread is SHALLOW, so the nested object is shared</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 99 - spread is SHALLOW, so the nested object is shared</p>
+          <p class="expl">Only the top level was copied; a.x and b.x point to the same inner object. structuredClone(a) or JSON round-tripping gives a true deep copy.</p>
+          <p class="tags"><span>Shallow copy</span><span>structuredClone</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you safely read a deeply nested property that might be missing?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> user?.address?.city - optional chaining returns undefined instead of throwing</li>
+          <li><span class="opt-key">B</span> user.address.city</li>
+          <li><span class="opt-key">C</span> user!address!city</li>
+          <li><span class="opt-key">D</span> try { user.address.city } only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — user?.address?.city - optional chaining returns undefined instead of throwing</p>
+          <p class="expl">Without ?., reading .city on undefined throws 'Cannot read properties of undefined'. Combine with ?? for a default: user?.address?.city ?? &quot;N/A&quot;.</p>
+          <p class="tags"><span>Optional chaining</span><span>Nullish coalescing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is lost when you copy an object via JSON.parse(JSON.stringify(obj))?</p>
+        <pre class="code"><code>const deep = structuredClone(obj);   // preferred</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Functions, undefined values, Dates become strings, and Map/Set are destroyed</li>
+          <li><span class="opt-key">B</span> Nothing - it is a perfect copy</li>
+          <li><span class="opt-key">C</span> Only numbers</li>
+          <li><span class="opt-key">D</span> The keys</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Functions, undefined values, Dates become strings, and Map/Set are destroyed</p>
+          <p class="expl">The JSON round-trip is a quick deep copy but only supports JSON types. structuredClone() handles Dates, Maps, Sets and cycles properly.</p>
+          <p class="tags"><span>Deep copy</span><span>structuredClone</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can you modify a const object's properties?</p>
+        <pre class="code"><code>const u = { n: 1 };
+u.n = 2;      // allowed
+// u = {};    // TypeError</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> const locks the BINDING (the variable cannot point elsewhere), not the object's contents</li>
+          <li><span class="opt-key">B</span> It is a bug</li>
+          <li><span class="opt-key">C</span> const only works for numbers</li>
+          <li><span class="opt-key">D</span> You cannot modify them</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — const locks the BINDING (the variable cannot point elsewhere), not the object's contents</p>
+          <p class="expl">const guarantees the variable always refers to the same object; the object itself remains mutable. Use Object.freeze() if you need the contents locked too.</p>
+          <p class="tags"><span>const</span><span>Mutability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between an Object and a Map?</p>
+        <pre class="code"><code>const m = new Map();
+m.set(&quot;a&quot;, 1);
+m.set(userObj, &quot;data&quot;);   // object as key!
+console.log(m.size, m.get(&quot;a&quot;));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Map allows ANY key type, preserves insertion order, has .size, and is optimised for frequent additions/removals</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> Map only stores numbers</li>
+          <li><span class="opt-key">D</span> Object is newer</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Map allows ANY key type, preserves insertion order, has .size, and is optimised for frequent additions/removals</p>
+          <p class="expl">Object keys are strings/symbols only; Map keys can be objects, numbers, anything. Use Object for records and JSON; use Map for dictionaries with dynamic or non-string keys.</p>
+          <p class="tags"><span>Map</span><span>Data structures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const { a, ...rest } = { a: 1, b: 2, c: 3 };
+console.log(rest);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> { b: 2, c: 3 } - rest collects the remaining properties</li>
+          <li><span class="opt-key">B</span> { a: 1 }</li>
+          <li><span class="opt-key">C</span> [2, 3]</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — { b: 2, c: 3 } - rest collects the remaining properties</p>
+          <p class="expl">Rest in destructuring gathers everything not explicitly named - a neat way to remove a property without mutating: const { password, ...safeUser } = user.</p>
+          <p class="tags"><span>Rest</span><span>Destructuring</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does optional chaining with a function call do?
+user.getName?.()</p>
+        <pre class="code"><code>onSuccess?.(data);   // call the callback only if provided</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Calls getName only if it exists - otherwise returns undefined instead of throwing</li>
+          <li><span class="opt-key">B</span> Always calls it</li>
+          <li><span class="opt-key">C</span> Defines the method</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Calls getName only if it exists - otherwise returns undefined instead of throwing</p>
+          <p class="expl">?.() guards against 'x is not a function' errors, useful for optional callbacks. Similarly arr?.[0] guards array access.</p>
+          <p class="tags"><span>Optional chaining</span><span>Callbacks</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="09-array-methods.html">← Array Methods</a>
+      <a href="11-functions-and-arrow-functions.html">Functions &amp; Arrow Functions →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-9">Practice “Objects” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

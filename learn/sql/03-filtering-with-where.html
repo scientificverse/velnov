@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filtering with WHERE – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Filtering with WHERE with answers and detailed explanations — 3 easy, 16 medium and 11 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/03-filtering-with-where.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Filtering with WHERE – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Filtering with WHERE with answers and detailed explanations — 3 easy, 16 medium and 11 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/03-filtering-with-where.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Filtering with WHERE","item":"https://velnov.co.in/learn/sql/03-filtering-with-where.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Filtering with WHERE</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 3 of 20</p>
+      <h1>Filtering with WHERE — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Filtering with WHERE</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-2">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">3 easy · 16 medium · 11 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>WHERE</span><span>Filtering</span><span>Comparison operators</span><span>Logical operators</span><span>Precedence</span><span>Parentheses</span><span>BETWEEN</span><span>Ranges</span><span>Dates</span><span>Gotchas</span><span>IN</span><span>Subqueries</span><span>LIKE</span><span>Wildcards</span><span>Indexes</span><span>Performance</span><span>NULL</span><span>Three-valued logic</span><span>NOT IN</span><span>NOT EXISTS</span><span>NOT</span><span>Negation</span><span>Collation</span><span>Case sensitivity</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (3)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does the WHERE clause do?</p>
+        <pre class="code"><code>SELECT * FROM students WHERE marks &gt; 50;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Filters rows, keeping only those where the condition is TRUE</li>
+          <li><span class="opt-key">B</span> Sorts the rows</li>
+          <li><span class="opt-key">C</span> Groups the rows</li>
+          <li><span class="opt-key">D</span> Selects which columns to show</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Filters rows, keeping only those where the condition is TRUE</p>
+          <p class="expl">WHERE decides which ROWS appear; SELECT decides which COLUMNS. A row is kept only when the condition evaluates to TRUE (not FALSE and not NULL).</p>
+          <p class="tags"><span>WHERE</span><span>Filtering</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which operator tests equality in SQL?</p>
+        <pre class="code"><code>WHERE city = 'Delhi'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> = (a single equals sign)</li>
+          <li><span class="opt-key">B</span> == </li>
+          <li><span class="opt-key">C</span> ===</li>
+          <li><span class="opt-key">D</span> eq</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — = (a single equals sign)</p>
+          <p class="expl">Unlike most programming languages, SQL uses one equals sign for comparison. There is no assignment operator inside a WHERE clause to confuse it with.</p>
+          <p class="tags"><span>Comparison operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which operator means NOT EQUAL in standard SQL?</p>
+        <pre class="code"><code>WHERE status &lt;&gt; 'cancelled'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &lt;&gt; (and != is accepted by most databases)</li>
+          <li><span class="opt-key">B</span> !== only</li>
+          <li><span class="opt-key">C</span> NOT=</li>
+          <li><span class="opt-key">D</span> =/=</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &lt;&gt; (and != is accepted by most databases)</p>
+          <p class="expl">&lt;&gt; is the SQL standard; != works in MySQL, PostgreSQL and SQL Server too. Both behave identically.</p>
+          <p class="tags"><span>Comparison operators</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you require TWO conditions to both be true?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE age &gt; 18 AND city = 'Delhi'</li>
+          <li><span class="opt-key">B</span> WHERE age &gt; 18 &amp;&amp; city = 'Delhi'</li>
+          <li><span class="opt-key">C</span> WHERE age &gt; 18, city = 'Delhi'</li>
+          <li><span class="opt-key">D</span> WHERE both(age &gt; 18, city = 'Delhi')</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE age &gt; 18 AND city = 'Delhi'</p>
+          <p class="expl">SQL uses the words AND, OR and NOT rather than symbols. (MySQL accepts &amp;&amp; but it is non-standard.)</p>
+          <p class="tags"><span>Logical operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does BETWEEN do?
+WHERE marks BETWEEN 50 AND 80</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Matches values from 50 to 80 INCLUSIVE of both ends</li>
+          <li><span class="opt-key">B</span> Matches 51 to 79</li>
+          <li><span class="opt-key">C</span> Matches only 50 and 80</li>
+          <li><span class="opt-key">D</span> Matches values outside the range</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Matches values from 50 to 80 INCLUSIVE of both ends</p>
+          <p class="expl">BETWEEN is inclusive: equivalent to marks &gt;= 50 AND marks &lt;= 80. Remember this when working with dates, where the upper bound often surprises people.</p>
+          <p class="tags"><span>BETWEEN</span><span>Ranges</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does IN do?
+WHERE city IN ('Delhi', 'Mumbai', 'Pune')</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Matches rows whose city equals ANY value in the list</li>
+          <li><span class="opt-key">B</span> Matches rows containing those letters</li>
+          <li><span class="opt-key">C</span> Requires all three cities</li>
+          <li><span class="opt-key">D</span> Is the same as BETWEEN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Matches rows whose city equals ANY value in the list</p>
+          <p class="expl">IN is shorthand for a chain of ORs and is far more readable. It can also take a subquery: WHERE id IN (SELECT customer_id FROM orders).</p>
+          <p class="tags"><span>IN</span><span>Subqueries</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does LIKE 'A%' match?</p>
+        <pre class="code"><code>WHERE name LIKE 'A%'      -- starts with A
+WHERE name LIKE '%son'    -- ends with son
+WHERE name LIKE '%an%'    -- contains an
+WHERE code LIKE 'A_1'     -- A, any char, 1</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Any value STARTING with A - % matches zero or more characters</li>
+          <li><span class="opt-key">B</span> Only the exact text 'A%'</li>
+          <li><span class="opt-key">C</span> Values ending with A</li>
+          <li><span class="opt-key">D</span> Values containing exactly one A</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Any value STARTING with A - % matches zero or more characters</p>
+          <p class="expl">% is the multi-character wildcard and _ matches exactly one character. So 'A%' is starts-with, '%a%' is contains, and '_a%' means second letter is a.</p>
+          <p class="tags"><span>LIKE</span><span>Wildcards</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the _ wildcard match in LIKE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Exactly ONE character</li>
+          <li><span class="opt-key">B</span> Zero or more characters</li>
+          <li><span class="opt-key">C</span> A literal underscore</li>
+          <li><span class="opt-key">D</span> A space</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Exactly ONE character</p>
+          <p class="expl">'J_n' matches Jan and Jon but not Jain. To match a literal underscore or percent sign, use an ESCAPE clause.</p>
+          <p class="tags"><span>LIKE</span><span>Wildcards</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does NOT IN do when the list contains a NULL?
+WHERE id NOT IN (1, 2, NULL)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It returns NO rows at all - a classic NULL trap</li>
+          <li><span class="opt-key">B</span> It ignores the NULL</li>
+          <li><span class="opt-key">C</span> It returns all rows</li>
+          <li><span class="opt-key">D</span> It throws an error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It returns NO rows at all - a classic NULL trap</p>
+          <p class="expl">NOT IN expands to id &lt;&gt; 1 AND id &lt;&gt; 2 AND id &lt;&gt; NULL, and the last comparison is always UNKNOWN, so the whole condition can never be TRUE. Use NOT EXISTS, or filter NULLs from the subquery.</p>
+          <ul class="notes"><li>A famous SQL interview question.</li></ul>
+          <p class="tags"><span>NOT IN</span><span>NULL</span><span>NOT EXISTS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you negate a condition?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE NOT (age &gt; 18)  - or use the opposite operator: age &lt;= 18</li>
+          <li><span class="opt-key">B</span> WHERE !age &gt; 18</li>
+          <li><span class="opt-key">C</span> WHERE age NOT &gt; 18</li>
+          <li><span class="opt-key">D</span> WHERE opposite(age &gt; 18)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE NOT (age &gt; 18)  - or use the opposite operator: age &lt;= 18</p>
+          <p class="expl">NOT inverts a condition. It also combines with other keywords: NOT IN, NOT LIKE, NOT BETWEEN, IS NOT NULL.</p>
+          <p class="tags"><span>NOT</span><span>Negation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Is string comparison in WHERE case-sensitive?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It depends on the database's COLLATION - MySQL is usually case-insensitive, PostgreSQL is case-sensitive</li>
+          <li><span class="opt-key">B</span> Always case-sensitive</li>
+          <li><span class="opt-key">C</span> Always case-insensitive</li>
+          <li><span class="opt-key">D</span> Only for numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It depends on the database's COLLATION - MySQL is usually case-insensitive, PostgreSQL is case-sensitive</p>
+          <p class="expl">Because behaviour varies, portable code normalises both sides: WHERE LOWER(email) = LOWER('Ana@X.com'). Note that wrapping the column in a function can prevent index use.</p>
+          <p class="tags"><span>Collation</span><span>Case sensitivity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which query finds students with marks over 90 OR under 20?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE marks &gt; 90 OR marks &lt; 20</li>
+          <li><span class="opt-key">B</span> WHERE marks &gt; 90 AND marks &lt; 20</li>
+          <li><span class="opt-key">C</span> WHERE marks BETWEEN 90 AND 20</li>
+          <li><span class="opt-key">D</span> WHERE marks NOT BETWEEN 20 AND 90</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE marks &gt; 90 OR marks &lt; 20</p>
+          <p class="expl">Option B can never be true (no number is both). Option D is close but INCLUSIVE at the boundaries, so it excludes exactly 20 and 90 differently from option A.</p>
+          <p class="tags"><span>OR</span><span>Ranges</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this return?
+SELECT * FROM orders WHERE total &gt; 100 AND total &lt; 100;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Zero rows - the conditions contradict each other</li>
+          <li><span class="opt-key">B</span> All rows</li>
+          <li><span class="opt-key">C</span> Rows equal to 100</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Zero rows - the conditions contradict each other</p>
+          <p class="expl">No value satisfies both. Contradictory filters usually mean AND was written where OR was intended.</p>
+          <p class="tags"><span>Logic</span><span>AND</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you filter on a boolean column?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE is_active = TRUE  (or = 1 where booleans are stored as integers)</li>
+          <li><span class="opt-key">B</span> WHERE is_active is on</li>
+          <li><span class="opt-key">C</span> WHERE is_active</li>
+          <li><span class="opt-key">D</span> WHERE active(is_active)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE is_active = TRUE  (or = 1 where booleans are stored as integers)</p>
+          <p class="expl">PostgreSQL has a real BOOLEAN type and even allows bare 'WHERE is_active'. MySQL stores booleans as TINYINT, so = 1 is normal.</p>
+          <p class="tags"><span>Booleans</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you find rows where a text column is empty OR missing?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE name IS NULL OR name = ''</li>
+          <li><span class="opt-key">B</span> WHERE name = NULL</li>
+          <li><span class="opt-key">C</span> WHERE name IS EMPTY</li>
+          <li><span class="opt-key">D</span> WHERE LENGTH(name) = NULL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE name IS NULL OR name = ''</p>
+          <p class="expl">An empty string and NULL are different values in SQL: '' is a known-but-blank value, NULL is unknown. Real data often contains both, so check for both.</p>
+          <p class="tags"><span>NULL</span><span>Empty string</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does WHERE id IN (SELECT customer_id FROM orders) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Keeps customers who have at least one order - a subquery supplies the list</li>
+          <li><span class="opt-key">B</span> Is invalid syntax</li>
+          <li><span class="opt-key">C</span> Returns all customers</li>
+          <li><span class="opt-key">D</span> Joins the tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Keeps customers who have at least one order - a subquery supplies the list</p>
+          <p class="expl">IN accepts a subquery returning one column. For large data, EXISTS often performs better and handles NULLs more safely.</p>
+          <p class="tags"><span>Subqueries</span><span>IN</span><span>EXISTS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which query is written correctly?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT name FROM users WHERE age &gt; 18 ORDER BY name;</li>
+          <li><span class="opt-key">B</span> SELECT name FROM users ORDER BY name WHERE age &gt; 18;</li>
+          <li><span class="opt-key">C</span> SELECT name WHERE age &gt; 18 FROM users;</li>
+          <li><span class="opt-key">D</span> WHERE age &gt; 18 SELECT name FROM users;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT name FROM users WHERE age &gt; 18 ORDER BY name;</p>
+          <p class="expl">Clause order is fixed: SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT. Writing them out of order is a syntax error.</p>
+          <p class="tags"><span>Clause order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How would you exclude several statuses?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE status NOT IN ('cancelled', 'refunded')</li>
+          <li><span class="opt-key">B</span> WHERE status != ('cancelled', 'refunded')</li>
+          <li><span class="opt-key">C</span> WHERE NOT status = 'cancelled', 'refunded'</li>
+          <li><span class="opt-key">D</span> WHERE status EXCEPT ('cancelled')</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE status NOT IN ('cancelled', 'refunded')</p>
+          <p class="expl">NOT IN is the readable form. Remember it silently returns nothing if the list contains NULL, and that rows where status itself is NULL are excluded too.</p>
+          <p class="tags"><span>NOT IN</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Before running a DELETE, what is the safest habit?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Run the same WHERE clause in a SELECT first to see exactly which rows will be affected</li>
+          <li><span class="opt-key">B</span> Run it and check afterwards</li>
+          <li><span class="opt-key">C</span> Use DELETE without WHERE first</li>
+          <li><span class="opt-key">D</span> Disable the index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Run the same WHERE clause in a SELECT first to see exactly which rows will be affected</p>
+          <p class="expl">Previewing with SELECT (and wrapping changes in a transaction you can roll back) prevents the classic disaster of a DELETE whose WHERE was wrong - or missing entirely.</p>
+          <p class="tags"><span>Safety</span><span>DELETE</span><span>Transactions</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (11)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which has higher precedence: AND or OR?</p>
+        <pre class="code"><code>-- probably WRONG:
+WHERE city = 'Delhi' OR city = 'Mumbai' AND active = 1
+-- means: Delhi OR (Mumbai AND active)
+
+-- intended:
+WHERE (city = 'Delhi' OR city = 'Mumbai') AND active = 1</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> AND - so 'a OR b AND c' means 'a OR (b AND c)'</li>
+          <li><span class="opt-key">B</span> OR</li>
+          <li><span class="opt-key">C</span> They are equal, evaluated left to right</li>
+          <li><span class="opt-key">D</span> It depends on the database</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — AND - so 'a OR b AND c' means 'a OR (b AND c)'</p>
+          <p class="expl">AND binds tighter, exactly like multiplication before addition. This causes real bugs - use parentheses whenever you mix them.</p>
+          <ul class="notes"><li>A very common interview question and a frequent real-world bug.</li></ul>
+          <p class="tags"><span>Precedence</span><span>Parentheses</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is 'WHERE order_date BETWEEN '2026-01-01' AND '2026-01-31'' risky?</p>
+        <pre class="code"><code>WHERE order_date &gt;= '2026-01-01'
+  AND order_date &lt;  '2026-02-01'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> If the column stores times, rows later on 31 Jan (e.g. 14:30) are EXCLUDED because the bound means midnight</li>
+          <li><span class="opt-key">B</span> BETWEEN does not work with dates</li>
+          <li><span class="opt-key">C</span> The dates need to be numbers</li>
+          <li><span class="opt-key">D</span> It is perfectly safe</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — If the column stores times, rows later on 31 Jan (e.g. 14:30) are EXCLUDED because the bound means midnight</p>
+          <p class="expl">A DATETIME of 2026-01-31 14:30 is greater than 2026-01-31 00:00. The safe pattern uses a half-open range: &gt;= start AND &lt; next_month_start.</p>
+          <p class="tags"><span>Dates</span><span>BETWEEN</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can 'WHERE name LIKE '%son'' be slow on a large table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A leading wildcard prevents the database using an index, forcing a full scan</li>
+          <li><span class="opt-key">B</span> LIKE is always slow</li>
+          <li><span class="opt-key">C</span> It uses too much memory</li>
+          <li><span class="opt-key">D</span> It is not slow</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A leading wildcard prevents the database using an index, forcing a full scan</p>
+          <p class="expl">Indexes work like a dictionary - sorted by the start of the value. 'A%' can seek directly; '%son' must check every row. For contains-searches at scale, use full-text search.</p>
+          <p class="tags"><span>Indexes</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you correctly test for a NULL value?</p>
+        <pre class="code"><code>WHERE email IS NULL
+WHERE email IS NOT NULL</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE email IS NULL</li>
+          <li><span class="opt-key">B</span> WHERE email = NULL</li>
+          <li><span class="opt-key">C</span> WHERE email == NULL</li>
+          <li><span class="opt-key">D</span> WHERE email = 'NULL'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE email IS NULL</p>
+          <p class="expl">NULL means 'unknown', and comparing anything to unknown yields UNKNOWN - never TRUE. So = NULL silently matches nothing. Always use IS NULL / IS NOT NULL.</p>
+          <ul class="notes"><li>One of the most-tested SQL concepts.</li></ul>
+          <p class="tags"><span>NULL</span><span>Three-valued logic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does 'WHERE status &lt;&gt; 'shipped'' return for rows where status is NULL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It EXCLUDES them - NULL &lt;&gt; 'shipped' is UNKNOWN, not TRUE</li>
+          <li><span class="opt-key">B</span> It includes them</li>
+          <li><span class="opt-key">C</span> It throws an error</li>
+          <li><span class="opt-key">D</span> It includes them only in MySQL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It EXCLUDES them - NULL &lt;&gt; 'shipped' is UNKNOWN, not TRUE</p>
+          <p class="expl">A frequent bug: 'everything not shipped' silently drops NULL rows. Write: WHERE status &lt;&gt; 'shipped' OR status IS NULL.</p>
+          <p class="tags"><span>NULL</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why avoid wrapping a column in a function in WHERE?
+WHERE YEAR(order_date) = 2026</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It makes the condition non-sargable - the index on order_date cannot be used</li>
+          <li><span class="opt-key">B</span> YEAR() does not exist</li>
+          <li><span class="opt-key">C</span> It returns wrong results</li>
+          <li><span class="opt-key">D</span> There is no problem</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It makes the condition non-sargable - the index on order_date cannot be used</p>
+          <p class="expl">The database must compute YEAR() for every row before comparing. Rewrite as a range so the index works: order_date &gt;= '2026-01-01' AND order_date &lt; '2027-01-01'.</p>
+          <p class="tags"><span>Sargable</span><span>Indexes</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the result of comparing NULL = NULL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UNKNOWN - not TRUE, because two unknown values cannot be proven equal</li>
+          <li><span class="opt-key">B</span> TRUE</li>
+          <li><span class="opt-key">C</span> FALSE</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UNKNOWN - not TRUE, because two unknown values cannot be proven equal</p>
+          <p class="expl">SQL uses three-valued logic: TRUE, FALSE and UNKNOWN. WHERE keeps only TRUE rows, so NULL comparisons filter everything out. (The IS NOT DISTINCT FROM operator treats NULLs as equal where supported.)</p>
+          <p class="tags"><span>NULL</span><span>Three-valued logic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between WHERE and HAVING?</p>
+        <pre class="code"><code>SELECT dept, COUNT(*) AS n
+FROM employees
+WHERE active = 1        -- rows first
+GROUP BY dept
+HAVING COUNT(*) &gt; 5;    -- then groups</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE filters individual ROWS before grouping; HAVING filters GROUPS after aggregation</li>
+          <li><span class="opt-key">B</span> They are interchangeable</li>
+          <li><span class="opt-key">C</span> HAVING is faster</li>
+          <li><span class="opt-key">D</span> WHERE only works with numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE filters individual ROWS before grouping; HAVING filters GROUPS after aggregation</p>
+          <p class="expl">Aggregates like COUNT(*) cannot appear in WHERE because grouping has not happened yet. Filter raw rows in WHERE (more efficient) and group results in HAVING.</p>
+          <p class="tags"><span>HAVING</span><span>GROUP BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this match?
+WHERE phone LIKE '9%' AND LENGTH(phone) = 10</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Ten-character phone numbers starting with 9</li>
+          <li><span class="opt-key">B</span> Any number containing 9</li>
+          <li><span class="opt-key">C</span> Numbers ending in 9</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Ten-character phone numbers starting with 9</p>
+          <p class="expl">Combining pattern matching with a length check is a common validation query for finding malformed data. (Some databases call the function LEN instead of LENGTH.)</p>
+          <p class="tags"><span>LIKE</span><span>Data validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does 'WHERE 1=1' accomplish in generated SQL?</p>
+        <pre class="code"><code>WHERE 1=1
+  AND city = 'Delhi'
+  AND active = 1</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It is an always-true placeholder, so every real condition can be appended with AND</li>
+          <li><span class="opt-key">B</span> It filters one row</li>
+          <li><span class="opt-key">C</span> It speeds up the query</li>
+          <li><span class="opt-key">D</span> It is a syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It is an always-true placeholder, so every real condition can be appended with AND</p>
+          <p class="expl">When code builds queries dynamically, starting with 1=1 avoids awkward logic about whether to write WHERE or AND. Optimisers ignore the constant.</p>
+          <p class="tags"><span>Dynamic SQL</span><span>Tricks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why should application code use parameterised queries instead of building WHERE strings?</p>
+        <pre class="code"><code>-- safe (placeholder):
+SELECT * FROM users WHERE email = ?;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> To prevent SQL injection - user input is sent separately from the query text</li>
+          <li><span class="opt-key">B</span> To make queries shorter</li>
+          <li><span class="opt-key">C</span> Because concatenation is a syntax error</li>
+          <li><span class="opt-key">D</span> It makes no difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — To prevent SQL injection - user input is sent separately from the query text</p>
+          <p class="expl">Concatenating input allows an attacker to inject SQL (e.g. ' OR 1=1 --). Parameters keep data and code separate, so input can never change the query's structure.</p>
+          <p class="tags"><span>SQL injection</span><span>Security</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="02-select-basics.html">← SELECT Basics</a>
+      <a href="04-sorting-and-limiting.html">Sorting &amp; Limiting →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-2">Practice “Filtering with WHERE” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

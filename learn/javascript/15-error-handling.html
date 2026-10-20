@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Handling – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Error Handling with answers and detailed explanations — 2 easy, 16 medium and 12 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/15-error-handling.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Error Handling – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Error Handling with answers and detailed explanations — 2 easy, 16 medium and 12 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/15-error-handling.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Error Handling","item":"https://velnov.co.in/learn/javascript/15-error-handling.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Error Handling</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 15 of 20</p>
+      <h1>Error Handling — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Error Handling</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-14">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 16 medium · 12 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>try/catch</span><span>Error object</span><span>finally</span><span>Cleanup</span><span>throw</span><span>Error</span><span>Best practices</span><span>ReferenceError</span><span>TypeError</span><span>Optional chaining</span><span>SyntaxError</span><span>Parse time</span><span>Control flow</span><span>Custom errors</span><span>extends</span><span>instanceof</span><span>Re-throwing</span><span>Async</span><span>Event loop</span><span>Promises</span><span>async/await</span><span>Uncaught errors</span><span>Debugging</span><span>Anti-patterns</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which structure catches runtime errors?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> try { risky(); } catch (err) { handle(err); }</li>
+          <li><span class="opt-key">B</span> attempt { } rescue { }</li>
+          <li><span class="opt-key">C</span> try: ... except: ...</li>
+          <li><span class="opt-key">D</span> if (error) { }</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — try { risky(); } catch (err) { handle(err); }</p>
+          <p class="expl">Code that might throw goes in try; if an error occurs, execution jumps to catch with the error object. (except is Python, rescue is Ruby.)</p>
+          <p class="tags"><span>try/catch</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you deliberately raise an error?</p>
+        <pre class="code"><code>if (amount &lt; 0) throw new Error(&quot;Amount cannot be negative&quot;);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> throw new Error(&quot;message&quot;)</li>
+          <li><span class="opt-key">B</span> raise Error(&quot;message&quot;)</li>
+          <li><span class="opt-key">C</span> error(&quot;message&quot;)</li>
+          <li><span class="opt-key">D</span> return Error(&quot;message&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — throw new Error(&quot;message&quot;)</p>
+          <p class="expl">throw stops execution and looks for the nearest catch. Always throw an Error OBJECT (not a string) so you get a stack trace.</p>
+          <p class="tags"><span>throw</span><span>Error</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is in the err object inside catch?</p>
+        <pre class="code"><code>try { null.x; }
+catch (err) {
+  console.log(err.name);      // TypeError
+  console.log(err.message);   // Cannot read properties of null
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Properties like name, message and stack describing what went wrong</li>
+          <li><span class="opt-key">B</span> Only a string</li>
+          <li><span class="opt-key">C</span> The failed function</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Properties like name, message and stack describing what went wrong</p>
+          <p class="expl">err.name is the type (TypeError, ReferenceError...), err.message is the description, and err.stack shows where it happened.</p>
+          <p class="tags"><span>Error object</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">When does the finally block run?</p>
+        <pre class="code"><code>try { await save(); }
+catch (e) { showError(e); }
+finally { hideSpinner(); }   // always</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ALWAYS - whether an error occurred, was caught, or the function returned</li>
+          <li><span class="opt-key">B</span> Only on success</li>
+          <li><span class="opt-key">C</span> Only on error</li>
+          <li><span class="opt-key">D</span> Only if catch is omitted</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ALWAYS - whether an error occurred, was caught, or the function returned</p>
+          <p class="expl">finally is for cleanup that must happen regardless: hiding a loading spinner, closing a connection, releasing a lock.</p>
+          <p class="tags"><span>finally</span><span>Cleanup</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why throw new Error(&quot;x&quot;) rather than throw &quot;x&quot;?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Error objects carry a stack trace and a name; a thrown string has neither</li>
+          <li><span class="opt-key">B</span> Strings are not allowed</li>
+          <li><span class="opt-key">C</span> It is only a style preference</li>
+          <li><span class="opt-key">D</span> Strings are faster</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Error objects carry a stack trace and a name; a thrown string has neither</p>
+          <p class="expl">You can technically throw anything, but catch blocks then cannot rely on err.message or err.stack, making debugging much harder.</p>
+          <p class="tags"><span>Error object</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which error occurs when you use a variable that was never declared?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ReferenceError</li>
+          <li><span class="opt-key">B</span> TypeError</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> RangeError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ReferenceError</p>
+          <p class="expl">ReferenceError: x is not defined - usually a typo or a missing import. Contrast with TypeError, which means the value exists but is the wrong type.</p>
+          <p class="tags"><span>ReferenceError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which error does null.name produce?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TypeError: Cannot read properties of null</li>
+          <li><span class="opt-key">B</span> ReferenceError</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> No error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TypeError: Cannot read properties of null</p>
+          <p class="expl">The single most common runtime error in JavaScript. Guard with optional chaining (obj?.name) or a null check before accessing properties.</p>
+          <p class="tags"><span>TypeError</span><span>Optional chaining</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can try/catch catch a SYNTAX error in the same file?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - syntax errors are found before the code runs, so nothing executes</li>
+          <li><span class="opt-key">B</span> Yes, always</li>
+          <li><span class="opt-key">C</span> Only in strict mode</li>
+          <li><span class="opt-key">D</span> Only with finally</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - syntax errors are found before the code runs, so nothing executes</p>
+          <p class="expl">Parsing happens first; a malformed file never runs at all. try/catch only handles RUNTIME errors. (Syntax errors inside eval or dynamically loaded code are a special case.)</p>
+          <p class="tags"><span>SyntaxError</span><span>Parse time</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you create a CUSTOM error type?</p>
+        <pre class="code"><code>class ValidationError extends Error {
+  constructor(msg) { super(msg); this.name = &quot;ValidationError&quot;; }
+}
+try { throw new ValidationError(&quot;bad email&quot;); }
+catch (e) { if (e instanceof ValidationError) showFieldError(e.message); }</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> class ValidationError extends Error { }</li>
+          <li><span class="opt-key">B</span> function ValidationError() { }</li>
+          <li><span class="opt-key">C</span> new CustomError()</li>
+          <li><span class="opt-key">D</span> You cannot</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — class ValidationError extends Error { }</p>
+          <p class="expl">Extending Error lets callers catch your specific type with instanceof, which is far cleaner than string-matching messages.</p>
+          <p class="tags"><span>Custom errors</span><span>extends</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens to an uncaught error in the browser?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It stops the current script and logs a red message in the console</li>
+          <li><span class="opt-key">B</span> The page closes</li>
+          <li><span class="opt-key">C</span> It is silently ignored</li>
+          <li><span class="opt-key">D</span> The browser crashes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It stops the current script and logs a red message in the console</p>
+          <p class="expl">Execution of that task halts, but the page stays open and later events still work. You can log such errors globally with window.addEventListener('error', ...).</p>
+          <p class="tags"><span>Uncaught errors</span><span>Debugging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the optional catch binding allow (ES2019)?</p>
+        <pre class="code"><code>try { data = JSON.parse(text); }
+catch { data = {}; }   // no (e) needed</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Omitting the parameter: catch { } when you do not need the error object</li>
+          <li><span class="opt-key">B</span> Catching two errors</li>
+          <li><span class="opt-key">C</span> Catching without try</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Omitting the parameter: catch { } when you do not need the error object</p>
+          <p class="expl">Useful when you only care that something failed, e.g. attempting an optional parse. Still, logging the error is usually wiser.</p>
+          <p class="tags"><span>ES2019</span><span>catch</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which error type means a number is outside an allowed range?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> RangeError - e.g. new Array(-1) or infinite recursion</li>
+          <li><span class="opt-key">B</span> TypeError</li>
+          <li><span class="opt-key">C</span> ReferenceError</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — RangeError - e.g. new Array(-1) or infinite recursion</p>
+          <p class="expl">RangeError covers invalid lengths, bad toFixed digits, and 'Maximum call stack size exceeded' from runaway recursion.</p>
+          <p class="tags"><span>RangeError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you validate input and report a clear failure?</p>
+        <pre class="code"><code>function setAge(age) {
+  if (!Number.isFinite(age) || age &lt; 0)
+    throw new RangeError(&quot;age must be a positive number&quot;);
+  return age;
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Check the condition and throw a descriptive Error the caller can catch</li>
+          <li><span class="opt-key">B</span> Return -1 silently</li>
+          <li><span class="opt-key">C</span> console.log a warning only</li>
+          <li><span class="opt-key">D</span> Ignore invalid input</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Check the condition and throw a descriptive Error the caller can catch</p>
+          <p class="expl">Throwing forces the problem to be addressed and carries a message. Silent sentinel values like -1 are easy to forget to check and propagate bad data.</p>
+          <p class="tags"><span>Validation</span><span>throw</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Where should you put try/catch for best results?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Around the smallest risky section, at a level where you can actually DO something about the error</li>
+          <li><span class="opt-key">B</span> Around the entire program</li>
+          <li><span class="opt-key">C</span> Around every single line</li>
+          <li><span class="opt-key">D</span> Never use it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Around the smallest risky section, at a level where you can actually DO something about the error</p>
+          <p class="expl">Catching too broadly hides which operation failed; catching where you cannot recover just adds noise. Let errors bubble to a layer that can show a message or retry.</p>
+          <p class="tags"><span>Best practices</span><span>Error boundaries</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you re-throw an error after logging it?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> catch (e) { log(e); throw e; }</li>
+          <li><span class="opt-key">B</span> catch (e) { return e; }</li>
+          <li><span class="opt-key">C</span> catch (e) { throw; }</li>
+          <li><span class="opt-key">D</span> You cannot re-throw</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — catch (e) { log(e); throw e; }</p>
+          <p class="expl">Re-throwing lets a lower layer record the problem while a higher layer decides how to respond. (Unlike Python, a bare throw is invalid - you must name the error.)</p>
+          <p class="tags"><span>Re-throwing</span><span>Logging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you catch errors from EVERY unhandled place in a browser app?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> window.addEventListener('error', ...) and 'unhandledrejection'</li>
+          <li><span class="opt-key">B</span> One giant try/catch</li>
+          <li><span class="opt-key">C</span> It is impossible</li>
+          <li><span class="opt-key">D</span> console.log everything</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — window.addEventListener('error', ...) and 'unhandledrejection'</p>
+          <p class="expl">These global hooks are how error-reporting tools (Sentry and similar) capture crashes in production. They are a safety net, not a replacement for local handling.</p>
+          <p class="tags"><span>Global handlers</span><span>Monitoring</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why check response.ok after fetch?</p>
+        <pre class="code"><code>const res = await fetch(url);
+if (!res.ok) throw new Error(`HTTP ${res.status}`);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> fetch only rejects on NETWORK failure - a 404 or 500 still resolves successfully</li>
+          <li><span class="opt-key">B</span> It is unnecessary</li>
+          <li><span class="opt-key">C</span> To parse JSON</li>
+          <li><span class="opt-key">D</span> To set headers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — fetch only rejects on NETWORK failure - a 404 or 500 still resolves successfully</p>
+          <p class="expl">A very common bug: developers assume .catch() covers HTTP errors. You must inspect response.ok (or status) and throw yourself.</p>
+          <p class="tags"><span>fetch</span><span>HTTP errors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a graceful fallback in error handling?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Showing a helpful message or default data instead of a blank/broken screen</li>
+          <li><span class="opt-key">B</span> Crashing quickly</li>
+          <li><span class="opt-key">C</span> Retrying forever</li>
+          <li><span class="opt-key">D</span> Hiding all errors from developers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Showing a helpful message or default data instead of a blank/broken screen</p>
+          <p class="expl">Users should never see a dead page. Show cached content, a retry button, or a clear message - while still logging the real error for developers.</p>
+          <p class="tags"><span>UX</span><span>Resilience</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (12)</h2>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+try { console.log(&quot;A&quot;); throw new Error(&quot;x&quot;); console.log(&quot;B&quot;); }
+catch (e) { console.log(&quot;C&quot;); }
+console.log(&quot;D&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A C D - the throw skips the rest of try</li>
+          <li><span class="opt-key">B</span> A B C D</li>
+          <li><span class="opt-key">C</span> A C</li>
+          <li><span class="opt-key">D</span> C D</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A C D - the throw skips the rest of try</p>
+          <p class="expl">Statements after the throw inside try never run. After catch handles the error, normal execution resumes.</p>
+          <p class="tags"><span>Control flow</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you handle DIFFERENT error types differently?</p>
+        <pre class="code"><code>catch (e) {
+  if (e instanceof ValidationError) showMsg(e);
+  else throw e;   // let it bubble up
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Check inside catch with instanceof and re-throw what you cannot handle</li>
+          <li><span class="opt-key">B</span> Write multiple catch blocks</li>
+          <li><span class="opt-key">C</span> catch (TypeError e) { }</li>
+          <li><span class="opt-key">D</span> JavaScript cannot distinguish them</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Check inside catch with instanceof and re-throw what you cannot handle</p>
+          <p class="expl">JavaScript has only ONE catch block per try (unlike Java), so branch inside it. Re-throwing unknown errors avoids silently swallowing real bugs.</p>
+          <p class="tags"><span>instanceof</span><span>Re-throwing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Does try/catch catch errors inside an ASYNC callback?
+try { setTimeout(() =&gt; { throw new Error(&quot;x&quot;); }, 0); } catch (e) { }</p>
+        <pre class="code"><code>setTimeout(() =&gt; {
+  try { risky(); } catch (e) { handle(e); }
+}, 0);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - the callback runs later, long after the try block finished</li>
+          <li><span class="opt-key">B</span> Yes, always</li>
+          <li><span class="opt-key">C</span> Only with finally</li>
+          <li><span class="opt-key">D</span> Only in strict mode</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - the callback runs later, long after the try block finished</p>
+          <p class="expl">try/catch is synchronous: it only guards code running right now. The timer callback executes on a later tick with an empty stack, so the error becomes an uncaught exception. Put try/catch INSIDE the callback.</p>
+          <p class="tags"><span>Async</span><span>Event loop</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you catch errors from a PROMISE?</p>
+        <pre class="code"><code>fetch(url).then(r =&gt; r.json()).catch(err =&gt; show(err));
+
+try { const r = await fetch(url); }
+catch (err) { show(err); }</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> With .catch() on the chain, or try/catch around await</li>
+          <li><span class="opt-key">B</span> With a plain try/catch around the promise creation</li>
+          <li><span class="opt-key">C</span> Promises never fail</li>
+          <li><span class="opt-key">D</span> With if statements</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — With .catch() on the chain, or try/catch around await</p>
+          <p class="expl">Rejections are not thrown synchronously. Use promise.then().catch(), or await inside try/catch which converts rejection into a normal throw.</p>
+          <p class="tags"><span>Promises</span><span>async/await</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is an EMPTY catch block bad?
+try { risky(); } catch (e) { }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It silently swallows errors, hiding bugs and making failures invisible</li>
+          <li><span class="opt-key">B</span> It is a syntax error</li>
+          <li><span class="opt-key">C</span> It is slower</li>
+          <li><span class="opt-key">D</span> It is fine</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It silently swallows errors, hiding bugs and making failures invisible</p>
+          <p class="expl">Failures disappear with no trace, so the app misbehaves for reasons nobody can diagnose. At minimum log the error; ideally handle it or re-throw.</p>
+          <p class="tags"><span>Anti-patterns</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function f() {
+  try { return &quot;try&quot;; }
+  finally { console.log(&quot;finally&quot;); }
+}
+console.log(f());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> finally then try - finally runs before the function actually returns</li>
+          <li><span class="opt-key">B</span> try then finally</li>
+          <li><span class="opt-key">C</span> only try</li>
+          <li><span class="opt-key">D</span> only finally</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — finally then try - finally runs before the function actually returns</p>
+          <p class="expl">The return value is computed, then finally executes, then the value is returned. Beware: a return inside finally would OVERRIDE the original return.</p>
+          <p class="tags"><span>finally</span><span>return</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the error's stack property give you?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The chain of function calls that led to the error, with file and line numbers</li>
+          <li><span class="opt-key">B</span> The memory stack size</li>
+          <li><span class="opt-key">C</span> A list of variables</li>
+          <li><span class="opt-key">D</span> Nothing useful</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The chain of function calls that led to the error, with file and line numbers</p>
+          <p class="expl">Read a stack from the top: the first line is where it threw, the lines below show who called it. Essential for locating the real source of a bug.</p>
+          <p class="tags"><span>Stack trace</span><span>Debugging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is an unhandled promise rejection?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A rejected promise with no .catch() - it logs a warning and can crash Node processes</li>
+          <li><span class="opt-key">B</span> A promise that never resolves</li>
+          <li><span class="opt-key">C</span> A syntax error</li>
+          <li><span class="opt-key">D</span> A resolved promise</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A rejected promise with no .catch() - it logs a warning and can crash Node processes</p>
+          <p class="expl">Always terminate promise chains with .catch(), or wrap awaits in try/catch. Global safety net: window.addEventListener('unhandledrejection', ...).</p>
+          <p class="tags"><span>Promises</span><span>Async errors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+try { JSON.parse(&quot;{bad}&quot;); }
+catch (e) { console.log(e.name); }</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SyntaxError - JSON.parse throws it at RUNTIME, so it IS catchable</li>
+          <li><span class="opt-key">B</span> TypeError</li>
+          <li><span class="opt-key">C</span> Nothing is logged</li>
+          <li><span class="opt-key">D</span> The code does not compile</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SyntaxError - JSON.parse throws it at RUNTIME, so it IS catchable</p>
+          <p class="expl">This is a runtime SyntaxError produced by the parser function, unlike a syntax error in your own source. Always wrap JSON.parse of untrusted data in try/catch.</p>
+          <p class="tags"><span>JSON.parse</span><span>SyntaxError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the cause option do (ES2022)?
+throw new Error(&quot;Save failed&quot;, { cause: err })</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Attaches the original error, preserving the chain for debugging</li>
+          <li><span class="opt-key">B</span> Sets the error message</li>
+          <li><span class="opt-key">C</span> Prevents the throw</li>
+          <li><span class="opt-key">D</span> Logs to the server</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Attaches the original error, preserving the chain for debugging</p>
+          <p class="expl">Wrapping a low-level error in a friendlier one used to lose the original. cause keeps both, so err.cause reveals the underlying failure.</p>
+          <p class="tags"><span>Error cause</span><span>ES2022</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+async function f() { throw new Error(&quot;x&quot;); }
+f().catch(e =&gt; console.log(&quot;caught&quot;, e.message));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> caught x - a throw inside async becomes a REJECTED promise</li>
+          <li><span class="opt-key">B</span> An uncaught error</li>
+          <li><span class="opt-key">C</span> Nothing</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — caught x - a throw inside async becomes a REJECTED promise</p>
+          <p class="expl">async functions always return a promise; throwing rejects it. That is why await + try/catch works so naturally with them.</p>
+          <p class="tags"><span>async</span><span>Promises</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function f() {
+  try { throw new Error(&quot;a&quot;); }
+  catch (e) { return &quot;caught&quot;; }
+  finally { return &quot;finally&quot;; }
+}
+console.log(f());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;finally&quot; - a return in finally OVERRIDES the catch's return</li>
+          <li><span class="opt-key">B</span> &quot;caught&quot;</li>
+          <li><span class="opt-key">C</span> &quot;a&quot;</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;finally&quot; - a return in finally OVERRIDES the catch's return</p>
+          <p class="expl">finally has the last word, discarding pending returns AND pending errors. This is why returning from finally is discouraged - it can silently swallow exceptions.</p>
+          <p class="tags"><span>finally</span><span>Gotchas</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="14-the-this-keyword.html">← The this Keyword</a>
+      <a href="16-dom-manipulation.html">DOM Manipulation →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-14">Practice “Error Handling” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

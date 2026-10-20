@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strings – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Strings with answers and detailed explanations — 14 easy, 13 medium and 3 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/04-strings.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Strings – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Strings with answers and detailed explanations — 14 easy, 13 medium and 3 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/04-strings.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Strings","item":"https://velnov.co.in/learn/python/04-strings.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Strings</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 4 of 20</p>
+      <h1>Strings — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Strings</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-3">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">14 easy · 13 medium · 3 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Indexing</span><span>Zero-based counting</span><span>Negative indexing</span><span>Slicing</span><span>Half-open ranges</span><span>Defaults</span><span>Step</span><span>Palindromes</span><span>String methods</span><span>lower()</span><span>upper()</span><span>casefold()</span><span>lstrip()</span><span>rstrip()</span><span>Cleaning input</span><span>join()</span><span>Lists</span><span>split()</span><span>find()</span><span>index()</span><span>in operator</span><span>Membership testing</span><span>f-strings</span><span>format()</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (14)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+s = &quot;python&quot;
+print(s[0])</p>
+        <pre class="code"><code>s = &quot;python&quot;
+#     012345   &lt;- index positions
+print(s[0])   # p
+print(s[2])   # t</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> p</li>
+          <li><span class="opt-key">B</span> y</li>
+          <li><span class="opt-key">C</span> python</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — p</p>
+          <p class="expl">String indexing starts at 0: s[0] is the FIRST character 'p', s[1] is 'y', and so on.</p>
+          <p class="tags"><span>Indexing</span><span>Zero-based counting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+s = &quot;python&quot;
+print(s[-1])</p>
+        <pre class="code"><code>s = &quot;python&quot;
+print(s[-1])   # n (last)
+print(s[-2])   # o (second last)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> p</li>
+          <li class="correct"><span class="opt-key">B</span> n</li>
+          <li><span class="opt-key">C</span> o</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — n</p>
+          <p class="expl">Negative indexes count from the END: s[-1] is the last character 'n', s[-2] is 'o'. Very handy for grabbing the end without knowing the length.</p>
+          <p class="tags"><span>Negative indexing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(&quot;python&quot;[:3])</p>
+        <pre class="code"><code>s = &quot;python&quot;
+print(s[:3])   # pyt
+print(s[3:])   # hon
+print(s[:])    # python (full copy)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> pyt</li>
+          <li><span class="opt-key">B</span> pyth</li>
+          <li><span class="opt-key">C</span> hon</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — pyt</p>
+          <p class="expl">Leaving out the start means 'from the beginning': [:3] takes indexes 0, 1, 2 -&gt; 'pyt'. Similarly [3:] means 'from index 3 to the end' -&gt; 'hon'.</p>
+          <p class="tags"><span>Slicing</span><span>Defaults</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(&quot;hello&quot;.upper())</p>
+        <pre class="code"><code>s = &quot;hello&quot;
+print(s.upper())   # HELLO
+print(s)            # hello - original untouched</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Hello</li>
+          <li class="correct"><span class="opt-key">B</span> HELLO</li>
+          <li><span class="opt-key">C</span> hello</li>
+          <li><span class="opt-key">D</span> hELLO</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — HELLO</p>
+          <p class="expl">.upper() returns a NEW string with all letters uppercase. The original string is unchanged (strings can't be modified).</p>
+          <p class="tags"><span>String methods</span><span>lower()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which method converts &quot;PyThOn&quot; to &quot;python&quot;?</p>
+        <pre class="code"><code>a = input(&quot;yes/no: &quot;)
+if a.lower() == &quot;yes&quot;:   # accepts YES, Yes, yes...
+    print(&quot;ok&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> small()</li>
+          <li><span class="opt-key">B</span> lowercase()</li>
+          <li class="correct"><span class="opt-key">C</span> lower()</li>
+          <li><span class="opt-key">D</span> downcase()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — lower()</p>
+          <p class="expl">.lower() returns the string with every letter in lowercase - commonly used to compare text case-insensitively.</p>
+          <p class="tags"><span>upper()</span><span>casefold()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does &quot;  hello  &quot;.strip() return?</p>
+        <pre class="code"><code>s = &quot;  hello  &quot;
+print(s.strip())    # 'hello'
+print(s.lstrip())   # 'hello  '
+print(s.rstrip())   # '  hello'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;hello&quot;</li>
+          <li><span class="opt-key">B</span> &quot;  hello&quot;</li>
+          <li><span class="opt-key">C</span> &quot;hello  &quot;</li>
+          <li><span class="opt-key">D</span> &quot;h e l l o&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;hello&quot;</p>
+          <p class="expl">.strip() removes whitespace (spaces, tabs, newlines) from BOTH ends of a string - the middle is untouched. lstrip() and rstrip() do only the left or right side.</p>
+          <ul class="notes"><li>Always strip() user input - people love typing stray spaces.</li></ul>
+          <p class="tags"><span>lstrip()</span><span>rstrip()</span><span>Cleaning input</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does &quot;a,b,c&quot;.split(&quot;,&quot;) return?</p>
+        <pre class="code"><code>print(&quot;a,b,c&quot;.split(&quot;,&quot;))    # ['a', 'b', 'c']
+print(&quot;one two  three&quot;.split()) # ['one', 'two', 'three']</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> &quot;abc&quot;</li>
+          <li class="correct"><span class="opt-key">B</span> ['a', 'b', 'c']</li>
+          <li><span class="opt-key">C</span> ('a', 'b', 'c')</li>
+          <li><span class="opt-key">D</span> 'a' 'b' 'c'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — ['a', 'b', 'c']</p>
+          <p class="expl">.split(separator) cuts a string into a LIST of pieces. &quot;a,b,c&quot;.split(&quot;,&quot;) gives ['a', 'b', 'c']. With no argument, split() cuts on any whitespace.</p>
+          <p class="tags"><span>join()</span><span>Lists</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does &quot;banana&quot;.replace(&quot;a&quot;, &quot;o&quot;) return?</p>
+        <pre class="code"><code>print(&quot;banana&quot;.replace(&quot;a&quot;, &quot;o&quot;))     # bonono
+print(&quot;banana&quot;.replace(&quot;a&quot;, &quot;o&quot;, 1))  # bonana</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> bonono</li>
+          <li><span class="opt-key">B</span> bonana</li>
+          <li><span class="opt-key">C</span> banana</li>
+          <li><span class="opt-key">D</span> bonan</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — bonono</p>
+          <p class="expl">.replace(old, new) replaces EVERY occurrence by default: all three a's become o's -&gt; 'bonono'. A third argument limits the count: replace(&quot;a&quot;, &quot;o&quot;, 1) -&gt; 'bonana'.</p>
+          <p class="tags"><span>String methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(&quot;py&quot; in &quot;python&quot;)</p>
+        <pre class="code"><code>print(&quot;py&quot; in &quot;python&quot;)      # True
+print(&quot;java&quot; in &quot;python&quot;)    # False
+print(&quot;x&quot; not in &quot;python&quot;)   # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True</li>
+          <li><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True</p>
+          <p class="expl">The in operator checks whether a substring exists inside a string: &quot;py&quot; appears at the start of &quot;python&quot;, so True. It's the cleanest way to test 'contains'.</p>
+          <p class="tags"><span>in operator</span><span>Membership testing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">name = &quot;Ana&quot;
+Which line prints: Hello Ana! using an f-string?</p>
+        <pre class="code"><code>name = &quot;Ana&quot;
+print(f&quot;Hello {name}!&quot;)   # Hello Ana!
+print(&quot;Hello {name}!&quot;)    # Hello {name}!  (no f!)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> print(f&quot;Hello {name}!&quot;)</li>
+          <li><span class="opt-key">B</span> print(&quot;Hello {name}!&quot;)</li>
+          <li><span class="opt-key">C</span> print(f&quot;Hello name!&quot;)</li>
+          <li><span class="opt-key">D</span> print(&quot;Hello&quot; + {name})</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — print(f&quot;Hello {name}!&quot;)</p>
+          <p class="expl">An f-string starts with f before the quote and fills in {expressions}: f&quot;Hello {name}!&quot; -&gt; Hello Ana!. Option B lacks the f, so it prints the braces literally.</p>
+          <ul class="notes"><li>f-strings (Python 3.6+) are the modern, preferred way to format text.</li></ul>
+          <p class="tags"><span>f-strings</span><span>format()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(&quot;ab&quot; * 3)</p>
+        <pre class="code"><code>print(&quot;ab&quot; * 3)    # ababab
+print(&quot;-&quot; * 20)    # --------------------</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ababab</li>
+          <li><span class="opt-key">B</span> ab3</li>
+          <li><span class="opt-key">C</span> ab ab ab</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ababab</p>
+          <p class="expl">Multiplying a string by an integer repeats it: &quot;ab&quot; * 3 -&gt; &quot;ababab&quot;. Handy for separators: print(&quot;-&quot; * 30).</p>
+          <p class="tags"><span>String repetition</span><span>Operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does &quot;banana&quot;.count(&quot;an&quot;) return?</p>
+        <pre class="code"><code>print(&quot;banana&quot;.count(&quot;an&quot;))   # 2
+print(&quot;banana&quot;.count(&quot;a&quot;))    # 3</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 1</li>
+          <li class="correct"><span class="opt-key">B</span> 2</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 2</p>
+          <p class="expl">.count(sub) counts non-overlapping occurrences: 'banana' contains 'an' at positions 1 and 3 -&gt; 2.</p>
+          <p class="tags"><span>String methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of: print(&quot;hello world&quot;.title())</p>
+        <pre class="code"><code>s = &quot;hello world&quot;
+print(s.title())        # Hello World
+print(s.capitalize())   # Hello world</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Hello world</li>
+          <li><span class="opt-key">B</span> HELLO WORLD</li>
+          <li class="correct"><span class="opt-key">C</span> Hello World</li>
+          <li><span class="opt-key">D</span> hello World</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — Hello World</p>
+          <p class="expl">.title() capitalizes the first letter of EVERY word. .capitalize() would capitalize only the first letter of the whole string ('Hello world').</p>
+          <p class="tags"><span>capitalize()</span><span>String methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you create a string that spans several lines?</p>
+        <pre class="code"><code>menu = &quot;&quot;&quot;1. Start
+2. Options
+3. Quit&quot;&quot;&quot;
+print(menu)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Triple quotes: &quot;&quot;&quot;line1\nline2&quot;&quot;&quot; style blocks</li>
+          <li><span class="opt-key">B</span> Using the multiline keyword</li>
+          <li><span class="opt-key">C</span> Ending each line with a comma</li>
+          <li><span class="opt-key">D</span> It's not possible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Triple quotes: &quot;&quot;&quot;line1\nline2&quot;&quot;&quot; style blocks</p>
+          <p class="expl">Triple-quoted strings keep their line breaks exactly as typed - ideal for long messages, menus, or SQL queries.</p>
+          <p class="tags"><span>Triple quotes</span><span>Docstrings</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+s = &quot;python&quot;
+print(s[1:4])</p>
+        <pre class="code"><code>s = &quot;python&quot;
+print(s[1:4])   # yth (indexes 1,2,3)
+print(s[0:2])   # py</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> yth</li>
+          <li><span class="opt-key">B</span> ytho</li>
+          <li><span class="opt-key">C</span> pyt</li>
+          <li><span class="opt-key">D</span> tho</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — yth</p>
+          <p class="expl">Slicing s[start:end] takes characters from index start UP TO BUT NOT INCLUDING end: indexes 1, 2, 3 -&gt; 'yth'. The end index is always excluded.</p>
+          <ul class="notes"><li>Remember: the slice grabs (end - start) characters.</li></ul>
+          <p class="tags"><span>Slicing</span><span>Half-open ranges</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(&quot;abcdef&quot;[::2])</p>
+        <pre class="code"><code>print(&quot;abcdef&quot;[::2])    # ace
+print(&quot;abcdef&quot;[1::2])   # bdf</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> abc</li>
+          <li class="correct"><span class="opt-key">B</span> ace</li>
+          <li><span class="opt-key">C</span> bdf</li>
+          <li><span class="opt-key">D</span> fedcba</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — ace</p>
+          <p class="expl">The third slice number is the STEP: [::2] takes every 2nd character starting from index 0 -&gt; a, c, e.</p>
+          <p class="tags"><span>Slicing</span><span>Step</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the classic one-liner to REVERSE a string s?</p>
+        <pre class="code"><code>s = &quot;python&quot;
+print(s[::-1])   # nohtyp</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> s.reverse()</li>
+          <li><span class="opt-key">B</span> reverse(s)</li>
+          <li class="correct"><span class="opt-key">C</span> s[::-1]</li>
+          <li><span class="opt-key">D</span> s[-1:1]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — s[::-1]</p>
+          <p class="expl">A step of -1 walks the string backwards: s[::-1] returns the reversed string. Strings have no .reverse() method (lists do).</p>
+          <ul class="notes"><li>Famous interview question: check palindrome with s == s[::-1].</li></ul>
+          <p class="tags"><span>Slicing</span><span>Palindromes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(&quot;-&quot;.join([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]))</p>
+        <pre class="code"><code>words = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+print(&quot;-&quot;.join(words))   # a-b-c
+print(&quot;&quot;.join(words))    # abc
+print(&quot;, &quot;.join(words))  # a, b, c</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> abc</li>
+          <li class="correct"><span class="opt-key">B</span> a-b-c</li>
+          <li><span class="opt-key">C</span> -abc-</li>
+          <li><span class="opt-key">D</span> ['a-b-c']</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — a-b-c</p>
+          <p class="expl">.join() is the opposite of split(): it glues a list of strings together using the string it's called on as the separator: &quot;-&quot;.join(...) -&gt; a-b-c.</p>
+          <ul class="notes"><li>The separator comes FIRST - a common point of confusion.</li></ul>
+          <p class="tags"><span>split()</span><span>Lists</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between find() and index() on strings?</p>
+        <pre class="code"><code>s = &quot;hello&quot;
+print(s.find(&quot;ll&quot;))    # 2
+print(s.find(&quot;xy&quot;))    # -1
+# s.index(&quot;xy&quot;)         # ValueError!</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> No difference</li>
+          <li class="correct"><span class="opt-key">B</span> find() returns -1 when not found; index() raises ValueError</li>
+          <li><span class="opt-key">C</span> index() returns -1; find() raises an error</li>
+          <li><span class="opt-key">D</span> find() only works on numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — find() returns -1 when not found; index() raises ValueError</p>
+          <p class="expl">Both return the position of a substring. When the substring is absent, find() politely returns -1 while index() raises ValueError. Use find() when absence is normal.</p>
+          <p class="tags"><span>find()</span><span>index()</span><span>in operator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(f&quot;{2 + 3}&quot;)</p>
+        <pre class="code"><code>price = 100
+print(f&quot;Total: {price * 1.18:.2f}&quot;)  # Total: 118.00</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 2 + 3</li>
+          <li class="correct"><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> {2 + 3}</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 5</p>
+          <p class="expl">f-string braces can hold ANY expression, not just variable names - it's evaluated and the result inserted: f&quot;{2 + 3}&quot; -&gt; &quot;5&quot;.</p>
+          <ul class="notes"><li>After a colon you can add formatting, e.g. :.2f = 2 decimal places.</li></ul>
+          <p class="tags"><span>f-strings</span><span>Format specifiers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens with:
+s = &quot;hello&quot;
+s[0] = &quot;H&quot;</p>
+        <pre class="code"><code>s = &quot;hello&quot;
+# s[0] = &quot;H&quot;          # TypeError!
+s = &quot;H&quot; + s[1:]       # build a new string
+print(s)               # Hello</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> s becomes &quot;Hello&quot;</li>
+          <li class="correct"><span class="opt-key">B</span> TypeError - strings are immutable</li>
+          <li><span class="opt-key">C</span> s becomes &quot;H&quot;</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — TypeError - strings are immutable</p>
+          <p class="expl">Strings CANNOT be changed in place - assigning to a character raises TypeError. To 'change' a string you build a new one: &quot;H&quot; + s[1:].</p>
+          <ul class="notes"><li>Immutability is why all string methods RETURN a new string.</li></ul>
+          <p class="tags"><span>Immutability</span><span>Slicing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which expression checks if a filename ends with &quot;.pdf&quot;?</p>
+        <pre class="code"><code>f = &quot;report.pdf&quot;
+print(f.endswith(&quot;.pdf&quot;))       # True
+print(f.startswith(&quot;rep&quot;))      # True</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> filename.endswith(&quot;.pdf&quot;)</li>
+          <li><span class="opt-key">B</span> filename.end(&quot;.pdf&quot;)</li>
+          <li><span class="opt-key">C</span> filename[-4] == &quot;.pdf&quot;</li>
+          <li><span class="opt-key">D</span> filename.last(&quot;.pdf&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — filename.endswith(&quot;.pdf&quot;)</p>
+          <p class="expl">.endswith() and .startswith() test the ends of a string and return True/False. Option C is close but wrong - filename[-4] is a single character; you'd need filename[-4:].</p>
+          <p class="tags"><span>startswith()</span><span>Slicing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does &quot;123&quot;.isdigit() return?</p>
+        <pre class="code"><code>print(&quot;123&quot;.isdigit())    # True
+print(&quot;12.5&quot;.isdigit())   # False
+print(&quot;abc&quot;.isdigit())    # False</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True</li>
+          <li><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> 123</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True</p>
+          <p class="expl">.isdigit() is True when every character is a digit 0-9. Great for validating input BEFORE calling int(). &quot;12.5&quot;.isdigit() is False (the dot isn't a digit).</p>
+          <p class="tags"><span>isalpha()</span><span>Input validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(&quot;apple&quot; &lt; &quot;banana&quot;)</p>
+        <pre class="code"><code>print(&quot;apple&quot; &lt; &quot;banana&quot;)   # True
+print(&quot;Zoo&quot; &lt; &quot;apple&quot;)      # True! capitals come before lowercase</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True</li>
+          <li><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> 5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True</p>
+          <p class="expl">Strings compare alphabetically (by character codes), letter by letter: 'a' &lt; 'b', so &quot;apple&quot; &lt; &quot;banana&quot; is True. This is why sorting a list of strings gives alphabetical order.</p>
+          <ul class="notes"><li>All UPPERCASE letters sort before all lowercase in default comparisons.</li></ul>
+          <p class="tags"><span>Ordering</span><span>sorted()</span><span>ord()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+age = 21
+print(&quot;Age: &quot; + age)</p>
+        <pre class="code"><code>age = 21
+print(&quot;Age: &quot; + str(age))   # works
+print(f&quot;Age: {age}&quot;)         # best
+print(&quot;Age:&quot;, age)           # also works</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Age: 21</li>
+          <li class="correct"><span class="opt-key">B</span> TypeError - can't concatenate str and int</li>
+          <li><span class="opt-key">C</span> Age: &quot;21&quot;</li>
+          <li><span class="opt-key">D</span> Age:21</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — TypeError - can't concatenate str and int</p>
+          <p class="expl">+ can't join a string with a number. Fix it with str(age), an f-string, or a comma in print (which handles any type).</p>
+          <p class="tags"><span>TypeError</span><span>f-strings</span><span>str()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of: print(&quot;Hello {}, you are {}&quot;.format(&quot;Ana&quot;, 21))</p>
+        <pre class="code"><code>print(&quot;Hello {}, you are {}&quot;.format(&quot;Ana&quot;, 21))
+# same as:
+name, age = &quot;Ana&quot;, 21
+print(f&quot;Hello {name}, you are {age}&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Hello Ana, you are 21</li>
+          <li><span class="opt-key">B</span> Hello {}, you are {}</li>
+          <li><span class="opt-key">C</span> Hello 21, you are Ana</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Hello Ana, you are 21</p>
+          <p class="expl">.format() fills the {} placeholders in order: first {} gets &quot;Ana&quot;, second gets 21. f-strings do the same job more readably, but .format() is common in older code.</p>
+          <p class="tags"><span>format()</span><span>f-strings</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which expression removes only the TRAILING newline from s = &quot;data\n&quot;?</p>
+        <pre class="code"><code>line = &quot;data\n&quot;
+print(repr(line.rstrip()))   # 'data'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> s.rstrip()</li>
+          <li><span class="opt-key">B</span> s.strip(&quot;data&quot;)</li>
+          <li><span class="opt-key">C</span> s.replace(&quot;n&quot;, &quot;&quot;)</li>
+          <li><span class="opt-key">D</span> s.cut()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — s.rstrip()</p>
+          <p class="expl">.rstrip() strips whitespace (including \n) from the right end only - the standard way to clean lines read from a file. Option C would delete the letter n from 'data' too!</p>
+          <p class="tags"><span>strip()</span><span>Reading files</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (3)</h2>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What do ord(&quot;A&quot;) and chr(66) return?</p>
+        <pre class="code"><code>print(ord(&quot;A&quot;))   # 65
+print(chr(66))     # B
+print(chr(ord(&quot;a&quot;) + 1))  # b</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 65 and &quot;B&quot;</li>
+          <li><span class="opt-key">B</span> &quot;A&quot; and 66</li>
+          <li><span class="opt-key">C</span> 1 and &quot;66&quot;</li>
+          <li><span class="opt-key">D</span> Error for both</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 65 and &quot;B&quot;</p>
+          <p class="expl">ord() gives a character's Unicode number (A = 65) and chr() does the reverse (66 = B). They're inverses: chr(ord(&quot;A&quot;)) is &quot;A&quot; again.</p>
+          <ul class="notes"><li>Used in Caesar ciphers and character math puzzles.</li></ul>
+          <p class="tags"><span>Unicode</span><span>ASCII</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of: print(len(&quot;a\nb&quot;))</p>
+        <pre class="code"><code>print(len(&quot;a\nb&quot;))    # 3
+print(len(&quot;\t&quot;))       # 1
+print(len(&quot;\\&quot;))       # 1 (one backslash)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 4</li>
+          <li class="correct"><span class="opt-key">B</span> 3</li>
+          <li><span class="opt-key">C</span> 2</li>
+          <li><span class="opt-key">D</span> 5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 3</p>
+          <p class="expl">\n is ONE character (the newline), not two. So the string contains 'a', newline, 'b' - length 3.</p>
+          <p class="tags"><span>Escape sequences</span><span>len()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">s = &quot;madam&quot; - which expression checks if s is a palindrome?</p>
+        <pre class="code"><code>s = &quot;madam&quot;
+print(s == s[::-1])   # True
+
+s = &quot;python&quot;
+print(s == s[::-1])   # False</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> s == s[::-1]</li>
+          <li><span class="opt-key">B</span> s.palindrome()</li>
+          <li><span class="opt-key">C</span> s == reverse(s)</li>
+          <li><span class="opt-key">D</span> s[::-1] == True</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — s == s[::-1]</p>
+          <p class="expl">A palindrome reads the same backwards. s[::-1] is the reversed string, so comparing it to the original does the check in one line. There's no built-in palindrome() or reverse() function for strings.</p>
+          <p class="tags"><span>Slicing</span><span>Interview questions</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="03-data-types-and-conversion.html">← Data Types &amp; Conversion</a>
+      <a href="05-conditionals.html">Conditionals →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-3">Practice “Strings” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

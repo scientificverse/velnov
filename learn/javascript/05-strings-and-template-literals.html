@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strings &amp; Template Literals – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Strings &amp; Template Literals with answers and detailed explanations — 9 easy, 16 medium and 5 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/05-strings-and-template-literals.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Strings &amp; Template Literals – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Strings &amp; Template Literals with answers and detailed explanations — 9 easy, 16 medium and 5 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/05-strings-and-template-literals.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Strings & Template Literals","item":"https://velnov.co.in/learn/javascript/05-strings-and-template-literals.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Strings &amp; Template Literals</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 5 of 20</p>
+      <h1>Strings &amp; Template Literals — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Strings &amp; Template Literals</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-4">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">9 easy · 16 medium · 5 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Template literals</span><span>Quotes</span><span>Interpolation</span><span>Expressions</span><span>Multi-line</span><span>length</span><span>Properties</span><span>Indexing</span><span>charAt</span><span>at()</span><span>Negative index</span><span>Immutability</span><span>String methods</span><span>Strings</span><span>slice</span><span>substring</span><span>includes</span><span>indexOf</span><span>trim</span><span>Input validation</span><span>split</span><span>join</span><span>replace</span><span>replaceAll</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (9)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which quote styles can create a string in JavaScript?</p>
+        <pre class="code"><code>const a = 'hi';
+const b = &quot;hi&quot;;
+const c = `hi`;   // template literal</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Single ' ', double &quot; &quot; and backticks ` `</li>
+          <li><span class="opt-key">B</span> Only double quotes</li>
+          <li><span class="opt-key">C</span> Only single quotes</li>
+          <li><span class="opt-key">D</span> Only backticks</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Single ' ', double &quot; &quot; and backticks ` `</p>
+          <p class="expl">Single and double quotes are interchangeable. Backticks create template literals, which additionally support interpolation and multi-line text.</p>
+          <p class="tags"><span>Template literals</span><span>Quotes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output?
+const name = &quot;Ana&quot;;
+console.log(`Hello ${name}!`);</p>
+        <pre class="code"><code>console.log(`Hello ${name}!`);      // Hello Ana!
+console.log(&quot;Hello ${name}!&quot;);     // literal - no interpolation</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Hello Ana!</li>
+          <li><span class="opt-key">B</span> Hello ${name}!</li>
+          <li><span class="opt-key">C</span> Hello name!</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Hello Ana!</p>
+          <p class="expl">Inside backticks, ${expression} is evaluated and inserted. This is string interpolation - far more readable than &quot;Hello &quot; + name + &quot;!&quot;.</p>
+          <p class="tags"><span>Template literals</span><span>Interpolation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you create a MULTI-LINE string most easily?</p>
+        <pre class="code"><code>const html = `
+  &lt;div&gt;
+    &lt;p&gt;Hello&lt;/p&gt;
+  &lt;/div&gt;
+`;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use backticks - line breaks inside are preserved</li>
+          <li><span class="opt-key">B</span> Use \n in single quotes only</li>
+          <li><span class="opt-key">C</span> Multi-line strings are impossible</li>
+          <li><span class="opt-key">D</span> Use triple quotes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use backticks - line breaks inside are preserved</p>
+          <p class="expl">Template literals keep real line breaks, so HTML blocks and long messages stay readable. (\n still works inside ordinary quotes.)</p>
+          <p class="tags"><span>Template literals</span><span>Multi-line</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;hello&quot;.length);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5</li>
+          <li><span class="opt-key">B</span> 4</li>
+          <li><span class="opt-key">C</span> 6</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5</p>
+          <p class="expl">length is a PROPERTY (no parentheses) giving the number of characters. Note: &quot;hello&quot;.length() would be a TypeError.</p>
+          <p class="tags"><span>length</span><span>Properties</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;hello&quot;[0], &quot;hello&quot;.charAt(1));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> h e - indexing starts at 0</li>
+          <li><span class="opt-key">B</span> e l</li>
+          <li><span class="opt-key">C</span> h h</li>
+          <li><span class="opt-key">D</span> undefined e</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — h e - indexing starts at 0</p>
+          <p class="expl">Both bracket notation and charAt() read a character by index, counting from 0. Bracket notation returns undefined for out-of-range; charAt returns &quot;&quot;.</p>
+          <p class="tags"><span>Indexing</span><span>charAt</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does &quot;hello&quot;.toUpperCase() return - and does it change the original?</p>
+        <pre class="code"><code>let s = &quot;hello&quot;;
+s.toUpperCase();       // result discarded!
+console.log(s);         // &quot;hello&quot;
+s = s.toUpperCase();   // correct
+console.log(s);         // &quot;HELLO&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;HELLO&quot;, and the original is unchanged (strings are immutable)</li>
+          <li><span class="opt-key">B</span> &quot;HELLO&quot;, and the original becomes uppercase too</li>
+          <li><span class="opt-key">C</span> &quot;hello&quot;</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;HELLO&quot;, and the original is unchanged (strings are immutable)</p>
+          <p class="expl">Every string method returns a NEW string; the original can never be modified. You must capture the result: s = s.toUpperCase().</p>
+          <p class="tags"><span>Immutability</span><span>String methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which method checks whether a string CONTAINS another string?</p>
+        <pre class="code"><code>const s = &quot;hello world&quot;;
+console.log(s.includes(&quot;world&quot;));     // true
+console.log(s.startsWith(&quot;hello&quot;));   // true
+console.log(s.endsWith(&quot;.js&quot;));       // false</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> includes()</li>
+          <li><span class="opt-key">B</span> contains()</li>
+          <li><span class="opt-key">C</span> has()</li>
+          <li><span class="opt-key">D</span> find()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — includes()</p>
+          <p class="expl">&quot;hello world&quot;.includes(&quot;world&quot;) returns true/false. Related: startsWith(), endsWith(), and indexOf() (which returns a position or -1).</p>
+          <p class="tags"><span>includes</span><span>indexOf</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does &quot;  hi  &quot;.trim() return?</p>
+        <pre class="code"><code>const input = &quot;  ana@mail.com  &quot;;
+const clean = input.trim();</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;hi&quot;</li>
+          <li><span class="opt-key">B</span> &quot;  hi&quot;</li>
+          <li><span class="opt-key">C</span> &quot;hi  &quot;</li>
+          <li><span class="opt-key">D</span> &quot;h i&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;hi&quot;</p>
+          <p class="expl">trim() removes whitespace from BOTH ends (not the middle). Always trim user input from forms. trimStart() and trimEnd() handle one side.</p>
+          <p class="tags"><span>trim</span><span>Input validation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you join two strings?</p>
+        <pre class="code"><code>const full = first + &quot; &quot; + last;
+const full2 = `${first} ${last}`;   // preferred</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> With + or a template literal</li>
+          <li><span class="opt-key">B</span> With &amp; only</li>
+          <li><span class="opt-key">C</span> With .concat() only</li>
+          <li><span class="opt-key">D</span> With , </li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — With + or a template literal</p>
+          <p class="expl">+ concatenates, and template literals are the modern readable choice. concat() exists but is rarely used.</p>
+          <p class="tags"><span>Concatenation</span><span>Template literals</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What can go inside ${ } in a template literal?</p>
+        <pre class="code"><code>console.log(`Total: ${price * qty}`);
+console.log(`${age &gt;= 18 ? &quot;adult&quot; : &quot;minor&quot;}`);
+console.log(`${user.name.toUpperCase()}`);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Any expression - variables, maths, function calls, even ternaries</li>
+          <li><span class="opt-key">B</span> Only variable names</li>
+          <li><span class="opt-key">C</span> Only strings</li>
+          <li><span class="opt-key">D</span> Only numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Any expression - variables, maths, function calls, even ternaries</p>
+          <p class="expl">The braces hold a full expression, evaluated and converted to a string.</p>
+          <p class="tags"><span>Template literals</span><span>Expressions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does &quot;hello&quot;.at(-1) return?</p>
+        <pre class="code"><code>console.log(&quot;hello&quot;.at(-1));   // &quot;o&quot;
+console.log(&quot;hello&quot;[-1]);      // undefined</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;o&quot; - at() accepts NEGATIVE indexes counting from the end</li>
+          <li><span class="opt-key">B</span> &quot;h&quot;</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;o&quot; - at() accepts NEGATIVE indexes counting from the end</p>
+          <p class="expl">at() (ES2022) supports negative indexes, unlike bracket notation. &quot;hello&quot;[-1] gives undefined, but &quot;hello&quot;.at(-1) gives the last character.</p>
+          <p class="tags"><span>at()</span><span>Negative index</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens?
+let s = &quot;hello&quot;;
+s[0] = &quot;H&quot;;
+console.log(s);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;hello&quot; - strings are immutable, so the assignment silently does nothing</li>
+          <li><span class="opt-key">B</span> &quot;Hello&quot;</li>
+          <li><span class="opt-key">C</span> TypeError</li>
+          <li><span class="opt-key">D</span> &quot;H&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;hello&quot; - strings are immutable, so the assignment silently does nothing</p>
+          <p class="expl">You cannot change a character in place. In non-strict mode the assignment is ignored silently; in strict mode it throws. Build a new string instead: &quot;H&quot; + s.slice(1).</p>
+          <p class="tags"><span>Immutability</span><span>Strings</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does &quot;javascript&quot;.slice(0, 4) return?</p>
+        <pre class="code"><code>const s = &quot;javascript&quot;;
+console.log(s.slice(0, 4));   // &quot;java&quot;
+console.log(s.slice(4));       // &quot;script&quot;
+console.log(s.slice(-6));      // &quot;script&quot; - from the end</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;java&quot;</li>
+          <li><span class="opt-key">B</span> &quot;javas&quot;</li>
+          <li><span class="opt-key">C</span> &quot;script&quot;</li>
+          <li><span class="opt-key">D</span> &quot;jav&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;java&quot;</p>
+          <p class="expl">slice(start, end) extracts from start UP TO but not including end: indexes 0,1,2,3 give &quot;java&quot;.</p>
+          <p class="tags"><span>slice</span><span>substring</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does &quot;hello&quot;.indexOf(&quot;z&quot;) return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> -1 - the standard 'not found' result</li>
+          <li><span class="opt-key">B</span> 0</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — -1 - the standard 'not found' result</p>
+          <p class="expl">indexOf returns the first position of the substring, or -1 when absent. Older code tests 'if (s.indexOf(x) !== -1)'; modern code uses includes().</p>
+          <p class="tags"><span>indexOf</span><span>includes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does &quot;a,b,c&quot;.split(&quot;,&quot;) return?</p>
+        <pre class="code"><code>&quot;a,b,c&quot;.split(&quot;,&quot;);    // [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+&quot;abc&quot;.split(&quot;&quot;);        // [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+[&quot;a&quot;,&quot;b&quot;].join(&quot;-&quot;);    // &quot;a-b&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The array [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</li>
+          <li><span class="opt-key">B</span> The string &quot;abc&quot;</li>
+          <li><span class="opt-key">C</span> [&quot;a,b,c&quot;]</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The array [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</p>
+          <p class="expl">split(separator) breaks a string into an ARRAY. split(&quot;&quot;) splits into individual characters. The reverse operation is array.join(separator).</p>
+          <p class="tags"><span>split</span><span>join</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does &quot;banana&quot;.replace(&quot;a&quot;, &quot;o&quot;) return?</p>
+        <pre class="code"><code>&quot;banana&quot;.replace(&quot;a&quot;, &quot;o&quot;);      // &quot;bonana&quot;
+&quot;banana&quot;.replaceAll(&quot;a&quot;, &quot;o&quot;);   // &quot;bonono&quot;
+&quot;banana&quot;.replace(/a/g, &quot;o&quot;);     // &quot;bonono&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;bonana&quot; - replace() changes only the FIRST match</li>
+          <li><span class="opt-key">B</span> &quot;bonono&quot;</li>
+          <li><span class="opt-key">C</span> &quot;banana&quot;</li>
+          <li><span class="opt-key">D</span> &quot;bonan&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;bonana&quot; - replace() changes only the FIRST match</p>
+          <p class="expl">replace() with a string replaces one occurrence. Use replaceAll() (ES2021) or a global regex /a/g to replace every match.</p>
+          <p class="tags"><span>replace</span><span>replaceAll</span><span>Regex</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;5&quot; + 5, 5 + 5);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;55&quot; 10</li>
+          <li><span class="opt-key">B</span> 10 10</li>
+          <li><span class="opt-key">C</span> &quot;55&quot; &quot;55&quot;</li>
+          <li><span class="opt-key">D</span> NaN 10</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;55&quot; 10</p>
+          <p class="expl">With a string operand, + concatenates (&quot;55&quot;); with two numbers it adds (10). Always convert form input with Number() before doing maths.</p>
+          <p class="tags"><span>Coercion</span><span>Concatenation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does &quot;abc&quot;.repeat(3) return?</p>
+        <pre class="code"><code>console.log(&quot;-&quot;.repeat(20));   // --------------------</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;abcabcabc&quot;</li>
+          <li><span class="opt-key">B</span> &quot;abc3&quot;</li>
+          <li><span class="opt-key">C</span> [&quot;abc&quot;,&quot;abc&quot;,&quot;abc&quot;]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;abcabcabc&quot;</p>
+          <p class="expl">repeat(n) returns the string repeated n times - useful for separators and simple patterns.</p>
+          <p class="tags"><span>repeat</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does &quot;5&quot;.padStart(3, &quot;0&quot;) return?</p>
+        <pre class="code"><code>const mins = &quot;7&quot;.padStart(2, &quot;0&quot;);   // &quot;07&quot;
+console.log(`10:${mins}`);            // 10:07</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;005&quot; - pads the start until the string reaches length 3</li>
+          <li><span class="opt-key">B</span> &quot;500&quot;</li>
+          <li><span class="opt-key">C</span> &quot;5&quot;</li>
+          <li><span class="opt-key">D</span> &quot;0005&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;005&quot; - pads the start until the string reaches length 3</p>
+          <p class="expl">padStart/padEnd fill a string to a target length. Perfect for clock digits and invoice numbers.</p>
+          <p class="tags"><span>padStart</span><span>Formatting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you compare two strings ignoring case?</p>
+        <pre class="code"><code>if (input.toLowerCase() === &quot;yes&quot;) { }   // accepts YES, Yes, yes</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Convert both with toLowerCase() then compare with ===</li>
+          <li><span class="opt-key">B</span> Use == which ignores case</li>
+          <li><span class="opt-key">C</span> Use compareIgnoreCase()</li>
+          <li><span class="opt-key">D</span> Strings cannot be compared</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Convert both with toLowerCase() then compare with ===</p>
+          <p class="expl">JavaScript comparison is always case-sensitive; normalise first. (For international text, a.localeCompare(b, undefined, {sensitivity:'base'}) is more correct.)</p>
+          <p class="tags"><span>toLowerCase</span><span>Comparison</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;apple&quot; &lt; &quot;banana&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true - strings compare alphabetically by character code</li>
+          <li><span class="opt-key">B</span> false</li>
+          <li><span class="opt-key">C</span> NaN</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true - strings compare alphabetically by character code</p>
+          <p class="expl">Comparison walks character by character using Unicode values. Note all UPPERCASE letters come before lowercase, so &quot;Zoo&quot; &lt; &quot;apple&quot; is true.</p>
+          <p class="tags"><span>String comparison</span><span>Unicode</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you insert a quote inside a string?
+She said &quot;hi&quot;</p>
+        <pre class="code"><code>'She said &quot;hi&quot;';
+&quot;She said \&quot;hi\&quot;&quot;;
+`She said &quot;hi&quot;`;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Escape it with \&quot; or wrap the string in the other quote type</li>
+          <li><span class="opt-key">B</span> It is impossible</li>
+          <li><span class="opt-key">C</span> Use two quotes &quot;&quot;hi&quot;&quot;</li>
+          <li><span class="opt-key">D</span> Use a comma</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Escape it with \&quot; or wrap the string in the other quote type</p>
+          <p class="expl">Either escape the quote with a backslash or use different outer quotes. Backticks avoid the problem entirely.</p>
+          <p class="tags"><span>Escaping</span><span>Quotes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the escape sequence \n produce?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A new line</li>
+          <li><span class="opt-key">B</span> A literal backslash-n</li>
+          <li><span class="opt-key">C</span> A tab</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A new line</p>
+          <p class="expl">\n is a newline, \t a tab, \\ a literal backslash, \&quot; an escaped quote. Inside template literals you can simply press Enter instead.</p>
+          <p class="tags"><span>Escape sequences</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the ${} syntax do OUTSIDE backticks?
+console.log(&quot;Hi ${name}&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Nothing special - it prints literally as Hi ${name}</li>
+          <li><span class="opt-key">B</span> It still interpolates</li>
+          <li><span class="opt-key">C</span> SyntaxError</li>
+          <li><span class="opt-key">D</span> It prints undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Nothing special - it prints literally as Hi ${name}</p>
+          <p class="expl">Interpolation only works inside backticks. Forgetting to switch from quotes to backticks is a very common beginner mistake.</p>
+          <p class="tags"><span>Template literals</span><span>Common mistakes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you convert a number to a string?</p>
+        <pre class="code"><code>String(42);           // &quot;42&quot;
+(42).toString();       // &quot;42&quot;
+(255).toString(16);    // &quot;ff&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> String(n), n.toString(), or `${n}`</li>
+          <li><span class="opt-key">B</span> n.toText()</li>
+          <li><span class="opt-key">C</span> (string) n</li>
+          <li><span class="opt-key">D</span> n + 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — String(n), n.toString(), or `${n}`</p>
+          <p class="expl">All three work. toString() also accepts a radix: (255).toString(16) gives &quot;ff&quot;. Note String(null) works but null.toString() throws.</p>
+          <p class="tags"><span>toString</span><span>Conversion</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (5)</h2>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the key difference between slice() and substring()?</p>
+        <pre class="code"><code>&quot;hello&quot;.slice(-3);       // &quot;llo&quot;
+&quot;hello&quot;.substring(-3);   // &quot;hello&quot; (treated as 0)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> slice() accepts NEGATIVE indexes (counting from the end); substring() treats them as 0</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> substring() is faster</li>
+          <li><span class="opt-key">D</span> slice() only works on arrays</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — slice() accepts NEGATIVE indexes (counting from the end); substring() treats them as 0</p>
+          <p class="expl">slice(-3) takes the last three characters; substring(-3) behaves like substring(0). substring also swaps its arguments if start &gt; end. Prefer slice.</p>
+          <p class="tags"><span>slice</span><span>substring</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you REVERSE a string in JavaScript?</p>
+        <pre class="code"><code>const s = &quot;hello&quot;;
+console.log(s.split(&quot;&quot;).reverse().join(&quot;&quot;));   // &quot;olleh&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> s.split(&quot;&quot;).reverse().join(&quot;&quot;) - strings have no reverse() method</li>
+          <li><span class="opt-key">B</span> s.reverse()</li>
+          <li><span class="opt-key">C</span> s[::-1]</li>
+          <li><span class="opt-key">D</span> reverse(s)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — s.split(&quot;&quot;).reverse().join(&quot;&quot;) - strings have no reverse() method</p>
+          <p class="expl">reverse() is an ARRAY method, so convert to an array, reverse, and join back. ([...s].reverse().join(&quot;&quot;) also works.)</p>
+          <p class="tags"><span>split</span><span>reverse</span><span>join</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(&quot;hello&quot;.split(&quot;&quot;).map(c =&gt; c.toUpperCase()).join(&quot;&quot;));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;HELLO&quot;</li>
+          <li><span class="opt-key">B</span> [&quot;H&quot;,&quot;E&quot;,&quot;L&quot;,&quot;L&quot;,&quot;O&quot;]</li>
+          <li><span class="opt-key">C</span> &quot;hello&quot;</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;HELLO&quot;</p>
+          <p class="expl">Split into characters, transform each with map, then join back into a string. (toUpperCase() alone does the same here, but this chain pattern generalises to any per-character transformation.)</p>
+          <p class="tags"><span>Method chaining</span><span>map</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a tagged template literal?
+tag`Hello ${name}`</p>
+        <pre class="code"><code>function upper(strings, ...values) {
+  return strings.reduce((out, s, i) =&gt;
+    out + s + (values[i] ? String(values[i]).toUpperCase() : &quot;&quot;), &quot;&quot;);
+}
+console.log(upper`hi ${&quot;ana&quot;}`);   // &quot;hi ANA&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function call where the function receives the string pieces and the interpolated values separately</li>
+          <li><span class="opt-key">B</span> An HTML tag</li>
+          <li><span class="opt-key">C</span> A comment style</li>
+          <li><span class="opt-key">D</span> Invalid syntax</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function call where the function receives the string pieces and the interpolated values separately</p>
+          <p class="expl">Placing a function name before a template literal calls it with (stringsArray, ...values), letting you post-process the result. Libraries use it for styled-components, escaping HTML and internationalisation.</p>
+          <p class="tags"><span>Tagged templates</span><span>Advanced</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does &quot;cafe\u0301&quot;.length reveal about string length?</p>
+        <pre class="code"><code>console.log(&quot;😀&quot;.length);        // 2 - surrogate pair!
+console.log([...&quot;😀&quot;].length);   // 1</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> length counts CODE UNITS, so combined characters and emoji can count as more than one</li>
+          <li><span class="opt-key">B</span> length always equals the visible characters</li>
+          <li><span class="opt-key">C</span> length is always 4</li>
+          <li><span class="opt-key">D</span> Unicode is not supported</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — length counts CODE UNITS, so combined characters and emoji can count as more than one</p>
+          <p class="expl">JavaScript strings are UTF-16 code units. Accented characters built from combining marks, and emoji (which use surrogate pairs), report a length larger than what the eye sees. [...str].length handles emoji better.</p>
+          <p class="tags"><span>Unicode</span><span>UTF-16</span><span>Emoji</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="04-type-coercion-and-equality.html">← Type Coercion &amp; Equality</a>
+      <a href="06-conditionals.html">Conditionals →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-4">Practice “Strings &amp; Template Literals” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

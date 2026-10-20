@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Closures – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Closures with answers and detailed explanations — 0 easy, 14 medium and 16 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/13-closures.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Closures – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Closures with answers and detailed explanations — 0 easy, 14 medium and 16 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/13-closures.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Closures","item":"https://velnov.co.in/learn/javascript/13-closures.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Closures</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 13 of 20</p>
+      <h1>Closures — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Closures</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-12">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">0 easy · 14 medium · 16 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Lexical scope</span><span>Functions</span><span>Closures</span><span>Memory</span><span>State</span><span>Independence</span><span>var</span><span>Event loop</span><span>let</span><span>IIFE</span><span>Module pattern</span><span>Encapsulation</span><span>Privacy</span><span>Function factories</span><span>Currying</span><span>Events</span><span>Callbacks</span><span>Live binding</span><span>Memoization</span><span>Caching</span><span>Debounce</span><span>Real-world</span><span>Garbage collection</span><span>Mutation</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+
+    <section>
+      <h2 id="medium">Medium questions (14)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a closure?</p>
+        <pre class="code"><code>function outer() {
+  const msg = &quot;hi&quot;;
+  return () =&gt; msg;    // closure over msg
+}
+console.log(outer()());   // &quot;hi&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A function that remembers variables from the scope where it was CREATED, even after that scope has finished</li>
+          <li><span class="opt-key">B</span> A function that closes the browser</li>
+          <li><span class="opt-key">C</span> A way to end a loop</li>
+          <li><span class="opt-key">D</span> A private class method</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A function that remembers variables from the scope where it was CREATED, even after that scope has finished</p>
+          <p class="expl">When an inner function references an outer variable and outlives the outer call, JavaScript keeps that variable alive for it. Closures are the foundation of callbacks, modules and React hooks.</p>
+          <p class="tags"><span>Lexical scope</span><span>Functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+function outer() {
+  let x = 10;
+  return function() { return x; };
+}
+const f = outer();
+console.log(f());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 10 - the closure keeps x alive after outer() returned</li>
+          <li><span class="opt-key">B</span> undefined</li>
+          <li><span class="opt-key">C</span> ReferenceError</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 10 - the closure keeps x alive after outer() returned</p>
+          <p class="expl">Normally locals vanish when a function returns, but because the returned function still references x, it is retained in memory.</p>
+          <p class="tags"><span>Closures</span><span>Memory</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this counter demonstrate?
+function makeCounter() {
+  let count = 0;
+  return () =&gt; ++count;
+}
+const c = makeCounter();
+console.log(c(), c(), c());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 2 3 - the closure keeps private state between calls</li>
+          <li><span class="opt-key">B</span> 1 1 1</li>
+          <li><span class="opt-key">C</span> 0 1 2</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 2 3 - the closure keeps private state between calls</p>
+          <p class="expl">count lives in the closure, not the global scope, and persists across calls - giving encapsulated, tamper-proof state.</p>
+          <p class="tags"><span>Closures</span><span>State</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How does changing var to let fix the loop-closure problem?</p>
+        <pre class="code"><code>for (let i = 0; i &lt; 3; i++) setTimeout(() =&gt; console.log(i));
+// 0 1 2</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> let creates a NEW binding per iteration, so each callback closes over its own copy</li>
+          <li><span class="opt-key">B</span> let delays the timers</li>
+          <li><span class="opt-key">C</span> let makes the loop synchronous</li>
+          <li><span class="opt-key">D</span> It does not fix it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — let creates a NEW binding per iteration, so each callback closes over its own copy</p>
+          <p class="expl">The specification re-binds a let loop variable each iteration, giving three separate closures that print 0 1 2.</p>
+          <p class="tags"><span>let</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the module pattern using closures?</p>
+        <pre class="code"><code>const bank = (function() {
+  let balance = 0;                       // private
+  return {
+    deposit(n) { balance += n; },
+    getBalance() { return balance; }
+  };
+})();
+bank.deposit(100);
+console.log(bank.balance);   // undefined - private!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An IIFE that keeps variables private and returns only the public methods</li>
+          <li><span class="opt-key">B</span> Importing files</li>
+          <li><span class="opt-key">C</span> A class</li>
+          <li><span class="opt-key">D</span> A loop pattern</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An IIFE that keeps variables private and returns only the public methods</p>
+          <p class="expl">Before ES modules, this was the standard way to get privacy: internal state lives in the closure and only the returned object is reachable.</p>
+          <p class="tags"><span>Module pattern</span><span>Encapsulation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do closures create 'private' variables?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The variable is only reachable through the functions that closed over it - nothing outside can touch it</li>
+          <li><span class="opt-key">B</span> By using the private keyword</li>
+          <li><span class="opt-key">C</span> By using const</li>
+          <li><span class="opt-key">D</span> They cannot</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The variable is only reachable through the functions that closed over it - nothing outside can touch it</p>
+          <p class="expl">There is no way to reach a closure variable from outside except through the exposed functions - real encapsulation without any special syntax.</p>
+          <p class="tags"><span>Encapsulation</span><span>Privacy</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why do event handlers commonly rely on closures?</p>
+        <pre class="code"><code>function setup(id) {
+  btn.addEventListener(&quot;click&quot;, () =&gt; console.log(id));   // remembers id
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The handler runs long after setup, but still needs the variables from when it was created</li>
+          <li><span class="opt-key">B</span> Events require the closure keyword</li>
+          <li><span class="opt-key">C</span> Closures make events faster</li>
+          <li><span class="opt-key">D</span> They do not use closures</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The handler runs long after setup, but still needs the variables from when it was created</p>
+          <p class="expl">A click may happen minutes later; the callback still sees the id, element or config captured at registration time - because of the closure.</p>
+          <p class="tags"><span>Events</span><span>Callbacks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Do closures keep variables in memory longer than usual?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - captured variables cannot be garbage collected while the closure lives (a possible leak if careless)</li>
+          <li><span class="opt-key">B</span> No, memory is freed immediately</li>
+          <li><span class="opt-key">C</span> Closures use no memory</li>
+          <li><span class="opt-key">D</span> Only in old browsers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - captured variables cannot be garbage collected while the closure lives (a possible leak if careless)</p>
+          <p class="expl">This is normally fine and intentional, but holding closures that capture large DOM nodes or datasets (e.g. never-removed listeners) can cause memory leaks.</p>
+          <p class="tags"><span>Memory</span><span>Garbage collection</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can a closure MODIFY the variable it captured?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - it holds a live reference, so it can read and write</li>
+          <li><span class="opt-key">B</span> No, captured variables are read-only</li>
+          <li><span class="opt-key">C</span> Only with const</li>
+          <li><span class="opt-key">D</span> Only inside loops</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - it holds a live reference, so it can read and write</p>
+          <p class="expl">That is precisely how counters work: the inner function increments the outer variable, and the change persists for the next call.</p>
+          <p class="tags"><span>Mutation</span><span>State</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Are closures created for EVERY function, or only special ones?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Every function forms a closure over its enclosing scope - we only 'notice' when it outlives that scope</li>
+          <li><span class="opt-key">B</span> Only functions with the closure keyword</li>
+          <li><span class="opt-key">C</span> Only arrow functions</li>
+          <li><span class="opt-key">D</span> Only returned functions</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Every function forms a closure over its enclosing scope - we only 'notice' when it outlives that scope</p>
+          <p class="expl">Closure is inherent to lexical scoping. The term is usually used when a function is passed around or returned, keeping outer variables alive.</p>
+          <p class="tags"><span>Lexical scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the returned function 'close over' here?
+function greeter(greeting) {
+  return name =&gt; `${greeting}, ${name}!`;
+}</p>
+        <pre class="code"><code>const hi = greeter(&quot;Hi&quot;);
+console.log(hi(&quot;Ana&quot;));   // &quot;Hi, Ana!&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The greeting parameter</li>
+          <li><span class="opt-key">B</span> The name parameter</li>
+          <li><span class="opt-key">C</span> Nothing</li>
+          <li><span class="opt-key">D</span> The whole global scope</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The greeting parameter</p>
+          <p class="expl">greeting belongs to the outer call and is captured; name is the inner function's own parameter, supplied at call time.</p>
+          <p class="tags"><span>Closures</span><span>Parameters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which everyday feature is powered by closures?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> setTimeout callbacks, event handlers, array method callbacks and React hooks</li>
+          <li><span class="opt-key">B</span> Only recursion</li>
+          <li><span class="opt-key">C</span> Only classes</li>
+          <li><span class="opt-key">D</span> None - closures are theoretical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — setTimeout callbacks, event handlers, array method callbacks and React hooks</p>
+          <p class="expl">Any callback that uses variables from where it was written is a closure. You have been using them since your first setTimeout.</p>
+          <p class="tags"><span>Callbacks</span><span>Real-world</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How can a closure cause a memory leak in the DOM?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A listener that captures a large element and is never removed keeps it in memory after removal from the page</li>
+          <li><span class="opt-key">B</span> Closures always leak</li>
+          <li><span class="opt-key">C</span> By using const</li>
+          <li><span class="opt-key">D</span> Closures cannot leak</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A listener that captures a large element and is never removed keeps it in memory after removal from the page</p>
+          <p class="expl">The captured reference blocks garbage collection. Call removeEventListener when cleaning up (React does this in the effect cleanup function).</p>
+          <p class="tags"><span>Memory leaks</span><span>Events</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">In one sentence, why do closures matter?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They let functions carry private, persistent state - enabling callbacks, factories, modules and encapsulation</li>
+          <li><span class="opt-key">B</span> They make code shorter</li>
+          <li><span class="opt-key">C</span> They speed up loops</li>
+          <li><span class="opt-key">D</span> They are required by the browser</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They let functions carry private, persistent state - enabling callbacks, factories, modules and encapsulation</p>
+          <p class="expl">Closures are what make JavaScript's functional patterns possible: data privacy without classes, and callbacks that remember their context.</p>
+          <p class="tags"><span>Summary</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (16)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const a = makeCounter();
+const b = makeCounter();
+console.log(a(), a(), b());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 1 2 1 - each call to makeCounter creates a SEPARATE closure</li>
+          <li><span class="opt-key">B</span> 1 2 3</li>
+          <li><span class="opt-key">C</span> 1 1 1</li>
+          <li><span class="opt-key">D</span> 3 3 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 1 2 1 - each call to makeCounter creates a SEPARATE closure</p>
+          <p class="expl">Every invocation creates a fresh scope with its own count. a and b are completely independent - like two instances of a class.</p>
+          <p class="tags"><span>Closures</span><span>Independence</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+for (var i = 0; i &lt; 3; i++) {
+  setTimeout(() =&gt; console.log(i), 0);
+}</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 3 3 3 - all closures share ONE var binding, which is 3 when the timers run</li>
+          <li><span class="opt-key">B</span> 0 1 2</li>
+          <li><span class="opt-key">C</span> 0 0 0</li>
+          <li><span class="opt-key">D</span> undefined x3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 3 3 3 - all closures share ONE var binding, which is 3 when the timers run</p>
+          <p class="expl">The loop finishes before any timer fires, and var has a single function-scoped binding. Every callback reads the same final value.</p>
+          <ul class="notes"><li>The most famous JavaScript closure question.</li></ul>
+          <p class="tags"><span>var</span><span>Event loop</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How would you fix the var loop WITHOUT using let?</p>
+        <pre class="code"><code>for (var i = 0; i &lt; 3; i++) {
+  (function(j) {
+    setTimeout(() =&gt; console.log(j));
+  })(i);
+}   // 0 1 2</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Wrap the body in an IIFE that receives i as a parameter</li>
+          <li><span class="opt-key">B</span> Add a return statement</li>
+          <li><span class="opt-key">C</span> Use a while loop</li>
+          <li><span class="opt-key">D</span> It cannot be fixed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Wrap the body in an IIFE that receives i as a parameter</p>
+          <p class="expl">The classic pre-ES6 solution: an immediately invoked function creates a new scope per iteration, capturing the current value as its parameter.</p>
+          <p class="tags"><span>IIFE</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function multiplier(factor) {
+  return n =&gt; n * factor;
+}
+const triple = multiplier(3);
+console.log(triple(5));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 15 - the closure remembers factor = 3</li>
+          <li><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 15 - the closure remembers factor = 3</p>
+          <p class="expl">multiplier is a function factory: it bakes a value into the returned function. This pattern (partial application) is used constantly in functional JavaScript.</p>
+          <p class="tags"><span>Function factories</span><span>Currying</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is currying?</p>
+        <pre class="code"><code>const add = a =&gt; b =&gt; c =&gt; a + b + c;
+console.log(add(1)(2)(3));   // 6
+const add5 = add(5);          // reusable</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Turning a multi-argument function into a chain of single-argument functions returning functions</li>
+          <li><span class="opt-key">B</span> Sorting an array</li>
+          <li><span class="opt-key">C</span> Caching results</li>
+          <li><span class="opt-key">D</span> An error-handling pattern</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Turning a multi-argument function into a chain of single-argument functions returning functions</p>
+          <p class="expl">Currying relies on closures to remember earlier arguments: add(1)(2)(3). It enables reusable specialised functions.</p>
+          <p class="tags"><span>Currying</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+let x = 1;
+function show() { console.log(x); }
+x = 99;
+show();</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 99 - closures capture the VARIABLE, not a snapshot of its value</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> ReferenceError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 99 - closures capture the VARIABLE, not a snapshot of its value</p>
+          <p class="expl">A closure holds a live reference to the binding, so it sees the latest value. This is exactly why the var-loop prints 3 3 3.</p>
+          <p class="tags"><span>Live binding</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is memoization, and how do closures enable it?</p>
+        <pre class="code"><code>function memoize(fn) {
+  const cache = {};
+  return n =&gt; {
+    if (n in cache) return cache[n];
+    return (cache[n] = fn(n));
+  };
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Caching results in a closure-held object so repeated calls with the same input return instantly</li>
+          <li><span class="opt-key">B</span> Writing memos in comments</li>
+          <li><span class="opt-key">C</span> Freeing memory</li>
+          <li><span class="opt-key">D</span> Sorting cached data</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Caching results in a closure-held object so repeated calls with the same input return instantly</p>
+          <p class="expl">The cache lives in the closure - private, persistent between calls, and invisible to callers.</p>
+          <p class="tags"><span>Memoization</span><span>Caching</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this debounce function use closures for?
+function debounce(fn, ms) {
+  let timer;
+  return (...args) =&gt; {
+    clearTimeout(timer);
+    timer = setTimeout(() =&gt; fn(...args), ms);
+  };
+}</p>
+        <pre class="code"><code>input.addEventListener(&quot;input&quot;, debounce(search, 300));</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> To remember the pending timer id between calls, so rapid calls cancel the previous one</li>
+          <li><span class="opt-key">B</span> To speed up the function</li>
+          <li><span class="opt-key">C</span> To count calls</li>
+          <li><span class="opt-key">D</span> Nothing - closures are unused</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — To remember the pending timer id between calls, so rapid calls cancel the previous one</p>
+          <p class="expl">timer persists across invocations in the closure. Debouncing is essential for search-as-you-type and resize handlers.</p>
+          <p class="tags"><span>Debounce</span><span>Real-world</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function f() {
+  const fns = [];
+  for (let i = 0; i &lt; 3; i++) fns.push(() =&gt; i);
+  return fns.map(fn =&gt; fn());
+}
+console.log(f());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [0, 1, 2] - let gives each closure its own i</li>
+          <li><span class="opt-key">B</span> [3, 3, 3]</li>
+          <li><span class="opt-key">C</span> [0, 0, 0]</li>
+          <li><span class="opt-key">D</span> [undefined x3]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [0, 1, 2] - let gives each closure its own i</p>
+          <p class="expl">Because let re-binds per iteration, the three stored functions capture different values. With var the answer would be [3, 3, 3].</p>
+          <p class="tags"><span>Closures</span><span>let</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const fns = [];
+for (var i = 0; i &lt; 3; i++) {
+  fns.push(() =&gt; i);
+}
+console.log(fns.map(f =&gt; f()));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [3, 3, 3] - all three share the single var binding</li>
+          <li><span class="opt-key">B</span> [0, 1, 2]</li>
+          <li><span class="opt-key">C</span> [0, 0, 0]</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [3, 3, 3] - all three share the single var binding</p>
+          <p class="expl">var creates one binding for the whole function; after the loop it holds 3, and every closure reads that same variable.</p>
+          <p class="tags"><span>var</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this once() helper do?
+function once(fn) {
+  let called = false, result;
+  return (...a) =&gt; {
+    if (!called) { called = true; result = fn(...a); }
+    return result;
+  };
+}</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Ensures fn runs only the FIRST time, caching and returning that result afterwards</li>
+          <li><span class="opt-key">B</span> Runs fn once per second</li>
+          <li><span class="opt-key">C</span> Deletes fn after use</li>
+          <li><span class="opt-key">D</span> Runs fn in a loop</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Ensures fn runs only the FIRST time, caching and returning that result afterwards</p>
+          <p class="expl">The closure remembers called and result. Useful for one-time initialisation, single-submit buttons and lazy setup.</p>
+          <p class="tags"><span>Closures</span><span>Patterns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is this a common React-hooks pitfall (stale closure)?
+useEffect(() =&gt; {
+  const id = setInterval(() =&gt; setCount(count + 1), 1000);
+}, []);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The effect captured count from the FIRST render, so it always adds 1 to that stale value</li>
+          <li><span class="opt-key">B</span> setInterval is not allowed</li>
+          <li><span class="opt-key">C</span> The syntax is wrong</li>
+          <li><span class="opt-key">D</span> It works correctly</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The effect captured count from the FIRST render, so it always adds 1 to that stale value</p>
+          <p class="expl">With an empty dependency array the callback closes over the initial count forever. The fix is the functional updater: setCount(c =&gt; c + 1), which does not depend on the captured value.</p>
+          <p class="tags"><span>React</span><span>Stale closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+let fn;
+{
+  let secret = &quot;hidden&quot;;
+  fn = () =&gt; secret;
+}
+console.log(fn());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;hidden&quot; - the block ended, but the closure keeps secret alive</li>
+          <li><span class="opt-key">B</span> ReferenceError</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;hidden&quot; - the block ended, but the closure keeps secret alive</p>
+          <p class="expl">Closures work over any scope, including plain blocks. secret is unreachable by name but preserved for fn.</p>
+          <p class="tags"><span>Block scope</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function counter() {
+  let n = 0;
+  return { inc: () =&gt; ++n, get: () =&gt; n };
+}
+const c = counter();
+c.inc(); c.inc();
+console.log(c.get(), c.n);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 undefined - both methods share the closure, but n is not a property</li>
+          <li><span class="opt-key">B</span> 2 2</li>
+          <li><span class="opt-key">C</span> 0 0</li>
+          <li><span class="opt-key">D</span> undefined undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 undefined - both methods share the closure, but n is not a property</p>
+          <p class="expl">Several functions from the same scope share one closure, which is how the module pattern works. n stays private, so c.n is undefined.</p>
+          <p class="tags"><span>Shared closures</span><span>Privacy</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const add = (a) =&gt; (b) =&gt; a + b;
+console.log(add(2)(3), add(2)(10));</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5 12 - each call to add(2) creates a fresh closure</li>
+          <li><span class="opt-key">B</span> 5 5</li>
+          <li><span class="opt-key">C</span> 12 12</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5 12 - each call to add(2) creates a fresh closure</p>
+          <p class="expl">add(2) returns a new function each time, all remembering a = 2 but applied to different b values.</p>
+          <p class="tags"><span>Currying</span><span>Closures</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+function f() {
+  var x = 1;
+  { var x = 2; }
+  return x;
+}
+console.log(f());</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2 - var ignores the block, so both declarations are the SAME variable</li>
+          <li><span class="opt-key">B</span> 1</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2 - var ignores the block, so both declarations are the SAME variable</p>
+          <p class="expl">With var there is one function-scoped x that gets overwritten. With let, the inner one would be a separate block-scoped variable and the function would return 1.</p>
+          <p class="tags"><span>var</span><span>Block scope</span><span>Shadowing</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="12-scope-and-hoisting.html">← Scope &amp; Hoisting</a>
+      <a href="14-the-this-keyword.html">The this Keyword →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-12">Practice “Closures” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

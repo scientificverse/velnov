@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fetch, JSON &amp; Modules – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Fetch, JSON &amp; Modules with answers and detailed explanations — 1 easy, 17 medium and 12 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/20-fetch-json-and-modules.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Fetch, JSON &amp; Modules – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Fetch, JSON &amp; Modules with answers and detailed explanations — 1 easy, 17 medium and 12 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/20-fetch-json-and-modules.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Fetch, JSON & Modules","item":"https://velnov.co.in/learn/javascript/20-fetch-json-and-modules.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Fetch, JSON &amp; Modules</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 20 of 20</p>
+      <h1>Fetch, JSON &amp; Modules — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Fetch, JSON &amp; Modules</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-19">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">1 easy · 17 medium · 12 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>fetch</span><span>Promises</span><span>response.ok</span><span>Error handling</span><span>status</span><span>POST</span><span>JSON</span><span>Headers</span><span>JSON.stringify</span><span>Serialization</span><span>APIs</span><span>JSON.parse</span><span>JSON limitations</span><span>localStorage</span><span>Web Storage</span><span>CORS</span><span>Security</span><span>Authentication</span><span>AbortController</span><span>Response methods</span><span>Streams</span><span>clone</span><span>Modules</span><span>export</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (1)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does fetch(url) return?</p>
+        <pre class="code"><code>const res = await fetch(url);
+const data = await res.json();</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A promise that resolves to a Response object</li>
+          <li><span class="opt-key">B</span> The data directly</li>
+          <li><span class="opt-key">C</span> A string</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A promise that resolves to a Response object</p>
+          <p class="expl">fetch is asynchronous: it resolves once the response HEADERS arrive. You then read the body with .json(), .text() or .blob() - each of which is also async.</p>
+          <p class="tags"><span>fetch</span><span>Promises</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (17)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does response.ok tell you?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true when the status is in the 200-299 range</li>
+          <li><span class="opt-key">B</span> That the network worked</li>
+          <li><span class="opt-key">C</span> That JSON parsed correctly</li>
+          <li><span class="opt-key">D</span> Nothing useful</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true when the status is in the 200-299 range</p>
+          <p class="expl">A quick success test. response.status gives the exact code (404, 500...) for more specific handling.</p>
+          <p class="tags"><span>response.ok</span><span>status</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you send a POST request with JSON?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> fetch(url, { method: &quot;POST&quot;, headers: {&quot;Content-Type&quot;: &quot;application/json&quot;}, body: JSON.stringify(data) })</li>
+          <li><span class="opt-key">B</span> fetch(url, data)</li>
+          <li><span class="opt-key">C</span> fetch.post(url, data)</li>
+          <li><span class="opt-key">D</span> fetch(url, { post: data })</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — fetch(url, { method: &quot;POST&quot;, headers: {&quot;Content-Type&quot;: &quot;application/json&quot;}, body: JSON.stringify(data) })</p>
+          <p class="expl">Three parts matter: the method, the Content-Type header so the server parses it correctly, and a STRINGIFIED body (fetch cannot send a raw object).</p>
+          <p class="tags"><span>POST</span><span>JSON</span><span>Headers</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is JSON?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A text format for structured data, based on JavaScript object syntax but language-independent</li>
+          <li><span class="opt-key">B</span> A JavaScript library</li>
+          <li><span class="opt-key">C</span> A database</li>
+          <li><span class="opt-key">D</span> A type of function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A text format for structured data, based on JavaScript object syntax but language-independent</p>
+          <p class="expl">JavaScript Object Notation is the standard way APIs exchange data. It supports objects, arrays, strings, numbers, booleans and null - but not functions, undefined or comments.</p>
+          <p class="tags"><span>JSON</span><span>APIs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between JSON.parse and JSON.stringify?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> parse turns a JSON STRING into a JS value; stringify turns a JS value into a JSON string</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> parse converts to a string</li>
+          <li><span class="opt-key">D</span> stringify validates JSON</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — parse turns a JSON STRING into a JS value; stringify turns a JS value into a JSON string</p>
+          <p class="expl">Mnemonic: parse comes IN (from text), stringify goes OUT (to text). Wrap JSON.parse of untrusted input in try/catch - malformed JSON throws a SyntaxError.</p>
+          <p class="tags"><span>JSON.parse</span><span>JSON.stringify</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you store an object in localStorage?</p>
+        <pre class="code"><code>localStorage.setItem(&quot;user&quot;, JSON.stringify(user));
+const user = JSON.parse(localStorage.getItem(&quot;user&quot;) ?? &quot;null&quot;);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> localStorage.setItem(&quot;key&quot;, JSON.stringify(obj)) then JSON.parse on read</li>
+          <li><span class="opt-key">B</span> localStorage.setItem(&quot;key&quot;, obj)</li>
+          <li><span class="opt-key">C</span> localStorage.obj = obj</li>
+          <li><span class="opt-key">D</span> Objects cannot be stored</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — localStorage.setItem(&quot;key&quot;, JSON.stringify(obj)) then JSON.parse on read</p>
+          <p class="expl">localStorage stores STRINGS only; saving an object directly gives &quot;[object Object]&quot;. Always stringify on write and parse on read.</p>
+          <p class="tags"><span>localStorage</span><span>JSON</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between localStorage and sessionStorage?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> localStorage persists until cleared; sessionStorage is wiped when the tab closes</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> sessionStorage is bigger</li>
+          <li><span class="opt-key">D</span> localStorage is per-tab</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — localStorage persists until cleared; sessionStorage is wiped when the tab closes</p>
+          <p class="expl">Both store strings per origin (roughly 5-10 MB). Choose sessionStorage for temporary per-tab state, localStorage for preferences that should survive restarts.</p>
+          <p class="tags"><span>Web Storage</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you send an authorisation token with fetch?</p>
+        <pre class="code"><code>fetch(url, { headers: { Authorization: `Bearer ${token}` } });</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> In the headers object: { Authorization: `Bearer ${token}` }</li>
+          <li><span class="opt-key">B</span> In the URL always</li>
+          <li><span class="opt-key">C</span> In the method</li>
+          <li><span class="opt-key">D</span> Tokens cannot be sent</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — In the headers object: { Authorization: `Bearer ${token}` }</p>
+          <p class="expl">Headers carry auth data. Avoid putting tokens in URLs, where they leak into logs and browser history.</p>
+          <p class="tags"><span>Headers</span><span>Authentication</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you read a plain-text response?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> await response.text()</li>
+          <li><span class="opt-key">B</span> response.body</li>
+          <li><span class="opt-key">C</span> response.string()</li>
+          <li><span class="opt-key">D</span> response.data</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — await response.text()</p>
+          <p class="expl">Body readers: .json() for JSON, .text() for text/HTML, .blob() for binary (images, files), .formData() for form payloads.</p>
+          <p class="tags"><span>Response methods</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does export do in an ES module?</p>
+        <pre class="code"><code>export const PI = 3.14;
+export function area(r) { }
+export default class Circle { }</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Makes a value available for other modules to import</li>
+          <li><span class="opt-key">B</span> Sends data to the server</li>
+          <li><span class="opt-key">C</span> Saves a file</li>
+          <li><span class="opt-key">D</span> Deletes a variable</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Makes a value available for other modules to import</p>
+          <p class="expl">Modules are private by default; export opens specific values to others. A file can have many NAMED exports and at most one DEFAULT export.</p>
+          <p class="tags"><span>Modules</span><span>export</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between a named and a default export?</p>
+        <pre class="code"><code>import { area, PI } from &quot;./math.js&quot;;
+import Circle from &quot;./circle.js&quot;;        // any name works
+import { area as calcArea } from &quot;./math.js&quot;;   // rename</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Named exports must be imported by their exact name in braces; a default export can be imported under any name</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> Default exports are faster</li>
+          <li><span class="opt-key">D</span> You can have many defaults</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Named exports must be imported by their exact name in braces; a default export can be imported under any name</p>
+          <p class="expl">Named imports use braces and exact names (better for autocomplete and refactoring); default imports pick their own name.</p>
+          <p class="tags"><span>import</span><span>export</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you enable ES modules in a browser?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &lt;script type=&quot;module&quot; src=&quot;app.js&quot;&gt;&lt;/script&gt;</li>
+          <li><span class="opt-key">B</span> &lt;script module&gt;</li>
+          <li><span class="opt-key">C</span> Modules work automatically</li>
+          <li><span class="opt-key">D</span> &lt;module src=&quot;app.js&quot;&gt;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &lt;script type=&quot;module&quot; src=&quot;app.js&quot;&gt;&lt;/script&gt;</p>
+          <p class="expl">type=&quot;module&quot; also implies defer and strict mode, and gives the file its own scope. Modules must be served over http(s), not opened via file://.</p>
+          <p class="tags"><span>type=module</span><span>Scripts</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What scope do variables in a module have?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Module scope - private to that file unless exported</li>
+          <li><span class="opt-key">B</span> Global scope</li>
+          <li><span class="opt-key">C</span> Function scope only</li>
+          <li><span class="opt-key">D</span> No scope</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Module scope - private to that file unless exported</p>
+          <p class="expl">This is a major advantage over classic scripts, where top-level var became global and could clash between files.</p>
+          <p class="tags"><span>Module scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Are ES module imports hoisted?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - imports are resolved before any module code runs, so import order in the file does not matter</li>
+          <li><span class="opt-key">B</span> No</li>
+          <li><span class="opt-key">C</span> Only default imports</li>
+          <li><span class="opt-key">D</span> Only in Node</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - imports are resolved before any module code runs, so import order in the file does not matter</p>
+          <p class="expl">The module graph is built first, then code executes. Convention is still to put imports at the top for readability.</p>
+          <p class="tags"><span>Hoisting</span><span>Modules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you handle a fetch that might fail?</p>
+        <pre class="code"><code>try {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.json();
+} catch (err) {
+  showError(err.message);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> try/catch around await, plus a response.ok check inside</li>
+          <li><span class="opt-key">B</span> Only try/catch</li>
+          <li><span class="opt-key">C</span> Only response.ok</li>
+          <li><span class="opt-key">D</span> Fetch never fails</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — try/catch around await, plus a response.ok check inside</p>
+          <p class="expl">You need BOTH: catch handles network/CORS failures, while the ok check handles HTTP error statuses that resolve normally.</p>
+          <p class="tags"><span>Error handling</span><span>fetch</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the async attribute do on a script tag?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Downloads in parallel and executes as soon as ready - order is NOT guaranteed</li>
+          <li><span class="opt-key">B</span> Same as defer</li>
+          <li><span class="opt-key">C</span> Delays the script</li>
+          <li><span class="opt-key">D</span> Makes functions async</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Downloads in parallel and executes as soon as ready - order is NOT guaranteed</p>
+          <p class="expl">Use async for independent scripts like analytics. Use defer when scripts depend on the DOM or on each other, since defer preserves order and waits for parsing.</p>
+          <p class="tags"><span>async</span><span>defer</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you send FORM data (including files) with fetch?</p>
+        <pre class="code"><code>const fd = new FormData(form);
+fetch(url, { method: &quot;POST&quot;, body: fd });</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Pass a FormData object as the body - and do NOT set Content-Type manually</li>
+          <li><span class="opt-key">B</span> JSON.stringify the form</li>
+          <li><span class="opt-key">C</span> Send it in the URL</li>
+          <li><span class="opt-key">D</span> Files cannot be sent</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Pass a FormData object as the body - and do NOT set Content-Type manually</p>
+          <p class="expl">The browser sets the correct multipart Content-Type with its boundary automatically; setting it yourself breaks the upload.</p>
+          <p class="tags"><span>FormData</span><span>File upload</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the modern replacement for XMLHttpRequest?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> fetch - promise-based and much cleaner</li>
+          <li><span class="opt-key">B</span> jQuery.ajax</li>
+          <li><span class="opt-key">C</span> WebSocket</li>
+          <li><span class="opt-key">D</span> There is none</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — fetch - promise-based and much cleaner</p>
+          <p class="expl">fetch is built in, returns promises and works naturally with async/await. XHR still appears in legacy code and for upload-progress events, which fetch handles less directly.</p>
+          <p class="tags"><span>fetch</span><span>XMLHttpRequest</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (12)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Does fetch REJECT on a 404 or 500 response?</p>
+        <pre class="code"><code>const res = await fetch(url);
+if (!res.ok) throw new Error(`HTTP ${res.status}`);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - it only rejects on network failure; HTTP errors still resolve successfully</li>
+          <li><span class="opt-key">B</span> Yes, it rejects on any error status</li>
+          <li><span class="opt-key">C</span> Only on 500</li>
+          <li><span class="opt-key">D</span> It throws a SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - it only rejects on network failure; HTTP errors still resolve successfully</p>
+          <p class="expl">This surprises almost everyone. You must check response.ok (true for 200-299) and throw yourself, otherwise .catch() never sees server errors.</p>
+          <ul class="notes"><li>The most common fetch bug in real projects.</li></ul>
+          <p class="tags"><span>response.ok</span><span>Error handling</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why must the body be JSON.stringify(data) rather than the object itself?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> HTTP bodies are text/bytes - passing an object would send &quot;[object Object]&quot;</li>
+          <li><span class="opt-key">B</span> It is optional</li>
+          <li><span class="opt-key">C</span> To encrypt it</li>
+          <li><span class="opt-key">D</span> To compress it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — HTTP bodies are text/bytes - passing an object would send &quot;[object Object]&quot;</p>
+          <p class="expl">The object must be serialised to a JSON string. On the server it is parsed back; in the browser, response.json() does the reverse.</p>
+          <p class="tags"><span>JSON.stringify</span><span>Serialization</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Which values are LOST by JSON.stringify?</p>
+        <pre class="code"><code>JSON.stringify({ a: 1, f() {}, u: undefined });   // '{&quot;a&quot;:1}'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Functions, undefined values and symbols are dropped; Dates become strings</li>
+          <li><span class="opt-key">B</span> Nothing is lost</li>
+          <li><span class="opt-key">C</span> Numbers are lost</li>
+          <li><span class="opt-key">D</span> Only arrays survive</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Functions, undefined values and symbols are dropped; Dates become strings</p>
+          <p class="expl">JSON has no concept of functions or undefined, so those keys vanish. Dates serialise to ISO strings and do NOT come back as Date objects - a frequent source of bugs.</p>
+          <p class="tags"><span>JSON limitations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is CORS?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A browser security rule requiring the server to permit cross-origin requests via response headers</li>
+          <li><span class="opt-key">B</span> A JavaScript library</li>
+          <li><span class="opt-key">C</span> A type of promise</li>
+          <li><span class="opt-key">D</span> An encoding format</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A browser security rule requiring the server to permit cross-origin requests via response headers</p>
+          <p class="expl">By default a page cannot read responses from another origin. The SERVER must send Access-Control-Allow-Origin. CORS errors cannot be fixed from client-side JavaScript alone.</p>
+          <p class="tags"><span>CORS</span><span>Security</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you CANCEL an in-flight fetch request?</p>
+        <pre class="code"><code>const ac = new AbortController();
+fetch(url, { signal: ac.signal });
+ac.abort();</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> With an AbortController and its signal</li>
+          <li><span class="opt-key">B</span> fetch.cancel()</li>
+          <li><span class="opt-key">C</span> clearTimeout(fetch)</li>
+          <li><span class="opt-key">D</span> You cannot cancel it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — With an AbortController and its signal</p>
+          <p class="expl">Essential for search-as-you-type (cancel the previous request) and for cleanup when a component unmounts. The aborted promise rejects with an AbortError.</p>
+          <p class="tags"><span>AbortController</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can a response body be read only ONCE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It is a stream - after reading it is consumed; clone the response if you need it twice</li>
+          <li><span class="opt-key">B</span> A browser bug</li>
+          <li><span class="opt-key">C</span> For security</li>
+          <li><span class="opt-key">D</span> It can be read many times</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It is a stream - after reading it is consumed; clone the response if you need it twice</p>
+          <p class="expl">Calling both .json() and .text() on the same response throws 'body stream already read'. Use response.clone() when you truly need two reads.</p>
+          <p class="tags"><span>Streams</span><span>clone</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why do ES modules require a server (not file://)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Module loading is subject to CORS, which does not apply to the file protocol</li>
+          <li><span class="opt-key">B</span> Modules need a database</li>
+          <li><span class="opt-key">C</span> Browsers ban local files entirely</li>
+          <li><span class="opt-key">D</span> They do work with file://</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Module loading is subject to CORS, which does not apply to the file protocol</p>
+          <p class="expl">Opening an HTML file directly gives a CORS error for module imports. Use a local server (VS Code Live Server, python -m http.server) during development.</p>
+          <p class="tags"><span>CORS</span><span>Modules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is dynamic import()?</p>
+        <pre class="code"><code>button.onclick = async () =&gt; {
+  const { Chart } = await import(&quot;./chart.js&quot;);
+  new Chart();
+};</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> import(&quot;./mod.js&quot;) returns a PROMISE, letting you load a module on demand at runtime</li>
+          <li><span class="opt-key">B</span> A faster static import</li>
+          <li><span class="opt-key">C</span> Importing many files at once</li>
+          <li><span class="opt-key">D</span> A deprecated feature</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — import(&quot;./mod.js&quot;) returns a PROMISE, letting you load a module on demand at runtime</p>
+          <p class="expl">Static imports are hoisted and always loaded. Dynamic import enables code splitting and lazy loading - only fetching a heavy module when the user actually needs it.</p>
+          <p class="tags"><span>Dynamic import</span><span>Code splitting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between ES modules and CommonJS?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> ESM uses import/export and is static/async; CommonJS uses require()/module.exports and is synchronous (Node's older system)</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> CommonJS is browser-only</li>
+          <li><span class="opt-key">D</span> ESM is deprecated</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — ESM uses import/export and is static/async; CommonJS uses require()/module.exports and is synchronous (Node's older system)</p>
+          <p class="expl">Browsers support ESM natively; Node supports both (.mjs or &quot;type&quot;: &quot;module&quot; for ESM). ESM's static structure enables tree-shaking during bundling.</p>
+          <p class="tags"><span>CommonJS</span><span>Node.js</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is tree-shaking?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Bundlers removing exported code that is never imported, shrinking the final file</li>
+          <li><span class="opt-key">B</span> Sorting the DOM tree</li>
+          <li><span class="opt-key">C</span> Clearing the cache</li>
+          <li><span class="opt-key">D</span> A debugging technique</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Bundlers removing exported code that is never imported, shrinking the final file</p>
+          <p class="expl">It works because ES module imports are static and analysable. Importing one function from a library can leave the rest out of your bundle.</p>
+          <p class="tags"><span>Bundlers</span><span>Optimisation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the URLSearchParams API help with?</p>
+        <pre class="code"><code>const p = new URLSearchParams({ q: &quot;js books&quot;, page: 2 });
+fetch(`/search?${p}`);   // /search?q=js+books&amp;page=2</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Building and reading query strings safely, with proper encoding</li>
+          <li><span class="opt-key">B</span> Parsing JSON</li>
+          <li><span class="opt-key">C</span> Creating modules</li>
+          <li><span class="opt-key">D</span> Storing cookies</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Building and reading query strings safely, with proper encoding</p>
+          <p class="expl">Manual string concatenation breaks with spaces and special characters. URLSearchParams encodes values correctly.</p>
+          <p class="tags"><span>URLSearchParams</span><span>Query strings</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why should API keys never be stored in front-end JavaScript?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> All client code is visible to users - anyone can read the key from DevTools or the bundle</li>
+          <li><span class="opt-key">B</span> It makes the site slow</li>
+          <li><span class="opt-key">C</span> Browsers block them</li>
+          <li><span class="opt-key">D</span> It is fine to store them</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — All client code is visible to users - anyone can read the key from DevTools or the bundle</p>
+          <p class="expl">Minification is not security. Secret keys belong on a server that proxies the request; the browser calls YOUR endpoint instead.</p>
+          <p class="tags"><span>Security</span><span>API keys</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="19-promises-and-async-await.html">← Promises &amp; async/await</a>
+      <span></span>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-19">Practice “Fetch, JSON &amp; Modules” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

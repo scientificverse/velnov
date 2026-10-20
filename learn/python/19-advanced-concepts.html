@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Concepts – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Advanced Concepts with answers and detailed explanations — 0 easy, 10 medium and 20 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/19-advanced-concepts.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Advanced Concepts – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Advanced Concepts with answers and detailed explanations — 0 easy, 10 medium and 20 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/19-advanced-concepts.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Advanced Concepts","item":"https://velnov.co.in/learn/python/19-advanced-concepts.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Advanced Concepts</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 19 of 20</p>
+      <h1>Advanced Concepts — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Advanced Concepts</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-18">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">0 easy · 10 medium · 20 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Threading</span><span>multiprocessing</span><span>CPython</span><span>GIL</span><span>Parallelism</span><span>copy module</span><span>References</span><span>Shallow copy</span><span>Nested lists</span><span>Assignment expressions</span><span>Python 3.8</span><span>Extended unpacking</span><span>*args</span><span>Dict unpacking</span><span>**kwargs</span><span>Type hints</span><span>mypy</span><span>typing module</span><span>Optional</span><span>Union</span><span>typing</span><span>with statement</span><span>contextlib</span><span>Runtime modification</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+
+    <section>
+      <h2 id="medium">Medium questions (10)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the walrus operator := used for (Python 3.8+)?</p>
+        <pre class="code"><code>while (line := input()) != &quot;quit&quot;:
+    print(line)
+
+# instead of:
+# line = input()
+# while line != 'quit': ... line = input()</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Assign a value AND use it in the same expression</li>
+          <li><span class="opt-key">B</span> Compare two values</li>
+          <li><span class="opt-key">C</span> Multiply and assign</li>
+          <li><span class="opt-key">D</span> Unpack a tuple</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Assign a value AND use it in the same expression</p>
+          <p class="expl">The walrus operator assigns within an expression, avoiding a separate line. Common in while loops and comprehensions where you'd otherwise compute a value twice.</p>
+          <p class="tags"><span>Assignment expressions</span><span>Python 3.8</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does *rest capture here?
+a, *rest = [1, 2, 3, 4]</p>
+        <pre class="code"><code>a, *rest = [1, 2, 3, 4]
+print(a, rest)          # 1 [2, 3, 4]
+first, *mid, last = [1, 2, 3, 4]
+print(mid)               # [2, 3]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> a = 1 and rest = [2, 3, 4] - starred unpacking grabs the remaining items as a list</li>
+          <li><span class="opt-key">B</span> a = [1, 2, 3, 4], rest = []</li>
+          <li><span class="opt-key">C</span> a = 1, rest = 2</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — a = 1 and rest = [2, 3, 4] - starred unpacking grabs the remaining items as a list</p>
+          <p class="expl">Extended unpacking: the starred name collects all leftover elements into a list. It can appear anywhere: first, *middle, last = [1,2,3,4] gives 1, [2,3], 4.</p>
+          <p class="tags"><span>Extended unpacking</span><span>*args</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What are type hints, and are they enforced at runtime?
+def f(x: int) -&gt; str:</p>
+        <pre class="code"><code>def greet(name: str) -&gt; str:
+    return &quot;Hi &quot; + name
+greet(123)   # runs (then crashes on +), hints not enforced</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Annotations documenting expected types; NOT enforced - tools like mypy check them, Python ignores them</li>
+          <li><span class="opt-key">B</span> Strict runtime type checks</li>
+          <li><span class="opt-key">C</span> Comments only</li>
+          <li><span class="opt-key">D</span> Required in Python 3</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Annotations documenting expected types; NOT enforced - tools like mypy check them, Python ignores them</p>
+          <p class="expl">Hints improve readability and let static checkers (mypy, IDEs) catch bugs before running. But Python itself doesn't enforce them: f(&quot;hello&quot;) still runs. They're purely advisory at runtime.</p>
+          <p class="tags"><span>Type hints</span><span>mypy</span><span>typing module</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is an f-string's =  debug feature (Python 3.8+)?
+print(f&quot;{x=}&quot;)</p>
+        <pre class="code"><code>x = 5
+print(f&quot;{x=}&quot;)          # x=5
+print(f&quot;{x * 2=}&quot;)      # x * 2=10</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Prints both the expression and its value: x=5</li>
+          <li><span class="opt-key">B</span> Compares x to 5</li>
+          <li><span class="opt-key">C</span> Assigns 5 to x</li>
+          <li><span class="opt-key">D</span> Prints just the value</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Prints both the expression and its value: x=5</p>
+          <p class="expl">f&quot;{x=}&quot; expands to 'x=5' - it shows the variable name AND value. A quick debugging shortcut that saves typing the name twice.</p>
+          <p class="tags"><span>f-strings</span><span>Debugging</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does zip(*matrix) do to matrix = [[1, 2], [3, 4]]?</p>
+        <pre class="code"><code>matrix = [[1, 2], [3, 4]]
+print(list(zip(*matrix)))   # [(1, 3), (2, 4)]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Transposes it: [(1, 3), (2, 4)] - rows become columns</li>
+          <li><span class="opt-key">B</span> Flattens it</li>
+          <li><span class="opt-key">C</span> Reverses it</li>
+          <li><span class="opt-key">D</span> Sums the rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Transposes it: [(1, 3), (2, 4)] - rows become columns</p>
+          <p class="expl">zip(*matrix) unpacks the rows as arguments to zip, pairing up matching positions - effectively transposing the matrix. A neat one-liner.</p>
+          <p class="tags"><span>zip()</span><span>Unpacking</span><span>Transpose</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does enumerate(items, start=1) change?</p>
+        <pre class="code"><code>for i, name in enumerate([&quot;a&quot;, &quot;b&quot;], start=1):
+    print(i, name)   # 1 a / 2 b</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Numbering begins at 1 instead of 0</li>
+          <li><span class="opt-key">B</span> It starts from the second item</li>
+          <li><span class="opt-key">C</span> It reverses the items</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Numbering begins at 1 instead of 0</p>
+          <p class="expl">The start argument sets the first index. enumerate(items, 1) is handy for user-facing numbered lists that should begin at 1.</p>
+          <p class="tags"><span>enumerate()</span><span>Indexing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the ternary/conditional expression evaluate to?
+x = a if condition else b</p>
+        <pre class="code"><code>status = &quot;adult&quot; if age &gt;= 18 else &quot;minor&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> a when condition is True, otherwise b</li>
+          <li><span class="opt-key">B</span> Always a</li>
+          <li><span class="opt-key">C</span> A tuple (a, b)</li>
+          <li><span class="opt-key">D</span> b when condition is True</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — a when condition is True, otherwise b</p>
+          <p class="expl">This is Python's inline if-else expression. It returns one of two values based on the condition, all in one line - great for concise assignments.</p>
+          <p class="tags"><span>Conditional expression</span><span>Ternary</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the else clause of a for loop do?
+for x in items:
+    if x == target: break
+else:
+    print(&quot;not found&quot;)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Runs only if the loop finished WITHOUT hitting break</li>
+          <li><span class="opt-key">B</span> Runs after every iteration</li>
+          <li><span class="opt-key">C</span> Runs only when break happens</li>
+          <li><span class="opt-key">D</span> Is a syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Runs only if the loop finished WITHOUT hitting break</p>
+          <p class="expl">for-else: the else block runs when the loop completes normally (no break). Ideal for search loops - if break never fired, the item wasn't found.</p>
+          <p class="tags"><span>for-else</span><span>Search pattern</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does any() with a generator do?
+any(x &gt; 100 for x in nums)</p>
+        <pre class="code"><code>has_big = any(x &gt; 100 for x in nums)
+all_positive = all(x &gt; 0 for x in nums)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Returns True if at least one item satisfies the condition, stopping early on the first True</li>
+          <li><span class="opt-key">B</span> Returns all matching items</li>
+          <li><span class="opt-key">C</span> Counts the matches</li>
+          <li><span class="opt-key">D</span> Returns the largest item</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Returns True if at least one item satisfies the condition, stopping early on the first True</p>
+          <p class="expl">any() short-circuits: it stops as soon as one truthy value appears - efficient even on huge/infinite generators. all() is the opposite: True only if every item passes.</p>
+          <p class="tags"><span>any()</span><span>all()</span><span>Short-circuit</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does sorted(data, key=lambda x: x[1], reverse=True) do?</p>
+        <pre class="code"><code>pairs = [(&quot;a&quot;, 3), (&quot;b&quot;, 1)]
+print(sorted(pairs, key=lambda x: x[1]))   # [('b', 1), ('a', 3)]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Sorts data by each item's second element, in descending order</li>
+          <li><span class="opt-key">B</span> Sorts alphabetically</li>
+          <li><span class="opt-key">C</span> Reverses without sorting</li>
+          <li><span class="opt-key">D</span> Sorts by the first element ascending</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Sorts data by each item's second element, in descending order</p>
+          <p class="expl">key picks what to compare (element [1] of each item); reverse=True flips to descending. This is the standard way to sort tuples/dicts by a chosen field.</p>
+          <p class="tags"><span>sorted()</span><span>key functions</span><span>lambda</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (20)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the GIL (Global Interpreter Lock)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A lock that lets only ONE thread run Python bytecode at a time in CPython</li>
+          <li><span class="opt-key">B</span> A security feature for imports</li>
+          <li><span class="opt-key">C</span> A garbage collector</li>
+          <li><span class="opt-key">D</span> A way to lock files</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A lock that lets only ONE thread run Python bytecode at a time in CPython</p>
+          <p class="expl">In CPython, the GIL ensures only one thread executes Python bytecode at once. This means threads don't give true parallelism for CPU-bound work - but they still help I/O-bound tasks (waiting on network/disk).</p>
+          <ul class="notes"><li>For CPU-bound parallelism, use multiprocessing instead of threading.</li></ul>
+          <p class="tags"><span>Threading</span><span>multiprocessing</span><span>CPython</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">For CPU-heavy work needing real parallelism, which should you use?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> multiprocessing - separate processes each with their own interpreter, bypassing the GIL</li>
+          <li><span class="opt-key">B</span> threading - always faster</li>
+          <li><span class="opt-key">C</span> A bigger for loop</li>
+          <li><span class="opt-key">D</span> asyncio</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — multiprocessing - separate processes each with their own interpreter, bypassing the GIL</p>
+          <p class="expl">Because the GIL blocks parallel bytecode execution, threads can't speed up CPU-bound work. multiprocessing spawns separate processes (each with its own GIL) that run on multiple cores. asyncio and threading suit I/O-bound work.</p>
+          <p class="tags"><span>multiprocessing</span><span>GIL</span><span>Parallelism</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between a shallow copy and a deep copy?</p>
+        <pre class="code"><code>import copy
+a = [[1, 2], [3, 4]]
+b = a.copy()          # shallow
+b[0][0] = 99
+print(a)               # [[99, 2], [3, 4]] - inner shared!
+c = copy.deepcopy(a)   # fully independent</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Shallow copies the outer object but shares nested objects; deep copies everything recursively</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> Deep copy is faster</li>
+          <li><span class="opt-key">D</span> Shallow copy only works on strings</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Shallow copies the outer object but shares nested objects; deep copies everything recursively</p>
+          <p class="expl">A shallow copy (list[:], .copy(), copy.copy) duplicates the top level but the inner objects are still shared. copy.deepcopy() recursively duplicates everything, so nested objects are independent too.</p>
+          <p class="tags"><span>copy module</span><span>References</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+a = [[0, 0], [0, 0]]
+b = a[:]
+b[0][1] = 9
+print(a[0][1])</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 9 - the slice is a shallow copy, so the inner lists are shared</li>
+          <li><span class="opt-key">B</span> 0 - b is fully independent</li>
+          <li><span class="opt-key">C</span> None</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 9 - the slice is a shallow copy, so the inner lists are shared</p>
+          <p class="expl">a[:] copies only the outer list; both a and b point to the SAME inner lists. Modifying b[0][1] shows up in a. Use copy.deepcopy() for true independence of nested structures.</p>
+          <p class="tags"><span>Shallow copy</span><span>Nested lists</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does the ** operator do here?
+combined = {**dict1, **dict2}</p>
+        <pre class="code"><code>a = {&quot;x&quot;: 1, &quot;y&quot;: 2}
+b = {&quot;y&quot;: 99, &quot;z&quot;: 3}
+print({**a, **b})   # {'x': 1, 'y': 99, 'z': 3}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Merges the two dicts into a new one; dict2's values win on key clashes</li>
+          <li><span class="opt-key">B</span> Multiplies the dicts</li>
+          <li><span class="opt-key">C</span> Raises dict1 to the power dict2</li>
+          <li><span class="opt-key">D</span> Compares the dicts</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Merges the two dicts into a new one; dict2's values win on key clashes</p>
+          <p class="expl">** unpacks a dict's key-value pairs. Inside a new dict literal it merges them; later keys override earlier ones. Also used to pass a dict as keyword arguments: func(**kwargs).</p>
+          <p class="tags"><span>Dict unpacking</span><span>**kwargs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this type hint mean?
+from typing import Optional
+def find(id: int) -&gt; Optional[str]:</p>
+        <pre class="code"><code>def find_user(id: int) -&gt; Optional[str]:
+    return names.get(id)   # str or None</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The function returns a str OR None</li>
+          <li><span class="opt-key">B</span> The argument is optional</li>
+          <li><span class="opt-key">C</span> The function might not exist</li>
+          <li><span class="opt-key">D</span> It returns an optional number</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The function returns a str OR None</p>
+          <p class="expl">Optional[str] means 'str or None' (shorthand for Union[str, None]). It signals a function that may return a value or nothing. In Python 3.10+ you can write str | None instead.</p>
+          <p class="tags"><span>Optional</span><span>Union</span><span>typing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a context manager?</p>
+        <pre class="code"><code>from contextlib import contextmanager
+@contextmanager
+def tag(name):
+    print(f&quot;&lt;{name}&gt;&quot;)
+    yield
+    print(f&quot;&lt;/{name}&gt;&quot;)
+with tag(&quot;b&quot;):
+    print(&quot;hi&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An object usable with 'with' that runs setup on entry and cleanup on exit (via __enter__/__exit__)</li>
+          <li><span class="opt-key">B</span> A manager class for variables</li>
+          <li><span class="opt-key">C</span> A type of decorator</li>
+          <li><span class="opt-key">D</span> A threading tool</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An object usable with 'with' that runs setup on entry and cleanup on exit (via __enter__/__exit__)</p>
+          <p class="expl">Context managers guarantee cleanup. 'with open(...) as f:' closes the file automatically, even on exceptions. You can build your own with __enter__/__exit__ or the @contextmanager decorator.</p>
+          <p class="tags"><span>with statement</span><span>contextlib</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is monkey patching?</p>
+        <pre class="code"><code>import time
+time.sleep = lambda s: None   # patch away real sleeping in tests</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Modifying or replacing a class/module's attributes at RUNTIME</li>
+          <li><span class="opt-key">B</span> Fixing bugs with a debugger</li>
+          <li><span class="opt-key">C</span> A testing framework</li>
+          <li><span class="opt-key">D</span> Writing messy code</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Modifying or replacing a class/module's attributes at RUNTIME</p>
+          <p class="expl">Monkey patching changes code dynamically at runtime - e.g. replacing a method on an existing class, often in tests to swap out slow/external calls. Powerful but risky; use sparingly.</p>
+          <p class="tags"><span>Runtime modification</span><span>Testing</span><span>Mocking</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does __slots__ do in a class?</p>
+        <pre class="code"><code>class Point:
+    __slots__ = ('x', 'y')
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+p = Point(1, 2)
+# p.z = 3   # AttributeError - not in __slots__</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Restricts instances to a fixed set of attributes, saving memory by removing the per-instance __dict__</li>
+          <li><span class="opt-key">B</span> Creates database slots</li>
+          <li><span class="opt-key">C</span> Adds time slots</li>
+          <li><span class="opt-key">D</span> Makes the class abstract</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Restricts instances to a fixed set of attributes, saving memory by removing the per-instance __dict__</p>
+          <p class="expl">Normally each instance stores attributes in a __dict__. __slots__ replaces it with a fixed layout: less memory per object (big when you have millions) and no new attributes allowed.</p>
+          <p class="tags"><span>Memory optimization</span><span>__dict__</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does @dataclass reduce boilerplate for?</p>
+        <pre class="code"><code>from dataclasses import dataclass
+@dataclass
+class Point:
+    x: int
+    y: int
+print(Point(1, 2))   # Point(x=1, y=2)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Auto-generating __init__, __repr__, and __eq__ from declared fields</li>
+          <li><span class="opt-key">B</span> Database connections</li>
+          <li><span class="opt-key">C</span> File handling</li>
+          <li><span class="opt-key">D</span> Threading</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Auto-generating __init__, __repr__, and __eq__ from declared fields</p>
+          <p class="expl">For classes that mainly hold data, @dataclass writes the constructor, a readable repr, and equality-by-fields for you. Declare the fields with type hints and you're done.</p>
+          <p class="tags"><span>dataclasses</span><span>Boilerplate</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+from collections import defaultdict
+d = defaultdict(list)
+d[&quot;a&quot;].append(1)
+print(d[&quot;a&quot;])</p>
+        <pre class="code"><code>from collections import defaultdict
+groups = defaultdict(list)
+for name in [&quot;ana&quot;, &quot;amy&quot;, &quot;bob&quot;]:
+    groups[name[0]].append(name)   # group by first letter</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1] - defaultdict auto-creates an empty list for a missing key</li>
+          <li><span class="opt-key">B</span> KeyError</li>
+          <li><span class="opt-key">C</span> None</li>
+          <li><span class="opt-key">D</span> []</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1] - defaultdict auto-creates an empty list for a missing key</p>
+          <p class="expl">defaultdict(list) makes missing keys spring into existence with a default (here, an empty list) instead of raising KeyError. Perfect for grouping items without checking 'if key in d' first.</p>
+          <p class="tags"><span>defaultdict</span><span>collections</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between is and == (recap for advanced code)?</p>
+        <pre class="code"><code>a = [1, 2]; b = [1, 2]
+print(a == b)   # True - equal values
+print(a is b)   # False - different objects</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> == compares values; is checks whether two names point to the exact same object</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> is compares values</li>
+          <li><span class="opt-key">D</span> == only works on numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — == compares values; is checks whether two names point to the exact same object</p>
+          <p class="expl">is tests identity (same memory object). == tests equality of value. Use is ONLY for None, True, False and sentinel objects. Comparing values with is can give surprising results due to caching.</p>
+          <p class="tags"><span>Identity</span><span>Equality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can small ints behave oddly with is?
+a = 256; b = 256; print(a is b)  # True
+a = 257; b = 257; print(a is b)  # often False</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CPython caches small integers (-5 to 256), so identical small ints share one object; larger ones may not</li>
+          <li><span class="opt-key">B</span> It's a bug</li>
+          <li><span class="opt-key">C</span> 256 is special in binary</li>
+          <li><span class="opt-key">D</span> is never works on numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CPython caches small integers (-5 to 256), so identical small ints share one object; larger ones may not</p>
+          <p class="expl">CPython pre-creates and reuses int objects from -5 to 256, so 'a is b' is True for those. Beyond that range, separate objects may be created. This is exactly why you compare numbers with ==, never is.</p>
+          <ul class="notes"><li>An implementation detail - never rely on it in real code.</li></ul>
+          <p class="tags"><span>Integer caching</span><span>is vs ==</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a generator's role in the memory-efficient processing of big data?</p>
+        <pre class="code"><code>lines = (l.strip() for l in open(&quot;huge.log&quot;))
+errors = (l for l in lines if &quot;ERROR&quot; in l)
+for e in errors: ...   # constant memory</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It yields items lazily, so pipelines process huge datasets without loading everything into memory</li>
+          <li><span class="opt-key">B</span> It compresses the data</li>
+          <li><span class="opt-key">C</span> It stores data on disk</li>
+          <li><span class="opt-key">D</span> It runs on the GPU</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It yields items lazily, so pipelines process huge datasets without loading everything into memory</p>
+          <p class="expl">Chaining generator expressions builds a lazy pipeline: each item flows through filters/transforms one at a time. You can process files far larger than RAM. (Full topic 17.)</p>
+          <p class="tags"><span>Generators</span><span>Streaming</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does functools.partial do?
+from functools import partial
+square = partial(pow, exp=2)</p>
+        <pre class="code"><code>from functools import partial
+cube = partial(pow, exp=3)
+print(cube(2))   # 8</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Creates a new function with some arguments pre-filled</li>
+          <li><span class="opt-key">B</span> Splits a function in half</li>
+          <li><span class="opt-key">C</span> Runs a function partially then pauses</li>
+          <li><span class="opt-key">D</span> Caches results</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Creates a new function with some arguments pre-filled</p>
+          <p class="expl">partial(func, *fixed_args) 'freezes' some arguments, returning a simpler function. Useful for adapting a general function to a specific use, e.g. as a callback.</p>
+          <p class="tags"><span>functools</span><span>Currying</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print(list(zip([1, 2, 3], [&quot;a&quot;, &quot;b&quot;])))</p>
+        <pre class="code"><code>from itertools import zip_longest
+print(list(zip_longest([1,2,3], [&quot;a&quot;,&quot;b&quot;], fillvalue=&quot;?&quot;)))
+# [(1,'a'), (2,'b'), (3,'?')]</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [(1, 'a'), (2, 'b')] - zip stops at the SHORTER iterable</li>
+          <li><span class="opt-key">B</span> [(1, 'a'), (2, 'b'), (3, None)]</li>
+          <li><span class="opt-key">C</span> Error - lengths differ</li>
+          <li><span class="opt-key">D</span> [(1, 2, 3), ('a', 'b')]</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [(1, 'a'), (2, 'b')] - zip stops at the SHORTER iterable</p>
+          <p class="expl">zip pairs items until the shortest input runs out - the leftover 3 is dropped. Use itertools.zip_longest if you want to pad with a fill value instead.</p>
+          <p class="tags"><span>zip()</span><span>zip_longest</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What are *args and **kwargs at a CALL site (unpacking)?
+f(*my_list, **my_dict)</p>
+        <pre class="code"><code>def add(a, b, c): return a + b + c
+nums = [1, 2, 3]
+print(add(*nums))   # 6</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> * spreads a list into positional arguments; ** spreads a dict into keyword arguments</li>
+          <li><span class="opt-key">B</span> They multiply the arguments</li>
+          <li><span class="opt-key">C</span> They create new lists</li>
+          <li><span class="opt-key">D</span> They are only valid in definitions</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — * spreads a list into positional arguments; ** spreads a dict into keyword arguments</p>
+          <p class="expl">At a call, * and ** unpack: f(*[1,2,3]) is f(1,2,3), and f(**{'a':1}) is f(a=1). The mirror image of collecting them with *args/**kwargs in a definition.</p>
+          <p class="tags"><span>Unpacking</span><span>*args</span><span>**kwargs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+x = 10
+def f():
+    print(x)
+    x = 20
+f()</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> UnboundLocalError - assigning x anywhere makes it local for the whole function</li>
+          <li><span class="opt-key">B</span> 10</li>
+          <li><span class="opt-key">C</span> 20</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — UnboundLocalError - assigning x anywhere makes it local for the whole function</p>
+          <p class="expl">Because x is assigned inside f (x = 20), Python treats x as local throughout f - so print(x) references a local that hasn't been assigned yet. Fix with 'global x' or rename.</p>
+          <p class="tags"><span>UnboundLocalError</span><span>Scope</span><span>LEGB</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a metaclass, in one line?</p>
+        <pre class="code"><code>class Meta(type): ...
+class MyClass(metaclass=Meta): ...</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The 'class of a class' - it controls how classes themselves are created (type is the default metaclass)</li>
+          <li><span class="opt-key">B</span> A class with metadata</li>
+          <li><span class="opt-key">C</span> A very large class</li>
+          <li><span class="opt-key">D</span> An abstract base class</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The 'class of a class' - it controls how classes themselves are created (type is the default metaclass)</p>
+          <p class="expl">Just as objects are instances of classes, classes are instances of metaclasses. type is the default. Metaclasses customize class creation - a deep, rarely-needed feature (frameworks use them). 'If you wonder whether you need them, you don't.'</p>
+          <p class="tags"><span>Metaclasses</span><span>type</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+print([1, 2, 3] * 2)
+print((1, 2) + (3,))</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> [1, 2, 3, 1, 2, 3] and (1, 2, 3)</li>
+          <li><span class="opt-key">B</span> [2, 4, 6] and (4, 5)</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> [1, 2, 3, 2] and (1, 5)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — [1, 2, 3, 1, 2, 3] and (1, 2, 3)</p>
+          <p class="expl">* repeats a sequence; + concatenates. Works on both lists and tuples: [1,2,3]*2 duplicates the list, and (1,2)+(3,) joins tuples (note the trailing comma makes (3,) a one-tuple).</p>
+          <p class="tags"><span>Sequence operations</span><span>Tuples</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="18-decorators-and-closures.html">← Decorators &amp; Closures</a>
+      <a href="20-interview-questions.html">Interview Questions →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-18">Practice “Advanced Concepts” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

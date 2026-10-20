@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conditionals – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Conditionals with answers and detailed explanations — 3 easy, 19 medium and 8 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/06-conditionals.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Conditionals – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Conditionals with answers and detailed explanations — 3 easy, 19 medium and 8 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/06-conditionals.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Conditionals","item":"https://velnov.co.in/learn/javascript/06-conditionals.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Conditionals</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 6 of 20</p>
+      <h1>Conditionals — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Conditionals</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-5">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">3 easy · 19 medium · 8 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>if</span><span>Syntax</span><span>if/else</span><span>else if</span><span>Chains</span><span>if vs else if</span><span>Order</span><span>Logic bugs</span><span>Ordering</span><span>Style</span><span>Best practices</span><span>Truthiness</span><span>Arrays</span><span>Logical operators</span><span>switch</span><span>case</span><span>Fall-through</span><span>break</span><span>Grouping cases</span><span>default</span><span>Strict equality</span><span>Forms</span><span>Ternary</span><span>Nesting</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (3)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which is the correct if statement syntax?</p>
+        <pre class="code"><code>if (score &gt; 50) {
+  console.log(&quot;Pass&quot;);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if (x &gt; 5) { ... }</li>
+          <li><span class="opt-key">B</span> if x &gt; 5: ...</li>
+          <li><span class="opt-key">C</span> if x &gt; 5 then ... end</li>
+          <li><span class="opt-key">D</span> if [x &gt; 5] { ... }</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if (x &gt; 5) { ... }</p>
+          <p class="expl">JavaScript requires parentheses around the condition and uses curly braces for the block. (Python uses a colon; other languages use then/end.)</p>
+          <p class="tags"><span>if</span><span>Syntax</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">When does the else block run?</p>
+        <pre class="code"><code>if (age &gt;= 18) {
+  console.log(&quot;Adult&quot;);
+} else {
+  console.log(&quot;Minor&quot;);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Only when the if condition (and every else if) was false</li>
+          <li><span class="opt-key">B</span> Always</li>
+          <li><span class="opt-key">C</span> Only when the if was true</li>
+          <li><span class="opt-key">D</span> Never</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Only when the if condition (and every else if) was false</p>
+          <p class="expl">else is the catch-all branch; it takes no condition of its own and runs when nothing above it matched.</p>
+          <p class="tags"><span>if/else</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you test a second condition when the first fails?</p>
+        <pre class="code"><code>if (s &gt;= 90) grade = &quot;A&quot;;
+else if (s &gt;= 75) grade = &quot;B&quot;;
+else if (s &gt;= 60) grade = &quot;C&quot;;
+else grade = &quot;F&quot;;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> else if (condition) { ... }</li>
+          <li><span class="opt-key">B</span> elif (condition) { ... }</li>
+          <li><span class="opt-key">C</span> elseif condition: ...</li>
+          <li><span class="opt-key">D</span> otherwise (condition)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — else if (condition) { ... }</p>
+          <p class="expl">JavaScript writes it as two words: else if. (elif is Python, elseif is PHP.) You can chain as many as you need.</p>
+          <p class="tags"><span>else if</span><span>Chains</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (19)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+let x = 7;
+if (x &gt; 5) console.log(&quot;A&quot;);
+if (x &gt; 6) console.log(&quot;B&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A then B - two independent ifs, both conditions are true</li>
+          <li><span class="opt-key">B</span> A only</li>
+          <li><span class="opt-key">C</span> B only</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A then B - two independent ifs, both conditions are true</p>
+          <p class="expl">Separate if statements are each evaluated. With 'else if' instead, only the first matching branch would run.</p>
+          <p class="tags"><span>if vs else if</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+let x = 7;
+if (x &gt; 5) console.log(&quot;A&quot;);
+else if (x &gt; 6) console.log(&quot;B&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A only - the chain stops at the first true condition</li>
+          <li><span class="opt-key">B</span> A then B</li>
+          <li><span class="opt-key">C</span> B only</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A only - the chain stops at the first true condition</p>
+          <p class="expl">In an if/else-if chain, evaluation stops at the first true branch. The x &gt; 6 test never runs, even though it is also true. Order matters: put the most specific condition first.</p>
+          <p class="tags"><span>else if</span><span>Order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you omit the curly braces for a single statement?
+if (x) console.log(&quot;hi&quot;);</p>
+        <pre class="code"><code>if (x)
+  doA();
+  doB();   // ALWAYS runs - not part of the if!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes, but it is risky - adding a second line later silently falls outside the if</li>
+          <li><span class="opt-key">B</span> No, braces are mandatory</li>
+          <li><span class="opt-key">C</span> Only in strict mode</li>
+          <li><span class="opt-key">D</span> Only for else</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes, but it is risky - adding a second line later silently falls outside the if</p>
+          <p class="expl">Braceless ifs are legal but a known source of bugs (the famous 'goto fail' security flaw). Most style guides require braces always.</p>
+          <p class="tags"><span>Style</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+if (0) console.log(&quot;yes&quot;);
+else console.log(&quot;no&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> no - 0 is falsy</li>
+          <li><span class="opt-key">B</span> yes</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — no - 0 is falsy</p>
+          <p class="expl">if converts the condition to a boolean. 0 is one of the falsy values (false, 0, &quot;&quot;, null, undefined, NaN), so the else branch runs.</p>
+          <p class="tags"><span>Truthiness</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you require BOTH conditions to be true?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if (a &gt; 0 &amp;&amp; b &gt; 0)</li>
+          <li><span class="opt-key">B</span> if (a &gt; 0 and b &gt; 0)</li>
+          <li><span class="opt-key">C</span> if (a &gt; 0 AND b &gt; 0)</li>
+          <li><span class="opt-key">D</span> if (a &gt; 0, b &gt; 0)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if (a &gt; 0 &amp;&amp; b &gt; 0)</p>
+          <p class="expl">JavaScript uses the symbols &amp;&amp; (AND), || (OR) and ! (NOT) - not the words. (Python uses the words.)</p>
+          <p class="tags"><span>Logical operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the switch statement used for?</p>
+        <pre class="code"><code>switch (day) {
+  case &quot;Mon&quot;: console.log(&quot;Start&quot;); break;
+  case &quot;Fri&quot;: console.log(&quot;Almost!&quot;); break;
+  default: console.log(&quot;Midweek&quot;);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Comparing ONE value against several possible cases - a tidy alternative to a long else-if chain</li>
+          <li><span class="opt-key">B</span> Looping</li>
+          <li><span class="opt-key">C</span> Switching variable types</li>
+          <li><span class="opt-key">D</span> Error handling</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Comparing ONE value against several possible cases - a tidy alternative to a long else-if chain</p>
+          <p class="expl">switch compares the expression to each case using strict equality (===) and runs the matching block.</p>
+          <p class="tags"><span>switch</span><span>case</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How can fall-through be used INTENTIONALLY?</p>
+        <pre class="code"><code>switch (day) {
+  case &quot;Sat&quot;:
+  case &quot;Sun&quot;:
+    console.log(&quot;Weekend&quot;);
+    break;
+  default:
+    console.log(&quot;Weekday&quot;);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Stack several case labels together so they share one block of code</li>
+          <li><span class="opt-key">B</span> It can never be useful</li>
+          <li><span class="opt-key">C</span> By writing break twice</li>
+          <li><span class="opt-key">D</span> By using continue</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Stack several case labels together so they share one block of code</p>
+          <p class="expl">Empty cases stacked above a shared body let several values run the same code - the one legitimate use of fall-through.</p>
+          <p class="tags"><span>switch</span><span>Grouping cases</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the default clause in a switch do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Runs when no case matched - like else</li>
+          <li><span class="opt-key">B</span> Runs first</li>
+          <li><span class="opt-key">C</span> Runs always</li>
+          <li><span class="opt-key">D</span> Is required</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Runs when no case matched - like else</p>
+          <p class="expl">default is optional and handles unmatched values. By convention it goes last (though technically it can appear anywhere).</p>
+          <p class="tags"><span>switch</span><span>default</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the ternary equivalent of this?
+if (age &gt;= 18) s = &quot;adult&quot;; else s = &quot;minor&quot;;</p>
+        <pre class="code"><code>console.log(`You are ${age &gt;= 18 ? &quot;adult&quot; : &quot;minor&quot;}`);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> const s = age &gt;= 18 ? &quot;adult&quot; : &quot;minor&quot;;</li>
+          <li><span class="opt-key">B</span> const s = if age &gt;= 18 then &quot;adult&quot; else &quot;minor&quot;;</li>
+          <li><span class="opt-key">C</span> const s = (age &gt;= 18) ? &quot;adult&quot; | &quot;minor&quot;;</li>
+          <li><span class="opt-key">D</span> const s = age &gt;= 18 : &quot;adult&quot; ? &quot;minor&quot;;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — const s = age &gt;= 18 ? &quot;adult&quot; : &quot;minor&quot;;</p>
+          <p class="expl">condition ? valueIfTrue : valueIfFalse. It is an expression, so it can be assigned, returned, or embedded in a template literal.</p>
+          <p class="tags"><span>Ternary</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this pattern do?
+isLoggedIn &amp;&amp; showDashboard();</p>
+        <pre class="code"><code>// equivalent to:
+if (isLoggedIn) showDashboard();</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Calls showDashboard() only if isLoggedIn is truthy - short-circuit evaluation</li>
+          <li><span class="opt-key">B</span> Always calls showDashboard()</li>
+          <li><span class="opt-key">C</span> Compares the two</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Calls showDashboard() only if isLoggedIn is truthy - short-circuit evaluation</p>
+          <p class="expl">&amp;&amp; stops at the first falsy operand, so the right side runs only when the left is truthy. Common in React JSX for conditional rendering.</p>
+          <p class="tags"><span>Short-circuit</span><span>Guard clause</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this do?
+const name = input || &quot;Guest&quot;;</p>
+        <pre class="code"><code>const count = 0;
+console.log(count || 10);   // 10 - probably wrong
+console.log(count ?? 10);   // 0  - correct</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Uses input if it is truthy, otherwise falls back to &quot;Guest&quot;</li>
+          <li><span class="opt-key">B</span> Always uses &quot;Guest&quot;</li>
+          <li><span class="opt-key">C</span> Compares them</li>
+          <li><span class="opt-key">D</span> Concatenates them</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Uses input if it is truthy, otherwise falls back to &quot;Guest&quot;</p>
+          <p class="expl">|| returns the first truthy operand. Careful: it also replaces valid values like 0 and &quot;&quot; - use ?? if only null/undefined should trigger the fallback.</p>
+          <p class="tags"><span>Defaults</span><span>Nullish coalescing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a guard clause?</p>
+        <pre class="code"><code>function process(user) {
+  if (!user) return;          // guard
+  if (!user.active) return;   // guard
+  // main logic, not nested
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An early return for invalid cases, so the main logic stays unindented</li>
+          <li><span class="opt-key">B</span> A security check</li>
+          <li><span class="opt-key">C</span> A type of loop</li>
+          <li><span class="opt-key">D</span> A try/catch block</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An early return for invalid cases, so the main logic stays unindented</p>
+          <p class="expl">Handling the exceptional cases first and returning early avoids deep nesting and keeps the 'happy path' readable.</p>
+          <p class="tags"><span>Early return</span><span>Readability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you check that a value is between 10 and 20 inclusive?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if (x &gt;= 10 &amp;&amp; x &lt;= 20)</li>
+          <li><span class="opt-key">B</span> if (10 &lt;= x &lt;= 20)</li>
+          <li><span class="opt-key">C</span> if (x between 10, 20)</li>
+          <li><span class="opt-key">D</span> if (x in [10, 20])</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if (x &gt;= 10 &amp;&amp; x &lt;= 20)</p>
+          <p class="expl">Chained comparisons do not work in JavaScript: 10 &lt;= x &lt;= 20 evaluates left to right into a boolean, then compares that boolean to 20 - always true. Combine with &amp;&amp;.</p>
+          <p class="tags"><span>Chained comparison</span><span>Logical AND</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+let x;
+if (x === undefined) console.log(&quot;unset&quot;);
+else console.log(&quot;set&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> unset</li>
+          <li><span class="opt-key">B</span> set</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — unset</p>
+          <p class="expl">A declared but unassigned variable holds undefined, so the strict comparison succeeds. Alternatively 'if (x == null)' catches both undefined and null.</p>
+          <p class="tags"><span>undefined</span><span>Checks</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is the cleanest way to check several possible values?
+if (fruit is apple, mango or banana)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if ([&quot;apple&quot;, &quot;mango&quot;, &quot;banana&quot;].includes(fruit))</li>
+          <li><span class="opt-key">B</span> if (fruit == &quot;apple&quot; || fruit == &quot;mango&quot; || fruit == &quot;banana&quot;)</li>
+          <li><span class="opt-key">C</span> if (fruit in &quot;apple mango banana&quot;)</li>
+          <li><span class="opt-key">D</span> if (fruit === [&quot;apple&quot;, &quot;mango&quot;])</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if ([&quot;apple&quot;, &quot;mango&quot;, &quot;banana&quot;].includes(fruit))</p>
+          <p class="expl">includes() on an array is readable and easy to extend. Option B works but grows unwieldy; option D compares against an array object and is always false.</p>
+          <p class="tags"><span>includes</span><span>Readability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+const x = 5;
+console.log(x &gt; 3 ? x &gt; 4 ? &quot;big&quot; : &quot;medium&quot; : &quot;small&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> big</li>
+          <li><span class="opt-key">B</span> medium</li>
+          <li><span class="opt-key">C</span> small</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — big</p>
+          <p class="expl">x &gt; 3 is true, so evaluate the nested ternary: x &gt; 4 is also true, giving &quot;big&quot;. Correct, but this is exactly the nesting that hurts readability.</p>
+          <p class="tags"><span>Nested ternary</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does an if block create a new scope for let/const?</p>
+        <pre class="code"><code>if (true) {
+  let a = 1;
+  var b = 2;
+}
+// console.log(a);  // ReferenceError
+console.log(b);      // 2 - leaked</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - let and const inside { } are not visible outside; var would leak</li>
+          <li><span class="opt-key">B</span> No, if blocks never create scope</li>
+          <li><span class="opt-key">C</span> Only in strict mode</li>
+          <li><span class="opt-key">D</span> Only for const</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - let and const inside { } are not visible outside; var would leak</p>
+          <p class="expl">Curly braces form a block scope for let/const. var ignores blocks and belongs to the enclosing function - one of the main reasons to avoid var.</p>
+          <p class="tags"><span>Block scope</span><span>var vs let</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which condition correctly checks that a string is non-empty after trimming?</p>
+        <pre class="code"><code>if (nameInput.value.trim() !== &quot;&quot;) { }</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if (input.trim() !== &quot;&quot;)</li>
+          <li><span class="opt-key">B</span> if (input !== null)</li>
+          <li><span class="opt-key">C</span> if (input.length)  // fails for &quot;   &quot;</li>
+          <li><span class="opt-key">D</span> if (input)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if (input.trim() !== &quot;&quot;)</p>
+          <p class="expl">A string of only spaces is truthy and has length &gt; 0, so options C and D wrongly accept it. Trim first, then compare - standard form validation.</p>
+          <p class="tags"><span>Validation</span><span>trim</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the recommended way to write a long chain of conditions on ONE variable?</p>
+        <pre class="code"><code>const messages = { 404: &quot;Not found&quot;, 500: &quot;Server error&quot; };
+const msg = messages[code] ?? &quot;Unknown&quot;;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A switch statement, or an object/map lookup</li>
+          <li><span class="opt-key">B</span> Deeply nested ifs</li>
+          <li><span class="opt-key">C</span> Many separate if statements</li>
+          <li><span class="opt-key">D</span> A while loop</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A switch statement, or an object/map lookup</p>
+          <p class="expl">switch reads better than a long else-if chain. For simple value-to-value mappings, an object lookup is even cleaner and easier to extend.</p>
+          <p class="tags"><span>switch</span><span>Lookup tables</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (8)</h2>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does this print &quot;C&quot; for score = 95?
+if (s &gt;= 60) grade = &quot;C&quot;;
+else if (s &gt;= 75) grade = &quot;B&quot;;
+else if (s &gt;= 90) grade = &quot;A&quot;;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The chain matches the FIRST true condition (95 &gt;= 60) - the tests are in the wrong order</li>
+          <li><span class="opt-key">B</span> The comparison operators are wrong</li>
+          <li><span class="opt-key">C</span> grade is undefined</li>
+          <li><span class="opt-key">D</span> It should print A</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The chain matches the FIRST true condition (95 &gt;= 60) - the tests are in the wrong order</p>
+          <p class="expl">With overlapping ranges, always test the most restrictive first: &gt;= 90, then &gt;= 75, then &gt;= 60. This ordering bug is extremely common in grading code.</p>
+          <p class="tags"><span>Logic bugs</span><span>Ordering</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const arr = [];
+if (arr) console.log(&quot;truthy&quot;);
+else console.log(&quot;falsy&quot;);</p>
+        <pre class="code"><code>if (arr.length === 0) console.log(&quot;empty&quot;);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> truthy - an empty ARRAY is truthy in JavaScript</li>
+          <li><span class="opt-key">B</span> falsy</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — truthy - an empty ARRAY is truthy in JavaScript</p>
+          <p class="expl">All objects, including empty arrays and objects, are truthy. To test emptiness use arr.length === 0. (In Python [] is falsy - a common cross-language mix-up.)</p>
+          <p class="tags"><span>Truthiness</span><span>Arrays</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What happens if you forget break in a switch case?</p>
+        <pre class="code"><code>switch (x) {
+  case 1:
+    console.log(&quot;one&quot;);   // no break - falls through!
+  case 2:
+    console.log(&quot;two&quot;);
+    break;
+}
+// x = 1 prints BOTH 'one' and 'two'</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Execution FALLS THROUGH into the following cases until it hits a break or the end</li>
+          <li><span class="opt-key">B</span> SyntaxError</li>
+          <li><span class="opt-key">C</span> Only that case runs anyway</li>
+          <li><span class="opt-key">D</span> The switch is skipped</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Execution FALLS THROUGH into the following cases until it hits a break or the end</p>
+          <p class="expl">Without break, JavaScript continues executing subsequent case bodies regardless of their labels. This causes real bugs - but is occasionally used deliberately to group cases.</p>
+          <p class="tags"><span>Fall-through</span><span>break</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Does switch use == or === for matching?</p>
+        <pre class="code"><code>const val = &quot;5&quot;;      // from a form
+switch (Number(val)) {  // convert first!
+  case 5: console.log(&quot;five&quot;);
+}</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> === (strict) - so &quot;5&quot; does NOT match case 5</li>
+          <li><span class="opt-key">B</span> == (loose)</li>
+          <li><span class="opt-key">C</span> It depends on the browser</li>
+          <li><span class="opt-key">D</span> It uses Object.is</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — === (strict) - so &quot;5&quot; does NOT match case 5</p>
+          <p class="expl">switch uses strict comparison. A value read from an input field (a string) will not match a numeric case - convert it first with Number().</p>
+          <p class="tags"><span>Strict equality</span><span>Forms</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(true ? &quot;a&quot; : false ? &quot;b&quot; : &quot;c&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;a&quot; - the first condition is true so the rest is skipped</li>
+          <li><span class="opt-key">B</span> &quot;b&quot;</li>
+          <li><span class="opt-key">C</span> &quot;c&quot;</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;a&quot; - the first condition is true so the rest is skipped</p>
+          <p class="expl">Nested ternaries evaluate left to right; the true branch returns &quot;a&quot; immediately. Nesting more than one level hurts readability - prefer if/else there.</p>
+          <p class="tags"><span>Ternary</span><span>Nesting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+if (&quot;0&quot;) console.log(&quot;A&quot;);
+else console.log(&quot;B&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A - the STRING &quot;0&quot; is non-empty, therefore truthy</li>
+          <li><span class="opt-key">B</span> B</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A - the STRING &quot;0&quot; is non-empty, therefore truthy</p>
+          <p class="expl">Only the empty string is falsy; &quot;0&quot; and &quot;false&quot; are truthy strings. Values arriving from APIs, forms or localStorage are strings - compare explicitly rather than relying on truthiness.</p>
+          <p class="tags"><span>Truthiness</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+if (1 &lt; 2 &lt; 3) console.log(&quot;A&quot;);
+if (3 &gt; 2 &gt; 1) console.log(&quot;B&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A only - (3&gt;2) becomes true, then true &gt; 1 is false</li>
+          <li><span class="opt-key">B</span> A and B</li>
+          <li><span class="opt-key">C</span> B only</li>
+          <li><span class="opt-key">D</span> Neither</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A only - (3&gt;2) becomes true, then true &gt; 1 is false</p>
+          <p class="expl">1 &lt; 2 gives true, and true &lt; 3 converts true to 1, so 1 &lt; 3 is true (prints A). But 3 &gt; 2 gives true, and true &gt; 1 is 1 &gt; 1 which is false (no B). Never chain comparisons.</p>
+          <p class="tags"><span>Coercion</span><span>Comparison chains</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+const v = null;
+if (v?.name) console.log(&quot;has name&quot;);
+else console.log(&quot;no name&quot;);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> no name - optional chaining returns undefined instead of throwing</li>
+          <li><span class="opt-key">B</span> TypeError</li>
+          <li><span class="opt-key">C</span> has name</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — no name - optional chaining returns undefined instead of throwing</p>
+          <p class="expl">Without ?., reading v.name on null throws 'Cannot read properties of null'. Optional chaining short-circuits to undefined, which is falsy, so else runs.</p>
+          <p class="tags"><span>Optional chaining</span><span>Null safety</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="05-strings-and-template-literals.html">← Strings &amp; Template Literals</a>
+      <a href="07-loops.html">Loops →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-5">Practice “Conditionals” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

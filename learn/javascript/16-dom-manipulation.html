@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Manipulation – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on DOM Manipulation with answers and detailed explanations — 2 easy, 21 medium and 7 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/16-dom-manipulation.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="DOM Manipulation – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on DOM Manipulation with answers and detailed explanations — 2 easy, 21 medium and 7 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/16-dom-manipulation.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"DOM Manipulation","item":"https://velnov.co.in/learn/javascript/16-dom-manipulation.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>DOM Manipulation</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 16 of 20</p>
+      <h1>DOM Manipulation — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>DOM Manipulation</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-15">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 21 medium · 7 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>DOM</span><span>document</span><span>querySelector</span><span>Selectors</span><span>null</span><span>Error handling</span><span>getElementById</span><span>NodeList</span><span>Live collections</span><span>textContent</span><span>innerText</span><span>XSS</span><span>Security</span><span>Forms</span><span>value</span><span>classList</span><span>CSS</span><span>toggle</span><span>style</span><span>createElement</span><span>appendChild</span><span>append</span><span>remove</span><span>DOM manipulation</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the DOM?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A tree of objects representing the HTML page, which JavaScript can read and change</li>
+          <li><span class="opt-key">B</span> A JavaScript library</li>
+          <li><span class="opt-key">C</span> A CSS feature</li>
+          <li><span class="opt-key">D</span> A type of database</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A tree of objects representing the HTML page, which JavaScript can read and change</p>
+          <p class="expl">Document Object Model: the browser parses your HTML into a live object tree. Changing the DOM instantly changes what the user sees.</p>
+          <p class="tags"><span>DOM</span><span>document</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which method selects the FIRST element matching a CSS selector?</p>
+        <pre class="code"><code>document.querySelector(&quot;#title&quot;);
+document.querySelector(&quot;.card .btn&quot;);
+document.querySelectorAll(&quot;li&quot;);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> document.querySelector(&quot;.box&quot;)</li>
+          <li><span class="opt-key">B</span> document.getElement(&quot;.box&quot;)</li>
+          <li><span class="opt-key">C</span> document.find(&quot;.box&quot;)</li>
+          <li><span class="opt-key">D</span> document.select(&quot;.box&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — document.querySelector(&quot;.box&quot;)</p>
+          <p class="expl">querySelector accepts any CSS selector and returns the first match (or null). querySelectorAll returns all matches as a NodeList.</p>
+          <p class="tags"><span>querySelector</span><span>Selectors</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (21)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does querySelector return when nothing matches?</p>
+        <pre class="code"><code>const el = document.querySelector(&quot;.missing&quot;);
+if (el) el.textContent = &quot;hi&quot;;
+el?.classList.add(&quot;on&quot;);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> null</li>
+          <li><span class="opt-key">B</span> undefined</li>
+          <li><span class="opt-key">C</span> An empty array</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — null</p>
+          <p class="expl">It returns null, so accessing a property on it throws 'Cannot read properties of null' - the most common DOM error. Check first or use optional chaining.</p>
+          <p class="tags"><span>null</span><span>Error handling</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between getElementById and querySelector?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> getElementById takes a bare id (no #) and is slightly faster; querySelector takes any CSS selector</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> querySelector only works on classes</li>
+          <li><span class="opt-key">D</span> getElementById returns an array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — getElementById takes a bare id (no #) and is slightly faster; querySelector takes any CSS selector</p>
+          <p class="expl">getElementById(&quot;title&quot;) vs querySelector(&quot;#title&quot;). The speed difference is negligible in practice; querySelector's flexibility usually wins.</p>
+          <p class="tags"><span>getElementById</span><span>querySelector</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you change the visible TEXT of an element safely?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.textContent = &quot;Hello&quot;</li>
+          <li><span class="opt-key">B</span> el.value = &quot;Hello&quot;</li>
+          <li><span class="opt-key">C</span> el.text = &quot;Hello&quot;</li>
+          <li><span class="opt-key">D</span> el.write(&quot;Hello&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.textContent = &quot;Hello&quot;</p>
+          <p class="expl">textContent sets plain text and escapes any HTML - safe against injection. innerText is similar but slower (it respects CSS visibility).</p>
+          <p class="tags"><span>textContent</span><span>innerText</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you read what a user typed into an &lt;input&gt;?</p>
+        <pre class="code"><code>const n = Number(document.querySelector(&quot;#age&quot;).value);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> input.value</li>
+          <li><span class="opt-key">B</span> input.textContent</li>
+          <li><span class="opt-key">C</span> input.innerHTML</li>
+          <li><span class="opt-key">D</span> input.text</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — input.value</p>
+          <p class="expl">Form controls store their current data in .value (always a STRING - convert with Number() for maths). textContent would be empty for inputs.</p>
+          <p class="tags"><span>Forms</span><span>value</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you add a CSS class to an element?</p>
+        <pre class="code"><code>el.classList.add(&quot;active&quot;);
+el.classList.remove(&quot;hidden&quot;);
+el.classList.toggle(&quot;open&quot;);
+el.classList.contains(&quot;active&quot;);   // true/false</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.classList.add(&quot;active&quot;)</li>
+          <li><span class="opt-key">B</span> el.class += &quot;active&quot;</li>
+          <li><span class="opt-key">C</span> el.addClass(&quot;active&quot;)</li>
+          <li><span class="opt-key">D</span> el.style.class = &quot;active&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.classList.add(&quot;active&quot;)</p>
+          <p class="expl">classList provides add, remove, toggle and contains - far safer than overwriting className, which would wipe existing classes.</p>
+          <p class="tags"><span>classList</span><span>CSS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does classList.toggle(&quot;open&quot;) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Adds the class if absent, removes it if present - and returns true/false</li>
+          <li><span class="opt-key">B</span> Always adds it</li>
+          <li><span class="opt-key">C</span> Always removes it</li>
+          <li><span class="opt-key">D</span> Renames the class</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Adds the class if absent, removes it if present - and returns true/false</p>
+          <p class="expl">Perfect for menus, modals and dark mode. An optional second argument forces the state: toggle(&quot;open&quot;, isOpen).</p>
+          <p class="tags"><span>classList</span><span>toggle</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you change an inline style?</p>
+        <pre class="code"><code>el.style.backgroundColor = &quot;red&quot;;
+el.style.fontSize = &quot;20px&quot;;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.style.backgroundColor = &quot;red&quot;  (camelCase property names)</li>
+          <li><span class="opt-key">B</span> el.style.background-color = &quot;red&quot;</li>
+          <li><span class="opt-key">C</span> el.css(&quot;background-color&quot;, &quot;red&quot;)</li>
+          <li><span class="opt-key">D</span> el.setStyle(&quot;background&quot;, &quot;red&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.style.backgroundColor = &quot;red&quot;  (camelCase property names)</p>
+          <p class="expl">CSS hyphenated names become camelCase in JavaScript because background-color would be parsed as subtraction. Prefer toggling classes over many inline styles.</p>
+          <p class="tags"><span>style</span><span>CSS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you create a new element and add it to the page?</p>
+        <pre class="code"><code>const li = document.createElement(&quot;li&quot;);
+li.textContent = &quot;New item&quot;;
+document.querySelector(&quot;ul&quot;).appendChild(li);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> const li = document.createElement(&quot;li&quot;); parent.appendChild(li);</li>
+          <li><span class="opt-key">B</span> document.newElement(&quot;li&quot;)</li>
+          <li><span class="opt-key">C</span> parent.add(&quot;&lt;li&gt;&quot;)</li>
+          <li><span class="opt-key">D</span> document.write(&quot;&lt;li&gt;&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — const li = document.createElement(&quot;li&quot;); parent.appendChild(li);</p>
+          <p class="expl">createElement builds a detached element; it appears only once inserted with appendChild, append, prepend or insertBefore.</p>
+          <p class="tags"><span>createElement</span><span>appendChild</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between append() and appendChild()?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> append() accepts multiple nodes AND plain strings; appendChild() takes exactly one node and returns it</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> appendChild is newer</li>
+          <li><span class="opt-key">D</span> append only works on text</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — append() accepts multiple nodes AND plain strings; appendChild() takes exactly one node and returns it</p>
+          <p class="expl">append is the modern, more flexible method: parent.append(el, &quot;text&quot;, el2). appendChild remains widely used and returns the appended node.</p>
+          <p class="tags"><span>append</span><span>appendChild</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you REMOVE an element from the page?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.remove()</li>
+          <li><span class="opt-key">B</span> el.delete()</li>
+          <li><span class="opt-key">C</span> document.remove(el)</li>
+          <li><span class="opt-key">D</span> el.destroy()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.remove()</p>
+          <p class="expl">The modern one-liner. The older equivalent was el.parentNode.removeChild(el).</p>
+          <p class="tags"><span>remove</span><span>DOM manipulation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you read a data attribute?
+&lt;div data-user-id=&quot;42&quot;&gt;</p>
+        <pre class="code"><code>const id = Number(el.dataset.userId);   // 42</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.dataset.userId</li>
+          <li><span class="opt-key">B</span> el.data(&quot;user-id&quot;)</li>
+          <li><span class="opt-key">C</span> el.userId</li>
+          <li><span class="opt-key">D</span> el.attributes.userId</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.dataset.userId</p>
+          <p class="expl">dataset exposes all data-* attributes, converting kebab-case to camelCase. Values are always strings.</p>
+          <p class="tags"><span>dataset</span><span>Attributes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between setAttribute and setting a property?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> setAttribute changes the HTML attribute; properties reflect the CURRENT state (they can diverge, e.g. input.value)</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> setAttribute is deprecated</li>
+          <li><span class="opt-key">D</span> Properties do not exist</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — setAttribute changes the HTML attribute; properties reflect the CURRENT state (they can diverge, e.g. input.value)</p>
+          <p class="expl">After a user types, input.value shows the typed text while getAttribute(&quot;value&quot;) still shows the original HTML default. Use properties for live state.</p>
+          <p class="tags"><span>Attributes vs properties</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does el.closest(&quot;.card&quot;) do?</p>
+        <pre class="code"><code>btn.closest(&quot;.card&quot;).remove();</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Walks UP the tree from el and returns the nearest ancestor (or el itself) matching the selector</li>
+          <li><span class="opt-key">B</span> Finds the nearest child</li>
+          <li><span class="opt-key">C</span> Returns the sibling</li>
+          <li><span class="opt-key">D</span> Measures distance in pixels</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Walks UP the tree from el and returns the nearest ancestor (or el itself) matching the selector</p>
+          <p class="expl">closest is invaluable in event delegation: from a clicked button you can find the containing card or row.</p>
+          <p class="tags"><span>closest</span><span>Traversal</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which property gives an element's PARENT?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.parentElement</li>
+          <li><span class="opt-key">B</span> el.parent</li>
+          <li><span class="opt-key">C</span> el.up</li>
+          <li><span class="opt-key">D</span> el.container</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.parentElement</p>
+          <p class="expl">Traversal properties: parentElement, children, firstElementChild, nextElementSibling. (The older node-based versions like childNodes also include text nodes.)</p>
+          <p class="tags"><span>Traversal</span><span>parentElement</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the DOMContentLoaded event mean?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The HTML is parsed and the DOM is ready - images may still be loading</li>
+          <li><span class="opt-key">B</span> Everything including images has loaded</li>
+          <li><span class="opt-key">C</span> The page is closing</li>
+          <li><span class="opt-key">D</span> CSS finished</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The HTML is parsed and the DOM is ready - images may still be loading</p>
+          <p class="expl">DOMContentLoaded fires early (ideal for setup); the window 'load' event waits for all images and stylesheets, so it fires much later.</p>
+          <p class="tags"><span>DOMContentLoaded</span><span>load</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you loop over the result of querySelectorAll?</p>
+        <pre class="code"><code>document.querySelectorAll(&quot;.item&quot;).forEach(el =&gt; el.classList.add(&quot;on&quot;));
+const texts = [...document.querySelectorAll(&quot;li&quot;)].map(li =&gt; li.textContent);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> forEach or for...of - NodeLists support both</li>
+          <li><span class="opt-key">B</span> Only a classic for loop</li>
+          <li><span class="opt-key">C</span> map() directly</li>
+          <li><span class="opt-key">D</span> You cannot loop it</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — forEach or for...of - NodeLists support both</p>
+          <p class="expl">NodeList has forEach and is iterable. It does NOT have map/filter - convert with Array.from(list) or [...list] first.</p>
+          <p class="tags"><span>NodeList</span><span>Array.from</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does insertAdjacentHTML(&quot;beforeend&quot;, html) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Inserts HTML at a precise position without destroying existing children/listeners</li>
+          <li><span class="opt-key">B</span> Replaces all content</li>
+          <li><span class="opt-key">C</span> Deletes the element</li>
+          <li><span class="opt-key">D</span> Only works with text</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Inserts HTML at a precise position without destroying existing children/listeners</p>
+          <p class="expl">Unlike innerHTML += (which re-parses everything and kills existing event listeners), this inserts efficiently. Positions: beforebegin, afterbegin, beforeend, afterend.</p>
+          <p class="tags"><span>insertAdjacentHTML</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you check whether an element has a class?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.classList.contains(&quot;active&quot;)</li>
+          <li><span class="opt-key">B</span> el.hasClass(&quot;active&quot;)</li>
+          <li><span class="opt-key">C</span> el.class === &quot;active&quot;</li>
+          <li><span class="opt-key">D</span> el.classList === &quot;active&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.classList.contains(&quot;active&quot;)</p>
+          <p class="expl">contains returns a boolean. Comparing className directly fails whenever an element has multiple classes.</p>
+          <p class="tags"><span>classList</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you hide an element with JavaScript?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Toggle a CSS class, or set el.style.display = &quot;none&quot;</li>
+          <li><span class="opt-key">B</span> el.hide()</li>
+          <li><span class="opt-key">C</span> el.visible = false</li>
+          <li><span class="opt-key">D</span> delete el</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Toggle a CSS class, or set el.style.display = &quot;none&quot;</p>
+          <p class="expl">Adding a class like .hidden { display: none } keeps styling in CSS where it belongs and is easy to animate or override.</p>
+          <p class="tags"><span>style</span><span>classList</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is generally better: building HTML strings or creating elements?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Strings are concise for static markup; createElement is safer with dynamic user data</li>
+          <li><span class="opt-key">B</span> Strings are always better</li>
+          <li><span class="opt-key">C</span> createElement is always better</li>
+          <li><span class="opt-key">D</span> They are identical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Strings are concise for static markup; createElement is safer with dynamic user data</p>
+          <p class="expl">Template literals are readable for trusted content, but inserting user data via innerHTML risks XSS. createElement + textContent escapes automatically.</p>
+          <p class="tags"><span>Security</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you clear all children of an element?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> el.replaceChildren()  (or el.innerHTML = &quot;&quot;)</li>
+          <li><span class="opt-key">B</span> el.clear()</li>
+          <li><span class="opt-key">C</span> el.empty()</li>
+          <li><span class="opt-key">D</span> delete el.children</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — el.replaceChildren()  (or el.innerHTML = &quot;&quot;)</p>
+          <p class="expl">replaceChildren() with no arguments removes everything cleanly and is the modern approach; innerHTML = &quot;&quot; also works and is widely used.</p>
+          <p class="tags"><span>replaceChildren</span><span>innerHTML</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (7)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between an HTMLCollection (getElementsByClassName) and a NodeList (querySelectorAll)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> HTMLCollection is LIVE (updates automatically); querySelectorAll's NodeList is a static snapshot</li>
+          <li><span class="opt-key">B</span> They are the same</li>
+          <li><span class="opt-key">C</span> NodeList is live</li>
+          <li><span class="opt-key">D</span> HTMLCollection is an array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — HTMLCollection is LIVE (updates automatically); querySelectorAll's NodeList is a static snapshot</p>
+          <p class="expl">A live collection reflects later DOM changes, which can cause surprising loop behaviour. Static NodeLists are predictable and support forEach.</p>
+          <p class="tags"><span>NodeList</span><span>Live collections</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is innerHTML risky with user-supplied data?</p>
+        <pre class="code"><code>el.textContent = userInput;   // safe
+el.innerHTML = userInput;      // dangerous!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It parses the string as HTML, allowing script/event injection (XSS)</li>
+          <li><span class="opt-key">B</span> It is slower only</li>
+          <li><span class="opt-key">C</span> It does not work in modern browsers</li>
+          <li><span class="opt-key">D</span> It is not risky</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It parses the string as HTML, allowing script/event injection (XSS)</p>
+          <p class="expl">Inserting untrusted input via innerHTML lets attackers run code in your users' browsers. Use textContent for text; sanitise if HTML is genuinely required.</p>
+          <p class="tags"><span>XSS</span><span>Security</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why should you avoid updating the DOM inside a long loop?</p>
+        <pre class="code"><code>const frag = document.createDocumentFragment();
+items.forEach(t =&gt; { const li = document.createElement(&quot;li&quot;); li.textContent = t; frag.append(li); });
+list.append(frag);   // one DOM update</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Each change can force reflow/repaint - build the content first, then insert once</li>
+          <li><span class="opt-key">B</span> Loops cannot touch the DOM</li>
+          <li><span class="opt-key">C</span> It causes syntax errors</li>
+          <li><span class="opt-key">D</span> There is no problem</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Each change can force reflow/repaint - build the content first, then insert once</p>
+          <p class="expl">A thousand appendChild calls means a thousand layout recalculations. Build an HTML string or a DocumentFragment and insert it in one operation.</p>
+          <p class="tags"><span>Performance</span><span>DocumentFragment</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does this return null?
+&lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt; is in &lt;head&gt;, and app.js runs document.querySelector(&quot;#btn&quot;)</p>
+        <pre class="code"><code>&lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;
+// or
+document.addEventListener(&quot;DOMContentLoaded&quot;, init);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The script runs BEFORE the body elements are parsed, so #btn does not exist yet</li>
+          <li><span class="opt-key">B</span> querySelector is broken</li>
+          <li><span class="opt-key">C</span> The id is wrong</li>
+          <li><span class="opt-key">D</span> Scripts cannot use querySelector</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The script runs BEFORE the body elements are parsed, so #btn does not exist yet</p>
+          <p class="expl">Fix by adding defer to the script tag, moving it before &lt;/body&gt;, or wrapping the code in a DOMContentLoaded listener.</p>
+          <p class="tags"><span>defer</span><span>DOMContentLoaded</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is wrong with el.innerHTML += &quot;&lt;li&gt;x&lt;/li&gt;&quot; in a loop?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It re-parses ALL the HTML each time and destroys existing elements' event listeners</li>
+          <li><span class="opt-key">B</span> It is a syntax error</li>
+          <li><span class="opt-key">C</span> It only adds text</li>
+          <li><span class="opt-key">D</span> Nothing is wrong</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It re-parses ALL the HTML each time and destroys existing elements' event listeners</p>
+          <p class="expl">The += reads, concatenates and re-writes the entire subtree, which is slow and replaces existing nodes with new ones (losing listeners and input state).</p>
+          <p class="tags"><span>innerHTML</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does document.querySelector(&quot;#list&quot;).children give you?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An HTMLCollection of ELEMENT children only (ignoring text/whitespace nodes)</li>
+          <li><span class="opt-key">B</span> All descendants</li>
+          <li><span class="opt-key">C</span> Text nodes too</li>
+          <li><span class="opt-key">D</span> An array</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An HTMLCollection of ELEMENT children only (ignoring text/whitespace nodes)</p>
+          <p class="expl">children skips text nodes, unlike childNodes which includes the whitespace between tags - a classic source of unexpected counts.</p>
+          <p class="tags"><span>children</span><span>childNodes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between offsetWidth and getBoundingClientRect().width?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> offsetWidth is a rounded integer; getBoundingClientRect gives precise fractional values including transforms</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> offsetWidth includes margins</li>
+          <li><span class="opt-key">D</span> getBoundingClientRect only works on images</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — offsetWidth is a rounded integer; getBoundingClientRect gives precise fractional values including transforms</p>
+          <p class="expl">Use getBoundingClientRect for precise measurement and viewport position (it also returns top/left/right/bottom).</p>
+          <p class="tags"><span>Measurements</span><span>Layout</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="15-error-handling.html">← Error Handling</a>
+      <a href="17-events.html">Events →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-15">Practice “DOM Manipulation” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

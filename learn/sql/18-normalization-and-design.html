@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Normalization &amp; Design – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Normalization &amp; Design with answers and detailed explanations — 0 easy, 16 medium and 14 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/18-normalization-and-design.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Normalization &amp; Design – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Normalization &amp; Design with answers and detailed explanations — 0 easy, 16 medium and 14 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/18-normalization-and-design.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Normalization & Design","item":"https://velnov.co.in/learn/sql/18-normalization-and-design.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Normalization &amp; Design</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 18 of 20</p>
+      <h1>Normalization &amp; Design — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Normalization &amp; Design</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-17">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">0 easy · 16 medium · 14 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Normalization</span><span>Design</span><span>Redundancy</span><span>Anomalies</span><span>1NF</span><span>Atomicity</span><span>2NF</span><span>Partial dependency</span><span>3NF</span><span>Transitive dependency</span><span>Design rule</span><span>Denormalization</span><span>Performance</span><span>Data warehouse</span><span>ER diagram</span><span>Modelling</span><span>One-to-many</span><span>Foreign keys</span><span>Many-to-many</span><span>Junction table</span><span>One-to-one</span><span>UNIQUE</span><span>Lookup table</span><span>Surrogate key</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is normalization?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Organising tables to reduce redundancy and prevent update anomalies</li>
+          <li><span class="opt-key">B</span> Making all values lowercase</li>
+          <li><span class="opt-key">C</span> Sorting data</li>
+          <li><span class="opt-key">D</span> Backing up the database</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Organising tables to reduce redundancy and prevent update anomalies</p>
+          <p class="expl">Normalization splits data into related tables so each fact is stored once. This avoids duplication and the inconsistencies that arise when the same fact lives in many places.</p>
+          <p class="tags"><span>Normalization</span><span>Design</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a data redundancy problem?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The same information stored in multiple places, risking inconsistency when one copy changes</li>
+          <li><span class="opt-key">B</span> Too many tables</li>
+          <li><span class="opt-key">C</span> Missing indexes</li>
+          <li><span class="opt-key">D</span> Slow queries</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The same information stored in multiple places, risking inconsistency when one copy changes</p>
+          <p class="expl">If a customer's address is copied into every order row, changing it means updating many rows - and missing one leaves conflicting data. Normalization stores it once.</p>
+          <p class="tags"><span>Redundancy</span><span>Anomalies</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does First Normal Form (1NF) require?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Atomic (indivisible) values - no repeating groups or multiple values in one cell</li>
+          <li><span class="opt-key">B</span> A primary key only</li>
+          <li><span class="opt-key">C</span> No foreign keys</li>
+          <li><span class="opt-key">D</span> All numeric columns</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Atomic (indivisible) values - no repeating groups or multiple values in one cell</p>
+          <p class="expl">1NF forbids storing '555-1234, 555-5678' in one phone column, or columns like phone1, phone2, phone3. Each cell holds one value; repeating data moves to its own table.</p>
+          <p class="tags"><span>1NF</span><span>Atomicity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">A common summary of 3NF is 'every non-key column depends on...'</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> the key, the whole key, and nothing but the key</li>
+          <li><span class="opt-key">B</span> any column</li>
+          <li><span class="opt-key">C</span> the first column</li>
+          <li><span class="opt-key">D</span> no columns</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — the key, the whole key, and nothing but the key</p>
+          <p class="expl">This memorable phrase captures 1NF (atomic, tied to the key), 2NF (the WHOLE key), and 3NF (NOTHING BUT the key). It is a handy design checklist.</p>
+          <p class="tags"><span>3NF</span><span>Design rule</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is denormalization?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Deliberately adding redundancy back to improve read performance, accepting the update cost</li>
+          <li><span class="opt-key">B</span> A design mistake always</li>
+          <li><span class="opt-key">C</span> Removing all tables</li>
+          <li><span class="opt-key">D</span> The same as normalization</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Deliberately adding redundancy back to improve read performance, accepting the update cost</p>
+          <p class="expl">Sometimes storing a pre-computed total or a duplicated label speeds up heavy read workloads (reporting, analytics). It trades write complexity and consistency risk for read speed.</p>
+          <p class="tags"><span>Denormalization</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is an ER (Entity-Relationship) diagram?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A visual model of entities (tables), their attributes, and the relationships between them</li>
+          <li><span class="opt-key">B</span> A query plan</li>
+          <li><span class="opt-key">C</span> An index structure</li>
+          <li><span class="opt-key">D</span> A backup format</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A visual model of entities (tables), their attributes, and the relationships between them</p>
+          <p class="expl">ER diagrams are the blueprint for a schema: boxes for entities, lines for relationships (one-to-many, many-to-many), and crow's-foot notation for cardinality. Design before you build.</p>
+          <p class="tags"><span>ER diagram</span><span>Modelling</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How is a one-to-many relationship implemented?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Put a foreign key on the MANY side referencing the ONE side</li>
+          <li><span class="opt-key">B</span> A junction table</li>
+          <li><span class="opt-key">C</span> Two primary keys</li>
+          <li><span class="opt-key">D</span> Duplicate the data</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Put a foreign key on the MANY side referencing the ONE side</p>
+          <p class="expl">One customer has many orders, so orders.customer_id references customers.id. The foreign key lives on the many side - the most common relationship in databases.</p>
+          <p class="tags"><span>One-to-many</span><span>Foreign keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How is a one-to-one relationship typically implemented?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A shared/foreign key with a UNIQUE constraint, or by merging into one table</li>
+          <li><span class="opt-key">B</span> A junction table</li>
+          <li><span class="opt-key">C</span> Two separate databases</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A shared/foreign key with a UNIQUE constraint, or by merging into one table</p>
+          <p class="expl">One-to-one splits optional or sensitive attributes (e.g. a user and their extended profile) into a second table sharing the key, enforced UNIQUE. Often the data could just live in one table.</p>
+          <p class="tags"><span>One-to-one</span><span>UNIQUE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a surrogate key in design terms?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An artificial identifier (like an auto-increment id) with no business meaning, used as the primary key</li>
+          <li><span class="opt-key">B</span> A natural business value</li>
+          <li><span class="opt-key">C</span> A foreign key</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An artificial identifier (like an auto-increment id) with no business meaning, used as the primary key</p>
+          <p class="expl">Surrogate keys are stable (they never change) and simple, which is why most designs use them. Natural keys carry meaning but can change, complicating references.</p>
+          <p class="tags"><span>Surrogate key</span><span>Primary key</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is cardinality in a relationship?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> How many rows on one side relate to rows on the other (one-to-one, one-to-many, many-to-many)</li>
+          <li><span class="opt-key">B</span> The number of columns</li>
+          <li><span class="opt-key">C</span> The table size</li>
+          <li><span class="opt-key">D</span> The index depth</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — How many rows on one side relate to rows on the other (one-to-one, one-to-many, many-to-many)</p>
+          <p class="expl">Cardinality describes the relationship's shape and drives how you implement it (foreign key placement, junction tables). ER diagrams annotate it with crow's-foot symbols.</p>
+          <p class="tags"><span>Cardinality</span><span>ER diagram</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What problem does normalization solve when a customer changes address?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The address is stored once, so a single UPDATE fixes it everywhere - no missed copies</li>
+          <li><span class="opt-key">B</span> It makes the address unchangeable</li>
+          <li><span class="opt-key">C</span> It duplicates the address</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The address is stored once, so a single UPDATE fixes it everywhere - no missed copies</p>
+          <p class="expl">In a denormalized design the address might be copied into every order. Normalized, it lives in one customer row, so one update keeps all data consistent.</p>
+          <p class="tags"><span>Update anomaly</span><span>Single source of truth</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is a star schema?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A denormalized analytics design: a central fact table linked to dimension tables</li>
+          <li><span class="opt-key">B</span> A fully normalized design</li>
+          <li><span class="opt-key">C</span> A backup strategy</li>
+          <li><span class="opt-key">D</span> An index type</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A denormalized analytics design: a central fact table linked to dimension tables</p>
+          <p class="expl">Data warehouses use star schemas: a fact table (sales) surrounded by dimensions (date, product, store). Deliberately denormalized for fast aggregation, unlike transactional 3NF designs.</p>
+          <p class="tags"><span>Star schema</span><span>Data warehouse</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Where should a derived value like order total ideally live?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Usually computed on read (SUM of items) to avoid it going stale - or stored/cached deliberately for performance</li>
+          <li><span class="opt-key">B</span> Always duplicated in every row</li>
+          <li><span class="opt-key">C</span> In a text file</li>
+          <li><span class="opt-key">D</span> It cannot be stored</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Usually computed on read (SUM of items) to avoid it going stale - or stored/cached deliberately for performance</p>
+          <p class="expl">Storing a total risks it drifting out of sync with the items. Computing it on demand keeps it correct; caching it (with careful maintenance) is a performance-driven denormalization.</p>
+          <p class="tags"><span>Derived data</span><span>Denormalization</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is referential integrity's role in design?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It guarantees relationships stay valid - foreign keys always point to existing rows</li>
+          <li><span class="opt-key">B</span> It sorts the data</li>
+          <li><span class="opt-key">C</span> It compresses tables</li>
+          <li><span class="opt-key">D</span> It has no role</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It guarantees relationships stay valid - foreign keys always point to existing rows</p>
+          <p class="expl">Enforced by foreign keys, it prevents orphan records (an order for a deleted customer). It is a cornerstone of trustworthy relational data.</p>
+          <p class="tags"><span>Referential integrity</span><span>Foreign keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why store status codes in a lookup table rather than free text?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It enforces a fixed set of valid values and lets you rename or add statuses in one place</li>
+          <li><span class="opt-key">B</span> It uses more space</li>
+          <li><span class="opt-key">C</span> It is slower</li>
+          <li><span class="opt-key">D</span> There is no benefit</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It enforces a fixed set of valid values and lets you rename or add statuses in one place</p>
+          <p class="expl">Free text invites typos ('shpped', 'Shipped', 'SHIPPED') that fragment reports. A lookup table with a foreign key guarantees consistency and central control.</p>
+          <p class="tags"><span>Lookup table</span><span>Data quality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the single source of truth principle?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Each fact is stored in exactly ONE place, so it is always consistent</li>
+          <li><span class="opt-key">B</span> One table per database</li>
+          <li><span class="opt-key">C</span> One user per row</li>
+          <li><span class="opt-key">D</span> One index per table</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Each fact is stored in exactly ONE place, so it is always consistent</p>
+          <p class="expl">Normalization implements this principle. When a fact lives in one place, it cannot contradict itself - the core reason normalized designs are trustworthy.</p>
+          <p class="tags"><span>Single source of truth</span><span>Normalization</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (14)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What are update, insert and delete anomalies?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Problems from redundancy: updating misses copies, you cannot insert data without unrelated data, and deleting loses needed facts</li>
+          <li><span class="opt-key">B</span> Syntax errors</li>
+          <li><span class="opt-key">C</span> Index failures</li>
+          <li><span class="opt-key">D</span> Types of joins</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Problems from redundancy: updating misses copies, you cannot insert data without unrelated data, and deleting loses needed facts</p>
+          <p class="expl">For example, if course info lives only in enrolment rows, deleting the last enrolment erases the course entirely (delete anomaly). Normalization prevents these.</p>
+          <p class="tags"><span>Anomalies</span><span>Normalization</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does Second Normal Form (2NF) address?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Removing partial dependencies - non-key columns must depend on the WHOLE composite key, not part of it</li>
+          <li><span class="opt-key">B</span> Removing all keys</li>
+          <li><span class="opt-key">C</span> Making columns unique</li>
+          <li><span class="opt-key">D</span> Adding indexes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Removing partial dependencies - non-key columns must depend on the WHOLE composite key, not part of it</p>
+          <p class="expl">2NF applies when the primary key is composite. If a column depends on only part of the key (e.g. product_name depends on product_id alone in an order_items table), it belongs in a separate table.</p>
+          <p class="tags"><span>2NF</span><span>Partial dependency</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does Third Normal Form (3NF) address?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Removing transitive dependencies - non-key columns must not depend on OTHER non-key columns</li>
+          <li><span class="opt-key">B</span> Removing the primary key</li>
+          <li><span class="opt-key">C</span> Combining tables</li>
+          <li><span class="opt-key">D</span> Adding redundancy</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Removing transitive dependencies - non-key columns must not depend on OTHER non-key columns</p>
+          <p class="expl">If a table has employee_id (key), dept_id, and dept_name, then dept_name depends on dept_id (a non-key), not directly on the key. 3NF moves department data to a departments table.</p>
+          <p class="tags"><span>3NF</span><span>Transitive dependency</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">When is denormalization justified?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> For read-heavy analytics/reporting where join cost is high and data changes rarely</li>
+          <li><span class="opt-key">B</span> Always - normalization is bad</li>
+          <li><span class="opt-key">C</span> Never</li>
+          <li><span class="opt-key">D</span> Only for small tables</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — For read-heavy analytics/reporting where join cost is high and data changes rarely</p>
+          <p class="expl">Data warehouses often denormalize into star schemas for fast aggregation. For transactional systems that change constantly, normalized designs remain safer. It is a deliberate trade-off, not a default.</p>
+          <p class="tags"><span>Denormalization</span><span>Data warehouse</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How is a many-to-many relationship implemented?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> With a junction (bridge) table holding foreign keys to both sides</li>
+          <li><span class="opt-key">B</span> With one foreign key</li>
+          <li><span class="opt-key">C</span> By duplicating rows</li>
+          <li><span class="opt-key">D</span> It cannot be modelled</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — With a junction (bridge) table holding foreign keys to both sides</p>
+          <p class="expl">Students and courses: an enrollments table links them, with student_id and course_id. It resolves the many-to-many into two one-to-many relationships and can carry extra data like a grade.</p>
+          <p class="tags"><span>Many-to-many</span><span>Junction table</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a lookup (reference) table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A small table of allowed values (e.g. statuses, categories) referenced by foreign key</li>
+          <li><span class="opt-key">B</span> A backup table</li>
+          <li><span class="opt-key">C</span> A temporary table</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A small table of allowed values (e.g. statuses, categories) referenced by foreign key</p>
+          <p class="expl">Instead of repeating 'pending'/'shipped' text everywhere, store them once in a statuses table and reference by id. This enforces valid values and makes renaming a status a one-row change.</p>
+          <p class="tags"><span>Lookup table</span><span>Normalization</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can columns like phone1, phone2, phone3 be a design smell?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They violate 1NF and cap the number of phones; a separate phones table scales cleanly</li>
+          <li><span class="opt-key">B</span> They are always correct</li>
+          <li><span class="opt-key">C</span> They save space</li>
+          <li><span class="opt-key">D</span> They speed up queries</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They violate 1NF and cap the number of phones; a separate phones table scales cleanly</p>
+          <p class="expl">Repeating-group columns force a fixed maximum and make queries awkward ('find anyone with this number' must check three columns). A related phones table (one row per number) is the normalized solution.</p>
+          <p class="tags"><span>1NF</span><span>Repeating groups</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a functional dependency?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> When one column's value determines another's - e.g. zip_code determines city</li>
+          <li><span class="opt-key">B</span> A type of function</li>
+          <li><span class="opt-key">C</span> A foreign key</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — When one column's value determines another's - e.g. zip_code determines city</p>
+          <p class="expl">Functional dependencies are the theory behind normal forms. If A determines B but A is not a key, B usually belongs in a table keyed by A - the essence of 3NF.</p>
+          <p class="tags"><span>Functional dependency</span><span>3NF</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is BCNF (Boyce-Codd Normal Form)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A stronger 3NF: every determinant must be a candidate key</li>
+          <li><span class="opt-key">B</span> Weaker than 1NF</li>
+          <li><span class="opt-key">C</span> The same as 2NF</li>
+          <li><span class="opt-key">D</span> About indexes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A stronger 3NF: every determinant must be a candidate key</p>
+          <p class="expl">BCNF handles edge cases 3NF misses, involving overlapping candidate keys. Most practical designs that reach 3NF are also in BCNF; it matters mainly in complex schemas.</p>
+          <p class="tags"><span>BCNF</span><span>Normal forms</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the main trade-off of a highly normalized design?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Less redundancy and safer writes, but more joins - which can slow complex read queries</li>
+          <li><span class="opt-key">B</span> It is always faster</li>
+          <li><span class="opt-key">C</span> It uses more storage</li>
+          <li><span class="opt-key">D</span> It has no downsides</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Less redundancy and safer writes, but more joins - which can slow complex read queries</p>
+          <p class="expl">Normalization optimises for correctness and write integrity. Read-heavy analytical workloads sometimes denormalize to avoid many joins - a conscious balance between the two goals.</p>
+          <p class="tags"><span>Trade-offs</span><span>Joins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you decide how far to normalize?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Aim for 3NF by default, then denormalize selectively where measured performance requires it</li>
+          <li><span class="opt-key">B</span> Always go to the highest normal form</li>
+          <li><span class="opt-key">C</span> Never normalize</li>
+          <li><span class="opt-key">D</span> Randomly</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Aim for 3NF by default, then denormalize selectively where measured performance requires it</p>
+          <p class="expl">3NF is the practical sweet spot for most transactional systems: enough to prevent anomalies without excessive joins. Denormalize only with evidence that it helps a specific workload.</p>
+          <p class="tags"><span>Design strategy</span><span>3NF</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is an associative entity?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Another name for a junction table - it represents the relationship itself and can hold its own attributes</li>
+          <li><span class="opt-key">B</span> A primary key</li>
+          <li><span class="opt-key">C</span> A view</li>
+          <li><span class="opt-key">D</span> An index</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Another name for a junction table - it represents the relationship itself and can hold its own attributes</p>
+          <p class="expl">The enrollments table between students and courses is an associative entity: it exists because of the relationship and can store attributes about it, like enrolment date and grade.</p>
+          <p class="tags"><span>Associative entity</span><span>Junction table</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What design issue does a NULL-heavy table often reveal?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Attributes that apply to only some rows may belong in a separate related table (subtype)</li>
+          <li><span class="opt-key">B</span> The table is too small</li>
+          <li><span class="opt-key">C</span> Missing indexes</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Attributes that apply to only some rows may belong in a separate related table (subtype)</p>
+          <p class="expl">If many columns are NULL for most rows (e.g. car-specific fields in a generic products table), those attributes likely belong to a subtype table linked by key - a cleaner, more normalized model.</p>
+          <p class="tags"><span>NULL</span><span>Subtypes</span><span>Design</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why model the schema (ER diagram) BEFORE writing CREATE TABLE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Relationships and keys are hard to change once data exists; a clear model prevents costly restructuring later</li>
+          <li><span class="opt-key">B</span> It is required syntax</li>
+          <li><span class="opt-key">C</span> It makes queries run faster</li>
+          <li><span class="opt-key">D</span> There is no reason</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Relationships and keys are hard to change once data exists; a clear model prevents costly restructuring later</p>
+          <p class="expl">Schema changes on populated production tables are risky and slow. Designing entities, keys and relationships upfront catches mistakes while they are cheap to fix.</p>
+          <p class="tags"><span>ER diagram</span><span>Planning</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="17-tables-and-constraints.html">← Tables &amp; Constraints</a>
+      <a href="19-views-indexes-and-transactions.html">Views, Indexes &amp; Transactions →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-17">Practice “Normalization &amp; Design” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

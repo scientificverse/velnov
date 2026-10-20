@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conditionals – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Conditionals with answers and detailed explanations — 13 easy, 13 medium and 4 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/05-conditionals.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Conditionals – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Conditionals with answers and detailed explanations — 13 easy, 13 medium and 4 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/05-conditionals.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Conditionals","item":"https://velnov.co.in/learn/python/05-conditionals.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Conditionals</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 5 of 20</p>
+      <h1>Conditionals — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Conditionals</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-4">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">13 easy · 13 medium · 4 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>Indentation</span><span>Colon</span><span>if/else chains</span><span>if/elif/else</span><span>if vs elif</span><span>elif</span><span>Evaluation order</span><span>Truthiness</span><span>Falsy values</span><span>Empty collections</span><span>Ternary expression</span><span>Conditional expression</span><span>Modulo</span><span>Even/odd</span><span>= vs ==</span><span>SyntaxError</span><span>Logical operators</span><span>Chained comparison</span><span>in operator</span><span>Membership</span><span>continue</span><span>Placeholders</span><span>Common gotchas</span><span>None</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (13)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which is the correct syntax for an if statement?</p>
+        <pre class="code"><code>x = 10
+if x &gt; 5:
+    print(&quot;big&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> if (x &gt; 5) { print(&quot;big&quot;) }</li>
+          <li class="correct"><span class="opt-key">B</span> if x &gt; 5:\n    print(&quot;big&quot;)</li>
+          <li><span class="opt-key">C</span> if x &gt; 5 then print(&quot;big&quot;)</li>
+          <li><span class="opt-key">D</span> if x &gt; 5 print(&quot;big&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — if x &gt; 5:\n    print(&quot;big&quot;)</p>
+          <p class="expl">Python's if needs a colon at the end of the condition and an INDENTED body on the next line. No parentheses or braces are required.</p>
+          <ul class="notes"><li>Forgetting the colon is the #1 beginner syntax error.</li></ul>
+          <p class="tags"><span>Indentation</span><span>Colon</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does elif mean?</p>
+        <pre class="code"><code>if score &gt;= 90:
+    print(&quot;A&quot;)
+elif score &gt;= 75:
+    print(&quot;B&quot;)
+elif score &gt;= 60:
+    print(&quot;C&quot;)
+else:
+    print(&quot;Fail&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> End the if statement</li>
+          <li class="correct"><span class="opt-key">B</span> 'Else if' - test another condition when the previous ones were False</li>
+          <li><span class="opt-key">C</span> A loop keyword</li>
+          <li><span class="opt-key">D</span> Error handling</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 'Else if' - test another condition when the previous ones were False</p>
+          <p class="expl">elif is short for 'else if' - it adds another condition that is only checked when all previous if/elif conditions were False. You can chain as many as you like.</p>
+          <p class="tags"><span>if/else chains</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">When does the else block run?</p>
+        <pre class="code"><code>age = 15
+if age &gt;= 18:
+    print(&quot;Adult&quot;)
+else:
+    print(&quot;Minor&quot;)   # runs - condition was False</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Always</li>
+          <li class="correct"><span class="opt-key">B</span> Only when the if (and every elif) condition was False</li>
+          <li><span class="opt-key">C</span> Only when the if condition was True</li>
+          <li><span class="opt-key">D</span> Never - it's optional decoration</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Only when the if (and every elif) condition was False</p>
+          <p class="expl">else is the catch-all: it runs exactly when none of the if/elif conditions matched. It takes no condition of its own.</p>
+          <p class="tags"><span>if/elif/else</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+x = 7
+if x &gt; 5:
+    print(&quot;A&quot;)
+if x &gt; 6:
+    print(&quot;B&quot;)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> A</li>
+          <li><span class="opt-key">B</span> B</li>
+          <li class="correct"><span class="opt-key">C</span> A then B</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — A then B</p>
+          <p class="expl">These are two SEPARATE if statements - both conditions are checked independently, and both are True (7 &gt; 5 and 7 &gt; 6), so both print.</p>
+          <ul class="notes"><li>With elif instead of the second if, only 'A' would print.</li></ul>
+          <p class="tags"><span>if vs elif</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+if 0:
+    print(&quot;yes&quot;)
+else:
+    print(&quot;no&quot;)</p>
+        <pre class="code"><code>if 0:        print(&quot;never&quot;)
+if 1:        print(&quot;always&quot;)   # any non-zero is truthy
+if &quot;hi&quot;:     print(&quot;always&quot;)   # non-empty string</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> yes</li>
+          <li class="correct"><span class="opt-key">B</span> no</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — no</p>
+          <p class="expl">if works with any value, not just True/False. 0 is falsy, so the else branch runs. Falsy values: 0, &quot;&quot;, [], {}, (), None, False.</p>
+          <p class="tags"><span>Truthiness</span><span>Falsy values</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which condition tests whether n is an even number?</p>
+        <pre class="code"><code>n = 8
+if n % 2 == 0:
+    print(&quot;even&quot;)   # prints
+else:
+    print(&quot;odd&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> n % 2 == 0</li>
+          <li><span class="opt-key">B</span> n / 2 == 0</li>
+          <li><span class="opt-key">C</span> n % 2 == 1</li>
+          <li><span class="opt-key">D</span> n // 2 == 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — n % 2 == 0</p>
+          <p class="expl">Even numbers leave remainder 0 when divided by 2, so n % 2 == 0. (n % 2 == 1 tests for ODD numbers.)</p>
+          <p class="tags"><span>Modulo</span><span>Even/odd</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What happens with:
+if x = 5:
+    print(&quot;five&quot;)</p>
+        <pre class="code"><code>if x == 5:    # correct - comparison
+    print(&quot;five&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Prints five when x is 5</li>
+          <li class="correct"><span class="opt-key">B</span> SyntaxError - assignment is not allowed as a condition</li>
+          <li><span class="opt-key">C</span> Always prints five</li>
+          <li><span class="opt-key">D</span> Sets x to 5 silently</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — SyntaxError - assignment is not allowed as a condition</p>
+          <p class="expl">A single = is assignment, and Python forbids it inside an if condition - you get a SyntaxError immediately. The comparison you want is == (two equals signs).</p>
+          <ul class="notes"><li>In C this bug compiles and runs wrong; Python catches it for you.</li></ul>
+          <p class="tags"><span>= vs ==</span><span>SyntaxError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you require BOTH conditions to be true?</p>
+        <pre class="code"><code>if age &gt;= 18 and has_id:
+    print(&quot;entry allowed&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if a &gt; 0 and b &gt; 0:</li>
+          <li><span class="opt-key">B</span> if a &gt; 0 &amp; also b &gt; 0:</li>
+          <li><span class="opt-key">C</span> if a &gt; 0 &amp;&amp; b &gt; 0:</li>
+          <li><span class="opt-key">D</span> if both(a &gt; 0, b &gt; 0):</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if a &gt; 0 and b &gt; 0:</p>
+          <p class="expl">Python uses the English words: and, or, not - instead of &amp;&amp;, ||, !. 'if a &gt; 0 and b &gt; 0:' passes only when both are true.</p>
+          <p class="tags"><span>Logical operators</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does this print when fruit = &quot;apple&quot;?
+if fruit in [&quot;apple&quot;, &quot;mango&quot;, &quot;banana&quot;]:
+    print(&quot;known fruit&quot;)</p>
+        <pre class="code"><code>if fruit in [&quot;apple&quot;, &quot;mango&quot;, &quot;banana&quot;]:  # clean
+if fruit == &quot;apple&quot; or fruit == &quot;mango&quot; or fruit == &quot;banana&quot;:  # clumsy</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> known fruit</li>
+          <li><span class="opt-key">B</span> Nothing</li>
+          <li><span class="opt-key">C</span> apple</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — known fruit</p>
+          <p class="expl">The in operator tests membership in a list - much cleaner than fruit == &quot;apple&quot; or fruit == &quot;mango&quot; or ... . &quot;apple&quot; is in the list, so it prints.</p>
+          <p class="tags"><span>in operator</span><span>Membership</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+x = 3
+if x &gt; 10:
+    print(&quot;big&quot;)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> big</li>
+          <li class="correct"><span class="opt-key">B</span> Nothing at all</li>
+          <li><span class="opt-key">C</span> False</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Nothing at all</p>
+          <p class="expl">The condition is False and there's no else - so the block is skipped and the program simply continues. No output, no error.</p>
+          <p class="tags"><span>if without else</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Can you put an if inside another if?</p>
+        <pre class="code"><code>if logged_in:
+    if is_admin:
+        print(&quot;admin panel&quot;)
+
+# often better:
+if logged_in and is_admin:
+    print(&quot;admin panel&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - just indent one more level (nested if)</li>
+          <li><span class="opt-key">B</span> No, Python forbids nesting</li>
+          <li><span class="opt-key">C</span> Only with the nested keyword</li>
+          <li><span class="opt-key">D</span> Only inside functions</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - just indent one more level (nested if)</p>
+          <p class="expl">Conditions nest freely - each level adds one more indent. But deep nesting gets hard to read; combining conditions with and is often cleaner.</p>
+          <p class="tags"><span>Nesting</span><span>and operator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+age = &quot;18&quot;
+if age == 18:
+    print(&quot;adult&quot;)
+else:
+    print(&quot;hmm&quot;)</p>
+        <pre class="code"><code>age = input(&quot;Age: &quot;)     # returns str!
+if int(age) == 18:        # convert first
+    print(&quot;adult&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> adult</li>
+          <li class="correct"><span class="opt-key">B</span> hmm</li>
+          <li><span class="opt-key">C</span> 18</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — hmm</p>
+          <p class="expl">age is the STRING &quot;18&quot; (in quotes), and &quot;18&quot; == 18 is False - a string never equals a number in Python. This bug commonly appears with input(), which always returns strings.</p>
+          <p class="tags"><span>input()</span><span>Type conversion</span><span>Common gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">if not is_raining: print(&quot;go outside&quot;)
+When does this print?</p>
+        <pre class="code"><code>if not logged_in:
+    print(&quot;please log in&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> When is_raining is True</li>
+          <li class="correct"><span class="opt-key">B</span> When is_raining is False</li>
+          <li><span class="opt-key">C</span> Always</li>
+          <li><span class="opt-key">D</span> Never</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — When is_raining is False</p>
+          <p class="expl">not flips the condition: 'if not is_raining' means 'if it is NOT raining'. When is_raining is False, not False is True, so it prints.</p>
+          <p class="tags"><span>not operator</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+x = 7
+if x &gt; 5:
+    print(&quot;A&quot;)
+elif x &gt; 6:
+    print(&quot;B&quot;)</p>
+        <pre class="code"><code># Order matters in elif chains!
+# Put the most specific condition first.</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A</li>
+          <li><span class="opt-key">B</span> B</li>
+          <li><span class="opt-key">C</span> A then B</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A</p>
+          <p class="expl">In an if/elif chain, Python stops at the FIRST True condition. x &gt; 5 is True, so 'A' prints and the elif is never even checked - even though x &gt; 6 is also True.</p>
+          <ul class="notes"><li>This is the key difference between elif and separate ifs.</li></ul>
+          <p class="tags"><span>elif</span><span>Evaluation order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+items = []
+if items:
+    print(&quot;has items&quot;)
+else:
+    print(&quot;empty&quot;)</p>
+        <pre class="code"><code>if items:            # Pythonic
+if len(items) &gt; 0:   # works, but wordier</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> has items</li>
+          <li class="correct"><span class="opt-key">B</span> empty</li>
+          <li><span class="opt-key">C</span> []</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — empty</p>
+          <p class="expl">An empty list is falsy, so 'if items:' fails and else runs. This is the Pythonic way to test for emptiness - no need for len(items) == 0.</p>
+          <p class="tags"><span>Truthiness</span><span>Empty collections</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the ternary (one-line) form of:
+if age &gt;= 18: status = &quot;adult&quot;
+else: status = &quot;minor&quot;</p>
+        <pre class="code"><code>status = &quot;adult&quot; if age &gt;= 18 else &quot;minor&quot;
+print(&quot;even&quot; if n % 2 == 0 else &quot;odd&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> status = &quot;adult&quot; if age &gt;= 18 else &quot;minor&quot;</li>
+          <li><span class="opt-key">B</span> status = if age &gt;= 18 &quot;adult&quot; else &quot;minor&quot;</li>
+          <li><span class="opt-key">C</span> status = age &gt;= 18 ? &quot;adult&quot; : &quot;minor&quot;</li>
+          <li><span class="opt-key">D</span> status = (age &gt;= 18, &quot;adult&quot;, &quot;minor&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — status = &quot;adult&quot; if age &gt;= 18 else &quot;minor&quot;</p>
+          <p class="expl">Python's conditional expression reads like English: VALUE_IF_TRUE if CONDITION else VALUE_IF_FALSE. Option C is the C/Java/JS syntax, which Python doesn't use.</p>
+          <p class="tags"><span>Ternary expression</span><span>Conditional expression</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which condition checks that x is between 10 and 20 (inclusive)?</p>
+        <pre class="code"><code>x = 15
+print(10 &lt;= x &lt;= 20)          # True - preferred
+print(x &gt;= 10 and x &lt;= 20)    # True - also fine</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> if 10 &lt;= x &lt;= 20:</li>
+          <li><span class="opt-key">B</span> if x &gt;= 10 and x &lt;= 20:</li>
+          <li class="correct"><span class="opt-key">C</span> Both A and B work</li>
+          <li><span class="opt-key">D</span> if x in (10, 20):</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — Both A and B work</p>
+          <p class="expl">Both are correct. Chained comparison (10 &lt;= x &lt;= 20) is the more Pythonic form. Option D only tests if x is EXACTLY 10 or 20, not in between.</p>
+          <p class="tags"><span>Chained comparison</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the pass statement do?</p>
+        <pre class="code"><code>if x &gt; 5:
+    pass    # TODO: handle this later
+else:
+    print(&quot;small&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Skips to the next loop iteration</li>
+          <li class="correct"><span class="opt-key">B</span> Nothing - it's a placeholder where code is syntactically required</li>
+          <li><span class="opt-key">C</span> Exits the program</li>
+          <li><span class="opt-key">D</span> Passes a value to a function</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Nothing - it's a placeholder where code is syntactically required</p>
+          <p class="expl">pass does literally nothing. It exists because Python blocks can't be empty - use it as a placeholder for code you'll write later. (continue is the one that skips loop iterations.)</p>
+          <p class="tags"><span>continue</span><span>Placeholders</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the correct way to check if a variable is None?</p>
+        <pre class="code"><code>result = find_user(&quot;ana&quot;)
+if result is None:
+    print(&quot;not found&quot;)
+if result is not None:
+    print(&quot;found&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if x is None:</li>
+          <li><span class="opt-key">B</span> if x == None:</li>
+          <li><span class="opt-key">C</span> if x = None:</li>
+          <li><span class="opt-key">D</span> if None in x:</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if x is None:</p>
+          <p class="expl">The convention (and PEP 8 rule) is 'is None' - identity check against the single None object. == None usually works but can be fooled by objects that override ==, and it's considered bad style.</p>
+          <p class="tags"><span>None</span><span>is operator</span><span>PEP 8</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+print(5 &gt; 3)</p>
+        <pre class="code"><code>is_adult = age &gt;= 18      # store the bool
+print(score &gt; pass_mark)  # print it directly
+return n % 2 == 0          # return it from a function</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True</li>
+          <li><span class="opt-key">B</span> yes</li>
+          <li><span class="opt-key">C</span> 1</li>
+          <li><span class="opt-key">D</span> 5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True</p>
+          <p class="expl">A comparison is an expression that evaluates to a bool - you can print it, store it, or return it directly. No if needed!</p>
+          <ul class="notes"><li>Writing 'if x &gt; 5: return True else: return False' can be shortened to 'return x &gt; 5'.</li></ul>
+          <p class="tags"><span>Booleans</span><span>Expressions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Grade logic: score = 95. What does this print?
+if score &gt;= 60:
+    print(&quot;C&quot;)
+elif score &gt;= 75:
+    print(&quot;B&quot;)
+elif score &gt;= 90:
+    print(&quot;A&quot;)</p>
+        <pre class="code"><code># Correct order - most specific first:
+if score &gt;= 90:   print(&quot;A&quot;)
+elif score &gt;= 75: print(&quot;B&quot;)
+elif score &gt;= 60: print(&quot;C&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> A</li>
+          <li><span class="opt-key">B</span> B</li>
+          <li class="correct"><span class="opt-key">C</span> C</li>
+          <li><span class="opt-key">D</span> Nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — C</p>
+          <p class="expl">The chain stops at the FIRST true condition: 95 &gt;= 60 is True, so it prints 'C' - clearly not intended! In elif chains, always test the most restrictive condition FIRST (&gt;= 90, then &gt;= 75, then &gt;= 60).</p>
+          <ul class="notes"><li>Classic interview trap about elif ordering.</li></ul>
+          <p class="tags"><span>elif ordering</span><span>Logic bugs</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+name = &quot;&quot;
+print(&quot;Hello, &quot; + (name or &quot;Guest&quot;))</p>
+        <pre class="code"><code>username = input(&quot;Name: &quot;).strip()
+print(&quot;Hello,&quot;, username or &quot;Guest&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Hello, </li>
+          <li class="correct"><span class="opt-key">B</span> Hello, Guest</li>
+          <li><span class="opt-key">C</span> Hello, False</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Hello, Guest</p>
+          <p class="expl">name is an empty string (falsy), so (name or &quot;Guest&quot;) evaluates to &quot;Guest&quot; - or returns the first truthy operand. A neat idiom for default values.</p>
+          <p class="tags"><span>Short-circuit or</span><span>Default values</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Python 3.10 added a switch-like statement. What is it called?</p>
+        <pre class="code"><code>match command:
+    case &quot;start&quot;:
+        print(&quot;starting&quot;)
+    case &quot;stop&quot;:
+        print(&quot;stopping&quot;)
+    case _:
+        print(&quot;unknown&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> switch/case</li>
+          <li class="correct"><span class="opt-key">B</span> match/case</li>
+          <li><span class="opt-key">C</span> select/when</li>
+          <li><span class="opt-key">D</span> choose/option</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — match/case</p>
+          <p class="expl">match/case (structural pattern matching) arrived in Python 3.10. It compares a value against several patterns - like switch in other languages but more powerful. The underscore case is the default.</p>
+          <p class="tags"><span>match statement</span><span>Python 3.10</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is the correct one-line form (allowed but use sparingly)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> if x &gt; 5: print(&quot;big&quot;)</li>
+          <li><span class="opt-key">B</span> if x &gt; 5 then print(&quot;big&quot;)</li>
+          <li><span class="opt-key">C</span> if x &gt; 5 -&gt; print(&quot;big&quot;)</li>
+          <li><span class="opt-key">D</span> x &gt; 5: print(&quot;big&quot;)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — if x &gt; 5: print(&quot;big&quot;)</p>
+          <p class="expl">A short body may sit on the same line after the colon: if x &gt; 5: print(&quot;big&quot;). Fine for tiny cases, but multi-line style is more readable and preferred by PEP 8.</p>
+          <p class="tags"><span>Style (PEP 8)</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output of:
+x = 10
+result = x if x &gt; 100 else -x
+print(result)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 10</li>
+          <li class="correct"><span class="opt-key">B</span> -10</li>
+          <li><span class="opt-key">C</span> 100</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — -10</p>
+          <p class="expl">The ternary picks the else-side because 10 &gt; 100 is False: result = -x = -10. Read it as: 'result is x if x is big, otherwise negative x'.</p>
+          <p class="tags"><span>Ternary expression</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">A shop gives 10% discount to members AND seniors get 20% regardless of membership. Which order of checks is correct for a senior member to get 20%?</p>
+        <pre class="code"><code>if is_senior:
+    discount = 20    # priority rule first
+elif is_member:
+    discount = 10
+else:
+    discount = 0</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Check is_senior first, then is_member in an elif</li>
+          <li><span class="opt-key">B</span> Check is_member first, then is_senior in an elif</li>
+          <li><span class="opt-key">C</span> Order doesn't matter with elif</li>
+          <li><span class="opt-key">D</span> Use two separate if statements to apply both</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Check is_senior first, then is_member in an elif</p>
+          <p class="expl">elif chains stop at the first match. If is_member is checked first, a senior member matches it and gets only 10%. Put the higher-priority rule (senior, 20%) first.</p>
+          <p class="tags"><span>elif ordering</span><span>Business logic</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (4)</h2>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Bug hunt! Why does this print 'teen' for EVERY age?
+if age == 13 or 14 or 15:
+    print(&quot;teen&quot;)</p>
+        <pre class="code"><code># WRONG - always True:
+if age == 13 or 14 or 15:
+
+# RIGHT:
+if age in (13, 14, 15):
+if age == 13 or age == 14 or age == 15:</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It's correct code</li>
+          <li><span class="opt-key">B</span> or has higher precedence than ==</li>
+          <li class="correct"><span class="opt-key">C</span> 14 and 15 are evaluated as standalone truthy values, so the condition is always True</li>
+          <li><span class="opt-key">D</span> == can't be used with or</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — 14 and 15 are evaluated as standalone truthy values, so the condition is always True</p>
+          <p class="expl">The condition parses as (age == 13) or (14) or (15). The bare numbers 14 and 15 are truthy on their own, so the whole condition is ALWAYS True. Correct: age in (13, 14, 15) or repeat the comparison.</p>
+          <ul class="notes"><li>One of the most common logic bugs in beginner Python code.</li></ul>
+          <p class="tags"><span>Truthiness</span><span>in operator</span><span>Common gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is the ORDER of this condition important?
+if x != 0 and 10 / x &gt; 2:</p>
+        <pre class="code"><code>x = 0
+if x != 0 and 10 / x &gt; 2:   # safe
+    ...
+# if 10 / x &gt; 2 and x != 0:  # crashes when x == 0!</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It isn't - order never matters with and</li>
+          <li class="correct"><span class="opt-key">B</span> and evaluates left to right and STOPS at the first False, so 10/x never runs when x is 0 - preventing ZeroDivisionError</li>
+          <li><span class="opt-key">C</span> Python evaluates the right side first</li>
+          <li><span class="opt-key">D</span> x != 0 is slower so it should be last</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — and evaluates left to right and STOPS at the first False, so 10/x never runs when x is 0 - preventing ZeroDivisionError</p>
+          <p class="expl">Short-circuiting: if x != 0 is False, Python skips the right side entirely. Reversed (10 / x &gt; 2 and x != 0), a zero x would crash with ZeroDivisionError before the guard is reached.</p>
+          <ul class="notes"><li>Use the same trick with None: if obj is not None and obj.value &gt; 5</li></ul>
+          <p class="tags"><span>Short-circuit evaluation</span><span>Guard conditions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">not (a and b) is always equal to:</p>
+        <pre class="code"><code>a, b = True, False
+print(not (a and b))       # True
+print(not a or not b)      # True - same</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> not a and not b</li>
+          <li class="correct"><span class="opt-key">B</span> not a or not b</li>
+          <li><span class="opt-key">C</span> a or b</li>
+          <li><span class="opt-key">D</span> not a and b</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — not a or not b</p>
+          <p class="expl">De Morgan's law: negating an AND turns it into an OR of negations. 'Not (rich and famous)' means 'not rich OR not famous'. Similarly, not (a or b) == not a and not b.</p>
+          <p class="tags"><span>De Morgan's laws</span><span>Boolean logic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output of:
+print(bool([]) == bool(&quot;&quot;))</p>
+        <pre class="code"><code>print(bool([]))    # False
+print(bool(&quot;&quot;))    # False
+print(bool({}))    # False
+print(bool(0))     # False</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> True</li>
+          <li><span class="opt-key">B</span> False</li>
+          <li><span class="opt-key">C</span> Error</li>
+          <li><span class="opt-key">D</span> None</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — True</p>
+          <p class="expl">Both an empty list and an empty string are falsy: bool([]) is False and bool(&quot;&quot;) is False, and False == False is True. All empty containers share the same truthiness.</p>
+          <p class="tags"><span>Truthiness</span><span>Falsy values</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="04-strings.html">← Strings</a>
+      <a href="06-loops.html">Loops →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-4">Practice “Conditionals” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

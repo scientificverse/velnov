@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operators, NULL &amp; Patterns – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Operators, NULL &amp; Patterns with answers and detailed explanations — 0 easy, 16 medium and 14 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/05-operators-null-and-patterns.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Operators, NULL &amp; Patterns – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Operators, NULL &amp; Patterns with answers and detailed explanations — 0 easy, 16 medium and 14 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/05-operators-null-and-patterns.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Operators, NULL & Patterns","item":"https://velnov.co.in/learn/sql/05-operators-null-and-patterns.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Operators, NULL &amp; Patterns</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 5 of 20</p>
+      <h1>Operators, NULL &amp; Patterns — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Operators, NULL &amp; Patterns</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-4">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">0 easy · 16 medium · 14 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>NULL</span><span>Missing data</span><span>COALESCE</span><span>Defaults</span><span>Dialects</span><span>NULLIF</span><span>Division by zero</span><span>Aggregates</span><span>AVG</span><span>COUNT</span><span>Data quality</span><span>DISTINCT</span><span>GROUP BY</span><span>LIKE</span><span>Wildcards</span><span>ESCAPE</span><span>ILIKE</span><span>Case sensitivity</span><span>NOT LIKE</span><span>BETWEEN</span><span>Ranges</span><span>Arithmetic</span><span>MOD</span><span>Division</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+
+    <section>
+      <h2 id="medium">Medium questions (16)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does NULL represent in SQL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> An UNKNOWN or missing value - not zero, not an empty string, not false</li>
+          <li><span class="opt-key">B</span> The number zero</li>
+          <li><span class="opt-key">C</span> An empty string</li>
+          <li><span class="opt-key">D</span> A deleted row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — An UNKNOWN or missing value - not zero, not an empty string, not false</p>
+          <p class="expl">NULL means 'we do not know'. That is why arithmetic and comparisons involving NULL produce NULL rather than a definite answer.</p>
+          <p class="tags"><span>NULL</span><span>Missing data</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does COALESCE(a, b, c) return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The FIRST non-NULL value among its arguments</li>
+          <li><span class="opt-key">B</span> The sum of all values</li>
+          <li><span class="opt-key">C</span> Always the first argument</li>
+          <li><span class="opt-key">D</span> NULL if any argument is NULL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The FIRST non-NULL value among its arguments</p>
+          <p class="expl">COALESCE is the standard way to supply fallbacks: COALESCE(nickname, first_name, 'Guest'). It accepts any number of arguments.</p>
+          <p class="tags"><span>COALESCE</span><span>Defaults</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does IFNULL(x, 0) / ISNULL(x, 0) / NVL(x, 0) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Returns 0 when x is NULL - the two-argument, dialect-specific version of COALESCE</li>
+          <li><span class="opt-key">B</span> Tests whether x is NULL</li>
+          <li><span class="opt-key">C</span> Deletes NULLs</li>
+          <li><span class="opt-key">D</span> Counts NULLs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Returns 0 when x is NULL - the two-argument, dialect-specific version of COALESCE</p>
+          <p class="expl">IFNULL is MySQL, ISNULL is SQL Server, NVL is Oracle. COALESCE works everywhere and is preferred for portable code.</p>
+          <p class="tags"><span>COALESCE</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does COUNT(*) do with NULL rows?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Counts every row, including rows full of NULLs</li>
+          <li><span class="opt-key">B</span> Skips rows containing NULLs</li>
+          <li><span class="opt-key">C</span> Returns NULL</li>
+          <li><span class="opt-key">D</span> Errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Counts every row, including rows full of NULLs</p>
+          <p class="expl">COUNT(*) counts rows; COUNT(column) counts non-NULL values in that column. The difference between them tells you how many values are missing.</p>
+          <p class="tags"><span>COUNT</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How does DISTINCT treat multiple NULLs?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They collapse into ONE NULL in the result</li>
+          <li><span class="opt-key">B</span> Each NULL is kept separately</li>
+          <li><span class="opt-key">C</span> NULLs are removed</li>
+          <li><span class="opt-key">D</span> It errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They collapse into ONE NULL in the result</p>
+          <p class="expl">For grouping and DISTINCT, NULLs are treated as 'the same unknown', even though NULL = NULL is not TRUE in comparisons. GROUP BY behaves the same way.</p>
+          <p class="tags"><span>DISTINCT</span><span>GROUP BY</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which pattern finds emails at gmail.com?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE email LIKE '%@gmail.com'</li>
+          <li><span class="opt-key">B</span> WHERE email = '%@gmail.com'</li>
+          <li><span class="opt-key">C</span> WHERE email LIKE '@gmail.com'</li>
+          <li><span class="opt-key">D</span> WHERE email CONTAINS 'gmail'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE email LIKE '%@gmail.com'</p>
+          <p class="expl">LIKE enables wildcards; = matches literally. The % before @gmail.com allows any username.</p>
+          <p class="tags"><span>LIKE</span><span>Wildcards</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does ILIKE do (PostgreSQL)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Case-INSENSITIVE pattern matching</li>
+          <li><span class="opt-key">B</span> Inverted LIKE</li>
+          <li><span class="opt-key">C</span> Integer LIKE</li>
+          <li><span class="opt-key">D</span> Index-based LIKE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Case-INSENSITIVE pattern matching</p>
+          <p class="expl">PostgreSQL is case-sensitive by default, so ILIKE 'a%' matches both 'Ana' and 'ana'. Portable alternative: LOWER(name) LIKE 'a%'.</p>
+          <p class="tags"><span>ILIKE</span><span>Case sensitivity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does NOT LIKE do?</p>
+        <pre class="code"><code>WHERE email NOT LIKE '%@test.com'
+   OR email IS NULL;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Matches rows that do NOT fit the pattern</li>
+          <li><span class="opt-key">B</span> Matches everything</li>
+          <li><span class="opt-key">C</span> Is invalid</li>
+          <li><span class="opt-key">D</span> Is the same as &lt;&gt;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Matches rows that do NOT fit the pattern</p>
+          <p class="expl">Remember rows where the column is NULL are excluded by NOT LIKE too - NULL never matches or 'not matches'.</p>
+          <p class="tags"><span>NOT LIKE</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the modulo operator % (or MOD) return?</p>
+        <pre class="code"><code>WHERE id % 2 = 0;   -- even ids</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The remainder after division - useful for finding even/odd values</li>
+          <li><span class="opt-key">B</span> A percentage</li>
+          <li><span class="opt-key">C</span> A wildcard</li>
+          <li><span class="opt-key">D</span> Multiplication</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The remainder after division - useful for finding even/odd values</p>
+          <p class="expl">Note the same symbol is a wildcard inside LIKE but an arithmetic operator elsewhere. Oracle uses MOD(a, b).</p>
+          <p class="tags"><span>Arithmetic</span><span>MOD</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you convert a value's type?</p>
+        <pre class="code"><code>SELECT CAST('42' AS INTEGER) + 8;   -- 50</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CAST(value AS INTEGER) - or the shorthand value::INTEGER in PostgreSQL</li>
+          <li><span class="opt-key">B</span> CONVERT_TYPE(value)</li>
+          <li><span class="opt-key">C</span> TYPE(value, INT)</li>
+          <li><span class="opt-key">D</span> Types cannot be converted</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CAST(value AS INTEGER) - or the shorthand value::INTEGER in PostgreSQL</p>
+          <p class="expl">CAST is standard SQL. Casting matters when comparing or sorting values stored in the wrong type, e.g. numbers kept in a VARCHAR column.</p>
+          <p class="tags"><span>CAST</span><span>Data types</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does ANY / SOME do?
+WHERE price &gt; ANY (SELECT price FROM budget_items)</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TRUE if the comparison holds for AT LEAST ONE value returned by the subquery</li>
+          <li><span class="opt-key">B</span> TRUE only if it holds for all values</li>
+          <li><span class="opt-key">C</span> Returns any random row</li>
+          <li><span class="opt-key">D</span> Is invalid</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TRUE if the comparison holds for AT LEAST ONE value returned by the subquery</p>
+          <p class="expl">&gt; ANY means 'greater than the minimum'. Its counterpart ALL means the comparison must hold for every value, so &gt; ALL means 'greater than the maximum'.</p>
+          <p class="tags"><span>ANY</span><span>ALL</span><span>Subqueries</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you concatenate text in standard SQL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> first || ' ' || last  (or CONCAT(first, ' ', last))</li>
+          <li><span class="opt-key">B</span> first + last everywhere</li>
+          <li><span class="opt-key">C</span> first &amp; last</li>
+          <li><span class="opt-key">D</span> CONCATENATE(first, last)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — first || ' ' || last  (or CONCAT(first, ' ', last))</p>
+          <p class="expl">|| is standard (PostgreSQL, Oracle, SQLite); SQL Server uses +; CONCAT works in most modern databases and often handles NULLs more gracefully.</p>
+          <p class="tags"><span>Concatenation</span><span>Dialects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the CASE expression evaluate to when several WHEN conditions are true?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The result of the FIRST matching condition - evaluation stops there</li>
+          <li><span class="opt-key">B</span> All matching results</li>
+          <li><span class="opt-key">C</span> The last match</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The result of the FIRST matching condition - evaluation stops there</p>
+          <p class="expl">Like an if/else-if chain, order matters. Put the most specific conditions first, exactly as in the grade-boundary example.</p>
+          <p class="tags"><span>CASE</span><span>Order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the IS NOT DISTINCT FROM operator do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Compares two values treating NULL as equal to NULL</li>
+          <li><span class="opt-key">B</span> The same as &lt;&gt;</li>
+          <li><span class="opt-key">C</span> Tests data types</li>
+          <li><span class="opt-key">D</span> Removes duplicates</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Compares two values treating NULL as equal to NULL</p>
+          <p class="expl">Supported in PostgreSQL and some others, it solves the awkward case of comparing nullable columns without writing (a = b OR (a IS NULL AND b IS NULL)).</p>
+          <p class="tags"><span>NULL</span><span>Comparison</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is TRUE about the empty string '' versus NULL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> They are different: '' is a known blank value, NULL is unknown (except in Oracle, which treats '' as NULL)</li>
+          <li><span class="opt-key">B</span> They are always identical</li>
+          <li><span class="opt-key">C</span> '' is invalid SQL</li>
+          <li><span class="opt-key">D</span> NULL is shorter to store</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — They are different: '' is a known blank value, NULL is unknown (except in Oracle, which treats '' as NULL)</p>
+          <p class="expl">Real datasets frequently contain both, so data-cleaning queries usually check for both: WHERE col IS NULL OR TRIM(col) = ''.</p>
+          <p class="tags"><span>NULL</span><span>Empty string</span><span>Oracle</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which condition safely finds rows where a numeric column is missing OR zero?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE COALESCE(amount, 0) = 0</li>
+          <li><span class="opt-key">B</span> WHERE amount = 0</li>
+          <li><span class="opt-key">C</span> WHERE amount = NULL OR 0</li>
+          <li><span class="opt-key">D</span> WHERE amount IS 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE COALESCE(amount, 0) = 0</p>
+          <p class="expl">COALESCE converts NULL to 0 first, so one condition covers both cases. (Note this prevents index use on amount - acceptable for reporting queries.)</p>
+          <p class="tags"><span>COALESCE</span><span>NULL</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (14)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the result of 100 + NULL?</p>
+        <pre class="code"><code>SELECT salary + COALESCE(bonus, 0) AS total FROM staff;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> NULL - any arithmetic with NULL yields NULL</li>
+          <li><span class="opt-key">B</span> 100</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — NULL - any arithmetic with NULL yields NULL</p>
+          <p class="expl">Unknown plus anything is still unknown. This silently propagates: a single NULL bonus can turn a computed total salary into NULL. Use COALESCE to substitute a default.</p>
+          <p class="tags"><span>NULL</span><span>COALESCE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does NULLIF(a, b) return?</p>
+        <pre class="code"><code>SELECT passed * 100.0 / NULLIF(total, 0) AS pct FROM stats;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> NULL if a equals b, otherwise a</li>
+          <li><span class="opt-key">B</span> a if b is NULL</li>
+          <li><span class="opt-key">C</span> The first non-NULL value</li>
+          <li><span class="opt-key">D</span> TRUE or FALSE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — NULL if a equals b, otherwise a</p>
+          <p class="expl">Its classic use is avoiding division by zero: total / NULLIF(count, 0) yields NULL instead of raising an error.</p>
+          <p class="tags"><span>NULLIF</span><span>Division by zero</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Do aggregate functions like SUM and AVG include NULLs?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - they IGNORE NULLs (which changes what AVG divides by)</li>
+          <li><span class="opt-key">B</span> Yes, treating them as 0</li>
+          <li><span class="opt-key">C</span> They return NULL if any value is NULL</li>
+          <li><span class="opt-key">D</span> They throw an error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - they IGNORE NULLs (which changes what AVG divides by)</p>
+          <p class="expl">AVG(score) over values 10, 20, NULL is 15 (sum 30 divided by 2), not 10. If NULL should count as zero, write AVG(COALESCE(score, 0)).</p>
+          <ul class="notes"><li>A very common source of subtly wrong reports.</li></ul>
+          <p class="tags"><span>Aggregates</span><span>NULL</span><span>AVG</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this return when some emails are NULL?
+SELECT COUNT(*) - COUNT(email) FROM users;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The number of users whose email IS NULL</li>
+          <li><span class="opt-key">B</span> Zero always</li>
+          <li><span class="opt-key">C</span> The total user count</li>
+          <li><span class="opt-key">D</span> NULL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The number of users whose email IS NULL</p>
+          <p class="expl">A neat idiom for counting missing values without a separate WHERE clause. Equivalent to COUNT(*) FILTER (WHERE email IS NULL) where supported.</p>
+          <p class="tags"><span>COUNT</span><span>Data quality</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you match a LITERAL percent sign with LIKE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use an escape character: LIKE '%50\%%' ESCAPE '\'</li>
+          <li><span class="opt-key">B</span> Use double %%</li>
+          <li><span class="opt-key">C</span> Put it in quotes</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use an escape character: LIKE '%50\%%' ESCAPE '\'</p>
+          <p class="expl">Without escaping, % is a wildcard. The ESCAPE clause designates a character that makes the next symbol literal - needed when searching for discounts like '50%'.</p>
+          <p class="tags"><span>LIKE</span><span>ESCAPE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between BETWEEN and &gt;= / &lt;= ?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> None functionally - BETWEEN is shorthand and is INCLUSIVE at both ends</li>
+          <li><span class="opt-key">B</span> BETWEEN excludes the endpoints</li>
+          <li><span class="opt-key">C</span> BETWEEN is faster</li>
+          <li><span class="opt-key">D</span> BETWEEN only works on numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — None functionally - BETWEEN is shorthand and is INCLUSIVE at both ends</p>
+          <p class="expl">x BETWEEN 10 AND 20 is exactly x &gt;= 10 AND x &lt;= 20. For dates and timestamps the explicit form is safer because you can use a half-open range.</p>
+          <p class="tags"><span>BETWEEN</span><span>Ranges</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is integer division in SQL?
+SELECT 3 / 2;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> In many databases it returns 1 - integer inputs give an integer result</li>
+          <li><span class="opt-key">B</span> Always 1.5</li>
+          <li><span class="opt-key">C</span> An error</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — In many databases it returns 1 - integer inputs give an integer result</p>
+          <p class="expl">PostgreSQL and SQL Server truncate; MySQL returns 1.5. To be safe, force decimals: 3 * 1.0 / 2 or CAST(3 AS DECIMAL) / 2.</p>
+          <p class="tags"><span>Division</span><span>Type casting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does EXISTS test?</p>
+        <pre class="code"><code>SELECT * FROM customers c
+WHERE EXISTS (SELECT 1 FROM orders o WHERE o.customer_id = c.id);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Whether a subquery returns AT LEAST ONE row - it returns TRUE/FALSE, not data</li>
+          <li><span class="opt-key">B</span> Whether a table exists</li>
+          <li><span class="opt-key">C</span> Whether a column is NULL</li>
+          <li><span class="opt-key">D</span> Whether a value is in a list</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Whether a subquery returns AT LEAST ONE row - it returns TRUE/FALSE, not data</p>
+          <p class="expl">EXISTS stops at the first matching row, so it is efficient. Unlike NOT IN, NOT EXISTS handles NULLs correctly - the safer choice for anti-joins.</p>
+          <p class="tags"><span>EXISTS</span><span>Subqueries</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why prefer NOT EXISTS over NOT IN?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> NOT IN returns NO rows if the subquery contains any NULL; NOT EXISTS handles NULLs correctly</li>
+          <li><span class="opt-key">B</span> NOT IN is invalid syntax</li>
+          <li><span class="opt-key">C</span> NOT EXISTS is shorter</li>
+          <li><span class="opt-key">D</span> They are identical</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — NOT IN returns NO rows if the subquery contains any NULL; NOT EXISTS handles NULLs correctly</p>
+          <p class="expl">This silent-empty-result bug is a favourite interview topic. Either use NOT EXISTS, or add WHERE col IS NOT NULL inside the subquery.</p>
+          <p class="tags"><span>NOT EXISTS</span><span>NULL</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does &gt; ALL (SELECT ...) mean?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Greater than EVERY returned value - i.e. greater than the maximum</li>
+          <li><span class="opt-key">B</span> Greater than at least one</li>
+          <li><span class="opt-key">C</span> Greater than the average</li>
+          <li><span class="opt-key">D</span> Invalid syntax</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Greater than EVERY returned value - i.e. greater than the maximum</p>
+          <p class="expl">Careful: if the subquery returns no rows, &gt; ALL is TRUE by definition (vacuous truth), while &gt; ANY would be FALSE.</p>
+          <p class="tags"><span>ALL</span><span>ANY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What happens with 'Hello' || NULL in most databases?</p>
+        <pre class="code"><code>SELECT first || ' ' || COALESCE(middle || ' ', '') || last AS full_name;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The result is NULL - concatenating with NULL wipes the whole string</li>
+          <li><span class="opt-key">B</span> 'Hello'</li>
+          <li><span class="opt-key">C</span> 'HelloNULL'</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The result is NULL - concatenating with NULL wipes the whole string</p>
+          <p class="expl">This is why full-name columns sometimes come out blank when a middle name is missing. CONCAT() in MySQL/SQL Server treats NULL as an empty string, or wrap values in COALESCE.</p>
+          <p class="tags"><span>NULL</span><span>Concatenation</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you count rows matching a condition WITHOUT a WHERE clause?</p>
+        <pre class="code"><code>SELECT
+  COUNT(*) AS total,
+  SUM(CASE WHEN status='paid' THEN 1 ELSE 0 END) AS paid,
+  SUM(CASE WHEN status='due'  THEN 1 ELSE 0 END) AS due
+FROM invoices;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SUM(CASE WHEN condition THEN 1 ELSE 0 END)</li>
+          <li><span class="opt-key">B</span> COUNT(condition)</li>
+          <li><span class="opt-key">C</span> COUNT(*) WHERE condition</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SUM(CASE WHEN condition THEN 1 ELSE 0 END)</p>
+          <p class="expl">This 'conditional aggregation' lets you compute several different counts in a single pass - the standard way to build summary reports.</p>
+          <p class="tags"><span>Conditional aggregation</span><span>CASE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does COUNT(CASE WHEN x THEN 1 END) work without ELSE?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Non-matching rows produce NULL, and COUNT ignores NULLs</li>
+          <li><span class="opt-key">B</span> It counts zeros</li>
+          <li><span class="opt-key">C</span> ELSE is required</li>
+          <li><span class="opt-key">D</span> It errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Non-matching rows produce NULL, and COUNT ignores NULLs</p>
+          <p class="expl">A neat alternative to SUM(...ELSE 0). Both are widely used; the COUNT version relies on NULL being skipped.</p>
+          <p class="tags"><span>COUNT</span><span>NULL</span><span>CASE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is a column full of NULLs a design smell?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It often signals a missing related table or an attribute belonging to a subtype</li>
+          <li><span class="opt-key">B</span> NULLs are always forbidden</li>
+          <li><span class="opt-key">C</span> NULLs use lots of storage</li>
+          <li><span class="opt-key">D</span> It is never a problem</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It often signals a missing related table or an attribute belonging to a subtype</p>
+          <p class="expl">If only 2% of rows use a set of columns, those attributes may belong in a separate related table. Normalisation (topic 18) addresses exactly this.</p>
+          <p class="tags"><span>Design</span><span>Normalization</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="04-sorting-and-limiting.html">← Sorting &amp; Limiting</a>
+      <a href="06-aggregate-functions.html">Aggregate Functions →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-4">Practice “Operators, NULL &amp; Patterns” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

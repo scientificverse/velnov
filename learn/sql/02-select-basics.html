@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SELECT Basics – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on SELECT Basics with answers and detailed explanations — 4 easy, 18 medium and 8 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/02-select-basics.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="SELECT Basics – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on SELECT Basics with answers and detailed explanations — 4 easy, 18 medium and 8 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/02-select-basics.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"SELECT Basics","item":"https://velnov.co.in/learn/sql/02-select-basics.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>SELECT Basics</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 2 of 20</p>
+      <h1>SELECT Basics — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>SELECT Basics</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-1">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">4 easy · 18 medium · 8 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>SELECT</span><span>Wildcard</span><span>Best practices</span><span>Performance</span><span>Columns</span><span>DISTINCT</span><span>Duplicates</span><span>Multiple columns</span><span>Aliases</span><span>AS</span><span>Quoting</span><span>Expressions</span><span>Calculations</span><span>Testing</span><span>CONCAT</span><span>String functions</span><span>Literals</span><span>Escaping</span><span>SQL injection</span><span>Clause order</span><span>Execution order</span><span>UNION</span><span>Qualified names</span><span>Table aliases</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (4)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which query retrieves ALL columns from the students table?</p>
+        <pre class="code"><code>SELECT * FROM students;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT * FROM students;</li>
+          <li><span class="opt-key">B</span> SELECT ALL FROM students;</li>
+          <li><span class="opt-key">C</span> GET * FROM students;</li>
+          <li><span class="opt-key">D</span> SELECT students;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT * FROM students;</p>
+          <p class="expl">The asterisk is a wildcard meaning 'every column'. Handy for exploring a table, but in real code you should list the columns you actually need.</p>
+          <p class="tags"><span>SELECT</span><span>Wildcard</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which query selects only the name and email columns?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT name, email FROM students;</li>
+          <li><span class="opt-key">B</span> SELECT (name, email) FROM students;</li>
+          <li><span class="opt-key">C</span> SELECT name AND email FROM students;</li>
+          <li><span class="opt-key">D</span> SELECT name email FROM students;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT name, email FROM students;</p>
+          <p class="expl">Separate column names with commas. Option D would be interpreted as aliasing name to 'email'.</p>
+          <p class="tags"><span>SELECT</span><span>Columns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does DISTINCT do?</p>
+        <pre class="code"><code>SELECT DISTINCT city FROM customers;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Removes duplicate rows from the result</li>
+          <li><span class="opt-key">B</span> Sorts the results</li>
+          <li><span class="opt-key">C</span> Counts the rows</li>
+          <li><span class="opt-key">D</span> Deletes duplicates from the table</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Removes duplicate rows from the result</p>
+          <p class="expl">DISTINCT filters the RESULT SET only - the stored data is untouched. It applies to the whole selected row, not just the first column.</p>
+          <p class="tags"><span>DISTINCT</span><span>Duplicates</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which quotes surround a TEXT VALUE in SQL?</p>
+        <pre class="code"><code>SELECT * FROM customers WHERE city = 'Delhi';</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Single quotes: 'Delhi'</li>
+          <li><span class="opt-key">B</span> Double quotes: &quot;Delhi&quot;</li>
+          <li><span class="opt-key">C</span> Backticks: `Delhi`</li>
+          <li><span class="opt-key">D</span> No quotes needed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Single quotes: 'Delhi'</p>
+          <p class="expl">Single quotes mark string literals. Double quotes and backticks are for identifiers (table/column names) - a very common source of confusing errors.</p>
+          <p class="tags"><span>Literals</span><span>Quoting</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (18)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why is SELECT * discouraged in production code?</p>
+        <pre class="code"><code>SELECT id, name, email FROM students;   -- explicit and safe</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It fetches unnecessary data, breaks if columns are added or reordered, and hides intent</li>
+          <li><span class="opt-key">B</span> It is a syntax error</li>
+          <li><span class="opt-key">C</span> It only returns one column</li>
+          <li><span class="opt-key">D</span> It is slower to type</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It fetches unnecessary data, breaks if columns are added or reordered, and hides intent</p>
+          <p class="expl">Naming columns explicitly keeps queries stable when the schema changes, reduces network transfer, and lets the database use covering indexes.</p>
+          <p class="tags"><span>Best practices</span><span>Performance</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does AS do in: SELECT name AS student_name FROM students;</p>
+        <pre class="code"><code>SELECT price * 1.18 AS price_with_tax FROM products;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Renames the column in the result (an alias) - the table is unchanged</li>
+          <li><span class="opt-key">B</span> Creates a new column in the table</li>
+          <li><span class="opt-key">C</span> Casts the data type</li>
+          <li><span class="opt-key">D</span> Sorts by that column</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Renames the column in the result (an alias) - the table is unchanged</p>
+          <p class="expl">Aliases make output readable, especially for calculated columns. The keyword AS is optional in most databases but improves clarity.</p>
+          <p class="tags"><span>Aliases</span><span>AS</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you alias a column name that contains a space?</p>
+        <pre class="code"><code>SELECT name AS &quot;Student Name&quot; FROM students;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Wrap it in double quotes &quot;Student Name&quot; (or backticks/brackets depending on the database)</li>
+          <li><span class="opt-key">B</span> Use single quotes</li>
+          <li><span class="opt-key">C</span> Spaces are not allowed at all</li>
+          <li><span class="opt-key">D</span> Use a hyphen</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Wrap it in double quotes &quot;Student Name&quot; (or backticks/brackets depending on the database)</p>
+          <p class="expl">Standard SQL uses double quotes for identifiers; MySQL uses backticks and SQL Server uses [square brackets]. Single quotes are for string VALUES, not identifiers.</p>
+          <p class="tags"><span>Aliases</span><span>Quoting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Can you do arithmetic inside a SELECT?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Yes - SELECT price * quantity AS total FROM order_items;</li>
+          <li><span class="opt-key">B</span> No, only column names are allowed</li>
+          <li><span class="opt-key">C</span> Only with a special function</li>
+          <li><span class="opt-key">D</span> Only in WHERE</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Yes - SELECT price * quantity AS total FROM order_items;</p>
+          <p class="expl">SELECT can contain expressions: arithmetic, function calls, CASE statements and literals. The computed values appear as columns in the result.</p>
+          <p class="tags"><span>Expressions</span><span>Calculations</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this return?
+SELECT 5 + 3 AS result;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A single row with the value 8 - a query needs no table for constant expressions</li>
+          <li><span class="opt-key">B</span> A syntax error - FROM is required</li>
+          <li><span class="opt-key">C</span> The text '5 + 3'</li>
+          <li><span class="opt-key">D</span> An empty result</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A single row with the value 8 - a query needs no table for constant expressions</p>
+          <p class="expl">Most databases (MySQL, PostgreSQL, SQL Server) allow a FROM-less SELECT for testing expressions. Oracle requires FROM dual.</p>
+          <p class="tags"><span>Expressions</span><span>Testing</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you join two text columns into one?</p>
+        <pre class="code"><code>SELECT CONCAT(first_name, ' ', last_name) AS full_name
+FROM employees;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CONCAT(first_name, ' ', last_name) - or first_name || ' ' || last_name in standard SQL</li>
+          <li><span class="opt-key">B</span> first_name + last_name always works</li>
+          <li><span class="opt-key">C</span> JOIN(first_name, last_name)</li>
+          <li><span class="opt-key">D</span> You cannot combine text</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CONCAT(first_name, ' ', last_name) - or first_name || ' ' || last_name in standard SQL</p>
+          <p class="expl">CONCAT works nearly everywhere. The || operator is standard SQL and works in PostgreSQL/Oracle/SQLite; SQL Server uses + for strings.</p>
+          <p class="tags"><span>CONCAT</span><span>String functions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you include an apostrophe inside a string?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Double it: 'O''Brien'</li>
+          <li><span class="opt-key">B</span> Escape it with a backslash always</li>
+          <li><span class="opt-key">C</span> Use double quotes instead</li>
+          <li><span class="opt-key">D</span> Apostrophes are impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Double it: 'O''Brien'</p>
+          <p class="expl">Doubling the quote is the standard escape. (MySQL also accepts \'.) In application code, use parameterised queries so the driver handles escaping - and prevents SQL injection.</p>
+          <p class="tags"><span>Escaping</span><span>SQL injection</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the logical order in which a simple query is written?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ... LIMIT</li>
+          <li><span class="opt-key">B</span> FROM ... SELECT ... WHERE</li>
+          <li><span class="opt-key">C</span> WHERE ... SELECT ... FROM</li>
+          <li><span class="opt-key">D</span> Any order works</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ... LIMIT</p>
+          <p class="expl">That written order is fixed. Interestingly, the database EXECUTES them in a different order (FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT) - which explains several rules you meet later.</p>
+          <p class="tags"><span>Clause order</span><span>Execution order</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this query return?
+SELECT name, 'Active' AS status FROM users;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Each name plus a literal column containing 'Active' for every row</li>
+          <li><span class="opt-key">B</span> Only users whose status is Active</li>
+          <li><span class="opt-key">C</span> An error</li>
+          <li><span class="opt-key">D</span> One row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Each name plus a literal column containing 'Active' for every row</p>
+          <p class="expl">A literal in SELECT creates a constant column. Useful for tagging rows, especially when combining result sets with UNION.</p>
+          <p class="tags"><span>Literals</span><span>UNION</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you reference a column when two tables have the same column name?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Qualify it: customers.id or an alias like c.id</li>
+          <li><span class="opt-key">B</span> Rename the table</li>
+          <li><span class="opt-key">C</span> It is impossible</li>
+          <li><span class="opt-key">D</span> Use quotes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Qualify it: customers.id or an alias like c.id</p>
+          <p class="expl">Prefixing removes ambiguity. Table aliases keep multi-table queries readable: FROM customers c JOIN orders o ON c.id = o.customer_id.</p>
+          <p class="tags"><span>Qualified names</span><span>Table aliases</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you give a TABLE an alias?</p>
+        <pre class="code"><code>SELECT c.name, o.total
+FROM customers c
+JOIN orders o ON c.id = o.customer_id;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> FROM customers AS c  (the AS is optional: FROM customers c)</li>
+          <li><span class="opt-key">B</span> FROM customers = c</li>
+          <li><span class="opt-key">C</span> ALIAS customers c</li>
+          <li><span class="opt-key">D</span> Tables cannot be aliased</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — FROM customers AS c  (the AS is optional: FROM customers c)</p>
+          <p class="expl">Short aliases shorten joins and are required for self-joins, where the same table appears twice.</p>
+          <p class="tags"><span>Table aliases</span><span>Joins</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens if a CASE expression has no ELSE and nothing matches?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It returns NULL for that row</li>
+          <li><span class="opt-key">B</span> It throws an error</li>
+          <li><span class="opt-key">C</span> It returns 0</li>
+          <li><span class="opt-key">D</span> It skips the row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It returns NULL for that row</p>
+          <p class="expl">ELSE is optional but recommended - an unexpected NULL in a report is usually a bug you would rather catch explicitly.</p>
+          <p class="tags"><span>CASE</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which query returns every column of orders plus a computed column?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT *, price * qty AS total FROM orders;</li>
+          <li><span class="opt-key">B</span> SELECT * AND total FROM orders;</li>
+          <li><span class="opt-key">C</span> SELECT ALL, total FROM orders;</li>
+          <li><span class="opt-key">D</span> You cannot mix * with expressions</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT *, price * qty AS total FROM orders;</p>
+          <p class="expl">You may combine * with additional expressions. With multiple tables, qualify it: SELECT o.*, c.name FROM orders o JOIN customers c ...</p>
+          <p class="tags"><span>SELECT *</span><span>Expressions</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you select rows from a table in another schema?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Qualify the name: SELECT * FROM sales.orders;</li>
+          <li><span class="opt-key">B</span> SELECT * FROM orders IN sales;</li>
+          <li><span class="opt-key">C</span> USE sales SELECT * FROM orders;</li>
+          <li><span class="opt-key">D</span> It is not possible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Qualify the name: SELECT * FROM sales.orders;</p>
+          <p class="expl">The full form is database.schema.table. You only need the parts that are not already the current default.</p>
+          <p class="tags"><span>Schemas</span><span>Qualified names</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does this return if the table is empty?
+SELECT name FROM students;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Zero rows - an empty result set, not an error</li>
+          <li><span class="opt-key">B</span> NULL</li>
+          <li><span class="opt-key">C</span> An error</li>
+          <li><span class="opt-key">D</span> One blank row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Zero rows - an empty result set, not an error</p>
+          <p class="expl">An empty result is a normal outcome. Applications should handle 'no rows' as a valid case rather than an error.</p>
+          <p class="tags"><span>Empty results</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is valid for selecting a computed percentage?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SELECT (passed * 100.0 / total) AS pct FROM stats;</li>
+          <li><span class="opt-key">B</span> SELECT passed % total AS pct FROM stats;</li>
+          <li><span class="opt-key">C</span> SELECT percent(passed, total) FROM stats;</li>
+          <li><span class="opt-key">D</span> SELECT passed / total * 100 - always exact</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SELECT (passed * 100.0 / total) AS pct FROM stats;</p>
+          <p class="expl">Multiplying by 100.0 (a decimal) forces floating-point division. With two integers, many databases perform INTEGER division, so 3/4 becomes 0 - a classic reporting bug.</p>
+          <p class="tags"><span>Integer division</span><span>Casting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does SELECT change the data in the table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - SELECT is read-only and always safe to run</li>
+          <li><span class="opt-key">B</span> Yes, it locks rows permanently</li>
+          <li><span class="opt-key">C</span> Yes, it can delete rows</li>
+          <li><span class="opt-key">D</span> Only with *</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - SELECT is read-only and always safe to run</p>
+          <p class="expl">This is why you should always preview an UPDATE or DELETE by running the same WHERE clause in a SELECT first.</p>
+          <p class="tags"><span>Safety</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is the more readable way to write a long query?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Put each clause on its own line, with keywords in caps and consistent indentation</li>
+          <li><span class="opt-key">B</span> Everything on one line</li>
+          <li><span class="opt-key">C</span> All lowercase, no line breaks</li>
+          <li><span class="opt-key">D</span> Random formatting</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Put each clause on its own line, with keywords in caps and consistent indentation</p>
+          <p class="expl">SQL ignores whitespace, so formatting is purely for humans - and long joins become far easier to review when each clause starts a new line.</p>
+          <p class="tags"><span>Style</span><span>Readability</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (8)</h2>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does SELECT DISTINCT city, country return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Unique COMBINATIONS of city and country</li>
+          <li><span class="opt-key">B</span> Unique cities only</li>
+          <li><span class="opt-key">C</span> Unique countries only</li>
+          <li><span class="opt-key">D</span> A syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Unique COMBINATIONS of city and country</p>
+          <p class="expl">DISTINCT always applies to the entire row of selected columns. Paris/France and Paris/USA are two distinct rows.</p>
+          <p class="tags"><span>DISTINCT</span><span>Multiple columns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can you NOT use a column alias in the WHERE clause?
+SELECT price * 2 AS dbl FROM p WHERE dbl &gt; 10;</p>
+        <pre class="code"><code>SELECT price * 2 AS dbl FROM p WHERE price * 2 &gt; 10;   -- works
+SELECT price * 2 AS dbl FROM p ORDER BY dbl;             -- also works</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE is evaluated BEFORE SELECT, so the alias does not exist yet</li>
+          <li><span class="opt-key">B</span> Aliases only work with strings</li>
+          <li><span class="opt-key">C</span> It is a typo</li>
+          <li><span class="opt-key">D</span> You can - it always works</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE is evaluated BEFORE SELECT, so the alias does not exist yet</p>
+          <p class="expl">Execution order is FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY. Repeat the expression in WHERE, or wrap the query in a subquery. (ORDER BY runs after SELECT, so aliases DO work there.)</p>
+          <p class="tags"><span>Execution order</span><span>Aliases</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does a CASE expression do in SELECT?</p>
+        <pre class="code"><code>SELECT name,
+  CASE
+    WHEN marks &gt;= 90 THEN 'A'
+    WHEN marks &gt;= 75 THEN 'B'
+    ELSE 'C'
+  END AS grade
+FROM students;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Returns different values per row based on conditions - SQL's if/else</li>
+          <li><span class="opt-key">B</span> Changes text case</li>
+          <li><span class="opt-key">C</span> Creates a new table</li>
+          <li><span class="opt-key">D</span> Sorts the rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Returns different values per row based on conditions - SQL's if/else</p>
+          <p class="expl">CASE WHEN ... THEN ... ELSE ... END produces a computed column. It is one of the most useful tools for reporting and bucketing values.</p>
+          <p class="tags"><span>CASE</span><span>Conditional logic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does SELECT COUNT(*) FROM students; return?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A single row with the total number of rows in the table</li>
+          <li><span class="opt-key">B</span> One row per student</li>
+          <li><span class="opt-key">C</span> The number of columns</li>
+          <li><span class="opt-key">D</span> An error without GROUP BY</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A single row with the total number of rows in the table</p>
+          <p class="expl">Aggregate functions with no GROUP BY collapse the whole table into one summary row. COUNT(*) counts rows including those with NULLs.</p>
+          <p class="tags"><span>COUNT</span><span>Aggregates</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between COUNT(*) and COUNT(column)?</p>
+        <pre class="code"><code>SELECT COUNT(*) AS total, COUNT(email) AS with_email
+FROM customers;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> COUNT(*) counts all rows; COUNT(column) counts only rows where that column is NOT NULL</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> COUNT(column) is faster always</li>
+          <li><span class="opt-key">D</span> COUNT(*) ignores NULLs</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — COUNT(*) counts all rows; COUNT(column) counts only rows where that column is NOT NULL</p>
+          <p class="expl">This difference matters constantly: COUNT(email) tells you how many customers actually provided an email, while COUNT(*) counts everyone.</p>
+          <p class="tags"><span>COUNT</span><span>NULL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does SELECT DISTINCT * FROM t; do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Returns rows that are unique across ALL columns - removing exact duplicate rows</li>
+          <li><span class="opt-key">B</span> Removes duplicate values per column independently</li>
+          <li><span class="opt-key">C</span> Is invalid syntax</li>
+          <li><span class="opt-key">D</span> Returns one row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Returns rows that are unique across ALL columns - removing exact duplicate rows</p>
+          <p class="expl">Only fully identical rows are collapsed. If a table has a primary key, every row is already unique and DISTINCT changes nothing.</p>
+          <p class="tags"><span>DISTINCT</span><span>Duplicates</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does this return?
+SELECT name FROM students WHERE 1 = 0;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Zero rows - the condition is never true</li>
+          <li><span class="opt-key">B</span> All rows</li>
+          <li><span class="opt-key">C</span> An error</li>
+          <li><span class="opt-key">D</span> One row</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Zero rows - the condition is never true</p>
+          <p class="expl">WHERE 1=0 is a handy trick to fetch a result's STRUCTURE with no data, e.g. to create an empty copy of a table. Conversely, WHERE 1=1 matches everything and is used when building dynamic queries.</p>
+          <p class="tags"><span>Tricks</span><span>Dynamic SQL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does SELECT return columns in the order you list them?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Because the SELECT list defines the projection - the shape of the output</li>
+          <li><span class="opt-key">B</span> It always uses the table's column order</li>
+          <li><span class="opt-key">C</span> It sorts them alphabetically</li>
+          <li><span class="opt-key">D</span> The order is random</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Because the SELECT list defines the projection - the shape of the output</p>
+          <p class="expl">You control the output shape: reorder, rename and compute columns freely. Only SELECT * inherits the table's physical order - another reason to avoid it in code that depends on position.</p>
+          <p class="tags"><span>Projection</span><span>SELECT *</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="01-introduction-to-databases-and-sql.html">← Introduction to Databases &amp; SQL</a>
+      <a href="03-filtering-with-where.html">Filtering with WHERE →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-1">Practice “SELECT Basics” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

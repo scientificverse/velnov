@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loops – Python Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 Python practice questions on Loops with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/python/06-loops.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Loops – Python Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 Python practice questions on Loops with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/python/06-loops.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Loops","item":"https://velnov.co.in/learn/python/06-loops.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">Python</a> <span aria-hidden="true">›</span> <span>Loops</span></nav>
+    <header class="page-head">
+      <p class="kicker">🐍 Python · Topic 6 of 20</p>
+      <h1>Loops — Python Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Loops</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-5">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">12 easy · 13 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>range()</span><span>Iteration</span><span>Step</span><span>continue</span><span>Loop control</span><span>break</span><span>while</span><span>Infinite loops</span><span>Ctrl+C</span><span>Iterables</span><span>Strings</span><span>Accumulator pattern</span><span>sum()</span><span>Nested loops</span><span>enumerate()</span><span>Unpacking</span><span>Negative step</span><span>Empty iterables</span><span>Tracing code</span><span>for-else</span><span>Search patterns</span><span>Conventions</span><span>while True</span><span>Menus</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (12)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How many times does this loop run?
+for i in range(5):
+    print(i)</p>
+        <pre class="code"><code>for i in range(5):
+    print(i)   # 0 1 2 3 4</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 4</li>
+          <li class="correct"><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> 6</li>
+          <li><span class="opt-key">D</span> Infinite</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 5</p>
+          <p class="expl">range(5) generates 0, 1, 2, 3, 4 - five values, so the body runs 5 times. The stop value (5) is never included.</p>
+          <p class="tags"><span>range()</span><span>Iteration</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What values does range(2, 10, 2) produce?</p>
+        <pre class="code"><code>print(list(range(2, 10, 2)))   # [2, 4, 6, 8]
+print(list(range(1, 6)))        # [1, 2, 3, 4, 5]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 2, 4, 6, 8, 10</li>
+          <li class="correct"><span class="opt-key">B</span> 2, 4, 6, 8</li>
+          <li><span class="opt-key">C</span> 4, 6, 8, 10</li>
+          <li><span class="opt-key">D</span> 2, 10, 2</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 2, 4, 6, 8</p>
+          <p class="expl">range(start, stop, step): begin at 2, jump by 2, stop BEFORE 10 - giving 2, 4, 6, 8. The stop value is always excluded.</p>
+          <p class="tags"><span>range()</span><span>Step</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does the break statement do inside a loop?</p>
+        <pre class="code"><code>for n in [3, 7, 12, 5]:
+    if n &gt; 10:
+        break        # stop at 12
+    print(n)          # 3 7
+print(&quot;done&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Skips one iteration</li>
+          <li class="correct"><span class="opt-key">B</span> Exits the loop immediately</li>
+          <li><span class="opt-key">C</span> Pauses the loop</li>
+          <li><span class="opt-key">D</span> Restarts the loop</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Exits the loop immediately</p>
+          <p class="expl">break terminates the loop at once - execution jumps to the first line AFTER the loop. Used to stop early when you've found what you need.</p>
+          <p class="tags"><span>continue</span><span>Loop control</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which is the correct while loop that counts 1 to 3?</p>
+        <pre class="code"><code>i = 1
+while i &lt;= 3:
+    print(i)
+    i += 1     # without this: infinite loop!</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> i = 1\nwhile i &lt;= 3:\n    print(i)\n    i += 1</li>
+          <li><span class="opt-key">B</span> while i &lt;= 3:\n    print(i)</li>
+          <li><span class="opt-key">C</span> while (i = 1; i &lt;= 3; i++):\n    print(i)</li>
+          <li><span class="opt-key">D</span> while i in range(3): print(i)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — i = 1\nwhile i &lt;= 3:\n    print(i)\n    i += 1</p>
+          <p class="expl">A while loop needs: the variable created BEFORE the loop, a condition, and an update INSIDE the loop. Option B never defines or updates i; option C is C-language syntax.</p>
+          <p class="tags"><span>while</span><span>Infinite loops</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What causes an INFINITE loop most often?</p>
+        <pre class="code"><code>i = 0
+while i &lt; 5:
+    print(i)
+    # forgot i += 1  -&gt; prints 0 forever!</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Using range() with big numbers</li>
+          <li class="correct"><span class="opt-key">B</span> Forgetting to update the loop variable inside a while loop</li>
+          <li><span class="opt-key">C</span> Using break</li>
+          <li><span class="opt-key">D</span> Nesting loops</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Forgetting to update the loop variable inside a while loop</p>
+          <p class="expl">If the while condition never becomes False - typically because you forgot i += 1 - the loop runs forever. Press Ctrl+C to stop a runaway program.</p>
+          <p class="tags"><span>while</span><span>Ctrl+C</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+for ch in &quot;abc&quot;:
+    print(ch)</p>
+        <pre class="code"><code>for ch in &quot;abc&quot;:
+    print(ch)
+# a
+# b
+# c</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> abc</li>
+          <li class="correct"><span class="opt-key">B</span> a b c (each on its own line)</li>
+          <li><span class="opt-key">C</span> 0 1 2</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — a b c (each on its own line)</p>
+          <p class="expl">A for loop over a string visits each CHARACTER in order: 'a', then 'b', then 'c' - each printed on its own line. Strings are iterable.</p>
+          <p class="tags"><span>Iterables</span><span>Strings</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the output of:
+total = 0
+for i in range(3):
+    total += i
+print(total)</p>
+        <pre class="code"><code>total = 0
+for i in range(3):
+    total += i    # 0, then 1, then 3
+print(total)       # 3</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 3</li>
+          <li><span class="opt-key">B</span> 6</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> 2</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 3</p>
+          <p class="expl">range(3) gives 0, 1, 2. The accumulator adds them: 0 + 0 + 1 + 2 = 3. This 'running total' pattern is one of the most common loop uses.</p>
+          <p class="tags"><span>Accumulator pattern</span><span>sum()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What happens with:
+for i in range(0):
+    print(&quot;hello&quot;)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Prints hello once</li>
+          <li><span class="opt-key">B</span> Prints hello forever</li>
+          <li class="correct"><span class="opt-key">C</span> The body never runs - no output</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — The body never runs - no output</p>
+          <p class="expl">range(0) is empty, so the loop body executes zero times. No error - the program just moves on. Same happens looping over an empty list.</p>
+          <p class="tags"><span>range()</span><span>Empty iterables</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does the underscore mean in:
+for _ in range(3):
+    print(&quot;hi&quot;)</p>
+        <pre class="code"><code>for _ in range(3):
+    print(&quot;hi&quot;)   # hi hi hi</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It's a syntax error</li>
+          <li class="correct"><span class="opt-key">B</span> A throwaway variable name - we don't need the loop value</li>
+          <li><span class="opt-key">C</span> It makes the loop private</li>
+          <li><span class="opt-key">D</span> It repeats twice as fast</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — A throwaway variable name - we don't need the loop value</p>
+          <p class="expl">_ is a normal variable name that conventionally signals 'I'm not going to use this value'. Here we only care about repeating 3 times, not about the counter.</p>
+          <p class="tags"><span>Conventions</span><span>range()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which loop is better for 'do something for EACH item in a list'?</p>
+        <pre class="code"><code>for item in cart:       # natural
+    print(item)
+
+while balance &gt; 0:       # condition-driven
+    balance -= withdraw()</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> for - it's made for iterating over collections</li>
+          <li><span class="opt-key">B</span> while - it's more powerful</li>
+          <li><span class="opt-key">C</span> Both are equally idiomatic</li>
+          <li><span class="opt-key">D</span> Neither - use recursion</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — for - it's made for iterating over collections</p>
+          <p class="expl">Rule of thumb: for when you know WHAT to iterate over (a list, string, range); while when you only know the STOPPING CONDITION (e.g. 'until the user quits').</p>
+          <p class="tags"><span>for vs while</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the last number printed?
+for i in range(1, 5):
+    print(i)</p>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 5</li>
+          <li class="correct"><span class="opt-key">B</span> 4</li>
+          <li><span class="opt-key">C</span> 1</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 4</p>
+          <p class="expl">range(1, 5) produces 1, 2, 3, 4 - it starts AT 1 and stops BEFORE 5. The last printed value is 4.</p>
+          <p class="tags"><span>range()</span><span>Off-by-one errors</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How do you stop a program stuck in an infinite loop in the terminal?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Press Ctrl+C</li>
+          <li><span class="opt-key">B</span> Type 'stop'</li>
+          <li><span class="opt-key">C</span> Press Enter</li>
+          <li><span class="opt-key">D</span> Close your eyes</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Press Ctrl+C</p>
+          <p class="expl">Ctrl+C sends a KeyboardInterrupt, which stops the running Python program. Every programmer needs this shortcut on day one of learning while loops!</p>
+          <p class="tags"><span>KeyboardInterrupt</span><span>Infinite loops</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (13)</h2>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does the continue statement do inside a loop?</p>
+        <pre class="code"><code>for i in range(5):
+    if i == 2:
+        continue   # skip printing 2
+    print(i)       # 0 1 3 4</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Exits the loop entirely</li>
+          <li class="correct"><span class="opt-key">B</span> Skips the rest of the current iteration and moves to the next one</li>
+          <li><span class="opt-key">C</span> Restarts the loop from the beginning</li>
+          <li><span class="opt-key">D</span> Does nothing</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Skips the rest of the current iteration and moves to the next one</p>
+          <p class="expl">continue jumps straight to the next iteration, skipping any remaining statements in the loop body this time around. break, by contrast, exits the loop completely.</p>
+          <p class="tags"><span>break</span><span>Loop control</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How many stars does this print?
+for i in range(3):
+    for j in range(2):
+        print(&quot;*&quot;)</p>
+        <pre class="code"><code>for i in range(3):      # 3 times
+    for j in range(2):  # 2 times each
+        print(&quot;*&quot;)       # 6 total</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 5</li>
+          <li class="correct"><span class="opt-key">B</span> 6</li>
+          <li><span class="opt-key">C</span> 3</li>
+          <li><span class="opt-key">D</span> 9</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 6</p>
+          <p class="expl">The inner loop runs completely (2 times) for EACH of the 3 outer iterations: 3 x 2 = 6 stars. Nested loop counts always multiply.</p>
+          <p class="tags"><span>Nested loops</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does enumerate() give you in:
+for i, fruit in enumerate([&quot;apple&quot;, &quot;mango&quot;]):</p>
+        <pre class="code"><code>for i, fruit in enumerate([&quot;apple&quot;, &quot;mango&quot;]):
+    print(i, fruit)
+# 0 apple
+# 1 mango</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Only the values</li>
+          <li><span class="opt-key">B</span> Only the indexes</li>
+          <li class="correct"><span class="opt-key">C</span> Both the index AND the value of each item</li>
+          <li><span class="opt-key">D</span> The list sorted</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — Both the index AND the value of each item</p>
+          <p class="expl">enumerate() pairs each item with its position: (0, 'apple'), (1, 'mango'). It's the Pythonic replacement for range(len(list)) when you need both index and value.</p>
+          <ul class="notes"><li>enumerate(items, start=1) begins counting at 1.</li></ul>
+          <p class="tags"><span>enumerate()</span><span>Unpacking</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which range counts DOWN from 10 to 1?</p>
+        <pre class="code"><code>for i in range(10, 0, -1):
+    print(i)          # 10 9 8 ... 1
+print(&quot;Liftoff!&quot;)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> range(10, 0, -1)</li>
+          <li><span class="opt-key">B</span> range(10, 1)</li>
+          <li><span class="opt-key">C</span> range(1, 10, -1)</li>
+          <li><span class="opt-key">D</span> range(-10)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — range(10, 0, -1)</p>
+          <p class="expl">A negative step walks backwards: range(10, 0, -1) gives 10, 9, 8, ... 1 (stop 0 excluded). Option C produces nothing - you can't go from 1 down to 10.</p>
+          <p class="tags"><span>range()</span><span>Negative step</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How many times does this while loop run?
+x = 0
+while x &lt; 10:
+    x += 3</p>
+        <pre class="code"><code>x = 0
+count = 0
+while x &lt; 10:
+    x += 3
+    count += 1
+print(count)   # 4  (x: 3, 6, 9, 12)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 3</li>
+          <li class="correct"><span class="opt-key">B</span> 4</li>
+          <li><span class="opt-key">C</span> 10</li>
+          <li><span class="opt-key">D</span> Infinite</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 4</p>
+          <p class="expl">x takes the values 0, 3, 6, 9 (each &lt; 10, so the body runs) and then 12, which fails the check. That's 4 iterations.</p>
+          <p class="tags"><span>while</span><span>Tracing code</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">In a NESTED loop, what does break exit?</p>
+        <pre class="code"><code>for i in range(3):
+    for j in range(3):
+        if j == 1:
+            break      # exits inner only
+    print(i)            # still prints 0 1 2</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> All loops at once</li>
+          <li class="correct"><span class="opt-key">B</span> Only the innermost loop containing it</li>
+          <li><span class="opt-key">C</span> The outermost loop</li>
+          <li><span class="opt-key">D</span> The whole program</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Only the innermost loop containing it</p>
+          <p class="expl">break only exits the single loop it lives in - the outer loop continues. To exit multiple levels, use a flag variable, return from a function, or restructure the code.</p>
+          <p class="tags"><span>Nested loops</span><span>break</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the standard pattern for a loop that must run AT LEAST once (like a menu)?</p>
+        <pre class="code"><code>while True:
+    choice = input(&quot;Command (q to quit): &quot;)
+    if choice == &quot;q&quot;:
+        break
+    print(&quot;You chose&quot;, choice)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> while True: ... with break when done</li>
+          <li><span class="opt-key">B</span> do { } while - Python's do-while loop</li>
+          <li><span class="opt-key">C</span> for ever:</li>
+          <li><span class="opt-key">D</span> repeat until done:</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — while True: ... with break when done</p>
+          <p class="expl">Python has NO do-while loop. The idiom is while True: with a break when the exit condition is met - the body always runs at least once.</p>
+          <p class="tags"><span>while True</span><span>Menus</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens with:
+for i in 5:
+    print(i)</p>
+        <pre class="code"><code># for i in 5:        # TypeError!
+for i in range(5):   # correct
+    print(i)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Prints 0 to 4</li>
+          <li><span class="opt-key">B</span> Prints 5</li>
+          <li class="correct"><span class="opt-key">C</span> TypeError - int is not iterable</li>
+          <li><span class="opt-key">D</span> Prints 1 to 5</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — TypeError - int is not iterable</p>
+          <p class="expl">You can't loop over a bare number - for needs an ITERABLE (range, list, string...). The fix: for i in range(5).</p>
+          <p class="tags"><span>Iterables</span><span>TypeError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between continue and pass?</p>
+        <pre class="code"><code>for i in range(3):
+    if i == 1:
+        continue
+    print(i)        # 0 2  (1 skipped)
+
+for i in range(3):
+    if i == 1:
+        pass
+    print(i)        # 0 1 2  (nothing skipped)</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> They are identical</li>
+          <li class="correct"><span class="opt-key">B</span> continue skips to the next iteration; pass does nothing and execution continues to the next line</li>
+          <li><span class="opt-key">C</span> pass skips the iteration; continue does nothing</li>
+          <li><span class="opt-key">D</span> pass exits the loop</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — continue skips to the next iteration; pass does nothing and execution continues to the next line</p>
+          <p class="expl">continue actively jumps to the next iteration - lines after it don't run. pass is a no-op placeholder - lines after it DO run normally.</p>
+          <p class="tags"><span>continue</span><span>pass</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does reversed() do in:
+for x in reversed([1, 2, 3]):
+    print(x)</p>
+        <pre class="code"><code>nums = [1, 2, 3]
+for x in reversed(nums):
+    print(x)          # 3 2 1
+print(nums)            # [1, 2, 3] - unchanged</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Prints 3 2 1</li>
+          <li><span class="opt-key">B</span> Prints 1 2 3</li>
+          <li><span class="opt-key">C</span> Reverses the list permanently</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Prints 3 2 1</p>
+          <p class="expl">reversed() iterates the sequence back to front WITHOUT changing the original list. (list.reverse() is the method that permanently reverses in place.)</p>
+          <p class="tags"><span>reversed()</span><span>Slicing [::-1]</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Count the vowels: what is the output?
+count = 0
+for ch in &quot;banana&quot;:
+    if ch in &quot;aeiou&quot;:
+        count += 1
+print(count)</p>
+        <pre class="code"><code>count = 0
+for ch in &quot;banana&quot;:
+    if ch in &quot;aeiou&quot;:
+        count += 1
+print(count)   # 3</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 2</li>
+          <li class="correct"><span class="opt-key">B</span> 3</li>
+          <li><span class="opt-key">C</span> 6</li>
+          <li><span class="opt-key">D</span> 0</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — 3</p>
+          <p class="expl">'banana' contains a, a, a - three vowels. The pattern: loop over characters, test membership with in, count matches.</p>
+          <p class="tags"><span>Counting pattern</span><span>in operator</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is the more Pythonic way to loop over a list's values?</p>
+        <pre class="code"><code>for item in items:            # best
+for i, item in enumerate(items):  # need index too
+for i in range(len(items)):    # only to assign items[i] = ...</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> for item in items:</li>
+          <li><span class="opt-key">B</span> for i in range(len(items)): ... items[i]</li>
+          <li><span class="opt-key">C</span> while i &lt; len(items): ... items[i]</li>
+          <li><span class="opt-key">D</span> All equally preferred</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — for item in items:</p>
+          <p class="expl">Iterate directly over the items - it's shorter, faster and can't have index bugs. Use range(len()) only when you must MODIFY items by index, and enumerate() when you need index AND value.</p>
+          <p class="tags"><span>enumerate()</span><span>Pythonic style</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+for i in range(3):
+    print(&quot;*&quot; * (i + 1))</p>
+        <pre class="code"><code>for i in range(3):
+    print(&quot;*&quot; * (i + 1))
+# *
+# **
+# ***</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> *\n**\n*** (a triangle)</li>
+          <li><span class="opt-key">B</span> *** three times</li>
+          <li><span class="opt-key">C</span> * three times</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — *\n**\n*** (a triangle)</p>
+          <p class="expl">i takes 0, 1, 2, so it prints 1, 2, then 3 stars - a growing triangle. String repetition inside a loop is the classic pattern-printing technique.</p>
+          <p class="tags"><span>Pattern printing</span><span>String repetition</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (5)</h2>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the loop-else clause?
+for n in nums:
+    if n == target: break
+else:
+    print(&quot;not found&quot;)</p>
+        <pre class="code"><code>for n in [1, 3, 5]:
+    if n == 4:
+        print(&quot;found&quot;)
+        break
+else:
+    print(&quot;not found&quot;)   # runs - no break happened</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It runs after every iteration</li>
+          <li class="correct"><span class="opt-key">B</span> It runs only when the loop finished WITHOUT hitting break</li>
+          <li><span class="opt-key">C</span> It's a syntax error - else can't follow for</li>
+          <li><span class="opt-key">D</span> It runs only when break happened</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — It runs only when the loop finished WITHOUT hitting break</p>
+          <p class="expl">Python's unusual for-else: the else block runs when the loop completes normally (no break). Perfect for search loops - if break never fired, the item wasn't found.</p>
+          <ul class="notes"><li>Think of else here as 'no-break'.</li></ul>
+          <p class="tags"><span>for-else</span><span>Search patterns</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What does zip() do in:
+for name, mark in zip([&quot;Ana&quot;, &quot;Ben&quot;], [90, 85]):</p>
+        <pre class="code"><code>names = [&quot;Ana&quot;, &quot;Ben&quot;]
+marks = [90, 85]
+for name, mark in zip(names, marks):
+    print(name, mark)
+# Ana 90
+# Ben 85</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> Compresses the lists to save memory</li>
+          <li class="correct"><span class="opt-key">B</span> Pairs items position-by-position: (&quot;Ana&quot;, 90), then (&quot;Ben&quot;, 85)</li>
+          <li><span class="opt-key">C</span> Joins the lists into one long list</li>
+          <li><span class="opt-key">D</span> Sorts both lists</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Pairs items position-by-position: (&quot;Ana&quot;, 90), then (&quot;Ben&quot;, 85)</p>
+          <p class="expl">zip() walks multiple sequences in parallel, yielding tuples of matching positions. It stops at the SHORTEST sequence.</p>
+          <p class="tags"><span>zip()</span><span>Parallel iteration</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+for i in range(3):
+    i = 100
+print(i)</p>
+        <pre class="code"><code>for i in range(3):
+    i = 100      # overwritten next iteration
+    print(i)      # 100 100 100
+print(i)          # 100 (last value assigned)</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 100</li>
+          <li><span class="opt-key">B</span> 2</li>
+          <li><span class="opt-key">C</span> 102</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 100</p>
+          <p class="expl">Tricky! Reassigning i inside the body doesn't affect the iteration - each pass, the for loop reassigns i to the NEXT range value. After the final pass, i was set to 100 by the body, so print shows 100.</p>
+          <ul class="notes"><li>The loop still runs exactly 3 times - you can't skip ahead by changing i.</li></ul>
+          <p class="tags"><span>Loop variables</span><span>Tracing code</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is modifying a list WHILE looping over it dangerous?
+for x in nums:
+    if x &lt; 0: nums.remove(x)</p>
+        <pre class="code"><code>nums = [1, -2, -3, 4]
+for x in nums[:]:        # loop over a copy
+    if x &lt; 0:
+        nums.remove(x)
+
+# or better:
+nums = [x for x in nums if x &gt;= 0]</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> It's perfectly safe</li>
+          <li class="correct"><span class="opt-key">B</span> Removing items shifts positions, so the loop SKIPS elements</li>
+          <li><span class="opt-key">C</span> It raises SyntaxError</li>
+          <li><span class="opt-key">D</span> The list becomes immutable during loops</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: B</strong> — Removing items shifts positions, so the loop SKIPS elements</p>
+          <p class="expl">When you remove an item, everything after it shifts left - but the loop's internal position still advances, silently skipping the next element. Loop over a COPY (nums[:]) or build a new filtered list instead.</p>
+          <ul class="notes"><li>A very common source of 'why did it skip one?' bugs.</li></ul>
+          <p class="tags"><span>List mutation</span><span>Copies</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+n = 1
+while n &lt; 100:
+    n *= 2
+print(n)</p>
+        <pre class="code"><code>n = 1
+while n &lt; 100:
+    n *= 2
+print(n)   # 128</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> 64</li>
+          <li><span class="opt-key">B</span> 100</li>
+          <li class="correct"><span class="opt-key">C</span> 128</li>
+          <li><span class="opt-key">D</span> Infinite loop</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — 128</p>
+          <p class="expl">n doubles: 1, 2, 4, 8, 16, 32, 64 (still &lt; 100, so doubles again) -&gt; 128, which fails the check. The loop exits with n = 128 - the first power of 2 that is &gt;= 100.</p>
+          <p class="tags"><span>while</span><span>Tracing code</span><span>Powers of 2</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="05-conditionals.html">← Conditionals</a>
+      <a href="07-lists-and-tuples.html">Lists &amp; Tuples →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-0-5">Practice “Loops” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

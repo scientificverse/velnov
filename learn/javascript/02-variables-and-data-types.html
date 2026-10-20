@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variables &amp; Data Types – JavaScript Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 JavaScript practice questions on Variables &amp; Data Types with answers and detailed explanations — 7 easy, 15 medium and 8 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/javascript/02-variables-and-data-types.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Variables &amp; Data Types – JavaScript Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 JavaScript practice questions on Variables &amp; Data Types with answers and detailed explanations — 7 easy, 15 medium and 8 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/javascript/02-variables-and-data-types.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"JavaScript","item":"https://velnov.co.in/learn/javascript/"},{"@type":"ListItem","position":3,"name":"Variables & Data Types","item":"https://velnov.co.in/learn/javascript/02-variables-and-data-types.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">JavaScript</a> <span aria-hidden="true">›</span> <span>Variables &amp; Data Types</span></nav>
+    <header class="page-head">
+      <p class="kicker">🟨 JavaScript · Topic 2 of 20</p>
+      <h1>Variables &amp; Data Types — JavaScript Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Variables &amp; Data Types</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-1-1">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">7 easy · 15 medium · 8 hard · Part of <a href="./">JavaScript</a>: The language of the web - basics to advanced, 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>let</span><span>var</span><span>Block scope</span><span>const</span><span>Object.freeze</span><span>Mutability</span><span>Scope</span><span>Hoisting</span><span>Best practices</span><span>SyntaxError</span><span>Primitives</span><span>typeof</span><span>null</span><span>Gotchas</span><span>undefined</span><span>== vs ===</span><span>number</span><span>bigint</span><span>NaN</span><span>isNaN</span><span>Number.isNaN</span><span>Coercion</span><span>Booleans</span><span>Case sensitivity</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (7)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which keyword declares a block-scoped variable that CANNOT be reassigned?</p>
+        <pre class="code"><code>const PI = 3.14159;
+// PI = 3;        // TypeError!
+let count = 0;
+count = 1;         // fine</code></pre>
+        <ol class="opts" type="A">
+          <li><span class="opt-key">A</span> var</li>
+          <li><span class="opt-key">B</span> let</li>
+          <li class="correct"><span class="opt-key">C</span> const</li>
+          <li><span class="opt-key">D</span> static</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: C</strong> — const</p>
+          <p class="expl">const creates a block-scoped binding that cannot be reassigned. let is block-scoped but reassignable; var is function-scoped and reassignable.</p>
+          <p class="tags"><span>let</span><span>var</span><span>Block scope</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which declaration style is recommended by default in modern JavaScript?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> const by default, let when the value must change, avoid var</li>
+          <li><span class="opt-key">B</span> var everywhere</li>
+          <li><span class="opt-key">C</span> let everywhere</li>
+          <li><span class="opt-key">D</span> No declaration keyword at all</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — const by default, let when the value must change, avoid var</p>
+          <p class="expl">Start with const - it signals 'this will not be reassigned' and prevents accidental changes. Switch to let only when you genuinely reassign. var is legacy.</p>
+          <p class="tags"><span>Best practices</span><span>const</span></p>
+        </div>
+      </article>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How many PRIMITIVE data types does JavaScript have?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 7 - string, number, boolean, null, undefined, symbol, bigint</li>
+          <li><span class="opt-key">B</span> 3 - string, number, boolean</li>
+          <li><span class="opt-key">C</span> 2 - number and object</li>
+          <li><span class="opt-key">D</span> Unlimited</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 7 - string, number, boolean, null, undefined, symbol, bigint</p>
+          <p class="expl">The seven primitives are string, number, boolean, null, undefined, symbol and bigint. Everything else (objects, arrays, functions) is an object.</p>
+          <p class="tags"><span>Primitives</span><span>typeof</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What does typeof &quot;hello&quot; return?</p>
+        <pre class="code"><code>console.log(typeof &quot;hi&quot;);    // &quot;string&quot;
+console.log(typeof 42);       // &quot;number&quot;
+console.log(typeof true);     // &quot;boolean&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;string&quot;</li>
+          <li><span class="opt-key">B</span> &quot;text&quot;</li>
+          <li><span class="opt-key">C</span> &quot;str&quot;</li>
+          <li><span class="opt-key">D</span> &quot;String&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;string&quot;</p>
+          <p class="expl">typeof returns a lowercase string naming the type: &quot;string&quot;, &quot;number&quot;, &quot;boolean&quot;, &quot;undefined&quot;, &quot;object&quot;, &quot;function&quot;, &quot;symbol&quot;, &quot;bigint&quot;.</p>
+          <p class="tags"><span>typeof</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">How many NUMBER types does JavaScript have for everyday maths?</p>
+        <pre class="code"><code>console.log(typeof 5);     // &quot;number&quot;
+console.log(typeof 5.5);   // &quot;number&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> One - 'number' covers both integers and decimals</li>
+          <li><span class="opt-key">B</span> Two - int and float</li>
+          <li><span class="opt-key">C</span> Three - int, float, double</li>
+          <li><span class="opt-key">D</span> Four</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — One - 'number' covers both integers and decimals</p>
+          <p class="expl">Unlike many languages, JavaScript has a single number type (64-bit floating point). 5 and 5.5 are both 'number'. (bigint exists separately for huge integers.)</p>
+          <p class="tags"><span>number</span><span>bigint</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which are the two boolean values?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true and false</li>
+          <li><span class="opt-key">B</span> True and False</li>
+          <li><span class="opt-key">C</span> 1 and 0 only</li>
+          <li><span class="opt-key">D</span> yes and no</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true and false</p>
+          <p class="expl">JavaScript booleans are lowercase true and false. (True with a capital T is an undefined variable and causes a ReferenceError.)</p>
+          <p class="tags"><span>Booleans</span><span>Case sensitivity</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What naming convention is standard for JavaScript variables?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> camelCase - firstName, totalPrice</li>
+          <li><span class="opt-key">B</span> snake_case - first_name</li>
+          <li><span class="opt-key">C</span> PascalCase - FirstName</li>
+          <li><span class="opt-key">D</span> kebab-case - first-name</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — camelCase - firstName, totalPrice</p>
+          <p class="expl">Variables and functions use camelCase; classes use PascalCase; true constants are sometimes ALL_CAPS. kebab-case is impossible (the hyphen means subtraction).</p>
+          <p class="tags"><span>Conventions</span><span>Style</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (15)</h2>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Does const make an OBJECT immutable?
+const user = { name: &quot;Ana&quot; };
+user.name = &quot;Ben&quot;;</p>
+        <pre class="code"><code>const user = { name: &quot;Ana&quot; };
+user.name = &quot;Ben&quot;;   // allowed
+// user = {};         // TypeError: Assignment to constant</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> No - const prevents REASSIGNMENT, not mutation. user.name = &quot;Ben&quot; works fine</li>
+          <li><span class="opt-key">B</span> Yes - this throws an error</li>
+          <li><span class="opt-key">C</span> It silently does nothing</li>
+          <li><span class="opt-key">D</span> It converts the object to a string</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — No - const prevents REASSIGNMENT, not mutation. user.name = &quot;Ben&quot; works fine</p>
+          <p class="expl">const locks the binding, not the contents. You cannot do user = {} (reassignment), but you can change properties. Use Object.freeze(user) if you truly need immutability.</p>
+          <ul class="notes"><li>Same applies to const arrays: push() works, reassigning does not.</li></ul>
+          <p class="tags"><span>const</span><span>Object.freeze</span><span>Mutability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the main difference between let and var?</p>
+        <pre class="code"><code>if (true) {
+  var a = 1;
+  let b = 2;
+}
+console.log(a);   // 1 - leaked out!
+// console.log(b); // ReferenceError</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> let is BLOCK-scoped ({ }); var is FUNCTION-scoped and leaks out of blocks</li>
+          <li><span class="opt-key">B</span> let is faster</li>
+          <li><span class="opt-key">C</span> var cannot hold numbers</li>
+          <li><span class="opt-key">D</span> There is no difference</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — let is BLOCK-scoped ({ }); var is FUNCTION-scoped and leaks out of blocks</p>
+          <p class="expl">A var declared inside an if or for block is visible throughout the whole function; a let exists only inside its { } block. Modern code prefers let/const to avoid surprising leaks.</p>
+          <p class="tags"><span>Scope</span><span>Hoisting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens?
+const x;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> SyntaxError - a const must be initialised when declared</li>
+          <li><span class="opt-key">B</span> x becomes undefined</li>
+          <li><span class="opt-key">C</span> x becomes null</li>
+          <li><span class="opt-key">D</span> It works fine</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — SyntaxError - a const must be initialised when declared</p>
+          <p class="expl">Because const can never be reassigned, it must be given its value immediately: 'Missing initializer in const declaration'. let x; is perfectly legal (x is undefined).</p>
+          <p class="tags"><span>const</span><span>SyntaxError</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between null and undefined?</p>
+        <pre class="code"><code>let a;
+console.log(a);        // undefined - never assigned
+let b = null;           // I deliberately set it empty</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined means 'no value assigned yet' (JS sets it); null means 'deliberately empty' (you set it)</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> null is a string</li>
+          <li><span class="opt-key">D</span> undefined only appears in errors</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined means 'no value assigned yet' (JS sets it); null means 'deliberately empty' (you set it)</p>
+          <p class="expl">JavaScript gives undefined to variables you declared but never assigned, and to missing function arguments. null is a value YOU assign to say 'intentionally nothing here'.</p>
+          <p class="tags"><span>null</span><span>undefined</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is NaN?</p>
+        <pre class="code"><code>console.log(Number(&quot;abc&quot;));   // NaN
+console.log(typeof NaN);       // &quot;number&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'Not a Number' - the result of an invalid maths operation, and its type is &quot;number&quot;</li>
+          <li><span class="opt-key">B</span> A string meaning error</li>
+          <li><span class="opt-key">C</span> null in disguise</li>
+          <li><span class="opt-key">D</span> A syntax error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'Not a Number' - the result of an invalid maths operation, and its type is &quot;number&quot;</p>
+          <p class="expl">NaN appears when a numeric operation makes no sense, such as Number(&quot;abc&quot;) or 0/0. Confusingly, typeof NaN is &quot;number&quot;.</p>
+          <p class="tags"><span>NaN</span><span>isNaN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Why prefer Number.isNaN() over the older global isNaN()?</p>
+        <pre class="code"><code>isNaN(&quot;abc&quot;);            // true  (coerced)
+Number.isNaN(&quot;abc&quot;);     // false (it's a string)
+Number.isNaN(NaN);       // true</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Global isNaN() converts its argument first, so isNaN(&quot;abc&quot;) is true; Number.isNaN(&quot;abc&quot;) is false (it is a string, not NaN)</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> Number.isNaN is deprecated</li>
+          <li><span class="opt-key">D</span> isNaN only works on numbers</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Global isNaN() converts its argument first, so isNaN(&quot;abc&quot;) is true; Number.isNaN(&quot;abc&quot;) is false (it is a string, not NaN)</p>
+          <p class="expl">The old isNaN() coerces: isNaN(&quot;hello&quot;) is true even though &quot;hello&quot; is a string. Number.isNaN() checks strictly for the actual NaN value - almost always what you want.</p>
+          <p class="tags"><span>NaN</span><span>Coercion</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+let x;
+console.log(x);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined</li>
+          <li><span class="opt-key">B</span> null</li>
+          <li><span class="opt-key">C</span> 0</li>
+          <li><span class="opt-key">D</span> ReferenceError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined</p>
+          <p class="expl">A declared but unassigned variable holds undefined. (Using a variable that was never DECLARED gives a ReferenceError instead.)</p>
+          <p class="tags"><span>undefined</span><span>Declaration</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which variable name is INVALID in JavaScript?</p>
+        <pre class="code"><code>let _private = 1;   // ok
+let $el = 2;         // ok
+let name2 = 3;       // ok
+// let 2ndPlace;     // SyntaxError</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 2ndPlace</li>
+          <li><span class="opt-key">B</span> _private</li>
+          <li><span class="opt-key">C</span> $element</li>
+          <li><span class="opt-key">D</span> firstName</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 2ndPlace</p>
+          <p class="expl">Names cannot start with a digit. They may start with a letter, underscore or dollar sign, and may contain digits after the first character. Reserved words (let, class, return) are also forbidden.</p>
+          <p class="tags"><span>Identifiers</span><span>Naming rules</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+console.log(typeof function(){});</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;function&quot;</li>
+          <li><span class="opt-key">B</span> &quot;object&quot;</li>
+          <li><span class="opt-key">C</span> &quot;method&quot;</li>
+          <li><span class="opt-key">D</span> &quot;undefined&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;function&quot;</p>
+          <p class="expl">Functions are technically objects, but typeof gives the special result &quot;function&quot; - useful for checking whether a value can be called.</p>
+          <p class="tags"><span>Functions</span><span>typeof</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does 'dynamically typed' mean for JavaScript?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> A variable can hold any type and change type at any time - the type belongs to the value, not the variable</li>
+          <li><span class="opt-key">B</span> Types must be declared upfront</li>
+          <li><span class="opt-key">C</span> Types cannot change ever</li>
+          <li><span class="opt-key">D</span> Only numbers are allowed</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — A variable can hold any type and change type at any time - the type belongs to the value, not the variable</p>
+          <p class="expl">let x = 5; then x = &quot;hello&quot;; is perfectly legal. Flexible, but type mistakes only show up at runtime - which is why TypeScript (typed JavaScript) is popular for large projects.</p>
+          <p class="tags"><span>Dynamic typing</span><span>TypeScript</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the output?
+let a = 5;
+let b = a;
+a = 10;
+console.log(b);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 5 - primitives are copied BY VALUE</li>
+          <li><span class="opt-key">B</span> 10</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 5 - primitives are copied BY VALUE</p>
+          <p class="expl">Primitive values (number, string, boolean...) are copied. b received a snapshot of 5 and is unaffected when a changes later.</p>
+          <p class="tags"><span>Value vs reference</span><span>Primitives</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does Number(&quot;42&quot;) return, and what type is it?</p>
+        <pre class="code"><code>Number(&quot;42&quot;);      // 42
+parseInt(&quot;42px&quot;);   // 42 - stops at the letters
+Number(&quot;42px&quot;);     // NaN - stricter</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The number 42</li>
+          <li><span class="opt-key">B</span> The string &quot;42&quot;</li>
+          <li><span class="opt-key">C</span> NaN</li>
+          <li><span class="opt-key">D</span> undefined</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The number 42</p>
+          <p class="expl">Number() converts a string to a number. Alternatives: parseInt(&quot;42&quot;), parseFloat(&quot;4.2&quot;), or the unary plus +&quot;42&quot;.</p>
+          <p class="tags"><span>Type conversion</span><span>parseInt</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What is the difference between Number(&quot;12px&quot;) and parseInt(&quot;12px&quot;)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Number gives NaN (strict); parseInt gives 12 (reads digits until it hits a non-digit)</li>
+          <li><span class="opt-key">B</span> Both give 12</li>
+          <li><span class="opt-key">C</span> Both give NaN</li>
+          <li><span class="opt-key">D</span> parseInt gives NaN</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Number gives NaN (strict); parseInt gives 12 (reads digits until it hits a non-digit)</p>
+          <p class="expl">parseInt is forgiving - it parses leading digits and ignores the rest, useful for CSS values like &quot;12px&quot;. Number() demands the whole string be a valid number.</p>
+          <p class="tags"><span>parseInt</span><span>Number()</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does String(42) do?</p>
+        <pre class="code"><code>String(42);        // &quot;42&quot;
+(42).toString();    // &quot;42&quot;
+`${42}`;             // &quot;42&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Converts the number to the text &quot;42&quot;</li>
+          <li><span class="opt-key">B</span> Keeps it a number</li>
+          <li><span class="opt-key">C</span> Returns NaN</li>
+          <li><span class="opt-key">D</span> Throws an error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Converts the number to the text &quot;42&quot;</p>
+          <p class="expl">String() converts any value to its string form. Alternatives: (42).toString() and template literals `${42}`.</p>
+          <p class="tags"><span>Type conversion</span><span>toString</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What happens if you assign to a variable that was never declared (without strict mode)?
+myVar = 10;</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It silently creates a GLOBAL variable - a common source of bugs (strict mode throws instead)</li>
+          <li><span class="opt-key">B</span> SyntaxError</li>
+          <li><span class="opt-key">C</span> It creates a local variable</li>
+          <li><span class="opt-key">D</span> Nothing happens</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It silently creates a GLOBAL variable - a common source of bugs (strict mode throws instead)</p>
+          <p class="expl">Sloppy mode creates an accidental global, which can clash with other code. This is exactly what &quot;use strict&quot; (and ES modules) prevent by throwing a ReferenceError.</p>
+          <p class="tags"><span>Globals</span><span>Strict mode</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (8)</h2>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(typeof null);</p>
+        <pre class="code"><code>console.log(typeof null);        // &quot;object&quot; (bug)
+console.log(value === null);     // the correct check</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;object&quot; - a famous historic BUG in JavaScript that can never be fixed</li>
+          <li><span class="opt-key">B</span> &quot;null&quot;</li>
+          <li><span class="opt-key">C</span> &quot;undefined&quot;</li>
+          <li><span class="opt-key">D</span> &quot;empty&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;object&quot; - a famous historic BUG in JavaScript that can never be fixed</p>
+          <p class="expl">typeof null returns &quot;object&quot; due to a bug in the very first JavaScript implementation. Fixing it would break countless websites, so it stays. To test for null, use: value === null.</p>
+          <ul class="notes"><li>A classic interview question.</li></ul>
+          <p class="tags"><span>null</span><span>typeof</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(null == undefined, null === undefined);</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> true false - loosely equal but different types</li>
+          <li><span class="opt-key">B</span> true true</li>
+          <li><span class="opt-key">C</span> false false</li>
+          <li><span class="opt-key">D</span> false true</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — true false - loosely equal but different types</p>
+          <p class="expl">With == (loose), null and undefined are considered equal to each other (a special rule). With === (strict), the types differ (object vs undefined), so it is false.</p>
+          <p class="tags"><span>== vs ===</span><span>null</span><span>undefined</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(NaN === NaN);</p>
+        <pre class="code"><code>console.log(NaN === NaN);          // false
+console.log(Number.isNaN(NaN));    // true - correct test</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> false - NaN is the only value not equal to itself</li>
+          <li><span class="opt-key">B</span> true</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> SyntaxError</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — false - NaN is the only value not equal to itself</p>
+          <p class="expl">By specification, NaN never equals anything including itself. To test for it use Number.isNaN(value) (or Object.is(value, NaN)).</p>
+          <p class="tags"><span>NaN</span><span>Number.isNaN</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+console.log(typeof []);</p>
+        <pre class="code"><code>console.log(typeof []);            // &quot;object&quot;
+console.log(Array.isArray([]));    // true - correct test</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> &quot;object&quot; - arrays are objects in JavaScript</li>
+          <li><span class="opt-key">B</span> &quot;array&quot;</li>
+          <li><span class="opt-key">C</span> &quot;list&quot;</li>
+          <li><span class="opt-key">D</span> &quot;undefined&quot;</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — &quot;object&quot; - arrays are objects in JavaScript</p>
+          <p class="expl">typeof cannot distinguish arrays from plain objects - both give &quot;object&quot;. Use Array.isArray(value) to test for an array.</p>
+          <p class="tags"><span>Arrays</span><span>Array.isArray</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the output?
+let a = { n: 5 };
+let b = a;
+a.n = 10;
+console.log(b.n);</p>
+        <pre class="code"><code>let b = { ...a };        // shallow copy - independent
+let c = structuredClone(a);  // deep copy</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 10 - objects are copied BY REFERENCE, so a and b point to the same object</li>
+          <li><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> undefined</li>
+          <li><span class="opt-key">D</span> Error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 10 - objects are copied BY REFERENCE, so a and b point to the same object</p>
+          <p class="expl">Objects (and arrays) are assigned by reference: b is another name for the same object. Changing it through a is visible through b. Copy with { ...a } or structuredClone(a).</p>
+          <p class="tags"><span>Reference types</span><span>Copying objects</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a Symbol used for?</p>
+        <pre class="code"><code>const id = Symbol(&quot;id&quot;);
+console.log(Symbol(&quot;a&quot;) === Symbol(&quot;a&quot;));   // false - always unique</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Creating a unique identifier that never clashes with another key - often used as a hidden object property</li>
+          <li><span class="opt-key">B</span> Mathematical symbols</li>
+          <li><span class="opt-key">C</span> Currency formatting</li>
+          <li><span class="opt-key">D</span> Emoji support</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Creating a unique identifier that never clashes with another key - often used as a hidden object property</p>
+          <p class="expl">Symbol() always produces a unique value, even with the same description. Used for object keys that must not collide with normal keys, and for built-in behaviours like Symbol.iterator.</p>
+          <p class="tags"><span>Symbol</span><span>Unique keys</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is BigInt for?</p>
+        <pre class="code"><code>const big = 9007199254740993n;
+console.log(typeof big);   // &quot;bigint&quot;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Integers larger than Number.MAX_SAFE_INTEGER - written with an n suffix: 9007199254740993n</li>
+          <li><span class="opt-key">B</span> Very long strings</li>
+          <li><span class="opt-key">C</span> Large arrays</li>
+          <li><span class="opt-key">D</span> Big decimal precision</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Integers larger than Number.MAX_SAFE_INTEGER - written with an n suffix: 9007199254740993n</p>
+          <p class="expl">Regular numbers lose precision above 2^53-1. BigInt handles arbitrarily large integers. Note: you cannot mix BigInt and Number in maths without converting.</p>
+          <p class="tags"><span>BigInt</span><span>MAX_SAFE_INTEGER</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What happens?
+console.log(x);
+var x = 5;</p>
+        <pre class="code"><code>console.log(x);   // undefined
+var x = 5;
+
+console.log(y);   // ReferenceError
+let y = 5;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> undefined - var declarations are hoisted, but the assignment is not</li>
+          <li><span class="opt-key">B</span> 5</li>
+          <li><span class="opt-key">C</span> ReferenceError</li>
+          <li><span class="opt-key">D</span> null</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — undefined - var declarations are hoisted, but the assignment is not</p>
+          <p class="expl">JavaScript hoists the var declaration to the top of the scope, so x exists but holds undefined until the assignment runs. With let or const the same code throws a ReferenceError (temporal dead zone).</p>
+          <p class="tags"><span>Hoisting</span><span>TDZ</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="01-introduction-and-setup.html">← Introduction &amp; Setup</a>
+      <a href="03-operators.html">Operators →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-1-1">Practice “Variables &amp; Data Types” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>

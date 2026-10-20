@@ -1,0 +1,13 @@
+# Operating-system clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor folders
+.vscode/
+.idea/
+
+# Local scratch / logs
+*.log
+*.tmp
+node_modules/

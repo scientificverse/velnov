@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Date &amp; Time Functions – SQL Questions and Answers with Explanations | Velnov</title>
+  <meta name="description" content="30 SQL practice questions on Date &amp; Time Functions with answers and detailed explanations — 2 easy, 17 medium and 11 hard." />
+  <link rel="canonical" href="https://velnov.co.in/learn/sql/10-date-and-time-functions.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Velnov" />
+  <meta property="og:title" content="Date &amp; Time Functions – SQL Questions and Answers with Explanations | Velnov" />
+  <meta property="og:description" content="30 SQL practice questions on Date &amp; Time Functions with answers and detailed explanations — 2 easy, 17 medium and 11 hard." />
+  <meta property="og:url" content="https://velnov.co.in/learn/sql/10-date-and-time-functions.html" />
+  <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/study.css?v=1" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"SQL","item":"https://velnov.co.in/learn/sql/"},{"@type":"ListItem","position":3,"name":"Date & Time Functions","item":"https://velnov.co.in/learn/sql/10-date-and-time-functions.html"}]}</script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../../index.html">🎓 Vel<span>nov</span></a>
+      <nav aria-label="Main">
+        <a href="../../learn/">Study Notes</a>
+        <a href="../../formulas/">Formulas</a>
+        <a href="../../index.html">Practice Quizzes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Study Notes</a> <span aria-hidden="true">›</span> <a href="./">SQL</a> <span aria-hidden="true">›</span> <span>Date &amp; Time Functions</span></nav>
+    <header class="page-head">
+      <p class="kicker">🗄️ SQL · Topic 10 of 20</p>
+      <h1>Date &amp; Time Functions — SQL Questions with Answers</h1>
+      <p class="lead">30 practice questions on <strong>Date &amp; Time Functions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-2-9">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="meta">2 easy · 17 medium · 11 hard · Part of <a href="./">SQL</a>: Databases from basics to window functions - 20 topics.</p>
+    </header>
+    <section class="box">
+      <h2>Key concepts in this topic</h2>
+      <p class="tags"><span>NOW</span><span>CURRENT_TIMESTAMP</span><span>ISO 8601</span><span>Date format</span><span>EXTRACT</span><span>YEAR</span><span>DATE_ADD</span><span>INTERVAL</span><span>DATEDIFF</span><span>Date arithmetic</span><span>DATETIME</span><span>Ranges</span><span>Gotchas</span><span>DATE_TRUNC</span><span>Reporting</span><span>GROUP BY</span><span>Day of week</span><span>DATE</span><span>CAST</span><span>UTC</span><span>Timezones</span><span>Best practices</span><span>AGE</span><span>Date ranges</span></p>
+    </section>
+    <p class="jump">Jump to: <a href="#easy">Easy</a> · <a href="#medium">Medium</a> · <a href="#hard">Hard</a></p>
+    <section>
+      <h2 id="easy">Easy questions (2)</h2>
+      <article class="q" id="q1">
+        <p class="q-head"><span class="q-num">Q1.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">Which function returns the current date and time?</p>
+        <pre class="code"><code>SELECT NOW();   -- 2026-07-04 14:30:05</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> NOW() (or CURRENT_TIMESTAMP)</li>
+          <li><span class="opt-key">B</span> TODAY()</li>
+          <li><span class="opt-key">C</span> DATE()</li>
+          <li><span class="opt-key">D</span> TIME.NOW</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — NOW() (or CURRENT_TIMESTAMP)</p>
+          <p class="expl">NOW() and CURRENT_TIMESTAMP return the current moment. CURRENT_DATE gives just the date, and CURRENT_TIME just the clock. (SQL Server uses GETDATE().)</p>
+          <p class="tags"><span>NOW</span><span>CURRENT_TIMESTAMP</span></p>
+        </div>
+      </article>
+      <article class="q" id="q2">
+        <p class="q-head"><span class="q-num">Q2.</span> <span class="badge badge-easy">easy</span></p>
+        <p class="q-text">What is the standard SQL date format?</p>
+        <pre class="code"><code>WHERE order_date = '2026-07-04';</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> 'YYYY-MM-DD' - year, month, day</li>
+          <li><span class="opt-key">B</span> 'DD-MM-YYYY'</li>
+          <li><span class="opt-key">C</span> 'MM/DD/YYYY'</li>
+          <li><span class="opt-key">D</span> 'DD/MM/YY'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — 'YYYY-MM-DD' - year, month, day</p>
+          <p class="expl">ISO 8601 format 'YYYY-MM-DD' is unambiguous and sorts correctly as text. Always use it in queries to avoid locale confusion between month and day.</p>
+          <p class="tags"><span>ISO 8601</span><span>Date format</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="medium">Medium questions (17)</h2>
+      <article class="q" id="q3">
+        <p class="q-head"><span class="q-num">Q3.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you extract just the YEAR from a date?</p>
+        <pre class="code"><code>SELECT EXTRACT(YEAR FROM order_date), EXTRACT(MONTH FROM order_date);</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> EXTRACT(YEAR FROM order_date)  or  YEAR(order_date)</li>
+          <li><span class="opt-key">B</span> GET_YEAR(order_date)</li>
+          <li><span class="opt-key">C</span> order_date.year</li>
+          <li><span class="opt-key">D</span> DATEYEAR(order_date)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — EXTRACT(YEAR FROM order_date)  or  YEAR(order_date)</p>
+          <p class="expl">EXTRACT is standard SQL; MySQL and SQL Server also have YEAR(), MONTH(), DAY() shortcuts. EXTRACT(DOW FROM d) even gives the day of week.</p>
+          <p class="tags"><span>EXTRACT</span><span>YEAR</span></p>
+        </div>
+      </article>
+      <article class="q" id="q4">
+        <p class="q-head"><span class="q-num">Q4.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you add 7 days to a date?</p>
+        <pre class="code"><code>SELECT order_date + INTERVAL '7 days' AS due_date FROM orders;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> order_date + INTERVAL '7 days'  or  DATE_ADD(order_date, INTERVAL 7 DAY)</li>
+          <li><span class="opt-key">B</span> order_date + 7 (always works)</li>
+          <li><span class="opt-key">C</span> ADD_DAYS(order_date, 7)</li>
+          <li><span class="opt-key">D</span> order_date.plus(7)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — order_date + INTERVAL '7 days'  or  DATE_ADD(order_date, INTERVAL 7 DAY)</p>
+          <p class="expl">PostgreSQL/Oracle use INTERVAL; MySQL uses DATE_ADD; SQL Server uses DATEADD(DAY, 7, order_date). Plain + 7 works on DATE in some databases but is not portable.</p>
+          <p class="tags"><span>DATE_ADD</span><span>INTERVAL</span></p>
+        </div>
+      </article>
+      <article class="q" id="q5">
+        <p class="q-head"><span class="q-num">Q5.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you find the number of days between two dates?</p>
+        <pre class="code"><code>SELECT DATEDIFF(delivered_at, ordered_at) AS days_to_deliver FROM orders;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DATEDIFF(end_date, start_date)  or  end_date - start_date</li>
+          <li><span class="opt-key">B</span> DAYS_BETWEEN only</li>
+          <li><span class="opt-key">C</span> SUBTRACT(end, start)</li>
+          <li><span class="opt-key">D</span> end.minus(start)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DATEDIFF(end_date, start_date)  or  end_date - start_date</p>
+          <p class="expl">In PostgreSQL, subtracting two DATEs gives an integer number of days. MySQL uses DATEDIFF(end, start); SQL Server uses DATEDIFF(DAY, start, end) - note the argument order differs.</p>
+          <p class="tags"><span>DATEDIFF</span><span>Date arithmetic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q7">
+        <p class="q-head"><span class="q-num">Q7.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you get the first day of the current month?</p>
+        <pre class="code"><code>SELECT DATE_TRUNC('month', order_date) AS month, COUNT(*)
+FROM orders GROUP BY 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DATE_TRUNC('month', CURRENT_DATE) in PostgreSQL</li>
+          <li><span class="opt-key">B</span> MONTH_START()</li>
+          <li><span class="opt-key">C</span> FIRST_DAY()</li>
+          <li><span class="opt-key">D</span> CURRENT_DATE - 30</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DATE_TRUNC('month', CURRENT_DATE) in PostgreSQL</p>
+          <p class="expl">DATE_TRUNC rounds a date down to a unit (month, year, hour). It is the cleanest way to bucket timestamps for reporting. MySQL uses DATE_FORMAT or arithmetic.</p>
+          <p class="tags"><span>DATE_TRUNC</span><span>Reporting</span></p>
+        </div>
+      </article>
+      <article class="q" id="q9">
+        <p class="q-head"><span class="q-num">Q9.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you extract the day of the week?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> EXTRACT(DOW FROM date) or DAYOFWEEK(date) - returns a number for the weekday</li>
+          <li><span class="opt-key">B</span> WEEKDAY_NAME(date)</li>
+          <li><span class="opt-key">C</span> DAY(date)</li>
+          <li><span class="opt-key">D</span> There is no way</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — EXTRACT(DOW FROM date) or DAYOFWEEK(date) - returns a number for the weekday</p>
+          <p class="expl">Beware the numbering differs: PostgreSQL DOW is 0=Sunday, MySQL DAYOFWEEK is 1=Sunday, and ISODOW is 1=Monday. Check your database before filtering on weekdays.</p>
+          <p class="tags"><span>Day of week</span><span>EXTRACT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q10">
+        <p class="q-head"><span class="q-num">Q10.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does DATE(order_datetime) return?</p>
+        <pre class="code"><code>SELECT DATE(created_at) AS day, COUNT(*) FROM events GROUP BY 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The date portion only, dropping the time</li>
+          <li><span class="opt-key">B</span> The full timestamp</li>
+          <li><span class="opt-key">C</span> Just the year</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The date portion only, dropping the time</p>
+          <p class="expl">Casting a DATETIME to DATE (via DATE() or CAST(x AS DATE)) strips the time - handy for grouping all of a day's events together.</p>
+          <p class="tags"><span>DATE</span><span>CAST</span></p>
+        </div>
+      </article>
+      <article class="q" id="q12">
+        <p class="q-head"><span class="q-num">Q12.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you calculate age in years from a birthdate?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> AGE(birthdate) in PostgreSQL, or DATEDIFF-based arithmetic elsewhere</li>
+          <li><span class="opt-key">B</span> birthdate - NOW()</li>
+          <li><span class="opt-key">C</span> YEARS(birthdate)</li>
+          <li><span class="opt-key">D</span> birthdate.age()</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — AGE(birthdate) in PostgreSQL, or DATEDIFF-based arithmetic elsewhere</p>
+          <p class="expl">PostgreSQL's AGE() returns an interval; extract the years. Elsewhere: FLOOR(DATEDIFF(NOW(), birthdate) / 365.25), being careful about leap years and exact birthdays.</p>
+          <p class="tags"><span>AGE</span><span>DATEDIFF</span></p>
+        </div>
+      </article>
+      <article class="q" id="q13">
+        <p class="q-head"><span class="q-num">Q13.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you filter for records from the last 30 days?</p>
+        <pre class="code"><code>WHERE created_at &gt;= NOW() - INTERVAL '30 days';</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE created_at &gt;= CURRENT_DATE - INTERVAL '30 days'</li>
+          <li><span class="opt-key">B</span> WHERE created_at = LAST_30_DAYS</li>
+          <li><span class="opt-key">C</span> WHERE created_at IN (30 days)</li>
+          <li><span class="opt-key">D</span> WHERE RECENT(created_at, 30)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE created_at &gt;= CURRENT_DATE - INTERVAL '30 days'</p>
+          <p class="expl">Compute the cutoff by subtracting an interval from today, then compare. Keeping the function on the constant side (not the column) lets the index on created_at work.</p>
+          <p class="tags"><span>INTERVAL</span><span>Date ranges</span></p>
+        </div>
+      </article>
+      <article class="q" id="q15">
+        <p class="q-head"><span class="q-num">Q15.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you format a date as 'July 04, 2026'?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TO_CHAR(order_date, 'Month DD, YYYY') in PostgreSQL/Oracle</li>
+          <li><span class="opt-key">B</span> FORMAT(order_date)</li>
+          <li><span class="opt-key">C</span> STRING(order_date)</li>
+          <li><span class="opt-key">D</span> Dates cannot be formatted</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TO_CHAR(order_date, 'Month DD, YYYY') in PostgreSQL/Oracle</p>
+          <p class="expl">TO_CHAR with a format model handles custom display. MySQL uses DATE_FORMAT(date, '%M %d, %Y'); SQL Server uses FORMAT(). Prefer formatting in the app layer where possible.</p>
+          <p class="tags"><span>TO_CHAR</span><span>DATE_FORMAT</span></p>
+        </div>
+      </article>
+      <article class="q" id="q17">
+        <p class="q-head"><span class="q-num">Q17.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you get yesterday's date?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> CURRENT_DATE - INTERVAL '1 day'  (or CURRENT_DATE - 1 in some databases)</li>
+          <li><span class="opt-key">B</span> YESTERDAY()</li>
+          <li><span class="opt-key">C</span> NOW() - 1</li>
+          <li><span class="opt-key">D</span> PREVIOUS(CURRENT_DATE)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — CURRENT_DATE - INTERVAL '1 day'  (or CURRENT_DATE - 1 in some databases)</p>
+          <p class="expl">Subtracting an interval is the portable form. In PostgreSQL and MySQL, CURRENT_DATE - 1 also works because a DATE minus an integer subtracts days.</p>
+          <p class="tags"><span>INTERVAL</span><span>Date arithmetic</span></p>
+        </div>
+      </article>
+      <article class="q" id="q19">
+        <p class="q-head"><span class="q-num">Q19.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does EXTRACT(EPOCH FROM interval) give in PostgreSQL?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The interval expressed in total SECONDS</li>
+          <li><span class="opt-key">B</span> The year</li>
+          <li><span class="opt-key">C</span> The month name</li>
+          <li><span class="opt-key">D</span> An error</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The interval expressed in total SECONDS</p>
+          <p class="expl">EPOCH converts an interval or timestamp to seconds - useful for computing precise durations like average response time: EXTRACT(EPOCH FROM (ended - started)).</p>
+          <p class="tags"><span>EPOCH</span><span>Duration</span></p>
+        </div>
+      </article>
+      <article class="q" id="q20">
+        <p class="q-head"><span class="q-num">Q20.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you get the last day of a month?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> LAST_DAY(date) in MySQL/Oracle, or date-arithmetic with DATE_TRUNC in PostgreSQL</li>
+          <li><span class="opt-key">B</span> MONTH_END(date)</li>
+          <li><span class="opt-key">C</span> date + 30</li>
+          <li><span class="opt-key">D</span> FINAL_DAY(date)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — LAST_DAY(date) in MySQL/Oracle, or date-arithmetic with DATE_TRUNC in PostgreSQL</p>
+          <p class="expl">LAST_DAY handles varying month lengths and leap years automatically. In PostgreSQL: (DATE_TRUNC('month', d) + INTERVAL '1 month - 1 day').</p>
+          <p class="tags"><span>LAST_DAY</span><span>Month boundaries</span></p>
+        </div>
+      </article>
+      <article class="q" id="q22">
+        <p class="q-head"><span class="q-num">Q22.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How would you count orders per weekday name?</p>
+        <pre class="code"><code>SELECT TO_CHAR(order_date, 'Day') AS weekday, COUNT(*)
+FROM orders GROUP BY 1;</code></pre>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> GROUP BY the weekday using TO_CHAR(date, 'Day') or DAYNAME(date)</li>
+          <li><span class="opt-key">B</span> GROUP BY date</li>
+          <li><span class="opt-key">C</span> GROUP BY hour</li>
+          <li><span class="opt-key">D</span> It cannot be done</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — GROUP BY the weekday using TO_CHAR(date, 'Day') or DAYNAME(date)</p>
+          <p class="expl">Extract the weekday name (or number) and group by it. To order Monday-Sunday correctly, group by the numeric day of week and format the label separately.</p>
+          <p class="tags"><span>Weekday</span><span>GROUP BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q24">
+        <p class="q-head"><span class="q-num">Q24.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">What does DATE_TRUNC('hour', ts) do?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Rounds the timestamp DOWN to the start of the hour (minutes and seconds become 0)</li>
+          <li><span class="opt-key">B</span> Rounds to the nearest hour</li>
+          <li><span class="opt-key">C</span> Returns the hour number only</li>
+          <li><span class="opt-key">D</span> Adds an hour</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Rounds the timestamp DOWN to the start of the hour (minutes and seconds become 0)</p>
+          <p class="expl">Truncation always rounds down, making it perfect for bucketing events into hourly (or minutely) intervals for time-series charts.</p>
+          <p class="tags"><span>DATE_TRUNC</span><span>Time series</span></p>
+        </div>
+      </article>
+      <article class="q" id="q26">
+        <p class="q-head"><span class="q-num">Q26.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you extract the hour from a timestamp?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> EXTRACT(HOUR FROM ts) or HOUR(ts)</li>
+          <li><span class="opt-key">B</span> ts.hour</li>
+          <li><span class="opt-key">C</span> GET_HOUR(ts)</li>
+          <li><span class="opt-key">D</span> TIMEPART(ts)</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — EXTRACT(HOUR FROM ts) or HOUR(ts)</p>
+          <p class="expl">Extracting the hour is common for finding peak-traffic times: GROUP BY EXTRACT(HOUR FROM created_at) to see activity by hour of day.</p>
+          <p class="tags"><span>EXTRACT</span><span>HOUR</span></p>
+        </div>
+      </article>
+      <article class="q" id="q28">
+        <p class="q-head"><span class="q-num">Q28.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">How do you find records from the current year?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE order_date &gt;= DATE_TRUNC('year', CURRENT_DATE)</li>
+          <li><span class="opt-key">B</span> WHERE YEAR(order_date) = THIS_YEAR</li>
+          <li><span class="opt-key">C</span> WHERE order_date = 2026</li>
+          <li><span class="opt-key">D</span> WHERE order_date CONTAINS 2026</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE order_date &gt;= DATE_TRUNC('year', CURRENT_DATE)</p>
+          <p class="expl">Truncating today's date to the year gives January 1st, and comparing with &gt;= keeps the index usable - better than wrapping the column in YEAR().</p>
+          <p class="tags"><span>DATE_TRUNC</span><span>Sargability</span></p>
+        </div>
+      </article>
+      <article class="q" id="q30">
+        <p class="q-head"><span class="q-num">Q30.</span> <span class="badge badge-medium">medium</span></p>
+        <p class="q-text">Which is the safest, most portable literal for a specific date-time?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> '2026-07-04 14:30:00' - ISO format, understood everywhere</li>
+          <li><span class="opt-key">B</span> 'July 4 2026 2:30pm'</li>
+          <li><span class="opt-key">C</span> '04-07-26'</li>
+          <li><span class="opt-key">D</span> '7/4/26 14:30'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — '2026-07-04 14:30:00' - ISO format, understood everywhere</p>
+          <p class="expl">ISO 8601 (YYYY-MM-DD HH:MM:SS) is unambiguous and sorts correctly. The other formats depend on locale settings and are a frequent source of silent misreads.</p>
+          <p class="tags"><span>ISO 8601</span><span>Literals</span></p>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2 id="hard">Hard questions (11)</h2>
+      <article class="q" id="q6">
+        <p class="q-head"><span class="q-num">Q6.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why does 'WHERE order_date = '2026-07-04'' sometimes miss rows?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> If the column stores a time too, only rows at exactly midnight match; use a date range instead</li>
+          <li><span class="opt-key">B</span> The date format is wrong</li>
+          <li><span class="opt-key">C</span> Dates cannot be compared with =</li>
+          <li><span class="opt-key">D</span> It never misses rows</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — If the column stores a time too, only rows at exactly midnight match; use a date range instead</p>
+          <p class="expl">A DATETIME of 2026-07-04 14:30 is not equal to 2026-07-04 00:00. Use a half-open range: order_date &gt;= '2026-07-04' AND order_date &lt; '2026-07-05'.</p>
+          <ul class="notes"><li>One of the most common real-world SQL bugs.</li></ul>
+          <p class="tags"><span>DATETIME</span><span>Ranges</span><span>Gotchas</span></p>
+        </div>
+      </article>
+      <article class="q" id="q8">
+        <p class="q-head"><span class="q-num">Q8.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you group sales by month correctly across multiple years?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> GROUP BY DATE_TRUNC('month', sale_date) - keeps year and month together</li>
+          <li><span class="opt-key">B</span> GROUP BY MONTH(sale_date) - merges same months across years</li>
+          <li><span class="opt-key">C</span> GROUP BY sale_date</li>
+          <li><span class="opt-key">D</span> GROUP BY YEAR(sale_date) only</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — GROUP BY DATE_TRUNC('month', sale_date) - keeps year and month together</p>
+          <p class="expl">GROUP BY MONTH() alone would merge January 2025 and January 2026 into one bucket. DATE_TRUNC (or grouping by both YEAR and MONTH) keeps them separate.</p>
+          <p class="tags"><span>DATE_TRUNC</span><span>GROUP BY</span></p>
+        </div>
+      </article>
+      <article class="q" id="q11">
+        <p class="q-head"><span class="q-num">Q11.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why is storing timestamps in UTC recommended?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> It avoids ambiguity across timezones and daylight-saving changes; convert to local time only for display</li>
+          <li><span class="opt-key">B</span> UTC is faster to store</li>
+          <li><span class="opt-key">C</span> Local time never changes</li>
+          <li><span class="opt-key">D</span> It uses less space</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — It avoids ambiguity across timezones and daylight-saving changes; convert to local time only for display</p>
+          <p class="expl">Storing local times means a value can be ambiguous (a clock hour can occur twice) or missing (during a spring-forward). UTC is a single monotonic reference; format it per-user at display time.</p>
+          <p class="tags"><span>UTC</span><span>Timezones</span><span>Best practices</span></p>
+        </div>
+      </article>
+      <article class="q" id="q14">
+        <p class="q-head"><span class="q-num">Q14.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why avoid WHERE YEAR(order_date) = 2026 on a large table?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> The function on the column blocks index usage; use a date range instead</li>
+          <li><span class="opt-key">B</span> YEAR() is inaccurate</li>
+          <li><span class="opt-key">C</span> It returns duplicates</li>
+          <li><span class="opt-key">D</span> There is no downside</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — The function on the column blocks index usage; use a date range instead</p>
+          <p class="expl">Rewrite as order_date &gt;= '2026-01-01' AND order_date &lt; '2027-01-01'. The range compares the raw column, so an index can seek directly to the matching rows.</p>
+          <p class="tags"><span>Sargability</span><span>Indexes</span></p>
+        </div>
+      </article>
+      <article class="q" id="q16">
+        <p class="q-head"><span class="q-num">Q16.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is the difference between TIMESTAMP and TIMESTAMPTZ (PostgreSQL)?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> TIMESTAMPTZ is timezone-aware and stores an absolute instant; TIMESTAMP stores a 'wall clock' with no zone</li>
+          <li><span class="opt-key">B</span> They are identical</li>
+          <li><span class="opt-key">C</span> TIMESTAMPTZ cannot store time</li>
+          <li><span class="opt-key">D</span> TIMESTAMP is newer</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — TIMESTAMPTZ is timezone-aware and stores an absolute instant; TIMESTAMP stores a 'wall clock' with no zone</p>
+          <p class="expl">TIMESTAMPTZ converts input to UTC on storage and back to the session zone on display. For anything user-facing across regions, TIMESTAMPTZ is usually the right choice.</p>
+          <p class="tags"><span>TIMESTAMPTZ</span><span>Timezones</span></p>
+        </div>
+      </article>
+      <article class="q" id="q18">
+        <p class="q-head"><span class="q-num">Q18.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you find records created 'today' regardless of time?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> WHERE created_at &gt;= CURRENT_DATE AND created_at &lt; CURRENT_DATE + INTERVAL '1 day'</li>
+          <li><span class="opt-key">B</span> WHERE created_at = CURRENT_DATE</li>
+          <li><span class="opt-key">C</span> WHERE DATE(created_at) = TODAY</li>
+          <li><span class="opt-key">D</span> WHERE created_at LIKE '%today%'</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — WHERE created_at &gt;= CURRENT_DATE AND created_at &lt; CURRENT_DATE + INTERVAL '1 day'</p>
+          <p class="expl">The half-open range captures every moment of today while keeping the index usable. Option B fails because a timestamped value rarely equals midnight exactly.</p>
+          <p class="tags"><span>Date ranges</span><span>CURRENT_DATE</span></p>
+        </div>
+      </article>
+      <article class="q" id="q21">
+        <p class="q-head"><span class="q-num">Q21.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What can go wrong comparing a DATE column to a string literal?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Implicit conversion depends on locale/format settings and can misread the date or block the index</li>
+          <li><span class="opt-key">B</span> Nothing ever goes wrong</li>
+          <li><span class="opt-key">C</span> It always errors</li>
+          <li><span class="opt-key">D</span> Strings are always faster</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Implicit conversion depends on locale/format settings and can misread the date or block the index</p>
+          <p class="expl">Always use ISO format 'YYYY-MM-DD', which every database interprets unambiguously. Ambiguous forms like '04/07/2026' may be read as April 7 or July 4.</p>
+          <p class="tags"><span>Implicit conversion</span><span>ISO 8601</span></p>
+        </div>
+      </article>
+      <article class="q" id="q23">
+        <p class="q-head"><span class="q-num">Q23.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you compute a running date range for 'this quarter'?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> DATE_TRUNC('quarter', CURRENT_DATE) for the start, plus INTERVAL '3 months' for the end</li>
+          <li><span class="opt-key">B</span> QUARTER(CURRENT_DATE)</li>
+          <li><span class="opt-key">C</span> CURRENT_DATE / 4</li>
+          <li><span class="opt-key">D</span> It is impossible</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — DATE_TRUNC('quarter', CURRENT_DATE) for the start, plus INTERVAL '3 months' for the end</p>
+          <p class="expl">DATE_TRUNC supports 'quarter', giving the first day of the current quarter. Add three months for a clean half-open upper bound.</p>
+          <p class="tags"><span>DATE_TRUNC</span><span>Quarters</span></p>
+        </div>
+      </article>
+      <article class="q" id="q25">
+        <p class="q-head"><span class="q-num">Q25.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">Why can date arithmetic across daylight-saving boundaries surprise you?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Adding '1 day' vs '24 hours' can differ, because a DST day has 23 or 25 hours</li>
+          <li><span class="opt-key">B</span> Dates never change length</li>
+          <li><span class="opt-key">C</span> SQL ignores DST always</li>
+          <li><span class="opt-key">D</span> It only affects leap years</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Adding '1 day' vs '24 hours' can differ, because a DST day has 23 or 25 hours</p>
+          <p class="expl">With timezone-aware types, '+ INTERVAL 1 day' keeps the same wall-clock time, while '+ INTERVAL 24 hours' adds exactly 24 hours. Know which you need for scheduling.</p>
+          <p class="tags"><span>DST</span><span>Timezones</span></p>
+        </div>
+      </article>
+      <article class="q" id="q27">
+        <p class="q-head"><span class="q-num">Q27.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">What is a common way to store dates that avoids timezone issues entirely?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> Use a plain DATE type when time-of-day is irrelevant (e.g. a birthday or invoice date)</li>
+          <li><span class="opt-key">B</span> Always store as text</li>
+          <li><span class="opt-key">C</span> Store as an integer offset</li>
+          <li><span class="opt-key">D</span> Never store dates</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — Use a plain DATE type when time-of-day is irrelevant (e.g. a birthday or invoice date)</p>
+          <p class="expl">A birthday has no meaningful time or timezone, so a DATE is correct and simplest. Reserve timezone-aware timestamps for genuine instants like 'order placed at'.</p>
+          <p class="tags"><span>DATE</span><span>Modelling</span></p>
+        </div>
+      </article>
+      <article class="q" id="q29">
+        <p class="q-head"><span class="q-num">Q29.</span> <span class="badge badge-hard">hard</span></p>
+        <p class="q-text">How do you calculate business days between two dates?</p>
+        <ol class="opts" type="A">
+          <li class="correct"><span class="opt-key">A</span> There is no built-in function - you count days and subtract weekends (and holidays) with a calendar table or a generated series</li>
+          <li><span class="opt-key">B</span> BUSINESS_DAYS(a, b)</li>
+          <li><span class="opt-key">C</span> DATEDIFF handles it automatically</li>
+          <li><span class="opt-key">D</span> It is impossible in SQL</li>
+        </ol>
+        <div class="ans">
+          <p><strong>Answer: A</strong> — There is no built-in function - you count days and subtract weekends (and holidays) with a calendar table or a generated series</p>
+          <p class="expl">Most databases lack a business-day function. The robust approach is a 'calendar' or 'dim_date' table flagging weekends and holidays, then joining and counting working days.</p>
+          <p class="tags"><span>Calendar table</span><span>Business days</span></p>
+        </div>
+      </article>
+    </section>
+    <nav class="pager">
+      <a href="09-string-functions.html">← String Functions</a>
+      <a href="11-inner-join.html">INNER JOIN →</a>
+    </nav>
+    <p class="cta"><a class="btn" href="../../index.html#quiz-2-9">Practice “Date &amp; Time Functions” as a quiz</a></p>
+  </main>
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>🎓 Velnov — learn any subject, one question at a time.</p>
+      <p><a href="../../about.html">About Velnov</a> · <a href="../../contact.html">Contact</a> · <a href="../../privacy.html">Privacy Policy</a> · <a href="../../terms.html">Terms of Use</a></p>
+    </div>
+  </footer>
+</body>
+</html>
