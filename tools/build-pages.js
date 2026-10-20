@@ -107,7 +107,7 @@ function page({ rel, title, description, body, ads = true, jsonLd }) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="${up}css/study.css?v=1" />
+  <link rel="stylesheet" href="${up}css/study.css?v=2" />
 ${ads ? `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>\n` : ''}${jsonLd ? `  <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>\n` : ''}</head>
 <body>
   <header class="site-head">
@@ -166,30 +166,49 @@ ${notes.length ? `          <ul class="notes">${notes.map((x) => `<li>${esc(x)}<
       </article>`;
 }
 
-/* ---------- "Topic overview": short study notes above the questions ---------- */
-// n = { topic, intro, ideas: [{ h, p: [..] }], terms: [[term, meaning]], examples: [..], mistakes: [..] }
+/* ---------- "Topic overview": study notes above the questions ---------- */
+// Layout: numbered sections, each a definition followed by examples, then
+// misconceptions, quick revision, test-yourself questions and a key takeaway.
+// The format is described at the top of data/notes/physics.js.
+const fmt = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');   // **bold** only
+const li = (xs) => xs.filter(Boolean).map((x) => `<li>${fmt(x)}</li>`).join('');
+
+function noteBlock(b) {
+  if (typeof b === 'string') return `      <p>${fmt(b)}</p>`;
+  if (b.examples) {
+    const xs = b.examples.filter(Boolean);
+    return xs.length === 1
+      ? `      <p class="ov-eg"><strong>Example:</strong> ${fmt(xs[0])}</p>`
+      : `      <div class="ov-eg"><p><strong>Examples:</strong></p><ul>${li(xs)}</ul></div>`;
+  }
+  if (b.list) return `      <ul class="ov-list">${li(b.list)}</ul>`;
+  if (b.remember) return `      <p class="ov-remember"><strong>Remember:</strong> ${fmt(b.remember)}</p>`;
+  if (b.key) return `      <p class="ov-key">${fmt(b.key)}</p>`;
+  if (b.h) return `      <h4>${fmt(b.h)}</h4>\n${(b.blocks || []).map(noteBlock).join('\n')}`;
+  throw new Error(`notes: unknown block ${JSON.stringify(b).slice(0, 80)}`);
+}
+
 function overviewHtml(n, footnote) {
-  const paras = (list) => (list || []).filter(Boolean).map((x) => `      <p>${esc(x)}</p>`).join('\n');
-  const parts = [`      <p class="ov-intro">${esc(n.intro)}</p>`];
-  (n.ideas || []).forEach((s) => parts.push(`      <h3>${esc(s.h)}</h3>\n${paras(s.p)}`));
-  if (n.terms && n.terms.length) {
-    parts.push(`      <h3>Words to know</h3>
-      <dl class="terms">
-${n.terms.map(([t, d]) => `        <div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join('\n')}
-      </dl>`);
-  }
-  if (n.examples && n.examples.length) parts.push(`      <h3>In everyday life</h3>\n${paras(n.examples)}`);
-  if (n.mistakes && n.mistakes.length) {
-    parts.push(`      <h3>Common mistakes</h3>
-      <ul class="mistakes">
-${n.mistakes.map((x) => `        <li>${esc(x)}</li>`).join('\n')}
-      </ul>`);
-  }
-  if (footnote) parts.push(`      <p class="ov-foot">${esc(footnote)}</p>`);
+  const secs = (n.sections || []).map((s) => ({ h: s.h, html: (s.blocks || []).map(noteBlock).join('\n') }));
+  if (n.misconceptions?.length) secs.push({ h: 'Common misconceptions', html: `      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+${n.misconceptions.map(([w, r]) => `          <tr><td>${fmt(w)}</td><td>${fmt(r)}</td></tr>`).join('\n')}
+        </tbody>
+      </table>` });
+  if (n.revision?.length) secs.push({ h: 'Quick revision', html: `      <dl class="terms">
+${n.revision.map(([t, d]) => `        <div><dt>${fmt(t)}</dt><dd>${fmt(d)}</dd></div>`).join('\n')}
+      </dl>` });
+  if (n.questions?.length) secs.push({ h: 'Test your understanding', html: `      <ol class="ov-quiz">
+${n.questions.map(([q, a]) => `        <li><p>${fmt(q)}</p><details><summary>Show answer</summary><p>${fmt(a)}</p></details></li>`).join('\n')}
+      </ol>` });
+
   return `    <section class="overview" id="overview">
-      <h2>Topic overview</h2>
-${parts.join('\n')}
-    </section>\n`;
+      <p class="ov-kicker">Topic overview</p>
+      <h2>${fmt(n.title || 'Topic overview')}</h2>
+${n.intro ? `      <p class="ov-intro">${fmt(n.intro)}</p>\n` : ''}      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> ${secs.map((s, i) => `<a href="#ov-${i + 1}">${fmt(s.h)}</a>`).join(' · ')}</nav>
+${secs.map((s, i) => `      <h3 id="ov-${i + 1}">${i + 1}. ${fmt(s.h)}</h3>\n${s.html}`).join('\n')}
+${n.takeaway ? `      <p class="ov-takeaway"><strong>Key takeaway:</strong> ${fmt(n.takeaway)}</p>\n` : ''}${footnote ? `      <p class="ov-foot">${fmt(footnote)}</p>\n` : ''}    </section>\n`;
 }
 
 // Catch notes that point at a subject or topic that does not exist (or has moved).
@@ -218,7 +237,7 @@ SUBJECTS.forEach((s, si) => {
     const prev = s.topics[ti - 1], next = s.topics[ti + 1];
     const sn = NOTES[s.subject];
     const note = sn?.topics?.[ti + 1];
-    const hasNote = !!(note && note.intro && (!note.topic || note.topic === name));
+    const hasNote = !!(note && note.sections && (!note.topic || note.topic === name));
     if (hasNote) notedTopics++;
 
     const sections = ['easy', 'medium', 'hard'].map((d) => {
@@ -236,7 +255,7 @@ ${list.map(([q, n]) => questionHtml(q, n)).join('\n')}
       <p class="kicker">${esc(s.icon || '📚')} ${esc(s.subject)} · Topic ${ti + 1} of ${s.topics.length}</p>
       <h1>${esc(name)} — ${esc(s.subject)} Questions with Answers</h1>
       <p class="lead">${hasNote
-        ? `Start with a short overview of the key ideas in <strong>${esc(name)}</strong>, then work through ${plural(qs.length, 'practice question')}, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-${si}-${ti}">take this topic as an interactive quiz</a> to test yourself.`
+        ? `Start with the study notes on <strong>${esc(name)}</strong> (definitions, examples and a quick revision), then work through ${plural(qs.length, 'practice question')}, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-${si}-${ti}">take this topic as an interactive quiz</a> to test yourself.`
         : `${plural(qs.length, 'practice question')} on <strong>${esc(name)}</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-${si}-${ti}">take this topic as an interactive quiz</a> to test yourself.`}</p>
       <p class="meta">${dc.easy} easy · ${dc.medium} medium · ${dc.hard} hard · Part of <a href="./">${esc(s.subject)}</a>: ${esc(s.description || '')}</p>
     </header>
@@ -255,7 +274,7 @@ ${sections}
       rel, ads, body,
       title: `${name} – ${s.subject} Questions and Answers with Explanations | Velnov`,
       description: hasNote
-        ? `${name} (${s.subject}) study notes: the key ideas, words to know and common mistakes, plus ${qs.length} practice questions with answers and explanations.`
+        ? `${name} (${s.subject}) study notes with definitions, examples, common misconceptions and quick revision, plus ${qs.length} practice questions with answers and explanations.`
         : `${qs.length} ${s.subject} practice questions on ${name} with answers and detailed explanations — ${dc.easy} easy, ${dc.medium} medium and ${dc.hard} hard.`,
       jsonLd: breadcrumbLd([['/learn/', 'Study Notes'], [`/learn/${sSlug}/`, s.subject], ['/' + rel, name]]),
     }));
