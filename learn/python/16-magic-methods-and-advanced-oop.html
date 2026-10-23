@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Magic Methods &amp; Advanced OOP – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Magic Methods &amp; Advanced OOP with answers and detailed explanations — 4 easy, 14 medium and 12 hard." />
+  <meta name="description" content="Magic Methods &amp; Advanced OOP (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/16-magic-methods-and-advanced-oop.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Magic Methods &amp; Advanced OOP – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Magic Methods &amp; Advanced OOP with answers and detailed explanations — 4 easy, 14 medium and 12 hard." />
+  <meta property="og:description" content="Magic Methods &amp; Advanced OOP (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/16-magic-methods-and-advanced-oop.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Magic Methods & Advanced OOP","item":"https://velnov.co.in/learn/python/16-magic-methods-and-advanced-oop.html"}]}</script>
 </head>
@@ -36,9 +36,180 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 16 of 20</p>
       <h1>Magic Methods &amp; Advanced OOP — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Magic Methods &amp; Advanced OOP</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-15">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Magic Methods &amp; Advanced OOP</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-15">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">4 easy · 14 medium · 12 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Magic Methods and Advanced OOP – making objects feel built-in</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">What are magic methods?</a> · <a href="#ov-2">__str__ and __repr__</a> · <a href="#ov-3">Operators: __add__, __eq__, __lt__</a> · <a href="#ov-4">Containers: __len__, __getitem__, __contains__</a> · <a href="#ov-5">Callable objects: __call__</a> · <a href="#ov-6">Private by convention</a> · <a href="#ov-7">@property and setters</a> · <a href="#ov-8">@staticmethod and @classmethod</a> · <a href="#ov-9">__new__, singletons and dataclasses</a> · <a href="#ov-10">Common misconceptions</a> · <a href="#ov-11">Quick revision</a> · <a href="#ov-12">Test your understanding</a></nav>
+      <h3 id="ov-1">1. What are magic methods?</h3>
+      <p><strong>Magic methods</strong> (or <strong>dunder</strong> methods, for “double underscore”) have names like <code class="ic">__str__</code> and <code class="ic">__len__</code>. Python calls them automatically: <code class="ic">print(obj)</code> calls <code class="ic">__str__</code>, <code class="ic">len(obj)</code> calls <code class="ic">__len__</code>, and <code class="ic">a + b</code> calls <code class="ic">__add__</code>.</p>
+      <h3 id="ov-2">2. __str__ and __repr__</h3>
+      <ul class="ov-list"><li><code class="ic">__str__</code> is the <strong>friendly</strong> text for users, used by <code class="ic">print()</code>, <code class="ic">str()</code> and f-strings.</li><li><code class="ic">__repr__</code> is the <strong>developer</strong> view, used in the shell and <strong>inside lists</strong>. By convention it looks like the code that recreates the object.</li></ul>
+      <pre class="code"><code>class Book:
+    def __init__(self, title):
+        self.title = title
+    def __str__(self):
+        return f&quot;Book: {self.title}&quot;
+    def __repr__(self):
+        return f&quot;Book({self.title!r})&quot;
+
+b = Book(&quot;Dune&quot;)
+print(b)
+print([b])</code></pre>
+      <pre class="ov-out"><span>Output</span>Book: Dune
+[Book('Dune')]</pre>
+      <p class="ov-remember"><strong>Remember:</strong> If you define only one, define <code class="ic">__repr__</code>; <code class="ic">str()</code> falls back to it.</p>
+      <h3 id="ov-3">3. Operators: __add__, __eq__, __lt__</h3>
+      <p>Defining these lets your objects work with <code class="ic">+</code>, <code class="ic">==</code> and <code class="ic">&lt;</code>. This is called <strong>operator overloading</strong>. A single <code class="ic">__lt__</code> also makes <code class="ic">sorted()</code> work.</p>
+      <pre class="code"><code>class Vector:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+    def __eq__(self, other):
+        return (self.x, self.y) == (other.x, other.y)
+    def __lt__(self, other):
+        return self.x &lt; other.x
+    def __repr__(self):
+        return f&quot;Vector({self.x}, {self.y})&quot;
+
+print(Vector(1, 2) + Vector(3, 4))
+print(Vector(1, 2) == Vector(1, 2))
+print(sorted([Vector(5, 0), Vector(2, 0)]))</code></pre>
+      <pre class="ov-out"><span>Output</span>Vector(4, 6)
+True
+[Vector(2, 0), Vector(5, 0)]</pre>
+      <p class="ov-eg"><strong>Example:</strong> <code class="ic">__rmul__</code> handles your object on the <strong>right</strong> side, so that <code class="ic">3 * v</code> works as well as <code class="ic">v * 3</code>.</p>
+      <h3 id="ov-4">4. Containers: __len__, __getitem__, __contains__</h3>
+      <pre class="code"><code>class Playlist:
+    def __init__(self, songs):
+        self.songs = songs
+    def __len__(self):
+        return len(self.songs)
+    def __getitem__(self, i):
+        return self.songs[i]
+    def __contains__(self, song):
+        return song in self.songs
+
+p = Playlist([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])
+print(len(p), p[1], &quot;b&quot; in p)
+print(bool(Playlist([])))     # empty, because __len__ is 0</code></pre>
+      <pre class="ov-out"><span>Output</span>3 b True
+False</pre>
+      <h3 id="ov-5">5. Callable objects: __call__</h3>
+      <p><code class="ic">__call__</code> lets you call an object like a function.</p>
+      <pre class="code"><code>class Greeter:
+    def __init__(self, greeting):
+        self.greeting = greeting
+    def __call__(self, name):
+        return f&quot;{self.greeting} {name}&quot;
+
+hello = Greeter(&quot;Hi&quot;)
+print(hello(&quot;Ana&quot;))</code></pre>
+      <pre class="ov-out"><span>Output</span>Hi Ana</pre>
+      <h3 id="ov-6">6. Private by convention</h3>
+      <ul class="ov-list"><li><code class="ic">_balance</code> (one underscore) means “internal, please don't touch”. It is only a convention.</li><li><code class="ic">__pin</code> (two underscores) triggers <strong>name mangling</strong>: Python renames it to <code class="ic">_Account__pin</code>.</li><li>Python has <strong>no truly private</strong> attributes.</li></ul>
+      <pre class="code"><code>class Account:
+    def __init__(self):
+        self.__pin = 1234
+
+a = Account()
+print(hasattr(a, &quot;__pin&quot;), a._Account__pin)</code></pre>
+      <pre class="ov-out"><span>Output</span>False 1234</pre>
+      <h3 id="ov-7">7. @property and setters</h3>
+      <p><code class="ic">@property</code> turns a method into a <strong>computed attribute</strong>, read without brackets. A matching <strong>setter</strong> can check values when they are assigned.</p>
+      <pre class="code"><code>class Circle:
+    def __init__(self, r):
+        self.r = r
+    @property
+    def area(self):
+        return round(3.14159 * self.r ** 2, 2)
+
+class Person:
+    @property
+    def age(self):
+        return self._age
+    @age.setter
+    def age(self, value):
+        if value &lt; 0:
+            raise ValueError(&quot;age can't be negative&quot;)
+        self._age = value
+
+print(Circle(2).area)
+p = Person()
+p.age = 30
+print(p.age)</code></pre>
+      <pre class="ov-out"><span>Output</span>12.57
+30</pre>
+      <h3 id="ov-8">8. @staticmethod and @classmethod</h3>
+      <ul class="ov-list"><li>A <strong>normal method</strong> receives <code class="ic">self</code>, the object.</li><li>A <strong>classmethod</strong> receives <code class="ic">cls</code>, the class. It is often used as an <strong>alternative constructor</strong>.</li><li>A <strong>staticmethod</strong> receives nothing automatically; it is just a function kept inside the class.</li></ul>
+      <pre class="code"><code>class Date:
+    def __init__(self, d, m, y):
+        self.d, self.m, self.y = d, m, y
+    @classmethod
+    def from_string(cls, text):
+        d, m, y = map(int, text.split(&quot;-&quot;))
+        return cls(d, m, y)
+    @staticmethod
+    def is_leap(year):
+        return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+
+date = Date.from_string(&quot;03-07-2026&quot;)
+print(date.y, Date.is_leap(2024))</code></pre>
+      <pre class="ov-out"><span>Output</span>2026 True</pre>
+      <h3 id="ov-9">9. __new__, singletons and dataclasses</h3>
+      <ul class="ov-list"><li><code class="ic">__new__</code> <strong>creates</strong> the object, then <code class="ic">__init__</code> <strong>sets it up</strong>. You rarely need <code class="ic">__new__</code>, except for things like a <strong>singleton</strong> (a class with only one instance).</li><li><code class="ic">@dataclass</code> writes <code class="ic">__init__</code>, <code class="ic">__repr__</code> and <code class="ic">__eq__</code> for you, from the fields you declare.</li></ul>
+      <pre class="code"><code>from dataclasses import dataclass
+
+@dataclass
+class Point:
+    x: int
+    y: int
+
+p = Point(1, 2)
+print(p)
+print(p == Point(1, 2))</code></pre>
+      <pre class="ov-out"><span>Output</span>Point(x=1, y=2)
+True</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">__enter__</code> and <code class="ic">__exit__</code> make a class work with the <code class="ic">with</code> statement (see Advanced Concepts).</p>
+      <h3 id="ov-10">10. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>print([obj]) uses __str__.</td><td>Lists show their items with __repr__.</td></tr>
+          <tr><td>__pin makes an attribute truly private.</td><td>It is only name-mangled; obj._Class__pin still reaches it.</td></tr>
+          <tr><td>A property needs brackets: c.area().</td><td>A property is read like an attribute: c.area.</td></tr>
+          <tr><td>__init__ creates the object.</td><td>__new__ creates it; __init__ fills in its attributes.</td></tr>
+          <tr><td>You must write getters for every attribute.</td><td>Use plain attributes and add @property only when logic is needed.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-11">11. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Dunder method</dt><dd>Double-underscore method Python calls automatically.</dd></div>
+        <div><dt>__str__</dt><dd>Friendly display for users.</dd></div>
+        <div><dt>__repr__</dt><dd>Developer view; used inside lists.</dd></div>
+        <div><dt>__add__ / __eq__ / __lt__</dt><dd>+ / == / &lt;.</dd></div>
+        <div><dt>__len__ / __getitem__</dt><dd>len(obj) / obj[i].</dd></div>
+        <div><dt>@property</dt><dd>A method read like an attribute.</dd></div>
+        <div><dt>@classmethod</dt><dd>Receives the class (cls); alternative constructors.</dd></div>
+        <div><dt>@dataclass</dt><dd>Writes __init__, __repr__ and __eq__ for you.</dd></div>
+      </dl>
+      <h3 id="ov-12">12. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>Which method controls what print(obj) shows?</p><details><summary>Show answer</summary><p>__str__</p></details></li>
+        <li><p>Why does print([obj]) look different from print(obj)?</p><details><summary>Show answer</summary><p>Lists use __repr__ for their items.</p></details></li>
+        <li><p>Which method makes v1 + v2 work?</p><details><summary>Show answer</summary><p>__add__</p></details></li>
+        <li><p>Which method makes len(obj) work?</p><details><summary>Show answer</summary><p>__len__</p></details></li>
+        <li><p>What does a single leading underscore (_x) mean?</p><details><summary>Show answer</summary><p>Internal by convention; not enforced.</p></details></li>
+        <li><p>What does @property do?</p><details><summary>Show answer</summary><p>Lets you read a computed value without brackets, like an attribute.</p></details></li>
+        <li><p>What does a classmethod receive as its first argument?</p><details><summary>Show answer</summary><p>cls, the class itself.</p></details></li>
+        <li><p>What does @dataclass generate?</p><details><summary>Show answer</summary><p>__init__, __repr__ and __eq__.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Magic methods let your objects work with print, len, +, == and sorting; properties, classmethods and dataclasses keep classes clean.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Dunder methods</span><span>Protocols</span><span>__str__</span><span>print()</span><span>__repr__</span><span>Debugging</span><span>__len__</span><span>__eq__</span><span>Equality</span><span>Operator overloading</span><span>__add__</span><span>__lt__</span><span>sorted()</span><span>total_ordering</span><span>__getitem__</span><span>Indexing</span><span>__contains__</span><span>in operator</span><span>__call__</span><span>Callables</span><span>Encapsulation</span><span>Conventions</span><span>Name mangling</span><span>@property</span></p>

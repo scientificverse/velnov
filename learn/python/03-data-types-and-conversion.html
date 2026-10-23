@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Types &amp; Conversion – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Data Types &amp; Conversion with answers and detailed explanations — 13 easy, 12 medium and 5 hard." />
+  <meta name="description" content="Data Types &amp; Conversion (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/03-data-types-and-conversion.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Data Types &amp; Conversion – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Data Types &amp; Conversion with answers and detailed explanations — 13 easy, 12 medium and 5 hard." />
+  <meta property="og:description" content="Data Types &amp; Conversion (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/03-data-types-and-conversion.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Data Types & Conversion","item":"https://velnov.co.in/learn/python/03-data-types-and-conversion.html"}]}</script>
 </head>
@@ -36,9 +36,124 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 3 of 20</p>
       <h1>Data Types &amp; Conversion — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Data Types &amp; Conversion</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-2">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Data Types &amp; Conversion</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-2">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">13 easy · 12 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Data Types and Conversion – what kind of value is it?</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">The basic data types</a> · <a href="#ov-2">Converting between types</a> · <a href="#ov-3">Truthy and falsy values</a> · <a href="#ov-4">bool is a kind of int</a> · <a href="#ov-5">Floats are approximate</a> · <a href="#ov-6">Integers have no size limit</a> · <a href="#ov-7">Checking types: isinstance()</a> · <a href="#ov-8">Common misconceptions</a> · <a href="#ov-9">Quick revision</a> · <a href="#ov-10">Test your understanding</a></nav>
+      <h3 id="ov-1">1. The basic data types</h3>
+      <p>Every value has a <strong>type</strong>, which decides what you can do with it. <code class="ic">type()</code> tells you a value's type.</p>
+      <ul class="ov-list"><li><code class="ic">int</code>: whole numbers, e.g. <code class="ic">5</code>, <code class="ic">-12</code>.</li><li><code class="ic">float</code>: numbers with a decimal point, e.g. <code class="ic">3.14</code>.</li><li><code class="ic">str</code>: text, e.g. <code class="ic">&quot;hello&quot;</code>.</li><li><code class="ic">bool</code>: <code class="ic">True</code> or <code class="ic">False</code> (capital letters).</li><li><code class="ic">NoneType</code>: the single value <code class="ic">None</code>, meaning “no value”.</li><li><code class="ic">complex</code>: numbers like <code class="ic">2 + 3j</code>.</li></ul>
+      <pre class="code"><code>print(type(5))
+print(type(5.0))
+print(type(&quot;5&quot;))
+print(type(True))
+print(type(None))</code></pre>
+      <pre class="ov-out"><span>Output</span>&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;
+&lt;class 'bool'&gt;
+&lt;class 'NoneType'&gt;</pre>
+      <h3 id="ov-2">2. Converting between types</h3>
+      <p><strong>Type conversion</strong> (casting) changes a value into another type with <code class="ic">int()</code>, <code class="ic">float()</code>, <code class="ic">str()</code> or <code class="ic">bool()</code>. Python never mixes strings and numbers on its own.</p>
+      <pre class="code"><code>print(int(&quot;12&quot;) + 3)
+print(str(5) + &quot;5&quot;)
+print(int(3.9))        # cuts off the decimal, does not round
+print(float(&quot;7&quot;))
+print(int(float(&quot;3.5&quot;)))</code></pre>
+      <pre class="ov-out"><span>Output</span>15
+55
+3
+7.0
+3</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">&quot;5&quot; + 5</code> is a <strong>TypeError</strong>, and <code class="ic">int(&quot;3.5&quot;)</code> is a <strong>ValueError</strong>. Convert in two steps: <code class="ic">int(float(&quot;3.5&quot;))</code>.</p>
+      <h4>Mixing int and float</h4>
+      <p>When an int and a float meet in arithmetic, the result is a float.</p>
+      <pre class="code"><code>print(2 + 3.0)
+print(10 == 10.0, type(10) == type(10.0))</code></pre>
+      <pre class="ov-out"><span>Output</span>5.0
+True False</pre>
+      <h3 id="ov-3">3. Truthy and falsy values</h3>
+      <p>In a condition, every value counts as true or false. <strong>Falsy</strong> values are <code class="ic">0</code>, <code class="ic">0.0</code>, <code class="ic">&quot;&quot;</code> (empty string), empty containers (<code class="ic">[]</code>, <code class="ic">{}</code>, <code class="ic">()</code>), <code class="ic">None</code> and <code class="ic">False</code>. Everything else is <strong>truthy</strong>.</p>
+      <pre class="code"><code>print(bool(&quot;&quot;), bool(&quot;hi&quot;))
+print(bool(&quot;False&quot;))     # a non-empty string!
+print(bool(0), bool(-1))
+print(bool([]), bool([0]))</code></pre>
+      <pre class="ov-out"><span>Output</span>False True
+True
+False True
+False True</pre>
+      <h3 id="ov-4">4. bool is a kind of int</h3>
+      <p>In Python, <code class="ic">True</code> behaves like <code class="ic">1</code> and <code class="ic">False</code> like <code class="ic">0</code>. This makes <code class="ic">sum()</code> a quick way to count <code class="ic">True</code> values.</p>
+      <pre class="code"><code>print(True + True)
+print(isinstance(True, int))
+passed = [True, False, True]
+print(sum(passed))</code></pre>
+      <pre class="ov-out"><span>Output</span>2
+True
+2</pre>
+      <h3 id="ov-5">5. Floats are approximate</h3>
+      <p>Floats are stored in binary, so many decimals cannot be stored exactly. <strong>Never compare floats with <code class="ic">==</code></strong>; use <code class="ic">math.isclose()</code>.</p>
+      <pre class="code"><code>import math
+print(0.1 + 0.2)
+print(0.1 + 0.2 == 0.3)
+print(math.isclose(0.1 + 0.2, 0.3))</code></pre>
+      <pre class="ov-out"><span>Output</span>0.30000000000000004
+False
+True</pre>
+      <h3 id="ov-6">6. Integers have no size limit</h3>
+      <p>Python's <code class="ic">int</code> can grow as large as memory allows, so there is no overflow.</p>
+      <pre class="code"><code>print(2 ** 100)
+print(int(&quot;ff&quot;, 16), int(&quot;1010&quot;, 2))   # hex and binary</code></pre>
+      <pre class="ov-out"><span>Output</span>1267650600228229401496703205376
+255 10</pre>
+      <h3 id="ov-7">7. Checking types: isinstance()</h3>
+      <p><code class="ic">isinstance(x, int)</code> is the preferred check. It also accepts subclasses and a tuple of types.</p>
+      <pre class="code"><code>print(isinstance(5, int))
+print(isinstance(5.0, (int, float)))
+x = None
+print(x is None)</code></pre>
+      <pre class="ov-out"><span>Output</span>True
+True
+True</pre>
+      <h3 id="ov-8">8. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>bool(&quot;False&quot;) is False.</td><td>Any non-empty string is truthy, so bool(&quot;False&quot;) is True.</td></tr>
+          <tr><td>int(3.9) rounds to 4.</td><td>int() cuts off the decimal part: int(3.9) is 3.</td></tr>
+          <tr><td>0.1 + 0.2 == 0.3 is True.</td><td>Floats are approximate; use math.isclose().</td></tr>
+          <tr><td>None is the same as 0 or &quot;&quot;.</td><td>None is its own value meaning “nothing”, though it is falsy.</td></tr>
+          <tr><td>&quot;5&quot; + 5 gives 10.</td><td>It is a TypeError; Python never mixes text and numbers automatically.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-9">9. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>int</dt><dd>Whole number.</dd></div>
+        <div><dt>float</dt><dd>Number with a decimal point.</dd></div>
+        <div><dt>str</dt><dd>Text.</dd></div>
+        <div><dt>bool</dt><dd>True or False.</dd></div>
+        <div><dt>None</dt><dd>The “no value” value.</dd></div>
+        <div><dt>Falsy</dt><dd>0, empty string, empty containers, None, False.</dd></div>
+        <div><dt>type()</dt><dd>Tells you a value's type.</dd></div>
+        <div><dt>isinstance()</dt><dd>Checks a type, including subclasses.</dd></div>
+      </dl>
+      <h3 id="ov-10">10. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>What is the type of 5.0?</p><details><summary>Show answer</summary><p>float</p></details></li>
+        <li><p>What does int(&quot;12&quot;) + 3 give?</p><details><summary>Show answer</summary><p>15</p></details></li>
+        <li><p>What does str(5) + &quot;5&quot; give?</p><details><summary>Show answer</summary><p>&quot;55&quot;</p></details></li>
+        <li><p>What does bool(&quot;&quot;) give?</p><details><summary>Show answer</summary><p>False</p></details></li>
+        <li><p>What does True + True give?</p><details><summary>Show answer</summary><p>2</p></details></li>
+        <li><p>Why is 0.1 + 0.2 == 0.3 False?</p><details><summary>Show answer</summary><p>Floats are stored approximately in binary.</p></details></li>
+        <li><p>What error does int(&quot;3.5&quot;) raise?</p><details><summary>Show answer</summary><p>ValueError.</p></details></li>
+        <li><p>Which is better: type(x) == int or isinstance(x, int)?</p><details><summary>Show answer</summary><p>isinstance(x, int): it also accepts subclasses.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Know each value's type, convert explicitly with int(), float() and str(), remember which values are falsy, and never compare floats with ==.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>type()</span><span>Numeric types</span><span>Booleans</span><span>Comparison results</span><span>Type conversion</span><span>int()</span><span>str()</span><span>String concatenation</span><span>TypeError</span><span>round()</span><span>Truncation</span><span>Division</span><span>Floor division</span><span>isinstance()</span><span>Introspection</span><span>Truthiness</span><span>bool()</span><span>Common gotchas</span><span>Type promotion</span><span>Mixed arithmetic</span><span>ValueError</span><span>float()</span><span>None</span><span>is operator</span></p>

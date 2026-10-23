@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dictionaries &amp; Sets – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Dictionaries &amp; Sets with answers and detailed explanations — 10 easy, 15 medium and 5 hard." />
+  <meta name="description" content="Dictionaries &amp; Sets (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/08-dictionaries-and-sets.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Dictionaries &amp; Sets – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Dictionaries &amp; Sets with answers and detailed explanations — 10 easy, 15 medium and 5 hard." />
+  <meta property="og:description" content="Dictionaries &amp; Sets (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/08-dictionaries-and-sets.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Dictionaries & Sets","item":"https://velnov.co.in/learn/python/08-dictionaries-and-sets.html"}]}</script>
 </head>
@@ -36,9 +36,140 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 8 of 20</p>
       <h1>Dictionaries &amp; Sets — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Dictionaries &amp; Sets</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-7">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Dictionaries &amp; Sets</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-7">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">10 easy · 15 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Dictionaries and Sets – lookups by key and unique values</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Dictionaries</a> · <a href="#ov-2">Missing keys: [] vs get()</a> · <a href="#ov-3">Looping over a dictionary</a> · <a href="#ov-4">Removing and merging</a> · <a href="#ov-5">The counting pattern</a> · <a href="#ov-6">Nested dictionaries and keys</a> · <a href="#ov-7">Sets</a> · <a href="#ov-8">Set operations</a> · <a href="#ov-9">Why sets are useful</a> · <a href="#ov-10">Common misconceptions</a> · <a href="#ov-11">Quick revision</a> · <a href="#ov-12">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Dictionaries</h3>
+      <p>A <strong>dictionary</strong> (<code class="ic">dict</code>) stores <strong>key: value</strong> pairs. You look values up <strong>by key</strong>, not by position. Keys are unique.</p>
+      <pre class="code"><code>ages = {&quot;Ana&quot;: 21, &quot;Ben&quot;: 25}
+print(ages[&quot;Ana&quot;])
+ages[&quot;Cy&quot;] = 30        # add a new key
+ages[&quot;Ana&quot;] = 22       # update an existing key
+print(ages)
+print(len(ages))</code></pre>
+      <pre class="ov-out"><span>Output</span>21
+{'Ana': 22, 'Ben': 25, 'Cy': 30}
+3</pre>
+      <h3 id="ov-2">2. Missing keys: [] vs get()</h3>
+      <ul class="ov-list"><li><code class="ic">d[key]</code> raises <strong>KeyError</strong> if the key is missing.</li><li><code class="ic">d.get(key)</code> returns <code class="ic">None</code>, or a default you choose, instead.</li></ul>
+      <pre class="code"><code>ages = {&quot;Ana&quot;: 21}
+print(ages.get(&quot;Zoe&quot;))
+print(ages.get(&quot;Zoe&quot;, 0))
+print(&quot;Ana&quot; in ages, 21 in ages)   # in checks KEYS</code></pre>
+      <pre class="ov-out"><span>Output</span>None
+0
+True False</pre>
+      <h3 id="ov-3">3. Looping over a dictionary</h3>
+      <ul class="ov-list"><li>Looping over a dict directly gives its <strong>keys</strong>.</li><li><code class="ic">.values()</code> gives the values, and <code class="ic">.items()</code> gives (key, value) pairs.</li></ul>
+      <pre class="code"><code>ages = {&quot;Ana&quot;: 21, &quot;Ben&quot;: 25}
+print(list(ages.keys()), list(ages.values()))
+for name, age in ages.items():
+    print(f&quot;{name} is {age}&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>['Ana', 'Ben'] [21, 25]
+Ana is 21
+Ben is 25</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Since Python 3.7, dicts keep keys in the <strong>order you added them</strong>.</p>
+      <h3 id="ov-4">4. Removing and merging</h3>
+      <pre class="code"><code>d = {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3}
+value = d.pop(&quot;a&quot;)     # remove and return the value
+del d[&quot;b&quot;]
+print(value, d)
+x = {&quot;x&quot;: 1, &quot;y&quot;: 2}
+y = {&quot;y&quot;: 99, &quot;z&quot;: 3}
+print(x | y)            # merge (Python 3.9+); right side wins
+x.update(y)
+print(x)</code></pre>
+      <pre class="ov-out"><span>Output</span>1 {'c': 3}
+{'x': 1, 'y': 99, 'z': 3}
+{'x': 1, 'y': 99, 'z': 3}</pre>
+      <h3 id="ov-5">5. The counting pattern</h3>
+      <p>Counting things is one of the most common uses of a dict.</p>
+      <pre class="code"><code>words = [&quot;a&quot;, &quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;a&quot;]
+counts = {}
+for w in words:
+    counts[w] = counts.get(w, 0) + 1
+print(counts)
+
+from collections import Counter
+print(Counter(words).most_common(1))</code></pre>
+      <pre class="ov-out"><span>Output</span>{'a': 3, 'b': 1, 'c': 1}
+[('a', 3)]</pre>
+      <h3 id="ov-6">6. Nested dictionaries and keys</h3>
+      <p>Values can themselves be dicts or lists, which is how JSON data looks. Keys must be <strong>hashable</strong> (immutable): strings, numbers and tuples work, but lists do not.</p>
+      <pre class="code"><code>user = {&quot;name&quot;: &quot;Ana&quot;, &quot;address&quot;: {&quot;city&quot;: &quot;Delhi&quot;}}
+print(user[&quot;address&quot;][&quot;city&quot;])
+grid = {(0, 0): &quot;start&quot;}     # a tuple key is fine
+print(grid[(0, 0)])</code></pre>
+      <pre class="ov-out"><span>Output</span>Delhi
+start</pre>
+      <h3 id="ov-7">7. Sets</h3>
+      <p>A <strong>set</strong> is an <strong>unordered</strong> collection of <strong>unique</strong> values. Duplicates disappear automatically. Sets have no positions, so <code class="ic">s[0]</code> is an error.</p>
+      <pre class="code"><code>s = {1, 2, 2, 3, 3, 3}
+print(s)
+s.add(4)
+s.add(2)          # already there: ignored
+print(s, len(s))
+print(type({}), type(set()))</code></pre>
+      <pre class="ov-out"><span>Output</span>{1, 2, 3}
+{1, 2, 3, 4} 4
+&lt;class 'dict'&gt; &lt;class 'set'&gt;</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">{}</code> is an empty <strong>dict</strong>. An empty set must be written <code class="ic">set()</code>.</p>
+      <h3 id="ov-8">8. Set operations</h3>
+      <ul class="ov-list"><li><code class="ic">a | b</code> <strong>union</strong>: everything in either set.</li><li><code class="ic">a &amp; b</code> <strong>intersection</strong>: only what is in both.</li><li><code class="ic">a - b</code> <strong>difference</strong>: in <code class="ic">a</code> but not in <code class="ic">b</code>.</li><li><code class="ic">a ^ b</code> <strong>symmetric difference</strong>: in one set, but not both.</li></ul>
+      <pre class="code"><code>a = {1, 2, 3}
+b = {2, 3, 4}
+print(a | b, a &amp; b)
+print(a - b, a ^ b)</code></pre>
+      <pre class="ov-out"><span>Output</span>{1, 2, 3, 4} {2, 3}
+{1} {1, 4}</pre>
+      <h3 id="ov-9">9. Why sets are useful</h3>
+      <ul class="ov-list"><li><strong>Removing duplicates:</strong> <code class="ic">list(set(nums))</code>. Use <code class="ic">list(dict.fromkeys(nums))</code> to keep the original order.</li><li><strong>Fast membership:</strong> <code class="ic">x in my_set</code> is almost instant even for millions of items, because sets use <strong>hashing</strong>. A list checks items one by one.</li></ul>
+      <pre class="code"><code>nums = [3, 1, 3, 2, 1]
+print(list(dict.fromkeys(nums)))
+big = set(range(1_000_000))
+print(999_999 in big)</code></pre>
+      <pre class="ov-out"><span>Output</span>[3, 1, 2]
+True</pre>
+      <h3 id="ov-10">10. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>{} creates an empty set.</td><td>{} is an empty dict; use set().</td></tr>
+          <tr><td>21 in ages checks the values.</td><td>in checks keys; use 21 in ages.values().</td></tr>
+          <tr><td>d[key] returns None when the key is missing.</td><td>It raises KeyError; get() returns None.</td></tr>
+          <tr><td>Sets keep items in insertion order and allow s[0].</td><td>Sets are unordered and cannot be indexed.</td></tr>
+          <tr><td>A list can be a dictionary key.</td><td>Keys must be hashable; use a tuple instead.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-11">11. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>dict</dt><dd>Key: value pairs, looked up by key.</dd></div>
+        <div><dt>get()</dt><dd>Safe lookup with an optional default.</dd></div>
+        <div><dt>items()</dt><dd>(key, value) pairs for looping.</dd></div>
+        <div><dt>KeyError</dt><dd>Raised when a key is missing.</dd></div>
+        <div><dt>set</dt><dd>Unordered collection of unique values.</dd></div>
+        <div><dt>Union |</dt><dd>Everything in either set.</dd></div>
+        <div><dt>Intersection &amp;</dt><dd>What is in both sets.</dd></div>
+        <div><dt>Hashable</dt><dd>Can be a key or set item (immutable).</dd></div>
+      </dl>
+      <h3 id="ov-12">12. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>How do you read Ana's age from ages?</p><details><summary>Show answer</summary><p>ages[&quot;Ana&quot;]</p></details></li>
+        <li><p>What does ages.get(&quot;Zoe&quot;, 0) return if Zoe is missing?</p><details><summary>Show answer</summary><p>0</p></details></li>
+        <li><p>What does looping directly over a dict give you?</p><details><summary>Show answer</summary><p>Its keys.</p></details></li>
+        <li><p>How do you loop over keys and values together?</p><details><summary>Show answer</summary><p>for k, v in d.items():</p></details></li>
+        <li><p>How do you create an empty set?</p><details><summary>Show answer</summary><p>set()</p></details></li>
+        <li><p>What is {1, 2, 3} &amp; {2, 3, 4}?</p><details><summary>Show answer</summary><p>{2, 3}</p></details></li>
+        <li><p>How do you remove duplicates from a list?</p><details><summary>Show answer</summary><p>list(set(nums)), or list(dict.fromkeys(nums)) to keep order.</p></details></li>
+        <li><p>Why is x in a set faster than x in a list?</p><details><summary>Show answer</summary><p>Sets use hashing to jump straight to the value.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Use a dict when you look things up by a key, and a set when you need unique values or fast membership tests.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Dictionaries</span><span>Key-value pairs</span><span>Key access</span><span>KeyError</span><span>get()</span><span>Defaults</span><span>Adding keys</span><span>Updating values</span><span>in operator</span><span>values()</span><span>Dict views</span><span>items()</span><span>Iterating dicts</span><span>Unpacking</span><span>Unique keys</span><span>Updating</span><span>Hashability</span><span>Immutability</span><span>Nested dicts</span><span>JSON</span><span>len()</span><span>del</span><span>pop()</span><span>Counting pattern</span></p>

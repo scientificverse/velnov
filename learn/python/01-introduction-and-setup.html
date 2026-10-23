@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction &amp; Setup – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Introduction &amp; Setup with answers and detailed explanations — 18 easy, 10 medium and 2 hard." />
+  <meta name="description" content="Introduction &amp; Setup (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/01-introduction-and-setup.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Introduction &amp; Setup – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Introduction &amp; Setup with answers and detailed explanations — 18 easy, 10 medium and 2 hard." />
+  <meta property="og:description" content="Introduction &amp; Setup (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/01-introduction-and-setup.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Introduction & Setup","item":"https://velnov.co.in/learn/python/01-introduction-and-setup.html"}]}</script>
 </head>
@@ -36,9 +36,112 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 1 of 20</p>
       <h1>Introduction &amp; Setup — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Introduction &amp; Setup</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-0">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Introduction &amp; Setup</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-0">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">18 easy · 10 medium · 2 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Introduction to Python – your first programs</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">What is Python?</a> · <a href="#ov-2">Your first program: print()</a> · <a href="#ov-3">print() options: sep and end</a> · <a href="#ov-4">Escape sequences</a> · <a href="#ov-5">Comments and docstrings</a> · <a href="#ov-6">Indentation defines blocks</a> · <a href="#ov-7">Getting input from the user</a> · <a href="#ov-8">Ways to run Python</a> · <a href="#ov-9">Common misconceptions</a> · <a href="#ov-10">Quick revision</a> · <a href="#ov-11">Test your understanding</a></nav>
+      <h3 id="ov-1">1. What is Python?</h3>
+      <p><strong>Python</strong> is a high-level, <strong>interpreted</strong> programming language created by <strong>Guido van Rossum</strong> and first released in <strong>1991</strong>. It is famous for clear, readable code.</p>
+      <ul class="ov-list"><li>Python files end in <code class="ic">.py</code>, e.g. <code class="ic">hello.py</code>.</li><li>You run a file from the terminal with <code class="ic">python hello.py</code>.</li><li><code class="ic">python --version</code> shows which version is installed.</li><li>Behind the scenes, Python compiles your code to <strong>bytecode</strong> and runs it on the <strong>Python Virtual Machine</strong>. This happens automatically.</li></ul>
+      <p class="ov-eg"><strong>Example:</strong> Python is used for websites, data science, machine learning, automation scripts and teaching programming.</p>
+      <h3 id="ov-2">2. Your first program: print()</h3>
+      <p><code class="ic">print()</code> shows values on the screen. Text must be inside quotes; numbers and calculations need no quotes.</p>
+      <pre class="code"><code>print(&quot;Hello, World!&quot;)
+print(2 + 3)
+print(&quot;2 + 3&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>Hello, World!
+5
+2 + 3</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Quotes mark the start and end of text (a <strong>string</strong>). They are not printed.</p>
+      <h3 id="ov-3">3. print() options: sep and end</h3>
+      <ul class="ov-list"><li><code class="ic">sep</code> sets what goes <strong>between</strong> several values (a space by default).</li><li><code class="ic">end</code> sets what goes <strong>after</strong> the line (a new line by default).</li></ul>
+      <pre class="code"><code>print(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+print(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, sep=&quot;-&quot;)
+print(&quot;Hello&quot;, end=&quot; &quot;)
+print(&quot;World&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>a b c
+a-b-c
+Hello World</pre>
+      <h3 id="ov-4">4. Escape sequences</h3>
+      <p>An <strong>escape sequence</strong> is a backslash code inside a string: <code class="ic">\n</code> means a new line and <code class="ic">\t</code> means a tab.</p>
+      <pre class="code"><code>print(&quot;Hello\nWorld&quot;)
+print(&quot;Name\tAge&quot;)
+print('She said &quot;hi&quot;')</code></pre>
+      <pre class="ov-out"><span>Output</span>Hello
+World
+Name	Age
+She said &quot;hi&quot;</pre>
+      <p class="ov-remember"><strong>Remember:</strong> To print double quotes, wrap the string in single quotes (or the other way round).</p>
+      <h3 id="ov-5">5. Comments and docstrings</h3>
+      <p>A <strong>comment</strong> starts with <code class="ic">#</code>. Python ignores everything after it on that line. A <strong>docstring</strong> is a triple-quoted string right under a function, used as its built-in help.</p>
+      <pre class="code"><code># This line is a comment
+print(&quot;Hi&quot;)  # a comment can follow code
+
+def greet():
+    &quot;&quot;&quot;Print a friendly greeting.&quot;&quot;&quot;
+    print(&quot;Hello&quot;)
+
+greet()</code></pre>
+      <pre class="ov-out"><span>Output</span>Hi
+Hello</pre>
+      <h3 id="ov-6">6. Indentation defines blocks</h3>
+      <p>Python uses <strong>indentation</strong> (spaces at the start of a line) to group code. Lines indented under an <code class="ic">if</code>, loop or function belong to it. Other languages use <code class="ic">{ }</code> for this.</p>
+      <pre class="code"><code>score = 70
+if score &gt; 50:
+    print(&quot;Pass&quot;)    # inside the if
+print(&quot;Done&quot;)        # outside the if</code></pre>
+      <pre class="ov-out"><span>Output</span>Pass
+Done</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Inconsistent spacing gives an <strong>IndentationError</strong>. Use 4 spaces per level.</p>
+      <h3 id="ov-7">7. Getting input from the user</h3>
+      <p><code class="ic">input()</code> shows a prompt, waits for the user to type, and <strong>always returns a string</strong>. Convert it with <code class="ic">int()</code> or <code class="ic">float()</code> to do maths.</p>
+      <pre class="code"><code>name = input(&quot;Your name: &quot;)
+age = int(input(&quot;Your age: &quot;))   # convert text to a number
+print(&quot;Hello&quot;, name, &quot;- next year you will be&quot;, age + 1)</code></pre>
+      <p class="ov-remember"><strong>Remember:</strong> If the user types <code class="ic">hello</code>, <code class="ic">int()</code> fails with a <strong>ValueError</strong>. You will learn to handle that in Error Handling.</p>
+      <h3 id="ov-8">8. Ways to run Python</h3>
+      <ul class="ov-list"><li><strong>Script:</strong> write a <code class="ic">.py</code> file and run <code class="ic">python file.py</code>. Lines run from top to bottom.</li><li><strong>REPL (interactive shell):</strong> type <code class="ic">python</code> and press Enter. You get a <code class="ic">&gt;&gt;&gt;</code> prompt where each line runs immediately; great for experimenting.</li><li><strong>Editors:</strong> IDLE comes with Python; VS Code and PyCharm are popular editors.</li></ul>
+      <div class="ov-eg"><p><strong>Examples:</strong></p><ul><li><code class="ic">help(print)</code> shows the documentation for <code class="ic">print</code>.</li><li><code class="ic">import this</code> prints the <strong>Zen of Python</strong>, e.g. “Readability counts.”</li></ul></div>
+      <p class="ov-remember"><strong>Remember:</strong> A statement ends at the end of the line, so <strong>no semicolons are needed</strong>. Python is <strong>case-sensitive</strong>: <code class="ic">print</code> works, but <code class="ic">Print</code> is a NameError.</p>
+      <h3 id="ov-9">9. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>input() returns a number when the user types digits.</td><td>input() always returns a string; convert it with int() or float().</td></tr>
+          <tr><td>Indentation is just for neatness.</td><td>In Python, indentation is the structure; wrong spacing is an error.</td></tr>
+          <tr><td>Every line must end with a semicolon.</td><td>A new line ends a statement; semicolons are allowed but considered bad style.</td></tr>
+          <tr><td>Print and print are the same.</td><td>Python is case-sensitive; only print exists.</td></tr>
+          <tr><td>Python is too slow to be compiled at all.</td><td>Python compiles to bytecode automatically and runs it on the Python Virtual Machine.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-10">10. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Interpreter</dt><dd>Runs Python code line by line.</dd></div>
+        <div><dt>print()</dt><dd>Shows values on the screen.</dd></div>
+        <div><dt>input()</dt><dd>Reads what the user types, as a string.</dd></div>
+        <div><dt>Comment</dt><dd>Text after # that Python ignores.</dd></div>
+        <div><dt>Docstring</dt><dd>Triple-quoted help text under a function.</dd></div>
+        <div><dt>Indentation</dt><dd>Spaces at the start of a line that group code into blocks.</dd></div>
+        <div><dt>REPL</dt><dd>Interactive shell where each line runs immediately.</dd></div>
+        <div><dt>\n</dt><dd>Escape sequence for a new line.</dd></div>
+      </dl>
+      <h3 id="ov-11">11. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>Who created Python?</p><details><summary>Show answer</summary><p>Guido van Rossum (first released in 1991).</p></details></li>
+        <li><p>What type does input() always return?</p><details><summary>Show answer</summary><p>A string (str).</p></details></li>
+        <li><p>Which symbol starts a comment?</p><details><summary>Show answer</summary><p>#</p></details></li>
+        <li><p>What does print(&quot;a&quot;, &quot;b&quot;, sep=&quot;-&quot;) show?</p><details><summary>Show answer</summary><p>a-b</p></details></li>
+        <li><p>What is printed by print(&quot;2 + 3&quot;)?</p><details><summary>Show answer</summary><p>2 + 3 (it is text, so it is not calculated).</p></details></li>
+        <li><p>Which error comes from inconsistent spacing at the start of lines?</p><details><summary>Show answer</summary><p>IndentationError.</p></details></li>
+        <li><p>How do you run a file called app.py?</p><details><summary>Show answer</summary><p>python app.py</p></details></li>
+        <li><p>What is the REPL?</p><details><summary>Show answer</summary><p>The interactive shell, where you type code and see results immediately.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Python reads like plain English: print() to show, input() to ask (always text), # for comments, and indentation to group code.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>History of Python</span><span>Interpreter</span><span>Compiler</span><span>Running scripts</span><span>print()</span><span>Strings</span><span>Comments</span><span>Docstrings</span><span>help()</span><span>Type conversion</span><span>int()</span><span>Identifiers</span><span>NameError</span><span>Code blocks</span><span>IndentationError</span><span>Indentation</span><span>SyntaxError</span><span>Command line</span><span>IDLE</span><span>Jupyter</span><span>Expressions</span><span>Escape sequences</span><span>\t</span><span>Quotes</span></p>

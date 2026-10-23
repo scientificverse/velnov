@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modules &amp; Packages – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Modules &amp; Packages with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <meta name="description" content="Modules &amp; Packages (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/13-modules-and-packages.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Modules &amp; Packages – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Modules &amp; Packages with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <meta property="og:description" content="Modules &amp; Packages (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/13-modules-and-packages.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Modules & Packages","item":"https://velnov.co.in/learn/python/13-modules-and-packages.html"}]}</script>
 </head>
@@ -36,9 +36,119 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 13 of 20</p>
       <h1>Modules &amp; Packages — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Modules &amp; Packages</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-12">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Modules &amp; Packages</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-12">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">12 easy · 13 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Modules and Packages – reusing code</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Modules and import</a> · <a href="#ov-2">The standard library</a> · <a href="#ov-3">pip and third-party packages</a> · <a href="#ov-4">Your own modules</a> · <a href="#ov-5">if __name__ == &quot;__main__&quot;:</a> · <a href="#ov-6">Packages</a> · <a href="#ov-7">Where Python looks for modules</a> · <a href="#ov-8">Import style (PEP 8)</a> · <a href="#ov-9">Common misconceptions</a> · <a href="#ov-10">Quick revision</a> · <a href="#ov-11">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Modules and import</h3>
+      <p>A <strong>module</strong> is a <code class="ic">.py</code> file whose functions and variables you can reuse with <code class="ic">import</code>.</p>
+      <ul class="ov-list"><li><code class="ic">import math</code>: use <code class="ic">math.sqrt(16)</code>.</li><li><code class="ic">from math import sqrt</code>: use <code class="ic">sqrt(16)</code> directly.</li><li><code class="ic">import numpy as np</code>: an <strong>alias</strong> (a shorter name).</li><li><code class="ic">from math import *</code> imports everything. <strong>Avoid it</strong>: names become unclear and can clash.</li></ul>
+      <pre class="code"><code>import math
+from math import sqrt
+print(math.sqrt(16), sqrt(25))
+print(math.floor(2.7), math.ceil(2.1))
+print(round(math.pi, 4))</code></pre>
+      <pre class="ov-out"><span>Output</span>4.0 5.0
+2 3
+3.1416</pre>
+      <h3 id="ov-2">2. The standard library</h3>
+      <p>The <strong>standard library</strong> is the set of modules that come <strong>with</strong> Python, with nothing to install.</p>
+      <ul class="ov-list"><li><code class="ic">math</code>: square roots, rounding, pi.</li><li><code class="ic">random</code>: random numbers and choices.</li><li><code class="ic">datetime</code> and <code class="ic">time</code>: dates, times and pauses.</li><li><code class="ic">os</code> and <code class="ic">sys</code>: files, folders and command-line arguments.</li><li><code class="ic">json</code>: saving data.</li><li><code class="ic">statistics</code>: mean and median.</li><li><code class="ic">collections</code>: <code class="ic">Counter</code>, <code class="ic">defaultdict</code> and more.</li></ul>
+      <pre class="code"><code>import statistics
+from collections import Counter
+print(statistics.mean([80, 90, 100]))
+print(statistics.median([1, 3, 99]))
+print(Counter(&quot;banana&quot;))</code></pre>
+      <pre class="ov-out"><span>Output</span>90
+3
+Counter({'a': 3, 'n': 2, 'b': 1})</pre>
+      <h4>random</h4>
+      <pre class="code"><code>import random
+dice = random.randint(1, 6)          # 1 to 6, BOTH included
+winner = random.choice([&quot;Ana&quot;, &quot;Ben&quot;, &quot;Cy&quot;])
+x = random.random()                  # 0.0 up to (not including) 1.0</code></pre>
+      <h3 id="ov-3">3. pip and third-party packages</h3>
+      <p><strong>pip</strong> installs packages from <strong>PyPI</strong> (the Python Package Index). You run it in the terminal, not inside Python.</p>
+      <ul class="ov-list"><li><code class="ic">pip install requests</code> installs a package.</li><li><code class="ic">pip list</code> shows what is installed.</li><li><code class="ic">requirements.txt</code> lists a project's packages; <code class="ic">pip install -r requirements.txt</code> installs them all.</li></ul>
+      <p class="ov-remember"><strong>Remember:</strong> Importing something that isn't installed raises <strong>ModuleNotFoundError</strong>.</p>
+      <h3 id="ov-4">4. Your own modules</h3>
+      <p>Any <code class="ic">.py</code> file you write is a module too. If <code class="ic">helpers.py</code> sits next to <code class="ic">main.py</code>, then <code class="ic">main.py</code> can <code class="ic">import helpers</code>.</p>
+      <pre class="code"><code># helpers.py
+def greet(name):
+    return f&quot;Hello {name}&quot;
+
+# main.py
+import helpers
+print(helpers.greet(&quot;Ana&quot;))</code></pre>
+      <p class="ov-remember"><strong>Remember:</strong> Importing a module <strong>runs</strong> its top-level code, but only on the first import. Python caches it after that.</p>
+      <h3 id="ov-5">5. if __name__ == &quot;__main__&quot;:</h3>
+      <p>Python sets <code class="ic">__name__</code> to <code class="ic">&quot;__main__&quot;</code> in the file you run directly, and to the module's name when it is imported. This guard runs code <strong>only when the file is run directly</strong>, not when it is imported.</p>
+      <pre class="code"><code>def main():
+    print(&quot;running as a script&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre>
+      <pre class="ov-out"><span>Output</span>running as a script</pre>
+      <h3 id="ov-6">6. Packages</h3>
+      <p>A <strong>package</strong> is a <strong>folder of modules</strong>, often with an <code class="ic">__init__.py</code> file.</p>
+      <pre class="code"><code># myapp/
+#     __init__.py
+#     utils.py
+#     models.py
+
+from myapp import utils
+from myapp.models import User</code></pre>
+      <h3 id="ov-7">7. Where Python looks for modules</h3>
+      <p>Python searches the <strong>running script's folder first</strong>, then the folders in <code class="ic">sys.path</code> (the standard library, then installed packages).</p>
+      <p class="ov-remember"><strong>Remember:</strong> If you name your own file <code class="ic">random.py</code>, it <strong>shadows</strong> the real <code class="ic">random</code> module and <code class="ic">import random</code> breaks. Never name files after standard modules.</p>
+      <div class="ov-eg"><p><strong>Examples:</strong></p><ul><li><code class="ic">sys.argv</code> holds command-line arguments: <code class="ic">python app.py Ana</code> gives <code class="ic">['app.py', 'Ana']</code>.</li><li>A <strong>circular import</strong> happens when two modules import each other. Fix it by moving the shared code to a third module.</li></ul></div>
+      <h3 id="ov-8">8. Import style (PEP 8)</h3>
+      <p>Put imports at the <strong>top</strong> of the file, in three groups separated by blank lines: <strong>standard library</strong>, then <strong>third-party</strong>, then <strong>your own</strong> modules.</p>
+      <pre class="code"><code>import os
+import json
+
+import requests
+
+from myapp import helpers</code></pre>
+      <h3 id="ov-9">9. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>random.randint(1, 6) never gives 6.</td><td>randint includes both ends; it can give 6.</td></tr>
+          <tr><td><code class="ic">from math import *</code> is the cleanest import.</td><td>It hides where names come from and can overwrite yours.</td></tr>
+          <tr><td>Importing a module twice runs it twice.</td><td>Python caches modules; top-level code runs only on the first import.</td></tr>
+          <tr><td>You run pip inside the Python shell.</td><td>pip runs in the terminal.</td></tr>
+          <tr><td>A file called random.py is harmless.</td><td>It shadows the real random module.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-10">10. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Module</dt><dd>A .py file you can import.</dd></div>
+        <div><dt>Package</dt><dd>A folder of modules.</dd></div>
+        <div><dt>Alias</dt><dd>import numpy as np.</dd></div>
+        <div><dt>Standard library</dt><dd>Modules that come with Python.</dd></div>
+        <div><dt>pip</dt><dd>Installs packages from PyPI.</dd></div>
+        <div><dt>requirements.txt</dt><dd>Lists a project's packages.</dd></div>
+        <div><dt>__name__ == &quot;__main__&quot;</dt><dd>True only when the file is run directly.</dd></div>
+        <div><dt>sys.path</dt><dd>The folders Python searches for modules.</dd></div>
+      </dl>
+      <h3 id="ov-11">11. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>After import math, how do you call the square root?</p><details><summary>Show answer</summary><p>math.sqrt(16)</p></details></li>
+        <li><p>What does from math import sqrt let you write?</p><details><summary>Show answer</summary><p>sqrt(16), without the math. prefix.</p></details></li>
+        <li><p>What range does random.randint(1, 6) cover?</p><details><summary>Show answer</summary><p>1 to 6, both included.</p></details></li>
+        <li><p>What is pip?</p><details><summary>Show answer</summary><p>Python's package installer, which downloads packages from PyPI.</p></details></li>
+        <li><p>What does if __name__ == &quot;__main__&quot;: do?</p><details><summary>Show answer</summary><p>Runs code only when the file is run directly, not when it is imported.</p></details></li>
+        <li><p>What is a package?</p><details><summary>Show answer</summary><p>A folder of modules.</p></details></li>
+        <li><p>Why does naming your file random.py break import random?</p><details><summary>Show answer</summary><p>Your file shadows the standard random module.</p></details></li>
+        <li><p>Which exception does importing a missing module raise?</p><details><summary>Show answer</summary><p>ModuleNotFoundError.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Import what you need from the standard library, install extras with pip, split your project into modules, and guard script code with __name__.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>import</span><span>Code reuse</span><span>Namespaces</span><span>from-import</span><span>Aliases</span><span>Conventions</span><span>Best practices</span><span>random module</span><span>randint vs randrange</span><span>choice()</span><span>sample()</span><span>shuffle()</span><span>random()</span><span>uniform()</span><span>math module</span><span>Rounding</span><span>datetime module</span><span>time module</span><span>PyPI</span><span>Third-party packages</span><span>Batteries included</span><span>pip</span><span>Custom modules</span><span>Project structure</span></p>

@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Classes &amp; Objects – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Classes &amp; Objects with answers and detailed explanations — 11 easy, 14 medium and 5 hard." />
+  <meta name="description" content="Classes &amp; Objects (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/14-classes-and-objects.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Classes &amp; Objects – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Classes &amp; Objects with answers and detailed explanations — 11 easy, 14 medium and 5 hard." />
+  <meta property="og:description" content="Classes &amp; Objects (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/14-classes-and-objects.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Classes & Objects","item":"https://velnov.co.in/learn/python/14-classes-and-objects.html"}]}</script>
 </head>
@@ -36,9 +36,136 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 14 of 20</p>
       <h1>Classes &amp; Objects — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Classes &amp; Objects</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-13">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Classes &amp; Objects</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-13">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">11 easy · 14 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Classes and Objects – your own data types</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Class and object</a> · <a href="#ov-2">Defining a class: __init__ and self</a> · <a href="#ov-3">Objects keep their own state</a> · <a href="#ov-4">Class attributes vs instance attributes</a> · <a href="#ov-5">Printing and comparing objects</a> · <a href="#ov-6">Inspecting objects</a> · <a href="#ov-7">Why use classes?</a> · <a href="#ov-8">Common misconceptions</a> · <a href="#ov-9">Quick revision</a> · <a href="#ov-10">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Class and object</h3>
+      <p>A <strong>class</strong> is a <strong>blueprint</strong>; an <strong>object</strong> (or <strong>instance</strong>) is a thing built from it. A class bundles <strong>data</strong> (attributes) with the <strong>functions</strong> that work on it (methods).</p>
+      <p class="ov-eg"><strong>Example:</strong> A <code class="ic">Dog</code> class is the cookie cutter; <code class="ic">rex</code> and <code class="ic">buddy</code> are two cookies, each with their own name and age.</p>
+      <h3 id="ov-2">2. Defining a class: __init__ and self</h3>
+      <ul class="ov-list"><li><code class="ic">class Dog:</code> starts the class. Class names use <strong>CamelCase</strong>.</li><li><code class="ic">__init__</code> runs <strong>automatically</strong> when you create an object, and sets up its attributes.</li><li><code class="ic">self</code> is the <strong>object itself</strong>. <code class="ic">self.name = name</code> stores a value <strong>on the object</strong>.</li><li>Create an object by calling the class: <code class="ic">Dog(&quot;Rex&quot;)</code>. Python has no <code class="ic">new</code> keyword.</li></ul>
+      <pre class="code"><code>class Dog:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def bark(self):
+        print(self.name, &quot;says woof&quot;)
+
+rex = Dog(&quot;Rex&quot;, 3)
+buddy = Dog(&quot;Buddy&quot;, 5)
+rex.bark()
+print(buddy.name, buddy.age)</code></pre>
+      <pre class="ov-out"><span>Output</span>Rex says woof
+Buddy 5</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">rex.bark()</code> is really <code class="ic">Dog.bark(rex)</code>: the object is passed in as <code class="ic">self</code>. Forget <code class="ic">self</code> in the <code class="ic">def</code>, and the call fails with “takes 0 positional arguments but 1 was given”.</p>
+      <h3 id="ov-3">3. Objects keep their own state</h3>
+      <p>Each object has its <strong>own</strong> attributes, and methods can change them.</p>
+      <pre class="code"><code>class Account:
+    def __init__(self, balance=0):
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        return self.balance
+
+a = Account(100)
+b = Account()
+print(a.deposit(50), b.balance)</code></pre>
+      <pre class="ov-out"><span>Output</span>150 0</pre>
+      <h3 id="ov-4">4. Class attributes vs instance attributes</h3>
+      <ul class="ov-list"><li>A <strong>class attribute</strong>, written in the class body, is <strong>shared</strong> by all objects.</li><li>An <strong>instance attribute</strong>, set through <code class="ic">self.x</code> in <code class="ic">__init__</code>, belongs to <strong>each object</strong> separately.</li></ul>
+      <pre class="code"><code>class Dog:
+    count = 0                  # class attribute: shared
+    def __init__(self, name):
+        self.name = name       # instance attribute: per dog
+        Dog.count += 1
+
+a, b, c = Dog(&quot;Rex&quot;), Dog(&quot;Max&quot;), Dog(&quot;Leo&quot;)
+print(Dog.count, a.name, c.name)</code></pre>
+      <pre class="ov-out"><span>Output</span>3 Rex Leo</pre>
+      <h4>The shared list trap</h4>
+      <p>A <strong>list</strong> in the class body is shared by every object. Create per-object lists in <code class="ic">__init__</code>.</p>
+      <pre class="code"><code>class Team:
+    members = []               # ONE list for all teams!
+    def add(self, name):
+        self.members.append(name)
+
+x, y = Team(), Team()
+x.add(&quot;Ana&quot;)
+print(y.members)</code></pre>
+      <pre class="ov-out"><span>Output</span>['Ana']</pre>
+      <h3 id="ov-5">5. Printing and comparing objects</h3>
+      <p>By default, <code class="ic">print(obj)</code> shows something like <code class="ic">&lt;__main__.Dog object at 0x...&gt;</code>, and <code class="ic">==</code> checks whether two names are the <strong>same object</strong>. Defining <code class="ic">__str__</code> and <code class="ic">__eq__</code> changes this (see Magic Methods).</p>
+      <pre class="code"><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return f&quot;Dog named {self.name}&quot;
+    def __eq__(self, other):
+        return self.name == other.name
+
+print(Dog(&quot;Rex&quot;))
+print(Dog(&quot;Rex&quot;) == Dog(&quot;Rex&quot;))</code></pre>
+      <pre class="ov-out"><span>Output</span>Dog named Rex
+True</pre>
+      <h3 id="ov-6">6. Inspecting objects</h3>
+      <pre class="code"><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+
+rex = Dog(&quot;Rex&quot;)
+rex.age = 3                       # objects accept new attributes
+print(rex.__dict__)
+print(isinstance(rex, Dog))
+print(hasattr(rex, &quot;color&quot;), getattr(rex, &quot;color&quot;, &quot;unknown&quot;))</code></pre>
+      <pre class="ov-out"><span>Output</span>{'name': 'Rex', 'age': 3}
+True
+False unknown</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Reading a missing attribute raises <strong>AttributeError</strong>. Define all attributes in <code class="ic">__init__</code>, so a typo like <code class="ic">rex.nmae = ...</code> doesn't silently create a new one.</p>
+      <h3 id="ov-7">7. Why use classes?</h3>
+      <p>Classes keep related data and behaviour together, so bigger programs stay organised. This idea is called <strong>encapsulation</strong>.</p>
+      <p class="ov-eg"><strong>Example:</strong> A <code class="ic">BankAccount</code> keeps its <code class="ic">balance</code> together with <code class="ic">deposit()</code> and <code class="ic">withdraw()</code>, instead of loose variables and separate functions.</p>
+      <h3 id="ov-8">8. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>self is a keyword you can leave out.</td><td>self must be the first parameter of every normal method.</td></tr>
+          <tr><td>Changing one object's attribute changes the others.</td><td>Instance attributes belong to each object separately.</td></tr>
+          <tr><td>A list in the class body gives each object its own list.</td><td>It is shared by all objects; create it in __init__.</td></tr>
+          <tr><td>Two objects with equal data are == by default.</td><td>By default == checks identity; define __eq__ to compare data.</td></tr>
+          <tr><td>You need new to create an object.</td><td>Call the class like a function: Dog(&quot;Rex&quot;).</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-9">9. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Class</dt><dd>A blueprint for objects.</dd></div>
+        <div><dt>Object / instance</dt><dd>A thing made from a class.</dd></div>
+        <div><dt>__init__</dt><dd>Sets up a new object's attributes.</dd></div>
+        <div><dt>self</dt><dd>The object a method is working on.</dd></div>
+        <div><dt>Attribute</dt><dd>Data stored on an object, e.g. rex.name.</dd></div>
+        <div><dt>Method</dt><dd>A function defined in a class.</dd></div>
+        <div><dt>Class attribute</dt><dd>Shared by all objects of the class.</dd></div>
+        <div><dt>Encapsulation</dt><dd>Keeping data and its methods together.</dd></div>
+      </dl>
+      <h3 id="ov-10">10. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>What is the difference between a class and an object?</p><details><summary>Show answer</summary><p>The class is the blueprint; an object is a thing built from it.</p></details></li>
+        <li><p>When does __init__ run?</p><details><summary>Show answer</summary><p>Automatically, whenever a new object is created.</p></details></li>
+        <li><p>What does self refer to?</p><details><summary>Show answer</summary><p>The object the method was called on.</p></details></li>
+        <li><p>How do you create a Dog object?</p><details><summary>Show answer</summary><p>Dog(&quot;Rex&quot;)</p></details></li>
+        <li><p>What error do you get if a method is defined without self?</p><details><summary>Show answer</summary><p>TypeError: it takes 0 positional arguments but 1 was given.</p></details></li>
+        <li><p>What is a class attribute?</p><details><summary>Show answer</summary><p>One value shared by all objects of the class.</p></details></li>
+        <li><p>Why is members = [] in a class body a trap?</p><details><summary>Show answer</summary><p>All objects share the same list.</p></details></li>
+        <li><p>What does print(obj) show without __str__?</p><details><summary>Show answer</summary><p>Something like &lt;__main__.Dog object at 0x...&gt;.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> A class is a blueprint: __init__ sets up each object's data through self, methods act on it, and each object keeps its own state.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Classes</span><span>Instances</span><span>class keyword</span><span>Naming conventions</span><span>__init__</span><span>Constructors</span><span>self</span><span>Instantiation</span><span>Attributes</span><span>Dot notation</span><span>Method calls</span><span>TypeError</span><span>Instance attributes</span><span>Independence</span><span>PEP 8</span><span>Methods</span><span>Functions</span><span>State</span><span>Class attributes</span><span>Counting instances</span><span>type()</span><span>isinstance()</span><span>AttributeError</span><span>hasattr()</span></p>

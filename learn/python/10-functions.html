@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Functions – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Functions with answers and detailed explanations — 8 easy, 14 medium and 8 hard." />
+  <meta name="description" content="Functions (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/10-functions.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Functions – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Functions with answers and detailed explanations — 8 easy, 14 medium and 8 hard." />
+  <meta property="og:description" content="Functions (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/10-functions.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Functions","item":"https://velnov.co.in/learn/python/10-functions.html"}]}</script>
 </head>
@@ -36,9 +36,175 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 10 of 20</p>
       <h1>Functions — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Functions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-9">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Functions</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-9">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">8 easy · 14 medium · 8 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Functions – reusable blocks of code</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Defining and calling a function</a> · <a href="#ov-2">return vs print</a> · <a href="#ov-3">Default and keyword arguments</a> · <a href="#ov-4"><code class="ic">*args</code> and <code class="ic">**kwargs</code></a> · <a href="#ov-5">Returning several values</a> · <a href="#ov-6">Scope: local and global</a> · <a href="#ov-7">The mutable default trap</a> · <a href="#ov-8">Lambda functions and sort keys</a> · <a href="#ov-9">Recursion</a> · <a href="#ov-10">Functions are objects</a> · <a href="#ov-11">Common misconceptions</a> · <a href="#ov-12">Quick revision</a> · <a href="#ov-13">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Defining and calling a function</h3>
+      <p>A <strong>function</strong> is a named block of code that runs when you <strong>call</strong> it. You define it with <code class="ic">def</code>; its body runs only when it is called.</p>
+      <pre class="code"><code>def greet(name):
+    print(f&quot;Hello, {name}!&quot;)
+
+greet(&quot;Ana&quot;)
+greet(&quot;Ben&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>Hello, Ana!
+Hello, Ben!</pre>
+      <p class="ov-remember"><strong>Remember:</strong> In <code class="ic">def greet(name)</code>, <code class="ic">name</code> is a <strong>parameter</strong>. In <code class="ic">greet(&quot;Ana&quot;)</code>, <code class="ic">&quot;Ana&quot;</code> is an <strong>argument</strong>.</p>
+      <h3 id="ov-2">2. return vs print</h3>
+      <p><code class="ic">return</code> <strong>sends a value back</strong> to the caller, so the result can be stored and reused. A function with no <code class="ic">return</code> gives back <code class="ic">None</code>.</p>
+      <pre class="code"><code>def add(a, b):
+    return a + b
+
+total = add(2, 3) * 10
+print(total)
+
+def show(a, b):
+    print(a + b)
+
+result = show(2, 3)
+print(result)</code></pre>
+      <pre class="ov-out"><span>Output</span>50
+5
+None</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">return</code> exits the function immediately; code after it in the same branch never runs.</p>
+      <h3 id="ov-3">3. Default and keyword arguments</h3>
+      <ul class="ov-list"><li>A <strong>default</strong> value is used when the caller leaves the argument out.</li><li>A <strong>keyword argument</strong> is passed by name, so the order doesn't matter.</li><li>Parameters with defaults must come <strong>after</strong> those without.</li></ul>
+      <pre class="code"><code>def book(seat, meal=&quot;veg&quot;):
+    print(seat, meal)
+
+book(&quot;12A&quot;)
+book(&quot;12A&quot;, &quot;non-veg&quot;)
+book(meal=&quot;none&quot;, seat=&quot;3C&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>12A veg
+12A non-veg
+3C none</pre>
+      <h3 id="ov-4">4. <code class="ic">*args</code> and <code class="ic">**kwargs</code></h3>
+      <ul class="ov-list"><li><code class="ic">*args</code> collects any number of extra <strong>positional</strong> arguments into a <strong>tuple</strong>.</li><li><code class="ic">**kwargs</code> collects extra <strong>keyword</strong> arguments into a <strong>dict</strong>.</li></ul>
+      <pre class="code"><code>def total(*args):
+    return sum(args)
+
+print(total(1, 2, 3), total(5))
+
+def config(**kwargs):
+    for key, value in kwargs.items():
+        print(key, &quot;=&quot;, value)
+
+config(theme=&quot;dark&quot;, size=12)</code></pre>
+      <pre class="ov-out"><span>Output</span>6 5
+theme = dark
+size = 12</pre>
+      <h3 id="ov-5">5. Returning several values</h3>
+      <p>Returning several values really returns one <strong>tuple</strong>, which you can unpack.</p>
+      <pre class="code"><code>def stats(nums):
+    return min(nums), max(nums)
+
+lo, hi = stats([3, 8, 1])
+print(lo, hi)</code></pre>
+      <pre class="ov-out"><span>Output</span>1 8</pre>
+      <h3 id="ov-6">6. Scope: local and global</h3>
+      <p>Variables created inside a function are <strong>local</strong>: they exist only while the function runs. Functions can <strong>read</strong> global variables, but <strong>assigning</strong> to one needs the <code class="ic">global</code> keyword. Usually it is better to pass values in and return them.</p>
+      <pre class="code"><code>x = 5
+def show():
+    print(x)        # reading a global is fine
+show()
+
+count = 0
+def inc():
+    global count
+    count += 1
+inc()
+print(count)</code></pre>
+      <pre class="ov-out"><span>Output</span>5
+1</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Assigning to a name anywhere in a function makes it local for the <strong>whole</strong> function. Reading it before the assignment gives <strong>UnboundLocalError</strong>.</p>
+      <h3 id="ov-7">7. The mutable default trap</h3>
+      <p>A default value is created <strong>once</strong>, when the function is defined. A default list is therefore <strong>shared</strong> between calls. Use <code class="ic">None</code> and create the list inside.</p>
+      <pre class="code"><code>def add_bad(item, lst=[]):
+    lst.append(item)
+    return lst
+print(add_bad(1), add_bad(2))
+
+def add_good(item, lst=None):
+    if lst is None:
+        lst = []
+    lst.append(item)
+    return lst
+print(add_good(1), add_good(2))</code></pre>
+      <pre class="ov-out"><span>Output</span>[1, 2] [1, 2]
+[1] [2]</pre>
+      <h3 id="ov-8">8. Lambda functions and sort keys</h3>
+      <p>A <strong>lambda</strong> is a small nameless function with a single expression. It is most often used as a <code class="ic">key</code> for sorting.</p>
+      <pre class="code"><code>double = lambda x: x * 2
+print(double(5))
+words = [&quot;banana&quot;, &quot;fig&quot;, &quot;apple&quot;]
+print(sorted(words, key=len))
+students = [(&quot;Ana&quot;, 92), (&quot;Ben&quot;, 85)]
+print(sorted(students, key=lambda s: s[1]))</code></pre>
+      <pre class="ov-out"><span>Output</span>10
+['fig', 'apple', 'banana']
+[('Ben', 85), ('Ana', 92)]</pre>
+      <h3 id="ov-9">9. Recursion</h3>
+      <p>A <strong>recursive</strong> function calls itself on a smaller problem, and must have a <strong>base case</strong> that stops it. Without one, Python raises <strong>RecursionError</strong> (the default limit is about 1,000 calls).</p>
+      <pre class="code"><code>def factorial(n):
+    if n &lt;= 1:          # base case
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))</code></pre>
+      <pre class="ov-out"><span>Output</span>120</pre>
+      <h3 id="ov-10">10. Functions are objects</h3>
+      <p>Functions can be stored in variables, kept in lists, passed to other functions and returned. This is called being <strong>first-class</strong>.</p>
+      <pre class="code"><code>def shout(text):
+    return text.upper()
+
+def apply(func, value):
+    return func(value)
+
+f = shout                     # no brackets: the function itself
+print(f(&quot;hi&quot;))
+print(apply(len, &quot;hello&quot;))</code></pre>
+      <pre class="ov-out"><span>Output</span>HI
+5</pre>
+      <p class="ov-eg"><strong>Example:</strong> Type hints such as <code class="ic">def add(a: int, b: int) -&gt; int:</code> document the expected types, but Python does <strong>not</strong> enforce them.</p>
+      <h3 id="ov-11">11. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>print and return do the same job.</td><td>print only shows a value; return gives it back for further use.</td></tr>
+          <tr><td>A default list starts fresh on every call.</td><td>It is created once and shared; use None as the default.</td></tr>
+          <tr><td>Variables made inside a function exist outside it.</td><td>They are local and disappear when the function ends.</td></tr>
+          <tr><td>def f(a=1, b): is fine.</td><td>Parameters with defaults must come after required ones.</td></tr>
+          <tr><td>Type hints stop wrong types at runtime.</td><td>Python ignores them at runtime; tools like mypy check them.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-12">12. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>def</dt><dd>Defines a function.</dd></div>
+        <div><dt>Parameter / argument</dt><dd>The placeholder / the actual value passed.</dd></div>
+        <div><dt>return</dt><dd>Sends a value back and exits the function.</dd></div>
+        <div><dt>Default argument</dt><dd>Used when the caller leaves it out.</dd></div>
+        <div><dt><code class="ic">*args</code></dt><dd>Extra positional arguments, as a tuple.</dd></div>
+        <div><dt><code class="ic">**kwargs</code></dt><dd>Extra keyword arguments, as a dict.</dd></div>
+        <div><dt>lambda</dt><dd>A small one-expression function.</dd></div>
+        <div><dt>Recursion</dt><dd>A function calling itself, with a base case.</dd></div>
+      </dl>
+      <h3 id="ov-13">13. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>What does a function without return give back?</p><details><summary>Show answer</summary><p>None</p></details></li>
+        <li><p>In def greet(name), what is name called?</p><details><summary>Show answer</summary><p>A parameter.</p></details></li>
+        <li><p>What does <code class="ic">*args</code> collect?</p><details><summary>Show answer</summary><p>Extra positional arguments, as a tuple.</p></details></li>
+        <li><p>What does <code class="ic">**kwargs</code> collect?</p><details><summary>Show answer</summary><p>Extra keyword arguments, as a dict.</p></details></li>
+        <li><p>What is wrong with def add(item, lst=[]):?</p><details><summary>Show answer</summary><p>The default list is shared between calls.</p></details></li>
+        <li><p>How do you sort words by length?</p><details><summary>Show answer</summary><p>sorted(words, key=len)</p></details></li>
+        <li><p>What must every recursive function have?</p><details><summary>Show answer</summary><p>A base case.</p></details></li>
+        <li><p>How do you return two values?</p><details><summary>Show answer</summary><p>return a, b (it returns a tuple).</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Functions package code behind a name: take inputs as parameters, give results back with return, and beware the shared mutable default.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>def</span><span>Function calls</span><span>Calling</span><span>None</span><span>return</span><span>print()</span><span>Parameters</span><span>Arguments</span><span>Default arguments</span><span>Keyword arguments</span><span>Readability</span><span>Argument order</span><span>SyntaxError</span><span>*args</span><span>**kwargs</span><span>Dictionaries</span><span>Tuples</span><span>Unpacking</span><span>lambda</span><span>Anonymous functions</span><span>sorted()</span><span>key functions</span><span>Local scope</span><span>NameError</span></p>

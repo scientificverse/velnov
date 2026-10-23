@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inheritance &amp; Polymorphism – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Inheritance &amp; Polymorphism with answers and detailed explanations — 7 easy, 16 medium and 7 hard." />
+  <meta name="description" content="Inheritance &amp; Polymorphism (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/15-inheritance-and-polymorphism.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Inheritance &amp; Polymorphism – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Inheritance &amp; Polymorphism with answers and detailed explanations — 7 easy, 16 medium and 7 hard." />
+  <meta property="og:description" content="Inheritance &amp; Polymorphism (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/15-inheritance-and-polymorphism.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Inheritance & Polymorphism","item":"https://velnov.co.in/learn/python/15-inheritance-and-polymorphism.html"}]}</script>
 </head>
@@ -36,9 +36,176 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 15 of 20</p>
       <h1>Inheritance &amp; Polymorphism — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Inheritance &amp; Polymorphism</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-14">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Inheritance &amp; Polymorphism</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-14">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">7 easy · 16 medium · 7 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Inheritance and Polymorphism – building on other classes</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Inheritance</a> · <a href="#ov-2">Overriding methods</a> · <a href="#ov-3">super()</a> · <a href="#ov-4">isinstance() and issubclass()</a> · <a href="#ov-5">Polymorphism</a> · <a href="#ov-6">Composition: “has-a”</a> · <a href="#ov-7">Multiple inheritance and the MRO</a> · <a href="#ov-8">Methods children must write</a> · <a href="#ov-9">Common misconceptions</a> · <a href="#ov-10">Quick revision</a> · <a href="#ov-11">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Inheritance</h3>
+      <p><strong>Inheritance</strong> lets a <strong>child</strong> class automatically get the attributes and methods of a <strong>parent</strong> class. Write the shared code once, in the parent.</p>
+      <pre class="code"><code>class Animal:
+    def eat(self):
+        print(&quot;eating&quot;)
+
+class Dog(Animal):        # Dog inherits from Animal
+    def fetch(self):
+        print(&quot;fetching&quot;)
+
+d = Dog()
+d.eat()                   # inherited
+d.fetch()                 # Dog's own method</code></pre>
+      <pre class="ov-out"><span>Output</span>eating
+fetching</pre>
+      <p class="ov-eg"><strong>Example:</strong> Inheritance means “is-a”: a Dog <strong>is an</strong> Animal, a Car <strong>is a</strong> Vehicle.</p>
+      <h3 id="ov-2">2. Overriding methods</h3>
+      <p>A child can <strong>override</strong> a parent's method by defining one with the same name. Python looks in the object's own class first, then climbs up to the parent.</p>
+      <pre class="code"><code>class Animal:
+    def speak(self):
+        return &quot;some sound&quot;
+
+class Cat(Animal):
+    def speak(self):
+        return &quot;Meow&quot;
+
+print(Cat().speak())
+print(Animal().speak())   # the parent is unchanged</code></pre>
+      <pre class="ov-out"><span>Output</span>Meow
+some sound</pre>
+      <h3 id="ov-3">3. super()</h3>
+      <p><code class="ic">super()</code> calls the <strong>parent's</strong> version of a method. Its most common use is running the parent's <code class="ic">__init__</code>, because overriding <code class="ic">__init__</code> means the parent's one no longer runs by itself.</p>
+      <pre class="code"><code>class Animal:
+    def __init__(self, name):
+        self.name = name
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)    # let the parent set name
+        self.breed = breed
+
+d = Dog(&quot;Rex&quot;, &quot;Labrador&quot;)
+print(d.name, d.breed)</code></pre>
+      <pre class="ov-out"><span>Output</span>Rex Labrador</pre>
+      <p class="ov-remember"><strong>Remember:</strong> If you forget <code class="ic">super().__init__(name)</code>, <code class="ic">self.name</code> is never set, and reading it gives <strong>AttributeError</strong>.</p>
+      <h4>Extending instead of replacing</h4>
+      <pre class="code"><code>class A:
+    def greet(self):
+        return &quot;hi from A&quot;
+
+class B(A):
+    def greet(self):
+        return super().greet() + &quot; and B&quot;
+
+print(B().greet())</code></pre>
+      <pre class="ov-out"><span>Output</span>hi from A and B</pre>
+      <h3 id="ov-4">4. isinstance() and issubclass()</h3>
+      <pre class="code"><code>class Animal: pass
+class Dog(Animal): pass
+
+d = Dog()
+print(isinstance(d, Dog), isinstance(d, Animal))
+print(type(d) == Animal)          # exact type only
+print(issubclass(Dog, Animal), issubclass(bool, int))</code></pre>
+      <pre class="ov-out"><span>Output</span>True True
+False
+True True</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Prefer <code class="ic">isinstance()</code>: it accepts subclasses, while <code class="ic">type(x) == Dog</code> rejects them.</p>
+      <h3 id="ov-5">5. Polymorphism</h3>
+      <p><strong>Polymorphism</strong> means different classes answering the <strong>same method call</strong> in their own way. The calling code doesn't need to know which class it has.</p>
+      <pre class="code"><code>class Dog:
+    def speak(self): return &quot;Woof&quot;
+class Cat:
+    def speak(self): return &quot;Meow&quot;
+class Robot:
+    def speak(self): return &quot;Beep&quot;
+
+for thing in [Dog(), Cat(), Robot()]:
+    print(thing.speak())</code></pre>
+      <pre class="ov-out"><span>Output</span>Woof
+Meow
+Beep</pre>
+      <h4>Duck typing</h4>
+      <p>“If it walks like a duck and quacks like a duck…”: Python cares what an object <strong>can do</strong>, not what class it comes from. The Robot above works without any shared parent class.</p>
+      <h3 id="ov-6">6. Composition: “has-a”</h3>
+      <p><strong>Composition</strong> means storing another object as an attribute. Use it when the relationship is “has-a” rather than “is-a”.</p>
+      <pre class="code"><code>class Engine:
+    def start(self):
+        return &quot;vroom&quot;
+
+class Car:
+    def __init__(self):
+        self.engine = Engine()    # a Car HAS an Engine
+    def start(self):
+        return self.engine.start()
+
+print(Car().start())</code></pre>
+      <pre class="ov-out"><span>Output</span>vroom</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Common advice: <strong>prefer composition over inheritance</strong> unless “is-a” clearly fits.</p>
+      <h3 id="ov-7">7. Multiple inheritance and the MRO</h3>
+      <p>A class can have <strong>several parents</strong>. When they share a method name, Python follows the <strong>Method Resolution Order (MRO)</strong>, checking parents <strong>left to right</strong>.</p>
+      <pre class="code"><code>class A:
+    def hello(self): return &quot;A&quot;
+class B:
+    def hello(self): return &quot;B&quot;
+class C(A, B):
+    pass
+
+print(C().hello())
+print([k.__name__ for k in C.__mro__])</code></pre>
+      <pre class="ov-out"><span>Output</span>A
+['C', 'A', 'B', 'object']</pre>
+      <p class="ov-eg"><strong>Example:</strong> Every class ultimately inherits from <code class="ic">object</code>.</p>
+      <h3 id="ov-8">8. Methods children must write</h3>
+      <p>A parent can force children to provide a method: raise <code class="ic">NotImplementedError</code>, or use the <code class="ic">abc</code> module's <code class="ic">@abstractmethod</code>.</p>
+      <pre class="code"><code>class Shape:
+    def area(self):
+        raise NotImplementedError(&quot;subclass must define area&quot;)
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+    def area(self):
+        return self.side ** 2
+
+print(Square(3).area())</code></pre>
+      <pre class="ov-out"><span>Output</span>9</pre>
+      <h3 id="ov-9">9. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>The parent's __init__ runs automatically even if the child defines its own.</td><td>Overriding __init__ replaces it; call super().__init__().</td></tr>
+          <tr><td>Overriding a method changes the parent class.</td><td>Only the child's lookup changes; the parent keeps its version.</td></tr>
+          <tr><td>Polymorphism needs a shared parent class.</td><td>Python uses duck typing; any object with the method works.</td></tr>
+          <tr><td>A Car should inherit from Engine.</td><td>A Car has an Engine; use composition.</td></tr>
+          <tr><td>type(x) == Parent is the best check.</td><td>isinstance(x, Parent) also accepts subclasses.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-10">10. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Inheritance</dt><dd>A child class gets a parent's methods.</dd></div>
+        <div><dt>Override</dt><dd>Redefine a parent's method in the child.</dd></div>
+        <div><dt>super()</dt><dd>Calls the parent's version of a method.</dd></div>
+        <div><dt>Polymorphism</dt><dd>Same method call, different behaviour.</dd></div>
+        <div><dt>Duck typing</dt><dd>What an object can do matters, not its class.</dd></div>
+        <div><dt>Composition</dt><dd>“Has-a”: an object stored as an attribute.</dd></div>
+        <div><dt>MRO</dt><dd>The order Python searches classes for a method.</dd></div>
+        <div><dt>object</dt><dd>The root of every class.</dd></div>
+      </dl>
+      <h3 id="ov-11">11. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>How do you make Dog inherit from Animal?</p><details><summary>Show answer</summary><p>class Dog(Animal):</p></details></li>
+        <li><p>Both classes define speak(). Which runs for Dog().speak()?</p><details><summary>Show answer</summary><p>Dog's version (it overrides the parent's).</p></details></li>
+        <li><p>What is super() most often used for?</p><details><summary>Show answer</summary><p>Calling the parent's __init__.</p></details></li>
+        <li><p>d = Dog(), Dog inherits Animal. What is isinstance(d, Animal)?</p><details><summary>Show answer</summary><p>True</p></details></li>
+        <li><p>What is polymorphism?</p><details><summary>Show answer</summary><p>Different classes responding to the same method call in their own way.</p></details></li>
+        <li><p>What is duck typing?</p><details><summary>Show answer</summary><p>Caring about what an object can do, not what class it is.</p></details></li>
+        <li><p>Should Car inherit from Engine?</p><details><summary>Show answer</summary><p>No: a Car has an Engine, so use composition.</p></details></li>
+        <li><p>class C(A, B): both define hello(). Which runs?</p><details><summary>Show answer</summary><p>A's, because the MRO checks parents left to right.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Inherit for “is-a” relationships, override to specialise, call super() to keep the parent's work, and let polymorphism treat different objects the same way.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Code reuse</span><span>is-a relationship</span><span>Syntax</span><span>Parent classes</span><span>Method lookup</span><span>Inheritance</span><span>Overriding</span><span>MRO</span><span>super()</span><span>__init__ chaining</span><span>AttributeError</span><span>isinstance()</span><span>is-a</span><span>issubclass()</span><span>Class relationships</span><span>Polymorphism</span><span>Duck typing</span><span>Protocols</span><span>Isolation</span><span>Extension</span><span>Inheritance direction</span><span>is-a vs has-a</span><span>Composition</span><span>Design principles</span></p>

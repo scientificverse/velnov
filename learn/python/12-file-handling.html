@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>File Handling – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on File Handling with answers and detailed explanations — 10 easy, 14 medium and 6 hard." />
+  <meta name="description" content="File Handling (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/12-file-handling.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="File Handling – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on File Handling with answers and detailed explanations — 10 easy, 14 medium and 6 hard." />
+  <meta property="og:description" content="File Handling (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/12-file-handling.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"File Handling","item":"https://velnov.co.in/learn/python/12-file-handling.html"}]}</script>
 </head>
@@ -36,9 +36,119 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 12 of 20</p>
       <h1>File Handling — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>File Handling</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-11">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>File Handling</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-11">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">10 easy · 14 medium · 6 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>File Handling – reading and writing files</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Opening a file</a> · <a href="#ov-2">Use with to close files automatically</a> · <a href="#ov-3">Writing</a> · <a href="#ov-4">Reading</a> · <a href="#ov-5">The file position</a> · <a href="#ov-6">Handling missing files</a> · <a href="#ov-7">Saving data with JSON</a> · <a href="#ov-8">Good habits</a> · <a href="#ov-9">Common misconceptions</a> · <a href="#ov-10">Quick revision</a> · <a href="#ov-11">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Opening a file</h3>
+      <p><code class="ic">open(path, mode)</code> returns a <strong>file object</strong>. The <strong>mode</strong> says what you want to do:</p>
+      <ul class="ov-list"><li><code class="ic">&quot;r&quot;</code> <strong>read</strong> (the default); the file must exist.</li><li><code class="ic">&quot;w&quot;</code> <strong>write</strong>; this <strong>erases</strong> the file first.</li><li><code class="ic">&quot;a&quot;</code> <strong>append</strong>; adds to the end, keeping old content.</li><li><code class="ic">&quot;x&quot;</code> <strong>create</strong>; fails if the file already exists.</li><li><code class="ic">&quot;r+&quot;</code> read and write; add <code class="ic">&quot;b&quot;</code> for binary files, e.g. <code class="ic">&quot;rb&quot;</code> for images.</li></ul>
+      <p class="ov-remember"><strong>Remember:</strong> Opening an existing file with <code class="ic">&quot;w&quot;</code> wipes it immediately, even if you write nothing. Use <code class="ic">&quot;a&quot;</code> to add to it.</p>
+      <h3 id="ov-2">2. Use with to close files automatically</h3>
+      <p>The <strong>with</strong> statement closes the file when the block ends, even if an error happens. It is the recommended way to work with files.</p>
+      <pre class="code"><code>with open(&quot;notes.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+    f.write(&quot;first line\n&quot;)
+    f.write(&quot;second line\n&quot;)
+
+print(f.closed)</code></pre>
+      <pre class="ov-out"><span>Output</span>True</pre>
+      <h3 id="ov-3">3. Writing</h3>
+      <ul class="ov-list"><li><code class="ic">f.write(text)</code> writes <strong>exactly</strong> the string you give. It adds <strong>no new line</strong>, so include <code class="ic">\n</code> yourself.</li><li><code class="ic">write()</code> needs a <strong>string</strong>: convert numbers with <code class="ic">str()</code> or an f-string.</li><li><code class="ic">print(..., file=f)</code> writes and adds the new line for you.</li><li><code class="ic">f.writelines(list)</code> writes each string; it does not add new lines.</li></ul>
+      <pre class="code"><code>total = 42
+with open(&quot;out.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+    f.write(f&quot;Total: {total}\n&quot;)
+    print(&quot;Done&quot;, file=f)
+with open(&quot;out.txt&quot;, encoding=&quot;utf-8&quot;) as f:
+    print(f.read(), end=&quot;&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>Total: 42
+Done</pre>
+      <h3 id="ov-4">4. Reading</h3>
+      <ul class="ov-list"><li><code class="ic">f.read()</code> gives the <strong>whole file</strong> as one string.</li><li><code class="ic">f.readline()</code> gives the <strong>next line</strong>.</li><li><code class="ic">f.readlines()</code> gives <strong>all lines</strong> as a list.</li><li><code class="ic">for line in f:</code> reads <strong>one line at a time</strong>, the best choice for big files.</li></ul>
+      <pre class="code"><code>with open(&quot;notes.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+    f.write(&quot;cat\ndog\nbird\n&quot;)
+
+with open(&quot;notes.txt&quot;, encoding=&quot;utf-8&quot;) as f:
+    for line in f:
+        print(line.strip())</code></pre>
+      <pre class="ov-out"><span>Output</span>cat
+dog
+bird</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Each line ends with an invisible <code class="ic">\n</code>. Use <code class="ic">line.strip()</code> before comparing or printing it.</p>
+      <h3 id="ov-5">5. The file position</h3>
+      <p>A file object remembers <strong>where it is</strong>. After <code class="ic">read()</code>, the position is at the end, so a second <code class="ic">read()</code> returns an empty string. <code class="ic">seek(0)</code> goes back to the start.</p>
+      <pre class="code"><code>with open(&quot;notes.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+    f.write(&quot;hello&quot;)
+with open(&quot;notes.txt&quot;, encoding=&quot;utf-8&quot;) as f:
+    print(repr(f.read()))
+    print(repr(f.read()))
+    f.seek(0)
+    print(repr(f.read()))</code></pre>
+      <pre class="ov-out"><span>Output</span>'hello'
+''
+'hello'</pre>
+      <h3 id="ov-6">6. Handling missing files</h3>
+      <pre class="code"><code>import os
+try:
+    with open(&quot;ghost.txt&quot;, encoding=&quot;utf-8&quot;) as f:
+        data = f.read()
+except FileNotFoundError:
+    data = &quot;&quot;
+print(repr(data), os.path.exists(&quot;ghost.txt&quot;))</code></pre>
+      <pre class="ov-out"><span>Output</span>'' False</pre>
+      <p class="ov-eg"><strong>Example:</strong> Simple CSV: <code class="ic">name, age, city = line.strip().split(&quot;,&quot;)</code>. For real CSV files with quoted commas, use the <code class="ic">csv</code> module.</p>
+      <h3 id="ov-7">7. Saving data with JSON</h3>
+      <p>The <code class="ic">json</code> module saves lists and dicts as text and loads them back. <code class="ic">dump</code>/<code class="ic">load</code> work with files; <code class="ic">dumps</code>/<code class="ic">loads</code> work with strings.</p>
+      <pre class="code"><code>import json
+scores = {&quot;Ana&quot;: 92, &quot;Ben&quot;: 85}
+with open(&quot;save.json&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+    json.dump(scores, f)
+with open(&quot;save.json&quot;, encoding=&quot;utf-8&quot;) as f:
+    loaded = json.load(f)
+print(loaded[&quot;Ana&quot;])
+print(json.dumps([1, 2, 3]))</code></pre>
+      <pre class="ov-out"><span>Output</span>92
+[1, 2, 3]</pre>
+      <h3 id="ov-8">8. Good habits</h3>
+      <ul class="ov-list"><li>Always use <code class="ic">with</code>.</li><li>Pass <code class="ic">encoding=&quot;utf-8&quot;</code> so text in any language reads correctly on every computer.</li><li>Never use <code class="ic">eval()</code> on file contents; use <code class="ic">json</code>.</li></ul>
+      <h3 id="ov-9">9. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>&quot;w&quot; mode adds to a file.</td><td>&quot;w&quot; erases the file first; &quot;a&quot; adds to the end.</td></tr>
+          <tr><td>write() adds a new line like print().</td><td>write() writes only what you pass; add \n yourself.</td></tr>
+          <tr><td>You can call f.read() after the with block.</td><td>The file is closed there; reading raises ValueError.</td></tr>
+          <tr><td>A second read() reads the file again.</td><td>The position is at the end; use seek(0) first.</td></tr>
+          <tr><td>write(42) works.</td><td>write() needs a string: write(str(42)).</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-10">10. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>&quot;r&quot;</dt><dd>Read mode; the file must exist.</dd></div>
+        <div><dt>&quot;w&quot;</dt><dd>Write mode; erases the file first.</dd></div>
+        <div><dt>&quot;a&quot;</dt><dd>Append mode; adds to the end.</dd></div>
+        <div><dt>with</dt><dd>Closes the file automatically.</dd></div>
+        <div><dt>read()</dt><dd>Whole file as one string.</dd></div>
+        <div><dt>for line in f</dt><dd>Reads one line at a time.</dd></div>
+        <div><dt>seek(0)</dt><dd>Back to the start of the file.</dd></div>
+        <div><dt>json.dump / json.load</dt><dd>Save / load data as JSON.</dd></div>
+      </dl>
+      <h3 id="ov-11">11. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>Which mode adds to the end of a file?</p><details><summary>Show answer</summary><p>&quot;a&quot; (append).</p></details></li>
+        <li><p>What is the danger of &quot;w&quot; mode?</p><details><summary>Show answer</summary><p>It erases the existing content as soon as the file opens.</p></details></li>
+        <li><p>Why use with open(...) as f:?</p><details><summary>Show answer</summary><p>The file is closed automatically, even if an error happens.</p></details></li>
+        <li><p>What is the best way to read a huge file?</p><details><summary>Show answer</summary><p>for line in f: one line at a time.</p></details></li>
+        <li><p>Why call line.strip() on lines from a file?</p><details><summary>Show answer</summary><p>Each line ends with a \n character.</p></details></li>
+        <li><p>What does a second f.read() return?</p><details><summary>Show answer</summary><p>An empty string, because the position is at the end.</p></details></li>
+        <li><p>Which error comes from opening a missing file for reading?</p><details><summary>Show answer</summary><p>FileNotFoundError.</p></details></li>
+        <li><p>How do you save a dict to a file?</p><details><summary>Show answer</summary><p>json.dump(data, f)</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Open files with with, choose the right mode (beware &quot;w&quot;), remember write() adds no new line, and use json to save structured data.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>open()</span><span>File modes</span><span>FileNotFoundError</span><span>Write mode</span><span>Append mode</span><span>Logs</span><span>with statement</span><span>Context managers</span><span>read()</span><span>readlines()</span><span>readline()</span><span>Iteration</span><span>Memory efficiency</span><span>strip()</span><span>Newlines</span><span>write()</span><span>TypeError</span><span>str()</span><span>try/except</span><span>Exclusive mode</span><span>FileExistsError</span><span>Binary mode</span><span>bytes</span><span>ValueError</span></p>

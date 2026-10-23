@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advanced Concepts – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Advanced Concepts with answers and detailed explanations — 0 easy, 10 medium and 20 hard." />
+  <meta name="description" content="Advanced Concepts (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/19-advanced-concepts.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Advanced Concepts – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Advanced Concepts with answers and detailed explanations — 0 easy, 10 medium and 20 hard." />
+  <meta property="og:description" content="Advanced Concepts (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/19-advanced-concepts.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Advanced Concepts","item":"https://velnov.co.in/learn/python/19-advanced-concepts.html"}]}</script>
 </head>
@@ -36,9 +36,152 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 19 of 20</p>
       <h1>Advanced Concepts — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Advanced Concepts</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-18">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Advanced Concepts</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-18">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">0 easy · 10 medium · 20 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Advanced Concepts – the tools experienced Python developers use</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">The GIL and running things in parallel</a> · <a href="#ov-2">Shallow copy vs deep copy</a> · <a href="#ov-3">Unpacking with <code class="ic">*</code> and <code class="ic">**</code></a> · <a href="#ov-4">The walrus operator := (Python 3.8+)</a> · <a href="#ov-5">Type hints</a> · <a href="#ov-6">Context managers</a> · <a href="#ov-7">Handy standard-library tools</a> · <a href="#ov-8">Small features worth knowing</a> · <a href="#ov-9">is vs == (one more time)</a> · <a href="#ov-10">Common misconceptions</a> · <a href="#ov-11">Quick revision</a> · <a href="#ov-12">Test your understanding</a></nav>
+      <h3 id="ov-1">1. The GIL and running things in parallel</h3>
+      <p>The <strong>GIL</strong> (Global Interpreter Lock) in CPython lets only <strong>one thread</strong> run Python code at a time.</p>
+      <ul class="ov-list"><li><strong>threading</strong> and <strong>asyncio:</strong> good for <strong>I/O-bound</strong> work (waiting on the network or disk).</li><li><strong>multiprocessing:</strong> separate processes, each with its own interpreter. Use it for <strong>CPU-heavy</strong> work on several cores.</li></ul>
+      <h3 id="ov-2">2. Shallow copy vs deep copy</h3>
+      <ul class="ov-list"><li>A <strong>shallow copy</strong> (<code class="ic">.copy()</code>, <code class="ic">[:]</code>) copies the outer list, but <strong>shares</strong> the inner objects.</li><li>A <strong>deep copy</strong> (<code class="ic">copy.deepcopy()</code>) copies <strong>everything</strong>, all the way down.</li></ul>
+      <pre class="code"><code>import copy
+a = [[1, 2], [3, 4]]
+shallow = a.copy()
+deep = copy.deepcopy(a)
+shallow[0][0] = 99
+print(a)
+print(deep)</code></pre>
+      <pre class="ov-out"><span>Output</span>[[99, 2], [3, 4]]
+[[1, 2], [3, 4]]</pre>
+      <h3 id="ov-3">3. Unpacking with <code class="ic">*</code> and <code class="ic">**</code></h3>
+      <ul class="ov-list"><li><code class="ic">a, *rest = items</code> collects the leftover items into a list.</li><li><code class="ic">f(*my_list)</code> spreads a list into arguments; <code class="ic">f(**my_dict)</code> spreads a dict into keyword arguments.</li><li><code class="ic">{**d1, **d2}</code> merges dicts; the later one wins.</li></ul>
+      <pre class="code"><code>first, *middle, last = [1, 2, 3, 4]
+print(first, middle, last)
+
+def add(a, b, c):
+    return a + b + c
+print(add(*[1, 2, 3]))
+print({**{&quot;x&quot;: 1, &quot;y&quot;: 2}, **{&quot;y&quot;: 99}})</code></pre>
+      <pre class="ov-out"><span>Output</span>1 [2, 3] 4
+6
+{'x': 1, 'y': 99}</pre>
+      <h3 id="ov-4">4. The walrus operator := (Python 3.8+)</h3>
+      <p><code class="ic">:=</code> <strong>assigns and uses</strong> a value in the same expression.</p>
+      <pre class="code"><code>data = [5, 12, 8, 20]
+if (n := len(data)) &gt; 3:
+    print(f&quot;{n} items&quot;)
+print([y for x in data if (y := x * 2) &gt; 15])</code></pre>
+      <pre class="ov-out"><span>Output</span>4 items
+[24, 16, 40]</pre>
+      <h3 id="ov-5">5. Type hints</h3>
+      <p><strong>Type hints</strong> document the expected types. Tools such as <strong>mypy</strong> and IDEs check them, but <strong>Python does not enforce them</strong> at runtime. <code class="ic">Optional[str]</code> means “a str or None”; in 3.10+ you can write <code class="ic">str | None</code>.</p>
+      <pre class="code"><code>from typing import Optional
+
+def find(names: dict[int, str], id: int) -&gt; Optional[str]:
+    return names.get(id)
+
+print(find({1: &quot;Ana&quot;}, 1), find({1: &quot;Ana&quot;}, 2))</code></pre>
+      <pre class="ov-out"><span>Output</span>Ana None</pre>
+      <h3 id="ov-6">6. Context managers</h3>
+      <p>A <strong>context manager</strong> runs set-up code on entering a <code class="ic">with</code> block and clean-up code on leaving it, <strong>even if an error happens</strong>. Build one with <code class="ic">__enter__</code>/<code class="ic">__exit__</code>, or with <code class="ic">@contextmanager</code>.</p>
+      <pre class="code"><code>from contextlib import contextmanager
+
+@contextmanager
+def tag(name):
+    print(f&quot;&lt;{name}&gt;&quot;)
+    yield
+    print(f&quot;&lt;/{name}&gt;&quot;)
+
+with tag(&quot;b&quot;):
+    print(&quot;hi&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>&lt;b&gt;
+hi
+&lt;/b&gt;</pre>
+      <h3 id="ov-7">7. Handy standard-library tools</h3>
+      <pre class="code"><code>from collections import defaultdict
+from functools import partial
+from itertools import zip_longest
+
+groups = defaultdict(list)            # missing keys start as []
+for name in [&quot;ana&quot;, &quot;amy&quot;, &quot;bob&quot;]:
+    groups[name[0]].append(name)
+print(dict(groups))
+
+cube = partial(pow, exp=3)            # pre-fill an argument
+print(cube(2))
+
+matrix = [[1, 2], [3, 4]]
+print(list(zip(*matrix)))             # transpose
+print(list(zip_longest([1, 2, 3], [&quot;a&quot;], fillvalue=&quot;?&quot;)))</code></pre>
+      <pre class="ov-out"><span>Output</span>{'a': ['ana', 'amy'], 'b': ['bob']}
+8
+[(1, 3), (2, 4)]
+[(1, 'a'), (2, '?'), (3, '?')]</pre>
+      <h3 id="ov-8">8. Small features worth knowing</h3>
+      <ul class="ov-list"><li><code class="ic">f&quot;{x=}&quot;</code> prints the expression <strong>and</strong> its value; great for debugging.</li><li><code class="ic">__slots__</code> fixes an object's attributes. It saves memory and blocks new attributes.</li><li><strong>Monkey patching</strong> replaces code at runtime, e.g. in tests. Use it sparingly.</li><li>A <strong>metaclass</strong> is “the class of a class”; <code class="ic">type</code> is the default. Rarely needed.</li></ul>
+      <pre class="code"><code>x = 5
+print(f&quot;{x=}&quot;, f&quot;{x * 2=}&quot;)
+
+class Point:
+    __slots__ = (&quot;x&quot;, &quot;y&quot;)
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+
+p = Point(1, 2)
+try:
+    p.z = 3
+except AttributeError:
+    print(&quot;no new attributes allowed&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>x=5 x * 2=10
+no new attributes allowed</pre>
+      <h3 id="ov-9">9. is vs == (one more time)</h3>
+      <p><code class="ic">==</code> compares <strong>values</strong>; <code class="ic">is</code> checks whether two names are the <strong>same object</strong>. CPython reuses the small integers from -5 to 256, so <code class="ic">is</code> can look like it works for them, but <strong>never</strong> use <code class="ic">is</code> to compare numbers or strings. Use <code class="ic">is</code> only for <code class="ic">None</code>.</p>
+      <pre class="code"><code>a = [1, 2]
+b = [1, 2]
+print(a == b, a is b)
+print(sorted([3, 1]) is sorted([3, 1]))</code></pre>
+      <pre class="ov-out"><span>Output</span>True False
+False</pre>
+      <h3 id="ov-10">10. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>Threads make CPU-heavy Python code faster.</td><td>The GIL allows one thread at a time; use multiprocessing for CPU work.</td></tr>
+          <tr><td>list.copy() copies the nested lists too.</td><td>It is a shallow copy; use copy.deepcopy().</td></tr>
+          <tr><td>Type hints stop wrong types.</td><td>Python ignores them at runtime; tools like mypy check them.</td></tr>
+          <tr><td>is works for comparing numbers.</td><td>Use == for values; is only for None.</td></tr>
+          <tr><td>Metaclasses are needed in everyday code.</td><td>They are rarely needed; normal classes cover almost everything.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-11">11. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>GIL</dt><dd>Lets one thread run Python code at a time.</dd></div>
+        <div><dt>Shallow copy</dt><dd>Copies the outer object; shares inner ones.</dd></div>
+        <div><dt>Deep copy</dt><dd>Copies everything (copy.deepcopy).</dd></div>
+        <div><dt><code class="ic">*rest</code></dt><dd>Collects leftover items when unpacking.</dd></div>
+        <div><dt><code class="ic">:=</code></dt><dd>Walrus operator: assign inside an expression.</dd></div>
+        <div><dt>Type hints</dt><dd>Documented types; not enforced.</dd></div>
+        <div><dt>Context manager</dt><dd>Set-up and clean-up around a with block.</dd></div>
+        <div><dt>defaultdict</dt><dd>Dict that creates missing keys automatically.</dd></div>
+      </dl>
+      <h3 id="ov-12">12. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>For CPU-heavy work, should you use threading or multiprocessing?</p><details><summary>Show answer</summary><p>multiprocessing (it bypasses the GIL).</p></details></li>
+        <li><p>What is the difference between a shallow and a deep copy?</p><details><summary>Show answer</summary><p>A shallow copy shares nested objects; a deep copy copies everything.</p></details></li>
+        <li><p>What do <code class="ic">a</code> and <code class="ic">rest</code> get from <code class="ic">a, *rest = [1, 2, 3]</code>?</p><details><summary>Show answer</summary><p>a = 1, rest = [2, 3].</p></details></li>
+        <li><p>What does the walrus operator := do?</p><details><summary>Show answer</summary><p>Assigns a value and uses it in the same expression.</p></details></li>
+        <li><p>Are type hints enforced at runtime?</p><details><summary>Show answer</summary><p>No; tools such as mypy check them.</p></details></li>
+        <li><p>What does with run when the block ends?</p><details><summary>Show answer</summary><p>The context manager's clean-up code, even after an error.</p></details></li>
+        <li><p>What does <code class="ic">zip(*matrix)</code> do?</p><details><summary>Show answer</summary><p>Transposes the matrix (rows become columns).</p></details></li>
+        <li><p>What does f&quot;{x=}&quot; print when x = 5?</p><details><summary>Show answer</summary><p>x=5</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Know when the GIL matters, copy deeply when data is nested, unpack with <code class="ic">*</code> and <code class="ic">**</code>, and let context managers and the standard library do the heavy lifting.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Threading</span><span>multiprocessing</span><span>CPython</span><span>GIL</span><span>Parallelism</span><span>copy module</span><span>References</span><span>Shallow copy</span><span>Nested lists</span><span>Assignment expressions</span><span>Python 3.8</span><span>Extended unpacking</span><span>*args</span><span>Dict unpacking</span><span>**kwargs</span><span>Type hints</span><span>mypy</span><span>typing module</span><span>Optional</span><span>Union</span><span>typing</span><span>with statement</span><span>contextlib</span><span>Runtime modification</span></p>

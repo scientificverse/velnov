@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Error Handling – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Error Handling with answers and detailed explanations — 9 easy, 15 medium and 6 hard." />
+  <meta name="description" content="Error Handling (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/11-error-handling.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Error Handling – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Error Handling with answers and detailed explanations — 9 easy, 15 medium and 6 hard." />
+  <meta property="og:description" content="Error Handling (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/11-error-handling.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Error Handling","item":"https://velnov.co.in/learn/python/11-error-handling.html"}]}</script>
 </head>
@@ -36,9 +36,136 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 11 of 20</p>
       <h1>Error Handling — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Error Handling</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-10">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Error Handling</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-10">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">9 easy · 15 medium · 6 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Error Handling – try, except, else and finally</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Exceptions vs syntax errors</a> · <a href="#ov-2">Common exceptions</a> · <a href="#ov-3">try and except</a> · <a href="#ov-4">Handling several exceptions</a> · <a href="#ov-5">else and finally</a> · <a href="#ov-6">Raising your own exceptions</a> · <a href="#ov-7">Asking until the input is valid</a> · <a href="#ov-8">Good habits</a> · <a href="#ov-9">Common misconceptions</a> · <a href="#ov-10">Quick revision</a> · <a href="#ov-11">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Exceptions vs syntax errors</h3>
+      <ul class="ov-list"><li>A <strong>syntax error</strong> breaks Python's grammar (e.g. a missing colon). It is found before the program runs and cannot be caught.</li><li>An <strong>exception</strong> is an error that happens <strong>while the program runs</strong>. It can be caught and handled.</li></ul>
+      <p>An uncaught exception stops the program and prints a <strong>traceback</strong>. Read it from the <strong>bottom</strong>: the last line names the exception and its message.</p>
+      <h3 id="ov-2">2. Common exceptions</h3>
+      <ul class="ov-list"><li><strong>ZeroDivisionError:</strong> <code class="ic">10 / 0</code>.</li><li><strong>ValueError:</strong> right type, bad value, e.g. <code class="ic">int(&quot;abc&quot;)</code>.</li><li><strong>TypeError:</strong> wrong type, e.g. <code class="ic">&quot;hello&quot; + 5</code>.</li><li><strong>IndexError:</strong> list position out of range.</li><li><strong>KeyError:</strong> missing dictionary key.</li><li><strong>NameError:</strong> a name that was never defined.</li><li><strong>AttributeError:</strong> an attribute or method that doesn't exist.</li><li><strong>FileNotFoundError:</strong> opening a file that isn't there.</li></ul>
+      <h3 id="ov-3">3. try and except</h3>
+      <p>Put the risky code in <code class="ic">try</code>. If it raises an exception, the matching <code class="ic">except</code> block runs instead of the program crashing. Use <code class="ic">as e</code> to get the message.</p>
+      <pre class="code"><code>try:
+    n = int(&quot;abc&quot;)
+except ValueError as e:
+    print(&quot;Bad value:&quot;, e)
+print(&quot;program continues&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>Bad value: invalid literal for int() with base 10: 'abc'
+program continues</pre>
+      <h4>Trace what happens</h4>
+      <pre class="code"><code>try:
+    print(&quot;A&quot;)
+    x = 1 / 0
+    print(&quot;B&quot;)          # skipped
+except ZeroDivisionError:
+    print(&quot;C&quot;)
+print(&quot;D&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>A
+C
+D</pre>
+      <h3 id="ov-4">4. Handling several exceptions</h3>
+      <ul class="ov-list"><li>Use <strong>several <code class="ic">except</code> blocks</strong> for different handling. Python runs the first one that matches.</li><li>Use a <strong>tuple</strong> when several exceptions share one handler: <code class="ic">except (ValueError, TypeError):</code>.</li></ul>
+      <pre class="code"><code>for text in [&quot;5&quot;, &quot;zero&quot;, &quot;0&quot;]:
+    try:
+        print(10 / int(text))
+    except ValueError:
+        print(&quot;not a number&quot;)
+    except ZeroDivisionError:
+        print(&quot;can't divide by zero&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>2.0
+not a number
+can't divide by zero</pre>
+      <h3 id="ov-5">5. else and finally</h3>
+      <ul class="ov-list"><li><code class="ic">else</code> runs only if the <code class="ic">try</code> block finished <strong>without</strong> an exception.</li><li><code class="ic">finally</code> runs <strong>always</strong>, even after a <code class="ic">return</code>. Use it for cleanup.</li></ul>
+      <pre class="code"><code>def convert(text):
+    try:
+        n = int(text)
+    except ValueError:
+        print(&quot;bad input&quot;)
+    else:
+        print(&quot;got&quot;, n)
+    finally:
+        print(&quot;done&quot;)
+
+convert(&quot;7&quot;)
+convert(&quot;x&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>got 7
+done
+bad input
+done</pre>
+      <h3 id="ov-6">6. Raising your own exceptions</h3>
+      <p><code class="ic">raise</code> triggers an exception on purpose. For your own error types, create a class that inherits from <code class="ic">Exception</code>.</p>
+      <pre class="code"><code>class InsufficientFunds(Exception):
+    pass
+
+def withdraw(balance, amount):
+    if amount &gt; balance:
+        raise InsufficientFunds(f&quot;short by {amount - balance}&quot;)
+    return balance - amount
+
+try:
+    withdraw(100, 150)
+except InsufficientFunds as e:
+    print(&quot;Error:&quot;, e)</code></pre>
+      <pre class="ov-out"><span>Output</span>Error: short by 50</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Raising is better than returning <code class="ic">-1</code>: an exception can't be silently ignored. A bare <code class="ic">raise</code> inside <code class="ic">except</code> re-raises the same error.</p>
+      <h3 id="ov-7">7. Asking until the input is valid</h3>
+      <pre class="code"><code>while True:
+    try:
+        n = int(input(&quot;Number: &quot;))
+        break
+    except ValueError:
+        print(&quot;Not a number - try again&quot;)</code></pre>
+      <h3 id="ov-8">8. Good habits</h3>
+      <ul class="ov-list"><li><strong>Catch specific exceptions.</strong> A bare <code class="ic">except:</code> hides real bugs and even catches Ctrl+C.</li><li><strong>Keep <code class="ic">try</code> blocks small</strong>: wrap only the line that can fail.</li><li><strong>EAFP</strong> (“Easier to Ask Forgiveness than Permission”): Python style is to try the operation and catch the error, rather than check everything first.</li><li><code class="ic">assert condition, &quot;message&quot;</code> is for development checks, <strong>not</strong> for validating user input. Assertions can be switched off.</li></ul>
+      <pre class="code"><code>d = {&quot;a&quot;: 1}
+try:
+    value = d[&quot;b&quot;]
+except KeyError:
+    value = 0
+print(value)</code></pre>
+      <pre class="ov-out"><span>Output</span>0</pre>
+      <h3 id="ov-9">9. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>try/except can catch a missing colon.</td><td>Syntax errors are found before running and can't be caught.</td></tr>
+          <tr><td>A bare except: is the safest choice.</td><td>It hides real bugs; catch the specific exceptions you expect.</td></tr>
+          <tr><td>finally runs only if there was an error.</td><td>finally always runs.</td></tr>
+          <tr><td>int(&quot;abc&quot;) is a TypeError.</td><td>It is a ValueError: right type, bad value.</td></tr>
+          <tr><td>else in try runs when there is an error.</td><td>else runs only when no exception occurred.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-10">10. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Exception</dt><dd>An error that happens while the program runs.</dd></div>
+        <div><dt>Traceback</dt><dd>The error report; read the last line first.</dd></div>
+        <div><dt>try / except</dt><dd>Run risky code / handle its error.</dd></div>
+        <div><dt>as e</dt><dd>Gives access to the exception and its message.</dd></div>
+        <div><dt>else</dt><dd>Runs when no exception happened.</dd></div>
+        <div><dt>finally</dt><dd>Always runs; used for cleanup.</dd></div>
+        <div><dt>raise</dt><dd>Triggers an exception on purpose.</dd></div>
+        <div><dt>EAFP</dt><dd>Try first, handle the error if it happens.</dd></div>
+      </dl>
+      <h3 id="ov-11">11. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>Which exception does 10 / 0 raise?</p><details><summary>Show answer</summary><p>ZeroDivisionError.</p></details></li>
+        <li><p>Which exception does int(&quot;abc&quot;) raise?</p><details><summary>Show answer</summary><p>ValueError.</p></details></li>
+        <li><p>How do you get the error message inside except?</p><details><summary>Show answer</summary><p>except ValueError as e: then print(e).</p></details></li>
+        <li><p>How do you catch two exception types with one handler?</p><details><summary>Show answer</summary><p>except (ValueError, TypeError):</p></details></li>
+        <li><p>When does the finally block run?</p><details><summary>Show answer</summary><p>Always.</p></details></li>
+        <li><p>When does the else block of a try run?</p><details><summary>Show answer</summary><p>Only when the try block raised no exception.</p></details></li>
+        <li><p>How do you create your own exception type?</p><details><summary>Show answer</summary><p>class MyError(Exception): pass</p></details></li>
+        <li><p>Why is a bare except: bad practice?</p><details><summary>Show answer</summary><p>It hides real bugs and even catches Ctrl+C.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Wrap only the risky line in try, catch the specific exceptions you expect, use finally for cleanup, and raise clear errors of your own.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Runtime errors</span><span>SyntaxError vs exceptions</span><span>try/except</span><span>ZeroDivisionError</span><span>ValueError</span><span>TypeError</span><span>IndexError</span><span>KeyError</span><span>NameError</span><span>Typos</span><span>Traceback</span><span>Debugging</span><span>Control flow</span><span>Exception objects</span><span>as keyword</span><span>Multiple except</span><span>Exception matching</span><span>Exception tuples</span><span>try/else</span><span>Minimal try blocks</span><span>finally</span><span>Cleanup</span><span>raise</span><span>Validation</span></p>

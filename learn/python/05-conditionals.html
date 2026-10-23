@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Conditionals – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Conditionals with answers and detailed explanations — 13 easy, 13 medium and 4 hard." />
+  <meta name="description" content="Conditionals (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/05-conditionals.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Conditionals – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Conditionals with answers and detailed explanations — 13 easy, 13 medium and 4 hard." />
+  <meta property="og:description" content="Conditionals (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/05-conditionals.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Conditionals","item":"https://velnov.co.in/learn/python/05-conditionals.html"}]}</script>
 </head>
@@ -36,9 +36,144 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 5 of 20</p>
       <h1>Conditionals — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Conditionals</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-4">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Conditionals</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-4">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">13 easy · 13 medium · 4 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Conditionals – making decisions with if, elif and else</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">if, elif and else</a> · <a href="#ov-2">Order matters in elif chains</a> · <a href="#ov-3">Conditions can be any value</a> · <a href="#ov-4">Combining conditions</a> · <a href="#ov-5">The conditional expression (ternary)</a> · <a href="#ov-6">Short-circuit guards</a> · <a href="#ov-7">Checking for None and placeholders</a> · <a href="#ov-8">match / case (Python 3.10+)</a> · <a href="#ov-9">Comparing input</a> · <a href="#ov-10">Common misconceptions</a> · <a href="#ov-11">Quick revision</a> · <a href="#ov-12">Test your understanding</a></nav>
+      <h3 id="ov-1">1. if, elif and else</h3>
+      <p>An <strong>if statement</strong> runs a block only when its condition is true. <code class="ic">elif</code> (“else if”) checks another condition, and <code class="ic">else</code> runs when <strong>nothing</strong> above matched. Each line ends with a colon, and the body is indented.</p>
+      <pre class="code"><code>score = 82
+if score &gt;= 90:
+    print(&quot;A&quot;)
+elif score &gt;= 75:
+    print(&quot;B&quot;)
+elif score &gt;= 60:
+    print(&quot;C&quot;)
+else:
+    print(&quot;Fail&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>B</pre>
+      <h3 id="ov-2">2. Order matters in elif chains</h3>
+      <p>Python stops at the <strong>first</strong> true condition and skips the rest. Put the <strong>most specific</strong> test first.</p>
+      <pre class="code"><code>score = 95
+# Wrong order: 95 &gt;= 60 is true first
+if score &gt;= 60:
+    print(&quot;C&quot;)
+elif score &gt;= 90:
+    print(&quot;A&quot;)
+
+# Right order
+if score &gt;= 90:
+    print(&quot;A&quot;)
+elif score &gt;= 60:
+    print(&quot;C&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>C
+A</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Two separate <code class="ic">if</code> statements are <strong>both</strong> checked; an <code class="ic">if</code>/<code class="ic">elif</code> chain picks only <strong>one</strong> branch.</p>
+      <h3 id="ov-3">3. Conditions can be any value</h3>
+      <p>An <code class="ic">if</code> works with truthiness: empty containers, <code class="ic">0</code>, <code class="ic">&quot;&quot;</code> and <code class="ic">None</code> count as false.</p>
+      <pre class="code"><code>items = []
+if items:
+    print(&quot;has items&quot;)
+else:
+    print(&quot;empty&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>empty</pre>
+      <p class="ov-eg"><strong>Example:</strong> <code class="ic">if items:</code> is the Pythonic way to check for a non-empty list, instead of <code class="ic">len(items) &gt; 0</code>.</p>
+      <h3 id="ov-4">4. Combining conditions</h3>
+      <ul class="ov-list"><li>Use <code class="ic">and</code>, <code class="ic">or</code> and <code class="ic">not</code> to combine conditions.</li><li>Use a <strong>chained</strong> comparison for ranges: <code class="ic">10 &lt;= x &lt;= 20</code>.</li><li>Use <code class="ic">in</code> to test membership: <code class="ic">fruit in [&quot;apple&quot;, &quot;mango&quot;]</code>.</li></ul>
+      <pre class="code"><code>age, has_id = 20, True
+if age &gt;= 18 and has_id:
+    print(&quot;entry allowed&quot;)
+x = 15
+print(10 &lt;= x &lt;= 20)
+print(&quot;apple&quot; in [&quot;apple&quot;, &quot;mango&quot;])</code></pre>
+      <pre class="ov-out"><span>Output</span>entry allowed
+True
+True</pre>
+      <h4>A common bug</h4>
+      <p><code class="ic">if age == 13 or 14 or 15:</code> is <strong>always true</strong>, because <code class="ic">14</code> on its own is a truthy value. Write <code class="ic">if age in (13, 14, 15):</code> instead.</p>
+      <h3 id="ov-5">5. The conditional expression (ternary)</h3>
+      <p>A <strong>conditional expression</strong> picks one of two values in a single line: <code class="ic">A if condition else B</code>.</p>
+      <pre class="code"><code>age = 15
+status = &quot;adult&quot; if age &gt;= 18 else &quot;minor&quot;
+print(status)
+n = 7
+print(&quot;even&quot; if n % 2 == 0 else &quot;odd&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>minor
+odd</pre>
+      <h3 id="ov-6">6. Short-circuit guards</h3>
+      <p><code class="ic">and</code> stops at the first false part, so you can put a <strong>safety check</strong> first.</p>
+      <pre class="code"><code>x = 0
+if x != 0 and 10 / x &gt; 2:
+    print(&quot;big&quot;)
+else:
+    print(&quot;skipped safely&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>skipped safely</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Reversing the order (<code class="ic">10 / x &gt; 2 and x != 0</code>) would crash with <strong>ZeroDivisionError</strong> when <code class="ic">x</code> is 0.</p>
+      <h3 id="ov-7">7. Checking for None and placeholders</h3>
+      <ul class="ov-list"><li>Check for <code class="ic">None</code> with <code class="ic">is</code>: <code class="ic">if result is None:</code>.</li><li><code class="ic">pass</code> does nothing. Use it as a placeholder where Python needs a block.</li></ul>
+      <pre class="code"><code>result = None
+if result is None:
+    print(&quot;not found&quot;)
+if True:
+    pass    # TODO: write this later</code></pre>
+      <pre class="ov-out"><span>Output</span>not found</pre>
+      <h3 id="ov-8">8. match / case (Python 3.10+)</h3>
+      <p><code class="ic">match</code> compares a value against several patterns, like a <code class="ic">switch</code> in other languages. <code class="ic">case _:</code> is the default.</p>
+      <pre class="code"><code>command = &quot;stop&quot;
+match command:
+    case &quot;start&quot;:
+        print(&quot;starting&quot;)
+    case &quot;stop&quot;:
+        print(&quot;stopping&quot;)
+    case _:
+        print(&quot;unknown&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>stopping</pre>
+      <h3 id="ov-9">9. Comparing input</h3>
+      <p>Input is text, so compare it to text, or convert it first.</p>
+      <pre class="code"><code>age = &quot;18&quot;            # what input() would give you
+print(age == 18)      # a string never equals a number
+print(int(age) == 18)</code></pre>
+      <pre class="ov-out"><span>Output</span>False
+True</pre>
+      <h3 id="ov-10">10. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>if x = 5: compares x with 5.</td><td>= is assignment and is a SyntaxError in a condition; use ==.</td></tr>
+          <tr><td>All branches of an elif chain can run.</td><td>Only the first true branch runs.</td></tr>
+          <tr><td>age == 13 or 14 checks two ages.</td><td>It is always true; write age in (13, 14).</td></tr>
+          <tr><td>&quot;18&quot; == 18 is True.</td><td>A string never equals a number; convert with int() first.</td></tr>
+          <tr><td>x == None is the best None check.</td><td>Use x is None.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-11">11. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>if</dt><dd>Runs a block when a condition is true.</dd></div>
+        <div><dt>elif</dt><dd>Checks another condition if the earlier ones failed.</dd></div>
+        <div><dt>else</dt><dd>Runs when no condition matched.</dd></div>
+        <div><dt>Ternary</dt><dd>A if condition else B, in one line.</dd></div>
+        <div><dt>and / or / not</dt><dd>Combine or flip conditions.</dd></div>
+        <div><dt>in</dt><dd>Tests membership.</dd></div>
+        <div><dt>pass</dt><dd>A placeholder that does nothing.</dd></div>
+        <div><dt>match / case</dt><dd>Pattern matching, from Python 3.10.</dd></div>
+      </dl>
+      <h3 id="ov-12">12. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>When does an else block run?</p><details><summary>Show answer</summary><p>When none of the if/elif conditions were true.</p></details></li>
+        <li><p>score = 95, and the chain checks &gt;= 60 first. Which branch runs?</p><details><summary>Show answer</summary><p>The &gt;= 60 branch, because it is the first true condition.</p></details></li>
+        <li><p>What does if []: count as?</p><details><summary>Show answer</summary><p>False, because an empty list is falsy.</p></details></li>
+        <li><p>Write a one-line condition that sets status to &quot;adult&quot; or &quot;minor&quot;.</p><details><summary>Show answer</summary><p>status = &quot;adult&quot; if age &gt;= 18 else &quot;minor&quot;</p></details></li>
+        <li><p>Why is if age == 13 or 14: always true?</p><details><summary>Show answer</summary><p>14 alone is truthy, so the or is always true.</p></details></li>
+        <li><p>How do you check if x is None?</p><details><summary>Show answer</summary><p>if x is None:</p></details></li>
+        <li><p>What does pass do?</p><details><summary>Show answer</summary><p>Nothing; it is a placeholder.</p></details></li>
+        <li><p>What is &quot;18&quot; == 18?</p><details><summary>Show answer</summary><p>False.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Python picks the first true branch of an if/elif chain, so order your tests carefully, and remember that any value can act as a condition.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Indentation</span><span>Colon</span><span>if/else chains</span><span>if/elif/else</span><span>if vs elif</span><span>elif</span><span>Evaluation order</span><span>Truthiness</span><span>Falsy values</span><span>Empty collections</span><span>Ternary expression</span><span>Conditional expression</span><span>Modulo</span><span>Even/odd</span><span>= vs ==</span><span>SyntaxError</span><span>Logical operators</span><span>Chained comparison</span><span>in operator</span><span>Membership</span><span>continue</span><span>Placeholders</span><span>Common gotchas</span><span>None</span></p>

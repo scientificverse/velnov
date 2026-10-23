@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Decorators &amp; Closures – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Decorators &amp; Closures with answers and detailed explanations — 1 easy, 13 medium and 16 hard." />
+  <meta name="description" content="Decorators &amp; Closures (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/18-decorators-and-closures.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Decorators &amp; Closures – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Decorators &amp; Closures with answers and detailed explanations — 1 easy, 13 medium and 16 hard." />
+  <meta property="og:description" content="Decorators &amp; Closures (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/18-decorators-and-closures.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Decorators & Closures","item":"https://velnov.co.in/learn/python/18-decorators-and-closures.html"}]}</script>
 </head>
@@ -36,9 +36,173 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 18 of 20</p>
       <h1>Decorators &amp; Closures — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Decorators &amp; Closures</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-17">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Decorators &amp; Closures</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-17">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">1 easy · 13 medium · 16 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Decorators and Closures – functions that wrap and remember</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Functions inside functions</a> · <a href="#ov-2">Closures</a> · <a href="#ov-3">nonlocal</a> · <a href="#ov-4">The late-binding trap</a> · <a href="#ov-5">Decorators</a> · <a href="#ov-6">A proper decorator: <code class="ic">*args</code>, <code class="ic">**kwargs</code> and <code class="ic">wraps</code></a> · <a href="#ov-7">Decorators with arguments</a> · <a href="#ov-8">Stacking and timing</a> · <a href="#ov-9">Decorators you will meet</a> · <a href="#ov-10">Common misconceptions</a> · <a href="#ov-11">Quick revision</a> · <a href="#ov-12">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Functions inside functions</h3>
+      <p>Functions are <strong>first-class</strong> objects: they can be passed around, returned and defined inside other functions. A <strong>higher-order function</strong> takes or returns another function.</p>
+      <pre class="code"><code>def apply_twice(f, x):
+    return f(f(x))
+
+print(apply_twice(lambda n: n + 3, 10))</code></pre>
+      <pre class="ov-out"><span>Output</span>16</pre>
+      <h3 id="ov-2">2. Closures</h3>
+      <p>A <strong>closure</strong> is an inner function that <strong>remembers</strong> variables from the outer function, even after the outer function has finished.</p>
+      <pre class="code"><code>def make_adder(n):
+    def add(x):
+        return x + n       # n is remembered
+    return add
+
+add5 = make_adder(5)
+add10 = make_adder(10)
+print(add5(1), add10(1))</code></pre>
+      <pre class="ov-out"><span>Output</span>6 11</pre>
+      <h3 id="ov-3">3. nonlocal</h3>
+      <p>To <strong>change</strong> a variable of the outer function, the inner function needs <code class="ic">nonlocal</code>.</p>
+      <pre class="code"><code>def counter():
+    count = 0
+    def inc():
+        nonlocal count
+        count += 1
+        return count
+    return inc
+
+a = counter()
+b = counter()
+print(a(), a(), b())     # each counter has its own count</code></pre>
+      <pre class="ov-out"><span>Output</span>1 2 1</pre>
+      <h3 id="ov-4">4. The late-binding trap</h3>
+      <p>A closure remembers the <strong>variable</strong>, not its value at that moment. Lambdas made in a loop therefore all see the <strong>last</strong> value. Fix it with a default argument.</p>
+      <pre class="code"><code>funcs = [lambda x: x * i for i in range(3)]
+print([f(10) for f in funcs])
+
+fixed = [lambda x, i=i: x * i for i in range(3)]
+print([f(10) for f in fixed])</code></pre>
+      <pre class="ov-out"><span>Output</span>[20, 20, 20]
+[0, 10, 20]</pre>
+      <h3 id="ov-5">5. Decorators</h3>
+      <p>A <strong>decorator</strong> takes a function and returns a <strong>new</strong> function that adds behaviour around it, without changing the original code. <code class="ic">@deco</code> above a <code class="ic">def</code> is shorthand for <code class="ic">f = deco(f)</code>.</p>
+      <pre class="code"><code>def deco(func):
+    def wrapper():
+        print(&quot;before&quot;)
+        func()
+        print(&quot;after&quot;)
+    return wrapper
+
+@deco
+def hello():
+    print(&quot;hello&quot;)
+
+hello()</code></pre>
+      <pre class="ov-out"><span>Output</span>before
+hello
+after</pre>
+      <h3 id="ov-6">6. A proper decorator: <code class="ic">*args</code>, <code class="ic">**kwargs</code> and <code class="ic">wraps</code></h3>
+      <ul class="ov-list"><li>Use <code class="ic">*args, **kwargs</code> in the wrapper so it works with <strong>any</strong> function.</li><li>Use <code class="ic">@functools.wraps(func)</code> so the wrapped function keeps its own <strong>name</strong> and <strong>docstring</strong>.</li></ul>
+      <pre class="code"><code>import functools
+
+def logged(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print(f&quot;calling {func.__name__}&quot;)
+        return func(*args, **kwargs)
+    return wrapper
+
+@logged
+def add(a, b):
+    return a + b
+
+print(add(2, 3))
+print(add.__name__)</code></pre>
+      <pre class="ov-out"><span>Output</span>calling add
+5
+add</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Without <code class="ic">functools.wraps</code>, <code class="ic">add.__name__</code> would say <code class="ic">wrapper</code>.</p>
+      <h3 id="ov-7">7. Decorators with arguments</h3>
+      <p><code class="ic">@repeat(3)</code> needs <strong>three layers</strong>: the outer function takes the argument and returns the real decorator.</p>
+      <pre class="code"><code>def repeat(n):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(n):
+                func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@repeat(3)
+def hi():
+    print(&quot;hi&quot;)
+
+hi()</code></pre>
+      <pre class="ov-out"><span>Output</span>hi
+hi
+hi</pre>
+      <h3 id="ov-8">8. Stacking and timing</h3>
+      <ul class="ov-list"><li>Stacked decorators apply <strong>bottom-up</strong>: <code class="ic">@a</code> then <code class="ic">@b</code> above <code class="ic">f</code> means <code class="ic">f = a(b(f))</code>.</li><li>A decorator runs <strong>once, when the function is defined</strong>; the wrapper runs on each call.</li></ul>
+      <pre class="code"><code>def tag(name):
+    def deco(f):
+        def wrapper():
+            return f&quot;&lt;{name}&gt;{f()}&lt;/{name}&gt;&quot;
+        return wrapper
+    return deco
+
+@tag(&quot;b&quot;)
+@tag(&quot;i&quot;)
+def text():
+    return &quot;hi&quot;
+
+print(text())</code></pre>
+      <pre class="ov-out"><span>Output</span>&lt;b&gt;&lt;i&gt;hi&lt;/i&gt;&lt;/b&gt;</pre>
+      <h3 id="ov-9">9. Decorators you will meet</h3>
+      <ul class="ov-list"><li><code class="ic">@functools.lru_cache</code>: <strong>memoization</strong>, which caches results so repeated calls are instant.</li><li><code class="ic">@property</code>, <code class="ic">@staticmethod</code> and <code class="ic">@classmethod</code>, on class methods.</li><li>Web frameworks, e.g. Flask's <code class="ic">@app.route(&quot;/&quot;)</code>.</li></ul>
+      <pre class="code"><code>from functools import lru_cache
+
+@lru_cache
+def fib(n):
+    return n if n &lt; 2 else fib(n - 1) + fib(n - 2)
+
+print(fib(50))</code></pre>
+      <pre class="ov-out"><span>Output</span>12586269025</pre>
+      <p class="ov-eg"><strong>Example:</strong> A class can also be a decorator by defining <code class="ic">__call__</code>, e.g. to count how many times a function is called.</p>
+      <h3 id="ov-10">10. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>A closure copies the value at creation time.</td><td>It remembers the variable; lambdas in a loop see its last value.</td></tr>
+          <tr><td>An inner function can change outer variables directly.</td><td>Changing an outer variable needs nonlocal.</td></tr>
+          <tr><td>A decorator runs every time before the function.</td><td>The decorator runs once at definition; the wrapper runs on each call.</td></tr>
+          <tr><td>A decorator should return wrapper().</td><td>It must return the function wrapper, not the result of calling it.</td></tr>
+          <tr><td>@a @b applies a first.</td><td>Decorators apply bottom-up: f = a(b(f)).</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-11">11. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>First-class function</dt><dd>Can be stored, passed and returned like any value.</dd></div>
+        <div><dt>Higher-order function</dt><dd>Takes or returns a function.</dd></div>
+        <div><dt>Closure</dt><dd>Inner function that remembers outer variables.</dd></div>
+        <div><dt>nonlocal</dt><dd>Lets an inner function change an outer variable.</dd></div>
+        <div><dt>Decorator</dt><dd>Wraps a function to add behaviour.</dd></div>
+        <div><dt>@deco</dt><dd>Shorthand for f = deco(f).</dd></div>
+        <div><dt>functools.wraps</dt><dd>Keeps the original function's name and docstring.</dd></div>
+        <div><dt>lru_cache</dt><dd>Caches results (memoization).</dd></div>
+      </dl>
+      <h3 id="ov-12">12. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>What is a closure?</p><details><summary>Show answer</summary><p>An inner function that remembers variables from its enclosing function.</p></details></li>
+        <li><p>Which keyword lets an inner function change an outer variable?</p><details><summary>Show answer</summary><p>nonlocal</p></details></li>
+        <li><p>What does <code class="ic">[f(10) for f in [lambda x: x * i for i in range(3)]]</code> give?</p><details><summary>Show answer</summary><p>[20, 20, 20], because all lambdas see i = 2.</p></details></li>
+        <li><p>How do you fix that late-binding problem?</p><details><summary>Show answer</summary><p>Use a default argument: <code class="ic">lambda x, i=i: x * i</code>.</p></details></li>
+        <li><p>@deco above def f is shorthand for what?</p><details><summary>Show answer</summary><p>f = deco(f)</p></details></li>
+        <li><p>Why use <code class="ic">*args</code> and <code class="ic">**kwargs</code> in a wrapper?</p><details><summary>Show answer</summary><p>So it can accept and pass on any arguments.</p></details></li>
+        <li><p>What does functools.wraps do?</p><details><summary>Show answer</summary><p>Copies the original function's name and docstring onto the wrapper.</p></details></li>
+        <li><p>How many layers does a decorator with arguments need?</p><details><summary>Show answer</summary><p>Three: argument → decorator → wrapper.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Closures remember outer variables, and decorators use that to wrap functions with extra behaviour; always pass <code class="ic">*args</code>/<code class="ic">**kwargs</code> and use <code class="ic">functools.wraps</code>.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Closures</span><span>Scope</span><span>Nested functions</span><span>Free variables</span><span>Variable lifetime</span><span>nonlocal</span><span>global</span><span>First-class functions</span><span>Higher-order functions</span><span>map()</span><span>Decorators</span><span>Decorator syntax</span><span>Syntactic sugar</span><span>Wrapping</span><span>*args</span><span>**kwargs</span><span>functools.wraps</span><span>Metadata</span><span>Best practices</span><span>Parametrized decorators</span><span>Use cases</span><span>DRY</span><span>Memoization</span><span>Caching</span></p>

@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Variables &amp; Operators – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Variables &amp; Operators with answers and detailed explanations — 16 easy, 10 medium and 4 hard." />
+  <meta name="description" content="Variables &amp; Operators (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/02-variables-and-operators.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Variables &amp; Operators – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Variables &amp; Operators with answers and detailed explanations — 16 easy, 10 medium and 4 hard." />
+  <meta property="og:description" content="Variables &amp; Operators (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/02-variables-and-operators.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Variables & Operators","item":"https://velnov.co.in/learn/python/02-variables-and-operators.html"}]}</script>
 </head>
@@ -36,9 +36,129 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 2 of 20</p>
       <h1>Variables &amp; Operators — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Variables &amp; Operators</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-1">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Variables &amp; Operators</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-1">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">16 easy · 10 medium · 4 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Variables and Operators – storing values and calculating</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Variables</a> · <a href="#ov-2">Multiple assignment and swapping</a> · <a href="#ov-3">Arithmetic operators</a> · <a href="#ov-4">Order of operations</a> · <a href="#ov-5">Augmented assignment</a> · <a href="#ov-6">Comparison operators</a> · <a href="#ov-7">Logical operators: and, or, not</a> · <a href="#ov-8">Useful built-in functions</a> · <a href="#ov-9">Common misconceptions</a> · <a href="#ov-10">Quick revision</a> · <a href="#ov-11">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Variables</h3>
+      <p>A <strong>variable</strong> is a name that refers to a value. You create one with <code class="ic">=</code> (assignment). Python is <strong>dynamically typed</strong>: a name can later refer to a value of a different type.</p>
+      <pre class="code"><code>x = 5
+print(x)
+x = &quot;hello&quot;      # now x refers to a string
+print(x)</code></pre>
+      <pre class="ov-out"><span>Output</span>5
+hello</pre>
+      <h4>Naming rules</h4>
+      <ul class="ov-list"><li>Start with a <strong>letter or underscore</strong>, then letters, digits or underscores.</li><li>No spaces or hyphens, and no <strong>keywords</strong> such as <code class="ic">class</code>, <code class="ic">if</code> or <code class="ic">lambda</code>.</li><li>Names are <strong>case-sensitive</strong>: <code class="ic">total</code> and <code class="ic">Total</code> are different.</li><li>Style: <code class="ic">snake_case</code> for variables, <code class="ic">ALL_CAPS</code> for constants, e.g. <code class="ic">MAX_USERS = 100</code>.</li></ul>
+      <p class="ov-eg"><strong>Example:</strong> Valid: <code class="ic">_total</code>, <code class="ic">count2</code>, <code class="ic">user_name</code>. Invalid: <code class="ic">2count</code>, <code class="ic">my-var</code>, <code class="ic">class</code>.</p>
+      <h3 id="ov-2">2. Multiple assignment and swapping</h3>
+      <p>You can assign several names at once. Swapping two variables needs no temporary variable.</p>
+      <pre class="code"><code>a, b = 1, 2
+a, b = b, a        # swap
+print(a, b)
+x = y = z = 7
+print(x, y, z)</code></pre>
+      <pre class="ov-out"><span>Output</span>2 1
+7 7 7</pre>
+      <h3 id="ov-3">3. Arithmetic operators</h3>
+      <ul class="ov-list"><li><code class="ic">+</code> add, <code class="ic">-</code> subtract, <code class="ic">*</code> multiply.</li><li><code class="ic">/</code> divide: <strong>always gives a float</strong>.</li><li><code class="ic">//</code> floor division: divides and rounds <strong>down</strong>.</li><li><code class="ic">%</code> modulo: the <strong>remainder</strong>.</li><li><code class="ic">**</code> power.</li></ul>
+      <pre class="code"><code>print(7 / 2)
+print(10 / 5)
+print(7 // 2)
+print(7 % 2)
+print(2 ** 3)
+print(-7 // 2)     # rounds DOWN, not toward zero</code></pre>
+      <pre class="ov-out"><span>Output</span>3.5
+2.0
+3
+1
+8
+-4</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">n % 2 == 0</code> is the standard test for an even number.</p>
+      <h3 id="ov-4">4. Order of operations</h3>
+      <p>Python follows maths rules: <code class="ic">**</code> first, then <code class="ic">*</code> <code class="ic">/</code> <code class="ic">//</code> <code class="ic">%</code>, then <code class="ic">+</code> <code class="ic">-</code>. <strong>Parentheses</strong> come before everything. <code class="ic">**</code> groups from <strong>right to left</strong>.</p>
+      <pre class="code"><code>print(2 + 3 * 4)
+print((2 + 3) * 4)
+print(2 ** 3 ** 2)   # 2 ** (3 ** 2) = 2 ** 9</code></pre>
+      <pre class="ov-out"><span>Output</span>14
+20
+512</pre>
+      <h3 id="ov-5">5. Augmented assignment</h3>
+      <p><code class="ic">x += 3</code> is a shortcut for <code class="ic">x = x + 3</code>. The same works for <code class="ic">-=</code>, <code class="ic">*=</code>, <code class="ic">/=</code>, <code class="ic">//=</code>, <code class="ic">%=</code> and <code class="ic">**=</code>.</p>
+      <pre class="code"><code>x = 10
+x += 3
+x *= 2
+print(x)</code></pre>
+      <pre class="ov-out"><span>Output</span>26</pre>
+      <h3 id="ov-6">6. Comparison operators</h3>
+      <p>Comparisons give <code class="ic">True</code> or <code class="ic">False</code>: <code class="ic">==</code> equal, <code class="ic">!=</code> not equal, <code class="ic">&lt;</code>, <code class="ic">&gt;</code>, <code class="ic">&lt;=</code>, <code class="ic">&gt;=</code>. Python also allows <strong>chained</strong> comparisons.</p>
+      <pre class="code"><code>print(5 == 5, 5 != 3)
+age = 25
+print(18 &lt;= age &lt; 60)   # chained comparison</code></pre>
+      <pre class="ov-out"><span>Output</span>True True
+True</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">=</code> <strong>stores</strong> a value; <code class="ic">==</code> <strong>compares</strong> two values.</p>
+      <h3 id="ov-7">7. Logical operators: and, or, not</h3>
+      <ul class="ov-list"><li><code class="ic">and</code> is True only when <strong>both</strong> sides are true.</li><li><code class="ic">or</code> is True when <strong>at least one</strong> side is true.</li><li><code class="ic">not</code> flips True and False.</li></ul>
+      <p>They <strong>short-circuit</strong>: Python stops as soon as the answer is known. <code class="ic">or</code> returns the <strong>first truthy value</strong>, which is handy for defaults.</p>
+      <pre class="code"><code>print(True and False)
+print(not (5 &gt; 3))
+print(0 or &quot;hello&quot;)
+name = &quot;&quot;
+print(name or &quot;Guest&quot;)</code></pre>
+      <pre class="ov-out"><span>Output</span>False
+False
+hello
+Guest</pre>
+      <h3 id="ov-8">8. Useful built-in functions</h3>
+      <pre class="code"><code>print(abs(-5))
+print(min(4, 7, 1), max(4, 7, 1))
+print(divmod(7, 2))          # (quotient, remainder)
+print(round(2.5), round(3.5))  # halves round to the EVEN number</code></pre>
+      <pre class="ov-out"><span>Output</span>5
+1 7
+(3, 1)
+2 4</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">round()</code> uses <strong>banker's rounding</strong>: an exact half goes to the nearest even number.</p>
+      <h3 id="ov-9">9. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>10 / 5 gives 2.</td><td>/ always gives a float: 10 / 5 is 2.0. Use // for a whole-number result.</td></tr>
+          <tr><td>-7 // 2 is -3.</td><td>// rounds down (towards negative infinity), so -7 // 2 is -4.</td></tr>
+          <tr><td>= and == mean the same.</td><td>= assigns a value; == compares two values.</td></tr>
+          <tr><td><code class="ic">2 ** 3 ** 2</code> is 64.</td><td><code class="ic">**</code> groups right to left: <code class="ic">2 ** (3 ** 2)</code> = 512.</td></tr>
+          <tr><td>round(2.5) is 3.</td><td>Python rounds halves to the even number, so round(2.5) is 2.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-10">10. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Variable</dt><dd>A name that refers to a value.</dd></div>
+        <div><dt>Dynamic typing</dt><dd>A name can refer to any type at any time.</dd></div>
+        <div><dt><code class="ic">/</code></dt><dd>Division; always returns a float.</dd></div>
+        <div><dt><code class="ic">//</code></dt><dd>Floor division; rounds down.</dd></div>
+        <div><dt><code class="ic">%</code></dt><dd>Modulo; the remainder.</dd></div>
+        <div><dt><code class="ic">**</code></dt><dd>Power (exponent).</dd></div>
+        <div><dt><code class="ic">==</code></dt><dd>Compares two values.</dd></div>
+        <div><dt>Short-circuit</dt><dd>and/or stop as soon as the result is known.</dd></div>
+      </dl>
+      <h3 id="ov-11">11. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>What does 7 // 2 give?</p><details><summary>Show answer</summary><p>3</p></details></li>
+        <li><p>What does 7 % 2 give?</p><details><summary>Show answer</summary><p>1 (the remainder).</p></details></li>
+        <li><p>What type does 10 / 5 return?</p><details><summary>Show answer</summary><p>A float: 2.0.</p></details></li>
+        <li><p>How do you swap a and b in one line?</p><details><summary>Show answer</summary><p>a, b = b, a</p></details></li>
+        <li><p>What is <code class="ic">2 + 3 * 4</code>?</p><details><summary>Show answer</summary><p>14 (multiplication first).</p></details></li>
+        <li><p>What does 0 or &quot;hello&quot; return?</p><details><summary>Show answer</summary><p>&quot;hello&quot;, the first truthy value.</p></details></li>
+        <li><p>Is 2count a valid variable name?</p><details><summary>Show answer</summary><p>No: names cannot start with a digit.</p></details></li>
+        <li><p>What does 18 &lt;= 25 &lt; 60 give?</p><details><summary>Show answer</summary><p>True (a chained comparison).</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Variables are names for values; remember that / gives a float, // rounds down, % gives the remainder, and = assigns while == compares.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Keywords</span><span>Identifiers</span><span>Assignment</span><span>References</span><span>Case sensitivity</span><span>NameError</span><span>lambda</span><span>Unpacking</span><span>Tuples</span><span>Swapping</span><span>Augmented assignment</span><span>Operators</span><span>Floor division</span><span>Division</span><span>Modulo</span><span>Even/odd check</span><span>Exponentiation</span><span>pow()</span><span>Numeric types</span><span>Operator precedence</span><span>BODMAS</span><span>Parentheses</span><span>Comparison operators</span><span>Logical operators</span></p>

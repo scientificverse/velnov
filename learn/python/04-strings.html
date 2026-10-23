@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Strings – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Strings with answers and detailed explanations — 14 easy, 13 medium and 3 hard." />
+  <meta name="description" content="Strings (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/04-strings.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Strings – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Strings with answers and detailed explanations — 14 easy, 13 medium and 3 hard." />
+  <meta property="og:description" content="Strings (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/04-strings.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Strings","item":"https://velnov.co.in/learn/python/04-strings.html"}]}</script>
 </head>
@@ -36,9 +36,147 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 4 of 20</p>
       <h1>Strings — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Strings</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-3">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Strings</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-3">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">14 easy · 13 medium · 3 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Strings – working with text</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">What is a string?</a> · <a href="#ov-2">Indexing</a> · <a href="#ov-3">Slicing</a> · <a href="#ov-4">Common string methods</a> · <a href="#ov-5">split() and join()</a> · <a href="#ov-6">Searching: in, find() and index()</a> · <a href="#ov-7">f-strings and format()</a> · <a href="#ov-8">Joining, repeating and immutability</a> · <a href="#ov-9">Characters and comparison</a> · <a href="#ov-10">Common misconceptions</a> · <a href="#ov-11">Quick revision</a> · <a href="#ov-12">Test your understanding</a></nav>
+      <h3 id="ov-1">1. What is a string?</h3>
+      <p>A <strong>string</strong> (<code class="ic">str</code>) is a sequence of characters, written in single, double or triple quotes. Strings are <strong>immutable</strong>: once created, they cannot be changed.</p>
+      <pre class="code"><code>a = 'hello'
+b = &quot;hello&quot;
+menu = &quot;&quot;&quot;1. Start
+2. Quit&quot;&quot;&quot;
+print(a == b)
+print(menu)</code></pre>
+      <pre class="ov-out"><span>Output</span>True
+1. Start
+2. Quit</pre>
+      <h3 id="ov-2">2. Indexing</h3>
+      <p>Each character has a position (<strong>index</strong>) starting at <strong>0</strong>. <strong>Negative</strong> indexes count from the end.</p>
+      <pre class="code"><code>s = &quot;python&quot;
+print(s[0], s[2])
+print(s[-1], s[-2])
+print(len(s))</code></pre>
+      <pre class="ov-out"><span>Output</span>p t
+n o
+6</pre>
+      <h3 id="ov-3">3. Slicing</h3>
+      <p><code class="ic">s[start:end:step]</code> takes a piece of the string, <strong>up to but not including</strong> <code class="ic">end</code>.</p>
+      <pre class="code"><code>s = &quot;python&quot;
+print(s[1:4])
+print(s[:3], s[3:])
+print(s[::2])
+print(s[::-1])      # reversed</code></pre>
+      <pre class="ov-out"><span>Output</span>yth
+pyt hon
+pto
+nohtyp</pre>
+      <p class="ov-eg"><strong>Example:</strong> Palindrome check: <code class="ic">s == s[::-1]</code> is True for <code class="ic">&quot;madam&quot;</code>.</p>
+      <h3 id="ov-4">4. Common string methods</h3>
+      <p>Methods return a <strong>new</strong> string; the original is unchanged.</p>
+      <pre class="code"><code>s = &quot;  Hello World  &quot;
+print(s.strip())
+print(s.strip().lower(), s.strip().upper())
+print(&quot;hello world&quot;.title())
+print(&quot;banana&quot;.replace(&quot;a&quot;, &quot;o&quot;))
+print(&quot;banana&quot;.count(&quot;a&quot;))
+print(&quot;report.pdf&quot;.endswith(&quot;.pdf&quot;))
+print(&quot;123&quot;.isdigit(), &quot;12.5&quot;.isdigit())</code></pre>
+      <pre class="ov-out"><span>Output</span>Hello World
+hello world HELLO WORLD
+Hello World
+bonono
+3
+True
+True False</pre>
+      <h3 id="ov-5">5. split() and join()</h3>
+      <ul class="ov-list"><li><code class="ic">split()</code> cuts a string into a <strong>list</strong> of pieces.</li><li><code class="ic">join()</code> glues a list of strings together with a separator.</li></ul>
+      <pre class="code"><code>print(&quot;a,b,c&quot;.split(&quot;,&quot;))
+print(&quot;one two  three&quot;.split())
+words = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+print(&quot;-&quot;.join(words))</code></pre>
+      <pre class="ov-out"><span>Output</span>['a', 'b', 'c']
+['one', 'two', 'three']
+a-b-c</pre>
+      <h3 id="ov-6">6. Searching: in, find() and index()</h3>
+      <ul class="ov-list"><li><code class="ic">&quot;py&quot; in &quot;python&quot;</code> tests whether a substring exists.</li><li><code class="ic">find()</code> returns the position, or <code class="ic">-1</code> if not found.</li><li><code class="ic">index()</code> returns the position, but raises <strong>ValueError</strong> if not found.</li></ul>
+      <pre class="code"><code>s = &quot;hello&quot;
+print(&quot;ll&quot; in s)
+print(s.find(&quot;ll&quot;), s.find(&quot;xy&quot;))</code></pre>
+      <pre class="ov-out"><span>Output</span>True
+2 -1</pre>
+      <h3 id="ov-7">7. f-strings and format()</h3>
+      <p>An <strong>f-string</strong> starts with <code class="ic">f</code> and fills in <code class="ic">{expressions}</code> inside the text. A format code after <code class="ic">:</code> controls the display, e.g. <code class="ic">.2f</code> for 2 decimal places.</p>
+      <pre class="code"><code>name, age = &quot;Ana&quot;, 21
+print(f&quot;Hello {name}, you are {age}&quot;)
+print(f&quot;Next year: {age + 1}&quot;)
+price = 100
+print(f&quot;Total: {price * 1.18:.2f}&quot;)
+print(&quot;Hello {}, you are {}&quot;.format(name, age))</code></pre>
+      <pre class="ov-out"><span>Output</span>Hello Ana, you are 21
+Next year: 22
+Total: 118.00
+Hello Ana, you are 21</pre>
+      <h3 id="ov-8">8. Joining, repeating and immutability</h3>
+      <pre class="code"><code>print(&quot;ab&quot; * 3)
+print(&quot;-&quot; * 10)
+s = &quot;hello&quot;
+s = &quot;H&quot; + s[1:]     # build a new string
+print(s)
+age = 21
+print(&quot;Age: &quot; + str(age))</code></pre>
+      <pre class="ov-out"><span>Output</span>ababab
+----------
+Hello
+Age: 21</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">s[0] = &quot;H&quot;</code> is a <strong>TypeError</strong>, because strings can't be changed in place. And <code class="ic">&quot;Age: &quot; + 21</code> is also a TypeError: convert with <code class="ic">str()</code>, or use an f-string.</p>
+      <h3 id="ov-9">9. Characters and comparison</h3>
+      <p>Strings compare <strong>alphabetically</strong> by character codes. <code class="ic">ord()</code> gives a character's number, and <code class="ic">chr()</code> does the reverse.</p>
+      <pre class="code"><code>print(&quot;apple&quot; &lt; &quot;banana&quot;)
+print(&quot;Zoo&quot; &lt; &quot;apple&quot;)      # capitals come first
+print(ord(&quot;A&quot;), chr(66))</code></pre>
+      <pre class="ov-out"><span>Output</span>True
+True
+65 B</pre>
+      <h3 id="ov-10">10. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>s[1:4] includes index 4.</td><td>The end index is excluded: s[1:4] gives indexes 1, 2 and 3.</td></tr>
+          <tr><td>s.upper() changes s.</td><td>Strings are immutable; upper() returns a new string.</td></tr>
+          <tr><td>&quot;Age: &quot; + 21 works.</td><td>You cannot add str and int; use str(21) or an f-string.</td></tr>
+          <tr><td>find() raises an error when not found.</td><td>find() returns -1; index() is the one that raises ValueError.</td></tr>
+          <tr><td>\n is two characters.</td><td>\n is one character (a new line); len(&quot;a\nb&quot;) is 3.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-11">11. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Index</dt><dd>Position of a character, starting at 0.</dd></div>
+        <div><dt>Negative index</dt><dd>Counts from the end; -1 is the last character.</dd></div>
+        <div><dt>Slice</dt><dd>s[start:end:step]; end is excluded.</dd></div>
+        <div><dt>s[::-1]</dt><dd>The string reversed.</dd></div>
+        <div><dt>split()</dt><dd>Cuts a string into a list.</dd></div>
+        <div><dt>join()</dt><dd>Glues a list of strings together.</dd></div>
+        <div><dt>f-string</dt><dd>f&quot;...{expr}...&quot; fills in values.</dd></div>
+        <div><dt>Immutable</dt><dd>Cannot be changed after it is created.</dd></div>
+      </dl>
+      <h3 id="ov-12">12. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>For s = &quot;python&quot;, what is s[-1]?</p><details><summary>Show answer</summary><p>&quot;n&quot;</p></details></li>
+        <li><p>What does &quot;python&quot;[1:4] give?</p><details><summary>Show answer</summary><p>&quot;yth&quot;</p></details></li>
+        <li><p>How do you reverse a string s?</p><details><summary>Show answer</summary><p>s[::-1]</p></details></li>
+        <li><p>What does &quot;a,b,c&quot;.split(&quot;,&quot;) return?</p><details><summary>Show answer</summary><p>['a', 'b', 'c']</p></details></li>
+        <li><p>What does &quot;-&quot;.join([&quot;a&quot;, &quot;b&quot;]) return?</p><details><summary>Show answer</summary><p>&quot;a-b&quot;</p></details></li>
+        <li><p>What does &quot;hello&quot;.find(&quot;z&quot;) return?</p><details><summary>Show answer</summary><p>-1</p></details></li>
+        <li><p>How do you show a price with 2 decimal places in an f-string?</p><details><summary>Show answer</summary><p>f&quot;{price:.2f}&quot;</p></details></li>
+        <li><p>Why does s[0] = &quot;H&quot; fail?</p><details><summary>Show answer</summary><p>Strings are immutable; build a new string instead.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Strings are immutable sequences: index from 0, slice with [start:end:step], and use methods, split/join and f-strings to build new text.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Indexing</span><span>Zero-based counting</span><span>Negative indexing</span><span>Slicing</span><span>Half-open ranges</span><span>Defaults</span><span>Step</span><span>Palindromes</span><span>String methods</span><span>lower()</span><span>upper()</span><span>casefold()</span><span>lstrip()</span><span>rstrip()</span><span>Cleaning input</span><span>join()</span><span>Lists</span><span>split()</span><span>find()</span><span>index()</span><span>in operator</span><span>Membership testing</span><span>f-strings</span><span>format()</span></p>

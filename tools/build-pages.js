@@ -107,7 +107,7 @@ function page({ rel, title, description, body, ads = true, jsonLd }) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="${up}css/study.css?v=2" />
+  <link rel="stylesheet" href="${up}css/study.css?v=3" />
 ${ads ? `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}" crossorigin="anonymous"></script>\n` : ''}${jsonLd ? `  <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>\n` : ''}</head>
 <body>
   <header class="site-head">
@@ -170,7 +170,15 @@ ${notes.length ? `          <ul class="notes">${notes.map((x) => `<li>${esc(x)}<
 // Layout: numbered sections, each a definition followed by examples, then
 // misconceptions, quick revision, test-yourself questions and a key takeaway.
 // The format is described at the top of data/notes/physics.js.
-const fmt = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');   // **bold** only
+// **bold** and `inline code` only; everything else is escaped. Code spans are
+// set aside first so that a Python `**` inside them is never read as bold.
+const fmt = (s) => {
+  const codes = [];
+  const out = esc(s)
+    .replace(/`([^`]+)`/g, (_, c) => `\u0000${codes.push(c) - 1}\u0000`)
+    .replace(/\*\*(?=\S)(.+?)(?<=\S)\*\*/g, '<strong>$1</strong>');   // "2 ** 3 ** 2" stays as it is
+  return out.replace(/\u0000(\d+)\u0000/g, (_, i) => `<code class="ic">${codes[i]}</code>`);
+};
 const li = (xs) => xs.filter(Boolean).map((x) => `<li>${fmt(x)}</li>`).join('');
 
 function noteBlock(b) {
@@ -184,6 +192,7 @@ function noteBlock(b) {
   if (b.list) return `      <ul class="ov-list">${li(b.list)}</ul>`;
   if (b.remember) return `      <p class="ov-remember"><strong>Remember:</strong> ${fmt(b.remember)}</p>`;
   if (b.key) return `      <p class="ov-key">${fmt(b.key)}</p>`;
+  if (b.code) return `      <pre class="code"><code>${esc(b.code)}</code></pre>${b.output ? `\n      <pre class="ov-out"><span>Output</span>${esc(b.output)}</pre>` : ''}`;
   if (b.h) return `      <h4>${fmt(b.h)}</h4>\n${(b.blocks || []).map(noteBlock).join('\n')}`;
   throw new Error(`notes: unknown block ${JSON.stringify(b).slice(0, 80)}`);
 }

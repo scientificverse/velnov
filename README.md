@@ -28,7 +28,8 @@ velnov/
 │   └── notes/<subject>.js  "Topic overview" study notes shown above the questions
 │
 ├── tools/
-│   └── build-pages.js      Generator: turns data/ into the pages below
+│   ├── build-pages.js      Generator: turns data/ into the pages below
+│   └── check-notes-code.js Runs every code example in data/notes/ and checks its output
 │
 ├── learn/                  ◆ GENERATED — do not edit by hand
 │   ├── index.html          All subjects
@@ -52,6 +53,12 @@ velnov/
    ```
    It needs only Node.js. It prints how many pages it built and warns about
    any topic note that doesn't match a topic.
+   If you changed programming notes (Python, JavaScript, SQL), also run:
+   ```
+   node tools/check-notes-code.js
+   ```
+   It runs every code example and fails if its printed output doesn't match
+   the output shown in the notes (needs Python 3 and Node.js).
 3. Preview locally (optional):
    ```
    python -m http.server 5657 --directory .

@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Iterators &amp; Generators – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Iterators &amp; Generators with answers and detailed explanations — 3 easy, 18 medium and 9 hard." />
+  <meta name="description" content="Iterators &amp; Generators (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/17-iterators-and-generators.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Iterators &amp; Generators – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Iterators &amp; Generators with answers and detailed explanations — 3 easy, 18 medium and 9 hard." />
+  <meta property="og:description" content="Iterators &amp; Generators (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/17-iterators-and-generators.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Iterators & Generators","item":"https://velnov.co.in/learn/python/17-iterators-and-generators.html"}]}</script>
 </head>
@@ -36,9 +36,166 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 17 of 20</p>
       <h1>Iterators &amp; Generators — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Iterators &amp; Generators</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-16">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Iterators &amp; Generators</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-16">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">3 easy · 18 medium · 9 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Iterators and Generators – values one at a time</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Iterables and iterators</a> · <a href="#ov-2">Generator functions and yield</a> · <a href="#ov-3">Why generators save memory</a> · <a href="#ov-4">Generators are one-pass</a> · <a href="#ov-5">Generator expressions and pipelines</a> · <a href="#ov-6">yield from</a> · <a href="#ov-7">Writing an iterator class</a> · <a href="#ov-8">Lazy built-ins and itertools</a> · <a href="#ov-9">Common misconceptions</a> · <a href="#ov-10">Quick revision</a> · <a href="#ov-11">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Iterables and iterators</h3>
+      <ul class="ov-list"><li>An <strong>iterable</strong> can be looped over: lists, strings, dicts, ranges.</li><li>An <strong>iterator</strong> is the object that hands out the values <strong>one at a time</strong> with <code class="ic">next()</code>. <code class="ic">iter(x)</code> gets one from an iterable.</li><li>When an iterator runs out, <code class="ic">next()</code> raises <strong>StopIteration</strong>.</li></ul>
+      <pre class="code"><code>nums = [1, 2]
+it = iter(nums)
+print(next(it))
+print(next(it))
+print(next(it, &quot;done&quot;))   # a default instead of StopIteration</code></pre>
+      <pre class="ov-out"><span>Output</span>1
+2
+done</pre>
+      <p class="ov-remember"><strong>Remember:</strong> A <code class="ic">for</code> loop calls <code class="ic">iter()</code> once, then <code class="ic">next()</code> again and again, and stops quietly at StopIteration.</p>
+      <h3 id="ov-2">2. Generator functions and yield</h3>
+      <p>A function that contains <code class="ic">yield</code> is a <strong>generator function</strong>. Calling it runs <strong>nothing</strong>: it returns a generator object. Each <code class="ic">next()</code> runs the body up to the next <code class="ic">yield</code>, <strong>pauses</strong> there, and remembers everything.</p>
+      <pre class="code"><code>def count_up(n):
+    for i in range(1, n + 1):
+        yield i
+
+g = count_up(3)
+print(next(g))
+print(list(g))          # the rest</code></pre>
+      <pre class="ov-out"><span>Output</span>1
+[2, 3]</pre>
+      <h4>Pause and resume</h4>
+      <pre class="code"><code>def demo():
+    print(&quot;start&quot;)
+    yield 1
+    print(&quot;resumed&quot;)
+    yield 2
+
+g = demo()
+print(&quot;before&quot;)
+print(next(g))
+print(next(g))</code></pre>
+      <pre class="ov-out"><span>Output</span>before
+start
+1
+resumed
+2</pre>
+      <h3 id="ov-3">3. Why generators save memory</h3>
+      <p>A list stores <strong>every</strong> value at once. A generator produces each value <strong>only when asked</strong>, so it can handle huge or even <strong>endless</strong> data in very little memory.</p>
+      <pre class="code"><code>from itertools import islice
+
+def naturals():
+    n = 1
+    while True:          # endless, but harmless
+        yield n
+        n += 1
+
+print(list(islice(naturals(), 5)))
+
+def fib():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+print(list(islice(fib(), 8)))</code></pre>
+      <pre class="ov-out"><span>Output</span>[1, 2, 3, 4, 5]
+[0, 1, 1, 2, 3, 5, 8, 13]</pre>
+      <h3 id="ov-4">4. Generators are one-pass</h3>
+      <p>Once a generator is used up, it stays <strong>empty</strong>. Call the generator function again for a fresh one, or save the values in a list if you need two passes.</p>
+      <pre class="code"><code>def gen():
+    yield 1
+    yield 2
+
+g = gen()
+print(list(g))
+print(list(g))
+print(list(gen()))      # a new generator</code></pre>
+      <pre class="ov-out"><span>Output</span>[1, 2]
+[]
+[1, 2]</pre>
+      <p class="ov-remember"><strong>Remember:</strong> Even <code class="ic">x in g</code> uses up values from a generator.</p>
+      <h3 id="ov-5">5. Generator expressions and pipelines</h3>
+      <p><code class="ic">(expr for x in items)</code> is a one-line generator. Chaining them makes a <strong>pipeline</strong>: each item flows through every step one at a time.</p>
+      <pre class="code"><code>lines = [&quot;ok&quot;, &quot;ERROR disk&quot;, &quot;ok&quot;, &quot;ERROR net&quot;]
+errors = (l for l in lines if &quot;ERROR&quot; in l)
+short = (l.split()[1] for l in errors)
+print(list(short))
+print(sum(x * x for x in range(4)))</code></pre>
+      <pre class="ov-out"><span>Output</span>['disk', 'net']
+14</pre>
+      <h3 id="ov-6">6. yield from</h3>
+      <p><code class="ic">yield from iterable</code> hands out every value of another iterable. It is very useful in recursive generators.</p>
+      <pre class="code"><code>def all_items():
+    yield from [1, 2]
+    yield from &quot;ab&quot;
+
+print(list(all_items()))</code></pre>
+      <pre class="ov-out"><span>Output</span>[1, 2, 'a', 'b']</pre>
+      <h3 id="ov-7">7. Writing an iterator class</h3>
+      <p>A class becomes an iterator by defining <code class="ic">__iter__</code> (which returns <code class="ic">self</code>) and <code class="ic">__next__</code> (which returns the next value, or raises StopIteration). Generators do all of this for you, which is why they are usually preferred.</p>
+      <pre class="code"><code>class Countdown:
+    def __init__(self, n):
+        self.n = n
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.n &lt;= 0:
+            raise StopIteration
+        self.n -= 1
+        return self.n + 1
+
+print(list(Countdown(3)))</code></pre>
+      <pre class="ov-out"><span>Output</span>[3, 2, 1]</pre>
+      <h3 id="ov-8">8. Lazy built-ins and itertools</h3>
+      <p><code class="ic">range</code>, <code class="ic">map</code>, <code class="ic">filter</code> and <code class="ic">zip</code> are lazy too. The <code class="ic">itertools</code> module has ready-made iterator tools: <code class="ic">count</code>, <code class="ic">cycle</code>, <code class="ic">chain</code> and <code class="ic">islice</code>.</p>
+      <pre class="code"><code>from itertools import chain, count, islice
+m = map(str.upper, [&quot;a&quot;, &quot;b&quot;])
+print(m.__class__.__name__, list(m))
+print(list(chain([1, 2], [3])))
+print(list(islice(count(10), 3)))
+print(10**11 in range(10**12))    # instant: computed, not searched</code></pre>
+      <pre class="ov-out"><span>Output</span>map ['A', 'B']
+[1, 2, 3]
+[10, 11, 12]
+True</pre>
+      <h3 id="ov-9">9. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>Calling a generator function runs its body.</td><td>It returns a generator; the body runs only on next() or in a loop.</td></tr>
+          <tr><td>You can loop over a generator twice.</td><td>Generators are one-pass; after use they are empty.</td></tr>
+          <tr><td>yield works like return.</td><td>return ends the function; yield pauses it and resumes later.</td></tr>
+          <tr><td>g[0] gives a generator's first value.</td><td>Generators can't be indexed; use next(g).</td></tr>
+          <tr><td><code class="ic">range(10**12)</code> builds a huge list.</td><td>range is lazy and stores only start, stop and step.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-10">10. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>Iterable</dt><dd>Something you can loop over.</dd></div>
+        <div><dt>Iterator</dt><dd>Hands out values one by one with next().</dd></div>
+        <div><dt>StopIteration</dt><dd>Raised when an iterator is used up.</dd></div>
+        <div><dt>yield</dt><dd>Hands out a value and pauses the function.</dd></div>
+        <div><dt>Generator</dt><dd>A lazy iterator made by a yield function.</dd></div>
+        <div><dt>Generator expression</dt><dd>(expr for x in items).</dd></div>
+        <div><dt>yield from</dt><dd>Hands out all values of another iterable.</dd></div>
+        <div><dt>itertools</dt><dd>Module of iterator tools.</dd></div>
+      </dl>
+      <h3 id="ov-11">11. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>What happens when next() is called on a used-up iterator?</p><details><summary>Show answer</summary><p>StopIteration is raised (unless a default is given).</p></details></li>
+        <li><p>What makes a function a generator function?</p><details><summary>Show answer</summary><p>It contains yield.</p></details></li>
+        <li><p>What is the key difference between yield and return?</p><details><summary>Show answer</summary><p>yield pauses and resumes; return ends the function.</p></details></li>
+        <li><p>Why does a generator save memory?</p><details><summary>Show answer</summary><p>It produces values one at a time instead of storing them all.</p></details></li>
+        <li><p>What does list(g) give the second time for the same generator?</p><details><summary>Show answer</summary><p>[] (it is already used up).</p></details></li>
+        <li><p>Complete the Fibonacci step after yield a.</p><details><summary>Show answer</summary><p>a, b = b, a + b</p></details></li>
+        <li><p>How do you take the first 5 values of an endless generator?</p><details><summary>Show answer</summary><p>itertools.islice(gen(), 5)</p></details></li>
+        <li><p>Which two methods make a class an iterator?</p><details><summary>Show answer</summary><p>__iter__ and __next__.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Generators hand out values one at a time with yield, so they handle huge or endless data in little memory, but each one can only be used once.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>iter()</span><span>next()</span><span>StopIteration</span><span>next() default</span><span>Iterator protocol</span><span>for loops</span><span>yield</span><span>Generators</span><span>Function state</span><span>Generator objects</span><span>Lazy evaluation</span><span>Memory efficiency</span><span>Streaming</span><span>Infinite generators</span><span>itertools.islice</span><span>One-pass iteration</span><span>Exhaustion</span><span>__next__</span><span>range</span><span>Lazy sequences</span><span>map()</span><span>filter()</span><span>Python 2 vs 3</span><span>sum()</span></p>

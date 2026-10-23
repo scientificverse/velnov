@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lists &amp; Tuples – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Lists &amp; Tuples with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <meta name="description" content="Lists &amp; Tuples (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/07-lists-and-tuples.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Lists &amp; Tuples – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Lists &amp; Tuples with answers and detailed explanations — 12 easy, 13 medium and 5 hard." />
+  <meta property="og:description" content="Lists &amp; Tuples (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/07-lists-and-tuples.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Lists & Tuples","item":"https://velnov.co.in/learn/python/07-lists-and-tuples.html"}]}</script>
 </head>
@@ -36,9 +36,143 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 7 of 20</p>
       <h1>Lists &amp; Tuples — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Lists &amp; Tuples</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-6">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Lists &amp; Tuples</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-6">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">12 easy · 13 medium · 5 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Lists and Tuples – ordered collections</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">Lists</a> · <a href="#ov-2">Adding and removing items</a> · <a href="#ov-3">Sorting</a> · <a href="#ov-4">Useful list operations</a> · <a href="#ov-5">Copying: names vs copies</a> · <a href="#ov-6">Nested lists</a> · <a href="#ov-7">Tuples</a> · <a href="#ov-8">Common misconceptions</a> · <a href="#ov-9">Quick revision</a> · <a href="#ov-10">Test your understanding</a></nav>
+      <h3 id="ov-1">1. Lists</h3>
+      <p>A <strong>list</strong> is an ordered, <strong>changeable</strong> (mutable) collection, written in square brackets. It can hold any mix of types. Indexing and slicing work just like strings.</p>
+      <pre class="code"><code>fruits = [&quot;apple&quot;, &quot;mango&quot;, &quot;banana&quot;]
+print(fruits[0], fruits[-1])
+print(fruits[1:])
+print(len(fruits))
+fruits[0] = &quot;kiwi&quot;          # lists can be changed
+print(fruits)</code></pre>
+      <pre class="ov-out"><span>Output</span>apple banana
+['mango', 'banana']
+3
+['kiwi', 'mango', 'banana']</pre>
+      <h3 id="ov-2">2. Adding and removing items</h3>
+      <ul class="ov-list"><li><code class="ic">append(x)</code> adds one item at the end.</li><li><code class="ic">insert(i, x)</code> adds an item at position <code class="ic">i</code>.</li><li><code class="ic">extend(list)</code> adds every item from another list.</li><li><code class="ic">remove(x)</code> deletes the first item equal to <code class="ic">x</code>.</li><li><code class="ic">pop(i)</code> removes the item at position <code class="ic">i</code> (the last by default) and <strong>returns</strong> it.</li><li><code class="ic">del nums[i]</code> deletes by position.</li></ul>
+      <pre class="code"><code>nums = [10, 20, 30]
+nums.append(40)
+nums.insert(1, 99)
+print(nums)
+nums.remove(99)
+last = nums.pop()
+print(nums, last)
+del nums[0]
+print(nums)</code></pre>
+      <pre class="ov-out"><span>Output</span>[10, 99, 20, 30, 40]
+[10, 20, 30] 40
+[20, 30]</pre>
+      <h4>append() vs extend()</h4>
+      <pre class="code"><code>a = [1, 2]
+a.append([3, 4])
+print(a)
+b = [1, 2]
+b.extend([3, 4])
+print(b)</code></pre>
+      <pre class="ov-out"><span>Output</span>[1, 2, [3, 4]]
+[1, 2, 3, 4]</pre>
+      <h3 id="ov-3">3. Sorting</h3>
+      <ul class="ov-list"><li><code class="ic">list.sort()</code> sorts the list <strong>in place</strong> and returns <code class="ic">None</code>.</li><li><code class="ic">sorted(x)</code> returns a <strong>new</strong> sorted list and leaves the original alone.</li></ul>
+      <pre class="code"><code>nums = [5, 2, 8, 1]
+print(sorted(nums))
+print(nums)
+result = nums.sort()
+print(result, nums)
+nums.sort(reverse=True)
+print(nums)</code></pre>
+      <pre class="ov-out"><span>Output</span>[1, 2, 5, 8]
+[5, 2, 8, 1]
+None [1, 2, 5, 8]
+[8, 5, 2, 1]</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">x = nums.sort()</code> sets <code class="ic">x</code> to <code class="ic">None</code>, a very common bug.</p>
+      <h3 id="ov-4">4. Useful list operations</h3>
+      <pre class="code"><code>nums = [4, 1, 7]
+print(max(nums), min(nums), sum(nums))
+print(sum(nums) / len(nums))
+print(7 in nums)
+print([1, 2] + [3, 4], [0] * 3)
+print([10, 20, 30, 20].index(20), [10, 20, 30, 20].count(20))</code></pre>
+      <pre class="ov-out"><span>Output</span>7 1 12
+4.0
+True
+[1, 2, 3, 4] [0, 0, 0]
+1 2</pre>
+      <h3 id="ov-5">5. Copying: names vs copies</h3>
+      <p><code class="ic">b = a</code> does <strong>not</strong> copy a list. Both names refer to the <strong>same</strong> list, so a change through one shows through the other. Use <code class="ic">a.copy()</code>, <code class="ic">a[:]</code> or <code class="ic">list(a)</code> for an independent copy.</p>
+      <pre class="code"><code>a = [1, 2, 3]
+b = a
+b.append(4)
+print(a)
+c = a.copy()
+c.append(5)
+print(a, c)</code></pre>
+      <pre class="ov-out"><span>Output</span>[1, 2, 3, 4]
+[1, 2, 3, 4] [1, 2, 3, 4, 5]</pre>
+      <h3 id="ov-6">6. Nested lists</h3>
+      <p>A list can contain other lists, like the rows of a table. Index the row first, then the column.</p>
+      <pre class="code"><code>matrix = [[1, 2],
+          [3, 4]]
+print(matrix[1][0])</code></pre>
+      <pre class="ov-out"><span>Output</span>3</pre>
+      <h3 id="ov-7">7. Tuples</h3>
+      <p>A <strong>tuple</strong> is like a list, but <strong>immutable</strong>: it can't be changed after it is created. It is written with round brackets.</p>
+      <pre class="code"><code>point = (3, 7)
+x, y = point          # unpacking
+print(x, y)
+print(type((5)), type((5,)))   # the comma makes a tuple</code></pre>
+      <pre class="ov-out"><span>Output</span>3 7
+&lt;class 'int'&gt; &lt;class 'tuple'&gt;</pre>
+      <p class="ov-remember"><strong>Remember:</strong> <code class="ic">point[0] = 9</code> raises <strong>TypeError</strong>. A one-item tuple needs a comma: <code class="ic">(5,)</code>.</p>
+      <h4>When to use a tuple</h4>
+      <p>Use a tuple for fixed data, such as coordinates or RGB colours. Because tuples can't change, they can be <strong>dictionary keys</strong>, while lists cannot.</p>
+      <pre class="code"><code>places = {(0, 0): &quot;origin&quot;, (3, 5): &quot;target&quot;}
+print(places[(3, 5)])
+print(list(&quot;abc&quot;), tuple([1, 2]))</code></pre>
+      <pre class="ov-out"><span>Output</span>target
+['a', 'b', 'c'] (1, 2)</pre>
+      <h3 id="ov-8">8. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>b = a makes a copy of the list.</td><td>Both names point to one list; use a.copy().</td></tr>
+          <tr><td>nums.sort() returns the sorted list.</td><td>It sorts in place and returns None; use sorted() for a new list.</td></tr>
+          <tr><td>(5) is a tuple.</td><td>It is just the int 5; (5,) is a tuple.</td></tr>
+          <tr><td>Tuples can be changed like lists.</td><td>Tuples are immutable.</td></tr>
+          <tr><td>[1, 2] + [3, 4] adds the numbers.</td><td>It joins the lists: [1, 2, 3, 4].</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-9">9. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>List</dt><dd>Ordered, mutable collection: [ ].</dd></div>
+        <div><dt>Tuple</dt><dd>Ordered, immutable collection: ( ).</dd></div>
+        <div><dt>append()</dt><dd>Adds one item at the end.</dd></div>
+        <div><dt>extend()</dt><dd>Adds every item from another list.</dd></div>
+        <div><dt>pop()</dt><dd>Removes and returns an item.</dd></div>
+        <div><dt>sort() vs sorted()</dt><dd>In place vs returns a new list.</dd></div>
+        <div><dt>copy()</dt><dd>Makes an independent list.</dd></div>
+        <div><dt>Unpacking</dt><dd>x, y = point.</dd></div>
+      </dl>
+      <h3 id="ov-10">10. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>What is [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;][-1]?</p><details><summary>Show answer</summary><p>&quot;c&quot;</p></details></li>
+        <li><p>What is the difference between remove() and pop()?</p><details><summary>Show answer</summary><p>remove() deletes by value; pop() deletes by position and returns the item.</p></details></li>
+        <li><p>What does print(nums.sort()) show?</p><details><summary>Show answer</summary><p>None</p></details></li>
+        <li><p>a = [1, 2]; b = a; b.append(3). What is a?</p><details><summary>Show answer</summary><p>[1, 2, 3]</p></details></li>
+        <li><p>How do you make an independent copy of list a?</p><details><summary>Show answer</summary><p>a.copy() (or a[:] or list(a)).</p></details></li>
+        <li><p>What does [1, 2].append([3]) give?</p><details><summary>Show answer</summary><p>[1, 2, [3]], a nested list.</p></details></li>
+        <li><p>How do you write a one-item tuple?</p><details><summary>Show answer</summary><p>(5,)</p></details></li>
+        <li><p>Why can a tuple be a dictionary key but a list can't?</p><details><summary>Show answer</summary><p>Tuples are immutable (hashable); lists are not.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Lists are flexible and changeable, tuples are fixed; know sort() vs sorted(), append() vs extend(), and that b = a shares one list.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>Lists</span><span>Tuples</span><span>Sets</span><span>Indexing</span><span>Negative indexing</span><span>append()</span><span>insert()</span><span>remove()</span><span>pop()</span><span>del</span><span>len()</span><span>Concatenation</span><span>Repetition</span><span>sort()</span><span>sorted()</span><span>sort() vs sorted()</span><span>In-place methods</span><span>Dynamic typing</span><span>Nested lists</span><span>2D data</span><span>Mutability</span><span>References</span><span>copy()</span><span>Aliasing</span></p>

@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Comprehensions – Python Questions and Answers with Explanations | Velnov</title>
-  <meta name="description" content="30 Python practice questions on Comprehensions with answers and detailed explanations — 6 easy, 15 medium and 9 hard." />
+  <meta name="description" content="Comprehensions (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <link rel="canonical" href="https://velnov.co.in/learn/python/09-comprehensions.html" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Velnov" />
   <meta property="og:title" content="Comprehensions – Python Questions and Answers with Explanations | Velnov" />
-  <meta property="og:description" content="30 Python practice questions on Comprehensions with answers and detailed explanations — 6 easy, 15 medium and 9 hard." />
+  <meta property="og:description" content="Comprehensions (Python) study notes with definitions, examples, common misconceptions and quick revision, plus 30 practice questions with answers and explanations." />
   <meta property="og:url" content="https://velnov.co.in/learn/python/09-comprehensions.html" />
   <meta name="google-adsense-account" content="ca-pub-8107155228021093" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../css/study.css?v=2" />
+  <link rel="stylesheet" href="../../css/study.css?v=3" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107155228021093" crossorigin="anonymous"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Study Notes","item":"https://velnov.co.in/learn/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://velnov.co.in/learn/python/"},{"@type":"ListItem","position":3,"name":"Comprehensions","item":"https://velnov.co.in/learn/python/09-comprehensions.html"}]}</script>
 </head>
@@ -36,9 +36,120 @@
     <header class="page-head">
       <p class="kicker">🐍 Python · Topic 9 of 20</p>
       <h1>Comprehensions — Python Questions with Answers</h1>
-      <p class="lead">30 practice questions on <strong>Comprehensions</strong>, each with the correct answer and a clear explanation of why it is right. Read through them as revision notes, or <a href="../../index.html#quiz-0-8">take this topic as an interactive quiz</a> to test yourself.</p>
+      <p class="lead">Start with the study notes on <strong>Comprehensions</strong> (definitions, examples and a quick revision), then work through 30 practice questions, each with the correct answer and a clear explanation of why it is right. When you are ready, <a href="../../index.html#quiz-0-8">take this topic as an interactive quiz</a> to test yourself.</p>
       <p class="meta">6 easy · 15 medium · 9 hard · Part of <a href="./">Python</a>: Master Python from basics to advanced - 20 topics.</p>
     </header>
+    <section class="overview" id="overview">
+      <p class="ov-kicker">Topic overview</p>
+      <h2>Comprehensions – building collections in one line</h2>
+      <nav class="ov-toc" aria-label="In this overview"><strong>In this overview:</strong> <a href="#ov-1">List comprehensions</a> · <a href="#ov-2">Filtering with if</a> · <a href="#ov-3">if-else goes at the front</a> · <a href="#ov-4">Dictionary and set comprehensions</a> · <a href="#ov-5">Nested comprehensions</a> · <a href="#ov-6">Generator expressions</a> · <a href="#ov-7">any() and all()</a> · <a href="#ov-8">The 2D grid trap</a> · <a href="#ov-9">When to use them</a> · <a href="#ov-10">Common misconceptions</a> · <a href="#ov-11">Quick revision</a> · <a href="#ov-12">Test your understanding</a></nav>
+      <h3 id="ov-1">1. List comprehensions</h3>
+      <p>A <strong>list comprehension</strong> builds a new list from an iterable in one line: <code class="ic">[expression for item in iterable]</code>. It replaces the “empty list, loop, append” pattern.</p>
+      <pre class="code"><code>squares = []
+for x in range(5):
+    squares.append(x ** 2)
+print(squares)
+
+print([x ** 2 for x in range(5)])   # same result</code></pre>
+      <pre class="ov-out"><span>Output</span>[0, 1, 4, 9, 16]
+[0, 1, 4, 9, 16]</pre>
+      <p class="ov-eg"><strong>Example:</strong> <code class="ic">[w.upper() for w in words]</code>, <code class="ic">[len(w) for w in words]</code> and <code class="ic">[int(s) for s in strings]</code> transform every item.</p>
+      <h3 id="ov-2">2. Filtering with if</h3>
+      <p>An <code class="ic">if</code> at the <strong>end</strong> keeps only the items that pass the test.</p>
+      <pre class="code"><code>print([x for x in range(10) if x % 3 == 0])
+print([c for c in &quot;hello&quot; if c in &quot;aeiou&quot;])
+marks = {&quot;Ana&quot;: 92, &quot;Ben&quot;: 45}
+print([name for name, m in marks.items() if m &gt;= 50])</code></pre>
+      <pre class="ov-out"><span>Output</span>[0, 3, 6, 9]
+['e', 'o']
+['Ana']</pre>
+      <h3 id="ov-3">3. if-else goes at the front</h3>
+      <p>To <strong>change</strong> every item (not drop any), put a conditional expression <strong>before</strong> the <code class="ic">for</code>.</p>
+      <pre class="code"><code>nums = [3, -1, 5]
+print([x if x &gt; 0 else 0 for x in nums])   # transform: keeps all
+print([x for x in nums if x &gt; 0])           # filter: drops some</code></pre>
+      <pre class="ov-out"><span>Output</span>[3, 0, 5]
+[3, 5]</pre>
+      <h3 id="ov-4">4. Dictionary and set comprehensions</h3>
+      <ul class="ov-list"><li><strong>Dict comprehension:</strong> <code class="ic">{key: value for ...}</code>.</li><li><strong>Set comprehension:</strong> <code class="ic">{value for ...}</code>, which removes duplicates.</li></ul>
+      <pre class="code"><code>print({x: x ** 2 for x in range(1, 4)})
+d = {&quot;a&quot;: 1, &quot;b&quot;: 2}
+print({v: k for k, v in d.items()})   # swap keys and values
+print(sorted({c for c in &quot;banana&quot;}))</code></pre>
+      <pre class="ov-out"><span>Output</span>{1: 1, 2: 4, 3: 9}
+{1: 'a', 2: 'b'}
+['a', 'b', 'n']</pre>
+      <h3 id="ov-5">5. Nested comprehensions</h3>
+      <p>Several <code class="ic">for</code> clauses work like nested loops, read <strong>left to right</strong>: the first <code class="ic">for</code> is the outer loop.</p>
+      <pre class="code"><code>print([x + y for x in &quot;ab&quot; for y in &quot;cd&quot;])
+matrix = [[1, 2], [3, 4]]
+print([x for row in matrix for x in row])   # flatten</code></pre>
+      <pre class="ov-out"><span>Output</span>['ac', 'ad', 'bc', 'bd']
+[1, 2, 3, 4]</pre>
+      <h3 id="ov-6">6. Generator expressions</h3>
+      <p>With <strong>round brackets</strong>, you get a <strong>generator expression</strong>. It produces values one at a time, instead of building a whole list, which saves memory.</p>
+      <pre class="code"><code>gen = (x ** 2 for x in range(4))
+print(list(gen))
+print(sum(x * x for x in range(1_000_000)))   # no big list in memory</code></pre>
+      <pre class="ov-out"><span>Output</span>[0, 1, 4, 9]
+333332833333500000</pre>
+      <p class="ov-remember"><strong>Remember:</strong> There is no “tuple comprehension”: round brackets make a generator. Use <code class="ic">tuple(...)</code> if you need a tuple.</p>
+      <h3 id="ov-7">7. any() and all()</h3>
+      <ul class="ov-list"><li><code class="ic">any()</code> is True if <strong>at least one</strong> item passes.</li><li><code class="ic">all()</code> is True only if <strong>every</strong> item passes.</li></ul>
+      <pre class="code"><code>nums = [3, 15, 7]
+print(any(x &gt; 10 for x in nums))
+print(all(x &gt; 0 for x in nums))</code></pre>
+      <pre class="ov-out"><span>Output</span>True
+True</pre>
+      <h3 id="ov-8">8. The 2D grid trap</h3>
+      <p><code class="ic">[[0] * 3] * 3</code> repeats the <strong>same</strong> row three times, so changing one row changes them all. A comprehension makes a fresh row each time.</p>
+      <pre class="code"><code>bad = [[0] * 3] * 3
+bad[0][0] = 9
+print(bad)
+good = [[0] * 3 for _ in range(3)]
+good[0][0] = 9
+print(good)</code></pre>
+      <pre class="ov-out"><span>Output</span>[[9, 0, 0], [9, 0, 0], [9, 0, 0]]
+[[9, 0, 0], [0, 0, 0], [0, 0, 0]]</pre>
+      <h3 id="ov-9">9. When to use them</h3>
+      <p>Use comprehensions for simple “transform” or “filter” jobs. If the logic needs several steps or <code class="ic">print</code> calls, a normal loop is clearer.</p>
+      <p class="ov-remember"><strong>Remember:</strong> In Python 3, a comprehension's loop variable does <strong>not</strong> leak outside it.</p>
+      <h3 id="ov-10">10. Common misconceptions</h3>
+      <table class="ov-table">
+        <thead><tr><th scope="col">Misconception</th><th scope="col">Correct understanding</th></tr></thead>
+        <tbody>
+          <tr><td>The filter if and the if-else go in the same place.</td><td>A filter if goes after the for; an if-else expression goes before it.</td></tr>
+          <tr><td>(x for x in nums) makes a tuple.</td><td>It makes a generator; use tuple(...) for a tuple.</td></tr>
+          <tr><td><code class="ic">[[0] * 3] * 3</code> makes three separate rows.</td><td>It repeats one row three times; use a comprehension.</td></tr>
+          <tr><td>Comprehensions are always better than loops.</td><td>Use loops when the logic is long or has side effects.</td></tr>
+          <tr><td>The comprehension variable stays defined afterwards.</td><td>In Python 3 it has its own scope and disappears.</td></tr>
+        </tbody>
+      </table>
+      <h3 id="ov-11">11. Quick revision</h3>
+      <dl class="terms">
+        <div><dt>List comprehension</dt><dd>[expr for x in items].</dd></div>
+        <div><dt>Filter</dt><dd>[x for x in items if test].</dd></div>
+        <div><dt>Transform with if-else</dt><dd>[a if test else b for x in items].</dd></div>
+        <div><dt>Dict comprehension</dt><dd>{k: v for ...}.</dd></div>
+        <div><dt>Set comprehension</dt><dd>{x for ...}; duplicates removed.</dd></div>
+        <div><dt>Generator expression</dt><dd>(expr for x in items); lazy.</dd></div>
+        <div><dt>any()</dt><dd>True if at least one item passes.</dd></div>
+        <div><dt>all()</dt><dd>True if every item passes.</dd></div>
+      </dl>
+      <h3 id="ov-12">12. Test your understanding</h3>
+      <ol class="ov-quiz">
+        <li><p>What does <code class="ic">[x * 2 for x in range(3)]</code> give?</p><details><summary>Show answer</summary><p>[0, 2, 4]</p></details></li>
+        <li><p>Write a comprehension that keeps only even numbers from nums.</p><details><summary>Show answer</summary><p>[x for x in nums if x % 2 == 0]</p></details></li>
+        <li><p>Where does if-else go in a comprehension?</p><details><summary>Show answer</summary><p>Before the for: [a if test else b for x in items].</p></details></li>
+        <li><p>How do you build {1: 1, 2: 4, 3: 9}?</p><details><summary>Show answer</summary><p><code class="ic">{x: x ** 2 for x in range(1, 4)}</code></p></details></li>
+        <li><p>How do you flatten [[1, 2], [3, 4]]?</p><details><summary>Show answer</summary><p>[x for row in matrix for x in row]</p></details></li>
+        <li><p>Why use <code class="ic">sum(x * x for x in big)</code> instead of a list?</p><details><summary>Show answer</summary><p>The generator never builds the whole list in memory.</p></details></li>
+        <li><p>What does any(x &gt; 10 for x in [3, 15]) give?</p><details><summary>Show answer</summary><p>True</p></details></li>
+        <li><p>Why is <code class="ic">[[0] * 3] * 3</code> dangerous?</p><details><summary>Show answer</summary><p>All three rows are the same list.</p></details></li>
+      </ol>
+      <p class="ov-takeaway"><strong>Key takeaway:</strong> Comprehensions turn “make a list, loop, append” into one readable line; use round brackets for a memory-friendly generator.</p>
+      <p class="ov-foot">Notes written by Velnov. Every code example with an output was run in Python 3 to check that the output shown is exactly what Python prints.</p>
+    </section>
     <section class="box">
       <h2>Key concepts in this topic</h2>
       <p class="tags"><span>List comprehensions</span><span>range()</span><span>append()</span><span>Patterns</span><span>Filtering</span><span>Modulo</span><span>Filter + transform</span><span>String methods</span><span>Transformation</span><span>len()</span><span>Mapping</span><span>Ternary expression</span><span>Dict comprehensions</span><span>Set comprehensions</span><span>Uniqueness</span><span>Generators</span><span>Lazy evaluation</span><span>Memory efficiency</span><span>join()</span><span>Nested comprehensions</span><span>Cartesian product</span><span>Flattening</span><span>Nested loops</span><span>Tuples</span></p>
